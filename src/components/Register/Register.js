@@ -12,7 +12,7 @@ const Register = () => {
                   <div className="card-body register-card-body">
                       <form action="#" method="post">
                           <div className="input-group mb-3">
-                              <input type="text" className="form-control" placeholder="Full name" />
+                              <input type="text" className="form-control" placeholder="Username" />
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                       <span className="fas fa-user" />
