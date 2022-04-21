@@ -1,5 +1,5 @@
 import express from "express";
-import db from "./config/database.js";
+import db from "./config/Database.js";
 import RoleRoutes from "./routes/RoleRoutes.js";
 import cors from "cors";
  
