@@ -81,7 +81,7 @@ const Content = () => {
                             Plant A3
                           </h1>
                           <p className="card-text text-white pb-3 pt-1">
-                            ปลูกเขือ
+                            ปลูกมะเขือ
                           </p>
                           <Link to="/Data_detail" className="text-white">
                             Click Me
@@ -103,7 +103,7 @@ const Content = () => {
                             Plant A4
                           </h1>
                           <p className="card-text text-white pb-3 pt-1">
-                            แตงกวา
+                            ปลูกแตงกวา
                           </p>
                           <Link to="/Data_detail" className="text-white">
                             Click Me

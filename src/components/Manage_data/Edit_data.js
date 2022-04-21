@@ -1,4 +1,6 @@
 import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const Edit_data = () => {
   return (
@@ -19,21 +21,29 @@ const Edit_data = () => {
           <div className="row">
             <div className="col-12">
               <div className="card">
-                <div className="card-header">
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                >
                   <h3 className="card-title">รายละเอียดข้อมูล</h3>
                 </div>
                 <div className="card-body">
                   <table className="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th className="col-1">#</th>
-                        <th className="col-5">ชื่อแปลงผัก</th>
-                        <th className="col-1">วันที่เริ่มต้น</th>
-                        <th className="col-1">วันที่สิ้นสุด</th>
+                        <th className="col-1">หมายเลขเเปลงผัก</th>
+                        <th className="col-5">
+                          <center>ชื่อแปลงผัก</center>
+                        </th>
+                        <th className="col-1">
+                          <center>วันที่เริ่มต้น</center>
+                        </th>
+                        <th className="col-1">
+                          <center>วันที่สิ้นสุด</center>
+                        </th>
                         <th className="col-2">
                           <center>รูปภาพ</center>
                         </th>
-                        <th className="col-2">เเก้ไขรายละเอียด</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -44,235 +54,117 @@ const Edit_data = () => {
                         <td>01-04-2022</td>
                         <td>
                           <center>
-                            <img
-                              src="../dist/img/holy_basil.jpg"
-                              class="img-fluid mb-2"
-                              alt="white sample"
-                              width="100"
-                              height="100"
-                            />
+                            <Zoom>
+                              <img
+                                src="../dist/img/holy_basil.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
                           </center>
                         </td>
                       </tr>
                       <tr className="expandable-body d-none">
                         <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
                         <td>A2</td>
                         <td>ปลูกพริก</td>
-                        <td>11-7-2022</td>
+                        <td>11-07-2022</td>
                         <td>11-12-2022</td>
                         <td>
                           <center>
-                            <img
-                              src="../dist/img/cili.jpg"
-                              class="img-fluid mb-2"
-                              alt="white sample"
-                              width="100"
-                              height="100"
-                            />
+                            <Zoom>
+                              <img
+                                src="../dist/img/cili.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
                           </center>
                         </td>
                       </tr>
                       <tr className="expandable-body d-none">
                         <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>657</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td>Approved</td>
+                        <td>A3</td>
+                        <td>ปลูกเขือ</td>
+                        <td>11-07-2022</td>
+                        <td>11-08-2022</td>
                         <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
+                          <center>
+                            <Zoom>
+                              <img
+                                src="../dist/img/Thai-Eggplant-2.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
+                          </center>
                         </td>
                       </tr>
                       <tr className="expandable-body d-none">
                         <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Denied</td>
+                        <td>A4</td>
+                        <td>ปลูกแตงกวา</td>
+                        <td>02-03-2022</td>
+                        <td>02-09-2022</td>
                         <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
+                          <center>
+                            <Zoom>
+                              <img
+                                src="../dist/img/images2.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
+                          </center>
                         </td>
                       </tr>
                       <tr className="expandable-body d-none">
                         <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>134</td>
-                        <td>Jim Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Approved</td>
+                        <td>A5</td>
+                        <td>ปลูกผักกาดขาว</td>
+                        <td>04-01-2022</td>
+                        <td>04-03-2022</td>
                         <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
+                          <center>
+                            <Zoom>
+                              <img
+                                src="../dist/img/images.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
+                          </center>
                         </td>
                       </tr>
                       <tr className="expandable-body d-none">
                         <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>494</td>
-                        <td>Victoria Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Pending</td>
-                        <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
-                        </td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>832</td>
-                        <td>Michael Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Approved</td>
-                        <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
-                        </td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>982</td>
-                        <td>Rocky Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Denied</td>
-                        <td>
-                          Bacon ipsum dolor sit amet salami venison chicken
-                          flank fatback doner.
-                        </td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
                         </td>
                       </tr>
                     </tbody>
