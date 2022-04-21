@@ -4,6 +4,8 @@ import SidebarAdmin from "./components/SidebarAdmin";
 import Footer from "./components/Footer";
 import Page_1_1 from "./Page_1/Page_1_1";
 import Page_1_2 from "./Page_2/Page_1_2";
+import Page_Login from "./Page_Login/Page_Login";
+import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
 import Data_detail from "./components/Data_detail/Data_detail";
 
@@ -23,6 +25,8 @@ function App() {
               </>
             }
           ></Route>
+          <Route exact path="/Login" element={<Page_Login />} />
+          <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
           <Route
