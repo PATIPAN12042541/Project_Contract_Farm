@@ -126,13 +126,15 @@ const Edit_data = () => {
                         <td>02-09-2022</td>
                         <td>
                           <center>
-                            <img
-                              src="../dist/img/images2.jpg"
-                              class="img-fluid mb-2"
-                              alt="white sample"
-                              width="100"
-                              height="100"
-                            />
+                            <Zoom>
+                              <img
+                                src="../dist/img/images2.jpg"
+                                class="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                              />
+                            </Zoom>
                           </center>
                         </td>
                       </tr>
