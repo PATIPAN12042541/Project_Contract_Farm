@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
- const RoleGroups = db.define('role_group',{
+ const RoleGroup = db.define('role_group',{
     role_group_name:{
         type: DataTypes.STRING
     }
@@ -12,4 +12,4 @@ const { DataTypes } = Sequelize;
 (async () => {
     await db.sync();
 })();
- export default RoleGroups;
+ export default RoleGroup;
