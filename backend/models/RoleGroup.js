@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "../config/Database";
+import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
  const RoleGroups = db.define('role_group',{
     role_group_name:{
