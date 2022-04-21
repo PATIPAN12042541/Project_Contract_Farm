@@ -14,6 +14,6 @@ try {
  
 app.use(cors());
 app.use(express.json());
-app.use('/rolegroups', RoleRoutes);
+app.use('/role_group', RoleRoutes);
  
 app.listen(4000, () => console.log('Server running at port 4000'));
