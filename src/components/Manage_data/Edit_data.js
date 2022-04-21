@@ -26,7 +26,6 @@ const Edit_data = () => {
                   <table className="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        dfdfsdfsdf
                         <th className="col-1">#</th>
                         <th className="col-5">ชื่อแปลงผัก</th>
                         <th className="col-1">วันที่เริ่มต้น</th>
