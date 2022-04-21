@@ -8,6 +8,7 @@ import Page_Login from "./Page_Login/Page_Login";
 import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
 import Data_detail from "./components/Data_detail/Data_detail";
+import Edit_data from "./components/Manage_data/Edit_data";
 
 function App() {
   return (
@@ -37,6 +38,18 @@ function App() {
                 <Header />
                 <SidebarAdmin />
                 <Data_detail />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Edit_data"
+            element={
+              <>
+                <Header />
+                <SidebarAdmin />
+                <Edit_data />
                 <Footer />
               </>
             }
