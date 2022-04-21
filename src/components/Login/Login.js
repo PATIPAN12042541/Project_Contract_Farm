@@ -31,7 +31,7 @@ const Login = () => {
                                   <button type="submit" className="btn btn-primary btn-block">Login</button>
                               </div>
                               <div className="col-4">
-                                  <button type="button" className="btn btn-info btn-block">Register</button>
+                                  <a href='/Register'><button type="button" className="btn btn-info btn-block">Register</button></a>
                               </div>
                           </div>
                       </form>
