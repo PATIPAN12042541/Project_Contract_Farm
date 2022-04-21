@@ -31,6 +31,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/adminlte.min.css">
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
     <title>Globo Foods Ltd.</title>
   </head>
   <body class="hold-transition sidebar-mini">
@@ -53,7 +57,21 @@
   <script src="%PUBLIC_URL%/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="%PUBLIC_URL%/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="%PUBLIC_URL%/plugins/select2/js/select2.full.min.js"></script>
   <!-- AdminLTE App -->
   <script src="%PUBLIC_URL%/dist/js/adminlte.min.js"></script>
+
+  <script>
+    $(function () {
+      //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+      })
+    });
+  </script>
   </body>
 </html>
