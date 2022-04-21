@@ -28,10 +28,13 @@ const Edit_data = () => {
                   <h3 className="card-title">รายละเอียดข้อมูล</h3>
                 </div>
                 <div className="card-body">
+                  <button className="btn btn-success">เพิ่มข้อมูล</button>
                   <table className="table table-bordered table-hover">
-                    <thead>
+                    <thead
+                      style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                    >
                       <tr>
-                        <th className="col-1">หมายเลขเเปลงผัก</th>
+                        <th className="col-1">#</th>
                         <th className="col-5">
                           <center>ชื่อแปลงผัก</center>
                         </th>
@@ -43,6 +46,9 @@ const Edit_data = () => {
                         </th>
                         <th className="col-2">
                           <center>รูปภาพ</center>
+                        </th>
+                        <th className="col-1">
+                          <center>ลบข้อมูล</center>
                         </th>
                       </tr>
                     </thead>
@@ -65,10 +71,46 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
+                        <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
+                        <td colSpan={6}>
+                          <div className="row">
+                            <div className="col-1">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="# หมายเลข "
+                              />
+                            </div>
+                            <div className="col-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="ชื่อแปลงผัก"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่เริ่มต้น"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่สิ้นสุด"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <span className="btn btn-success col fileinput-button dz-clickable">
+                                <i className="fas fa-plus" />
+                                <span>Add files</span>
+                              </span>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -89,10 +131,46 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
+                        <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
+                        <td colSpan={6}>
+                          <div className="row">
+                            <div className="col-1">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="# หมายเลข "
+                              />
+                            </div>
+                            <div className="col-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="ชื่อแปลงผัก"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่เริ่มต้น"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่สิ้นสุด"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <span className="btn btn-success col fileinput-button dz-clickable">
+                                <i className="fas fa-plus" />
+                                <span>Add files</span>
+                              </span>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -113,10 +191,46 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
+                        <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
+                        <td colSpan={6}>
+                          <div className="row">
+                            <div className="col-1">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="# หมายเลข "
+                              />
+                            </div>
+                            <div className="col-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="ชื่อแปลงผัก"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่เริ่มต้น"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่สิ้นสุด"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <span className="btn btn-success col fileinput-button dz-clickable">
+                                <i className="fas fa-plus" />
+                                <span>Add files</span>
+                              </span>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -137,10 +251,47 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
+                        <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
+                        <td colSpan={6}>
+                          <div className="row">
+                            <div className="col-1">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="# หมายเลข "
+                              />
+                            </div>
+                            <div className="col-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="ชื่อแปลงผัก"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่เริ่มต้น"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่สิ้นสุด"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <span className="btn btn-success col fileinput-button dz-clickable">
+                                <i className="fas fa-plus" />
+                                <span>Add files</span>
+                              </span>
+                            </div>
+                          </div>
+                          <td></td>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -161,10 +312,46 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
+                        <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <p style={{ display: "none" }}>แก้ไขข้อมูล</p>
+                        <td colSpan={6}>
+                          <div className="row">
+                            <div className="col-1">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="# หมายเลข "
+                              />
+                            </div>
+                            <div className="col-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="ชื่อแปลงผัก"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่เริ่มต้น"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <input
+                                type="date"
+                                className="form-control"
+                                placeholder="วันที่สิ้นสุด"
+                              />
+                            </div>
+                            <div className="col-2">
+                              <span className="btn btn-success col fileinput-button dz-clickable">
+                                <i className="fas fa-plus" />
+                                <span>Add files</span>
+                              </span>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
