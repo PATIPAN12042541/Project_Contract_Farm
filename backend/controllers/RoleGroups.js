@@ -1,9 +1,10 @@
-import RoleGroups from "../models/RoleGroup";
-export const getRole = async(req, res) => {
+import RoleGroup from "../models/RoleGroup.js"
+export const getRole = async (req, res) => {
     try {
-        const users = await RoleGroups.findAll();
-        res.json(users);
+        const rolegroups = await RoleGroup.findAll();
+        res.json(rolegroups);
     } catch (error) {
-        console.log(error);
-    }
+        res.json({ message: error.message });
+    }  
 }
+
