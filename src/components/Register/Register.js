@@ -1,6 +1,7 @@
 import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
 import "../CSS/Content.css"
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
@@ -10,15 +11,34 @@ const Register = () => {
     const [name,setName] = useState();
     const [lastName,setLastName] = useState();
     const [roleID,setRoleID] = useState();
+    const Nav = useNavigate();
 
     useEffect(() => {
         getRole();
     },[])
 
     const getRole = async() => {
-        //const response = await axios.get('http://node31023-env-2823146.th1.proen.cloud:4000/role_group');
-        const response = await axios.get(process.env.REACT_APP_API_URL+"/role_group");
+        const response = await axios.get('http://node31023-env-2823146.th1.proen.cloud:4000/role_group');
+        //const response = await axios.get(process.env.REACT_APP_API_URL+"/role_group");
         setRoleGroup(response.data);
+    }
+
+    const Register = async(e) =>{
+        e.preventDefault();
+        try{
+            await axios.post(process.env.REACT_APP_API_URL+"/user",{
+                username : username,
+                password : password,
+                name : name,
+                last_name : lastName,
+                role_id : roleID
+            })
+            Nav('/Login');
+        }catch(error){
+            if (error.response) {
+                console.log(error.response.data.msg);
+            }
+        }
     }
     return (
       <div className="hold-transition register-page">
@@ -28,7 +48,7 @@ const Register = () => {
               </div>
               <div className="card">
                   <div className="card-body register-card-body">
-                      <form action="#" method="post">
+                      <form action="/#" method="post">
                           <div className="input-group mb-3">
                               <input type="text" 
                                      className="form-control" 
@@ -90,14 +110,13 @@ const Register = () => {
                           <div className="input-group mb-3">
                               <select className="form-control select2">
                                   <option selected="selected">--เลือก Role--</option>
-                                {rolegroup.map((item, index) => (
+                                  {rolegroup.map((item, index) => (
                                     <option key={ item.id } 
                                             value={item.id}
-                                            onSelect={(e)=>setRoleGroup(item.id)}>
+                                            onSelect={(e)=>setRoleID(item.id)}>
                                             {item.role_group_name}
                                     </option>                                        
-                                ))}
-
+                                  ))}
                               </select>                             
                           </div>
                           <div className="row">
@@ -113,7 +132,6 @@ const Register = () => {
               </div>
           </div>
       </div>
-
   )
 }
 
