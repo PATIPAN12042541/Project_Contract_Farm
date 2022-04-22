@@ -1,8 +1,19 @@
-import React from 'react'
+import React ,{useState , useEffect} from 'react'
+import axios from 'axios'
 import "../CSS/Content.css"
 
 const Register = () => {
-  return (
+    const [rolegroup,setRoleGroup] = useState([]);
+
+    useEffect(() => {
+        getRole();
+    },[])
+
+    const getRole = async() => {
+        const response = await axios.get('http://127.0.0.1:4000/role_group');
+        setRoleGroup(response.data);
+    }
+    return (
       <div className="hold-transition register-page">
           <div className="register-box">
               <div className="register-logo">
@@ -52,13 +63,10 @@ const Register = () => {
                           <div className="input-group mb-3">
                               <select className="form-control select2">
                                   <option selected="selected">--เลือก Role--</option>
-                                  <option>Alabama</option>
-                                  <option>Alaska</option>
-                                  <option>California</option>
-                                  <option>Delaware</option>
-                                  <option>Tennessee</option>
-                                  <option>Texas</option>
-                                  <option>Washington</option>
+                                {rolegroup.map((item, index) => (
+                                    <option key={ item.id } value={item.id}>{item.role_group_name}</option>                                        
+                                ))}
+
                               </select>                             
                           </div>
                           <div className="row">
