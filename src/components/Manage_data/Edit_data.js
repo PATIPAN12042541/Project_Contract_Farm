@@ -1,18 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { BsFillTrashFill } from "react-icons/bs";
+import { BsCheckSquareFill } from "react-icons/bs";
 
 const Edit_data = () => {
+  const [plantdata, setPlantData] = useState([
+    {
+      id: "A1",
+      name: "ปลูกกระเพรา",
+      start_date: "01-01-2022",
+      end_date: "01-04-2022",
+      url: "../dist/img/holy_basil.jpg",
+    },
+    {
+      id: "A2",
+      name: "ปลูกพริก",
+      start_date: "11-07-2022",
+      end_date: "11-12-2022",
+      url: "../dist/img/cili.jpg",
+    },
+    {
+      id: "A3",
+      name: "ปลูกเขือ",
+      start_date: "11-07-2022",
+      end_date: "11-08-2022",
+      url: "../dist/img/Thai-Eggplant-2.jpg",
+    },
+    {
+      id: "A4",
+      name: "ปลูกแตงกวา",
+      start_date: "02-03-2022",
+      end_date: "02-09-2022",
+      url: "../dist/img/images2.jpg",
+    },
+    {
+      id: "A5",
+      name: "ปลูกผักกาดขาว",
+      start_date: "04-01-2022",
+      end_date: "04-03-2022",
+      url: "../dist/img/images.jpg",
+    },
+  ]);
+
   return (
     <div className="content-wrapper">
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-12">
-              {/* <center>
-                <h1>คิดออกค่อยใส่อีกที</h1>
-              </center> */}
-            </div>
+            <div class="col-sm-12"></div>
           </div>
         </div>
       </section>
@@ -52,314 +88,84 @@ const Edit_data = () => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>A1</td>
-                        <td>ปลูกกระเพรา</td>
-                        <td>01-01-2022</td>
-                        <td>01-04-2022</td>
-                        <td>
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/holy_basil.jpg"
-                                class="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td>
-                          <center>
-                            <button type="submit" class="btn btn-danger">
-                              ลบข้อมูล
-                            </button>
-                          </center>
-                        </td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <div className="row">
-                            <div className="col-2">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="# หมายเลข "
-                              />
+                    {plantdata.map((data, index) => (
+                      <tbody key={data.id}>
+                        <tr
+                          data-widget="expandable-table"
+                          aria-expanded="false"
+                        >
+                          <td>{data.id}</td>
+                          <td>{data.name}</td>
+                          <td>{data.start_date}</td>
+                          <td>{data.end_date}</td>
+                          <td>
+                            <center>
+                              <Zoom>
+                                <img
+                                  src={data.url}
+                                  class="img-fluid mb-2"
+                                  alt="white sample"
+                                  width="100"
+                                  height="100"
+                                />
+                              </Zoom>
+                            </center>
+                          </td>
+                          <td>
+                            <center>
+                              <button type="submit" class="btn btn-danger">
+                                <BsFillTrashFill />
+                              </button>
+                            </center>
+                          </td>
+                        </tr>
+                        <tr className="expandable-body d-none">
+                          <td colSpan={6}>
+                            <div className="row">
+                              <div className="col-2">
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="# หมายเลข "
+                                />
+                              </div>
+                              <div className="col-2">
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="ชื่อแปลงผัก"
+                                />
+                              </div>
+                              <div className="col-2">
+                                <input
+                                  type="date"
+                                  className="form-control"
+                                  placeholder="วันที่เริ่มต้น"
+                                />
+                              </div>
+                              <div className="col-2">
+                                <input
+                                  type="date"
+                                  className="form-control"
+                                  placeholder="วันที่สิ้นสุด"
+                                />
+                              </div>
+                              <div className="col-3">
+                                <span className="btn btn-info col fileinput-button dz-clickable">
+                                  <i className="fas fa-plus" />
+                                  <span> Add files</span>
+                                </span>
+                              </div>
+                              <div className="col-1">
+                                <button type="submit" class="btn btn-success">
+                                  <BsCheckSquareFill /> ยืนยัน
+                                </button>
+                              </div>
                             </div>
-                            <div className="col-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="ชื่อแปลงผัก"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่เริ่มต้น"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่สิ้นสุด"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <span className="btn btn-success col fileinput-button dz-clickable">
-                                <i className="fas fa-plus" />
-                                <span>Add files</span>
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>A2</td>
-                        <td>ปลูกพริก</td>
-                        <td>11-07-2022</td>
-                        <td>11-12-2022</td>
-                        <td>
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/cili.jpg"
-                                class="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <div className="row">
-                            <div className="col-2">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="# หมายเลข "
-                              />
-                            </div>
-                            <div className="col-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="ชื่อแปลงผัก"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่เริ่มต้น"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่สิ้นสุด"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <span className="btn btn-success col fileinput-button dz-clickable">
-                                <i className="fas fa-plus" />
-                                <span>Add files</span>
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>A3</td>
-                        <td>ปลูกเขือ</td>
-                        <td>11-07-2022</td>
-                        <td>11-08-2022</td>
-                        <td>
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/Thai-Eggplant-2.jpg"
-                                class="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <div className="row">
-                            <div className="col-2">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="# หมายเลข "
-                              />
-                            </div>
-                            <div className="col-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="ชื่อแปลงผัก"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่เริ่มต้น"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่สิ้นสุด"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <span className="btn btn-success col fileinput-button dz-clickable">
-                                <i className="fas fa-plus" />
-                                <span>Add files</span>
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>A4</td>
-                        <td>ปลูกแตงกวา</td>
-                        <td>02-03-2022</td>
-                        <td>02-09-2022</td>
-                        <td>
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/images2.jpg"
-                                class="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <div className="row">
-                            <div className="col-2">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="# หมายเลข "
-                              />
-                            </div>
-                            <div className="col-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="ชื่อแปลงผัก"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่เริ่มต้น"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่สิ้นสุด"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <span className="btn btn-success col fileinput-button dz-clickable">
-                                <i className="fas fa-plus" />
-                                <span>Add files</span>
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>A5</td>
-                        <td>ปลูกผักกาดขาว</td>
-                        <td>04-01-2022</td>
-                        <td>04-03-2022</td>
-                        <td>
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/images.jpg"
-                                class="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr className="expandable-body d-none">
-                        <td colSpan={5}>
-                          <div className="row">
-                            <div className="col-2">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="# หมายเลข "
-                              />
-                            </div>
-                            <div className="col-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="ชื่อแปลงผัก"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่เริ่มต้น"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <input
-                                type="date"
-                                className="form-control"
-                                placeholder="วันที่สิ้นสุด"
-                              />
-                            </div>
-                            <div className="col-2">
-                              <span className="btn btn-success col fileinput-button dz-clickable">
-                                <i className="fas fa-plus" />
-                                <span>Add files</span>
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
+                          </td>
+                        </tr>
+                      </tbody>
+                    ))}
                   </table>
                 </div>
               </div>
