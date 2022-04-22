@@ -38,7 +38,7 @@ const Register = () => {
                 confirmPassword : confirmPassword,
                 name : name,
                 last_name : lastName,
-                role_id : "1"
+                role_id : roleID
             })
             Swal.fire({
                 icon: 'success',
@@ -123,14 +123,16 @@ const Register = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <select className="form-control select2">
+                              <select className="form-control" 
+                                      onChange={(e)=>{setRoleID(e.target.value)}}>
                                   <option>--เลือก Role--</option>
-                                  {rolegroup.map((item, key) => (
-                                    <option>
+                                  {rolegroup.map((item) => (
+                                    <option key={item.id}
+                                            value={item.id}>
                                             {item.role_group_name}
                                     </option>                                        
                                   ))}
-                              </select>                         
+                              </select>                      
                           </div>
                           <div className="row">
                               <div className="col-4">
