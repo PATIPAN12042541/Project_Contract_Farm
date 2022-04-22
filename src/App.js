@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
 import Data_detail from "./components/Data_detail/Data_detail";
 import Edit_data from "./components/Manage_data/Edit_data";
+import Manage_plant from "./components/Manage_data/Manage_plant";
 
 function App() {
   return (
@@ -50,6 +51,18 @@ function App() {
                 <Header />
                 <SidebarAdmin />
                 <Edit_data />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Manage_plant/:id"
+            element={
+              <>
+                <Header />
+                <SidebarAdmin />
+                <Manage_plant />
                 <Footer />
               </>
             }

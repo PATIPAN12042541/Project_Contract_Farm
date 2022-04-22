@@ -79,7 +79,7 @@ const SidebarAdmin = () => {
                   <li class="nav-item">
                     <Link to="/Edit_data" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>เพิ่มข้อมูล</p>
+                      <p>จัดการข้อมูล</p>
                     </Link>
                   </li>
                 </ul>

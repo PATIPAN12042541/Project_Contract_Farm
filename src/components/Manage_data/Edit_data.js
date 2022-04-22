@@ -3,8 +3,10 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
+import { BsFillPencilFill } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
+import { Link } from "react-router-dom";
 
 const Edit_data = () => {
   const [plantdata, setPlantData] = useState([
@@ -131,18 +133,15 @@ const Edit_data = () => {
                                 ></input>
                               </div>
                               <div className="col-2">
-                                <center>
-                                  <label for="exampleInputBorder">Upload</label>
-                                </center>
-                                <center>
+                                <label for="exampleInputBorder">Upload</label>
                                 <FileUpload
-                                  style = {{display:"block"}}
                                   btnIcon="fas fa-upload"
+                                  multiple
+                                  accept="image/*"
                                   onUpload={(file) => {
                                     console.log("query file", file);
                                   }}
                                 />
-                                </center>
                               </div>
                             </div>
                           </div>
@@ -211,6 +210,21 @@ const Edit_data = () => {
                           </td>
                           <td>
                             <center>
+                              {/* <Link to={{`/Manage_plant/${data.id}`}> */}
+                              <Link
+                                to={{
+                                  pathname: `/Manage_plant/${data.id}`,
+                                }}
+                              >
+                                <button
+                                  type="submit"
+                                  class="btn btn-warning"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillPencilFill />
+                                </button>
+                              </Link>
+                              <> </>
                               <button type="submit" class="btn btn-danger">
                                 <BsFillTrashFill />
                               </button>
@@ -249,7 +263,10 @@ const Edit_data = () => {
                                 />
                               </div>
                               <div className="col-3">
-                                <span className="btn btn-info col fileinput-button dz-clickable">
+                                <span
+                                  className="btn btn-info col fileinput-button dz-clickable"
+                                  type="file"
+                                >
                                   <i className="fas fa-plus" />
                                   <span> Add files</span>
                                 </span>
