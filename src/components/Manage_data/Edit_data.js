@@ -134,12 +134,15 @@ const Edit_data = () => {
                                 <center>
                                   <label for="exampleInputBorder">Upload</label>
                                 </center>
+                                <center>
                                 <FileUpload
+                                  style = {{display:"block"}}
                                   btnIcon="fas fa-upload"
                                   onUpload={(file) => {
                                     console.log("query file", file);
                                   }}
                                 />
+                                </center>
                               </div>
                             </div>
                           </div>
