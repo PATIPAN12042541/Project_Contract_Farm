@@ -90,14 +90,13 @@ const Register = () => {
                           <div className="input-group mb-3">
                               <select className="form-control select2">
                                   <option selected="selected">--เลือก Role--</option>
-                                {rolegroup.map((item, index) => (
+                                  {rolegroup.map((item, index) => (
                                     <option key={ item.id } 
                                             value={item.id}
-                                            onSelect={(e)=>setRoleGroup(item.id)}>
+                                            onSelect={(e)=>setRoleID(item.id)}>
                                             {item.role_group_name}
                                     </option>                                        
-                                ))}
-
+                                  ))}
                               </select>                             
                           </div>
                           <div className="row">
