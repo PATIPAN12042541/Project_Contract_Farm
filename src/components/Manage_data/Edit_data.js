@@ -3,6 +3,8 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
+import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
+import FileUpload from "@hawk-ui/file-upload";
 
 const Edit_data = () => {
   const [plantdata, setPlantData] = useState([
@@ -64,7 +66,100 @@ const Edit_data = () => {
                   <h3 className="card-title">รายละเอียดข้อมูล</h3>
                 </div>
                 <div className="card-body">
-                  <button className="btn btn-success">เพิ่มข้อมูล</button>
+                  <div className="col-12">
+                    <div className="card card-primary">
+                      <div
+                        className="card-header"
+                        style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                      >
+                        <h3 className="card-title">เพิ่มข้อมูล</h3>
+                      </div>
+                      <form>
+                        <div className="card-body">
+                          <div className="form-group">
+                            <div className="row">
+                              <div className="col-1">
+                                <center>
+                                  <label for="exampleInputBorder">
+                                    รหัสแปลงผัก
+                                  </label>
+                                </center>
+                                <input
+                                  type="text"
+                                  className="form-control form-control-border"
+                                  id="exampleInputBorder"
+                                  placeholder="รหัสเเปลงผัก"
+                                ></input>
+                              </div>
+                              <div className="col-5">
+                                <center>
+                                  <label for="exampleInputBorder">
+                                    ชื่อแปลงผัก
+                                  </label>
+                                </center>
+                                <input
+                                  type="text"
+                                  className="form-control form-control-border"
+                                  id="exampleInputBorder"
+                                  placeholder="ชื่อแปลงผัก"
+                                ></input>
+                              </div>
+                              <div className="col-2">
+                                <center>
+                                  <label for="exampleInputBorder">
+                                    วันที่เริ่มต้น
+                                  </label>
+                                </center>
+                                <input
+                                  type="date"
+                                  className="form-control form-control-border"
+                                  id="exampleInputBorder"
+                                  placeholder="วันที่เริ่มต้น"
+                                ></input>
+                              </div>
+                              <div className="col-2">
+                                <center>
+                                  <label for="exampleInputBorder">
+                                    วันที่สิ้นสุด
+                                  </label>
+                                </center>
+                                <input
+                                  type="date"
+                                  className="form-control form-control-border"
+                                  id="exampleInputBorder"
+                                  placeholder="วันที่สิ้นสุด"
+                                ></input>
+                              </div>
+                              <div className="col-2">
+                                <center>
+                                  <label for="exampleInputBorder">Upload</label>
+                                </center>
+                                <FileUpload
+                                  btnIcon="fas fa-upload"
+                                  onUpload={(file) => {
+                                    console.log("query file", file);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="card-footer text-right">
+                          <button
+                            type="submit"
+                            className="btn"
+                            style={{
+                              backgroundColor: "#8CC152",
+                              color: "#FFFFFF",
+                            }}
+                          >
+                            ยืนยัน
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
                   <table className="table table-bordered table-hover">
                     <thead
                       style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
