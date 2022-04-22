@@ -71,12 +71,18 @@ const Edit_data = () => {
                             </Zoom>
                           </center>
                         </td>
-                        <td></td>
+                        <td>
+                          <center>
+                            <button type="submit" class="btn btn-danger">
+                              ลบข้อมูล
+                            </button>
+                          </center>
+                        </td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={6}>
+                        <td colSpan={5}>
                           <div className="row">
-                            <div className="col-1">
+                            <div className="col-2">
                               <input
                                 type="text"
                                 className="form-control"
@@ -134,9 +140,9 @@ const Edit_data = () => {
                         <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={6}>
+                        <td colSpan={5}>
                           <div className="row">
-                            <div className="col-1">
+                            <div className="col-2">
                               <input
                                 type="text"
                                 className="form-control"
@@ -194,9 +200,9 @@ const Edit_data = () => {
                         <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={6}>
+                        <td colSpan={5}>
                           <div className="row">
-                            <div className="col-1">
+                            <div className="col-2">
                               <input
                                 type="text"
                                 className="form-control"
@@ -254,9 +260,9 @@ const Edit_data = () => {
                         <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={6}>
+                        <td colSpan={5}>
                           <div className="row">
-                            <div className="col-1">
+                            <div className="col-2">
                               <input
                                 type="text"
                                 className="form-control"
@@ -291,7 +297,6 @@ const Edit_data = () => {
                               </span>
                             </div>
                           </div>
-                          <td></td>
                         </td>
                       </tr>
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -315,9 +320,9 @@ const Edit_data = () => {
                         <td></td>
                       </tr>
                       <tr className="expandable-body d-none">
-                        <td colSpan={6}>
+                        <td colSpan={5}>
                           <div className="row">
-                            <div className="col-1">
+                            <div className="col-2">
                               <input
                                 type="text"
                                 className="form-control"
