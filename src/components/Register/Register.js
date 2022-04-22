@@ -24,32 +24,28 @@ const Register = () => {
         setRoleGroup(response.data);
     }
 
-    const handleSelect=(e)=>{
-        setRoleID({roleID: e.target.value});
-      }
-
     const Register = async(e) =>{
         e.preventDefault();
         try{
             //await axios.post(process.env.REACT_APP_API_URL+"/user",{
-            /*await axios.post("http://localhost:4000/user",{
+            await axios.post("http://localhost:4000/user",{
                 username : username,
                 password : password,
+                confirmPassword : confirmPassword,
                 name : name,
                 last_name : lastName,
                 role_id : roleID
-            })*/
+            })
             Swal.fire({
                 icon: 'success',
-                title: 'name : '+name+ 
-                       ' roleID : '+roleID,
+                title: 'Success',
                 text: 'Save OK !'
               })
         }catch(error){
             if (error.response) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'ERROR',
+                    title: error.response.data.msg,
                     text: 'Save Error!'
                   })
             }
@@ -122,17 +118,18 @@ const Register = () => {
                                   </div>
                               </div>
                           </div>
-                          <div className="input-group mb-3">
-                              <select className="form-control select2">
+                          <div className="form-group mb-3">
+                              <select className="form-control" 
+                                      onChange={(e)=>{setRoleID(e.target.value)}}>
                                   <option>--เลือก Role--</option>
-                                  {rolegroup.map((item, key) => (
-                                    <option>
+                                  {rolegroup.map((item) => (
+                                    <option key={item.id}
+                                            value={item.id}>
                                             {item.role_group_name}
                                     </option>                                        
                                   ))}
-                              </select>                         
+                              </select>                      
                           </div>
-                          <h1>Selected Role: {roleID}</h1>    
                           <div className="row">
                               <div className="col-4">
                                   <button type="submit" className="btn btn-primary btn-block">Register</button>
