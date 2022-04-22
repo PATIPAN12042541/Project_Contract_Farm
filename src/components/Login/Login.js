@@ -1,7 +1,30 @@
-import React from 'react'
+import React,{useState} from 'react'
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
-  return (
+  const[username,setUsername] = useState();
+  const[password,setPassword] = useState();
+  const[msg,setMsg] = useState();
+  const Nav = Navigate();
+
+  const Auth = async (e) => {
+    e.preventDefault();
+    try {
+        await axios.post('http://localhost:4000/login', {
+            username: username,
+            password: password
+        });
+        Nav("/Home");
+    } catch (error) {
+        if (error.response) {
+            setMsg(error.response.data.msg);
+        }
+    }
+}
+
+  
+    return (
       <div className="hold-transition login-page">
           <div className="login-box">
               <div className="login-logo">
@@ -9,9 +32,13 @@ const Login = () => {
               </div>
               <div className="card">
                   <div className="card-body login-card-body">
-                      <form action="#" method="post">
+                      <form onSubmit={Auth}>
                           <div className="input-group mb-3">
-                              <input type="text" className="form-control" placeholder="Username" />
+                              <input type="text" 
+                                     className="form-control" 
+                                     placeholder="Username" 
+                                     value={username}
+                                     onChange={(e)=>setUsername(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                         <span className="fas fa-user" />
@@ -19,7 +46,11 @@ const Login = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="password" className="form-control" placeholder="Password" />
+                              <input type="password" 
+                                     className="form-control" 
+                                     placeholder="Password" 
+                                     value={password}
+                                     onChange={(e)=>setPassword(e.target.value)} />
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                       <span className="fas fa-lock" />
