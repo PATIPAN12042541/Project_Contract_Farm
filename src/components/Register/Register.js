@@ -14,8 +14,6 @@ const Register = () => {
     const [roleID,setRoleID] = useState();
     const Nav = useNavigate();
 
-    const Swal = require('sweetalert2');
-
     useEffect(() => {
         getRole();
     },[])
