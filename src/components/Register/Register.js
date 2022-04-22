@@ -4,6 +4,12 @@ import "../CSS/Content.css"
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
+    const [username,setUserName] = useState();
+    const [password,setPassword] = useState();
+    const [confirmPassword,setConfirmPassword] = useState();
+    const [name,setName] = useState();
+    const [lastName,setLastName] = useState();
+    const [roleID,setRoleID] = useState();
 
     useEffect(() => {
         getRole();
@@ -24,7 +30,11 @@ const Register = () => {
                   <div className="card-body register-card-body">
                       <form action="#" method="post">
                           <div className="input-group mb-3">
-                              <input type="text" className="form-control" placeholder="Username" />
+                              <input type="text" 
+                                     className="form-control" 
+                                     placeholder="Username"
+                                     value={username} 
+                                     onChange={(e)=>setUserName(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                       <span className="fas fa-user" />
@@ -32,7 +42,11 @@ const Register = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="password" className="form-control" placeholder="Password" />
+                              <input type="password" 
+                                     className="form-control" 
+                                     placeholder="Password" 
+                                     value={password} 
+                                     onChange={(e)=>setPassword(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                       <span className="fas fa-lock" />
@@ -40,7 +54,11 @@ const Register = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="password" className="form-control" placeholder="Confirm password" />
+                              <input type="password" 
+                                     className="form-control" 
+                                     placeholder="Confirm password" 
+                                     value={confirmPassword} 
+                                     onChange={(e)=>setConfirmPassword(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                       <span className="fas fa-lock" />
@@ -48,14 +66,22 @@ const Register = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="text" className="form-control" placeholder="Name" />
+                              <input type="text" 
+                                     className="form-control" 
+                                     placeholder="Name" 
+                                     value={name} 
+                                     onChange={(e)=>setName(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                   </div>
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="text" className="form-control" placeholder="Last Name" />
+                              <input type="text" 
+                                     className="form-control" 
+                                     placeholder="Last Name" 
+                                     value={lastName} 
+                                     onChange={(e)=>setLastName(e.target.value)}/>
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                   </div>
@@ -65,7 +91,11 @@ const Register = () => {
                               <select className="form-control select2">
                                   <option selected="selected">--เลือก Role--</option>
                                 {rolegroup.map((item, index) => (
-                                    <option key={ item.id } value={item.id}>{item.role_group_name}</option>                                        
+                                    <option key={ item.id } 
+                                            value={item.id}
+                                            onSelect={(e)=>setRoleGroup(item.id)}>
+                                            {item.role_group_name}
+                                    </option>                                        
                                 ))}
 
                               </select>                             
