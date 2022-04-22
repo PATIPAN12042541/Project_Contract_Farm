@@ -3,25 +3,25 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
 const Login = () => {
-  const[username,setUsername] = useState();
-  const[password,setPassword] = useState();
-  const[msg,setMsg] = useState();
-  const Nav = Navigate();
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+    const [msg, setMsg] = useState();
+    const Nav = Navigate;
 
-  const Auth = async (e) => {
-    e.preventDefault();
-    try {
-        await axios.post('http://localhost:4000/login', {
-            username: username,
-            password: password
-        });
-        Nav("/Home");
-    } catch (error) {
-        if (error.response) {
-            setMsg(error.response.data.msg);
+    const Auth = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('http://localhost:4000/login', {
+                username: username,
+                password: password
+            });
+            //Nav("/Home");
+        } catch (error) {
+            if (error.response) {
+                setMsg(error.response.data.msg);
+            }
         }
     }
-}
 
   
     return (
@@ -36,9 +36,10 @@ const Login = () => {
                           <div className="input-group mb-3">
                               <input type="text" 
                                      className="form-control" 
-                                     placeholder="Username" 
-                                     value={username}
-                                     onChange={(e)=>setUsername(e.target.value)}/>
+                                     placeholder="Username"
+                                     value={username} 
+                                     onChange={(e)=>setUsername(e.target.value)}
+                                     />
                               <div className="input-group-append">
                                   <div className="input-group-text">
                                         <span className="fas fa-user" />
@@ -49,7 +50,7 @@ const Login = () => {
                               <input type="password" 
                                      className="form-control" 
                                      placeholder="Password" 
-                                     value={password}
+                                     value={password} 
                                      onChange={(e)=>setPassword(e.target.value)} />
                               <div className="input-group-append">
                                   <div className="input-group-text">
