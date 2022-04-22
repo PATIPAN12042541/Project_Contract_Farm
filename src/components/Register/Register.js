@@ -32,24 +32,24 @@ const Register = () => {
         e.preventDefault();
         try{
             //await axios.post(process.env.REACT_APP_API_URL+"/user",{
-            /*await axios.post("http://localhost:4000/user",{
+            await axios.post("http://localhost:4000/user",{
                 username : username,
                 password : password,
+                confirmPassword : confirmPassword,
                 name : name,
                 last_name : lastName,
-                role_id : roleID
-            })*/
+                role_id : "1"
+            })
             Swal.fire({
                 icon: 'success',
-                title: 'name : '+name+ 
-                       ' roleID : '+roleID,
+                title: 'Success',
                 text: 'Save OK !'
               })
         }catch(error){
             if (error.response) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'ERROR',
+                    title: error.response.data.msg,
                     text: 'Save Error!'
                   })
             }
@@ -132,7 +132,6 @@ const Register = () => {
                                   ))}
                               </select>                         
                           </div>
-                          <h1>Selected Role: {roleID}</h1>    
                           <div className="row">
                               <div className="col-4">
                                   <button type="submit" className="btn btn-primary btn-block">Register</button>
