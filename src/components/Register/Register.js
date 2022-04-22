@@ -1,6 +1,7 @@
 import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
 import "../CSS/Content.css"
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
@@ -10,6 +11,7 @@ const Register = () => {
     const [name,setName] = useState();
     const [lastName,setLastName] = useState();
     const [roleID,setRoleID] = useState();
+    const Nav = useNavigate();
 
     useEffect(() => {
         getRole();
@@ -20,6 +22,24 @@ const Register = () => {
         const response = await axios.get(process.env.REACT_APP_API_URL+"/role_group");
         setRoleGroup(response.data);
     }
+
+    const Register = async(e) =>{
+        e.preventDefault();
+        try{
+            await axios.post(process.env.REACT_APP_API_URL+"/user",{
+                username : username,
+                password : password,
+                name : name,
+                last_name : lastName,
+                role_id : roleID
+            })
+            Nav('/Login');
+        }catch(error){
+            if (error.response) {
+                console.log(error.response.data.msg);
+            }
+        }
+    }
     return (
       <div className="hold-transition register-page">
           <div className="register-box">
@@ -28,7 +48,7 @@ const Register = () => {
               </div>
               <div className="card">
                   <div className="card-body register-card-body">
-                      <form action="#" method="post">
+                      <form action="/#" method="post">
                           <div className="input-group mb-3">
                               <input type="text" 
                                      className="form-control" 
@@ -112,7 +132,6 @@ const Register = () => {
               </div>
           </div>
       </div>
-
   )
 }
 
