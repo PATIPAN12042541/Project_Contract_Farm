@@ -24,10 +24,6 @@ const Register = () => {
         setRoleGroup(response.data);
     }
 
-    const handleSelect=(e)=>{
-        setRoleID({roleID: e.target.value});
-      }
-
     const Register = async(e) =>{
         e.preventDefault();
         try{
@@ -122,7 +118,7 @@ const Register = () => {
                                   </div>
                               </div>
                           </div>
-                          <div className="input-group mb-3">
+                          <div className="form-group mb-3">
                               <select className="form-control" 
                                       onChange={(e)=>{setRoleID(e.target.value)}}>
                                   <option>--เลือก Role--</option>
