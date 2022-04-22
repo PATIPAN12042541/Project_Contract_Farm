@@ -210,7 +210,6 @@ const Edit_data = () => {
                           </td>
                           <td>
                             <center>
-                              {/* <Link to={{`/Manage_plant/${data.id}`}> */}
                               <Link
                                 to={{
                                   pathname: `/Manage_plant/${data.id}`,
