@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Content = () => {
+  const [plant, setPlant] = useState([
+    {
+      id: "A1",
+      name: "ปลูกกระเพรา",
+      url: "../dist/img/holy_basil.jpg",
+    },
+    {
+      id: "A2",
+      name: "ปลูกพริก",
+      url: "../dist/img/cili.jpg",
+    },
+    {
+      id: "A3",
+      name: "ปลูกมะเขือ",
+      url: "../dist/img/Thai-Eggplant-2.jpg",
+    },
+    {
+      id: "A4",
+      name: "ปลูกแตงกวา",
+      url: "../dist/img/images2.jpg",
+    },
+    {
+      id: "A5",
+      name: "ผักกาดขาว",
+      url: "../dist/img/images.jpg",
+    },
+  ]);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -16,123 +44,43 @@ const Content = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="card card-success">
-                <div class="card-header" style={{ backgroundColor: "#8CC152" }}>
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152" }}
+                >
                   <center>
-                    <h3 class="card-title">แปลงปลูกผัก</h3>
+                    <h3 className="card-title">แปลงปลูกผัก</h3>
                   </center>
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-md-12 col-lg-6 col-xl-4">
-                      <div className="card mb-2 bg-gradient-dark">
-                        <img
-                          className="card-img-top"
-                          src="../dist/img/holy_basil.jpg"
-                          alt="Dist Photo 1"
-                          width={250}
-                          height={300}
-                        />
-                        <div className="card-img-overlay d-flex flex-column justify-content-end">
-                          <h1 className="card-title text-primary text-white">
-                            Plant A1
-                          </h1>
-                          <p className="card-text text-white pb-3 pt-1">
-                            ปลูกกระเพรา
-                          </p>
-                          <Link to="/Data_detail" className="text-white">
-                            Click Me
-                          </Link>
+                    {plant.map((data, index) => (
+                      <div
+                        className="col-md-12 col-lg-6 col-xl-4"
+                        key={data.id}
+                      >
+                        <div className="card mb-2 bg-gradient-dark">
+                          <img
+                            className="card-img-top"
+                            src={data.url}
+                            alt="Dist Photo 1"
+                            width={250}
+                            height={300}
+                          />
+                          <div className="card-img-overlay d-flex flex-column justify-content-end">
+                            <h1 className="card-title text-primary text-white">
+                              Plant {data.id}
+                            </h1>
+                            <p className="card-text text-white pb-3 pt-1">
+                              {data.name}
+                            </p>
+                            <Link to="/Data_detail" className="text-white">
+                              Click Me
+                            </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-md-12 col-lg-6 col-xl-4">
-                      <div className="card mb-2 bg-gradient-dark">
-                        <img
-                          className="card-img-top"
-                          src="../dist/img/cili.jpg"
-                          alt="Dist Photo 2"
-                          width={250}
-                          height={300}
-                        />
-                        <div className="card-img-overlay d-flex flex-column justify-content-end">
-                          <h1 className="card-title text-primary text-white">
-                            Plant A2
-                          </h1>
-                          <p className="card-text text-white pb-3 pt-1">
-                            ปลูกพริก
-                          </p>
-                          <Link to="/Data_detail" className="text-white">
-                            Click Me
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-12 col-lg-6 col-xl-4">
-                      <div className="card mb-2 bg-gradient-dark">
-                        <img
-                          className="card-img-top"
-                          src="../dist/img/Thai-Eggplant-2.jpg"
-                          alt="Dist Photo 3"
-                          width={250}
-                          height={300}
-                        />
-                        <div className="card-img-overlay d-flex flex-column justify-content-end">
-                          <h1 className="card-title text-primary text-white">
-                            Plant A3
-                          </h1>
-                          <p className="card-text text-white pb-3 pt-1">
-                            ปลูกมะเขือ
-                          </p>
-                          <Link to="/Data_detail" className="text-white">
-                            Click Me
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-12 col-lg-6 col-xl-4">
-                      <div className="card mb-2 bg-gradient-dark">
-                        <img
-                          className="card-img-top"
-                          src="../dist/img/images2.jpg"
-                          alt="Dist Photo 3"
-                          width={250}
-                          height={300}
-                        />
-                        <div className="card-img-overlay d-flex flex-column justify-content-end">
-                          <h1 className="card-title text-primary text-white">
-                            Plant A4
-                          </h1>
-                          <p className="card-text text-white pb-3 pt-1">
-                            ปลูกแตงกวา
-                          </p>
-                          <Link to="/Data_detail" className="text-white">
-                            Click Me
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-12 col-lg-6 col-xl-4">
-                      <div className="card mb-2 bg-gradient-dark">
-                        <img
-                          className="card-img-top"
-                          src="../dist/img/images.jpg"
-                          alt="Dist Photo 3"
-                          width={250}
-                          height={300}
-                        />
-                        <div className="card-img-overlay d-flex flex-column justify-content-end">
-                          <h1 className="card-title text-primary text-white">
-                            Plant A5
-                          </h1>
-                          <p className="card-text text-white pb-3 pt-1">
-                            ผักกาดขาว
-                          </p>
-                          <Link to="/Data_detail" className="text-white">
-                            Click Me
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
