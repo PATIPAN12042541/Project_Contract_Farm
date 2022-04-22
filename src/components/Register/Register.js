@@ -10,7 +10,8 @@ const Register = () => {
     },[])
 
     const getRole = async() => {
-        const response = await axios.get('http://node31023-env-2823146.th1.proen.cloud:4000/role_group');
+        //const response = await axios.get('http://node31023-env-2823146.th1.proen.cloud:4000/role_group');
+        const response = await axios.get(process.env.production.REACT_APP_API_URL+'/role_group');
         setRoleGroup(response.data);
     }
     return (
