@@ -2,6 +2,7 @@ import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
 import "../CSS/Content.css"
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
@@ -12,6 +13,8 @@ const Register = () => {
     const [lastName,setLastName] = useState();
     const [roleID,setRoleID] = useState();
     const Nav = useNavigate();
+
+    const Swal = require('sweetalert2');
 
     useEffect(() => {
         getRole();
@@ -33,10 +36,18 @@ const Register = () => {
                 last_name : lastName,
                 role_id : roleID
             })
-            Nav('/Login');
+            Swal.fire({
+                icon: 'success',
+                title: 'OK',
+                text: 'Save OK !'
+              })
         }catch(error){
             if (error.response) {
-                console.log(error.response.data.msg);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ERROR',
+                    text: 'Save Error!'
+                  })
             }
         }
     }
@@ -48,7 +59,7 @@ const Register = () => {
               </div>
               <div className="card">
                   <div className="card-body register-card-body">
-                      <form action="/#" method="post">
+                      <form onSubmit={Register}>
                           <div className="input-group mb-3">
                               <input type="text" 
                                      className="form-control" 
