@@ -24,20 +24,25 @@ const Register = () => {
         setRoleGroup(response.data);
     }
 
+    const handleSelect=(e)=>{
+        setRoleID({roleID: e.target.value});
+      }
+
     const Register = async(e) =>{
         e.preventDefault();
         try{
             //await axios.post(process.env.REACT_APP_API_URL+"/user",{
-            await axios.post("http://localhost:4000/user",{
+            /*await axios.post("http://localhost:4000/user",{
                 username : username,
                 password : password,
                 name : name,
                 last_name : lastName,
                 role_id : roleID
-            })
+            })*/
             Swal.fire({
                 icon: 'success',
-                title: 'OK',
+                title: 'name : '+name+ 
+                       ' roleID : '+roleID,
                 text: 'Save OK !'
               })
         }catch(error){
@@ -119,16 +124,15 @@ const Register = () => {
                           </div>
                           <div className="input-group mb-3">
                               <select className="form-control select2">
-                                  <option selected="selected">--เลือก Role--</option>
-                                  {rolegroup.map((item, index) => (
-                                    <option key={ item.id } 
-                                            value={item.id}
-                                            onSelect={(e)=>setRoleID(item.id)}>
+                                  <option>--เลือก Role--</option>
+                                  {rolegroup.map((item, key) => (
+                                    <option>
                                             {item.role_group_name}
                                     </option>                                        
                                   ))}
-                              </select>                             
+                              </select>                         
                           </div>
+                          <h1>Selected Role: {roleID}</h1>    
                           <div className="row">
                               <div className="col-4">
                                   <button type="submit" className="btn btn-primary btn-block">Register</button>
