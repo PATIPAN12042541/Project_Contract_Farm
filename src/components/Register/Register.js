@@ -19,36 +19,44 @@ const Register = () => {
     },[])
 
     const getRole = async() => {
-        const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/role_group');
-        //const response = await axios.get(process.env.REACT_APP_API_URL+"/role_group");
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud/role_group');
+        const response = await axios.get("http://localhost:4000/role_group");
         setRoleGroup(response.data);
     }
 
     const Register = async(e) =>{
         e.preventDefault();
-        await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/register',{
-        //await axios.post("http://localhost:4000/user/register",{
-              username : username,
-              password : password,
-              confirmPassword : confirmPassword,
-              name : name,
-              last_name : lastName,
-              role_id : roleID
+        try{
+            //await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/register',{
+            await axios.post("http://localhost:4000/user/register",{
+                username : username,
+                password : password,
+                confirmPassword : confirmPassword,
+                name : name,
+                last_name : lastName,
+                role_id : roleID
             })
             .then(function(response){
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
                     text: 'Save OK !'
-                  })
-                  Nav('/Login');
+                    })
+                    Nav('/Login');
             }).catch(function(error){
                 Swal.fire({
                     icon: 'error',
                     title: error.response.data.msg,
                     text: 'Save Error!'
-                  })
+                    })
             })
+        }catch(error){
+            Swal.fire({
+                icon: 'error',
+                title: error.response.data.msg,
+                text: 'Save Error!'
+                })
+        }
     }
     return (
       <div className="hold-transition register-page">

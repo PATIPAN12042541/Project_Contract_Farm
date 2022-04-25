@@ -21,7 +21,7 @@ const Login = () => {
                     title: 'Success',
                     text: 'Login Success !'
                   })
-                  Nav('/Home');
+                  Nav('/');
             })
             .catch(function (error){
                 Swal.fire({
