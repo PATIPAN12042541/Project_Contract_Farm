@@ -19,14 +19,14 @@ const Register = () => {
     },[])
 
     const getRole = async() => {
-        const response = await axios.get('http://node31023-env-2823146.th1.proen.cloud:4000/role_group');
+        const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/role_group');
         //const response = await axios.get(process.env.REACT_APP_API_URL+"/role_group");
         setRoleGroup(response.data);
     }
 
     const Register = async(e) =>{
         e.preventDefault();
-        await axios.post('http://node31023-env-2823146.th1.proen.cloud:4000/user/register',{
+        await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/register',{
         //await axios.post("http://localhost:4000/user/register",{
               username : username,
               password : password,
