@@ -22,4 +22,4 @@ app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
 app.use("/plant", PlantRoute);
  
-//app.listen(4000, () => console.log('Server running at port 4000'));
+app.listen(4000, () => console.log("Server running at port 4000"));
