@@ -29,10 +29,10 @@ function App() {
           ></Route>
           <Route index element={<Page_Login />} />
           <Route  path="/Register" element={<Register />} />
-          <Route  path="contract_farm/Home" element={<Page_1_1 />} />
-          <Route  path="contract_farm/Detail" element={<Page_1_2 />} />
+          <Route  path="/Home" element={<Page_1_1 />} />
+          <Route  path="/Detail" element={<Page_1_2 />} />
           <Route           
-            path="contract_farm/Data_detail"
+            path="/Data_detail"
             element={
               <>
                 <Header />
@@ -44,7 +44,7 @@ function App() {
           />
           <Route
             
-            path="contract_farm/Edit_data"
+            path="/Edit_data"
             element={
               <>
                 <Header />
@@ -56,7 +56,7 @@ function App() {
           />
           <Route
             
-            path="contract_farm/Manage_plant/:id"
+            path="/Manage_plant/:id"
             element={
               <>
                 <Header />

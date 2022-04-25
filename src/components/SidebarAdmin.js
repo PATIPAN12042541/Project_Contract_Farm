@@ -111,7 +111,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <Link className="nav-link" to="contract_farm/Home">
+                    <Link className="nav-link" to="/Home">
                       <i class="far fa-circle nav-icon"></i>
                       <p>แปลงผัก</p>
                     </Link>
@@ -119,7 +119,7 @@ const SidebarAdmin = () => {
                 </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <Link className="nav-link" to="contract_farm/Detail">
+                    <Link className="nav-link" to="/Detail">
                       <i class="far fa-circle nav-icon"></i>
                       <p>ข้อมูลเบื้องต้น</p>
                     </Link>

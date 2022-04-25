@@ -50,7 +50,6 @@ const Header = () => {
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="fas fa-sign-out-alt text-white" />
-            <span className="badge badge-danger navbar-badge">15</span>
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <div className="dropdown-divider" />
