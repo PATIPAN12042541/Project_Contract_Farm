@@ -1,4 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+function refreshPage() {
+  setTimeout(() => {
+    window.location.reload(false);
+  }, 500);
+  console.log("page to reload");
+}
 
 const Manage_plant = (props) => {
   return (
@@ -24,10 +32,17 @@ const Manage_plant = (props) => {
                         ปริมาณสารเคมีที่ใช้
                       </label>
                       <input
-                        type="email"
+                        type="text"
                         className="form-control"
-                        id="exampleInputEmail1"
                         placeholder="ปริมาณสารเคมีที่ใช้"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="exampleInputEmail1">หน่วย</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="หน่วยนับ"
                       />
                     </div>
                     <div className="form-group">
@@ -58,32 +73,23 @@ const Manage_plant = (props) => {
                     </div>
                   </div>
                   <div className="card-footer">
-                    <div className="row">
-                      <div className="text-left">
-                        <button
-                          type="submit"
-                          className="btn btn"
-                          style={{
-                            backgroundColor: "#8CC152",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          Submit
-                        </button>
-                      </div>
-                      <div className="align-right">
-                        <button
-                          type="submit"
-                          className="btn btn"
-                          style={{
-                            backgroundColor: "#8CC152",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          ยืนยัน
-                        </button>
-                      </div>
-                    </div>
+                    <Link to="/Edit_data">
+                      <button type="submit" className="btn btn-default">
+                        ย้อนกลับ
+                      </button>
+                    </Link>
+                    <Link to="/Edit_data" onClick={refreshPage}>
+                      <button
+                        type="submit"
+                        className="btn btn-default float-right"
+                        style={{
+                          backgroundColor: "#8CC152",
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        ยืนยัน
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>
