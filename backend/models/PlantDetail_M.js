@@ -26,8 +26,6 @@ const PlantDetail = db.define(
   },
   {
     timestamps: false,
-  },
-  {
     freezeTableName: true,
   }
 );
@@ -35,4 +33,5 @@ const PlantDetail = db.define(
 (async () => {
   await db.sync();
 })();
+
 export default PlantDetail;
