@@ -1,7 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
+  const history = useNavigate();
+
+  const Logout = async () => {
+    try {
+        await axios.delete('http://node30998-env-3297740.th1.proen.cloud:4000/user/logout');
+        history("/");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
   return (
     <nav
       className="main-header navbar navbar-expand navbar-white navbar-light"
@@ -53,7 +68,7 @@ const Header = () => {
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <div className="dropdown-divider" />
-            <a href="#" className="dropdown-item">
+            <a href="#" onClick={Logout} className="dropdown-item">
               <i className="fas fa-sign-out-alt mr-2" /> ออกจากระบบ
             </a>
             <div className="dropdown-divider" />
