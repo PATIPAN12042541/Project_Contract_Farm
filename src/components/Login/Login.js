@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [username, setUsername] = useState();
@@ -10,17 +11,25 @@ const Login = () => {
 
     const Auth = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post('http://localhost:4000/login', {
+        await axios.post('http://localhost:4000/user/login', {
                 username: username,
                 password: password
+            })
+            .then(function (response){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Login Success !'
+                  })
+                  Nav('/Home');
+            })
+            .catch(function (error){
+                Swal.fire({
+                    icon: 'error',
+                    title: error.response.data.msg,
+                    text: 'Login Error!'
+                  })
             });
-            //Nav("/Home");
-        } catch (error) {
-            if (error.response) {
-                setMsg(error.response.data.msg);
-            }
-        }
     }
 
   
