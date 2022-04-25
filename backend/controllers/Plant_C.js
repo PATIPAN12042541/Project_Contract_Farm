@@ -1,17 +1,8 @@
 import Plant from "../models/Plant_M.js";
-import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
-    const plant = await Plant.findAll({
-      where: {},
-      include: [
-        {
-          model: PlantDetail,
-          where: {},
-        },
-      ],
-    });
+    const plant = await Plant.findAll({ include: [Plant] });
     res.json(plant);
   } catch (error) {
     res.json({ message: error.message });

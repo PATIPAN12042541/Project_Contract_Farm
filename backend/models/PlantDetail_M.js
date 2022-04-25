@@ -25,17 +25,6 @@ const PlantDetail = db.define(
     },
   },
   {
-    timestamps: true,
-    classMethods: {
-      associate: function (models) {
-        PlantDetail.hasMany(models.Plant, {
-          as: "plant_detail",
-          foreignKey: "	id_plant",
-        });
-      },
-    },
-  },
-  {
     freezeTableName: true,
   }
 );
