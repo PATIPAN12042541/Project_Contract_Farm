@@ -1,34 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// {
+//   id: "A1",
+//   name: "ปลูกกระเพรา",
+//   url: "../dist/img/holy_basil.jpg",
+// },
+// {
+//   id: "A2",
+//   name: "ปลูกพริก",
+//   url: "../dist/img/cili.jpg",
+// },
+// {
+//   id: "A3",
+//   name: "ปลูกมะเขือ",
+//   url: "../dist/img/Thai-Eggplant-2.jpg",
+// },
+// {
+//   id: "A4",
+//   name: "ปลูกแตงกวา",
+//   url: "../dist/img/images2.jpg",
+// },
+// {
+//   id: "A5",
+//   name: "ผักกาดขาว",
+//   url: "../dist/img/images.jpg",
+// },
+
 const Content = () => {
-  const [plant, setPlant] = useState([
-    {
-      id: "A1",
-      name: "ปลูกกระเพรา",
-      url: "../dist/img/holy_basil.jpg",
-    },
-    {
-      id: "A2",
-      name: "ปลูกพริก",
-      url: "../dist/img/cili.jpg",
-    },
-    {
-      id: "A3",
-      name: "ปลูกมะเขือ",
-      url: "../dist/img/Thai-Eggplant-2.jpg",
-    },
-    {
-      id: "A4",
-      name: "ปลูกแตงกวา",
-      url: "../dist/img/images2.jpg",
-    },
-    {
-      id: "A5",
-      name: "ผักกาดขาว",
-      url: "../dist/img/images.jpg",
-    },
-  ]);
+  const [plant, setPlant] = useState([]);
+
+  // useEffect(() => {
+  //   getPlant();
+  // }, []);
+
+  // const getPlant = async () => {
+  //   const response = await axios.get(
+  //     "http://node30998-env-3297740.th1.proen.cloud:4000/plant"
+  //   );
+
+  //   setPlant(response.data);
+  // };
 
   return (
     <div className="content-wrapper">
