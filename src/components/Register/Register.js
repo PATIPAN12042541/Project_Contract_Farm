@@ -26,8 +26,8 @@ const Register = () => {
 
     const Register = async(e) =>{
         e.preventDefault();
-        //await axios.post(process.env.REACT_APP_API_URL+"/user",{
-        await axios.post("http://localhost:4000/user/register",{
+        await axios.post('http://node31023-env-2823146.th1.proen.cloud:4000/user/register',{
+        //await axios.post("http://localhost:4000/user/register",{
               username : username,
               password : password,
               confirmPassword : confirmPassword,
