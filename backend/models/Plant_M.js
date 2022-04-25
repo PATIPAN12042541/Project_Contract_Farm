@@ -8,9 +8,6 @@ const Plant = db.define(
     id_plant: {
       type: DataTypes.INTEGER,
     },
-    id_name_plant: {
-      type: DataTypes.STRING,
-    },
     name_plant: {
       type: DataTypes.STRING,
     },
@@ -28,6 +25,23 @@ const Plant = db.define(
     freezeTableName: true,
   }
 );
+
+const Plant_Detail = db.define(
+  "plant_detail",
+  {
+    id_plant: {
+      type: DataTypes.INTEGER,
+    },
+    id_name_plant: {
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    freezeTableName: true,
+  }
+);
+
+User.hasMany(Task);
 
 (async () => {
   await db.sync();
