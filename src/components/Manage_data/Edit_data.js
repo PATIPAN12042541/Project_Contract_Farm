@@ -82,15 +82,13 @@ const Edit_data = () => {
                             <div className="row">
                               <div className="col-1">
                                 <center>
-                                  <label for="exampleInputBorder">
-                                    รหัสแปลงผัก
-                                  </label>
+                                  <label for="exampleInputBorder">รหัส</label>
                                 </center>
                                 <input
                                   type="text"
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
-                                  placeholder="รหัสเเปลงผัก"
+                                  placeholder="รหัส"
                                 ></input>
                               </div>
                               <div className="col-5">
