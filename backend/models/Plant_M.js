@@ -41,7 +41,7 @@ const Plant_Detail = db.define(
   }
 );
 
-User.hasMany(Task);
+Plant.hasMany(Plant_Detail);
 
 (async () => {
   await db.sync();
