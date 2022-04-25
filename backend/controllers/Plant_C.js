@@ -9,7 +9,7 @@ export const getPlant = async (req, res) => {
     const plant = await Plant.findAll({
       include: [
         {
-          model: Plant,
+          model: PlantDetail,
           required: true,
         },
       ],
