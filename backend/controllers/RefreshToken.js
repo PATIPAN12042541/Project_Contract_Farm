@@ -3,9 +3,8 @@ import jwt from "jsonwebtoken";
 
 export const refreshToken = async(req, res) => {
     try {
-        //const refreshToken = req.cookies.refreshToken;
-        console.log("refreshToken : ");
-        /*if(!refreshToken) return res.sendStatus(401);
+        const refreshToken = req.cookies.refreshToken;
+        //if(!refreshToken) return res.sendStatus(401);*/
         const user = await Users.findAll({
             where:{
                 refresh_token: refreshToken
@@ -21,7 +20,7 @@ export const refreshToken = async(req, res) => {
                 expiresIn: '15s'
             });
             res.json({ accessToken });
-        });*/
+        });
     } catch (error) {
         console.log(error);
     }
