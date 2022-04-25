@@ -62,4 +62,4 @@ PlantDetail.belongsTo(Plant);
   await db.sync();
 })();
 
-export default Plant;
+export default PlantDetail;
