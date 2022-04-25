@@ -42,7 +42,7 @@ const Register = () => {
                     title: 'Success',
                     text: 'Save OK !'
                     })
-                    Nav('/Login');
+                    Nav('/');
             }).catch(function(error){
                 Swal.fire({
                     icon: 'error',
@@ -142,7 +142,7 @@ const Register = () => {
                                   <button type="submit" className="btn btn-primary btn-block">Register</button>
                               </div>
                               <div className="col-4">
-                                  <a href='/Login'><button type="button" className="btn btn-info btn-block">Back</button></a>
+                                  <a href='/'><button type="button" className="btn btn-info btn-block">Back</button></a>
                               </div>
                           </div>
                       </form>

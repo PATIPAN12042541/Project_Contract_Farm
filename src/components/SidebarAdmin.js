@@ -1,7 +1,66 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import jwt_decode from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
+
 
 const SidebarAdmin = () => {
+    const [name, setName] = useState('');
+    const [token, setToken] = useState('');
+    const [expire, setExpire] = useState('');
+    const [users, setUsers] = useState([]);
+    const history = useNavigate();
+
+    useEffect(() => {
+      refreshToken();
+      getUsers();
+    }, []);
+
+
+    const refreshToken = async () => {
+      try {
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+        const response = await axios.get('http://localhost:4000/user/token');
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setExpire(decoded.exp);
+      } catch (error) {
+        if (error.response) {
+          history("/");
+        }
+      }
+    }
+
+    const axiosJWT = axios.create();
+
+    axiosJWT.interceptors.request.use(async (config) => {
+      const currentDate = new Date();
+      if (expire * 1000 < currentDate.getTime()) {
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+        const response = await axios.get('http://localhost:4000/user/token');
+        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setExpire(decoded.exp);
+      }
+      return config;
+    }, (error) => {
+      return Promise.reject(error);
+    });
+
+    const getUsers = async () => {
+      //const response = await axiosJWT.get('http://node30998-env-3297740.th1.proen.cloud:4000/check_users', {
+        const response = await axiosJWT.get('http://localhost:4000/check_users', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      setUsers(response.data);
+    }
   return (
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
@@ -31,6 +90,7 @@ const SidebarAdmin = () => {
           <div className="info">
             <a href="#" className="d-block">
               Robert Patricia
+              {name}
             </a>
           </div>
         </div>
@@ -51,7 +111,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <Link className="nav-link" to="/Home">
+                    <Link className="nav-link" to="contract_farm/Home">
                       <i class="far fa-circle nav-icon"></i>
                       <p>แปลงผัก</p>
                     </Link>
@@ -59,7 +119,7 @@ const SidebarAdmin = () => {
                 </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <Link className="nav-link" to="/Detail">
+                    <Link className="nav-link" to="contract_farm/Detail">
                       <i class="far fa-circle nav-icon"></i>
                       <p>ข้อมูลเบื้องต้น</p>
                     </Link>

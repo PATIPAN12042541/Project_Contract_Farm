@@ -1,28 +1,23 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const Login = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [msg, setMsg] = useState();
-    const Nav = Navigate;
+    const Nav = useNavigate();
 
     const Auth = async (e) => {
         e.preventDefault();
-        //await axios.post('http://node30998-env-3297740.th1.proen.cloud/:4000/user/login', {
+        //await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/login', {
         await axios.post('http://localhost:4000/user/login', {
                 username: username,
                 password: password
             })
             .then(function (response){
-                Nav('/');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Login Success !'
-                  })
+                  Nav('/contract_farm');
             })
             .catch(function (error){
                 Swal.fire({

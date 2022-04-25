@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="/contract_farm"
             element={
               <>
                 <Header />
@@ -27,13 +27,12 @@ function App() {
               </>
             }
           ></Route>
-          <Route exact path="/Login" element={<Page_Login />} />
-          <Route exact path="/Register" element={<Register />} />
-          <Route exact path="/Home" element={<Page_1_1 />} />
-          <Route exact path="/Detail" element={<Page_1_2 />} />
-          <Route
-            exact
-            path="/Data_detail"
+          <Route index element={<Page_Login />} />
+          <Route  path="/Register" element={<Register />} />
+          <Route  path="contract_farm/Home" element={<Page_1_1 />} />
+          <Route  path="contract_farm/Detail" element={<Page_1_2 />} />
+          <Route           
+            path="contract_farm/Data_detail"
             element={
               <>
                 <Header />
@@ -44,8 +43,8 @@ function App() {
             }
           />
           <Route
-            exact
-            path="/Edit_data"
+            
+            path="contract_farm/Edit_data"
             element={
               <>
                 <Header />
@@ -56,8 +55,8 @@ function App() {
             }
           />
           <Route
-            exact
-            path="/Manage_plant/:id"
+            
+            path="contract_farm/Manage_plant/:id"
             element={
               <>
                 <Header />
