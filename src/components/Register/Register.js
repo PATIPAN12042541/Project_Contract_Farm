@@ -26,30 +26,28 @@ const Register = () => {
 
     const Register = async(e) =>{
         e.preventDefault();
-        try{
-            //await axios.post(process.env.REACT_APP_API_URL+"/user",{
-            await axios.post("http://localhost:4000/user",{
-                username : username,
-                password : password,
-                confirmPassword : confirmPassword,
-                name : name,
-                last_name : lastName,
-                role_id : roleID
+        //await axios.post(process.env.REACT_APP_API_URL+"/user",{
+        await axios.post("http://localhost:4000/user/register",{
+              username : username,
+              password : password,
+              confirmPassword : confirmPassword,
+              name : name,
+              last_name : lastName,
+              role_id : roleID
             })
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: 'Save OK !'
-              })
-        }catch(error){
-            if (error.response) {
+            .then(function(response){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Save OK !'
+                  })
+            }).catch(function(error){
                 Swal.fire({
                     icon: 'error',
                     title: error.response.data.msg,
                     text: 'Save Error!'
                   })
-            }
-        }
+            })
     }
     return (
       <div className="hold-transition register-page">
