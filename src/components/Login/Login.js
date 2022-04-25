@@ -11,17 +11,18 @@ const Login = () => {
 
     const Auth = async (e) => {
         e.preventDefault();
+        //await axios.post('http://node30998-env-3297740.th1.proen.cloud/:4000/user/login', {
         await axios.post('http://localhost:4000/user/login', {
                 username: username,
                 password: password
             })
             .then(function (response){
+                Nav('/');
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
                     text: 'Login Success !'
                   })
-                  Nav('/');
             })
             .catch(function (error){
                 Swal.fire({

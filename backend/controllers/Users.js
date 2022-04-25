@@ -67,7 +67,8 @@ export const Login = async(req, res) => {
         });
         res.json({ accessToken });
     } catch (error) {
-        res.status(404).json({msg:"User not found"});
+        //res.status(404).json({msg:"User not found"});
+        res.json({msg:console.log(error)});
     }
 }
 
