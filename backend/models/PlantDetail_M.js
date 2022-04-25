@@ -25,6 +25,9 @@ const PlantDetail = db.define(
     },
   },
   {
+    timestamps: false,
+  },
+  {
     freezeTableName: true,
   }
 );
