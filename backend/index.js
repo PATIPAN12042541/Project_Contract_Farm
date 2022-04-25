@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import db from "./config/Database.js";
+import cookieParser from "cookie-parser";
 import RoleRoutes from "./routes/RoleRoutes.js";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
@@ -19,6 +20,7 @@ try {
 //app.use(cors());
 
 app.use(cors({ credentials:true, origin:'*' }));
+app.use(cookieParser());
 app.use(express.json());
 app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
