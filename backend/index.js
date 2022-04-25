@@ -4,7 +4,7 @@ import db from "./config/Database.js";
 import RoleRoutes from "./routes/RoleRoutes.js";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
-import PlantRoute from "./routes/PlantRoute";
+import PlantRoute from "./routes/PlantRoute.js";
 
 dotenv.config();
 const app = express();

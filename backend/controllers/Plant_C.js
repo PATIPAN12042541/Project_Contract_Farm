@@ -1,4 +1,4 @@
-import Plant from "../models/Plant_M";
+import Plant from "../models/Plant_M.js";
 export const getPlant = async (req, res) => {
   try {
     const plant = await Plant.findAll();
