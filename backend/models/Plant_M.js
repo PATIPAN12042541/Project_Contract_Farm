@@ -1,11 +1,15 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
+
 const Plant = db.define(
   "plant",
   {
     id_plant: {
       type: DataTypes.INTEGER,
+    },
+    id_name_plant: {
+      type: DataTypes.STRING,
     },
     name_plant: {
       type: DataTypes.STRING,
@@ -24,6 +28,23 @@ const Plant = db.define(
     freezeTableName: true,
   }
 );
+
+const Plant_Detail = db.define(
+  "plant_detail",
+  {
+    id_plant: {
+      type: DataTypes.INTEGER,
+    },
+    id_name_plant: {
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    freezeTableName: true,
+  }
+);
+
+Plant.hasMany(Plant_Detail);
 
 (async () => {
   await db.sync();
