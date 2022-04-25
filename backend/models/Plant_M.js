@@ -22,6 +22,14 @@ const Plant = db.define(
     },
   },
   {
+    timestamps: true,
+    classMethods: {
+      associate: function (models) {
+        Plant.belongsTo(models.PlantDetail, { foreignKey: "	id_plant" });
+      },
+    },
+  },
+  {
     freezeTableName: true,
   }
 );
