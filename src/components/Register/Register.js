@@ -41,6 +41,7 @@ const Register = () => {
                     title: 'Success',
                     text: 'Save OK !'
                   })
+                  Nav('/Login');
             }).catch(function(error){
                 Swal.fire({
                     icon: 'error',
