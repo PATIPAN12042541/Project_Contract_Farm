@@ -17,7 +17,7 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
-                  Nav('/contract_farm');
+                  Nav('/Home');
             })
             .catch(function (error){
                 Swal.fire({
