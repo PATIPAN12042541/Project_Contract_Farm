@@ -11,8 +11,9 @@ export const getPlant = async (req, res) => {
   // "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
 
   //const plant = await db.query("select * from plant");
+
   try {
-    const plants = await db.query(
+    const plants =  db.query(
       "select * from plant left join plant_detail on plant.id_plant = plant_detail.id_plant"
     );
 
