@@ -1,4 +1,5 @@
 import db from "../config/Database.js";
+import Plant from "../models/Plant_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -18,7 +19,7 @@ export const getPlant = async (req, res) => {
 export const postPlant = async (req, res) => {
   const { id_plant, name_plant, start_date_plant, end_date_plant } = req.body;
   try {
-    await db.query({
+    await Plant.create({
       id_plant: id_plant,
       name_plant: name_plant,
       start_date_plant: start_date_plant,
