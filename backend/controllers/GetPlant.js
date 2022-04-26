@@ -17,13 +17,13 @@ export const getPlant = async (req, res) => {
 };
 
 export const postPlant = async (req, res) => {
-  const { id_plant, name_plant, start_date_plant, end_date_plant } = req.body;
+  const { idplant, nameplant, startdate, enddate } = req.body;
   try {
     await Plant.create({
-      id_plant: id_plant,
-      name_plant: name_plant,
-      start_date_plant: start_date_plant,
-      end_date_plant: end_date_plant,
+      id_plant: idplant,
+      name_plant: nameplant,
+      start_date_plant: startdate,
+      end_date_plant: enddate,
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
