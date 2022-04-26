@@ -37,10 +37,10 @@ export const getPlant = async (req, res) => {
         "plant_detail.quantity_chemical," +
         "plant_detail.unit ," +
         "plant_detail.note," +
-        "plant_detail.last_update" +
-        "FROM plant" +
-        "LEFT JOIN plant_detail" +
-        "ON plant.id_plant = plant_detail.id"
+        "plant_detail.last_update " +
+        "FROM plant " +
+        "LEFT JOIN plant_detail " +
+        "on plant.id_plant = plant_detail.id"
     );
 
     res.json(plant);
