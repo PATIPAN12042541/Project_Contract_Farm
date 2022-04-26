@@ -5,20 +5,18 @@ export const getPlant = async (req, res) => {
 
   /*Plant.hasOne(PlantDetail);
   PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });*/
-  const { QueryTypes } = require('sequelize');
+
+  PlantDetail.hasMany(Plant, {
+    foreignKey: 'id_plant'
+  });
+  Plant.belongsTo(PlantDetail);
 
   try {
     //const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
 
-    await sequelize.query(
-      'SELECT * FROM plant',
-      {
-        replacements: ['active'],
-        type: QueryTypes.SELECT
-      }
-    );
+    const plant = await Plant.findAll({include: PlantDetail });
 
-    //res.json(plant);
+    res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
   }
