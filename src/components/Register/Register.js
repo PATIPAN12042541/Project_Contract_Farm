@@ -129,12 +129,12 @@ const Register = () => {
                               <select className="form-control" 
                                       onChange={(e)=>{setRoleID(e.target.value)}}>
                                   <option>--เลือก Role--</option>
-                                  {rolegroup.map(((item) => (
+                                  {rolegroup.map((item) => (
                                     <option key={item.id}
                                             value={item.id}>
                                             {item.role_group_name}
                                     </option>                                        
-                                  )))}
+                                  ))}
                               </select>                      
                           </div>
                           <div className="row">

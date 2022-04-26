@@ -3,7 +3,7 @@ import Users from "../models/UserModel.js";
 export const getRole = async (req, res) => {
     try {
         const rolegroups = await RoleGroup.findAll();
-        res.json(JSON.stringify(rolegroups));
+        res.json(rolegroups);
     } catch (error) {
         res.json({ message: error.message });
     }  
