@@ -13,7 +13,7 @@ const Content = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      "http://node30998-env-3297740.th1.proen.cloud:4000/plant"
+      "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
     );
 
     setPlant(response.data);
