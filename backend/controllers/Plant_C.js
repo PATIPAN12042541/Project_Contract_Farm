@@ -11,18 +11,12 @@ export const getPlant = async (req, res) => {
   // "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
 
   //const plant = await db.query("select * from plant");
-
   try {
-    // const plants = await db.query(
-    //   "select * from plant left join plant_detail on plant.id_plant = plant_detail.id_plant"
-    // );
-
-    const response = await db.fetch(
+    const plants = await db.query(
       "select * from plant left join plant_detail on plant.id_plant = plant_detail.id_plant"
     );
 
-    await response.json();
-    //res.json(plants);
+    res.json(plants);
   } catch (error) {
     res.json({ message: error.message });
   }
