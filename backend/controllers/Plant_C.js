@@ -3,7 +3,7 @@ import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
 
-  Plant.hasOne(PlantDetail, { primaryKey: "id_plant" });
+  Plant.hasOne(PlantDetail);
   PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });
 
   try {
