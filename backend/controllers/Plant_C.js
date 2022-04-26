@@ -4,19 +4,14 @@ import PlantDetail from "../models/PlantDetail_M.js";
 export const getPlant = async (req, res) => {
   try {
     
-    Plant.belongsTo(PlantDetail, {
-      foreignKey: {
-        name: "Plant_Detail",
-        allowNull: false,
-      },
-      targetKey: "id_plant",
+    Plant.hasMany(PlantDetail, { as: "plant_detail" });
+    PlantDetail.belongsTo(Plant, {
+      foreignKey: "id_plant",
+      as: "id_plant",
     });
 
-    const query = [{ model: PlantDetail }];
-
-    const plants = await Plant.findAll(query);
-
-    res.json(plants);
+    const plant = await Plant.findAll({ include: ["plant_detail"] });
+    res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
   }
