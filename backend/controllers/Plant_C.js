@@ -9,8 +9,14 @@ export const getPlant = async (req, res) => {
   try {
     //const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
 
-    const plant = await Plant.query('select * from plant');
-    //const plant = await Plant.findAll();
+    const { QueryTypes } = require('sequelize');
+    await sequelize.query(
+      'SELECT * FROM plant',
+      {
+        replacements: ['active'],
+        type: QueryTypes.SELECT
+      }
+    );
 
     res.json(plant);
   } catch (error) {
