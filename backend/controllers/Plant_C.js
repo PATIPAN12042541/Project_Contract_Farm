@@ -1,11 +1,15 @@
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
+import { Sequelize } from "sequelize";
+import db from "../config/Database.js";
+
 
 export const getPlant = async (req, res) => {
+  
   /*PlantDetail.hasMany(Plant);
   PlantDetail.belongsTo(Plant);*/
 
-  PlantDetail.hasMany(Plant);
+  //PlantDetail.hasMany(Plant);
   //Plant.belongsTo(PlantDetail);
 
   try {
@@ -15,9 +19,8 @@ export const getPlant = async (req, res) => {
     });*/
 
     //const plant = await Plant.findAll({ include: PlantDetail });
-    const QueryTypes = require('sequelize');
 
-    const plant = await Plant.sequelize.query('select * from plant');
+    const plant = await Plant.sequelize.query('select * from plant left join plant_detail on plant.id_plant = plant_detail.id');
 
     res.json(plant);
   } catch (error) {
