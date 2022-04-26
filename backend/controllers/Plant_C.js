@@ -7,7 +7,7 @@ export const getPlant = async (req, res) => {
   Plant.belongsTo(PlantDetail, { primaryKey: "id" });
 
   try {
-    const plant = await Plant.findAll({ include: PlantDetail });
+    const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
     res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
