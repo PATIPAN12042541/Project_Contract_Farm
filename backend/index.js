@@ -28,6 +28,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
-app.use("/plant", PlantRoute);
+app.use("/getplant", PlantRoute);
  
 app.listen(4000, () => console.log("Server running at port 4000"));

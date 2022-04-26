@@ -24,7 +24,7 @@ const Edit_data = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      "http://node30998-env-3297740.th1.proen.cloud:4000/plant"
+      "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
     );
     setPlantData(response.data);
   };
@@ -92,7 +92,7 @@ const Edit_data = () => {
                       >
                         <h3 className="card-title">เพิ่มข้อมูล</h3>
                       </div>
-                      <form>
+                      <form onSubmit={postPlant}>
                         <div className="card-body">
                           <div className="form-group">
                             <div className="row">
