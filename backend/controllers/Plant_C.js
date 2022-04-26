@@ -1,7 +1,5 @@
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
-import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
 
 export const getPlant = async (req, res) => {
   //const plant = await Plant.findAll({ include: PlantDetail });
@@ -13,7 +11,7 @@ export const getPlant = async (req, res) => {
   //const plant = await db.query("select * from plant");
   try {
     const data = {};
-    data.PlantDetail.hasMany(data.Plant, {
+    data.PlantDetail.hasOne(data.Plant, {
       foreignKey: { name: "id_plant", field: "id_plant" },
     });
 
