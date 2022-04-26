@@ -1,6 +1,6 @@
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
-import { Sequelize } from "sequelize";
+import { sequelize } from "sequelize";
 import db from "../config/Database.js";
 
 export const getPlant = async (req, res) => {
@@ -14,14 +14,9 @@ export const getPlant = async (req, res) => {
     // const [results, metadata] = await Sequelize.query(
     //   "select * from plant left join plant_detail on plant.id_plant = plant_detail.id"
     // );
+    // "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
 
-    const { QueryTypes } = require("sequelize");
-    const plant = await Sequelize.query(
-      "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
+    const plant = await db.query("select * from plant");
 
     res.json(plant);
   } catch (error) {
