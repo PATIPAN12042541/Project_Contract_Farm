@@ -16,11 +16,15 @@ export const getPlant = async (req, res) => {
 };
 
 export const postPlant = async (req, res) => {
+  const { id_plant, name_plant, start_date_plant, end_date_plant } = req.body;
   try {
-    const plants = await db.query("select * from plant", {
-      type: db.QueryTypes.SELECT,
+    await db.create({
+      id_plant: id_plant,
+      name_plant: name_plant,
+      start_date_plant: start_date_plant,
+      end_date_plant: end_date_plant,
     });
-    res.json(plants);
+    res.json({ msg: "Registration Successful" });
   } catch (error) {
     res.json({ message: error.message });
   }
