@@ -43,6 +43,7 @@ const SidebarAdmin = () => {
         //const response = await axios.get('http://localhost:4000/user/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
+        console.log("token : "+token);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
         setExpire(decoded.exp);
