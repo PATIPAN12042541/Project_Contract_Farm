@@ -4,7 +4,7 @@ import PlantDetail from "../models/PlantDetail_M.js";
 export const getPlant = async (req, res) => {
 
   PlantDetail.hasMany(Plant);
-  PlantDetail.belongsTo(Plant);
+  Plant.belongsTo(PlantDetail);
 
   try {
     const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
