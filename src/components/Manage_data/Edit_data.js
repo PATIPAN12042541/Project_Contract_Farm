@@ -92,7 +92,7 @@ const Edit_data = () => {
                       >
                         <h3 className="card-title">เพิ่มข้อมูล</h3>
                       </div>
-                      <form>
+                      <form onSubmit={postPlant}>
                         <div className="card-body">
                           <div className="form-group">
                             <div className="row">
