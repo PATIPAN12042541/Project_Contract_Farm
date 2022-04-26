@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -7,45 +7,61 @@ import { BsFillPencilFill } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Edit_data = () => {
-  const [plantdata, setPlantData] = useState([
-    {
-      id: "A1",
-      name: "ปลูกกระเพรา",
-      start_date: "01-01-2022",
-      end_date: "01-04-2022",
-      url: "../dist/img/holy_basil.jpg",
-    },
-    {
-      id: "A2",
-      name: "ปลูกพริก",
-      start_date: "11-07-2022",
-      end_date: "11-12-2022",
-      url: "../dist/img/cili.jpg",
-    },
-    {
-      id: "A3",
-      name: "ปลูกเขือ",
-      start_date: "11-07-2022",
-      end_date: "11-08-2022",
-      url: "../dist/img/Thai-Eggplant-2.jpg",
-    },
-    {
-      id: "A4",
-      name: "ปลูกแตงกวา",
-      start_date: "02-03-2022",
-      end_date: "02-09-2022",
-      url: "../dist/img/images2.jpg",
-    },
-    {
-      id: "A5",
-      name: "ปลูกผักกาดขาว",
-      start_date: "04-01-2022",
-      end_date: "04-03-2022",
-      url: "../dist/img/images.jpg",
-    },
-  ]);
+  const [plantdata, setPlantData] = useState([]);
+  const [idplant, setIdPlant] = useState();
+  const [nameplant, setNamePlant] = useState();
+  const [startdate, setStartDate] = useState();
+  const [enddate, setEndDate] = useState();
+  // const [plantimage, setPlantImage] = useState();
+
+  useEffect(() => {
+    getPlant();
+  }, []);
+
+  const getPlant = async () => {
+    const response = await axios.get(
+      "http://node30998-env-3297740.th1.proen.cloud:4000/plant"
+    );
+    setPlantData(response.data);
+  };
+
+  const postPlant = async (e) => {
+    e.preventDefault();
+    try {
+      await axios
+        .post("http://node30998-env-3297740.th1.proen.cloud:4000/plant", {
+          id_plant: idplant,
+          name_plant: nameplant,
+          start_date_plant: startdate,
+          end_date_plant: enddate,
+          //     plant_image: plantimage,
+        })
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
+  };
 
   return (
     <div className="content-wrapper">
@@ -88,7 +104,9 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
+                                  value={idplant}
                                   placeholder="รหัส"
+                                  onChange={(e) => setIdPlant(e.target.value)}
                                 ></input>
                               </div>
                               <div className="col-5">
@@ -102,6 +120,8 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="ชื่อแปลงผัก"
+                                  value={nameplant}
+                                  onChange={(e) => setNamePlant(e.target.value)}
                                 ></input>
                               </div>
                               <div className="col-2">
@@ -115,6 +135,8 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่เริ่มต้น"
+                                  value={startdate}
+                                  onChange={(e) => setStartDate(e.target.value)}
                                 ></input>
                               </div>
                               <div className="col-2">
@@ -128,6 +150,8 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่สิ้นสุด"
+                                  value={enddate}
+                                  onChange={(e) => setEndDate(e.target.value)}
                                 ></input>
                               </div>
                               <div className="col-2">
