@@ -19,7 +19,9 @@ try {
 
 //app.use(cors());
 
-app.use(cors({ credentials:true, origin:'*' }));
+app.use(cors({ credentials:true, 
+               origin:'*',
+               methods:'GET, POST, OPTIONS, PUT, PATCH, DELETE'}));
 
 app.use(cookieParser());
 app.use(express.json());
