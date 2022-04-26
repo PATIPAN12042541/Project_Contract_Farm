@@ -32,6 +32,8 @@ const Plant = db.define(
   }
 );
 
+Plant.hasOne(PlantDetail);
+
 (async () => {
   await db.sync();
 })();

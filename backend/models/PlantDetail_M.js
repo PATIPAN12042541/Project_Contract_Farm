@@ -31,6 +31,8 @@ const PlantDetail = db.define(
   }
 );
 
+PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });
+
 (async () => {
   await db.sync();
 })();
