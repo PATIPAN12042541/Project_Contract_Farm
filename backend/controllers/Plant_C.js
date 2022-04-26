@@ -12,12 +12,13 @@ export const getPlant = async (req, res) => {
 
   //const plant = await db.query("select * from plant");
   try {
-    const { QueryTypes } = require('sequelize');
     const plants = await db.query(
       "select * from plant left join plant_detail on plant.id_plant = plant_detail.id_plant",
-      { type: QueryTypes.SELECT }
+      {
+        type: db.QueryTypes.SELECT,
+      }
     );
-    
+
     res.json(plants);
   } catch (error) {
     res.json({ message: error.message });
