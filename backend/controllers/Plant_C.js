@@ -15,7 +15,6 @@ export const getPlant = async (req, res) => {
     });*/
 
     //const plant = await Plant.findAll({ include: PlantDetail });
-    const QueryTypes = require('sequelize');
 
     const plant = await Plant.sequelize.query('select * from plant');
 
