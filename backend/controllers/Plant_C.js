@@ -18,7 +18,7 @@ export const getPlant = async (req, res) => {
 
     //const plant = await Plant.findAll({ include: PlantDetail });
     const [results, metadata] = await Sequelize.query(
-      "SELECT * FROM Invoices JOIN Users ON Invoices.userId = Users.id"
+      "select * from plant left join plant_detail on plant.id_plant = plant_detail.id"
     );
 
     // const { QueryTypes } = require("sequelize");
