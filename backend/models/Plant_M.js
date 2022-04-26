@@ -28,6 +28,7 @@ const Plant = db.define(
   }
 );
 
+
 (async () => {
   await db.sync();
 })();
