@@ -26,7 +26,7 @@ export const getPlant = async (req, res) => {
     //const plant = await db.query('select * from plant');
 
     const plant = await db.query(
-      " SELECT plant.id, " +
+      "SELECT plant.id, " +
         "plant.id_plant," +
         "plant.name_plant," +
         "plant.start_date_plant," +
