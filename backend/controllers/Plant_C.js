@@ -1,11 +1,9 @@
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
-import { Sequelize } from "sequelize";
+import Sequelize from "sequelize";
 import db from "../config/Database.js";
 
-
 export const getPlant = async (req, res) => {
-
   /*PlantDetail.hasMany(Plant);
   PlantDetail.belongsTo(Plant);*/
 
@@ -19,13 +17,17 @@ export const getPlant = async (req, res) => {
     });*/
 
     //const plant = await Plant.findAll({ include: PlantDetail });
-    const { QueryTypes } = require("sequelize");
-    const plant = await db.sequelize.query(
-      "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
-      {
-        type: QueryTypes.SELECT,
-      }
+    const [results, metadata] = await Sequelize.query(
+      "SELECT * FROM Invoices JOIN Users ON Invoices.userId = Users.id"
     );
+
+    // const { QueryTypes } = require("sequelize");
+    // const plant = await Sequelize.query(
+    //   "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
+    //   {
+    //     type: QueryTypes.SELECT,
+    //   }
+    // );
 
     //const plant = await db.query('select * from plant left join plant_detail on plant.id_plant = plant_detail.id');
     // const plant = await db.query("select * from plant");
@@ -48,7 +50,7 @@ export const getPlant = async (req, res) => {
     //     "on plant.id_plant = plant_detail.id"
     // );
 
-    res.json(plant);
+    res.json(results);
   } catch (error) {
     res.json({ message: error.message });
   }
