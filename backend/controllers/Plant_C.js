@@ -6,15 +6,15 @@ export const getPlant = async (req, res) => {
   /*Plant.hasOne(PlantDetail);
   PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });*/
 
-  PlantDetail.hasMany(Plant, {
+  Plant.hasMany(Plant, {
     foreignKey: 'id_plant'
   });
-  Plant.belongsTo(PlantDetail);
+  PlantDetail.belongsTo(PlantDetail);
 
   try {
     //const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
 
-    const plant = await Plant.findAll({include: PlantDetail });
+    const plant = await Plant.findAll();
 
     res.json(plant);
   } catch (error) {
