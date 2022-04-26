@@ -13,10 +13,10 @@ const SidebarAdmin = () => {
     const [users, setUsers] = useState([]);
     const history = useNavigate();
 
-    useEffect(() => {
+    /*useEffect(() => {
       refreshToken();
       getUsers();
-    }, []);
+    }, []);*/
 
 
     const refreshToken = async () => {
@@ -29,6 +29,7 @@ const SidebarAdmin = () => {
         setExpire(decoded.exp);
       } catch (error) {
         if (error.response) {
+          alert(console.log(error.response));
           history("/");
         }
       }
@@ -43,7 +44,6 @@ const SidebarAdmin = () => {
         //const response = await axios.get('http://localhost:4000/user/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
-        console.log("token : "+token);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
         setExpire(decoded.exp);
