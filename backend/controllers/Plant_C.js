@@ -6,23 +6,10 @@ export const getPlant = async (req, res) => {
   /*Plant.hasOne(PlantDetail);
   PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });*/
 
-  PlantDetail.hasMany(Plant, {foreignKey: 'id_plant'})
-  Plant.belongsTo(PlantDetail, {foreignKey: 'id_plant'})
-
   try {
     //const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
 
-    const plant = await Plant.findAll({ 
-      subQuery: false,
-      include: [
-        { 
-           model : PlantDetail,
-           on:{
-            id_plant: sequelize.where(sequelize.col("Plant.id_plant"), "=", sequelize.col("PlantDetail.id_plant"))
-           }
-        }
-      ]
-    });
+    const plant = await sequelize.query('select * from plant');
 
     res.json(plant);
   } catch (error) {
