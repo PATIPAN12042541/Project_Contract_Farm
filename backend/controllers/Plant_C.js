@@ -3,7 +3,7 @@ import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
-    const plant = await Plant.findAll();
+    const plant = await Plant.findAll(PlantDetail);
     res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
