@@ -1,6 +1,6 @@
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
-import { sequelize } from "sequelize";
+import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
 export const getPlant = async (req, res) => {
