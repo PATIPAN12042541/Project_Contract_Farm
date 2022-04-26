@@ -11,7 +11,7 @@ const Login = () => {
 
     const Auth = async (e) => {
         e.preventDefault();
-        await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/login', {
+        /*await axios.post('http://node30998-env-3297740.th1.proen.cloud:4000/user/login', {
         //await axios.post('http://localhost:4000/user/login', {
                 username: username,
                 password: password
@@ -25,7 +25,8 @@ const Login = () => {
                     title: error.response.data.msg,
                     text: 'Login Error!'
                   })
-            });
+            });*/
+            Nav('/contract_farm');
     }
 
   
