@@ -7,7 +7,6 @@ const PlantDetail = db.define(
   {
     id_plant: {
       type: DataTypes.INTEGER,
-      defaultValue: Sequelize.UUIDV1,
       primaryKey: true,
     },
     id_name_plant: {
