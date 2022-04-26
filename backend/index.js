@@ -19,7 +19,7 @@ try {
 
 //app.use(cors());
 
-app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
+app.use(cors({ credentials:true, origin:'*' }));
 
 app.use(cookieParser());
 app.use(express.json());
