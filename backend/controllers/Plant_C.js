@@ -2,6 +2,9 @@ import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
+
+  Plant.hasOne(PlantDetail);
+  PlantDetail.belongsTo(Plant);
   try {
     const plant = await Plant.findAll(PlantDetail);
     res.json(plant);
