@@ -10,10 +10,10 @@ const { DataTypes } = Sequelize;
     freezeTableName:true
 });
 
-/*RoleGroup.hasMany(Users, {
+RoleGroup.hasMany(Users, {
     foreignKey: 'role_id'
   });
-  Users.belongsTo(RoleGroup);*/
+  Users.belongsTo(RoleGroup);
  
 (async () => {
     await db.sync();
