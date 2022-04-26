@@ -12,10 +12,11 @@ export const getPlant = async (req, res) => {
   try {
     const data = {};
     data.PlantDetail.hasMany(data.Plant, {
-      foreignKey: { name: "id_plants", field: "id_plants" },
+      foreignKey: "id_plants",
     });
 
     data.Plant.belongsTo(data.PlantDetail, { foreignKey: "id_plant" });
+
     res.json(data);
   } catch (error) {
     res.json({ message: error.message });
