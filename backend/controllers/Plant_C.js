@@ -7,8 +7,8 @@ export const getPlant = async (req, res) => {
     Plant.hasMany(PlantDetail);
     PlantDetail.belongsTo(Plant);
 
-    const plant = await Plant.findAll({ include: { model: PlantDetail } });
-    res.json(plant);
+    const plants = await Plant.findAll({ include: { model: PlantDetail } });
+    res.json(plants);
   } catch (error) {
     res.json({ message: error.message });
   }
