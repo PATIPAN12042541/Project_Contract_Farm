@@ -7,7 +7,6 @@ const PlantDetail = db.define(
   {
     id_plant: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
     },
     id_name_plant: {
       type: DataTypes.STRING,
