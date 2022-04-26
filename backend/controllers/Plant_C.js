@@ -15,7 +15,7 @@ export const getPlant = async (req, res) => {
     //   "select * from plant left join plant_detail on plant.id_plant = plant_detail.id"
     // );
 
-    const { QueryTypes } = require("db");
+    const { QueryTypes } = require("sequelize");
     const plant = await db.query(
       "select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
       {
