@@ -32,7 +32,7 @@ const Plant = db.define(
   }
 );
 
-Plant.hasMany(PlantDetail);
+Plant.hasOne(PlantDetail);
 
 (async () => {
   await db.sync();
