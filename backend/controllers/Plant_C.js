@@ -1,8 +1,13 @@
-import Plants from "../models/Plant_M.js";
+import Plant from "../models/Plant_M.js";
+import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
-    res.json(Plants);
+    PlantDetail.hasMany(Plant);
+    PlantDetail.belongsTo(Plant);
+
+    const plant = await Plant.findAll({ include: PlantDetail });
+    res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
   }
