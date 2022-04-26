@@ -4,7 +4,7 @@ import PlantDetail from "../models/PlantDetail_M.js";
 export const getPlant = async (req, res) => {
 
   PlantDetail.hasOne(Plant);
-  Plant.belongsTo(PlantDetail, { primaryKey: "id" });
+  PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });
 
   try {
     const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
