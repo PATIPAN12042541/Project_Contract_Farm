@@ -13,10 +13,10 @@ const SidebarAdmin = () => {
     const [users, setUsers] = useState([]);
     const history = useNavigate();
 
-    useEffect(() => {
+    /*useEffect(() => {
       refreshToken();
       getUsers();
-    }, []);
+    }, []);*/
 
 
     const refreshToken = async () => {
@@ -58,7 +58,7 @@ const SidebarAdmin = () => {
      //const response = await axiosJWT.get('http://localhost:4000/check_users', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         }
       });
       setUsers(response.data);
