@@ -14,7 +14,8 @@ export const getPlant = async (req, res) => {
       include: PlantDetail,
     });*/
 
-    const plant = await Plant.findAll({ include: PlantDetail });
+    //const plant = await Plant.findAll({ include: PlantDetail });
+    const plant = await Plant.findAll();
 
     res.json(plant);
   } catch (error) {
