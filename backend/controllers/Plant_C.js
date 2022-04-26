@@ -16,7 +16,7 @@ export const getPlant = async (req, res) => {
       "select * from plant left join plant_detail on plant.id_plant = plant_detail.id_plant"
     );
 
-    console.log(JSON.plants(records[0], null, 2));
+    console.log(JSON.plants(id_plant[0]));
     res.json(plants);
   } catch (error) {
     res.json({ message: error.message });
