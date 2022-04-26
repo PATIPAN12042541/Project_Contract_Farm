@@ -6,7 +6,7 @@ export const getPlant = async (req, res) => {
   PlantDetail.belongsTo(Plant);*/
 
   PlantDetail.hasMany(Plant);
-  Plant.belongsTo(PlantDetail);
+  //Plant.belongsTo(PlantDetail);
 
   try {
     /*const plant = await PlantDetail.findAll({
@@ -15,9 +15,8 @@ export const getPlant = async (req, res) => {
     });*/
 
     //const plant = await Plant.findAll({ include: PlantDetail });
-    const plant = await Plant.findOne({
-                                      include: PlantDetail
-                                    }); 
+    
+    const plant = await sequelize.query("select * from plant");
 
     res.json(plant);
   } catch (error) {
