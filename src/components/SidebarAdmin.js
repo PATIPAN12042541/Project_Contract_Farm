@@ -13,10 +13,10 @@ const SidebarAdmin = () => {
     const [users, setUsers] = useState([]);
     const history = useNavigate();
 
-    /*useEffect(() => {
+    useEffect(() => {
       refreshToken();
       getUsers();
-    }, []);*/
+    }, []);
 
 
     const refreshToken = async () => {
