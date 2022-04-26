@@ -33,13 +33,16 @@ const Edit_data = () => {
     e.preventDefault();
     try {
       await axios
-        .post("http://node30998-env-3297740.th1.proen.cloud:4000/plant", {
-          id_plant: idplant,
-          name_plant: nameplant,
-          start_date_plant: startdate,
-          end_date_plant: enddate,
-          //     plant_image: plantimage,
-        })
+        .post(
+          "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/Plant",
+          {
+            id_plant: idplant,
+            name_plant: nameplant,
+            start_date_plant: startdate,
+            end_date_plant: enddate,
+            //     plant_image: plantimage,
+          }
+        )
         .then(function (response) {
           Swal.fire({
             icon: "success",
