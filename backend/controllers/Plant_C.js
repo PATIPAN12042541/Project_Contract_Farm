@@ -19,7 +19,6 @@ export const getPlant = async (req, res) => {
     });*/
 
     //const plant = await Plant.findAll({ include: PlantDetail });
-
     const plant = await Plant.sequelize.query(
       "select * from plant " +
         "left join plant_detail on plant.id_plant = plant_detail.id"
