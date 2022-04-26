@@ -58,7 +58,7 @@ const Content = () => {
                           />
                           <div className="card-img-overlay d-flex flex-column justify-content-end">
                             <h1 className="card-title text-primary text-white">
-                              Plant {data.id_plant}
+                              Plant {data.id_name_plant}
                             </h1>
                             <p className="card-text text-white pb-3 pt-1">
                               {data.name_plant}
