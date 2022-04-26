@@ -1,10 +1,9 @@
-import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
-  Plant.hasMany(PlantDetail);
+  
+  Plant.hasOne(PlantDetail);
   PlantDetail.belongsTo(Plant);
 
   try {
