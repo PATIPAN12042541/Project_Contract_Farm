@@ -9,7 +9,7 @@ export const getPlant = async (req, res) => {
   try {
     //const plant = await Plant.findAll({ subQuery: false,include: PlantDetail });
 
-    const plant = await db.sequelize.query('select * from plant');
+    const plant = await db.Plant.query('select * from plant');
     //const plant = await Plant.findAll();
 
     res.json(plant);
