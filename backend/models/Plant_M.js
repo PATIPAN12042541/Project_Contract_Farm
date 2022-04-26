@@ -5,6 +5,10 @@ const { DataTypes } = Sequelize;
 const Plant = db.define(
   "plant",
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
     id_plant: {
       type: DataTypes.INTEGER,
       foreignKey: true,
@@ -24,7 +28,6 @@ const Plant = db.define(
   },
   {
     timestamps: false,
-    freezeTableName: true,
   }
 );
 

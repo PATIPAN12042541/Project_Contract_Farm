@@ -7,10 +7,7 @@ export const getPlant = async (req, res) => {
     PlantDetail.hasOne(Plant);
     Plant.belongsTo(PlantDetail);
 
-    const plant = await PlantDetail.findAll({
-      include: Plant,
-    });
-
+    const plant = await PlantDetail.findAll({ include: Plant });
     res.json(plant);
   } catch (error) {
     res.json({ message: error.message });
