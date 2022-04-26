@@ -11,8 +11,8 @@ export const getPlant = async (req, res) => {
   //const plant = await db.query("select * from plant");
   try {
     const data = {};
-    data.PlantDetail.hasOne(data.Plant, {
-      foreignKey: { name: "id_plant", field: "id_plant" },
+    data.PlantDetail.hasMany(data.Plant, {
+      foreignKey: { name: "id_plants", field: "id_plants" },
     });
 
     data.Plant.belongsTo(data.PlantDetail, { foreignKey: "id_plant" });
