@@ -31,7 +31,7 @@ const Edit_data = () => {
 
   const postPlant = async (e) => {
     e.preventDefault();
-    try {
+    try { 
       await axios
         .post(
           "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/Plant",
