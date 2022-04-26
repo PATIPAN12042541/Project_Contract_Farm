@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
 
-export const Plant = db.define(
+const Plant = db.define(
   "plant",
   {
     id: {
@@ -35,3 +35,4 @@ export const Plant = db.define(
   await db.sync();
 })();
 
+export default Plant;
