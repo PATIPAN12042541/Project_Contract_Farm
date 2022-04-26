@@ -57,8 +57,7 @@ const SidebarAdmin = () => {
       const response = await axiosJWT.get('http://node30998-env-3297740.th1.proen.cloud:4000/check_users', {
      //const response = await axiosJWT.get('http://localhost:4000/check_users', {
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`
         }
       });
       setUsers(response.data);
