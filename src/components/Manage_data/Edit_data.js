@@ -208,20 +208,20 @@ const Edit_data = () => {
                       </tr>
                     </thead>
                     {plantdata.map((data, index) => (
-                      <tbody key={data.id}>
+                      <tbody key={data.id_plant}>
                         <tr
                           data-widget="expandable-table"
                           aria-expanded="false"
                         >
-                          <td>{data.id}</td>
-                          <td>{data.name}</td>
-                          <td>{data.start_date}</td>
-                          <td>{data.end_date}</td>
+                          <td>{data.id_name_plant}</td>
+                          <td>{data.name_plant}</td>
+                          <td>{data.start_date_plant}</td>
+                          <td>{data.end_date_plant}</td>
                           <td>
                             <center>
                               <Zoom>
                                 <img
-                                  src={data.url}
+                                  src={data.plant_image}
                                   class="img-fluid mb-2"
                                   alt="white sample"
                                   width="100"
