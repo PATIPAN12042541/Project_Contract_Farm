@@ -5,8 +5,8 @@ export const getPlant = async (req, res) => {
   /*PlantDetail.hasMany(Plant);
   PlantDetail.belongsTo(Plant);*/
 
-  PlantDetail.hasMany(Plant);
-  Plant.belongsTo(PlantDetail);
+  /*PlantDetail.hasMany(Plant);
+  Plant.belongsTo(PlantDetail);*/
 
   try {
     /*const plant = await PlantDetail.findAll({
