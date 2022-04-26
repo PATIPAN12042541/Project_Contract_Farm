@@ -8,9 +8,11 @@ const Plant = db.define(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     id_plant: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
     },
     name_plant: {
       type: DataTypes.STRING,
