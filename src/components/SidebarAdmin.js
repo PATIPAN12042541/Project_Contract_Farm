@@ -29,7 +29,7 @@ const SidebarAdmin = () => {
         setExpire(decoded.exp);
       } catch (error) {
         if (error.response) {
-          alert(console.log(error));
+          alert(console.log(error.response));
           history("/");
         }
       }
