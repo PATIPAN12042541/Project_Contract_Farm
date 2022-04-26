@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-const { DataTypes } = Sequelize;
 
+const { DataTypes } = Sequelize;
 const PlantDetail = db.define(
   "plant_detail",
   {
@@ -26,6 +26,7 @@ const PlantDetail = db.define(
     },
   },
   {
+    freezeTableName: true,
     timestamps: false,
   }
 );
