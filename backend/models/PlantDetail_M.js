@@ -1,6 +1,5 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import Plant from "../models/Plant_M.js";
 
 const { DataTypes } = Sequelize;
 const PlantDetail = db.define(
@@ -31,8 +30,6 @@ const PlantDetail = db.define(
     timestamps: false,
   }
 );
-
-PlantDetail.belongsTo(Plant, { foreignKey: "id_plant" });
 
 (async () => {
   await db.sync();
