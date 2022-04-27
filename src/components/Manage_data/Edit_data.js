@@ -38,7 +38,7 @@ const Edit_data = () => {
         formData.append('file', image.data);
 
       // ใช้ axios
-      await axios.post("http://node30998-env-3297740.th1.proen.cloud:4000/public/Upload", formData)
+      await axios.post("http://node30998-env-3297740.th1.proen.cloud:4000/public/dist/img/", formData)
       .then(res => console.log(res.data))
       .catch(err => console.error(err));
   }
