@@ -32,7 +32,7 @@ function App() {
           <Route path="/Home" element={<Page_1_1 />} />
           <Route path="/Detail" element={<Page_1_2 />} />
           <Route
-            path="/Data_detail"
+            path="/Data_detail/:id"
             element={
               <>
                 <Header />
