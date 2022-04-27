@@ -34,6 +34,7 @@ export const postPlant = async (req, res) => {
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
+      plant_image: "",
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
