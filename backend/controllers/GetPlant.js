@@ -43,8 +43,7 @@ export const postPlant = async (req, res) => {
 };
 
 export const postDetailPlant = async (req, res) => {
-  const { id_name_plant, name_plant, start_date_plant, end_date_plant } =
-    req.body;
+  const { id_name_plant } = req.body;
   try {
     await PlantDetail.create({
       id_name_plant: id_name_plant,
