@@ -66,7 +66,6 @@ const Edit_data = () => {
           }
         );
       } catch (err) {
-        throw getError(err);
       }
 
     } catch (error) {
