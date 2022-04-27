@@ -61,17 +61,17 @@ export const postDetailPlant = async (req, res) => {
       }
     );
 
-    // try {
-    //   await Plant.create({
-    //     id_plant: IdPlant[0].id,
-    //     name_plant: name_plant,
-    //     start_date_plant: start_date_plant,
-    //     end_date_plant: end_date_plant,
-    //     plant_image: "",
-    //   });
-    // } catch (error) {
-    //   res.json({ message: error.message + jsonID });
-    // }
+    try {
+      await Plant.create({
+        id_plant: IdPlant[0].id,
+        name_plant: "",
+        start_date_plant: Date().toLocaleString(),
+        end_date_plant: Date().toLocaleString(),
+        plant_image: "",
+      });
+    } catch (error) {
+      res.json({ message: error.message });
+    }
 
     res.json({ msg: "Registration Successful" });
   } catch (error) {
