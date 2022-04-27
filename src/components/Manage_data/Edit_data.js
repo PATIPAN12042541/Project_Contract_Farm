@@ -17,11 +17,22 @@ const Edit_data = () => {
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
 
+  const [image, setImage] = useState({ preview: '', data: '' });
+
   // const [plantimage, setPlantImage] = useState();
 
   useEffect(() => {
     getPlant();
   }, []);
+
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
+
 
   const getPlant = async () => {
     const response = await axios.get(
@@ -183,7 +194,9 @@ const Edit_data = () => {
                                   onUpload={(file) => {
                                     console.log("query file", file);
                                   }}
+                                  onChange={handleFileChange}
                                 />
+                                <img src={image.preview} width='100' height='100' />
                               </div>
                             </div>
                           </div>
