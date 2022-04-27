@@ -38,7 +38,7 @@ export const postPlant = async (req, res) => {
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
-    res.json({ message: error.message });
+    res.json({ message: error.message + IdPlant +'dsfdsfsd' });
   }
 };
 
