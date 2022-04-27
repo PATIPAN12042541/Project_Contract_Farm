@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 const SidebarAdmin = () => {
     const [name, setName] = useState('');
-    const [lastname, setLastName] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
@@ -22,12 +21,11 @@ const SidebarAdmin = () => {
 
     const refreshToken = async () => {
       try {
-        const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
-        //const response = await axios.get('http://localhost:4000/user/token');
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+        const response = await axios.get('http://localhost:4000/user/token');
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
-        setLastName(decoded.lastname);
         setExpire(decoded.exp);
       } catch (error) {
         if (error.response) {
@@ -47,7 +45,6 @@ const SidebarAdmin = () => {
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
-        setLastName(decoded.lastname);
         setExpire(decoded.exp);
       }
       return config;
@@ -105,7 +102,7 @@ const SidebarAdmin = () => {
           >
             <li class="nav-item">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/contract_farm" class="nav-link">
                   <p>
                     ข้อมูลรายละเอียด
                     <i class="fas fa-angle-left right"></i>
@@ -131,7 +128,7 @@ const SidebarAdmin = () => {
             </li>
             <li class="nav-item">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/contract_farm" class="nav-link">
                   <p>
                     จัดการข้อมูล
                     <i class="fas fa-angle-left right"></i>
@@ -157,7 +154,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/#" class="nav-link">
+                    <a href="/contract_farm" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>อื่นๆ</p>
                     </a>
