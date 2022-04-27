@@ -9,6 +9,5 @@ const router = express.Router();
 
 router.get("/", getPlant);
 router.post("/Plant", postPlant);
-router.post("/DetailPlant", postDetailPlant);
 
 export default router;
