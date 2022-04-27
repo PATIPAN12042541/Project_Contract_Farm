@@ -227,7 +227,7 @@ const Edit_data = () => {
                           data-widget="expandable-table"
                           aria-expanded="false"
                         >
-                          <td>{data.id_name_plant}</td>
+                          <td className="col-md-1 col-xl-1">{data.id_name_plant}</td>
                           <td>{data.name_plant}</td>
                           <td>{data.start_date_plant}</td>
                           <td>{data.end_date_plant}</td>
