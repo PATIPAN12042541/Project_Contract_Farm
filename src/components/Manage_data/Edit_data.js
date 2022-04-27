@@ -16,6 +16,7 @@ const Edit_data = () => {
   const [nameplant, setNamePlant] = useState();
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
+
   // const [plantimage, setPlantImage] = useState();
 
   useEffect(() => {
@@ -27,6 +28,23 @@ const Edit_data = () => {
       "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
     );
     setPlantData(response.data);
+  };
+
+  const deletePlants = async (id) => {
+    try {
+      await axios.get(
+        "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant",
+        {
+          id_plant: id,
+        }
+      );
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const postPlant = async (e) => {
@@ -248,7 +266,13 @@ const Edit_data = () => {
                                 </button>
                               </Link>
                               <> </>
-                              <button type="submit" class="btn btn-danger">
+                              <button
+                                type="submit"
+                                class="btn btn-danger"
+                                onClick={() => {
+                                  deletePlants(data.id);
+                                }}
+                              >
                                 <BsFillTrashFill />
                               </button>
                             </center>
