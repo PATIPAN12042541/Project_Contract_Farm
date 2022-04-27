@@ -268,7 +268,7 @@ const Edit_data = () => {
                           </td>
                         </tr>
                         <tr className="expandable-body d-none">
-                          <td colSpan={6}>
+                          <td colSpan={7}>
                             <div className="row">
                               <div className="col-2">
                                 <input
