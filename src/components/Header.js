@@ -69,9 +69,9 @@ const Header = () => {
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <div className="dropdown-divider" />
-            <Link onClick={Logout} className="dropdown-item">
+            <a onClick={Logout} className="dropdown-item">
               <i className="fas fa-sign-out-alt mr-2" /> ออกจากระบบ
-            </Link>
+            </a>
             <div className="dropdown-divider" />
           </div>
         </li>
