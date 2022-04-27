@@ -22,7 +22,7 @@ try {
 
 app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
 
-const storage = diskStorage({
+/*const storage = diskStorage({
   destination: (req, file, cb) => {
     cb(null, '../public/dist/img/')
   },
@@ -37,7 +37,7 @@ try{
       })
 }catch(error){
     res.json({msg:"Upload Fail"})
-}
+}*/
 
 app.use(cookieParser());
 app.use(express.json());
