@@ -1,16 +1,52 @@
 import React from "react";
 
 const Detail = () => {
+
+  const image_url = [
+    {
+      id: "1",
+      url: "../dist/img/insecticide/Pic_1.png",
+    },
+    {
+      id: "2",
+      url: "../dist/img/insecticide/Pic_2.png",
+    },
+    {
+      id: "3",
+      url: "../dist/img/insecticide/Pic_3.png",
+    },
+    {
+      id: "4",
+      url: "../dist/img/insecticide/Pic_4.png",
+    },
+    {
+      id: "5",
+      url: "../dist/img/insecticide/Pic_5.png",
+    },
+    {
+      id: "6",
+      url: "../dist/img/insecticide/Pic_6.png",
+    },
+    {
+      id: "7",
+      url: "../dist/img/insecticide/Pic_7.png",
+    },
+    {
+      id: "8",
+      url: "../dist/img/insecticide/Pic_8.png",
+    },
+    {
+      id: "9",
+      url: "../dist/img/insecticide/Pic_9.png",
+    },
+  ];
+
   return (
     <div className="content-wrapper">
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-12">
-              {/* <center>
-                <h1>คิดออกค่อยใส่อีกที</h1>
-              </center> */}
-            </div>
+            <div class="col-sm-12"></div>
           </div>
         </div>
       </section>
@@ -29,140 +65,22 @@ const Detail = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_1.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_1.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_2.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_2.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_3.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_3.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_4.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_4.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_5.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_5.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_6.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_6.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_7.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_7.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_8.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_8.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
-
-                    <div class="col-sm-2">
-                      <a
-                        href="../dist/img/insecticide/Pic_9.png"
-                        data-toggle="lightbox"
-                        data-title="sample 1 - white"
-                        data-gallery="gallery"
-                      >
-                        <img
-                          src="../dist/img/insecticide/Pic_9.png"
-                          class="img-fluid mb-2"
-                          alt="white sample"
-                        />
-                      </a>
-                    </div>
+                    {image_url.map((data) => (
+                      <div class="col-sm-2" key={data.id}>
+                        <a
+                          href={data.url}
+                          data-toggle="lightbox"
+                          data-title="sample 1 - white"
+                          data-gallery="gallery"
+                        >
+                          <img
+                            src={data.url}
+                            class="img-fluid mb-2"
+                            alt="white sample"
+                          />
+                        </a>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
