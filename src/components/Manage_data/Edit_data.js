@@ -203,7 +203,11 @@ const Edit_data = () => {
                       style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
+<<<<<<< HEAD
                         <th className="col-md-1 col-xl-1">#</th>
+=======
+                        <th className="col-1">#</th>
+>>>>>>> 18d59932ff9463d29313475b102fab9dacd56179
                         <th className="col-5">
                           <center>ชื่อแปลงผัก</center>
                         </th>
