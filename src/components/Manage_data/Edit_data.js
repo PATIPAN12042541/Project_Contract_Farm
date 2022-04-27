@@ -204,7 +204,6 @@ const Edit_data = () => {
                     >
                       <tr>
                         <th className="col-md-1 col-xl-1">#</th>
-                        <th className="col-1">#</th>
                         <th className="col-5">
                           <center>ชื่อแปลงผัก</center>
                         </th>
