@@ -70,6 +70,7 @@ const Edit_data = () => {
           }
         )
         .then(function (response) {
+          getPlant();
           Swal.fire({
             icon: "success",
             title: "Success",
