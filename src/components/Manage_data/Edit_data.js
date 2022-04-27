@@ -17,11 +17,22 @@ const Edit_data = () => {
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
 
+  const [image, setImage] = useState({ preview: '', data: '' });
+
   // const [plantimage, setPlantImage] = useState();
 
   useEffect(() => {
     getPlant();
   }, []);
+
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
+
 
   const getPlant = async () => {
     const response = await axios.get(
@@ -33,11 +44,9 @@ const Edit_data = () => {
   const deletePlants = async (id) => {
     try {
       await axios.delete(
-        "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant",
-        {
-          id_plant: id,
-        }
+        `http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant/${id}`
       );
+      getPlant();
     } catch (error) {
       Swal.fire({
         icon: "error",
