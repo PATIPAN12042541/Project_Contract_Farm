@@ -19,9 +19,17 @@ export const getPlant = async (req, res) => {
 
 export const postPlant = async (req, res) => {
   const { id_plant, name_plant, start_date_plant, end_date_plant } = req.body;
+
+  const IdPlant = await db.query(
+    "select id from plant_detail where id_name_plant =" + id_plant,
+    {
+      type: db.QueryTypes.SELECT,
+    }
+  );
+
   try {
     await Plant.create({
-      id_plant: id_plant,
+      id_plant: IdPlant,
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
@@ -40,7 +48,7 @@ export const postDetailPlant = async (req, res) => {
       quantity_chemical: 0,
       unit: "",
       note: "",
-      last_update: "2022-04-25 10:54:49",
+      last_update: Date().toLocaleString(),
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
