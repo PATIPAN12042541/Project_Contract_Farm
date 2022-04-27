@@ -30,7 +30,7 @@ const Header = () => {
           </a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <Link class="nav-link text-white" to="/">
+          <Link class="nav-link text-white" to="/contract_farm">
             Home
           </Link>
         </li>

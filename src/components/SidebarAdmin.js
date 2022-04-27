@@ -64,7 +64,7 @@ const SidebarAdmin = () => {
   return (
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
-        to="/"
+        to="/contract_farm"
         className="brand-link"
         style={{ backgroundColor: "#8CC152" }}
       >
