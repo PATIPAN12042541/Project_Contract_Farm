@@ -92,7 +92,7 @@ const SidebarAdmin = () => {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              {name} {lastname}
+              {name}
             </a>
           </div>
         </div>
