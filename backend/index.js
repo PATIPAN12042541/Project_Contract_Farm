@@ -17,7 +17,9 @@ try {
   console.error("Connection error:", error);
 }
 
-app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
+//app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
+
+app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
 
 app.use(cookieParser());
 app.use(express.json());
