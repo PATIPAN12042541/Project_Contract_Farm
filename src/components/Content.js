@@ -49,7 +49,8 @@ const Content = () => {
                         key={data.id_plant}
                       >
                         <Link
-                          to={{ pathname: `/Data_detail/${data.id}` }}
+                          to="/Data_detail"
+                          // to={{ pathname: `/Data_detail/${data.id}` }}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
