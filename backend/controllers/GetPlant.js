@@ -43,7 +43,8 @@ export const postPlant = async (req, res) => {
 };
 
 export const postDetailPlant = async (req, res) => {
-  const { id_name_plant } = req.body;
+  const { id_name_plant, name_plant, start_date_plant, end_date_plant } =
+    req.body;
   try {
     await PlantDetail.create({
       id_name_plant: id_name_plant,
@@ -64,9 +65,9 @@ export const postDetailPlant = async (req, res) => {
     try {
       await Plant.create({
         id_plant: IdPlant[0].id,
-        name_plant: IdPlant[0].id_name_plant,
-        start_date_plant: Date().toLocaleString(),
-        end_date_plant: Date().toLocaleString(),
+        name_plant: name_plant,
+        start_date_plant: start_date_plant,
+        end_date_plant: end_date_plant,
         plant_image: "",
       });
     } catch (error) {
