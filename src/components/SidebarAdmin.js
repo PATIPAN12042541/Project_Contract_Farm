@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SidebarAdmin = () => {
     const [name, setName] = useState('');
+    const [lastname, setLastName] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
@@ -26,11 +27,10 @@ const SidebarAdmin = () => {
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
+        setLastName(decoded.lastname);
         setExpire(decoded.exp);
-        alert(console.log("token : "+token))
       } catch (error) {
         if (error.response) {
-          alert(console.log(error.response));
           history("/");
         }
       }
@@ -91,8 +91,7 @@ const SidebarAdmin = () => {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              Robert Patricia
-              {name}
+              {name} {lastname}
             </a>
           </div>
         </div>
