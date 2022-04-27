@@ -20,11 +20,9 @@ export const postPlant = async (req, res) => {
   const { id_plant, name_plant, start_date_plant, end_date_plant } = req.body;
 
   const IdPlant = await db.query(
-    "select id from plant_detail where id_name_plant =" + id_plant,
-    {
-      type: db.QueryTypes.SELECT,
-    }
+    "select id from plant_detail where id_name_plant = :id_plant"
   );
+  
   try {
     await Plant.create({
       id_plant: IdPlant,
