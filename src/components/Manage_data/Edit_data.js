@@ -196,7 +196,7 @@ const Edit_data = () => {
                                   }}
                                   onChange={handleFileChange}
                                 />
-                                <img src={image.preview} width='100' height='100' />
+                                <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} width='100' height='100' />
                               </div>
                             </div>
                           </div>
