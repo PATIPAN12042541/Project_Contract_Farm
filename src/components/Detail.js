@@ -1,7 +1,7 @@
 import React from "react";
+import Zoom from "react-medium-image-zoom";
 
 const Detail = () => {
-
   const image_url = [
     {
       id: "1",
@@ -67,18 +67,13 @@ const Detail = () => {
                   <div className="row">
                     {image_url.map((data) => (
                       <div class="col-sm-2" key={data.id}>
-                        <a
-                          href={data.url}
-                          data-toggle="lightbox"
-                          data-title="sample 1 - white"
-                          data-gallery="gallery"
-                        >
+                        <Zoom>
                           <img
                             src={data.url}
                             class="img-fluid mb-2"
                             alt="white sample"
                           />
-                        </a>
+                        </Zoom>
                       </div>
                     ))}
                   </div>
