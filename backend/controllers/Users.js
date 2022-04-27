@@ -49,11 +49,10 @@ export const Login = async(req, res) => {
         if(!match) return res.status(400).json({msg: "Wrong Password"});
         const userId = user[0].id;
         const username = user[0].username;
-        const last_Name = user[0].last_name;
-        const accessToken = jwt.sign({userId, username, last_Name}, process.env.ACCESS_TOKEN_SECRET,{
+        const accessToken = jwt.sign({userId, username}, process.env.ACCESS_TOKEN_SECRET,{
             expiresIn: '15s'
         });
-        const refreshToken = jwt.sign({userId, username, last_Name}, process.env.REFRESH_TOKEN_SECRET,{
+        const refreshToken = jwt.sign({userId, username}, process.env.REFRESH_TOKEN_SECRET,{
             expiresIn: '1d'
         });
         await Users.update({refresh_token: refreshToken},{
