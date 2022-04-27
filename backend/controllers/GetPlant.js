@@ -27,11 +27,10 @@ export const postPlant = async (req, res) => {
       type: db.QueryTypes.SELECT,
     }
   );
-  res.json(IdPlant);
 
   try {
     await Plant.create({
-      id_plant: IdPlant.id,
+      id_plant: JSON.stringify(IdPlant[0], null, 2).id,
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
