@@ -32,7 +32,7 @@ const storage = diskStorage({
 })
 const upload = multer({ storage: storage })
 try{
-    app.post('../public/dist/img/', upload.single('file'), function (req, res) {
+    app.post('/public/dist/img/', upload.single('file'), function (req, res) {
         res.json({msg:"Upload OK"})
       })
 }catch(error){
