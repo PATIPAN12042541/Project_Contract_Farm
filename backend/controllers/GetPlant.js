@@ -40,7 +40,7 @@ export const postDetailPlant = async (req, res) => {
       quantity_chemical: 0,
       unit: "",
       note: "",
-      last_update: "2022-04-25 10:54:49",
+      last_update: Date().toLocaleString(),
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
