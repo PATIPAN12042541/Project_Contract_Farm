@@ -195,6 +195,7 @@ const Edit_data = () => {
                                     console.log("query file", file);
                                   }}
                                 />
+                                <input type='file' name='file' onChange={handleFileChange}></input>
                                 <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} width='100' height='100' />
                               </div>
                             </div>
