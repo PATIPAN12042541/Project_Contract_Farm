@@ -48,24 +48,27 @@ const Content = () => {
                         className="col-md-12 col-lg-6 col-xl-4"
                         key={data.id_plant}
                       >
-                        <Link to="/Data_detail" className="text-white">
-                        <div className="card mb-2 bg-gradient-dark">
-                          <img
-                            className="card-img-top"
-                            src={data.plant_image}
-                            alt="Dist Photo 1"
-                            width={250}
-                            height={300}
-                          />
-                          <div className="card-img-overlay d-flex flex-column justify-content-end">
-                            <h1 className="card-title text-primary text-white">
-                              Plant {data.id_name_plant}
-                            </h1>
-                            <p className="card-text text-white pb-3 pt-1">
-                              {data.name_plant}
-                            </p>
+                        <Link
+                          to={{ pathname: `/Data_detail/${data.id}` }}
+                          className="text-white"
+                        >
+                          <div className="card mb-2 bg-gradient-dark">
+                            <img
+                              className="card-img-top"
+                              src={data.plant_image}
+                              alt="Dist Photo 1"
+                              width={250}
+                              height={300}
+                            />
+                            <div className="card-img-overlay d-flex flex-column justify-content-end">
+                              <h1 className="card-title text-primary text-white">
+                                Plant {data.id_name_plant}
+                              </h1>
+                              <p className="card-text text-white pb-3 pt-1">
+                                {data.name_plant}
+                              </p>
+                            </div>
                           </div>
-                        </div>
                         </Link>
                       </div>
                     ))}
