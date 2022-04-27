@@ -205,6 +205,11 @@ const Edit_data = () => {
                                   accept="image/*"
                                   onUpload={(file) => {
                                     console.log("query file", file);
+                                    const img = {
+                                      preview: URL.createObjectURL(file),
+                                      data: file,
+                                      }
+                                    setImage(file);
                                   }}
                                 />
                               </div>
