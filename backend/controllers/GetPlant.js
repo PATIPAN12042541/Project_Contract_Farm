@@ -53,13 +53,13 @@ export const postDetailPlant = async (req, res) => {
       last_update: Date().toLocaleString(),
     });
 
-    // const IdPlant = await db.query(
-    //   "select id from plant_detail where id_name_plant = :id_name_plant ",
-    //   {
-    //     replacements: { id_name_plant: id_name_plant },
-    //     type: db.QueryTypes.SELECT,
-    //   }
-    // );
+    const IdPlant = await db.query(
+      "select id from plant_detail where id_name_plant = :id_name_plant ",
+      {
+        replacements: { id_name_plant: id_name_plant },
+        type: db.QueryTypes.SELECT,
+      }
+    );
 
     // try {
     //   await Plant.create({
