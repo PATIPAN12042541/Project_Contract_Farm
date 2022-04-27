@@ -1,5 +1,6 @@
 import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
+import PlantDetail from "../models/PlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -24,6 +25,22 @@ export const postPlant = async (req, res) => {
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
+    });
+    res.json({ msg: "Registration Successful" });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+export const postDetailPlant = async (req, res) => {
+  const { id_name_plant } = req.body;
+  try {
+    await PlantDetail.create({
+      id_name_plant: id_name_plant,
+      quantity_chemical: 0,
+      unit: "",
+      note: "",
+      last_update: "2022-04-25 10:54:49",
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
