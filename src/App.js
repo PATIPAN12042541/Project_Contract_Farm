@@ -29,7 +29,7 @@ function App() {
           ></Route>
           <Route index element={<Page_Login />} />
           <Route  path="/Register" element={<Register />} />
-          <Route  path="/Home" element={<Page_1_1 />} />
+          <Route  path="/contract_farm/Home" element={<Page_1_1 />} />
           <Route  path="/Detail" element={<Page_1_2 />} />
           <Route           
             path="/Data_detail"
