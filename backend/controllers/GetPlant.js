@@ -28,11 +28,9 @@ export const postPlant = async (req, res) => {
     }
   );
 
-  const jsonID = res.json(IdPlant[0].id);
-
   try {
     await Plant.create({
-      id_plant: jsonID,
+      id_plant: res.json(IdPlant[0].id),
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
