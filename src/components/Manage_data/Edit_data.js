@@ -32,12 +32,14 @@ const Edit_data = () => {
   const postPlant = async (e) => {
     e.preventDefault();
     try {
-      
       await axios
         .post(
           "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DetailPlant",
           {
             id_name_plant: idplant,
+            name_plant: nameplant,
+            start_date_plant: startdate,
+            end_date_plant: enddate,
           }
         )
         .then(function (response) {
@@ -55,19 +57,18 @@ const Edit_data = () => {
           });
         });
 
-      try {
-        await axios.post(
-          "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/Plant",
-          {
-            id_plant: idplant,
-            name_plant: nameplant,
-            start_date_plant: startdate,
-            end_date_plant: enddate,
-          }
-        );
-      } catch (err) {
-      }
-
+      // try {
+      //   await axios.post(
+      //     "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/Plant",
+      //     {
+      //       id_plant: idplant,
+      //       name_plant: nameplant,
+      //       start_date_plant: startdate,
+      //       end_date_plant: enddate,
+      //     }
+      //   );
+      // } catch (err) {
+      // }
     } catch (error) {
       Swal.fire({
         icon: "error",
