@@ -54,7 +54,7 @@ export const postDetailPlant = async (req, res) => {
     });
 
     const IdPlant = await db.query(
-      "select id from plant_detail where id_name_plant = :id_name_plant ",
+      "select id,id_name_plant from plant_detail where id_name_plant = :id_name_plant ",
       {
         replacements: { id_name_plant: id_name_plant },
         type: db.QueryTypes.SELECT,
@@ -64,7 +64,7 @@ export const postDetailPlant = async (req, res) => {
     try {
       await Plant.create({
         id_plant: IdPlant[0].id,
-        name_plant: "",
+        name_plant: IdPlant[0].id_name_plant,
         start_date_plant: Date().toLocaleString(),
         end_date_plant: Date().toLocaleString(),
         plant_image: "",
