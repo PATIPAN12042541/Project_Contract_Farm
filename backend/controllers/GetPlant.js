@@ -30,7 +30,7 @@ export const postPlant = async (req, res) => {
   
   try {
     await Plant.create({
-      id_plant: parseInt(IdPlant),
+      id_plant: 12,
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
@@ -38,7 +38,7 @@ export const postPlant = async (req, res) => {
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
-    res.json({ message: error.message + IdPlant +'dsfdsfsd' });
+    res.json({ message: error.message });
   }
 };
 
