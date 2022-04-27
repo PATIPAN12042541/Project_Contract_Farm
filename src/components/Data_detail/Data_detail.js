@@ -28,7 +28,7 @@ const Data_detail = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1{id}</h1>
+                  <h1 className="card-title">รายละเอียดแปลง A1</h1>
                 </div>
 
                 <div className="card-body">
