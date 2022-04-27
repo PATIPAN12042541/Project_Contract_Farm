@@ -203,7 +203,7 @@ const Edit_data = () => {
                       style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
-                        <th className="col-1 col-md-1 col-xl-1">#</th>
+                        <th className="col-1">#</th>
                         <th className="col-5">
                           <center>ชื่อแปลงผัก</center>
                         </th>
@@ -223,7 +223,10 @@ const Edit_data = () => {
                     </thead>
                     {plantdata.map((data, index) => (
                       <tbody key={data.id_plant}>
-                        <tr data-widget="expandable-table">
+                        <tr
+                          data-widget="expandable-table"
+                          aria-expanded="false"
+                        >
                           <td>{data.id_name_plant}</td>
                           <td>{data.name_plant}</td>
                           <td>{data.start_date_plant}</td>
