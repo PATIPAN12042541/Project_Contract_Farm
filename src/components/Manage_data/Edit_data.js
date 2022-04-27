@@ -206,8 +206,8 @@ const Edit_data = () => {
                                   onUpload={(file) => {
                                     console.log("query file", file);
                                     const img = {
-                                      preview: URL.createObjectURL(file),
-                                      data: file,
+                                      preview: URL.createObjectURL(file[0]),
+                                      data: file[0],
                                       }
                                     setImage(img);
                                   }}
