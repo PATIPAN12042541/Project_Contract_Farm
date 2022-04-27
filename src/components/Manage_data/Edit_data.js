@@ -216,7 +216,7 @@ const Edit_data = () => {
                         <th className="col-2">
                           <center>รูปภาพ</center>
                         </th>
-                        <th className="col-1">
+                        <th className="col-2">
                           <center>ลบข้อมูล</center>
                         </th>
                       </tr>
