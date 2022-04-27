@@ -22,7 +22,7 @@ try {
 
 app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
 
-/*const storage = diskStorage({
+const storage = diskStorage({
   destination: (req, file, cb) => {
     cb(null, '../public/dist/img/')
   },
@@ -32,29 +32,12 @@ app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.
 })
 const upload = multer({ storage: storage })
 try{
-    app.post('../public/dist/img/', upload.single('file'), function (req, res) {
+    app.post('/public/dist/img/', upload.single('file'), function (req, res) {
         res.json({msg:"Upload OK"})
       })
 }catch(error){
     res.json({msg:"Upload Fail"})
-}*/
-
-app.post('public/dist/img/', (req, res) => {
-  if (req.files === null) {
-  return res.status(400).json({ msg: 'No file uploaded' });
-  }
-
-  const file = req.files.file;
-
-  file.mv(`${__dirname}/public/dist/img/${file.name}`, err => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send(err);
-    }
-
-    res.json({ fileName: file.name, filePath: `public/dist/img/${file.name}` });
-  });
-});
+}
 
 app.use(cookieParser());
 app.use(express.json());
