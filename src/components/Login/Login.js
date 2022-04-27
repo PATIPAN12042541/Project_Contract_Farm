@@ -17,8 +17,7 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
-                window.location.href('/contract_farm');
-                //Nav('/contract_farm');
+                Nav('/contract_farm');
             })
             .catch(function (error){
                 Swal.fire({
