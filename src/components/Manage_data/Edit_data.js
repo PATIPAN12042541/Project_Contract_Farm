@@ -44,11 +44,9 @@ const Edit_data = () => {
   const deletePlants = async (id) => {
     try {
       await axios.delete(
-        "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant",
-        {
-          id_plant: id,
-        }
+        `http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant/${id}`
       );
+      getPlant();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -194,10 +192,7 @@ const Edit_data = () => {
                                   onUpload={(file) => {
                                     console.log("query file", file);
                                   }}
-                                  onChange={handleFileChange}
                                 />
-                                <input type='file' name='file' onChange={handleFileChange}></input>
-                                <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} width='100' height='100' />
                               </div>
                             </div>
                           </div>
