@@ -30,7 +30,7 @@ export const postPlant = async (req, res) => {
 
   try {
     await Plant.create({
-      id_plant: JSON.stringify(IdPlant[0]),
+      id_plant: json({ IdPlant }),
       name_plant: name_plant,
       start_date_plant: start_date_plant,
       end_date_plant: end_date_plant,
