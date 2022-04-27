@@ -51,7 +51,7 @@ const Edit_data = () => {
       Swal.fire({
         icon: "error",
         title: error.response.data.msg,
-        text: "Save Error!",
+        text: "error.response.data.msg !",
       });
     }
   };
