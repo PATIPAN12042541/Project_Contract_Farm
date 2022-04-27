@@ -209,7 +209,7 @@ const Edit_data = () => {
                                       preview: URL.createObjectURL(file),
                                       data: file,
                                       }
-                                    setImage(file);
+                                    setImage(img);
                                   }}
                                 />
                               </div>
