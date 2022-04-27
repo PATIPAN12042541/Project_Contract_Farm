@@ -105,7 +105,7 @@ const SidebarAdmin = () => {
           >
             <li class="nav-item">
               <li class="nav-item">
-                <a href="/#" class="nav-link">
+                <a class="nav-link">
                   <p>
                     ข้อมูลรายละเอียด
                     <i class="fas fa-angle-left right"></i>
@@ -131,7 +131,7 @@ const SidebarAdmin = () => {
             </li>
             <li class="nav-item">
               <li class="nav-item">
-                <a href="/#" class="nav-link">
+                <a class="nav-link">
                   <p>
                     จัดการข้อมูล
                     <i class="fas fa-angle-left right"></i>
@@ -157,7 +157,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/#" class="nav-link">
+                    <a class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>อื่นๆ</p>
                     </a>
