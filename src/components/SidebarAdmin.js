@@ -92,7 +92,7 @@ const SidebarAdmin = () => {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              {name} {lastname}
+              {name}
             </a>
           </div>
         </div>
@@ -157,7 +157,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>อื่นๆ</p>
                     </a>
