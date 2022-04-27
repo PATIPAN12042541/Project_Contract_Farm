@@ -23,7 +23,7 @@ export const postPlant = async (req, res) => {
     "select id from plant_detail where id_name_plant = :id_plant ",
     {
       replacements: { id_plant: id_plant },
-      type: QueryTypes.SELECT,
+      type: db.QueryTypes.SELECT,
     }
   );
   
