@@ -192,7 +192,6 @@ const Edit_data = () => {
                                   multiple
                                   accept="image/*"
                                   onUpload={(file) => {
-                                    handleFileChange
                                     console.log("query file", file);
                                   }}
                                 />
