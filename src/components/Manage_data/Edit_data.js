@@ -191,10 +191,10 @@ const Edit_data = () => {
                                   btnIcon="fas fa-upload"
                                   multiple
                                   accept="image/*"
-                                  /*onUpload={(file) => {
+                                  onUpload={(file) => {
+                                    handleFileChange
                                     console.log("query file", file);
-                                  }}*/
-                                  onChange={handleFileChange}
+                                  }}
                                 />
                                 <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} width='100' height='100' />
                               </div>
