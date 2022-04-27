@@ -57,13 +57,15 @@ export const postDetailPlant = async (req, res) => {
 
 
 export const DeletePlant = async (req, res) => {
-  const { id_plant } = req.body;
   try {
-    await db.query("DELETE FROM  plant_detail where id = :id_plant", {
-      replacements: { id_plant: id_plant },
-      type: db.QueryTypes.SELECT,
+    await PlantDetail.destroy({
+      where: {
+        id: req.params.id,
+      },
     });
-    res.json({ msg: "Registration Successful" });
+    res.json({
+      message: "Plant Deleted",
+    });
   } catch (error) {
     res.json({ message: error.message });
   }
