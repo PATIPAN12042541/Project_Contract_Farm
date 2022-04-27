@@ -48,6 +48,7 @@ const Content = () => {
                         className="col-md-12 col-lg-6 col-xl-4"
                         key={data.id_plant}
                       >
+                        <Link to="/Data_detail" className="text-white">
                         <div className="card mb-2 bg-gradient-dark">
                           <img
                             className="card-img-top"
@@ -63,11 +64,9 @@ const Content = () => {
                             <p className="card-text text-white pb-3 pt-1">
                               {data.name_plant}
                             </p>
-                            <Link to="/Data_detail" className="text-white">
-                              Click Me
-                            </Link>
                           </div>
                         </div>
+                        </Link>
                       </div>
                     ))}
                   </div>
