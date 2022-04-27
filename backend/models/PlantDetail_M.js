@@ -1,14 +1,10 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import Plant from "../models/Plant_M.js";
 
 const { DataTypes } = Sequelize;
 const PlantDetail = db.define(
   "plant_detail",
   {
-    id_plant: {
-      type: DataTypes.INTEGER,
-    },
     id_name_plant: {
       type: DataTypes.STRING,
     },
@@ -27,7 +23,6 @@ const PlantDetail = db.define(
   },
   {
     freezeTableName: true,
-    timestamps: false,
   }
 );
 

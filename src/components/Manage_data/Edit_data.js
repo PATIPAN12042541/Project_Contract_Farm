@@ -31,16 +31,12 @@ const Edit_data = () => {
 
   const postPlant = async (e) => {
     e.preventDefault();
-    try { 
+    try {
       await axios
         .post(
-          "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/Plant",
+          "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DetailPlant",
           {
-            id_plant: idplant,
-            name_plant: nameplant,
-            start_date_plant: startdate,
-            end_date_plant: enddate,
-            //     plant_image: plantimage,
+            id_name_plant: idplant,
           }
         )
         .then(function (response) {
@@ -68,10 +64,10 @@ const Edit_data = () => {
 
   return (
     <div className="content-wrapper">
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-12"></div>
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-12"></div>
           </div>
         </div>
       </section>
