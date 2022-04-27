@@ -9,8 +9,8 @@ const Header = () => {
 
   const Logout = async () => {
     try {
-        //await axios.delete('http://node30998-env-3297740.th1.proen.cloud:4000/user/logout');
-        await axios.delete('http://localhost:4000/user/logout');
+        await axios.delete('http://node30998-env-3297740.th1.proen.cloud:4000/user/logout');
+        //await axios.delete('http://localhost:4000/user/logout');
         history("/");
     } catch (error) {
         console.log(error);
