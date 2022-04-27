@@ -36,11 +36,11 @@ export const postDetailPlant = async (req, res) => {
   const { id_name_plant } = req.body;
   try {
     await PlantDetail.create({
-      name_plant: id_name_plant,
+      id_name_plant: id_name_plant,
       quantity_chemical: 0,
       unit: "",
       note: "",
-      last_update: Date(),
+      last_update: "2022-04-25 10:54:49",
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
