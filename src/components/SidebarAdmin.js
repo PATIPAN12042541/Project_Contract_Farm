@@ -8,15 +8,16 @@ import { useNavigate } from 'react-router-dom';
 
 const SidebarAdmin = () => {
     const [name, setName] = useState('');
+    const [lastname, setLastName] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
     const history = useNavigate();
 
-    /*useEffect(() => {
+    useEffect(() => {
       refreshToken();
       getUsers();
-    }, []);*/
+    }, []);
 
 
     const refreshToken = async () => {
@@ -26,10 +27,10 @@ const SidebarAdmin = () => {
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
+        setLastName(decoded.lastname);
         setExpire(decoded.exp);
       } catch (error) {
         if (error.response) {
-          alert(console.log(error.response));
           history("/");
         }
       }
@@ -46,6 +47,7 @@ const SidebarAdmin = () => {
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         setName(decoded.name);
+        setLastName(decoded.lastname);
         setExpire(decoded.exp);
       }
       return config;
@@ -55,7 +57,7 @@ const SidebarAdmin = () => {
 
     const getUsers = async () => {
       const response = await axiosJWT.get('http://node30998-env-3297740.th1.proen.cloud:4000/check_users', {
-     //const response = await axiosJWT.get('http://localhost:4000/check_users', {
+      //const response = await axiosJWT.get('http://localhost:4000/check_users', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -90,8 +92,7 @@ const SidebarAdmin = () => {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              Robert Patricia
-              {name}
+              {name} {lastname}
             </a>
           </div>
         </div>
@@ -148,7 +149,7 @@ const SidebarAdmin = () => {
             </li>
             <li class="nav-item">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a class="nav-link">
                   <p>
                     เพิ่มเติม
                     <i class="fas fa-angle-left right"></i>
@@ -156,7 +157,7 @@ const SidebarAdmin = () => {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/#" class="nav-link">
+                    <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>อื่นๆ</p>
                     </a>
