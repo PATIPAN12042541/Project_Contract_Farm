@@ -9,5 +9,5 @@ const router = express.Router();
 
 router.get("/", getPlant);
 router.post("/DetailPlant", postDetailPlant);
-router.post("/DeletePlant", DeletePlant);
+router.delete("/DeletePlant", DeletePlant);
 export default router;

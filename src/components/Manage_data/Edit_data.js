@@ -32,7 +32,7 @@ const Edit_data = () => {
 
   const deletePlants = async (id) => {
     try {
-      await axios.get(
+      await axios.delete(
         "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant",
         {
           id_plant: id,
