@@ -203,20 +203,20 @@ const Edit_data = () => {
                       style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
-                        <th className="col-md-1 col-xl-1">#</th>
-                        <th className="col-5">
+                        <th>#</th>
+                        <th>
                           <center>ชื่อแปลงผัก</center>
                         </th>
-                        <th className="col-1">
+                        <th>
                           <center>วันที่เริ่มต้น</center>
                         </th>
-                        <th className="col-1">
+                        <th>
                           <center>วันที่สิ้นสุด</center>
                         </th>
-                        <th className="col-2">
+                        <th>
                           <center>รูปภาพ</center>
                         </th>
-                        <th className="col-2">
+                        <th>
                           <center>ลบข้อมูล</center>
                         </th>
                       </tr>
@@ -227,7 +227,7 @@ const Edit_data = () => {
                           data-widget="expandable-table"
                           aria-expanded="false"
                         >
-                          <td className="col-md-1 col-xl-1">{data.id_name_plant}</td>
+                          <td>{data.id_name_plant}</td>
                           <td>{data.name_plant}</td>
                           <td>{data.start_date_plant}</td>
                           <td>{data.end_date_plant}</td>
