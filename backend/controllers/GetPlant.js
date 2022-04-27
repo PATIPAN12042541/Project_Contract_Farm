@@ -28,7 +28,7 @@ export const postPlant = async (req, res) => {
     }
   );
 
-  const jsonID = res.json(IdPlant[0].id);
+  const jsonID = json(IdPlant[0].id);
 
   try {
     await Plant.create({
