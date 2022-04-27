@@ -54,26 +54,25 @@ export const postDetailPlant = async (req, res) => {
       last_update: Date().toLocaleString(),
     });
 
-    const IdPlant = await db.query(
-      "select id from plant_detail where id_name_plant = :id_name_plant ",
-      {
-        replacements: { id_name_plant: id_name_plant },
-        type: db.QueryTypes.SELECT,
-      }
-    );
+    // const IdPlant = await db.query(
+    //   "select id from plant_detail where id_name_plant = :id_name_plant ",
+    //   {
+    //     replacements: { id_name_plant: id_name_plant },
+    //     type: db.QueryTypes.SELECT,
+    //   }
+    // );
 
-    try {
-      await Plant.create({
-        id_plant: IdPlant[0].id,
-        name_plant: name_plant,
-        start_date_plant: start_date_plant,
-        end_date_plant: end_date_plant,
-        plant_image: "",
-      });
-      res.json({ msg: "Registration Successful" });
-    } catch (error) {
-      res.json({ message: error.message + jsonID });
-    }
+    // try {
+    //   await Plant.create({
+    //     id_plant: IdPlant[0].id,
+    //     name_plant: name_plant,
+    //     start_date_plant: start_date_plant,
+    //     end_date_plant: end_date_plant,
+    //     plant_image: "",
+    //   });
+    // } catch (error) {
+    //   res.json({ message: error.message + jsonID });
+    // }
 
     res.json({ msg: "Registration Successful" });
   } catch (error) {
