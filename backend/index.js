@@ -6,6 +6,7 @@ import RoleRoutes from "./routes/RoleRoutes.js";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
 import PlantRoute from "./routes/PlantRoute.js";
+import multer, { diskStorage } from 'multer'
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,23 @@ try {
 //app.use(cors({ credentials:true, origin:'http://localhost:3001' }));
 
 app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
+
+const storage = diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, '../public/dist/img/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  },
+})
+const upload = multer({ storage: storage })
+try{
+    app.post('../public/dist/img/', upload.single('file'), function (req, res) {
+        res.json({msg:"Upload OK"})
+      })
+}catch(error){
+    res.json({msg:"Upload Fail"})
+}
 
 app.use(cookieParser());
 app.use(express.json());
