@@ -223,10 +223,7 @@ const Edit_data = () => {
                     </thead>
                     {plantdata.map((data, index) => (
                       <tbody key={data.id_plant}>
-                        <tr
-                          data-widget="expandable-table"
-                          aria-expanded="false"
-                        >
+                        <tr data-widget="expandable-table">
                           <td>{data.id_name_plant}</td>
                           <td>{data.name_plant}</td>
                           <td>{data.start_date_plant}</td>
