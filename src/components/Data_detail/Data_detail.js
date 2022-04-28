@@ -12,7 +12,6 @@ const images = [
 
 const Data_detail = () => {
 
-  
   return (
     <div className="content-wrapper">
       <section className="content-header">
