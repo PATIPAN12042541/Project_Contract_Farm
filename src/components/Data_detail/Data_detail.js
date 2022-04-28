@@ -45,8 +45,8 @@ const Data_detail = (props) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-12 col-sm-4">
-                      <div className="col-12">
-                        {datadetail.map((data, index) => (
+                      {datadetail.map((data) => (
+                        <div className="col-12">
                           <SimpleImageSlider
                             width={320}
                             height={350}
@@ -57,8 +57,8 @@ const Data_detail = (props) => {
                             autoPlay={true}
                             className="product-image"
                           />
-                        ))}
-                      </div>
+                        </div>
+                      ))}
                     </div>
                     <div className="col-12 col-sm-8">
                       <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
