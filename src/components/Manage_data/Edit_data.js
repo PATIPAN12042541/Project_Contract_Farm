@@ -27,16 +27,51 @@ const Edit_data = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
+      `${process.env.REACT_APP_API_URL}/getplant`
     );
     setPlantData(response.data);
   };
 
-  const deletePlants = async (id) => {
-    try {
+  const deletePlants = (id) => {
+    Swal.fire({
+      title: 'Are you sure delete?',
+      text: "You want delete data !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        try {
+         axios.delete(
+            `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
+          );  
+          
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+    
+          getPlant();
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    })
+    
+    
+    /*try {
       await axios.delete(
-        `http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant/${id}`
-      );
+        `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
+      );     
+
       getPlant();
     } catch (error) {
       Swal.fire({
@@ -44,7 +79,7 @@ const Edit_data = () => {
         title: error.response.data.msg,
         text: "error.response.data.msg !",
       });
-    }
+    }*/
   };
 
   const postPlant = async (e) => {
@@ -52,7 +87,7 @@ const Edit_data = () => {
     try {
       await axios
         .post(
-          "http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DetailPlant",
+          `${process.env.REACT_APP_API_URL}/getplant/DetailPlant`,
           {
             id_name_plant: idplant,
             name_plant: nameplant,
