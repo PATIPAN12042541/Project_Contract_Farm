@@ -27,8 +27,7 @@ export const postDetailPlant = async (req, res) => {
 
   const storage = diskStorage({
       destination: (req, file, cb) => {
-        //../public/dist/img/
-        cb(null, '../../public/dist/img/')
+        cb(null, '../public/dist/img/')
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -36,6 +35,7 @@ export const postDetailPlant = async (req, res) => {
     })
 
   const upload = multer({ storage: storage });
+  app.use(cors())
   let image_name;
   try{
     app.post('/public/dist/img', upload.single('file'), function (req, res) {
