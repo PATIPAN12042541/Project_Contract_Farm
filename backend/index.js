@@ -22,6 +22,7 @@ try {
 
 app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
 
+/******** Upload File To Folder public/dist/img/ to frontend **************/
 const storage_1 = diskStorage({
       destination: (req, file, cb) => {
         cb(null, '../public/dist/img/')
@@ -32,15 +33,14 @@ const storage_1 = diskStorage({
     })
 
   const upload_1 = multer({ storage: storage_1 });
-  let image_name;
   try{
     app.post('/public/dist/img', upload_1.single('file'), function (req, res) {
-        res.json(console.log('Upload Success'))
-          image_name = req.file.filename;
+        res.json({})
       })
   }catch(error){
       res.json(console.log('Upload Fail'))
   }
+/****************************************************************************/
 
 
 app.use(cookieParser());
