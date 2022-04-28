@@ -11,7 +11,7 @@ const images = [
 ];
 
 const Data_detail = (props) => {
-  console.log(props);
+  console.log(props.id);
   return (
     <div className="content-wrapper">
       <section className="content-header">
