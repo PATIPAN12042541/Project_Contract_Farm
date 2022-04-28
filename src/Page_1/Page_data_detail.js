@@ -8,13 +8,13 @@ import { useParams } from "react-router-dom";
 const Page_data_detail = () => {
   function Invoice() {
     let params = useParams();
-    console.log(params.id);
+    return params.id;
   }
   return (
     <>
       <Header />
       <SidebarAdmin />
-      <Data_detail />
+      <Data_detail id={Invoice} />
       <Footer />
     </>
   );

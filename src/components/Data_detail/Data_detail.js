@@ -29,7 +29,7 @@ const Data_detail = (props) => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
+                  <h1 className="card-title">รายละเอียดแปลง A1 {props.id} </h1>
                 </div>
 
                 <div className="card-body">
