@@ -5,8 +5,12 @@ import axios from "axios";
 
 
 const Data_detail = (props) => {
+
+  const { id } = props.id;
+
   const [datadetail, setDatadetail] = useState([]);
 
+  console.log(datadetail);
   useEffect(() => {
     getDatadetail();
   }, []);
@@ -15,7 +19,7 @@ const Data_detail = (props) => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/Data_detail`,
       {
-        id: props.id,
+        id: id,
       }
     );
     setDatadetail(response.data);
@@ -46,18 +50,16 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
-                        {datadetail.map((data, index) => (
-                          <SimpleImageSlider
-                            width={320}
-                            height={350}
-                            images={data.path_image}
-                            showBullets={true}
-                            showNavs={true}
-                            style={{ backgroundColor: "#FFFFF" }}
-                            autoPlay={true}
-                            className="product-image"
-                          />
-                        ))}
+                        <SimpleImageSlider
+                          width={320}
+                          height={350}
+                          images={""}
+                          showBullets={true}
+                          showNavs={true}
+                          style={{ backgroundColor: "#FFFFF" }}
+                          autoPlay={true}
+                          className="product-image"
+                        />
                       </div>
                     </div>
                     <div className="col-12 col-sm-8">
