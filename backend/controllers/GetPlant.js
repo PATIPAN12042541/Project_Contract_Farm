@@ -1,6 +1,7 @@
 import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
+import multer, { diskStorage } from 'multer'
 
 export const getPlant = async (req, res) => {
   try {
@@ -21,14 +22,14 @@ export const postDetailPlant = async (req, res) => {
   const { id_name_plant, name_plant, start_date_plant, end_date_plant} =
     req.body;
 
-  /*const storage = diskStorage({
+  const storage = diskStorage({
       destination: (req, file, cb) => {
         cb(null, '/public/dist/img/')
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname)
       },
-    })*/
+    })
 
   /*const upload = multer({ storage: storage });
   let image_name;*/

@@ -6,7 +6,6 @@ import RoleRoutes from "./routes/RoleRoutes.js";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
 import PlantRoute from "./routes/PlantRoute.js";
-import multer, { diskStorage } from 'multer'
 
 dotenv.config();
 const app = express();
