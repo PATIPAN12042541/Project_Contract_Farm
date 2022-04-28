@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Data_detail from "./Data_detail/Data_detail";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
-  
 
   useEffect(() => {
     getPlant();
@@ -15,6 +13,7 @@ const Content = () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
     );
+
     setPlant(response.data);
   };
 
@@ -48,10 +47,10 @@ const Content = () => {
                         key={data.id_plant}
                       >
                         <Link
-                          to={`/Data_detail/${data.id}`}
+                          //to={`/Data_detail/${data.id}`}
+                          to={{ pathname: `/Data_detail/${data.id}` }}
                           className="text-white"
                         >
-                         
                           <div className="card mb-2 bg-gradient-dark">
                             <img
                               className="card-img-top"
