@@ -11,7 +11,7 @@ const images = [
 ];
 
 const Data_detail = () => {
-  const [newid, setId] = Content(0);
+  const [newid, setId] = Content();
 
   return (
     <div className="content-wrapper">
