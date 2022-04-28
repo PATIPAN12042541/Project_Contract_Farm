@@ -189,6 +189,8 @@ const Edit_data = () => {
                                       data: file[0],
                                       }
                                     setImage(img);
+
+                                    console.log("name image : ", image.data);
                                   }}
                                 />
                               </div>
