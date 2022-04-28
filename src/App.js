@@ -37,7 +37,7 @@ function App() {
             exact
             path="/Data_detail/:id"
             render={({ id }) => <Page_data_detail id={id} />}
-            element={<Page_data_detail />}
+            // element={<Page_data_detail />}
           />
           <Route
             exact
