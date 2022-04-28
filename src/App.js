@@ -14,7 +14,7 @@ import Page_data_detail from "./Page_1/Page_data_detail";
 
 function App() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <BrowserRouter>
         <Routes>
           <Route
