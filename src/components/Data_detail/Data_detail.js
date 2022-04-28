@@ -50,7 +50,7 @@ const Data_detail = (props) => {
                         <SimpleImageSlider
                           width={320}
                           height={350}
-                          images={data.path_image}
+                          images={""}
                           showBullets={true}
                           showNavs={true}
                           style={{ backgroundColor: "#FFFFF" }}
