@@ -77,9 +77,9 @@ export const getDataImagePlant = async (req, res) => {
   const { id } = req.body;
   try {
     const plants = await db.query(
-      "SELECT * FROM image_plant_detail where id_plant = :id_plant",
+      "SELECT * FROM image_plant_detail where id_plant = :id",
       {
-        replacements: { id_plant: id },
+        replacements: { id: id },
         type: db.QueryTypes.SELECT,
       }
     );
