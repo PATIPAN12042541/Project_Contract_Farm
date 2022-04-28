@@ -215,7 +215,7 @@ const Edit_data = () => {
                                     };
                                     setImage(img);
 
-                                    console.log(image.target.file[0].value);
+                                    console.log(image.data[0].target.value);
                                   }}
                                 />
                               </div>
