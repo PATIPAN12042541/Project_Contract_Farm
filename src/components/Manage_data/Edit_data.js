@@ -94,6 +94,13 @@ const Edit_data = () => {
             text: "Save Error!",
           });
         });
+
+        let formData = new FormData()
+        formData.append('file', image.data)
+
+        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+                    .then(res => console.log(res.data))
+                    .catch(err => console.error(err));
     } catch (error) {
       Swal.fire({
         icon: "error",
