@@ -223,7 +223,7 @@ const Edit_data = () => {
                                       }
                                     setImage(img);
 
-                                    console.log("name image : ", image.data[0]);
+                                    console.log("name image : ", image.preview);
                                   }}
                                 />
                               </div>
