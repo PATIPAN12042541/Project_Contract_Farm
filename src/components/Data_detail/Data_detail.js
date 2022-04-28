@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 
@@ -11,7 +11,15 @@ const images = [
 ];
 
 const Data_detail = () => {
-  const [newid, setId] = useState([]).Content();
+  const [newid, setId] = useState([]);
+
+  useEffect(() => {
+    getId();
+  }, []);
+
+  const getId = () => {
+    setId(Content({ id: 0 }));
+  };
 
   return (
     <div className="content-wrapper">
