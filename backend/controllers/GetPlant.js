@@ -75,10 +75,9 @@ export const DeletePlant = async (req, res) => {
 
 export const getDataImagePlant = async (req, res) => {
   const { id_plant } = req.body;
-  console.log(id_plant);
   try {
     const imageplants = await db.query(
-      "SELECT * FROM image_plant_detail where id_plant = :id_plant",
+      "select * from image_plant_detail where id_plant = :id_plant",
       {
         replacements: { id_plant: id_plant },
         type: db.QueryTypes.SELECT,
@@ -86,6 +85,6 @@ export const getDataImagePlant = async (req, res) => {
     );
     res.json(imageplants);
   } catch (error) {
-    res.json({ message: error.message });
+    res.json({ message: error.message + id_plant });
   }
 };
