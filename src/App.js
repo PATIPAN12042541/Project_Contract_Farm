@@ -12,8 +12,7 @@ import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
-function App() {
-  let { id } = useParams();
+function App({ match }) {
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -37,7 +36,7 @@ function App() {
           <Route
             exact
             path="/Data_detail/:id"
-            element={<Page_data_detail id={id} />}
+            element={<Page_data_detail id={match.params.id} />}
           />
           <Route
             exact
