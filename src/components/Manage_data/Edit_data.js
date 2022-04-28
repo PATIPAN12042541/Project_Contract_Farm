@@ -220,7 +220,7 @@ const Edit_data = () => {
                                     const img = {
                                       preview: URL.createObjectURL(file[0]),
                                       data: file[0],
-                                      }
+                                    };
                                     setImage(img);
 
                                     console.log("name image : ", image.data);
@@ -228,11 +228,18 @@ const Edit_data = () => {
                                 />
                               </div>
                               <div className="col-1">
-                              <Zoom>
-                                <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} 
-                                    class="img-fluid mb-2"
-                                    width='100' height='100' />
-                              </Zoom>
+                                <Zoom>
+                                  <img
+                                    src={
+                                      image.preview
+                                        ? image.preview
+                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                    }
+                                    className="img-fluid mb-2"
+                                    width="100"
+                                    height="100"
+                                  />
+                                </Zoom>
                               </div>
                             </div>
                           </div>
@@ -291,7 +298,7 @@ const Edit_data = () => {
                               <Zoom>
                                 <img
                                   src={data.plant_image}
-                                  class="img-fluid mb-2"
+                                  className="img-fluid mb-2"
                                   alt="white sample"
                                   width="100"
                                   height="100"
@@ -308,7 +315,7 @@ const Edit_data = () => {
                               >
                                 <button
                                   type="submit"
-                                  class="btn btn-warning"
+                                  className="btn btn-warning"
                                   style={{ color: "#FFFFFF" }}
                                 >
                                   <BsFillPencilFill />
@@ -317,7 +324,7 @@ const Edit_data = () => {
                               <> </>
                               <button
                                 type="submit"
-                                class="btn btn-danger"
+                                className="btn btn-danger"
                                 onClick={() => {
                                   deletePlants(data.id);
                                 }}
@@ -368,7 +375,10 @@ const Edit_data = () => {
                                 </span>
                               </div>
                               <div className="col-1">
-                                <button type="submit" class="btn btn-success">
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                >
                                   <BsCheckSquareFill /> ยืนยัน
                                 </button>
                               </div>
