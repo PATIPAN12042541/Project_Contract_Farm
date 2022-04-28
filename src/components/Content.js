@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-
 const Content = () => {
   const [plant, setPlant] = useState([]);
 
