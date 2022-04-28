@@ -18,7 +18,7 @@ const Data_detail = (props) => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/Data_detail/`,
       {
-        id: props.id,
+        id_plant: props.id,
       }
     );
     setDatadetail(response.data);
