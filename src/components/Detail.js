@@ -43,10 +43,10 @@ const Detail = () => {
 
   return (
     <div className="content-wrapper">
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-12"></div>
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-12"></div>
           </div>
         </div>
       </section>
@@ -55,9 +55,12 @@ const Detail = () => {
           <div className="row">
             <div className="col-12">
               <div className="card card-success">
-                <div class="card-header" style={{ backgroundColor: "#8CC152" }}>
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152" }}
+                >
                   <center>
-                    <h3 class="card-title">
+                    <h3 className="card-title">
                       คำแนะนำ การใช้สารป้องกันและกำจัดโรคพืช (กะเพรา,โหระพา)
                       ฤดูกาล 2564/2565
                     </h3>
@@ -70,7 +73,7 @@ const Detail = () => {
                         <Zoom>
                           <img
                             src={data.url}
-                            class="img-fluid mb-2"
+                            className="img-fluid mb-2"
                             alt="white sample"
                           />
                         </Zoom>

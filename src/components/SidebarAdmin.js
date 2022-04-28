@@ -131,7 +131,7 @@ const SidebarAdmin = () => {
                 <a href="/contract_farm" className="nav-link">
                   <p>
                     จัดการข้อมูล
-                    <i class="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
