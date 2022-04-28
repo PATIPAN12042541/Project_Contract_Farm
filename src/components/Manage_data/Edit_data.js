@@ -63,21 +63,6 @@ const Edit_data = () => {
         }
       }
     })
-    
-    
-    /*try {
-      await axios.delete(
-        `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
-      );     
-
-      getPlant();
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "error.response.data.msg !",
-      });
-    }*/
   };
 
   const postPlant = async (e) => {
