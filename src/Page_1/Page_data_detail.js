@@ -4,8 +4,9 @@ import Footer from "../components/Footer";
 import SidebarAdmin from "../components/SidebarAdmin";
 import Data_detail from "../components/Data_detail/Data_detail";
 
-const Page_data_detail = (props) => {
-  console.log(props);
+const Page_data_detail = ({ match }) => {
+  let params = match.params;
+  console.log(params);
   return (
     <>
       <Header />
