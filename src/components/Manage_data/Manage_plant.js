@@ -52,7 +52,7 @@ const Manage_plant = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputFile">File input</label>
+                      <label>File input</label>
                       <div className="input-group">
                         <div className="custom-file">
                           <input
@@ -60,10 +60,7 @@ const Manage_plant = () => {
                             className="custom-file-input"
                             id="exampleInputFile"
                           />
-                          <label
-                            className="custom-file-label"
-                            htmlFor="exampleInputFile"
-                          >
+                          <label className="custom-file-label">
                             Choose file
                           </label>
                         </div>
