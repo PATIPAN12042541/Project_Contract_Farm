@@ -39,7 +39,7 @@ export const postDetailPlant = async (req, res) => {
   try{
     app.post('/public/dist/img/', upload.single('file'), function (req, res) {
         res.json(console.log('Upload Success'))
-          //image_name = req.file.filename;
+          image_name = req.file.filename;
       })
   }catch(error){
       res.json(console.log('Upload Fail'))
@@ -68,7 +68,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: "",
+        plant_image: image_name,
       });
     } catch (error) {
       res.json({ message: error.message });
