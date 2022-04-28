@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
+import axios from "axios";
 
 const images = [
   { url: "../dist/img/insecticide/Pic_1.png" },
