@@ -11,6 +11,7 @@ const images = [
 ];
 
 const Data_detail = (props) => {
+  console.log(props.id);
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -29,7 +30,7 @@ const Data_detail = (props) => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1  </h1>
+                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
                 </div>
 
                 <div className="card-body">
