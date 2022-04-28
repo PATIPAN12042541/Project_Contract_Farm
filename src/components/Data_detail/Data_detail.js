@@ -11,11 +11,7 @@ const images = [
 ];
 
 const Data_detail = () => {
-  const [id, setId] = Content();
-
-  function Newid() {
-    setId({ id: 0 });
-  }
+  const [newid, setId] = useState([]).Content();
 
   return (
     <div className="content-wrapper">
@@ -36,8 +32,8 @@ const Data_detail = () => {
                   style={{ backgroundColor: "#8CC152" }}
                 >
                   <h1 className="card-title">
-                    รายละเอียดแปลง A1 {Newid}
-                    {id.id}{" "}
+                    รายละเอียดแปลง A1
+                    {newid.id}{" "}
                   </h1>
                 </div>
 
