@@ -1,7 +1,10 @@
 import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
-import multer, { diskStorage } from 'multer'
+import multer, { diskStorage } from 'multer';
+import express from "express";
+
+const app = express();
 
 export const getPlant = async (req, res) => {
   try {
