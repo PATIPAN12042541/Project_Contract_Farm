@@ -11,12 +11,8 @@ import Data_detail from "./components/Data_detail/Data_detail";
 import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
-import { useLocation } from "react-router-dom";
 
 function App() {
-  const location = useLocation();
-  const id_plant = location.state.id;
-
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -37,11 +33,7 @@ function App() {
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
-          <Route
-            exact
-            path="/Data_detail/:id"
-            element={<Page_data_detail id={id_plant} />}
-          />
+          <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
           <Route
             exact
             path="/Edit_data"
