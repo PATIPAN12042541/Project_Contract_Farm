@@ -12,7 +12,6 @@ const Content = () => {
   }, []);
 
   const getPlant = async () => {
-    console.log(process.env);
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
     );
