@@ -100,62 +100,62 @@ const SidebarAdmin = () => {
             role="menu"
             data-accordion="false"
           >
-            <li class="nav-item">
-              <li class="nav-item">
-                <a href="/contract_farm" class="nav-link">
+            <li className="nav-item">
+              <li className="nav-item">
+                <a href="/contract_farm" className="nav-link">
                   <p>
                     ข้อมูลรายละเอียด
-                    <i class="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
                     <Link className="nav-link" to="/Home">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i className="far fa-circle nav-icon"></i>
                       <p>แปลงผัก</p>
                     </Link>
                   </li>
                 </ul>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
                     <Link className="nav-link" to="/Detail">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i className="far fa-circle nav-icon"></i>
                       <p>ข้อมูลเบื้องต้น</p>
                     </Link>
                   </li>
                 </ul>
               </li>
             </li>
-            <li class="nav-item">
-              <li class="nav-item">
-                <a href="/contract_farm" class="nav-link">
+            <li className="nav-item">
+              <li className="nav-item">
+                <a href="/contract_farm" className="nav-link">
                   <p>
                     จัดการข้อมูล
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <Link to="/Edit_data" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
+                    <Link to="/Edit_data" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>
                       <p>จัดการข้อมูล</p>
                     </Link>
                   </li>
                 </ul>
               </li>
             </li>
-            <li class="nav-item">
-              <li class="nav-item">
-                <a class="nav-link">
+            <li className="nav-item">
+              <li className="nav-item">
+                <a className="nav-link">
                   <p>
                     เพิ่มเติม
-                    <i class="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="/contract_farm" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
+                    <a href="/contract_farm" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>
                       <p>อื่นๆ</p>
                     </a>
                   </li>

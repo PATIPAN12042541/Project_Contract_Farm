@@ -29,8 +29,8 @@ const Header = () => {
             <i className="fas fa-bars text-white" />
           </a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <Link class="nav-link text-white" to="/contract_farm">
+        <li className="nav-item d-none d-sm-inline-block">
+          <Link className="nav-link text-white" to="/contract_farm">
             Home
           </Link>
         </li>
