@@ -10,8 +10,7 @@ const images = [
   { url: "../dist/img/insecticide/Pic_5.png" },
 ];
 
-const Data_detail = (props) => {
-  console.log(this.props.id);
+const Data_detail = () => {
 
   return (
     <div className="content-wrapper">
