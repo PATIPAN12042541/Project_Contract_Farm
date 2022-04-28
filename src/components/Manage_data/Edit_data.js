@@ -130,7 +130,7 @@ const Edit_data = () => {
                                   onChange={(e) => setIdPlant(e.target.value)}
                                 ></input>
                               </div>
-                              <div className="col-4">
+                              <div className="col-5">
                                 <center>
                                   <label for="exampleInputBorder">
                                     ชื่อแปลงผัก
