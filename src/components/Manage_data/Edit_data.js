@@ -31,9 +31,9 @@ const Edit_data = () => {
 
         console.log(formData);
 
-        /*await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
                     .then(res => console.log(res.data))
-                    .catch(err => console.error(err));*/
+                    .catch(err => console.error(err));
   }
 
   const getPlant = async () => {
