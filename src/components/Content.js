@@ -48,8 +48,10 @@ const Content = () => {
                       >
                         <Link
                           //to={`/Data_detail/${data.id}`}
-                          to={{ pathname: `/Data_detail/${data.id}` }}
-                          params={{ id: data.id }}
+                          to={{
+                            pathname: `/Data_detail/${data.id}`,
+                            state: data.id,
+                          }}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
