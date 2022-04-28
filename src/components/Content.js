@@ -50,7 +50,7 @@ const Content = () => {
                           //to={`/Data_detail/${data.id}`}
                           to={{
                             pathname: `/Data_detail/${data.id}`,
-                            state: data.id,
+                            state: { id: data.id },
                           }}
                           className="text-white"
                         >
