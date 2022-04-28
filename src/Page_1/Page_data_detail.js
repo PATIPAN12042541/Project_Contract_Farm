@@ -6,15 +6,14 @@ import Data_detail from "../components/Data_detail/Data_detail";
 import { useParams } from "react-router-dom";
 
 const Page_data_detail = () => {
-  function Invoice() {
-    let params = useParams();
-    return params.id;
-  }
+ 
+  let params = useParams();
+  console.log(params.id);
   return (
     <>
       <Header />
       <SidebarAdmin />
-      <Data_detail id={Invoice} />
+      <Data_detail />
       <Footer />
     </>
   );
