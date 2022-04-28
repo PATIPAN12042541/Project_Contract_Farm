@@ -18,6 +18,7 @@ const Edit_data = () => {
   const [enddate, setEndDate] = useState();
 
   const [image, setImage] = useState({ preview: '', data: '' });
+  const [image_name, setImageName] = useState();
 
   // const [plantimage, setPlantImage] = useState();
 
@@ -87,7 +88,7 @@ const Edit_data = () => {
             name_plant: nameplant,
             start_date_plant: startdate,
             end_date_plant: enddate,
-            image_url:image.data,
+            image_url:image_name,
           }
         )
         .then(function (response) {
@@ -212,10 +213,7 @@ const Edit_data = () => {
 
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach(e => {
-                                      console.log(e.name);
-                                      console.log(e.size);
-                                      console.log(e.type);
-                                      console.log(e.lastModifiedDate);
+                                      setImageName(e.name);
                                     });
 
                                     const img = {
