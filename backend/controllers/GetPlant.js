@@ -18,7 +18,7 @@ export const getPlant = async (req, res) => {
 
 
 export const postDetailPlant = async (req, res) => {
-  const { id_name_plant, name_plant, start_date_plant, end_date_plant} =
+  const { id_name_plant, name_plant, start_date_plant, end_date_plant, image_url} =
     req.body;
 
   try {
@@ -44,7 +44,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: "",
+        plant_image: "../dist/img/"+image_url,
       });
     } catch (error) {
       res.json({ message: error.message });
