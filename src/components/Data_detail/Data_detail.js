@@ -8,7 +8,7 @@ const Data_detail = (props) => {
 
 
   const [datadetail, setDatadetail] = useState([]);
-  console.log(datadetail);
+  console.log(datadetail + "ทดสอบ");
 
   useEffect(() => {
     getDatadetail();
