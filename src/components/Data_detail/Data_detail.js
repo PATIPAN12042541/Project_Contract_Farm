@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
+import axios from "axios";
 
-const images = [
-  { url: "../dist/img/insecticide/Pic_1.png" },
-  { url: "../dist/img/insecticide/Pic_2.png" },
-  { url: "../dist/img/insecticide/Pic_3.png" },
-  { url: "../dist/img/insecticide/Pic_4.png" },
-  { url: "../dist/img/insecticide/Pic_5.png" },
-];
 
 const Data_detail = (props) => {
-  console.log(props.id);
+  const [datadetail, setDatadetail] = useState([]);
+
+  useEffect(() => {
+    getDatadetail();
+  }, []);
+
+  const getDatadetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/Data_detail`,
+      {
+        id: props.id,
+      }
+    );
+    setDatadetail(response.data);
+  };
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -37,16 +46,18 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
-                        <SimpleImageSlider
-                          width={320}
-                          height={350}
-                          images={images}
-                          showBullets={true}
-                          showNavs={true}
-                          style={{ backgroundColor: "#FFFFF" }}
-                          autoPlay={true}
-                          className="product-image"
-                        />
+                        {datadetail.map((data, index) => (
+                          <SimpleImageSlider
+                            width={320}
+                            height={350}
+                            images={data.path_image}
+                            showBullets={true}
+                            showNavs={true}
+                            style={{ backgroundColor: "#FFFFF" }}
+                            autoPlay={true}
+                            className="product-image"
+                          />
+                        ))}
                       </div>
                     </div>
                     <div className="col-12 col-sm-8">
@@ -56,11 +67,9 @@ const Data_detail = (props) => {
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
-                                  วันที่เริ่มต้น
+                                  วันที่เริ่มต้น 20/07/2022
                                 </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  20/04/2022
-                                </span>
+                                <span className="info-box-number text-center text-muted mb-0"></span>
                               </div>
                             </div>
                           </div>
