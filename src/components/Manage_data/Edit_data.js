@@ -41,21 +41,19 @@ const Edit_data = () => {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'OK'
-    }).then((result) => {
+    }).then(async(result) => {
       if (result.isConfirmed) {
         
         try {
-          axios.delete(
+         await axios.delete(
             `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
           );  
-          getPlant();
-          
+          getPlant();         
           Swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
-          )
-    
+          )   
         } catch (error) {
           Swal.fire({
             icon: "error",
