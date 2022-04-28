@@ -52,7 +52,7 @@ const Content = () => {
                             pathname: `/Data_detail/${data.id}`,
                             state: { id: data.id },
                           }}
-                          render={{ id: data.id }}
+                          render={data.id}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
