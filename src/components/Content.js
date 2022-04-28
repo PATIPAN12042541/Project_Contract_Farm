@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-const Content = () => {
+const Content = (props) => {
   const [plant, setPlant] = useState([]);
+  const { sentIdPlants, onsentIdPlants } = props;
 
   useEffect(() => {
     getPlant();
@@ -50,6 +51,9 @@ const Content = () => {
                         <Link
                           to={`/Data_detail/${data.id}`}
                           // to={{ pathname: `/Data_detail/${data.id}` }}
+                          onClick={() => {
+                            onsentIdPlants(sentIdPlants.data.id);
+                          }}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">

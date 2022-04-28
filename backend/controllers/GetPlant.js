@@ -70,3 +70,19 @@ export const DeletePlant = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+
+export const getDataImagePlant = async (req, res) => {
+  try {
+    const plants = await db.query(
+      "SELECT * FROM image_plant_detail where id_plant = :id_plant",
+      {
+        replacements: { id_plant: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(plants);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
