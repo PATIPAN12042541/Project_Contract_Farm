@@ -36,7 +36,7 @@ function App() {
           <Route
             exact
             path="/Data_detail/:id"
-            element={<Page_data_detail id=":id" />}
+            element={<Page_data_detail id={params.id} />}
           />
           <Route
             exact
