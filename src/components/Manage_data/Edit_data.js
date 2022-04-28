@@ -339,6 +339,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="# หมายเลข "
+                                  value={data.id_name_plant}
                                 />
                               </div>
                               <div className="col-2">
@@ -346,6 +347,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="ชื่อแปลงผัก"
+                                  value={data.name_plant}
                                 />
                               </div>
                               <div className="col-2">
@@ -353,6 +355,7 @@ const Edit_data = () => {
                                   type="date"
                                   className="form-control"
                                   placeholder="วันที่เริ่มต้น"
+                                  value={data.start_date_plant}
                                 />
                               </div>
                               <div className="col-2">
