@@ -13,10 +13,8 @@ import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
 function App() {
-  function IdPlant() {
-    let params = useParams();
-    return params.id;
-  }
+
+  let params = useParams();
 
   return (
     <div className="wrapper">
@@ -41,7 +39,7 @@ function App() {
           <Route
             exact
             path="/Data_detail/:id"
-            element={<Page_data_detail id={IdPlant} />}
+            element={<Page_data_detail id={params.id} />}
           />
           <Route
             exact
