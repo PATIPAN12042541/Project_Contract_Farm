@@ -9,14 +9,17 @@ const Data_detail = (props) => {
 
   const [datadetail, setDatadetail] = useState([]);
 
-  console.log(datadetail);
+  console.log(props.id);
   useEffect(() => {
     getDatadetail();
   }, []);
 
   const getDatadetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
+      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/`,
+      {
+        id: props.id,
+      }
     );
     setDatadetail(response.data);
   };
