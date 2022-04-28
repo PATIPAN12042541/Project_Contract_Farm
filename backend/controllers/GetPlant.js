@@ -43,7 +43,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: "",
+        plant_image: image_url,
       });
     } catch (error) {
       res.json({ message: error.message });
