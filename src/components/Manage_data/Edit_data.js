@@ -209,12 +209,20 @@ const Edit_data = () => {
                                   accept="image/*"
                                   onUpload={(file) => {
                                     console.log("query file", file);
+
+                                    const filesArray = [].slice.call(file);
+                                    filesArray.forEach(e => {
+                                      console.log(e.name);
+                                      console.log(e.size);
+                                      console.log(e.type);
+                                      console.log(e.lastModifiedDate);
+                                    });
+
                                     const img = {
                                       preview: URL.createObjectURL(file[0]),
                                       data: file[0],
                                     };
                                     setImage(img);
-                                    console.log("query file 2", Image.data.target.file);
                                   }}
                                 />
                               </div>
