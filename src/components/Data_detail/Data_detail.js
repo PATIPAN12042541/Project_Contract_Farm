@@ -9,12 +9,7 @@ const images = [
   { url: "../dist/img/insecticide/Pic_5.png" },
 ];
 
-
-
 const Data_detail = () => {
- 
- 
-
   return (
     <div className="content-wrapper">
       <section className="content-header">
