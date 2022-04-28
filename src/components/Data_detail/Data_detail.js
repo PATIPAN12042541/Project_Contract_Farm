@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 
@@ -11,16 +11,8 @@ const images = [
 ];
 
 const Data_detail = () => {
-  const [newid, setId] = useState([]);
 
-  useEffect(() => {
-    getId();
-  }, []);
-
-  const getId = () => {
-    setId(Content({ id: 0 }));
-  };
-
+  
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -39,10 +31,7 @@ const Data_detail = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">
-                    รายละเอียดแปลง A1
-                    {newid.id}{" "}
-                  </h1>
+                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
                 </div>
 
                 <div className="card-body">
