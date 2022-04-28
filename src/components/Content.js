@@ -12,8 +12,9 @@ const Content = () => {
   }, []);
 
   const getPlant = async () => {
+    console.log(process.env);
     const response = await axios.get(
-      "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
+      `${process.env.REACT_APP_API_URL}/getplant`
     );
 
     setPlant(response.data);
