@@ -12,7 +12,8 @@ import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
-function App() {
+function App(props) {
+  console.log(props);
   return (
     <div className="wrapper">
       <BrowserRouter>
