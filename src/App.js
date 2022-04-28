@@ -12,7 +12,9 @@ import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
-function App() {
+function App(props) {
+  const id_plant = this.props.location.id;
+
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -33,7 +35,11 @@ function App() {
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
-          <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
+          <Route
+            exact
+            path="/Data_detail/:id"
+            element={<Page_data_detail id={id_plant} />}
+          />
           <Route
             exact
             path="/Edit_data"
