@@ -32,7 +32,7 @@ const Edit_data = () => {
     setPlantData(response.data);
   };
 
-  const deletePlants = (id) => {
+  const deletePlants = async(id) => {
     Swal.fire({
       title: 'Are you sure delete?',
       text: "You want delete data !",
@@ -45,9 +45,10 @@ const Edit_data = () => {
       if (result.isConfirmed) {
         
         try {
-         axios.delete(
+          axios.delete(
             `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
           );  
+          getPlant();
           
           Swal.fire(
             'Deleted!',
@@ -55,7 +56,6 @@ const Edit_data = () => {
             'success'
           )
     
-          getPlant();
         } catch (error) {
           Swal.fire({
             icon: "error",
