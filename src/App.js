@@ -33,12 +33,7 @@ function App() {
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
-          <Route
-            exact
-            path="/Data_detail/:id"
-            render={({ id }) => <Page_data_detail id={id} />}
-            // element={<Page_data_detail />}
-          />
+          <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
           <Route
             exact
             path="/Edit_data"
