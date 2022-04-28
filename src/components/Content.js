@@ -14,7 +14,6 @@ const Content = () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
     );
-
     setPlant(response.data);
   };
 

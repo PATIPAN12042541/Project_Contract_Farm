@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 
 const images = [
@@ -9,7 +9,12 @@ const images = [
   { url: "../dist/img/insecticide/Pic_5.png" },
 ];
 
+const Get_Id_Plant = IdPlant({ id: 0 });
+
 const Data_detail = () => {
+  const [id, setId] = useState(Get_Id_Plant.Content());
+  console.log(id);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
