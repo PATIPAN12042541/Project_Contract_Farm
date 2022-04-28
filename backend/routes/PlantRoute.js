@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/", getPlant);
 router.get("/Data_detail", getDataImagePlant);
-router.post("/DetailPlant", postDetailPlant);
+router.post("/DetailPlant/:id", postDetailPlant);
 router.delete("/DeletePlant/:id", DeletePlant);
 
 
