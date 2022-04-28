@@ -44,13 +44,13 @@ const Data_detail = (props) => {
 
                 <div className="card-body">
                   <div className="row">
-                    {datadetail.map((data) => (
-                      <div className="col-12 col-sm-4">
+                    <div className="col-12 col-sm-4">
+                      {datadetail.map((data) => (
                         <div className="col-12">
                           <SimpleImageSlider
                             width={320}
                             height={350}
-                            images={data.path_image}
+                            images={data}
                             showBullets={true}
                             showNavs={true}
                             style={{ backgroundColor: "#FFFFF" }}
@@ -58,8 +58,8 @@ const Data_detail = (props) => {
                             className="product-image"
                           />
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                     <div className="col-12 col-sm-8">
                       <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
                         <div className="row">
