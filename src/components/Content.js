@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Data_detail from "./Data_detail/Data_detail";
 
 
-const Content = (props) => {
+const Content = () => {
   const [plant, setPlant] = useState([]);
-  console.log(props);
   
+
   useEffect(() => {
     getPlant();
   }, []);
