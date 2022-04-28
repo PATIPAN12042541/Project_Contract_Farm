@@ -17,6 +17,13 @@ const Edit_data = () => {
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
 
+  /***** set edit data *****/
+  const [edit_name_plant,setEditNamePlant] = useState();
+  const [edit_start_date_plant,setEditStartDatePlant] = useState();
+  const [edit_end_date_plant,setEditEndDatePlant] = useState();
+  const [edit_plant_image,setEditPlantImage] = useState();
+  /*************************/
+
   const [image, setImage] = useState({ preview: '', data: '' });
   const [image_name, setImageName] = useState();
 
@@ -348,6 +355,7 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="ชื่อแปลงผัก"
                                   value={data.name_plant}
+                                  onChange={ (e) => setEditNamePlant(e.target.value) }
                                 />
                               </div>
                               <div className="col-2">
@@ -356,6 +364,7 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="วันที่เริ่มต้น"
                                   value={data.start_date_plant}
+                                  onChange={ (e) => setEditStartDatePlant(e.target.value) }
                                 />
                               </div>
                               <div className="col-2">
@@ -364,6 +373,7 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="วันที่สิ้นสุด"
                                   value={data.end_date_plant}
+                                  onChange={ (e) => setEditEndDatePlant(e.target.value) }
                                 />
                               </div>
                               <div className="col-3">
