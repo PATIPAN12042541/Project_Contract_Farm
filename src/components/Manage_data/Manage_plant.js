@@ -8,7 +8,7 @@ function refreshPage() {
   console.log("page to reload");
 }
 
-const Manage_plant = (props) => {
+const Manage_plant = () => {
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -28,9 +28,7 @@ const Manage_plant = (props) => {
                 <form>
                   <div className="card-body">
                     <div className="form-group">
-                      <label htmlFor="exampleInputEmail1">
-                        ปริมาณสารเคมีที่ใช้
-                      </label>
+                      <label>ปริมาณสารเคมีที่ใช้</label>
                       <input
                         type="text"
                         className="form-control"
@@ -38,7 +36,7 @@ const Manage_plant = (props) => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputEmail1">หน่วย</label>
+                      <label>หน่วย</label>
                       <input
                         type="text"
                         className="form-control"
@@ -46,7 +44,7 @@ const Manage_plant = (props) => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1">Note.</label>
+                      <label>Note.</label>
                       <textarea
                         rows="3"
                         className="form-control"
@@ -54,7 +52,7 @@ const Manage_plant = (props) => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputFile">File input</label>
+                      <label>File input</label>
                       <div className="input-group">
                         <div className="custom-file">
                           <input
@@ -62,10 +60,7 @@ const Manage_plant = (props) => {
                             className="custom-file-input"
                             id="exampleInputFile"
                           />
-                          <label
-                            className="custom-file-label"
-                            htmlFor="exampleInputFile"
-                          >
+                          <label className="custom-file-label">
                             Choose file
                           </label>
                         </div>

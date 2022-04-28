@@ -69,7 +69,7 @@ const Detail = () => {
                 <div className="card-body">
                   <div className="row">
                     {image_url.map((data) => (
-                      <div class="col-sm-2" key={data.id}>
+                      <div className="col-sm-2" key={data.id}>
                         <Zoom>
                           <img
                             src={data.url}
