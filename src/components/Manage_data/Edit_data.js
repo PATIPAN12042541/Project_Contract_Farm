@@ -25,14 +25,6 @@ const Edit_data = () => {
     getPlant();
   }, []);
 
-  const handleFileChange = (e) => {
-    const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    }
-    setImage(img)
-  }
-
   const getPlant = async () => {
     const response = await axios.get(
       "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
@@ -138,7 +130,7 @@ const Edit_data = () => {
                                   onChange={(e) => setIdPlant(e.target.value)}
                                 ></input>
                               </div>
-                              <div className="col-5">
+                              <div className="col-4">
                                 <center>
                                   <label for="exampleInputBorder">
                                     ชื่อแปลงผัก
@@ -199,7 +191,13 @@ const Edit_data = () => {
                                   }}
                                 />
                               </div>
-                              <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} class="img-thumbnail" alt="..." width='200' height='200'></img>
+                              <div className="col-1">
+                              <Zoom>
+                                <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} 
+                                    class="img-fluid mb-2"
+                                    width='100' height='100' />
+                              </Zoom>
+                              </div>
                             </div>
                           </div>
                         </div>
