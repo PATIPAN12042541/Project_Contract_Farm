@@ -36,7 +36,25 @@ const Edit_data = () => {
     try {
       await axios.delete(
         `http://node30998-env-3297740.th1.proen.cloud:4000/getplant/DeletePlant/${id}`
-      );
+      );     
+      Swal.fire({
+        title: 'Are you sure delete?',
+        text: "You want delete data !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      });
+
       getPlant();
     } catch (error) {
       Swal.fire({
