@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Data_detail from "./Data_detail/Data_detail";
 
-
 const Content = () => {
   const [plant, setPlant] = useState([]);
   
@@ -52,6 +51,7 @@ const Content = () => {
                           to={`/Data_detail/${data.id}`}
                           className="text-white"
                         >
+                          <Data_detail id={data.id} />
                           <div className="card mb-2 bg-gradient-dark">
                             <img
                               className="card-img-top"
