@@ -12,13 +12,13 @@ import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
-function App(props) {
-  console.log(props);
+function App() {
   return (
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
           <Route
+            exact
             path="/contract_farm"
             element={
               <>
@@ -30,11 +30,16 @@ function App(props) {
             }
           ></Route>
           <Route index element={<Page_Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/Home" element={<Page_1_1 />} />
-          <Route path="/Detail" element={<Page_1_2 />} />
-          <Route path="/Data_detail/:id" element={<Page_data_detail />} />
+          <Route exact path="/Register" element={<Register />} />
+          <Route exact path="/Home" element={<Page_1_1 />} />
+          <Route exact path="/Detail" element={<Page_1_2 />} />
           <Route
+            exact
+            path="/Data_detail/:id"
+            element={<Page_data_detail id=":id" />}
+          />
+          <Route
+            exact
             path="/Edit_data"
             element={
               <>
@@ -46,6 +51,7 @@ function App(props) {
             }
           />
           <Route
+            exact
             path="/Manage_plant/:id"
             element={
               <>
