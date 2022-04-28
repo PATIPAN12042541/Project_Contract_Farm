@@ -9,8 +9,8 @@ import {
 const router = express.Router();
 
 router.get("/", getPlant);
-router.get("/Data_detail", getDataImagePlant);
-router.post("/DetailPlant/:id", postDetailPlant);
+router.get("/Data_detail/:id", getDataImagePlant);
+router.post("/DetailPlant", postDetailPlant);
 router.delete("/DeletePlant/:id", DeletePlant);
 
 
