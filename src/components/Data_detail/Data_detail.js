@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
+import Content from "../Content";
 
 const images = [
   { url: "../dist/img/insecticide/Pic_1.png" },
@@ -10,6 +11,12 @@ const images = [
 ];
 
 const Data_detail = () => {
+  const [id, setId] = Content();
+
+  function Newid() {
+    setId({ id: 0 });
+  }
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -28,7 +35,10 @@ const Data_detail = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
+                  <h1 className="card-title">
+                    รายละเอียดแปลง A1 {Newid}
+                    {id.id}{" "}
+                  </h1>
                 </div>
 
                 <div className="card-body">
