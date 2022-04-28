@@ -58,6 +58,7 @@ const Edit_data = () => {
             name_plant: nameplant,
             start_date_plant: startdate,
             end_date_plant: enddate,
+            image_url:image.data,
           }
         )
         .then(function (response) {
