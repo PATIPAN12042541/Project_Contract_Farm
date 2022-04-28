@@ -27,7 +27,8 @@ export const postDetailPlant = async (req, res) => {
 
   const storage = diskStorage({
       destination: (req, file, cb) => {
-        cb(null, '/public/dist/img/')
+        //../public/dist/img/
+        cb(null, '../../public/dist/img/')
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname)
