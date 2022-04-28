@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Header from "./components/Header";
 import SidebarAdmin from "./components/SidebarAdmin";
 import Footer from "./components/Footer";
@@ -13,7 +13,7 @@ import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
 function App() {
- 
+  let { id } = useParams();
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
           <Route
             exact
             path="/Data_detail/:id"
-            element={<Page_data_detail id={'id_plant'} />}
+            element={<Page_data_detail id={id} />}
           />
           <Route
             exact
