@@ -11,6 +11,6 @@ const router = express.Router();
 router.get("/", getPlant);
 router.post("/DetailPlant", postDetailPlant);
 router.delete("/DeletePlant/:id", DeletePlant);
-router.delete("/Data_detail/:id", getDataImagePlant);
+router.get("/Data_detail", getDataImagePlant);
 
 export default router;
