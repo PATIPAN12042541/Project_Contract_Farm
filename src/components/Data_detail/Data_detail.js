@@ -5,6 +5,9 @@ import axios from "axios";
 
 
 const Data_detail = (props) => {
+
+  const { id } = props.id;
+
   const [datadetail, setDatadetail] = useState([]);
 
   console.log(datadetail);
@@ -16,7 +19,7 @@ const Data_detail = (props) => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/Data_detail`,
       {
-        id: props.id,
+        id: id,
       }
     );
     setDatadetail(response.data);
