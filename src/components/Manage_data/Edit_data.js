@@ -104,7 +104,7 @@ const Edit_data = () => {
           });
         });
 
-        //uploadImg();
+        uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
