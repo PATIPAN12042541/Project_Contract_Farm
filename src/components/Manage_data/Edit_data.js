@@ -209,7 +209,7 @@ const Edit_data = () => {
                                   accept="image/*"
                                   onUpload={(file) => {
                                     console.log("query file", file);
-                                    console.log("query file 2", file.name);
+                                    console.log("query file", file.target.file[0]);
                                     const img = {
                                       preview: URL.createObjectURL(file[0]),
                                       data: file[0],
