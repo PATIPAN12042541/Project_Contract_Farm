@@ -175,7 +175,7 @@ const Edit_data = () => {
                                   onChange={(e) => setEndDate(e.target.value)}
                                 ></input>
                               </div>
-                              <div className="col-2">
+                              <div className="col-1">
                                 <label for="exampleInputBorder">Upload</label>
                                 <FileUpload
                                   btnIcon="fas fa-upload"
