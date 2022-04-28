@@ -3,13 +3,6 @@ import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 import axios from "axios";
 
-const images = [
-  { url: "../dist/img/insecticide/Pic_1.png" },
-  { url: "../dist/img/insecticide/Pic_2.png" },
-  { url: "../dist/img/insecticide/Pic_3.png" },
-  { url: "../dist/img/insecticide/Pic_4.png" },
-  { url: "../dist/img/insecticide/Pic_5.png" },
-];
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
