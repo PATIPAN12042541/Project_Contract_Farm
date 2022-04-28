@@ -21,7 +21,7 @@ export const postDetailPlant = async (req, res) => {
   const { id_name_plant, name_plant, start_date_plant, end_date_plant} =
     req.body;
 
-  /*const storage = diskStorage({
+  const storage = diskStorage({
       destination: (req, file, cb) => {
         cb(null, '/public/dist/img/')
       },
@@ -30,7 +30,7 @@ export const postDetailPlant = async (req, res) => {
       },
     })
 
-  const upload = multer({ storage: storage });
+  /*const upload = multer({ storage: storage });
   let image_name;*/
 
   /*try{
@@ -65,7 +65,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: image_name,
+        plant_image: "",
       });
     } catch (error) {
       res.json({ message: error.message });
