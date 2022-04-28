@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-const Content = () => {
+const Content = (props) => {
   const [plant, setPlant] = useState([]);
-
+  console.log(props);
+  
   useEffect(() => {
     getPlant();
   }, []);
