@@ -33,18 +33,6 @@ const Edit_data = () => {
     setImage(img)
   }
 
-  const upload_image = async() => {
-    let formData = new FormData();
-        formData.append('file', image.data);
-
-      // ใช้ axios
-      await axios.post("http://node30998-env-3297740.th1.proen.cloud:4000/public/dist/img/", formData)
-      .then(res => console.log(res.data))
-      .catch(err => console.error(err));
-  }
-
-
-
   const getPlant = async () => {
     const response = await axios.get(
       "http://node30998-env-3297740.th1.proen.cloud:4000/getplant"
@@ -95,8 +83,6 @@ const Edit_data = () => {
             text: "Save Error!",
           });
         });
-
-        upload_image();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -213,6 +199,7 @@ const Edit_data = () => {
                                   }}
                                 />
                               </div>
+                              <img src={image.preview?image.preview:'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'} class="img-thumbnail" alt="..." width='200' height='200'></img>
                             </div>
                           </div>
                         </div>
