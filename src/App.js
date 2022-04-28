@@ -12,8 +12,8 @@ import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
-function App(props) {
-  const { id_plant } = this.match.params.id;
+function App() {
+ 
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -37,7 +37,7 @@ function App(props) {
           <Route
             exact
             path="/Data_detail/:id"
-            element={<Page_data_detail id={id_plant} />}
+            element={<Page_data_detail id={'id_plant'} />}
           />
           <Route
             exact
