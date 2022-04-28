@@ -11,7 +11,7 @@ const images = [
 ];
 
 const Data_detail = () => {
-  const [newid, setId] = Content();
+  const [newid, setId] = useState([]).Content();
 
   return (
     <div className="content-wrapper">
