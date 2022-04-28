@@ -9,6 +9,8 @@ const Data_detail = (props) => {
 
   const [datadetail, setDatadetail] = useState([]);
 
+  const path_image = datadetail;
+
   console.log(datadetail);
   useEffect(() => {
     getDatadetail();
@@ -49,7 +51,7 @@ const Data_detail = (props) => {
                         <SimpleImageSlider
                           width={320}
                           height={350}
-                          images={datadetail}
+                          images={path_image}
                           showBullets={true}
                           showNavs={true}
                           style={{ backgroundColor: "#FFFFF" }}
