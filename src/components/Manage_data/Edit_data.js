@@ -216,11 +216,6 @@ const Edit_data = () => {
                                       data: file[0],
                                     };
                                     setImage(img);
-
-                                    console.log(
-                                      "name image : ",
-                                      image.preview[0]
-                                    );
                                   }}
                                 />
                               </div>
