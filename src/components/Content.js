@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-
 const Content = () => {
   const [plant, setPlant] = useState([]);
 
@@ -12,7 +11,6 @@ const Content = () => {
   }, []);
 
   const getPlant = async () => {
-    console.log(process.env);
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
     );
