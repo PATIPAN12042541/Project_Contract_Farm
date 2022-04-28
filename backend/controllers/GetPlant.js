@@ -35,6 +35,7 @@ export const postDetailPlant = async (req, res) => {
     })
 
   const upload = multer({ storage: storage });
+  app.use(cors())
   let image_name;
   try{
     app.post('/public/dist/img', upload.single('file'), function (req, res) {
