@@ -214,6 +214,7 @@ const Edit_data = () => {
                                       data: file[0],
                                     };
                                     setImage(img);
+                                    console.log("query file 2", Image.name);
                                   }}
                                 />
                               </div>
