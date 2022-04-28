@@ -25,6 +25,15 @@ const Edit_data = () => {
     getPlant();
   }, []);
 
+  const uploadImg = async() => {
+    let formData = new FormData()
+        formData.append('file', image.data)
+
+        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+                    .then(res => console.log(res.data))
+                    .catch(err => console.error(err));
+  }
+
   const getPlant = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
@@ -95,12 +104,7 @@ const Edit_data = () => {
           });
         });
 
-        /*let formData = new FormData()
-        formData.append('file', image.data)
-
-        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-                    .then(res => console.log(res.data))
-                    .catch(err => console.error(err));*/
+        uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
