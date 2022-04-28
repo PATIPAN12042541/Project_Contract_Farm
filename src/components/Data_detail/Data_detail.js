@@ -46,16 +46,18 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
-                        <SimpleImageSlider
-                          width={320}
-                          height={350}
-                          images={""}
-                          showBullets={true}
-                          showNavs={true}
-                          style={{ backgroundColor: "#FFFFF" }}
-                          autoPlay={true}
-                          className="product-image"
-                        />
+                        {datadetail.map((data, index) => (
+                          <SimpleImageSlider
+                            width={320}
+                            height={350}
+                            images={data.path_image}
+                            showBullets={true}
+                            showNavs={true}
+                            style={{ backgroundColor: "#FFFFF" }}
+                            autoPlay={true}
+                            className="product-image"
+                          />
+                        ))}
                       </div>
                     </div>
                     <div className="col-12 col-sm-8">
