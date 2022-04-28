@@ -153,7 +153,7 @@ const Edit_data = () => {
                             <div className="row">
                               <div className="col-1">
                                 <center>
-                                  <label for="exampleInputBorder">รหัส</label>
+                                  <label>รหัส</label>
                                 </center>
                                 <input
                                   type="text"
@@ -166,9 +166,7 @@ const Edit_data = () => {
                               </div>
                               <div className="col-5">
                                 <center>
-                                  <label for="exampleInputBorder">
-                                    ชื่อแปลงผัก
-                                  </label>
+                                  <label>ชื่อแปลงผัก</label>
                                 </center>
                                 <input
                                   type="text"
@@ -181,9 +179,7 @@ const Edit_data = () => {
                               </div>
                               <div className="col-2">
                                 <center>
-                                  <label for="exampleInputBorder">
-                                    วันที่เริ่มต้น
-                                  </label>
+                                  <label>วันที่เริ่มต้น</label>
                                 </center>
                                 <input
                                   type="date"
@@ -196,9 +192,7 @@ const Edit_data = () => {
                               </div>
                               <div className="col-2">
                                 <center>
-                                  <label for="exampleInputBorder">
-                                    วันที่สิ้นสุด
-                                  </label>
+                                  <label>วันที่สิ้นสุด</label>
                                 </center>
                                 <input
                                   type="date"
@@ -210,7 +204,7 @@ const Edit_data = () => {
                                 ></input>
                               </div>
                               <div className="col-1">
-                                <label for="exampleInputBorder">Upload</label>
+                                <label>Upload</label>
                                 <FileUpload
                                   btnIcon="fas fa-upload"
                                   multiple
@@ -223,7 +217,10 @@ const Edit_data = () => {
                                     };
                                     setImage(img);
 
-                                    console.log("name image : ", image.preview[0]);
+                                    console.log(
+                                      "name image : ",
+                                      image.preview[0]
+                                    );
                                   }}
                                 />
                               </div>
