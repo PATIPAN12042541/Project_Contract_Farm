@@ -10,6 +10,7 @@ import First_Page from "./components/First_Page";
 import Data_detail from "./components/Data_detail/Data_detail";
 import Edit_data from "./components/Manage_data/Edit_data";
 import Manage_plant from "./components/Manage_data/Manage_plant";
+import Page_data_detail from "./Page_1/Page_data_detail";
 
 function App() {
   return (
@@ -31,17 +32,7 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/Home" element={<Page_1_1 />} />
           <Route path="/Detail" element={<Page_1_2 />} />
-          <Route
-            path="/Data_detail/:id"
-            element={
-              <>
-                <Header />
-                <SidebarAdmin />
-                <Data_detail />
-                <Footer />
-              </>
-            }
-          />
+          <Route path="/Data_detail/:id" element={<Page_data_detail />} />
           <Route
             path="/Edit_data"
             element={

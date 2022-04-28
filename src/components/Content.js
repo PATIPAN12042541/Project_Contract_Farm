@@ -50,7 +50,6 @@ const Content = () => {
                         key={data.id_plant}
                       >
                         <Link
-                          //to="/Data_detail"
                           to={`/Data_detail/${data.id}`}
                           // to={{ pathname: `/Data_detail/${data.id}` }}
                           className="text-white"
