@@ -38,7 +38,7 @@ export const postDetailPlant = async (req, res) => {
   const upload = multer({ storage: storage });
   let image_name;
   try{
-    app.post('/public/dist/img/', upload.single('file'), function (req, res) {
+    app.post('/public/dist/img', upload.single('file'), function (req, res) {
         res.json(console.log('Upload Success'))
           image_name = req.file.filename;
       })
