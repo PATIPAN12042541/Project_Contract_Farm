@@ -59,17 +59,7 @@ const Data_detail = (props) => {
                     <div className="col-12 col-sm-8">
                       <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
                         <div className="row">
-                          <div className="col-12 col-sm-3">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted"></span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  พรีวาทอน
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-sm-3">
+                          <div className="col-12 col-sm-4">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
@@ -81,7 +71,7 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-12 col-sm-3">
+                          <div className="col-12 col-sm-4">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
@@ -93,7 +83,7 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-12 col-sm-3">
+                          <div className="col-12 col-sm-4">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
