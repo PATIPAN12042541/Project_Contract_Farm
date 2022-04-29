@@ -45,7 +45,7 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     {plant.map((data, index) => (
-                      <div className="col-md-12 ">
+                      <div className="col-md-12 col-lg-6 " key={index}>
                         <ImageListItem key={index}>
                           <Link
                             //to={`/Data_detail/${data.id}`}
