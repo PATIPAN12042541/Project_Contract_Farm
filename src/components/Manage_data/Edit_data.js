@@ -147,7 +147,7 @@ const Edit_data = () => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: error.response.data.msg,
+        title: error.response.data.message,
         text: "Update Error!",
       });
     }
