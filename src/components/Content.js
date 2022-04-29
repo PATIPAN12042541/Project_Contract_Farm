@@ -59,7 +59,7 @@ const Content = () => {
                                 src={`${data.plant_image}?w=248&fit=crop&auto=format`}
                                 srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={data.id_name_plant}
-                                sx={{ width: 500, height: 450 }}
+                                sx={{ width: 300, height: 250 }}
                                 loading="lazy"
                               />
                               <ImageListItemBar title={data.id_name_plant} />
