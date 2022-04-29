@@ -36,7 +36,7 @@ const Data_detail = (props) => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
+                  <h1 className="card-title">รายละเอียดสารเคมี "พรีวาทอน"</h1>
                 </div>
                 <div className="card-body">
                   <div className="row">
@@ -119,7 +119,7 @@ const Data_detail = (props) => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <h1 className="card-title">รายละเอียดแปลง A1 </h1>
+                  <h1 className="card-title">รายละเอียดสารเคมี "เอ็กซอล"</h1>
                 </div>
                 <div className="card-body">
                   <div className="row">
@@ -127,15 +127,15 @@ const Data_detail = (props) => {
                       <div className="col-12">
                         <img
                           className="card-img-top"
-                          src={"../dist/img/insecticide/Pic_1.png"}
-                          alt={"พรีวาทอน"}
+                          src={"../dist/img/insecticide/Pic_2.png"}
+                          alt={"เอ็กซอล"}
                           loading="lazy"
                           width={200}
                           height={250}
                         />
                         <ImageListItemBar
                           className="card-title text-primary text-white"
-                          title={"พรีวาทอน"}
+                          title={"เอ็กซอล"}
                         />
                       </div>
                     </div>
