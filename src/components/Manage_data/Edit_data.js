@@ -380,7 +380,7 @@ const Edit_data = () => {
                                   onChange={ (e) => setEditEndDatePlant(e.target.value) }
                                 />
                               </div>
-                              <div className="col-2">
+                              <div className="col-1">
                                 <FileUpload
                                   btnIcon="fas fa-upload"
                                   multiple
