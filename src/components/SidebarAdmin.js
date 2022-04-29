@@ -32,6 +32,9 @@ const SidebarAdmin = () => {
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
         //setName(decoded.name);
+        alert(decoded.name);
+        alert(decoded.last_name);
+        alert(decoded.exp);
         setLastName(decoded.last_name);
         setExpire(decoded.exp);
       } catch (error) {
