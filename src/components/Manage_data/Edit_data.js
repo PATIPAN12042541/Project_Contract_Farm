@@ -128,14 +128,29 @@ const Edit_data = () => {
     }
   };
 
-  const updatePlant = async (e,id) => {
-    e.preventDefault();
-    await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,{
+  const updatePlant = async (e, id) => {
+    try {
+      e.preventDefault();
+      await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
         name_plant: edit_name_plant,
         start_date_plant: edit_start_date_plant,
-        end_date_plant : edit_end_date_plant,
-        plant_image : "../dist/img/"+edit_image_name
-    });
+        end_date_plant: edit_end_date_plant,
+        plant_image: "../dist/img/" + edit_image_name
+      });
+
+      getPlant();
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Update Error!",
+      });
+    }
 }
 
 
@@ -431,6 +446,9 @@ const Edit_data = () => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
+                                  onClick={()=>{
+                                    updatePlant(data.id)
+                                  }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
                                 </button>
