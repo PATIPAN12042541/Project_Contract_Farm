@@ -111,6 +111,11 @@ export const updatePlant = async (req, res) => {
               id: req.params.id
           }
       });
+
+      res.json({
+        "message": "Plant Updated"
+    });
+
   } catch (error) {
       res.json({ message: error.message });
   }  

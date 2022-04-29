@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -126,6 +127,31 @@ const Edit_data = () => {
       });
     }
   };
+
+  const updatePlant = async (id) => {
+    try {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+        name_plant: edit_name_plant,
+        start_date_plant: edit_start_date_plant,
+        end_date_plant: edit_end_date_plant,
+        plant_image: "../dist/img/" + edit_image_name
+      });
+
+      getPlant();
+      Swal.fire(
+        'Succes !',
+        'Your file has been Update.',
+        'success'
+      )
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.message,
+        text: "Update Error!",
+      });
+    }
+}
+
 
   return (
     <div className="content-wrapper">
@@ -407,7 +433,7 @@ const Edit_data = () => {
                                     src={
                                       editimage.preview
                                         ? editimage.preview
-                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                        : data.plant_image
                                     }
                                     className="img-fluid mb-2"
                                     width="100"
@@ -419,6 +445,9 @@ const Edit_data = () => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
+                                  onClick={()=>{
+                                    updatePlant(data.id)
+                                  }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
                                 </button>
