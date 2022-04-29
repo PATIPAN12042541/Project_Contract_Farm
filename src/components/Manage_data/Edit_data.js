@@ -56,6 +56,7 @@ const Edit_data = () => {
   };
 
   const deletePlants = async(id) => {
+    alert("id : "+id);
     Swal.fire({
       title: 'Are you sure delete?',
       text: "You want delete data !",
