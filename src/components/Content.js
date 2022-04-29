@@ -60,6 +60,7 @@ const Content = () => {
                                 srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={data.id_name_plant}
                                 loading="lazy"
+                                sx={{ width: 300, hight: 300 }}
                               />
                               <ImageListItemBar title={data.id_name_plant} />
                             </Link>
