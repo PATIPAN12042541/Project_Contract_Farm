@@ -165,7 +165,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
-                                  value={idplant}
+                                  defaultValue={idplant}
                                   placeholder="รหัส"
                                   onChange={(e) => setIdPlant(e.target.value)}
                                 ></input>
@@ -179,7 +179,7 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="ชื่อแปลงผัก"
-                                  value={nameplant}
+                                  defaultValue={nameplant}
                                   onChange={(e) => setNamePlant(e.target.value)}
                                 ></input>
                               </div>
@@ -192,7 +192,7 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่เริ่มต้น"
-                                  value={startdate}
+                                  defaultValue={startdate}
                                   onChange={(e) => setStartDate(e.target.value)}
                                 ></input>
                               </div>
@@ -205,7 +205,7 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่สิ้นสุด"
-                                  Value={enddate}
+                                  defaultValue={enddate}
                                   onChange={(e) => setEndDate(e.target.value)}
                                 ></input>
                               </div>
@@ -354,6 +354,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="ชื่อแปลงผัก"
+                                  defaultValue={data.name_plant}
                                   onChange={ (e) => setEditNamePlant(e.target.value) }
                                 />
                               </div>
@@ -362,6 +363,7 @@ const Edit_data = () => {
                                   type="date"
                                   className="form-control"
                                   placeholder="วันที่เริ่มต้น"
+                                  defaultValue={data.start_date_plant}
                                   onChange={ (e) => setEditStartDatePlant(e.target.value) }
                                 />
                               </div>
@@ -370,6 +372,7 @@ const Edit_data = () => {
                                   type="date"
                                   className="form-control"
                                   placeholder="วันที่สิ้นสุด"
+                                  defaultValue={data.end_date_plant}
                                   onChange={ (e) => setEditEndDatePlant(e.target.value) }
                                 />
                               </div>
