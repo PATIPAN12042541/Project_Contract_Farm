@@ -224,6 +224,8 @@ const Edit_data = () => {
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach(e => {
                                       setImageName(e.name);
+
+                                      console.log(image_name);
                                     });
 
                                     const img = {
@@ -390,7 +392,6 @@ const Edit_data = () => {
 
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach(e => {
-
                                       console.log(e.name);
                                       console.log(e.size);
                                       console.log(e.type);
