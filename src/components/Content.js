@@ -69,7 +69,9 @@ const Content = () => {
                             <div className="card-img-overlay d-flex flex-column justify-content-end">
                               <ImageListItemBar
                                 className="card-title text-primary text-white"
-                                title={"Plant " + data.id_name_plant}
+                                title={
+                                  "Plant " + data.plant_detail_id_name_plant
+                                }
                                 subtitle={data.name_plant}
                               />
                             </div>
