@@ -53,12 +53,8 @@ const SidebarAdmin = () => {
           config.headers.Authorization = `Bearer ${response.data.accessToken}`;
           setToken(response.data.accessToken);
           const decoded = jwt_decode(response.data.accessToken);
-          setName(decoded.name);
-          setRole(decoded.last_name);
+          //setName(decoded.name);
           setExpire(decoded.exp);
-
-          console.log("name : "+decoded.name);
-          console.log("last name : "+decoded.last_name);
         }
         return config;
       },
