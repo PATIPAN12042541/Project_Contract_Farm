@@ -139,8 +139,8 @@ const Edit_data = () => {
 
       getPlant();
       Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Succes !',
+        'Your file has been Update.',
         'success'
       )
     } catch (error) {
