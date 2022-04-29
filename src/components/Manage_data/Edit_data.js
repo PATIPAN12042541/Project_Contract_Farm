@@ -346,6 +346,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="# หมายเลข "
+                                  value={data.id_name_plant}
                                 />
                               </div>
                               <div className="col-2">
