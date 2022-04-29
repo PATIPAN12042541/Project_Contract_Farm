@@ -205,7 +205,7 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่สิ้นสุด"
-                                  defaultValue={enddate}
+                                  Value={enddate}
                                   onChange={(e) => setEndDate(e.target.value)}
                                 ></input>
                               </div>
@@ -346,7 +346,7 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="# หมายเลข "
-                                  value={data.id_name_plant}
+                                  defaultValue={data.id_name_plant}
                                 />
                               </div>
                               <div className="col-2">
