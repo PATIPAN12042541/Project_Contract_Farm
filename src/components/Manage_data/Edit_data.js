@@ -205,7 +205,7 @@ const Edit_data = () => {
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   placeholder="วันที่สิ้นสุด"
-                                  value={enddate}
+                                  defaultValue={enddate}
                                   onChange={(e) => setEndDate(e.target.value)}
                                 ></input>
                               </div>
