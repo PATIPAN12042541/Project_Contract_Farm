@@ -29,7 +29,7 @@ const Data_detail = (props) => {
       <section className="content">
         <div className="container-fluid">
           {datadetail.map((data, index) => (
-            <div className="row">
+            <div className="row" key={index}>
               <div className="col-md-12">
                 <div className="card card-info">
                   <div
