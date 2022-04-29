@@ -148,13 +148,6 @@ const Edit_data = () => {
         plant_image: "../dist/img/" + edit_image_name
       });
 
-      if (editimage.data == undefined) {
-        getPlant();
-      }else{
-        editUploadImg();
-        getPlant();
-      }
-
       Swal.fire(
         'Succes !',
         'Your file has been Update.',
@@ -455,6 +448,7 @@ const Edit_data = () => {
                                     className="img-fluid mb-2"
                                     width="100"
                                     height="100"
+                                    defaultValue={setEditImage(data.plant_image)}
                                   />
                                 </Zoom>
                               </div>
