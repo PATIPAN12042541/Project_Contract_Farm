@@ -154,6 +154,8 @@ const Edit_data = () => {
           end_date_plant: edit_end_date_plant,
           plant_image: "../dist/img/" + edit_image_name
         });
+
+        editUploadImg();
       }
 
       Swal.fire(
