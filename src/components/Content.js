@@ -46,35 +46,32 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      <ImageList sx={{ width: 500, height: 450 }}>
-                        <ImageListItem key="Subheader" cols={2}>
-                          <ListSubheader component="div">
-                            แปลงปลูกผัก
-                          </ListSubheader>
+                      <ImageListItem key="Subheader" cols={2}>
+                        <ListSubheader component="div">
+                          แปลงปลูกผัก
+                        </ListSubheader>
+                      </ImageListItem>
+                      {plant.map((data, index) => (
+                        <ImageListItem key={data.plant_image}>
+                          <Link
+                            to={{
+                              pathname: `/Data_detail/${data.id}`,
+                              state: { id: data.id },
+                            }}
+                          >
+                            <img
+                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              alt={data.id_name_plant}
+                              loading="lazy"
+                            />
+                            <ImageListItemBar
+                              title={data.id_name_plant}
+                              subtitle={data.id_name_plant}
+                            />
+                          </Link>
                         </ImageListItem>
-                        {plant.map((data, index) => (
-                          <ImageListItem key={data.plant_image}>
-                            <Link
-                              to={{
-                                pathname: `/Data_detail/${data.id}`,
-                                state: { id: data.id },
-                              }}
-                            >
-                              <img
-                                src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                                srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                alt={data.id_name_plant}
-                                loading="lazy"
-                              />
-                              <ImageListItemBar
-                                title={data.id_name_plant}
-                                subtitle={data.id_name_plant}
-                              />
-                            </Link>
-                          </ImageListItem>
-                        ))}
-                      </ImageList>
-
+                      ))}
                       {/* <div className="card mb-2 bg-gradient-dark">
                             <img
                               className="card-img-top"
