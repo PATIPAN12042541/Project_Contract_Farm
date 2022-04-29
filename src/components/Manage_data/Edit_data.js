@@ -378,7 +378,7 @@ const Edit_data = () => {
                                   className="form-control"
                                   disabled
                                   placeholder="# หมายเลข "
-                                  defaultValue={data.id_name_plant}
+                                  defaultValue={data.plant_detail_id_name_plant}
                                 />
                               </div>
                               <div className="col-3">
