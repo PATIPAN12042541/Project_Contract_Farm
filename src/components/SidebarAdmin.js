@@ -15,7 +15,7 @@ const SidebarAdmin = () => {
 
     useEffect(() => {
       refreshToken();
-      getUsers();
+      //getUsers();
     }, []);
 
 
