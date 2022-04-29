@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 import axios from "axios";
-
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Data_detail = (props) => {
-
-
   const [datadetail, setDatadetail] = useState([]);
 
   useEffect(() => {
@@ -40,37 +38,50 @@ const Data_detail = (props) => {
                 >
                   <h1 className="card-title">รายละเอียดแปลง A1 </h1>
                 </div>
-
                 <div className="card-body">
                   <div className="row">
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
-                        <SimpleImageSlider
-                          width={320}
-                          height={350}
-                          images={""}
-                          showBullets={true}
-                          showNavs={true}
-                          style={{ backgroundColor: "#FFFFF" }}
-                          autoPlay={true}
-                          className="product-image"
+                        <img
+                          className="card-img-top"
+                          src={"../dist/img/insecticide/Pic_1.png"}
+                          alt={"พรีวาทอน"}
+                          loading="lazy"
+                          width={200}
+                          height={250}
+                        />
+                        <ImageListItemBar
+                          className="card-title text-primary text-white"
+                          title={"พรีวาทอน"}
                         />
                       </div>
                     </div>
                     <div className="col-12 col-sm-8">
                       <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
                         <div className="row">
-                          <div className="col-12 col-sm-4">
+                          <div className="col-12 col-sm-3">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  วันที่เริ่มต้น 20/07/2022
+                                <span className="info-box-text text-center text-muted"></span>
+                                <span className="info-box-number text-center text-muted mb-0">
+                                  พรีวาทอน
                                 </span>
-                                <span className="info-box-number text-center text-muted mb-0"></span>
                               </div>
                             </div>
                           </div>
-                          <div className="col-12 col-sm-4">
+                          <div className="col-12 col-sm-3">
+                            <div className="info-box bg-light">
+                              <div className="info-box-content">
+                                <span className="info-box-text text-center text-muted">
+                                  วันที่เริ่มต้น
+                                </span>
+                                <span className="info-box-number text-center text-muted mb-0">
+                                  20/07/2022
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-12 col-sm-3">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
@@ -82,7 +93,7 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-12 col-sm-4">
+                          <div className="col-12 col-sm-3">
                             <div className="info-box bg-light">
                               <div className="info-box-content">
                                 <span className="info-box-text text-center text-muted">
@@ -99,12 +110,7 @@ const Data_detail = (props) => {
                           <div className="col-12">
                             <h4>Note.</h4>
                             <div className="post">
-                              <p>
-                                Lorem ipsum represents a long-held tradition for
-                                designers, typographers and the like. Some
-                                people hate it and argue for its demise, but
-                                others ignore.
-                              </p>
+                              <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
                             </div>
                           </div>
                         </div>
