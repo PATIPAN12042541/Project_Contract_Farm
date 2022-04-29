@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import ListSubheader from "@mui/material/ListSubheader";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
@@ -44,7 +46,7 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      <ImageList variant="masonry" cols={3} gap={8}>
+                      <ImageList sx={{ width: 1350 }}>
                         {plant.map((data, index) => (
                           <ImageListItem key={index}>
                             <Link
@@ -59,6 +61,7 @@ const Content = () => {
                                 alt={data.id_name_plant}
                                 loading="lazy"
                               />
+                              <ImageListItemBar title={data.id_name_plant} />
                             </Link>
                           </ImageListItem>
                         ))}
