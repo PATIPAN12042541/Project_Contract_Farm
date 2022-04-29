@@ -43,7 +43,7 @@ const Data_detail = (props) => {
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
                         <img
-                          className="card-img-top img-fluid mb-2"
+                          className="img-fluid mb-2"
                           src={"../dist/img/insecticide/Pic_1.png"}
                           alt={"พรีวาทอน"}
                           loading="lazy"
@@ -124,12 +124,10 @@ const Data_detail = (props) => {
                     <div className="col-12 col-sm-4">
                       <div className="col-12">
                         <img
-                          className="card-img-top"
+                          className="img-fluid mb-2"
                           src={"../dist/img/insecticide/Pic_2.png"}
                           alt={"เอ็กซอล"}
                           loading="lazy"
-                          width={100}
-                          height={250}
                         />
                         <ImageListItemBar
                           className="card-title text-primary text-white"
