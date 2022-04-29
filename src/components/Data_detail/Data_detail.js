@@ -38,7 +38,9 @@ const Data_detail = (props) => {
                     className="card-header"
                     style={{ backgroundColor: "#8CC152" }}
                   >
-                    <h1 className="card-title">รายละเอียดสารเคมี {data.name_chemical}</h1>
+                    <h1 className="card-title">
+                      รายละเอียดสารเคมี {data.name_chemical}
+                    </h1>
                   </div>
                   <div className="card-body">
                     <div className="row">
@@ -46,7 +48,7 @@ const Data_detail = (props) => {
                         <div className="col-12">
                           <img
                             className="img-fluid mb-2"
-                            src={data.path_image	}
+                            src={data.path_image}
                             alt={data.name_chemical}
                             loading="lazy"
                           />
@@ -66,7 +68,7 @@ const Data_detail = (props) => {
                                     วันที่เริ่มต้น
                                   </span>
                                   <span className="info-box-number text-center text-muted mb-0">
-                                    20/07/2022
+                                    {data.start_date_plant}
                                   </span>
                                 </div>
                               </div>
@@ -78,7 +80,7 @@ const Data_detail = (props) => {
                                     วันที่สิ้นสุด
                                   </span>
                                   <span className="info-box-number text-center text-muted mb-0">
-                                    20/07/2022
+                                    {data.end_date_plant}
                                   </span>
                                 </div>
                               </div>
@@ -90,7 +92,7 @@ const Data_detail = (props) => {
                                     ปริมาณสารเคมีที่ใช้
                                   </span>
                                   <span className="info-box-number text-center text-muted mb-0">
-                                    5 ml.
+                                    {data.quantity_chemical} {data.unit}
                                   </span>
                                 </div>
                               </div>
@@ -100,7 +102,7 @@ const Data_detail = (props) => {
                             <div className="col-12">
                               <h4>Note.</h4>
                               <div className="post">
-                                <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
+                                <p>{data.note}</p>
                               </div>
                             </div>
                           </div>
