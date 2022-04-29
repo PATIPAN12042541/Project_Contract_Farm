@@ -448,7 +448,6 @@ const Edit_data = () => {
                                     className="img-fluid mb-2"
                                     width="100"
                                     height="100"
-                                    alt={setEditImageName(data.plant_image)}
                                   />
                                 </Zoom>
                               </div>
