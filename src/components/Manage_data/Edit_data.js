@@ -157,7 +157,7 @@ const Edit_data = () => {
 
         editUploadImg();
       }
-
+      getPlant();
       Swal.fire(
         'Succes !',
         'Your file has been Update.',
