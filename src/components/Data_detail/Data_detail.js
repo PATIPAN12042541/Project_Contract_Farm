@@ -29,76 +29,78 @@ const Data_detail = (props) => {
       </section>
       <section className="content">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card card-info">
-                <div
-                  className="card-header"
-                  style={{ backgroundColor: "#8CC152" }}
-                >
-                  <h1 className="card-title">รายละเอียดสารเคมี "พรีวาทอน"</h1>
-                </div>
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-12 col-sm-4">
-                      <div className="col-12">
-                        <img
-                          className="img-fluid mb-2"
-                          src={"../dist/img/insecticide/Pic_1.png"}
-                          alt={"พรีวาทอน"}
-                          loading="lazy"
-                        />
-                        <ImageListItemBar
-                          className="card-title text-primary text-white"
-                          title={"พรีวาทอน"}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-8">
-                      <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
-                        <div className="row">
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  วันที่เริ่มต้น
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  20/07/2022
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  วันที่สิ้นสุด
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  20/07/2022
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  ปริมาณสารเคมีที่ใช้
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  5 ml.
-                                </span>
-                              </div>
-                            </div>
-                          </div>
+          {datadetail.map((data, index) => (
+            <div className="row">
+              <div className="col-md-12">
+                <div className="card card-info">
+                  <div
+                    className="card-header"
+                    style={{ backgroundColor: "#8CC152" }}
+                  >
+                    <h1 className="card-title">รายละเอียดสารเคมี {data.name_chemical}</h1>
+                  </div>
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-12 col-sm-4">
+                        <div className="col-12">
+                          <img
+                            className="img-fluid mb-2"
+                            src={data.path_image	}
+                            alt={data.name_chemical}
+                            loading="lazy"
+                          />
+                          <ImageListItemBar
+                            className="card-title text-primary text-white"
+                            title={data.name_chemical}
+                          />
                         </div>
-                        <div className="row">
-                          <div className="col-12">
-                            <h4>Note.</h4>
-                            <div className="post">
-                              <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
+                      </div>
+                      <div className="col-12 col-sm-8">
+                        <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
+                          <div className="row">
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">
+                                    วันที่เริ่มต้น
+                                  </span>
+                                  <span className="info-box-number text-center text-muted mb-0">
+                                    20/07/2022
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">
+                                    วันที่สิ้นสุด
+                                  </span>
+                                  <span className="info-box-number text-center text-muted mb-0">
+                                    20/07/2022
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">
+                                    ปริมาณสารเคมีที่ใช้
+                                  </span>
+                                  <span className="info-box-number text-center text-muted mb-0">
+                                    5 ml.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-12">
+                              <h4>Note.</h4>
+                              <div className="post">
+                                <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -108,89 +110,7 @@ const Data_detail = (props) => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card card-info">
-                <div
-                  className="card-header"
-                  style={{ backgroundColor: "#8CC152" }}
-                >
-                  <h1 className="card-title">รายละเอียดสารเคมี "เอ็กซอล"</h1>
-                </div>
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-12 col-sm-4">
-                      <div className="col-12">
-                        <img
-                          className="img-fluid mb-2"
-                          src={"../dist/img/insecticide/Pic_2.png"}
-                          alt={"เอ็กซอล"}
-                          loading="lazy"
-                        />
-                        <ImageListItemBar
-                          className="card-title text-primary text-white"
-                          title={"เอ็กซอล"}
-                        />
-                      </div>
-                    </div>
-                    <div> </div>
-                    <div className="col-12 col-sm-8">
-                      <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
-                        <div className="row">
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  วันที่เริ่มต้น
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  20/07/2022
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  วันที่สิ้นสุด
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  20/07/2022
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-sm-4">
-                            <div className="info-box bg-light">
-                              <div className="info-box-content">
-                                <span className="info-box-text text-center text-muted">
-                                  ปริมาณสารเคมีที่ใช้
-                                </span>
-                                <span className="info-box-number text-center text-muted mb-0">
-                                  5 ml.
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-12">
-                            <h4>Note.</h4>
-                            <div className="post">
-                              <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>

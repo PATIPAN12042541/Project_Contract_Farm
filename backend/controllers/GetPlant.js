@@ -76,7 +76,23 @@ export const DeletePlant = async (req, res) => {
 export const getDataImagePlant = async (req, res) => {
   try {
     const imageplants = await db.query(
-      "select path_image from image_plant_detail where id_plant = :id_plant",
+        "  SELECT plant_detail.id," +
+        "         plant_detail.id_name_plant," +
+        "         plant.name_plant," +
+        "         plant.start_date_plant," +
+        "         plant.end_date_plant," +
+        "         plant.plant_image," +
+        "         plant_data_detail.id AS 'id_data_detail'," +
+        "         plant_data_detail.name_chemical," +
+        "         plant_data_detail.quantity_chemical," +
+        "         plant_data_detail.unit," +
+        "         plant_data_detail.note," +
+        "         image_plant_detail.path_image " +
+        "FROM plant_data_detail " +
+        "LEFT JOIN image_plant_detail ON image_plant_detail.id_plant = plant_data_detail.id " +
+        "LEFT JOIN plant_detail ON plant_detail.id = plant_data_detail.id_plant " +
+        "LEFT JOIN plant ON plant.id_plant = plant_detail.id " +
+        "WHERE plant_detail.id =  :id_plant",
       {
         replacements: { id_plant: req.params.id },
         type: db.QueryTypes.SELECT,
