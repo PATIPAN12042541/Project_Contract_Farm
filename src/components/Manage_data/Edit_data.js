@@ -148,9 +148,13 @@ const Edit_data = () => {
         plant_image: "../dist/img/" + edit_image_name
       });
 
-      editUploadImg();
+      if (editimage.data == undefined) {
+        getPlant();
+      }else{
+        editUploadImg();
+        getPlant();
+      }
 
-      getPlant();
       Swal.fire(
         'Succes !',
         'Your file has been Update.',
