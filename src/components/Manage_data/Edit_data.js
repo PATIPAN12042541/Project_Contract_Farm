@@ -48,6 +48,17 @@ const Edit_data = () => {
                     .catch(err => console.error(err));
   }
 
+  const editUploadImg = async()=>{
+    let formData = new FormData()
+        formData.append('file', editimage.data)
+
+        console.log(formData);
+
+        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+                    .then(res => console.log(res.data))
+                    .catch(err => console.error(err));
+  }
+
   const getPlant = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant`
@@ -137,7 +148,7 @@ const Edit_data = () => {
         plant_image: "../dist/img/" + edit_image_name
       });
 
-      uploadImg();
+      editUploadImg();
 
       getPlant();
       Swal.fire(
