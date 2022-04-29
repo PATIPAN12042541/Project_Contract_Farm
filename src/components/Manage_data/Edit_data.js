@@ -56,7 +56,6 @@ const Edit_data = () => {
   };
 
   const deletePlants = async(id) => {
-    alert("id : "+id);
     Swal.fire({
       title: 'Are you sure delete?',
       text: "You want delete data !",
@@ -132,6 +131,7 @@ const Edit_data = () => {
   const updatePlant = async (id) => {
     try {
       alert("id : "+id);
+      console.log(plantdata);
       /*await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
         name_plant: edit_name_plant,
         start_date_plant: edit_start_date_plant,
@@ -448,7 +448,7 @@ const Edit_data = () => {
                                   type="submit"
                                   className="btn btn-success"
                                   onClick={()=>{
-                                    updatePlant(data.id)
+                                    updatePlant(data.idplant)
                                   }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
