@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const SidebarAdmin = () => {
     const [name, setName] = useState('');
     const [last_name,setLastName] = useState('');
-    const [role, setRole] = useState('');
+    const [roleid, setRoleID] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
@@ -31,12 +31,9 @@ const SidebarAdmin = () => {
         );
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
-        //setName(decoded.name);
-        alert(decoded.name);
-        alert(decoded.last_name);
-        alert(decoded.role_id);
-        alert(decoded.exp);
+        setName(decoded.name);
         setLastName(decoded.last_name);
+        setRoleID(decoded.role_id);
         setExpire(decoded.exp);
       } catch (error) {
         if (error.response) {
@@ -58,7 +55,9 @@ const SidebarAdmin = () => {
           config.headers.Authorization = `Bearer ${response.data.accessToken}`;
           setToken(response.data.accessToken);
           const decoded = jwt_decode(response.data.accessToken);
-          //setName(decoded.name);
+          setName(decoded.name);
+          setLastName(decoded.last_name);
+          setRoleID(decoded.role_id);
           setExpire(decoded.exp);
         }
         return config;
@@ -108,7 +107,7 @@ const SidebarAdmin = () => {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              {name} {last_name}
+              {name} {last_name} {roleid}
             </a>
           </div>
         </div>
