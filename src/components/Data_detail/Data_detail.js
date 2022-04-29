@@ -6,14 +6,13 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
-
   useEffect(() => {
     getDatadetail();
   }, []);
 
   const getDatadetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id_plant}`
+      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
     );
     setDatadetail(response.data);
   };
@@ -30,7 +29,7 @@ const Data_detail = (props) => {
       <section className="content">
         <div className="container-fluid">
           {datadetail.map((data, index) => (
-            <div className="row">
+            <div className="row" key={index}>
               <div className="col-md-12">
                 <div className="card card-info">
                   <div
