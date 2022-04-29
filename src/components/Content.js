@@ -55,15 +55,15 @@ const Content = () => {
                             }}
                             className="text-white"
                           >
-                            <div className="card mb-2 bg-gradient-dark">
-                              <img
-                                src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                                alt={data.id_name_plant}
-                                width={250}
-                                height={300}
-                              />
-                              <ImageListItemBar title={data.id_name_plant} />
-                            </div>
+                            <img
+                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              alt={data.id_name_plant}
+                              loading="lazy"
+                              width={250}
+                              height={300}
+                            />
+                            <ImageListItemBar title={data.id_name_plant} />
                           </Link>
                         </ImageListItem>
                       </div>
