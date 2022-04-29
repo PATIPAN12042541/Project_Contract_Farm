@@ -130,9 +130,7 @@ const Edit_data = () => {
 
   const updatePlant = async (id) => {
     try {
-      alert("id : "+id);
-      console.log(plantdata);
-      /*await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
         name_plant: edit_name_plant,
         start_date_plant: edit_start_date_plant,
         end_date_plant: edit_end_date_plant,
@@ -144,7 +142,7 @@ const Edit_data = () => {
         'Succes !',
         'Your file has been Update.',
         'success'
-      )*/
+      )
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -361,7 +359,7 @@ const Edit_data = () => {
                                 type="submit"
                                 className="btn btn-danger"
                                 onClick={() => {
-                                  deletePlants(data.id);
+                                  deletePlants(data.id_plant);
                                 }}
                               >
                                 <BsFillTrashFill />
@@ -448,7 +446,7 @@ const Edit_data = () => {
                                   type="submit"
                                   className="btn btn-success"
                                   onClick={()=>{
-                                    updatePlant(data.idplant)
+                                    updatePlant(data.plant_id)
                                   }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
