@@ -371,6 +371,7 @@ const Edit_data = () => {
                         </tr>
                         <tr className="expandable-body d-none">
                           <td colSpan={6}>
+                            <form onSubmit={updatePlant(data.plant_id)}>
                             <div className="row">
                               <div className="col-2">
                                 <input
@@ -447,14 +448,12 @@ const Edit_data = () => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
-                                  onClick={()=>{
-                                    updatePlant(data.plant_id)
-                                  }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
                                 </button>
                               </div>
                             </div>
+                            </form>
                           </td>
                         </tr>
                       </tbody>
