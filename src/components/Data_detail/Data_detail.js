@@ -46,7 +46,7 @@ const Data_detail = (props) => {
                       <div className="col-12">
                         <img
                           className="card-img-top"
-                          src={`"../dist/img/holy_basil.jpg"?w=248&fit=crop&auto=format`}
+                          src={"../dist/img/holy_basil.jpg"}
                           alt={"พรีวาทอน"}
                           loading="lazy"
                           width={200}
@@ -108,12 +108,7 @@ const Data_detail = (props) => {
                           <div className="col-12">
                             <h4>Note.</h4>
                             <div className="post">
-                              <p>
-                                Lorem ipsum represents a long-held tradition for
-                                designers, typographers and the like. Some
-                                people hate it and argue for its demise, but
-                                others ignore.
-                              </p>
+                              <p>ยังอยู่ในช่วงทดสอบระบบนะครับ</p>
                             </div>
                           </div>
                         </div>
