@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -126,6 +127,17 @@ const Edit_data = () => {
       });
     }
   };
+
+  const updatePlant = async (e) => {
+    e.preventDefault();
+    await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,{
+        name_plant: edit_name_plant,
+        start_date_plant: edit_start_date_plant,
+        end_date_plant : edit_end_date_plant,
+        plant_image : "../dist/img/"+edit_image_name
+    });
+}
+
 
   return (
     <div className="content-wrapper">
