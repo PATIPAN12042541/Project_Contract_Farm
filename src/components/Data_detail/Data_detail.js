@@ -47,7 +47,7 @@ const Data_detail = (props) => {
                           src={"../dist/img/insecticide/Pic_1.png"}
                           alt={"พรีวาทอน"}
                           loading="lazy"
-                          width={200}
+                          width={100}
                           height={250}
                         />
                         <ImageListItemBar
@@ -130,7 +130,7 @@ const Data_detail = (props) => {
                           src={"../dist/img/insecticide/Pic_2.png"}
                           alt={"เอ็กซอล"}
                           loading="lazy"
-                          width={200}
+                          width={100}
                           height={250}
                         />
                         <ImageListItemBar
