@@ -345,7 +345,7 @@ const Edit_data = () => {
                                 <input
                                   type="text"
                                   className="form-control"
-                                  disabled=""
+                                  disabled
                                   placeholder="# หมายเลข "
                                   defaultValue={data.id_name_plant}
                                 />
