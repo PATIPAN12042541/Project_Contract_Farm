@@ -34,6 +34,7 @@ const SidebarAdmin = () => {
         //setName(decoded.name);
         alert(decoded.name);
         alert(decoded.last_name);
+        alert(decoded.role_id);
         alert(decoded.exp);
         setLastName(decoded.last_name);
         setExpire(decoded.exp);
