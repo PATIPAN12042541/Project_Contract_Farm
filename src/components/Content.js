@@ -57,8 +57,8 @@ const Content = () => {
                           >
                             <div className="card mb-2 bg-gradient-dark">
                               <img
-                                src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                                srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                src={`${data.plant_image}`}
+                                srcSet={`${data.plant_image}`}
                                 alt={data.id_name_plant}
                                 loading="lazy"
                                 width={250}
