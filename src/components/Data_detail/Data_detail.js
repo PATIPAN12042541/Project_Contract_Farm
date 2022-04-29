@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 import axios from "axios";
-
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Data_detail = (props) => {
-
-
   const [datadetail, setDatadetail] = useState([]);
 
   useEffect(() => {
@@ -46,11 +44,15 @@ const Data_detail = (props) => {
                       <div className="col-12">
                         <img
                           className="card-img-top"
-                          src={"../dist/img/holy_basil.jpg"}
+                          src={"../dist/img/insecticide/Pic_1.png"}
                           alt={"พรีวาทอน"}
                           loading="lazy"
                           width={200}
                           height={250}
+                        />
+                        <ImageListItemBar
+                          className="card-title text-primary text-white"
+                          title={"พรีวาทอน"}
                         />
                       </div>
                     </div>
