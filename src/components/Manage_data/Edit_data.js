@@ -141,12 +141,20 @@ const Edit_data = () => {
 
   const updatePlant = async (id) => {
     try {
-      await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
-        name_plant: edit_name_plant,
-        start_date_plant: edit_start_date_plant,
-        end_date_plant: edit_end_date_plant,
-        plant_image: "../dist/img/" + edit_image_name
-      });
+      if (edit_image_name == undefined){
+        await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+          name_plant: edit_name_plant,
+          start_date_plant: edit_start_date_plant,
+          end_date_plant: edit_end_date_plant,
+        });
+      }else{
+        await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+          name_plant: edit_name_plant,
+          start_date_plant: edit_start_date_plant,
+          end_date_plant: edit_end_date_plant,
+          plant_image: "../dist/img/" + edit_image_name
+        });
+      }
 
       Swal.fire(
         'Succes !',
