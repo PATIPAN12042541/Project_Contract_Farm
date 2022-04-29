@@ -128,7 +128,8 @@ const Edit_data = () => {
     }
   };
 
-  const updatePlant = async (id) => {
+  const updatePlant = async (e,id) => {
+    e.preventDefault();
     await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,{
         name_plant: edit_name_plant,
         start_date_plant: edit_start_date_plant,
