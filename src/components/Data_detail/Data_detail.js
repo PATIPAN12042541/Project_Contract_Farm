@@ -7,6 +7,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
 
+  console.log(datadetail);
   useEffect(() => {
     getDatadetail();
   }, []);
