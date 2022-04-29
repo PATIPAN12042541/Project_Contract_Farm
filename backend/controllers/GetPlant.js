@@ -87,3 +87,15 @@ export const getDataImagePlant = async (req, res) => {
     res.json({ message: error.message + id_plant });
   }
 };
+
+export const updatePlant = async (req, res) => {
+  try {
+      await Plant.update(req.body, {
+          where: {
+              id: req.params.id
+          }
+      });
+  } catch (error) {
+      res.json({ message: error.message });
+  }  
+};
