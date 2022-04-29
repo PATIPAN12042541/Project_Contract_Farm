@@ -45,7 +45,7 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     {plant.map((data, index) => (
-                      <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
+                      <div className="col-md-12 col-lg-6 col-xl-2" key={index}>
                         <ImageListItem key={index}>
                           <Link
                             //to={`/Data_detail/${data.id}`}
@@ -61,7 +61,7 @@ const Content = () => {
                                 srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={data.id_name_plant}
                                 loading="lazy"
-                                width={400}
+                                width={250}
                                 height={300}
                               />
                               <ImageListItemBar title={data.id_name_plant} />
