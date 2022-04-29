@@ -353,7 +353,6 @@ const Edit_data = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="ชื่อแปลงผัก"
-                                  value={setEditNamePlant(data.name_plant)}
                                   onChange={ (e) => setEditNamePlant(e.target.value) }
                                 />
                               </div>
