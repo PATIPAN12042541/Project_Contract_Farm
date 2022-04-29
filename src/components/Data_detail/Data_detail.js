@@ -47,8 +47,6 @@ const Data_detail = (props) => {
                           src={"../dist/img/insecticide/Pic_1.png"}
                           alt={"พรีวาทอน"}
                           loading="lazy"
-                          width={100}
-                          height={250}
                         />
                         <ImageListItemBar
                           className="card-title text-primary text-white"
