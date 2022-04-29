@@ -7,13 +7,14 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
 
+  console.log(datadetail);
   useEffect(() => {
     getDatadetail();
   }, []);
 
   const getDatadetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id_plant}`
+      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
     );
     setDatadetail(response.data);
   };
