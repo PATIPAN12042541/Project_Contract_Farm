@@ -130,7 +130,8 @@ const Edit_data = () => {
 
   const updatePlant = async (id) => {
     try {
-      await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+      alert("id : "+id);
+      /*await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
         name_plant: edit_name_plant,
         start_date_plant: edit_start_date_plant,
         end_date_plant: edit_end_date_plant,
@@ -142,7 +143,7 @@ const Edit_data = () => {
         'Succes !',
         'Your file has been Update.',
         'success'
-      )
+      )*/
     } catch (error) {
       Swal.fire({
         icon: "error",
