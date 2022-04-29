@@ -434,7 +434,7 @@ const Edit_data = () => {
                                     src={
                                       editimage.preview
                                         ? editimage.preview
-                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                        : data.plant_image
                                     }
                                     className="img-fluid mb-2"
                                     width="100"
