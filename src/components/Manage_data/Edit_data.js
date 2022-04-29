@@ -371,7 +371,6 @@ const Edit_data = () => {
                         </tr>
                         <tr className="expandable-body d-none">
                           <td colSpan={6}>
-                            <form>
                             <div className="row">
                               <div className="col-2">
                                 <input
@@ -456,7 +455,6 @@ const Edit_data = () => {
                                 </button>
                               </div>
                             </div>
-                            </form>
                           </td>
                         </tr>
                       </tbody>
