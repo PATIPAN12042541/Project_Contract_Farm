@@ -353,7 +353,7 @@ const Edit_data = () => {
                                   defaultValue={data.id_name_plant}
                                 />
                               </div>
-                              <div className="col-2">
+                              <div className="col-3">
                                 <input
                                   type="text"
                                   className="form-control"
@@ -390,6 +390,12 @@ const Edit_data = () => {
 
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach(e => {
+
+                                      console.log(e.name);
+                                      console.log(e.size);
+                                      console.log(e.type);
+                                      console.log(e.lastModifiedDate);
+
                                       setEditImageName(e.name);
 
                                       console.log("Edit Image Name : "+edit_image_name);
