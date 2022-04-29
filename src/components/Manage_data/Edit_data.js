@@ -448,7 +448,7 @@ const Edit_data = () => {
                                     className="img-fluid mb-2"
                                     width="100"
                                     height="100"
-                                    onChange={setEditImage(data.plant_image)}
+                                    onChange={setEditImageName(data.plant_image)}
                                   />
                                 </Zoom>
                               </div>
