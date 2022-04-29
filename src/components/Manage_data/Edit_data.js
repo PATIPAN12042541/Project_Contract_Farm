@@ -380,7 +380,7 @@ const Edit_data = () => {
                                   onChange={ (e) => setEditEndDatePlant(e.target.value) }
                                 />
                               </div>
-                              <div className="col-1">
+                              <div className="col-2">
                                 <FileUpload
                                   btnIcon="fas fa-upload"
                                   multiple
@@ -391,6 +391,8 @@ const Edit_data = () => {
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach(e => {
                                       setEditImageName(e.name);
+
+                                      console.log("Edit Image Name : "+edit_image_name);
                                     });
 
                                     const edit_img = {
@@ -400,6 +402,20 @@ const Edit_data = () => {
                                     setEditImage(edit_img);
                                   }}
                                 />
+                              </div>
+                              <div className="col-1">
+                                <Zoom>
+                                  <img
+                                    src={
+                                      editimage.preview
+                                        ? editimage.preview
+                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                    }
+                                    className="img-fluid mb-2"
+                                    width="100"
+                                    height="100"
+                                  />
+                                </Zoom>
                               </div>
                               <div className="col-1">
                                 <button
