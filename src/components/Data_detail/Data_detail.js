@@ -135,6 +135,7 @@ const Data_detail = (props) => {
                         />
                       </div>
                     </div>
+                    <div> </div>
                     <div className="col-12 col-sm-8">
                       <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
                         <div className="row">
