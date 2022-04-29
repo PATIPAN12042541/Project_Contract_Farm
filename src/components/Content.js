@@ -49,10 +49,10 @@ const Content = () => {
                         <Link
                           //to={`/Data_detail/${data.id}`}
                           to={{
-                            pathname: `/Data_detail/${data.id}`,
-                            state: { id: data.id },
+                            pathname: `/Data_detail/${data.id_plant}`,
+                            state: { id: data.id_plant },
                           }}
-                          params={data.id}
+                          params={data.id_plant}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">

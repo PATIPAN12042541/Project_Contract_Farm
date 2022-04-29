@@ -13,7 +13,7 @@ const Data_detail = (props) => {
 
   const getDatadetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
+      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id_plant}`
     );
     setDatadetail(response.data);
   };
