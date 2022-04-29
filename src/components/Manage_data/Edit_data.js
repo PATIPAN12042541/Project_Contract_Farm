@@ -27,6 +27,9 @@ const Edit_data = () => {
   const [image, setImage] = useState({ preview: '', data: '' });
   const [image_name, setImageName] = useState();
 
+  const [editimage, setEditImage] = useState({ preview: '', data: '' });
+  const [edit_image_name, setEditImageName] = useState();
+
   // const [plantimage, setPlantImage] = useState();
 
   useEffect(() => {
@@ -350,7 +353,7 @@ const Edit_data = () => {
                                   defaultValue={data.id_name_plant}
                                 />
                               </div>
-                              <div className="col-2">
+                              <div className="col-3">
                                 <input
                                   type="text"
                                   className="form-control"
@@ -377,14 +380,40 @@ const Edit_data = () => {
                                   onChange={ (e) => setEditEndDatePlant(e.target.value) }
                                 />
                               </div>
-                              <div className="col-3">
-                                <span
-                                  className="btn btn-info col fileinput-button dz-clickable"
-                                  type="file"
-                                >
-                                  <i className="fas fa-plus" />
-                                  <span> Add files</span>
-                                </span>
+                              <div className="col-1">
+                                <FileUpload
+                                  btnIcon="fas fa-upload"
+                                  multiple
+                                  accept="image/*"
+                                  onUpload={(file) => {
+                                    console.log("query file", file);
+
+                                    const filesArray = [].slice.call(file);
+                                    filesArray.forEach(e => {
+                                      setEditImageName(e.name);
+                                    });
+
+                                    const edit_img = {
+                                      preview: URL.createObjectURL(file[0]),
+                                      data: file[0],
+                                    };
+                                    setEditImage(edit_img);
+                                  }}
+                                />
+                              </div>
+                              <div className="col-1">
+                                <Zoom>
+                                  <img
+                                    src={
+                                      editimage.preview
+                                        ? editimage.preview
+                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                    }
+                                    className="img-fluid mb-2"
+                                    width="100"
+                                    height="100"
+                                  />
+                                </Zoom>
                               </div>
                               <div className="col-1">
                                 <button
