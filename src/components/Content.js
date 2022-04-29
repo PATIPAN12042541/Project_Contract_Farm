@@ -46,24 +46,26 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      {plant.map((data, index) => (
-                        <ImageListItem key={index}>
-                          <Link
-                            to={{
-                              pathname: `/Data_detail/${data.id}`,
-                              state: { id: data.id },
-                            }}
-                          >
-                            <img
-                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                              alt={data.id_name_plant}
-                              sx={{ width: 100, height: 100 }}
-                            />
-                            <ImageListItemBar title={data.id_name_plant} />
-                          </Link>
-                        </ImageListItem>
-                      ))}
+                      <ImageList sx={{ width: 1200, height: 450 }}>
+                        {plant.map((data, index) => (
+                          <ImageListItem key={index}>
+                            <Link
+                              to={{
+                                pathname: `/Data_detail/${data.id}`,
+                                state: { id: data.id },
+                              }}
+                            >
+                              <img
+                                src={`${data.plant_image}?w=248&fit=crop&auto=format`}
+                                srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                alt={data.id_name_plant}
+                                loading="lazy"
+                              />
+                              <ImageListItemBar title={data.id_name_plant} />
+                            </Link>
+                          </ImageListItem>
+                        ))}
+                      </ImageList>
 
                       {/* <div className="card mb-2 bg-gradient-dark">
                             <img
