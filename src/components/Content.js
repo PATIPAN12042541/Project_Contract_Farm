@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
@@ -55,18 +58,19 @@ const Content = () => {
                           <div className="card mb-2 bg-gradient-dark">
                             <img
                               className="card-img-top"
-                              src={data.plant_image}
-                              alt="Dist Photo 1"
+                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              alt={data.id_name_plant}
+                              loading="lazy"
                               width={250}
                               height={300}
                             />
                             <div className="card-img-overlay d-flex flex-column justify-content-end">
-                              <h1 className="card-title text-primary text-white">
-                                Plant {data.id_name_plant}
-                              </h1>
-                              <p className="card-text text-white pb-3 pt-1">
-                                {data.name_plant}
-                              </p>
+                              <ImageListItemBar
+                                className="card-title text-primary text-white"
+                                title={"Plant " + data.id_name_plant}
+                                subtitle={data.name_plant}
+                              />
                             </div>
                           </div>
                         </Link>
