@@ -46,7 +46,7 @@ const Content = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      <ImageList sx={{ width: 1200, height: 450 }}>
+                      <ImageList sx={{ width: 1500 }}>
                         {plant.map((data, index) => (
                           <ImageListItem key={index}>
                             <Link
