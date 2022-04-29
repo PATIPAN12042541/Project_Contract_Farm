@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
@@ -46,28 +43,33 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
-                        <ImageListItem key={index}>
-                          <Link
-                            //to={`/Data_detail/${data.id}`}
-                            to={{
-                              pathname: `/Data_detail/${data.id}`,
-                              state: { id: data.id },
-                            }}
-                            className="text-white"
-                          >
-                            <div className="card mb-2 bg-gradient-dark">
-                              <img
-                                src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                                srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                alt={data.id_name_plant}
-                                loading="lazy"
-                                width={300}
-                                height={300}
-                              />
-                              <ImageListItemBar title={data.id_name_plant} />
+                        <Link
+                          //to={`/Data_detail/${data.id}`}
+                          to={{
+                            pathname: `/Data_detail/${data.id}`,
+                            state: { id: data.id },
+                          }}
+                          params={data.id}
+                          className="text-white"
+                        >
+                          <div className="card mb-2 bg-gradient-dark">
+                            <img
+                              className="card-img-top"
+                              src={data.plant_image}
+                              alt="Dist Photo 1"
+                              width={250}
+                              height={300}
+                            />
+                            <div className="card-img-overlay d-flex flex-column justify-content-end">
+                              <h1 className="card-title text-primary text-white">
+                                Plant {data.id_name_plant}
+                              </h1>
+                              <p className="card-text text-white pb-3 pt-1">
+                                {data.name_plant}
+                              </p>
                             </div>
-                          </Link>
-                        </ImageListItem>
+                          </div>
+                        </Link>
                       </div>
                     ))}
                   </div>
