@@ -137,6 +137,8 @@ const Edit_data = () => {
         plant_image: "../dist/img/" + edit_image_name
       });
 
+      uploadImg();
+
       getPlant();
       Swal.fire(
         'Succes !',
