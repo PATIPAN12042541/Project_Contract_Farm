@@ -19,7 +19,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      getUsers();
+      //getUsers();
     }, []);
 
 
@@ -76,7 +76,6 @@ const SidebarRole = () => {
         {
           //const response = await axiosJWT.get('http://localhost:4000/check_users', {
           headers: {
-            accept: 'application/json',
             Authorization: `Bearer ${token}`,
           },
         }
