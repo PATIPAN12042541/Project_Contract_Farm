@@ -81,9 +81,9 @@ const SidebarRole = () => {
       );
       setUsers(response.data);
     };
-  if (roleid == 1){
+  if (roleid === 1){
       return <SidebarDev />
-  }else if(roleid == 2){
+  }else if(roleid === 2){
       return <SidebarAdmin />
   }
 };
