@@ -2,13 +2,13 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Detail from "../components/Detail";
-import SidebarAdmin from "../components/SidebarAdmin";
+import SidebarRole from "../components/SidebarRole/SidebarRole";
 
 const Page_1_2 = () => {
   return (
     <>
       <Header />
-      <SidebarAdmin />
+      <SidebarRole />
       <Detail />
       <Footer />
     </>

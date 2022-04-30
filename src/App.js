@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Header from "./components/Header";
-import SidebarAdmin from "./components/SidebarAdmin";
+import SidebarRole from "./components/SidebarRole/SidebarRole";
 import Footer from "./components/Footer";
 import Page_1_1 from "./Page_1/Page_1_1";
 import Page_1_2 from "./Page_2/Page_1_2";
@@ -23,7 +23,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SidebarAdmin />
+                <SidebarRole />
                 <First_Page />
                 <Footer />
               </>
@@ -40,7 +40,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SidebarAdmin />
+                <SidebarRole />
                 <Edit_data />
                 <Footer />
               </>
@@ -52,7 +52,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SidebarAdmin />
+                <SidebarRole />
                 <Manage_plant />
                 <Footer />
               </>
