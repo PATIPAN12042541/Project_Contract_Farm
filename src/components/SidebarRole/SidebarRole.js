@@ -38,11 +38,6 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
-        if (roleid === 1){
-            return <><SidebarDev /></>
-        }else if(roleid ===2){
-            return <><SidebarAdmin /></>
-        }
       } catch (error) {
         if (error.response) {
           history("/");
@@ -87,6 +82,9 @@ const SidebarRole = () => {
       );
       setUsers(response.data);
     };
+    return(
+        <><SidebarAdmin /></>
+    )
 };
 
 
