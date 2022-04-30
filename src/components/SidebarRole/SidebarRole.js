@@ -39,9 +39,9 @@ const SidebarRole = () => {
         setExpire(decoded.exp);
 
         if (roleid === 1){
-            return <SidebarDev />
+            return <><SidebarDev /></>
         }else if(roleid ===2){
-            return <SidebarAdmin />
+            return <><SidebarAdmin /></>
         }
       } catch (error) {
         if (error.response) {
