@@ -6,6 +6,7 @@ import RoleRoutes from "./routes/RoleRoutes.js";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
 import PlantRoute from "./routes/PlantRoute.js";
+import MenuRoute from "./routes/MenuRoleRoute.js"
 import multer, { diskStorage } from 'multer';
 
 dotenv.config();
@@ -21,15 +22,6 @@ try {
 //app.use(cors({ credentials:true, origin:'http://localhost:3001' }));
 
 app.use(cors({ credentials:true, origin:'http://node30998-env-3297740.th1.proen.cloud:3000' }));
-
-
-/*app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://node30998-env-3297740.th1.proen.cloud:3000'); //หรือใส่แค่เฉพาะ domain ที่ต้องการได้
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, X-Request-With');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});*/
 
 
 
@@ -59,5 +51,6 @@ app.use(express.json());
 app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
 app.use("/getplant", PlantRoute);
+app.use("/Menu", MenuRoute);
  
 app.listen(4000, () => console.log("Server running at port 4000"));
