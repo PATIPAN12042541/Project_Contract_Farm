@@ -14,9 +14,7 @@ const SidebarRole = () => {
     const [users, setUsers] = useState([]);
     const [mainmenu,setMainMenu] = useState([]);
     const [submenulv1,setSubMenuLV1] = useState([]);
-    const history = useNavigate();
-
-    let anchorRef = React.createRef();
+    const history = useNavigate
 
     useEffect(() => {
       refreshToken();
@@ -134,7 +132,7 @@ const SidebarRole = () => {
                     return (
                         <li className="nav-item" 
                             key={index}>
-                            <Link to={item.link} innerRef={anchorRef} className="nav-link">
+                            <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
                                 <i className="fas fa-angle-left right"></i>
