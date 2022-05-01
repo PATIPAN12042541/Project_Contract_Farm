@@ -1,7 +1,8 @@
 import Menus from "../models/RoleMenu.js";
+import db from "../config/Database.js";
 export const getMenusRoleMain = async (req, res) => {
     try {
-        const menus = await Menus.sequelize.query(
+        const menus = await Menus.query(
             "SELECT id,"+
             "       menu_name,"+
             "       index_menu,"+
