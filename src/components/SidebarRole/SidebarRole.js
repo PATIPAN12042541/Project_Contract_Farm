@@ -128,7 +128,7 @@ const SidebarRole = () => {
                 {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item">
-                            <Link className="nav-link">
+                            <Link to={item.link} className="nav-link">
                                 <p>
                                 item.menu_name
                                 <i className="fas fa-angle-left right"></i>
