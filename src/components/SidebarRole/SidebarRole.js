@@ -40,7 +40,7 @@ const SidebarRole = () => {
         setExpire(decoded.exp);
 
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
-        setMainMenu(menu);
+        setMainMenu(menu.data);
 
       } catch (error) {
         if (error.response) {
