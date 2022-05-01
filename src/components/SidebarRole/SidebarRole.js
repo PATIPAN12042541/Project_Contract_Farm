@@ -19,8 +19,6 @@ const SidebarRole = () => {
     const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate();
 
-    let anchorRef = React.createRef();
-
     useEffect(() => {
       refreshToken();
       //getUsers();
@@ -44,11 +42,6 @@ const SidebarRole = () => {
 
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         setMainMenu(menu.data);
-
-        /*alert("role_id : "+decoded.role_id);
-        alert("id 1 : "+menu.data.id);
-        alert("id 2 : "+menu.data[0].id);*/
-        menusublv1(decoded.role_id,menu.data[0].id);
 
       } catch (error) {
         if (error.response) {
@@ -140,8 +133,8 @@ const SidebarRole = () => {
               >
                 {mainmenu.map((item,index)=>{
                     return (
-                        <li className="nav-item" key={index}>
-                            <Link to={item.link} innerRef={anchorRef} className="nav-link">
+                        <li className="nav-item" key={index} onClick={menusublv1(item.role_id,item.id)}>
+                            <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
                                 <i className="fas fa-angle-left right"></i>
