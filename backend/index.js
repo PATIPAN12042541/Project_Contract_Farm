@@ -51,6 +51,6 @@ app.use(express.json());
 app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
 app.use("/getplant", PlantRoute);
-app.use("/Menu", MenuRoute);
+app.use("/menu", MenuRoute);
  
 app.listen(4000, () => console.log("Server running at port 4000"));
