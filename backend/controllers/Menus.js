@@ -2,7 +2,7 @@ import Menus from "../models/RoleMenu.js";
 import db from "../config/Database.js";
 export const getMenusRoleMain = async (req, res) => {
     try {
-        const menus = await Menus.query(
+        const menus = await db.query(
             "SELECT id,"+
             "       menu_name,"+
             "       index_menu,"+
@@ -14,7 +14,7 @@ export const getMenusRoleMain = async (req, res) => {
             "order by index_menu asc",
             {
                 replacements: { role_id: req.params.role_id },
-                type: Menus.QueryTypes.SELECT
+                type: db.QueryTypes.SELECT
             }
         );
         res.json(menus);
