@@ -133,7 +133,7 @@ const SidebarRole = () => {
                 {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item" key={index}>
-                            <Link to={item.link} innerRef={anchorRef} className="nav-link" onClick={menusublv1(item.role_id,item.id)}>
+                            <Link to={item.link} innerRef={anchorRef} className="nav-link" onChange={menusublv1(item.role_id,item.id)}>
                                 <p>
                                 {item.menu_name}
                                 <i className="fas fa-angle-left right"></i>
