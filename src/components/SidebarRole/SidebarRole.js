@@ -43,10 +43,10 @@ const SidebarRole = () => {
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         setMainMenu(menu.data);
 
-        alert("role_id : "+decoded.role_id);
+        /*alert("role_id : "+decoded.role_id);
         alert("id 1 : "+menu.data.id);
-        alert("id 2 : "+menu.data[0].id);
-        menusublv1(decoded.role_id,menu.data.id);
+        alert("id 2 : "+menu.data[0].id);*/
+        menusublv1(decoded.role_id,menu.data[0].id);
 
       } catch (error) {
         if (error.response) {
@@ -145,7 +145,7 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {/* {menusublv1.map((item_lv1,index)=>{
+                            {menusublv1.map((item_lv1,index)=>{
                                 return(
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item" key={index}>
@@ -156,7 +156,7 @@ const SidebarRole = () => {
                                         </li>
                                     </ul>
                                 )
-                            })} */}
+                            })}
                         </li>
                     );
                 })}
