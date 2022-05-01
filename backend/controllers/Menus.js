@@ -7,10 +7,10 @@ export const getMenusRoleMain = async (req, res) => {
                 role_id:req.params.id,
                 parent_id:0,
                 status:1,
-                order: [
-                    ['index_menu','asc'],
-                ]
-            }
+            },
+            order: [
+                ['index_menu','asc'],
+            ]
         })
         res.json(menus);
     } catch (error) {
