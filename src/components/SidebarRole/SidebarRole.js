@@ -16,7 +16,7 @@ const SidebarRole = () => {
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
     const [mainmenu,setMainMenu] = useState([]);
-    const [submenulv1,setMenuLV1] = useState([]);
+    const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate();
 
     useEffect(() => {
@@ -57,7 +57,7 @@ const SidebarRole = () => {
 
     const menusublv1 = async(role_id,parentid) => {
         const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
-        setMenuLV1(menu_lv1.data);
+        setSubMenuLV1(menu_lv1.data);
     }
 
     const axiosJWT = axios.create();
@@ -145,7 +145,7 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {menusublv1.map((item_lv1,index)=>{
+                            {submenulv1.map((item_lv1,index)=>{
                                 return(
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item" key={index}>
