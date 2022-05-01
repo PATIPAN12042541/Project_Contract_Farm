@@ -10,7 +10,6 @@ export const getMenusRoleMain = async (req, res) => {
             "       role_id "+
             "FROM role_menu "+
             "where role_id = :role_id "+
-            "and status = 1 "+
             "order by index_menu asc",
             {
                 replacements: { role_id: req.params.role_id },
