@@ -13,7 +13,7 @@ export const getMenusRoleMain = async (req, res) => {
             "where role_id = :role_id "+
             "order by index_menu asc",
             {
-                replacements: { role_id: req.params.role_id },
+                replacements: { role_id: req.params.id },
                 type: db.QueryTypes.SELECT
             }
         );
