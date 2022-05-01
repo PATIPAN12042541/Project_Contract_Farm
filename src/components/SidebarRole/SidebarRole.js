@@ -134,8 +134,7 @@ const SidebarRole = () => {
                 {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item" 
-                            key={index}
-                            onClick={menusublv1(item.role_id,item.id)}>
+                            key={index}>
                             <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
