@@ -4,7 +4,7 @@ export const getMenusRoleMain = async (req, res) => {
         const menus = await Menus.findAll({
             where:{
                 role_id : req.params.role_id,
-                parent_id : 0
+                parent_id : "0"
             }
         });
         res.json(menus);
