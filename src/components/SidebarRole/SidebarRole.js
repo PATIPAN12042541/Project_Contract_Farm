@@ -16,6 +16,7 @@ const SidebarRole = () => {
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
     const [mainmenu,setMainMenu] = useState([]);
+    const [submenulv1,setMenuLV1] = useState([]);
     const history = useNavigate();
 
     useEffect(() => {
@@ -42,6 +43,7 @@ const SidebarRole = () => {
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         setMainMenu(menu.data);
 
+        menusublv1(menu[0].data.role_id,menu[0].id);
       } catch (error) {
         if (error.response) {
           history("/");
@@ -49,9 +51,10 @@ const SidebarRole = () => {
       }
     }
 
-    /*const menusublv1 = async() => {
-        const menu_lv1 = await
-    }*/
+    const menusublv1 = async(role_id,parentid) => {
+        const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
+        setMenuLV1(menu_lv1.data);
+    }
 
     const axiosJWT = axios.create();
 
@@ -131,7 +134,6 @@ const SidebarRole = () => {
               >
                 {mainmenu.map((item,index)=>{
                     return (
-
                         <li className="nav-item" key={index}>
                             <Link to={item.link} className="nav-link">
                                 <p>
@@ -139,6 +141,18 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
+                            {menusublv1.map((item_lv1,index)=>{
+                                return(
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item" key={index}>
+                                            <Link className="nav-link" to={item_lv1.link}>
+                                                <i className="far fa-circle nav-icon"></i>
+                                                <p>{item_lv1.menu_name}</p>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                )
+                            })}
                         </li>
                     );
                 })}
