@@ -137,11 +137,10 @@ const SidebarRole = () => {
                             <Link to={item.link} innerRef={anchorRef} className="nav-link">
                                 <p>
                                 {item.menu_name}
-                                {menusublv1(item.role_id,item.id)}
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((item_lv1,index)=>{
+                            {/* {submenulv1.map((item_lv1,index)=>{
                                 return(
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item" key={index}>
@@ -152,7 +151,7 @@ const SidebarRole = () => {
                                         </li>
                                     </ul>
                                 )
-                            })}
+                            })} */}
                         </li>
                     );
                 })}
