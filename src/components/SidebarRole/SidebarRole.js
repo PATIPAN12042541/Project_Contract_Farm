@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import SidebarAdmin from './SidebarAdmin';
-import SidebarDev from './SidebarDev';
-
 
 const SidebarRole = () => {
     const [name, setName] = useState('');
