@@ -129,15 +129,10 @@ const SidebarRole = () => {
                 role="menu"
                 data-accordion="false"
               >
-                {mainmenu.map((main,index)=>{
+                {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item">
-                            <a href={main.link} className="nav-link">
-                                <p>
-                                    {main.menu_name}
-                                    <i className="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
+                            dddeeee
                         </li>
                     );
                 })}
