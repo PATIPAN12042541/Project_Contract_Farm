@@ -15,6 +15,7 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
+    const [mainmenu,setMainMenu] = useState([]);
     const history = useNavigate();
 
     useEffect(() => {
@@ -37,6 +38,9 @@ const SidebarRole = () => {
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
+
+        const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${roleid}`)
+        setMainMenu(menu);
 
       } catch (error) {
         if (error.response) {
@@ -121,7 +125,19 @@ const SidebarRole = () => {
                 role="menu"
                 data-accordion="false"
               >
-                <li className="nav-item">
+                {mainmenu.map((main,index)=>{
+                    return (
+                        <li className="nav-item">
+                            <a href={main.link} className="nav-link">
+                                <p>
+                                    {main.menu_name}
+                                    <i className="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                        </li>
+                    );
+                })}
+                {/* <li className="nav-item">
                   <li className="nav-item">
                     <a href="/contract_farm" className="nav-link">
                       <p>
@@ -182,7 +198,7 @@ const SidebarRole = () => {
                       </li>
                     </ul>
                   </li>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
