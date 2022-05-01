@@ -19,6 +19,8 @@ const SidebarRole = () => {
     const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate();
 
+    let anchorRef = React.createRef();
+
     useEffect(() => {
       refreshToken();
       //getUsers();
@@ -134,7 +136,7 @@ const SidebarRole = () => {
                 {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item" key={index} onClick={menusublv1(item.role_id,item.id)}>
-                            <Link to={item.link} className="nav-link">
+                            <Link to={item.link} innerRef={anchorRef} className="nav-link">
                                 <p>
                                 {item.menu_name}
                                 <i className="fas fa-angle-left right"></i>
