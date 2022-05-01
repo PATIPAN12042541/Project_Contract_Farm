@@ -43,7 +43,7 @@ const SidebarRole = () => {
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         setMainMenu(menu.data);
 
-        menusublv1(menu[0].data.role_id,menu[0].id);
+        menusublv1(menu.data.role_id,menu.id);
       } catch (error) {
         if (error.response) {
           history("/");
