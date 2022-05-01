@@ -50,8 +50,8 @@ const SidebarRole = () => {
     const menusublv1 = async(role_id,parentid) => {
         /*const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
         setSubMenuLV1(menu_lv1.data);*/
-        alert(role_id);
-        alert(parentid);
+        alert("role_id : "+role_id);
+        alert("parentid : "+parentid);
     }
 
     const axiosJWT = axios.create();
@@ -134,7 +134,7 @@ const SidebarRole = () => {
                     return (
                         <li className="nav-item" 
                             key={index}
-                            onSelect={menusublv1(item.role_id,item.id)}>
+                            onSelect={(e) => menusublv1(item.role_id,item.id)}>
                             <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
