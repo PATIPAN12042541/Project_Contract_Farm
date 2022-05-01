@@ -2,6 +2,20 @@ import Menus from "../models/RoleMenu.js";
 import db from "../config/Database.js";
 export const getMenusRoleMain = async (req, res) => {
     try {
+        const menus = await Menus.findAll({
+            where:{
+                role_id:req.params.id,
+                parent_id:0,
+                status:1
+            }
+        })
+        res.json(menus);
+    } catch (error) {
+        res.json({ message: error.message });
+    } 
+    
+    
+    /*try {
         const menus = await db.query(
             "SELECT id,"+
             "       menu_name,"+
@@ -20,5 +34,5 @@ export const getMenusRoleMain = async (req, res) => {
         res.json(menus);
     } catch (error) {
         res.json({ message: error.message });
-    }  
+    }  */
 }
