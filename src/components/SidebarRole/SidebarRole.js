@@ -43,7 +43,6 @@ const SidebarRole = () => {
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         setMainMenu(menu.data);
 
-        menusublv1(menu.data.role_id,menu.id);
       } catch (error) {
         if (error.response) {
           history("/");
@@ -134,7 +133,7 @@ const SidebarRole = () => {
               >
                 {mainmenu.map((item,index)=>{
                     return (
-                        <li className="nav-item" key={index}>
+                        <li className="nav-item" key={index} onClick={menusublv1(item.role_id,item.id)}>
                             <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
