@@ -14,7 +14,7 @@ export const getMenusRoleMain = async (req, res) => {
             "order by index_menu asc",
             {
                 replacements: { role_id: req.params.role_id },
-                type: QueryTypes.SELECT
+                type: Menus.QueryTypes.SELECT
             }
         );
         res.json(menus);
