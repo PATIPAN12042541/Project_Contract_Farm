@@ -51,7 +51,7 @@ const SidebarRole = () => {
     }
 
     const menu_main = async(role_id) =>{
-      if (role_id != ' '){
+      if (role_id != ''){
         alert("role_id 1 : "+role_id);
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
         setMainMenu(menu.data);
