@@ -141,10 +141,11 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((item_lv1,index)=>{
+                            {submenulv1.map((item_lv1,index2)=>{
                                 return(
                                     <ul className="nav nav-treeview">
-                                        <li className="nav-item" key={index}>
+                                        <li className="nav-item" 
+                                            key={index2}>
                                             <Link className="nav-link" to={item_lv1.link}>
                                                 <i className="far fa-circle nav-icon"></i>
                                                 <p>{item_lv1.menu_name}</p>
