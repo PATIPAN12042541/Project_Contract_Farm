@@ -21,6 +21,7 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
+      alert("roleid : "+roleid);
     }, [roleid]);
 
 
