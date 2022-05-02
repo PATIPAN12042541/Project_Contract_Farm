@@ -19,7 +19,6 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
-      alert("roleid : "+roleid);
     }, []);
 
 
@@ -144,7 +143,7 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {/* {submenulv1.map((item_lv1,index)=>{
+                            {submenulv1.map((item_lv1,index)=>{
                                 return(
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item" key={index}>
@@ -155,7 +154,7 @@ const SidebarRole = () => {
                                         </li>
                                     </ul>
                                 )
-                            })} */}
+                            })}
                         </li>
                     );
                 })}
