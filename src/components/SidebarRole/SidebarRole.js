@@ -19,6 +19,8 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
+      alert("name : "+{name});
+      alert("last_name : "+{last_name});
     }, []);
 
 
