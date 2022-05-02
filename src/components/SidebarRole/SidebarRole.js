@@ -19,8 +19,6 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
-      alert("name : "+name);
-      alert("last_name : "+last_name);
     }, []);
 
 
@@ -38,6 +36,10 @@ const SidebarRole = () => {
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
+
+        const stored = sessionStorage.getItem(decoded.role_id);
+
+        alert("role id : "+stored);
 
         // const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         // setMainMenu(menu.data);
