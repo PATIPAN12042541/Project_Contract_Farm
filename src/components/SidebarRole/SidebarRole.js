@@ -152,6 +152,7 @@ const SidebarRole = () => {
                                 </p>
                             </Link>
                             {submenulv1.map((itemsublv1)=>{
+                              alert("check : "+itemsublv1.id +"=" +item.id)
                               if (itemsublv1.id = item.id){
                                 return(
                                   <div>ddddd</div>
