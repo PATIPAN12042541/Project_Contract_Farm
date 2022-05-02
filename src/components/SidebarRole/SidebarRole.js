@@ -22,7 +22,6 @@ const SidebarRole = () => {
       refreshToken();
       //getUsers();
       menu_main(roleid);
-      alert("roleid : "+roleid);
     }, [roleid]);
 
 
