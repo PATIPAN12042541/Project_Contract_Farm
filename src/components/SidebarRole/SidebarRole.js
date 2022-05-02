@@ -21,6 +21,7 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
+      menu_main(roleid);
       alert("roleid : "+roleid);
     }, [roleid]);
 
@@ -48,6 +49,11 @@ const SidebarRole = () => {
           history("/");
         }
       }
+    }
+
+    const menu_main = async(role_id) =>{
+      const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
+      setMainMenu(menu.data);
     }
 
     const menusublv1 = async(role_id,parentid) => {
