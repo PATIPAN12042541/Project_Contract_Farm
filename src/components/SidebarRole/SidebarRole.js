@@ -152,9 +152,9 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((item_lv1)=>{
-                               alert("item_lv1 role id : "+item_lv1.role_id);
-                               alert("item_lv1 id : "+item_lv1.id)
+                            {submenulv1.map((item)=>{
+                               alert("item_lv1 role id : "+item.role_id);
+                               alert("item_lv1 id : "+item.id)
                                 return(
                                   <div>dddd</div>
                                     // <ul className="nav nav-treeview">
