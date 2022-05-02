@@ -14,8 +14,6 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const [mainmenu,setMainMenu] = useState([]);
-    const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate
 
     useEffect(() => {
@@ -41,31 +39,11 @@ const SidebarRole = () => {
 
         rolemenu(decoded.role_id);
 
-        // const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
-        // setMainMenu(menu.data);
-
       } catch (error) {
         if (error.response) {
           history("/");
         }
       }
-    }
-
-    const menu_main = async(role_id) =>{
-      if (role_id !== ''){
-        const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
-        setMainMenu(menu.data);
-      }
-    }
-
-    const menusublv1 = async(role_id,parentid) => {
-      if (role_id !== ''){
-        const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
-        setSubMenuLV1(menu_lv1.data);
-      }
-
-      /*const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
-        setSubMenuLV1(menu_lv1.data);*/
     }
 
     const rolemenu = (role_id) =>{
