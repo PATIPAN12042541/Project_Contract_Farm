@@ -154,6 +154,7 @@ const SidebarRole = () => {
                                 </p>
                             </Link>
                             {submenulv1.map((item)=>{
+                              console.log(item);
                                //alert("item_lv1 role id : "+item.role_id);
                                //alert("item_lv1 id : "+item.id)
                                 return(
