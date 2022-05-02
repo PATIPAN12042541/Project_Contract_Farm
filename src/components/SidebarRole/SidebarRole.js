@@ -151,22 +151,22 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((itemsublv1)=>{
+                            {/* {submenulv1.map((itemsublv1)=>{
                               alert("check : "+itemsublv1.id +"=" +item.id)
                               if (itemsublv1.id = item.id){
                                 return(
                                   <div>ddddd</div>
-                                    // <ul className="nav nav-treeview">
-                                    //     <li className="nav-item">
-                                    //         <Link className="nav-link" to={item_lv1.link}>
-                                    //             <i className="far fa-circle nav-icon"></i>
-                                    //             <p>{item_lv1.menu_name}</p>
-                                    //         </Link>
-                                    //     </li>
-                                    // </ul>
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to={item_lv1.link}>
+                                                <i className="far fa-circle nav-icon"></i>
+                                                <p>{item_lv1.menu_name}</p>
+                                            </Link>
+                                        </li>
+                                    </ul>
                                 )
                               }
-                            })}
+                            })} */}
                         </li>
                     );
                 })}
