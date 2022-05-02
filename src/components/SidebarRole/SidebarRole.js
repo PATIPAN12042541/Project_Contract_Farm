@@ -152,11 +152,7 @@ const SidebarRole = () => {
                                 </p>
                             </Link>
                             {submenulv1.map((itemsublv1)=>{
-                              console.log(itemsublv1);
-                              alert("sub main id: "+item.id);
-                              alert("parent_id: "+itemsublv1.parent_id);
-                               //alert("item_lv1 role id : "+item.role_id);
-                               //alert("item_lv1 id : "+item.id)
+                              if (itemsublv1.id = item.id){
                                 return(
                                   <div>ddddd</div>
                                     // <ul className="nav nav-treeview">
@@ -168,6 +164,7 @@ const SidebarRole = () => {
                                     //     </li>
                                     // </ul>
                                 )
+                              }
                             })}
                         </li>
                     );
