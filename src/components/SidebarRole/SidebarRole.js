@@ -49,10 +49,8 @@ const SidebarRole = () => {
     }
 
     const menusublv1 = async(role_id,parentid) => {
-        /*const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
-        setSubMenuLV1(menu_lv1.data);*/
-        alert("role_id : "+role_id);
-        alert("parentid : "+parentid);
+        const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
+        setSubMenuLV1(menu_lv1.data);
     }
 
     const axiosJWT = axios.create();
@@ -138,6 +136,7 @@ const SidebarRole = () => {
                             onClick={(e)=>{
                               alert("id : "+item.id);
                               alert("role_id : "+item.role_id);
+                              menusublv1(item.role_id,item.id);
                             }}>
                             <Link to={item.link} className="nav-link">
                                 <p>
