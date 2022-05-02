@@ -51,8 +51,10 @@ const SidebarRole = () => {
     }
 
     const menu_main = async(role_id) =>{
-      const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
-      setMainMenu(menu.data);
+      if (role_id != null){
+        const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
+        setMainMenu(menu.data);
+      }
     }
 
     const menusublv1 = async(role_id,parentid) => {
@@ -77,9 +79,6 @@ const SidebarRole = () => {
           setLastName(decoded.last_name);
           setRoleID(decoded.role_id);
           setExpire(decoded.exp);
-
-          const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
-          setMainMenu(menu.data);
         }
         return config;
       },
