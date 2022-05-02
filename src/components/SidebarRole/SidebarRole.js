@@ -143,8 +143,6 @@ const SidebarRole = () => {
                         <li className="nav-item" 
                             key={index}
                             onClick={(e)=>{
-                              alert("main role id: "+item.role_id);
-                              alert("main id: "+item.id);
                               menusublv1(item.role_id,item.id);
                             }}>
                             <Link to={item.link} className="nav-link">
