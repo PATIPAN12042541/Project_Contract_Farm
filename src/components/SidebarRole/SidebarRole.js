@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import SidebarDev from "../SidebarRole/SidebarDev.js"
 
 const SidebarRole = () => {
     const [name, setName] = useState('');
@@ -58,8 +59,13 @@ const SidebarRole = () => {
     }
 
     const menusublv1 = async(role_id,parentid) => {
+      if (role_id !== ''){
         const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
         setSubMenuLV1(menu_lv1.data);
+      }
+
+      /*const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
+        setSubMenuLV1(menu_lv1.data);*/
     }
 
     const axiosJWT = axios.create();
@@ -99,6 +105,7 @@ const SidebarRole = () => {
       );
       setUsers(response.data);
     };
+
     return (
         <aside className="main-sidebar sidebar-light-primary elevation-4">
           <Link
@@ -138,39 +145,20 @@ const SidebarRole = () => {
                 role="menu"
                 data-accordion="false"
               >
-                {mainmenu.map((item,index)=>{
+                {/* {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item" 
-                            key={index}
-                            onClick={(e)=>{
-                              menusublv1(item.role_id,item.id);
-                            }}>
+                            key={index}>
                             <Link to={item.link} className="nav-link">
                                 <p>
                                 {item.menu_name}
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {/* {submenulv1.map((itemsublv1)=>{
-                              alert("check : "+itemsublv1.id +"=" +item.id)
-                              if (itemsublv1.id = item.id){
-                                return(
-                                  <div>ddddd</div>
-                                    <ul className="nav nav-treeview">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to={item_lv1.link}>
-                                                <i className="far fa-circle nav-icon"></i>
-                                                <p>{item_lv1.menu_name}</p>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                )
-                              }
-                            })} */}
                         </li>
                     );
-                })}
-                {/* <li className="nav-item">
+                })} */}
+                <li className="nav-item">
                   <li className="nav-item">
                     <a href="/contract_farm" className="nav-link">
                       <p>
@@ -231,7 +219,7 @@ const SidebarRole = () => {
                       </li>
                     </ul>
                   </li>
-                </li> */}
+                </li>
               </ul>
             </nav>
           </div>
