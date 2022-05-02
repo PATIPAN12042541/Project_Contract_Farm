@@ -4,38 +4,7 @@ import { Link } from "react-router-dom";
 const SidebarAdmin = () => {
 
   return (
-    <aside className="main-sidebar sidebar-light-primary elevation-4">
-      <Link
-        to="/contract_farm"
-        className="brand-link"
-        style={{ backgroundColor: "#8CC152" }}
-      >
-        <img
-          src="dist/img/sprout.png"
-          alt="sprout"
-          className="brand-image img-circle elevation-3"
-          style={{ opacity: ".8" }}
-        />
-        <span className="brand-text font-weight-light text-white">
-          Contract Farming
-        </span>
-      </Link>
-      <div className="sidebar">
-        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div className="image">
-            <img
-              src="dist/img/user6-128x128.jpg"
-              className="img-circle elevation-2"
-              alt="User Image"
-            />
-          </div>
-          <div className="info">
-            <a href="#" className="d-block">
-              Admin
-            </a>
-          </div>
-        </div>
-        <nav className="mt-2">
+    <nav className="mt-2">
           <ul
             className="nav nav-pills nav-sidebar flex-column nav-child-indent"
             data-widget="treeview"
@@ -68,7 +37,7 @@ const SidebarAdmin = () => {
                 </ul>
               </li>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <li className="nav-item">
                 <a href="/contract_farm" className="nav-link">
                   <p>
@@ -103,11 +72,9 @@ const SidebarAdmin = () => {
                   </li>
                 </ul>
               </li>
-            </li>
+            </li> */}
           </ul>
         </nav>
-      </div>
-    </aside>
   );
 };
 

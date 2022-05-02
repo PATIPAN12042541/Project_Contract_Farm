@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect ,createContext, useContext} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import SidebarDev from "../SidebarRole/SidebarDev.js"
+import SidebarDev from '../SidebarRole/SidebarDev.js';
+import SidebarAdmin from '../SidebarRole/SidebarAdmin.js';
 
 const SidebarRole = () => {
     const [name, setName] = useState('');
@@ -17,13 +18,10 @@ const SidebarRole = () => {
     const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate
 
-    const UserContext = createContext();
-
     useEffect(() => {
       refreshToken();
       //getUsers();
-      menu_main(roleid);
-    }, [roleid]);
+    }, []);
 
 
     const refreshToken = async () => {
@@ -40,6 +38,8 @@ const SidebarRole = () => {
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
+
+        rolemenu(decoded.role_id);
 
         // const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         // setMainMenu(menu.data);
@@ -66,6 +66,14 @@ const SidebarRole = () => {
 
       /*const menu_lv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${parentid}`);
         setSubMenuLV1(menu_lv1.data);*/
+    }
+
+    const rolemenu = (role_id) =>{
+      if (role_id === 1){
+        return <SidebarDev />
+      }else if(role_id === 2){
+        return <SidebarAdmin />
+      }
     }
 
     const axiosJWT = axios.create();
@@ -106,6 +114,7 @@ const SidebarRole = () => {
       setUsers(response.data);
     };
 
+
     return (
         <aside className="main-sidebar sidebar-light-primary elevation-4">
           <Link
@@ -138,14 +147,17 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            <nav className="mt-2">
+            {rolemenu(roleid)}
+            {/* <SidebarDev /> */}
+            {/* <SidebarAdmin /> */}
+            {/* <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false"
               >
-                {/* {mainmenu.map((item,index)=>{
+                {mainmenu.map((item,index)=>{
                     return (
                         <li className="nav-item" 
                             key={index}>
@@ -157,7 +169,7 @@ const SidebarRole = () => {
                             </Link>
                         </li>
                     );
-                })} */}
+                })}
                 <li className="nav-item">
                   <li className="nav-item">
                     <a href="/contract_farm" className="nav-link">
@@ -221,7 +233,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </aside>
       );
