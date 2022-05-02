@@ -143,6 +143,8 @@ const SidebarRole = () => {
                         <li className="nav-item" 
                             key={index}
                             onClick={(e)=>{
+                              alert("main role id: "+item.role_id);
+                              alert("main id: "+item.id);
                               menusublv1(item.role_id,item.id);
                             }}>
                             <Link to={item.link} className="nav-link">
@@ -152,10 +154,9 @@ const SidebarRole = () => {
                                 </p>
                             </Link>
                             {submenulv1.map((item)=>{
-                               alert("item_lv1 role id : "+item.role_id);
-                               alert("item_lv1 id : "+item.id)
+                               //alert("item_lv1 role id : "+item.role_id);
+                               //alert("item_lv1 id : "+item.id)
                                 return(
-                                  <div>dddd</div>
                                     // <ul className="nav nav-treeview">
                                     //     <li className="nav-item">
                                     //         <Link className="nav-link" to={item_lv1.link}>
