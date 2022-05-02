@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,createContext, useContext} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -16,10 +16,12 @@ const SidebarRole = () => {
     const [submenulv1,setSubMenuLV1] = useState([]);
     const history = useNavigate
 
+    const UserContext = createContext();
+
     useEffect(() => {
       refreshToken();
       //getUsers();
-    }, []);
+    }, [roleid]);
 
 
     const refreshToken = async () => {
@@ -36,10 +38,6 @@ const SidebarRole = () => {
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
-
-        const stored = sessionStorage.getItem(decoded.role_id);
-
-        alert("role id : "+stored);
 
         // const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`)
         // setMainMenu(menu.data);
