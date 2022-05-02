@@ -51,7 +51,7 @@ const SidebarRole = () => {
     }
 
     const menu_main = async(role_id) =>{
-      if (role_id != ''){
+      if (role_id !== ''){
         const menu = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${role_id}`)
         setMainMenu(menu.data);
       }
@@ -153,8 +153,10 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((item)=>{
-                              console.log(item);
+                            {submenulv1.map((itemsublv1)=>{
+                              console.log(itemsublv1);
+                              alert("main id: "+item.id);
+                              alert("parent_id: "+itemsublv1.parent_id);
                                //alert("item_lv1 role id : "+item.role_id);
                                //alert("item_lv1 id : "+item.id)
                                 return(
