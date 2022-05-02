@@ -133,7 +133,7 @@ const SidebarRole = () => {
                         <li className="nav-item" 
                             key={index}
                             onClick={(e)=>{
-                              menusublv1(this.item.role_id,this.item.id);
+                              menusublv1(item.role_id,item.id);
                             }}>
                             <Link to={item.link} className="nav-link">
                                 <p>
@@ -141,7 +141,7 @@ const SidebarRole = () => {
                                 <i className="fas fa-angle-left right"></i>
                                 </p>
                             </Link>
-                            {submenulv1.map((item_lv1,index2)=>{
+                            {submenulv1.map((item_lv1)=>{
                                 return(
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
