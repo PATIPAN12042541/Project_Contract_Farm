@@ -133,7 +133,7 @@ export const updatePlant = async (req, res) => {
 };
 
 export const postManagePlant = async (req, res) => {
-    const { data } = req.body;
+    const { name_chemical, quantity_chemical, unit, note } = req.body;
 
     try {
       await PlantDataDetail.create({
@@ -146,7 +146,8 @@ export const postManagePlant = async (req, res) => {
       res.json({ msg: "Registration Successful" });
     } catch (error) {
       res.json({
-        message: error.messag + " id " + req.params.id + " data " + data,
+        message:
+          error.messag + " id " + req.params.id + " data " + name_chemical,
       });
     }
 };
