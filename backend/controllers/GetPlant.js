@@ -145,7 +145,14 @@ export const postManagePlant = async (req, res) => {
     res.json({ msg: "Registration Successful" });
   } catch (error) {
     res.json({
-      message: error.messag + "name_chemical " + name_chemical + " req " + req,
+      message:
+        error.messag +
+        "name_chemical " +
+        name_chemical +
+        " req " +
+        req +
+        " res " +
+        res,
     });
   }
 };
