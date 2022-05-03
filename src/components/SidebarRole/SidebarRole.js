@@ -19,7 +19,6 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      rolemenu(roleid);
       //getUsers();
     }, []);
 
@@ -46,7 +45,8 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = (id) => {
+    const rolemenu = () => {
+      console.log("ddddd");
       <SidebarDev />
       /*if (id === 1){
         console.log("SidebarDev : "+id);
