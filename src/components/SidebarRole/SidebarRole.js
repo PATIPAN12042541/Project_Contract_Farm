@@ -38,7 +38,8 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
-        console.log("refresh token : "+decoded.exp);
+        console.log("roid id : "+roleid);
+        console.log("refresh token exp : "+decoded.exp);
 
       } catch (error) {
         if (error.response) {
