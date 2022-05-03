@@ -133,14 +133,14 @@ export const updatePlant = async (req, res) => {
 };
 
 export const postManagePlant = async (req, res) => {
-  const { name_chemical, quantity_chemical, unit, note, path_image } = req.body;
+  //const { name_chemical, quantity_chemical, unit, note, path_image } = req.body;
   try {
     await PlantDataDetail.create({
       id_plant: req.params.id,
-      name_chemical: name_chemical,
-      quantity_chemical: quantity_chemical,
-      unit: unit,
-      note: note,
+      name_chemical: req.body.name_chemical,
+      quantity_chemical: req.body.quantity_chemical,
+      unit: req.body.unit,
+      note: req.body.note,
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
