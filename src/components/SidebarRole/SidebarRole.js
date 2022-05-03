@@ -41,10 +41,24 @@ const SidebarRole = () => {
         console.log("roid id : "+decoded.role_id);
         console.log("refresh token exp : "+decoded.exp);
 
+        rolemenu(decoded.role_id);
+
       } catch (error) {
         if (error.response) {
           history("/");
         }
+      }
+    }
+
+    const rolemenu = (id) => {
+      if (id === 1){
+        console.log("SidebarDev : "+id);
+        return <SidebarDev />
+      }else if(id === 2){
+        console.log("SidebarAdmin : "+id);
+        return <SidebarAdmin />
+      }else{
+        console.log("menu roid id 2 : "+id);
       }
     }
 
