@@ -26,15 +26,15 @@ const Manage_plant = () => {
                   <h3 className="card-title">จัดการรายละเอียดข้อมูล</h3>
                 </div>
                 <form>
+                  <div className="float-right">
+                    <button
+                      type="button"
+                      className="btn btn-block bg-gradient-success btn-lg"
+                    >
+                      เพิ่ม
+                    </button>
+                  </div>
                   <div className="card-body">
-                    <div className="float-right">
-                      <button
-                        type="button"
-                        className="btn btn-block bg-gradient-success btn-lg"
-                      >
-                        เพิ่ม
-                      </button>
-                    </div>
                     <div className="callout callout-info">
                       <div className="float-right">1</div>
                       <div className="form-group">
