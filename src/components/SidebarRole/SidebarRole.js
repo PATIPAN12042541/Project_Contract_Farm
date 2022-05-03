@@ -109,8 +109,6 @@ const SidebarRole = () => {
           setLastName(decoded.last_name);
           setRoleID(decoded.role_id);
           setExpire(decoded.exp);
-
-          console.log("axiosJWT.interceptors.request.use : "+decoded.exp);
         }
         return config;
       },
