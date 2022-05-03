@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import SidebarDev from '../SidebarRole/SidebarDev.js';
+import SidebarDev from '../SidebarRole/SidebarDev';
 import SidebarAdmin from '../SidebarRole/SidebarAdmin.js';
 
 const SidebarRole = () => {
@@ -46,7 +46,6 @@ const SidebarRole = () => {
     }
 
     const rolemenu = () => {
-      console.log("ddddd");
       <SidebarDev />
       /*if (id === 1){
         console.log("SidebarDev : "+id);
@@ -110,8 +109,6 @@ const SidebarRole = () => {
           setLastName(decoded.last_name);
           setRoleID(decoded.role_id);
           setExpire(decoded.exp);
-
-          console.log("axiosJWT.interceptors.request.use : "+decoded.exp);
         }
         return config;
       },
@@ -171,10 +168,10 @@ const SidebarRole = () => {
               </div>
             </div>
             
-            {rolemenu(roleid)}
+            {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            {/* <nav className="mt-2">
+            <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
@@ -244,7 +241,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav> */}
+            </nav>
           </div>
         </aside>
       );
