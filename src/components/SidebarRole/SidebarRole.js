@@ -14,13 +14,12 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const history = useNavigate
+    const history = useNavigate;
 
 
     useEffect(() => {
       refreshToken();
       //getUsers();
-      //rolemenu(roleid);
     }, []);
 
 
@@ -47,7 +46,6 @@ const SidebarRole = () => {
     }
 
     const rolemenu = (role_id) =>{
-      alert(role_id);
       if (role_id === 1){
         return <SidebarDev />
       }else if(role_id === 2){
@@ -129,7 +127,7 @@ const SidebarRole = () => {
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            <nav className="mt-2">
+            {/* <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
@@ -199,7 +197,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </aside>
       );
