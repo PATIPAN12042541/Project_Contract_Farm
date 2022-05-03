@@ -32,7 +32,7 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, index) => {
     console.log(data.detail);
     try {
       await axios
