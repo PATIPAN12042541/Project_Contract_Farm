@@ -7,10 +7,9 @@ import Page_1_2 from "./Page_2/Page_1_2";
 import Page_Login from "./Page_Login/Page_Login";
 import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
-import Data_detail from "./components/Data_detail/Data_detail";
 import Edit_data from "./components/Manage_data/Edit_data";
-import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
+import Page_manage_data from "./Page_2/Page_manage_data";
 
 function App() {
   let params = useParams();
@@ -51,14 +50,7 @@ function App() {
           <Route
             exact
             path="/Manage_plant/:id"
-            element={
-              <>
-                <Header />
-                <SidebarRole />
-                <Manage_plant id={params.id} />
-                <Footer />
-              </>
-            }
+            element={<Page_manage_data />}
           />
         </Routes>
       </BrowserRouter>
