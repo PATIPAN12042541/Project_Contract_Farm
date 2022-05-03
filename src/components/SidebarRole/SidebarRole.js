@@ -19,7 +19,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      //getUsers();
+      getUsers();
     }, []);
 
 
@@ -78,22 +78,22 @@ const SidebarRole = () => {
       }
     );
 
-    // const getUsers = async () => {
-    //   try{
-    //     const response = await axiosJWT.get(
-    //       `${process.env.REACT_APP_API_URL}/check_users`,
-    //       {
-    //         //const response = await axiosJWT.get('http://localhost:4000/check_users', {
-    //         headers: {
-    //           Authorization: `Bearer ${token}`,
-    //         },
-    //       }
-    //     );
-    //     setUsers(response.data);
-    //   }catch(err){
-    //     alert(err);
-    //   }
-    // };
+    const getUsers = async () => {
+      try{
+        const response = await axiosJWT.get(
+          `${process.env.REACT_APP_API_URL}/check_users`,
+          {
+            //const response = await axiosJWT.get('http://localhost:4000/check_users', {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setUsers(response.data);
+      }catch(err){
+        alert(err);
+      }
+    };
 
 
     return (
