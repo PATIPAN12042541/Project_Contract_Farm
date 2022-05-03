@@ -19,7 +19,6 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      rolemenu();
       //getUsers();
     }, []);
 
@@ -49,7 +48,7 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = async() =>{
+    /*const rolemenu = async() =>{
       try {
         //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
 
@@ -81,7 +80,7 @@ const SidebarRole = () => {
           history("/");
         }
       }
-    }
+    }*/
 
     const axiosJWT = axios.create();
 
@@ -160,7 +159,6 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            {rolemenu}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             {/* <nav className="mt-2">
