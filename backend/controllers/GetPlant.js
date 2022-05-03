@@ -143,7 +143,6 @@ export const postManagePlant = async (req, res) => {
       quantity_chemical: quantity_chemical,
       unit: unit,
       note: note,
-      path_image: path_image,
     });
     res.json({ msg: "Registration Successful" });
   } catch (error) {
