@@ -33,27 +33,27 @@ const Manage_plant = (props) => {
   });
 
   const onSubmit = async (data) => {
+    console.log(data.detail);
     try {
-      // await axios
-      //   .post(`${process.env.REACT_APP_API_URL}/getplant/ManagePlant`, {
-      //     id_plant: props.id,
-      //     name_chemical: data.name_chemical,
-      //     quantity_chemical: data.quantity_chemical,
-      //     unit: data.unit,
-      //     note: data.note,
-      //     path_image: data.path_image,
-      //   })
-      await axios({
-        url: `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
-        method: "post",
-        data: data.detail,
-      }).then(function (response) {
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Save OK !",
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getplant/ManagePlant${props.id}`,
+          {
+            id_plant: props.id,
+            name_chemical: data.name_chemical,
+            quantity_chemical: data.quantity_chemical,
+            unit: data.unit,
+            note: data.note,
+            path_image: data.path_image,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
         });
-      });
     } catch (error) {
       Swal.fire({
         icon: "error",
