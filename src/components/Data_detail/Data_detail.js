@@ -37,7 +37,7 @@ const Data_detail = (props) => {
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <h1 className="card-title">
-                      รายละเอียดสารเคมีต่างๆ {data.name_chemical}
+                      รายละเอียดสารเคมี {data.name_chemical}
                     </h1>
                   </div>
                   <div className="card-body">
