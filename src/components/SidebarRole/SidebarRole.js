@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import SidebarDev from '../SidebarRole/SidebarDev.js';
+import SidebarDev from '../SidebarRole/SidebarDev';
 import SidebarAdmin from '../SidebarRole/SidebarAdmin.js';
 
 const SidebarRole = () => {
