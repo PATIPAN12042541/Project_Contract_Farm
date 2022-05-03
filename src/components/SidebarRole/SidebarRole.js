@@ -38,11 +38,6 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
-        console.log("roid id : "+decoded.role_id);
-        console.log("refresh token exp : "+decoded.exp);
-
-        rolemenu(decoded.role_id);
-
       } catch (error) {
         if (error.response) {
           history("/");
@@ -50,7 +45,7 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = (id) => {
+    /*const rolemenu = (id) => {
       if (id === 1){
         console.log("SidebarDev : "+id);
         return <SidebarDev />
@@ -60,9 +55,9 @@ const SidebarRole = () => {
       }else{
         console.log("menu roid id 2 : "+id);
       }
-    }
+    }*/
 
-    /*const rolemenu = async() =>{
+    const rolemenu = async() =>{
       try {
         //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
 
@@ -94,7 +89,7 @@ const SidebarRole = () => {
           history("/");
         }
       }
-    }*/
+    }
 
     const axiosJWT = axios.create();
 
@@ -173,6 +168,7 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
+            {rolemenu()}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             {/* <nav className="mt-2">
