@@ -24,25 +24,25 @@ const SidebarRole = () => {
 
 
     const refreshToken = async () => {
-      // try {
-      //   //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+      try {
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
 
-      //   // const response = await axios.get("http://localhost:4000/user/token");
-      //   const response = await axios.get(
-      //     `${process.env.REACT_APP_API_URL}/user/token`
-      //   );
-      //   setToken(response.data.accessToken);
-      //   const decoded = jwt_decode(response.data.accessToken);
-      //   setName(decoded.name);
-      //   setLastName(decoded.last_name);
-      //   setRoleID(decoded.role_id);
-      //   setExpire(decoded.exp);
+        // const response = await axios.get("http://localhost:4000/user/token");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/user/token`
+        );
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setLastName(decoded.last_name);
+        setRoleID(decoded.role_id);
+        setExpire(decoded.exp);
 
-      // } catch (error) {
-      //   if (error.response) {
-      //     history("/");
-      //   }
-      // }
+      } catch (error) {
+        if (error.response) {
+          history("/");
+        }
+      }
     }
 
     const rolemenu = (role_id) =>{
