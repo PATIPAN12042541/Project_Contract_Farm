@@ -21,9 +21,7 @@ try {
 
 //app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
 
-//app.use(cors({ credentials:true, origin:`${process.env.REACT_APP_API_URL}` }));
-
-app.use(cors({ credentials:true, origin:'*' }));
+app.use(cors({ credentials:true, origin:`${process.env.REACT_APP_API_URL}` }));
 
 
 
