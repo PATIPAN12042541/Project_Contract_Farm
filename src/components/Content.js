@@ -8,7 +8,6 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 const Content = () => {
   const [plant, setPlant] = useState([]);
 
-  console.log(plant); 
   useEffect(() => {
     getPlant();
   }, []);
