@@ -64,12 +64,14 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
-        console.log("menu roid id : "+decoded.role_id);
+        console.log("menu roid id 1 : "+decoded.role_id);
 
         if (decoded.role_id === 1){
           return <SidebarDev />
         }else if(decoded.role_id === 2){
           return <SidebarAdmin />
+        }else{
+          console.log("menu roid id 2 : "+decoded.role_id);
         }
 
       } catch (error) {
