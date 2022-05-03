@@ -38,14 +38,7 @@ const Manage_plant = (props) => {
       await axios
         .post(
           `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
-          {
-            id_plant: props.id,
-            name_chemical: data.name_chemical,
-            quantity_chemical: data.quantity_chemical,
-            unit: data.unit,
-            note: data.note,
-            path_image: data.path_image,
-          }
+          data.detail
         )
         .then(function (response) {
           Swal.fire({
