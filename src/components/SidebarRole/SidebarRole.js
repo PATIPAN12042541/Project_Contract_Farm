@@ -19,7 +19,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      //rolemenu();
+      rolemenu();
       //getUsers();
     }, []);
 
