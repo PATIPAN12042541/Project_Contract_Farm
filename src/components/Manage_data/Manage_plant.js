@@ -37,7 +37,7 @@ const Manage_plant = (props) => {
     try {
       await axios
         .post(
-          `${process.env.REACT_APP_API_URL}/getplant/ManagePlant${props.id}`,
+          `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
           {
             id_plant: props.id,
             name_chemical: data.name_chemical,
