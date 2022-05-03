@@ -19,7 +19,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      getUsers();
+      //getUsers();
     }, []);
 
 
@@ -128,7 +128,7 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            {rolemenu(roleid)}
+            {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             <nav className="mt-2">
