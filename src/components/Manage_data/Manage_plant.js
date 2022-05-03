@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fontSize } from "@mui/system";
 import { Link } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, useFieldArray } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
 function refreshPage() {
@@ -12,16 +12,26 @@ function refreshPage() {
 }
 
 const Manage_plant = () => {
-  const [appends, setAppends] = useState([]);
-  const { control } = useForm();
+  const { register, control, handleSubmit, reset, watch } = useForm({
+    defaultValues: {
+      detail: [
+        {
+          name_chemical: "",
+          quantity_chemical: "",
+          unit: "",
+          note: "",
+          path_image: "",
+        },
+      ],
+    },
+  });
 
-  const append = () => {
-    setAppends([...appends, { id: uuidv4() }]);
-  };
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "detail",
+  });
 
-  const remove = (index) => {
-    setAppends([...appends.slice(0, index), ...appends.slice(index + 1)]);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <div className="content-wrapper">
@@ -43,7 +53,7 @@ const Manage_plant = () => {
                   <h3 className="card-title">จัดการรายละเอียดข้อมูล</h3>
                 </div>
 
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="card-body">
                     <button
                       type="button"
@@ -56,7 +66,7 @@ const Manage_plant = () => {
                     </button>
                     <hr />
                     <ul>
-                      {appends.map((data, index) => (
+                      {fields.map((data, index) => (
                         <li key={data.id}>
                           <div className="callout callout-info">
                             <div className="row">
@@ -67,6 +77,9 @@ const Manage_plant = () => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
+                                    {...register(
+                                      `detail.${index}.name_chemical`
+                                    )}
                                   />
                                 </div>
                               </div>
@@ -77,6 +90,9 @@ const Manage_plant = () => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณที่ใช้"
+                                    {...register(
+                                      `detail.${index}.quantity_chemical`
+                                    )}
                                   />
                                 </div>
                               </div>
@@ -87,6 +103,7 @@ const Manage_plant = () => {
                                     type="text"
                                     className="form-control"
                                     placeholder="หน่วยนับ"
+                                    {...register(`detail.${index}.unit`)}
                                   />
                                 </div>
                               </div>
@@ -99,6 +116,7 @@ const Manage_plant = () => {
                                     rows="3"
                                     className="form-control"
                                     placeholder="Note"
+                                    {...register(`detail.${index}.note`)}
                                   />
                                 </div>
                               </div>
@@ -111,6 +129,9 @@ const Manage_plant = () => {
                                         type="file"
                                         className="custom-file-input"
                                         id="exampleInputFile"
+                                        {...register(
+                                          `detail.${index}.path_image`
+                                        )}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
@@ -134,11 +155,21 @@ const Manage_plant = () => {
                   </div>
                   <div className="card-footer">
                     <Link to="/Edit_data">
-                      <button type="submit" className="btn btn-default">
+                      <button type="button" className="btn btn-default">
                         ย้อนกลับ
                       </button>
                     </Link>
-                    <Link to="/Edit_data" onClick={refreshPage}>
+                    <button
+                      type="submit"
+                      className="btn btn-default float-right"
+                      style={{
+                        backgroundColor: "#8CC152",
+                        color: "#FFFFFF",
+                      }}
+                    >
+                      ยืนยัน
+                    </button>
+                    {/* <Link to="/Edit_data" onClick={refreshPage}>
                       <button
                         type="submit"
                         className="btn btn-default float-right"
@@ -149,7 +180,7 @@ const Manage_plant = () => {
                       >
                         ยืนยัน
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </form>
               </div>
