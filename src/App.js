@@ -55,7 +55,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <Manage_plant id={params.id_plant} />
+                <Manage_plant id={params.id} />
                 <Footer />
               </>
             }

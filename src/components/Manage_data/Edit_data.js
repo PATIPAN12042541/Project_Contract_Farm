@@ -268,7 +268,7 @@ const Edit_data = () => {
                                     console.log("query file", file);
 
                                     const filesArray = [].slice.call(file);
-                                    filesArray.forEach(e => {
+                                    filesArray.forEach((e) => {
                                       setImageName(e.name);
                                     });
 
@@ -364,6 +364,7 @@ const Edit_data = () => {
                               <Link
                                 to={{
                                   pathname: `/Manage_plant/${data.id_plant}`,
+                                  state: { id: data.id_plant },
                                 }}
                               >
                                 <button
@@ -405,7 +406,9 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="ชื่อแปลงผัก"
                                   defaultValue={data.name_plant}
-                                  onChange={ (e) => setEditNamePlant(e.target.value) }
+                                  onChange={(e) =>
+                                    setEditNamePlant(e.target.value)
+                                  }
                                 />
                               </div>
                               <div className="col-2">
@@ -414,7 +417,9 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="วันที่เริ่มต้น"
                                   defaultValue={data.start_date_plant}
-                                  onChange={ (e) => setEditStartDatePlant(e.target.value) }
+                                  onChange={(e) =>
+                                    setEditStartDatePlant(e.target.value)
+                                  }
                                 />
                               </div>
                               <div className="col-2">
@@ -423,7 +428,9 @@ const Edit_data = () => {
                                   className="form-control"
                                   placeholder="วันที่สิ้นสุด"
                                   defaultValue={data.end_date_plant}
-                                  onChange={ (e) => setEditEndDatePlant(e.target.value) }
+                                  onChange={(e) =>
+                                    setEditEndDatePlant(e.target.value)
+                                  }
                                 />
                               </div>
                               <div className="col-1">
@@ -435,7 +442,7 @@ const Edit_data = () => {
                                     console.log("query file", file);
 
                                     const filesArray = [].slice.call(file);
-                                    filesArray.forEach(e => {
+                                    filesArray.forEach((e) => {
                                       setEditImageName(e.name);
                                     });
 
@@ -465,8 +472,8 @@ const Edit_data = () => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
-                                  onClick={()=>{
-                                    updatePlant(data.plant_id)
+                                  onClick={() => {
+                                    updatePlant(data.plant_id);
                                   }}
                                 >
                                   <BsCheckSquareFill /> ยืนยัน
