@@ -37,7 +37,7 @@ const Manage_plant = (props) => {
     const detail = [];
 
     try {
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.detail.length; i++) {
         detail
           .push(
             await axios.post(
