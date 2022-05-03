@@ -55,7 +55,6 @@ const Manage_plant = () => {
                       เพิ่มข้อมูล (+)
                     </button>
                     <hr />
-
                     <ul>
                       {appends.map((data, index) => (
                         <li key={data.id}>
