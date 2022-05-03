@@ -76,7 +76,7 @@ const SidebarRole = () => {
 
         if (decoded.role_id === 1){
           console.log("SidebarDev : "+decoded.role_id);
-          return <SidebarDev />
+          return <SidebarDev></SidebarDev>
         }else if(decoded.role_id === 2){
           console.log("SidebarAdmin : "+decoded.role_id);
           return <SidebarAdmin />
@@ -168,8 +168,9 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
+            
             {/* {rolemenu()} */}
-            <SidebarDev />
+            {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             {/* <nav className="mt-2">
               <ul
