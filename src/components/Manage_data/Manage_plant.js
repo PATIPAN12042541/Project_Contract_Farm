@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 function refreshPage() {
   setTimeout(() => {
@@ -30,7 +32,33 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    data.preventDefault();
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/getplant/postManagePlant`, {
+          id_plant : props.id,
+          name_chemical: data.name_chemical,
+          quantity_chemical: data.quantity_chemical,
+          unit: data.unit,
+          note: data.note,
+          path_image: data.path_image,
+        })
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
+  };
 
   return (
     <div className="content-wrapper">

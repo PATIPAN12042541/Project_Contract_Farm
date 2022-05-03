@@ -1,20 +1,21 @@
 import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
+import PlantDataDetail from "../models/PlantDataDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
     const plants = await db.query(
       //"select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
-      "select plant.id as plant_id,"+
-      "       plant.id_plant as id_plant,"+
-      "       plant.name_plant as name_plant,"+
-      "       plant.start_date_plant as start_date_plant,"+
-      "       plant.end_date_plant as end_date_plant,"+
-      "       plant.plant_image as plant_image,"+
-      "       plant_detail.id as plant_detail_id,"+
-      "       plant_detail.id_name_plant as plant_detail_id_name_plant "+
-      "       from plant left join plant_detail on plant.id_plant = plant_detail.id",
+      "select plant.id as plant_id," +
+        "       plant.id_plant as id_plant," +
+        "       plant.name_plant as name_plant," +
+        "       plant.start_date_plant as start_date_plant," +
+        "       plant.end_date_plant as end_date_plant," +
+        "       plant.plant_image as plant_image," +
+        "       plant_detail.id as plant_detail_id," +
+        "       plant_detail.id_name_plant as plant_detail_id_name_plant " +
+        "       from plant left join plant_detail on plant.id_plant = plant_detail.id",
       {
         type: db.QueryTypes.SELECT,
       }
@@ -25,10 +26,14 @@ export const getPlant = async (req, res) => {
   }
 };
 
-
 export const postDetailPlant = async (req, res) => {
-  const { id_name_plant, name_plant, start_date_plant, end_date_plant, image_url} =
-    req.body;
+  const {
+    id_name_plant,
+    name_plant,
+    start_date_plant,
+    end_date_plant,
+    image_url,
+  } = req.body;
 
   try {
     await PlantDetail.create({
@@ -53,7 +58,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: "../dist/img/"+image_url,
+        plant_image: "../dist/img/" + image_url,
       });
     } catch (error) {
       res.json({ message: error.message });
@@ -64,7 +69,6 @@ export const postDetailPlant = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const DeletePlant = async (req, res) => {
   try {
@@ -81,11 +85,10 @@ export const DeletePlant = async (req, res) => {
   }
 };
 
-
 export const getDataImagePlant = async (req, res) => {
   try {
     const imageplants = await db.query(
-        "  SELECT plant_detail.id," +
+      "  SELECT plant_detail.id," +
         "         plant_detail.id_name_plant," +
         "         plant.name_plant," +
         "         plant.start_date_plant," +
@@ -115,17 +118,35 @@ export const getDataImagePlant = async (req, res) => {
 
 export const updatePlant = async (req, res) => {
   try {
-      await Plant.update(req.body, {
-          where: {
-              id: req.params.id
-          }
-      });
-
-      res.json({
-        "message": "Plant Updated"
+    await Plant.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     });
 
+    res.json({
+      message: "Plant Updated",
+    });
   } catch (error) {
-      res.json({ message: error.message });
-  }  
+    res.json({ message: error.message });
+  }
+};
+
+export const postManagePlant = async (req, res) => {
+  const { id_plant, name_chemical, quantity_chemical, unit, note, path_image } =
+    req.body;
+
+  try {
+    await PlantDataDetail.create({
+      id_plant: id_plant,
+      name_chemical: name_chemical,
+      quantity_chemical: quantity_chemical,
+      unit: unit,
+      note: note,
+      path_image: path_image,
+    });
+    res.json({ msg: "Registration Successful" });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
 };
