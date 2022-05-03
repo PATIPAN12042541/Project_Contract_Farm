@@ -45,7 +45,7 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = () => {
+    const rolemenu = (id) => {
       <SidebarDev />
       /*if (id === 1){
         console.log("SidebarDev : "+id);
@@ -170,7 +170,7 @@ const SidebarRole = () => {
               </div>
             </div>
             
-            {rolemenu()}
+            {rolemenu(roleid)}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             {/* <nav className="mt-2">
