@@ -124,10 +124,10 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            {/* {rolemenu(roleid)} */}
+            {rolemenu(roleid)}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            {/* <nav className="mt-2">
+            <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
@@ -197,7 +197,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav> */}
+            </nav>
           </div>
         </aside>
       );
