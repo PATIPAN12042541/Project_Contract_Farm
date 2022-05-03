@@ -28,6 +28,7 @@ const Manage_plant = () => {
                 <form>
                   <div className="card-body">
                     <div className="callout callout-info">
+                      <div className="float-right">1</div>
                       <div className="form-group">
                         <label>ชื่อสารเคมีที่ใช้</label>
                         <input
