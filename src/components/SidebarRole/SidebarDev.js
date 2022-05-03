@@ -58,7 +58,7 @@ const SidebarDev = () => {
         </li>
         <li className="nav-item">
           <li className="nav-item">
-            <a className="nav-link">
+            <a href="/contract_farm" className="nav-link">
               <p>
                 เพิ่มเติม
                 <i className="fas fa-angle-left right"></i>

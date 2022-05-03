@@ -16,11 +16,12 @@ const SidebarRole = () => {
     const [users, setUsers] = useState([]);
     const history = useNavigate
 
+
     useEffect(() => {
       refreshToken();
       //getUsers();
-      rolemenu(roleid);
-    }, [roleid]);
+      //rolemenu(roleid);
+    }, []);
 
 
     const refreshToken = async () => {
@@ -46,6 +47,7 @@ const SidebarRole = () => {
     }
 
     const rolemenu = (role_id) =>{
+      alert(role_id);
       if (role_id === 1){
         return <SidebarDev />
       }else if(role_id === 2){
@@ -124,29 +126,16 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            {rolemenu(roleid)}
+            {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            {/* <nav className="mt-2">
+            <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false"
               >
-                {mainmenu.map((item,index)=>{
-                    return (
-                        <li className="nav-item" 
-                            key={index}>
-                            <Link to={item.link} className="nav-link">
-                                <p>
-                                {item.menu_name}
-                                <i className="fas fa-angle-left right"></i>
-                                </p>
-                            </Link>
-                        </li>
-                    );
-                })}
                 <li className="nav-item">
                   <li className="nav-item">
                     <a href="/contract_farm" className="nav-link">
@@ -210,7 +199,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav> */}
+            </nav>
           </div>
         </aside>
       );
