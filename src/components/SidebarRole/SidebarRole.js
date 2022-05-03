@@ -69,7 +69,7 @@ const SidebarRole = () => {
         if (decoded.role_id === 1){
           alert(decoded.role_id);
           console.log("SidebarDev : "+decoded.role_id);
-          return <SidebarDev />
+          return <><SidebarDev /></>
         }else if(decoded.role_id === 2){
           console.log("SidebarAdmin : "+decoded.role_id);
           return <SidebarAdmin />
