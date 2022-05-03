@@ -28,20 +28,34 @@ const Manage_plant = () => {
                 <form>
                   <div className="card-body">
                     <div className="form-group">
-                      <label>ปริมาณสารเคมีที่ใช้</label>
+                      <label>ชื่อสารเคมีที่ใช้</label>
                       <input
                         type="text"
                         className="form-control"
                         placeholder="ปริมาณสารเคมีที่ใช้"
                       />
                     </div>
-                    <div className="form-group">
-                      <label>หน่วย</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="หน่วยนับ"
-                      />
+                    <div className="row">
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>หน่วย</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="หน่วยนับ"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>หน่วย</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="หน่วยนับ"
+                          />
+                        </div>
+                      </div>
                     </div>
                     <div className="form-group">
                       <label>Note.</label>
