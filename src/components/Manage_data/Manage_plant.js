@@ -35,7 +35,7 @@ const Manage_plant = (props) => {
   const onSubmit = async (data) => {
     try {
       await axios
-        .post(`${process.env.REACT_APP_API_URL}/getplant/postManagePlant`, {
+        .post(`${process.env.REACT_APP_API_URL}/getplant/ManagePlant`, {
           id_plant: props.id,
           name_chemical: data.name_chemical,
           quantity_chemical: data.quantity_chemical,
