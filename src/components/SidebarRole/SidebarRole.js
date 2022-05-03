@@ -46,7 +46,6 @@ const SidebarRole = () => {
     }
 
     const rolemenu = () => {
-      console.log("ddddd");
       <SidebarDev />
       /*if (id === 1){
         console.log("SidebarDev : "+id);
@@ -171,10 +170,10 @@ const SidebarRole = () => {
               </div>
             </div>
             
-            {rolemenu(roleid)}
+            {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            {/* <nav className="mt-2">
+            <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
@@ -244,7 +243,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav> */}
+            </nav>
           </div>
         </aside>
       );
