@@ -91,7 +91,7 @@ const SidebarRole = () => {
         );
         setUsers(response.data);
       }catch(err){
-        alert(err);
+        console.log(err);
       }
     };
 
