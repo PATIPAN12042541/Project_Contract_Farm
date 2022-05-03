@@ -13,6 +13,8 @@ import Manage_plant from "./components/Manage_data/Manage_plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 
 function App() {
+  let params = useParams();
+
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -53,7 +55,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <Manage_plant />
+                <Manage_plant id={params.id} />
                 <Footer />
               </>
             }

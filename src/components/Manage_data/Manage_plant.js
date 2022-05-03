@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { fontSize } from "@mui/system";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useForm, Controller, useFieldArray } from "react-hook-form";
-import { v4 as uuidv4 } from "uuid";
+import { useForm, useFieldArray } from "react-hook-form";
 
 function refreshPage() {
   setTimeout(() => {
@@ -11,7 +9,7 @@ function refreshPage() {
   console.log("page to reload");
 }
 
-const Manage_plant = () => {
+const Manage_plant = (props) => {
   const { register, control, handleSubmit, reset, watch } = useForm({
     defaultValues: {
       detail: [
@@ -31,6 +29,7 @@ const Manage_plant = () => {
     name: "detail",
   });
 
+  console.log(props.id);
   const onSubmit = (data) => console.log(data);
 
   return (
