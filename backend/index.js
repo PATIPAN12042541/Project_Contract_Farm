@@ -23,7 +23,7 @@ try {
 
 //app.use(cors({ credentials:true, origin:`${process.env.REACT_APP_API_URL}` }));
 
-app.use(cors({ credentials:true, origin:'http://node31948-env-6870885.th1.proen.cloud:3000' }));
+app.use(cors({ credentials:true, origin:'*' }));
 
 
 
