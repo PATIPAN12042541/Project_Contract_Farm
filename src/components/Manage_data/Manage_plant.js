@@ -10,6 +10,8 @@ function refreshPage() {
 }
 
 const Manage_plant = (props) => {
+  console.log(props.id_plant);
+
   const { register, control, handleSubmit, reset, watch } = useForm({
     defaultValues: {
       detail: [
@@ -29,7 +31,7 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  console.log(props.id);
+  
   const onSubmit = (data) => console.log(data);
 
   return (
