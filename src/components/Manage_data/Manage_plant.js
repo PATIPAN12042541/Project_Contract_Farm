@@ -12,8 +12,8 @@ function refreshPage() {
 }
 
 const Manage_plant = (props) => {
-  console.log(props.id);
-  const { register, control, handleSubmit, reset, watch } = useForm({
+
+  const { register, control, handleSubmit } = useForm({
     defaultValues: {
       detail: [
         {
@@ -34,22 +34,26 @@ const Manage_plant = (props) => {
 
   const onSubmit = async (data) => {
     try {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/getplant/ManagePlant`, {
-          id_plant: props.id,
-          name_chemical: data.name_chemical,
-          quantity_chemical: data.quantity_chemical,
-          unit: data.unit,
-          note: data.note,
-          path_image: data.path_image,
-        })
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
-          });
+      // await axios
+      //   .post(`${process.env.REACT_APP_API_URL}/getplant/ManagePlant`, {
+      //     id_plant: props.id,
+      //     name_chemical: data.name_chemical,
+      //     quantity_chemical: data.quantity_chemical,
+      //     unit: data.unit,
+      //     note: data.note,
+      //     path_image: data.path_image,
+      //   })
+      await axios({
+        url: `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
+        method: "post",
+        data: data.detail,
+      }).then(function (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Save OK !",
         });
+      });
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -154,7 +158,6 @@ const Manage_plant = (props) => {
                                       <input
                                         type="file"
                                         className="custom-file-input"
-                                        id="exampleInputFile"
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
@@ -195,18 +198,6 @@ const Manage_plant = (props) => {
                     >
                       ยืนยัน
                     </button>
-                    {/* <Link to="/Edit_data" onClick={refreshPage}>
-                      <button
-                        type="submit"
-                        className="btn btn-default float-right"
-                        style={{
-                          backgroundColor: "#8CC152",
-                          color: "#FFFFFF",
-                        }}
-                      >
-                        ยืนยัน
-                      </button>
-                    </Link> */}
                   </div>
                 </form>
               </div>
