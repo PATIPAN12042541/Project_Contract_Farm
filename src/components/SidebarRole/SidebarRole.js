@@ -19,6 +19,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
+      rolemenu();
       //getUsers();
     }, []);
 
@@ -38,7 +39,7 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
-        console.log("roid id : "+roleid);
+        console.log("roid id : "+decoded.role_id);
         console.log("refresh token exp : "+decoded.exp);
 
       } catch (error) {
@@ -48,11 +49,33 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = (role_id) =>{
-      if (role_id === 1){
-        return <SidebarDev />
-      }else if(role_id === 2){
-        return <SidebarAdmin />
+    const rolemenu = async() =>{
+      try {
+        //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+
+        // const response = await axios.get("http://localhost:4000/user/token");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/user/token`
+        );
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setLastName(decoded.last_name);
+        setRoleID(decoded.role_id);
+        setExpire(decoded.exp);
+
+        console.log("menu roid id : "+decoded.role_id);
+
+        if (decoded.role_id === 1){
+          return <SidebarDev />
+        }else if(decoded.role_id === 2){
+          return <SidebarAdmin />
+        }
+
+      } catch (error) {
+        if (error.response) {
+          history("/");
+        }
       }
     }
 
@@ -136,7 +159,7 @@ const SidebarRole = () => {
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            <nav className="mt-2">
+            {/* <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
@@ -206,7 +229,7 @@ const SidebarRole = () => {
                   </li>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </aside>
       );
