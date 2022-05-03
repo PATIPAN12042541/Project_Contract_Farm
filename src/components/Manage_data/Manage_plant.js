@@ -27,56 +27,58 @@ const Manage_plant = () => {
                 </div>
                 <form>
                   <div className="card-body">
-                    <div className="form-group">
-                      <label>ชื่อสารเคมีที่ใช้</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="ปริมาณสารเคมีที่ใช้"
-                      />
-                    </div>
-                    <div className="row">
-                      <div className="col-12 col-sm-6">
-                        <div className="form-group">
-                          <label>หน่วย</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="หน่วยนับ"
-                          />
+                    <div className="callout callout-info">
+                      <div className="form-group">
+                        <label>ชื่อสารเคมีที่ใช้</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="ปริมาณสารเคมีที่ใช้"
+                        />
+                      </div>
+                      <div className="row">
+                        <div className="col-12 col-sm-6">
+                          <div className="form-group">
+                            <label>ปริมาณที่ใช้</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="ปริมาณที่ใช้"
+                            />
+                          </div>
+                        </div>
+                        <div className="col-12 col-sm-6">
+                          <div className="form-group">
+                            <label>หน่วย</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="หน่วยนับ"
+                            />
+                          </div>
                         </div>
                       </div>
-                      <div className="col-12 col-sm-6">
-                        <div className="form-group">
-                          <label>หน่วย</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="หน่วยนับ"
-                          />
-                        </div>
+                      <div className="form-group">
+                        <label>Note.</label>
+                        <textarea
+                          rows="3"
+                          className="form-control"
+                          placeholder="Note"
+                        />
                       </div>
-                    </div>
-                    <div className="form-group">
-                      <label>Note.</label>
-                      <textarea
-                        rows="3"
-                        className="form-control"
-                        placeholder="Note"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label>File input</label>
-                      <div className="input-group">
-                        <div className="custom-file">
-                          <input
-                            type="file"
-                            className="custom-file-input"
-                            id="exampleInputFile"
-                          />
-                          <label className="custom-file-label">
-                            Choose file
-                          </label>
+                      <div className="form-group">
+                        <label>File input</label>
+                        <div className="input-group">
+                          <div className="custom-file">
+                            <input
+                              type="file"
+                              className="custom-file-input"
+                              id="exampleInputFile"
+                            />
+                            <label className="custom-file-label">
+                              Choose file
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
