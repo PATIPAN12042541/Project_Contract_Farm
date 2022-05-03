@@ -27,7 +27,7 @@ const First_Page = () => {
                   ยินดีต้อนรับเข้าสู่ระบบ Contract Farming
                 </h1>
                 <ul>
-                  {data.map((item, index) => (
+                  {/* {data.map((item, index) => (
                     <li key={item.id}>
                       <Controller
                         as={<input />}
@@ -36,7 +36,7 @@ const First_Page = () => {
                       />
                       <button onClick={() => remove(index)}>Delete</button>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
                 <section>
                   <button
