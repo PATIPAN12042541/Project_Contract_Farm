@@ -143,7 +143,10 @@ const SidebarRole = () => {
                   >
                     <li className="nav-item">
                       <li className="nav-item">
-                        <a href={item.link} className="nav-link">
+                        <a href={item.link} className="nav-link" onClick={(e)=>{
+                          console.log("id nav : "+item.id);
+                          console.log("id role : "+item.role_id);
+                        }}>
                           <p>
                             {item.menu_name}
                             <i className="fas fa-angle-left right"></i>
