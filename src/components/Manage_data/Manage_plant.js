@@ -60,7 +60,7 @@ const Manage_plant = (props) => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: error.response.data.message,
+        title: "error",
         text: "Save Error!",
       });
     }
