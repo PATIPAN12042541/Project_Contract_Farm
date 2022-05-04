@@ -30,7 +30,7 @@ const Manage_plant = (props) => {
     setEditDataDetail(response.data);
   };
 
-  console.log(editdatadetail.name_chemical);
+  console.log(editdatadetail);
 
 
   const { register, control, handleSubmit } = useForm({
