@@ -163,7 +163,7 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
-                          console.log("index : "+index);
+                          console.log("itemsublv1 id : "+itemsublv1.id);
                           return (
                           <ul className="nav nav-treeview">
                             <li className="nav-item">
