@@ -8,7 +8,7 @@ function refreshPage() {
   setTimeout(() => {
     window.location.reload(false);
   }, 500);
-  console.log("page to reload");
+  <Link to="/Edit_data" />;
 }
 
 const Manage_plant = (props) => {
@@ -32,7 +32,6 @@ const Manage_plant = (props) => {
   });
 
   const onSubmit = async (data) => {
-
     Swal.fire({
       icon: "success",
       title: "Are you sure Confirm?",
@@ -58,7 +57,7 @@ const Manage_plant = (props) => {
             );
           }
           Swal.fire("Success", "success");
-          <Link to="/Edit_data" />;
+          refreshPage();
         } catch (error) {
           Swal.fire({
             icon: "error",
@@ -68,7 +67,6 @@ const Manage_plant = (props) => {
         }
       }
     });
-
   };
 
   return (
