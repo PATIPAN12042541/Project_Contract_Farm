@@ -21,7 +21,6 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
-      roleMenu();
     }, []);
 
 
@@ -40,6 +39,8 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
+        roleMenu(decoded.role_id);
+
       } catch (error) {
         if (error.response) {
           history("/");
@@ -47,8 +48,8 @@ const SidebarRole = () => {
       }
     }
 
-    const roleMenu = async() => {
-      const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/1`);
+    const roleMenu = async(id) => {
+      const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${id}`);
       setRoleMenus(menu_.data);
 
       console.log(menu_.data);
@@ -131,7 +132,6 @@ const SidebarRole = () => {
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            /******************* Menu Role by Database ****************/
               {menurole.map((item,index) => (
                 <nav className="mt-2" key={index}>
                   <ul
@@ -153,7 +153,6 @@ const SidebarRole = () => {
                   </ul>
                 </nav>
               ))}
-            /*********************************************************/
             <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
