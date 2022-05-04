@@ -57,6 +57,7 @@ const Manage_plant = (props) => {
               )
             );
           }
+          Swal.fire("Success", "success");
           <Link to="/Edit_data" />;
         } catch (error) {
           Swal.fire({
