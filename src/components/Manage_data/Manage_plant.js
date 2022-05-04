@@ -52,7 +52,7 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  consloe.log(editdatadetail);
+  console.log(editdatadetail);
 
   const onSubmit = async (data) => {
     Swal.fire({
