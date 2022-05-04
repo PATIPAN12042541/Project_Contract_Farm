@@ -18,7 +18,7 @@ const Manage_plant = (props) => {
   );
 
   const [editdatadetail, setEditDataDetail] = useState([]);
-  const editdata = editdatadetail;
+ 
 
   useEffect(() => {
     getEditDataDetail();
@@ -31,23 +31,17 @@ const Manage_plant = (props) => {
     setEditDataDetail(response.data);
   };
 
-  console.log(editdatadetail);
-
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdata,
-      // {
-      //   name_chemical: "ทดสอบ",
-      //   quantity_chemical: "15",
-      //   note: "-",
-      //   unit: "ml",
-      // },
+      detail: editdatadetail,
     },
   });
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
+
+  console.log("fields", fields);
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -133,7 +127,6 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    name={data.name_chemical}
                                     defaultValue={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
