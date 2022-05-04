@@ -52,7 +52,7 @@ const SidebarRole = () => {
       const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${roleid}`);
       setMenus(menu_);
 
-      console.log(menu_);
+      console.log(menu_.data);
     }
 
     const axiosJWT = axios.create();
