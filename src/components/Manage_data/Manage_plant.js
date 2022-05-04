@@ -139,6 +139,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
+                                    value={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
