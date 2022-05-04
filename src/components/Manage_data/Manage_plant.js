@@ -49,8 +49,11 @@ const Manage_plant = (props) => {
       }
       Swal.fire({
         icon: "success",
-        title: "Success",
+        title: "Are you sure Confirm?",
         text: "Save OK !",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
         confirmButtonText: "OK",
       }).then(async (result) => {
         if (result.isConfirmed) {
