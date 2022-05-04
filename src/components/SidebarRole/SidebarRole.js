@@ -163,9 +163,9 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
-                          console.log("นอก if "+itemsublv1.link)
-                          if (itemsublv1.link !== null){
-                            console.log("ใน if "+itemsublv1.link)
+                          console.log("นอก if "+submenurole.length)
+                          if (submenurole.length){
+                            console.log("ใน if "+submenurole.length)
                             return (
                               <ul className="nav nav-treeview">
                                 <li className="nav-item">
@@ -178,6 +178,8 @@ const SidebarRole = () => {
                                 </li>
                               </ul>
                               )
+                          }else{
+                            console.log("else");
                           }
                         })}
                       
