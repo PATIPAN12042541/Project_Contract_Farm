@@ -14,7 +14,7 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const [menus,setMenus] = useState([]);
+    const [menurole,setRoleMenus] = useState([]);
     const history = useNavigate;
 
 
@@ -50,7 +50,7 @@ const SidebarRole = () => {
 
     const roleMenu = async(roleid) => {
       const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${roleid}`);
-      setMenus(menu_);
+      setRoleMenus(menu_);
 
       console.log(menu_.data);
     }
@@ -135,7 +135,7 @@ const SidebarRole = () => {
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             /******************* Menu Role by Database ****************/
-              {menus.map((item) => (
+              {menurole.map((item,index) => (
                 <nav className="mt-2">
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
