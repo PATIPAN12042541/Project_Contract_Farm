@@ -141,7 +141,7 @@ const SidebarRole = () => {
             {/* <SidebarAdmin /> */}
             /***************** ทดลองเมนูตาม Role **************/
               {menurole.map((item,index) => (
-                <nav className="mt-2">
+                <nav className="mt-2" key={index}>
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                     data-widget="treeview"
@@ -156,24 +156,26 @@ const SidebarRole = () => {
                             console.log("id nav : " + item.id);
                             console.log("id role : " + item.role_id);
                             subMenu1(item.role_id, item.id);
-                          }} 
-                          key={index}>
+                          }} >
                           <p>
                             {item.menu_name}
                             <i className="fas fa-angle-left right"></i>
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
+                          console.log("itemsublv1 id : "+itemsublv1.id);
+                          return (
                           <ul className="nav nav-treeview">
-                          <li className="nav-item">
-                            <Link className="nav-link" 
-                                  to={itemsublv1.link}
-                                  key={index}>
-                              <i className="far fa-circle nav-icon"></i>
-                              <p>{itemsublv1.menu_name}</p>
-                            </Link>
-                          </li>
-                        </ul>
+                            <li className="nav-item">
+                              <Link className="nav-link" 
+                                    to={itemsublv1.link}
+                                    key={index}>
+                                <i className="far fa-circle nav-icon"></i>
+                                <p>{itemsublv1.menu_name}</p>
+                              </Link>
+                            </li>
+                          </ul>
+                          )
                         })}
                       
                       </li>
