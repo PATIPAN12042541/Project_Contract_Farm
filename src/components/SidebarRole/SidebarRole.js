@@ -21,6 +21,7 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
+      roleMenu("1");
     }, []);
 
 
@@ -38,8 +39,6 @@ const SidebarRole = () => {
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
-
-        roleMenu(decoded.role_id);
 
       } catch (error) {
         if (error.response) {
