@@ -110,6 +110,7 @@ const Manage_plant = (props) => {
                     <ul>
                       {fields.map((data, index) => (
                         <li key={data.id}>
+                          {index + 1}
                           <div className="callout callout-info">
                             <div className="row">
                               <div className="col-12 col-sm-8">
