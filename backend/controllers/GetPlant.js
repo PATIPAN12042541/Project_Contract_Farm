@@ -32,8 +32,8 @@ export const getManagePlantEdit = async (req, res) => {
       // "select  plant_data_detail.id_plant," +
       //   "        plant_data_detail.id," +
       "select  plant_data_detail.name_chemical," +
-        "        plant_data_detail.quantity_chemical," +
-        "        plant_data_detail.unit," +
+        "        plant_data_detail.," +
+        "        plant_data_detail.uniquantity_chemicalt," +
         "        plant_data_detail.note," +
         "        image_plant_detail.path_image " +
         "FROM plant_data_detail " +
