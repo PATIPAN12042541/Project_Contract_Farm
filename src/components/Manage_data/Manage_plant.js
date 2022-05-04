@@ -4,34 +4,37 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 
+// function refreshPage() {
+//   setTimeout(() => {
+//     window.location.reload(false);
+//   }, 500);
+// }
+
 const Manage_plant = (props) => {
-  const [editdatadetail, setEditDataDetail] = useState([]);
-  const { register, control, handleSubmit, reset } = useForm({
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    () => navigate("/Edit_data", { replace: true }),
+    [navigate]
+  );
+
+  const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdatadetail,
+      detail: [
+        {
+          name_chemical: "",
+          quantity_chemical: "",
+          unit: "",
+          note: "",
+          path_image: "",
+        },
+      ],
     },
   });
-
-  const getEditDataDetail = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
-    );
-    setEditDataDetail(response.data);
-    reset(response.data);
-  };
-
-  useEffect(() => {
-    getEditDataDetail();
-    reset(editdatadetail);
-  }, []);
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
-
-  console.log("detail", editdatadetail);
-  console.log("fields", fields);
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -71,12 +74,6 @@ const Manage_plant = (props) => {
     });
   };
 
-  const navigate = useNavigate();
-  const handleOnClick = useCallback(
-    () => navigate("/Edit_data", { replace: true }),
-    [navigate]
-  );
-
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -111,7 +108,7 @@ const Manage_plant = (props) => {
                     <hr />
                     <ul>
                       {fields.map((data, index) => (
-                        <li key={index}>
+                        <li key={data.id}>
                           {index + 1}
                           <div className="callout callout-info">
                             <div className="row">
@@ -122,7 +119,6 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    defaultValue={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
@@ -136,7 +132,6 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณที่ใช้"
-                                    defaultValue={data.quantity_chemical}
                                     {...register(
                                       `detail.${index}.quantity_chemical`
                                     )}
@@ -150,7 +145,6 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="หน่วยนับ"
-                                    defaultValue={data.unit}
                                     {...register(`detail.${index}.unit`)}
                                   />
                                 </div>
@@ -164,7 +158,6 @@ const Manage_plant = (props) => {
                                     rows="3"
                                     className="form-control"
                                     placeholder="Note"
-                                    defaultValue={data.note}
                                     {...register(`detail.${index}.note`)}
                                   />
                                 </div>
