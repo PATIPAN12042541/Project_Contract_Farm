@@ -35,7 +35,14 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdatadetail,
+      detail: [
+        {
+          name_chemical: editdatadetail.name_chemical,
+          quantity_chemical: editdatadetail.quantity_chemical,
+          note: editdatadetail.note,
+          unit: editdatadetail.unit,
+        },
+      ],
     },
   });
   const { fields, append, remove } = useFieldArray({
@@ -127,7 +134,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    defaultValue={`detail.${index}.name_chemical`}
+                                    defaultValue={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
