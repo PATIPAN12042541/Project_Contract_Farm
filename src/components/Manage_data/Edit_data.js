@@ -374,6 +374,15 @@ const Edit_data = () => {
                               <> </>
                               <button
                                 type="submit"
+                                className="btn btn-warning"
+                                style={{ color: "#FFFFFF" }}
+                              >
+                                <BsFillPencilFill />
+                              </button>
+
+                              <> </>
+                              <button
+                                type="submit"
                                 className="btn btn-danger"
                                 onClick={() => {
                                   deletePlants(data.id_plant);
