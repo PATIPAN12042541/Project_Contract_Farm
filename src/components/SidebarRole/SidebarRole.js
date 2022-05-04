@@ -56,7 +56,7 @@ const SidebarRole = () => {
     }
 
     const subMenu1 = async(role_id,menuid) => {
-      const sublv1 = await axios.get(`${process.env.REACT_APP_API_URL}/${role_id}/${menuid}`);
+      const sublv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${menuid}`);
       setSubMenusRole(sublv1.data);
 
       console.log(submenurole.data);
