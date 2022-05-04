@@ -62,7 +62,7 @@ const Manage_plant = (props) => {
             );
           }
           Swal.fire("Success", "success");
-          refreshPage(); // refash page
+          //refreshPage(); // refash page
           handleOnClick(); //callback page
         } catch (error) {
           Swal.fire({
