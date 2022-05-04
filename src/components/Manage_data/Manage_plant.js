@@ -33,7 +33,7 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdatadetail,
+      detail: setEditDataDetail,
     },
   });
   const { fields, append, remove } = useFieldArray({
