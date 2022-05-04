@@ -18,6 +18,7 @@ const Manage_plant = (props) => {
   );
 
   const [editdatadetail, setEditDataDetail] = useState([]);
+  const editdata = editdatadetail;
 
   useEffect(() => {
     getEditDataDetail();
@@ -34,7 +35,7 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdatadetail,
+      detail: editdata,
       // {
       //   name_chemical: "ทดสอบ",
       //   quantity_chemical: "15",
@@ -132,7 +133,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    name={`detail.${index}.name_chemical`}
+                                    name={data.name_chemical}
                                     defaultValue={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
