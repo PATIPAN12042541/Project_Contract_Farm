@@ -39,7 +39,7 @@ const Manage_plant = (props) => {
     setEditDataDetail();
   }, []);
 
-  console.log("fields", fields);
+  console.log("fields", editdatadetail);
 
   const onSubmit = async (data) => {
     Swal.fire({
