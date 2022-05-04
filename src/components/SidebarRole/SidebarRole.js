@@ -135,8 +135,8 @@ const SidebarRole = () => {
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             /******************* Menu Role by Database ****************/
-              {/* {menurole.map((item,index) => (
-                <nav className="mt-2">
+              {menurole.map((item,index) => (
+                <nav className="mt-2" key={index}>
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                     data-widget="treeview"
@@ -155,7 +155,7 @@ const SidebarRole = () => {
                     </li>
                   </ul>
                 </nav>
-              ))} */}
+              ))}
             /*********************************************************/
             <nav className="mt-2">
               <ul
