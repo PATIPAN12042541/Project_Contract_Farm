@@ -139,7 +139,6 @@ const SidebarRole = () => {
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
-            /***************** ทดลองเมนูตาม Role **************/
               {menurole.map((item,index) => (
                 <nav className="mt-2" key={index}>
                   <ul
@@ -153,8 +152,6 @@ const SidebarRole = () => {
                         <a href={item.link} 
                            className="nav-link" 
                            onClick={(e) => {
-                            console.log("id nav : " + item.id);
-                            console.log("id role : " + item.role_id);
                             subMenu1(item.role_id, item.id);
                           }} >
                           <p>
@@ -163,19 +160,17 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
-                          if (submenurole.length){
-                            return (
-                              <ul className="nav nav-treeview" key={index}>
-                                <li className="nav-item">
-                                  <Link className="nav-link" 
-                                        to={itemsublv1.link}>
-                                    <i className="far fa-circle nav-icon"></i>
-                                    <p>{itemsublv1.menu_name}</p>
-                                  </Link>
-                                </li>
-                              </ul>
-                              )
-                          }
+                          return (
+                            <ul className="nav nav-treeview" key={index}>
+                              <li className="nav-item">
+                                <Link className="nav-link" 
+                                      to={itemsublv1.link}>
+                                  <i className="far fa-circle nav-icon"></i>
+                                  <p>{itemsublv1.menu_name}</p>
+                                </Link>
+                              </li>
+                            </ul>
+                            )
                         })}
                       
                       </li>
@@ -183,7 +178,6 @@ const SidebarRole = () => {
                   </ul>
                 </nav>
               ))}
-            /*************************************************/
             <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
