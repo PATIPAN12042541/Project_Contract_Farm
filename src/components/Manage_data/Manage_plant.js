@@ -11,9 +11,6 @@ function refreshPage() {
 }
 
 const Manage_plant = (props) => {
-
-  
-
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate("/Edit_data", { replace: true }),
@@ -33,7 +30,8 @@ const Manage_plant = (props) => {
     setEditDataDetail(response.data);
   };
 
-  console.log(editdatadetail);
+  //console.log(editdatadetail);
+  console.log(fields);
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -139,7 +137,6 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    value={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
