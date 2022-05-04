@@ -127,7 +127,6 @@ const SidebarRole = () => {
                 </a>
               </div>
             </div>
-            {console.log(roleMenu())}
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
