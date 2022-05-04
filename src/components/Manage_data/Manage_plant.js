@@ -5,28 +5,9 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const Manage_plant = (props) => {
-  const [editdatadetail, setEditDataDetail] = useState({
-    id: 0,
-    id_plant: 0,
-    path_image: "",
-    name_chemical: "",
-    quantity_chemical: 0,
-    unit: "",
-    note: "",
-  });
+  const [editdatadetail, setEditDataDetail] = useState([]);
 
-  const getEditDataDetail = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
-    );
-    setEditDataDetail(response.data);
-  };
-
-  useEffect(() => {
-    getEditDataDetail();
-  }, []);
-
-  const { register, control, handleSubmit } = useForm({
+  const { register, control, handleSubmit, reset } = useForm({
     defaultValues: {
       detail: editdatadetail,
     },
@@ -37,7 +18,29 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  console.log("detail", editdatadetail);
+  // const getEditDataDetail = async () => {
+  //   const response = await axios.get(
+  //     `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
+  //   );
+  //   setEditDataDetail(response.data);
+  // };
+
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
+      )
+      .then((res) => {
+        setEditDataDetail(res.data);
+        reset(res.data);
+      });
+  }, [reset]);
+
+  useEffect(() => {
+    console.log(editdatadetail);
+  }, [editdatadetail]);
+
+ 
   console.log("fields", fields);
 
   const onSubmit = async (data) => {
