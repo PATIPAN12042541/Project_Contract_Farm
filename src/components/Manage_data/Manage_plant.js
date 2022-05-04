@@ -48,14 +48,12 @@ const Manage_plant = (props) => {
             }
           )
         );
-        // .then(function (response) {
-        //   Swal.fire({
-        //     icon: "success",
-        //     title: "Success",
-        //     text: "Save OK !",
-        //   });
-        // });
       }
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Save OK !",
+      });
     } catch (error) {
       Swal.fire({
         icon: "error",
