@@ -31,20 +31,20 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (data) => {
     //console.log(e.detail);
     const detail_array = [];
     try {
-      for (let i = 0; i < e.detail.length; i++) {
+      for (let i = 0; i < data.detail.length; i++) {
         detail_array
           .push(
             await axios.post(
               `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
               {
-                name_chemical: e.detail[i].name_chemical,
-                quantity_chemical: e.detail[i].quantity_chemical,
-                unit: e.detail[i].unit,
-                note: e.detail[i].note,
+                name_chemical: data.detail[i].name_chemical,
+                quantity_chemical: data.detail[i].quantity_chemical,
+                unit: data.detail[i].unit,
+                note: data.detail[i].note,
               }
             )
           )
