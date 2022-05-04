@@ -152,8 +152,6 @@ const SidebarRole = () => {
                         <a href={item.link} 
                            className="nav-link" 
                            onClick={(e) => {
-                            console.log("id nav : " + item.id);
-                            console.log("id role : " + item.role_id);
                             subMenu1(item.role_id, item.id);
                           }} >
                           <p>
