@@ -24,7 +24,6 @@ const Manage_plant = (props) => {
   //   );
   //   setEditDataDetail(response.data);
   // };
-
   useEffect(() => {
     axios
       .get(
@@ -37,11 +36,10 @@ const Manage_plant = (props) => {
   }, [reset]);
 
   useEffect(() => {
-    console.log(editdatadetail);
-  }, [editdatadetail]);
+    setEditDataDetail();
+  }, []);
 
- 
-  console.log("fields", fields);
+  console.log("fields", editdatadetail);
 
   const onSubmit = async (data) => {
     Swal.fire({
