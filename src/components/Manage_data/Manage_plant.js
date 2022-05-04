@@ -6,6 +6,9 @@ import axios from "axios";
 
 const Manage_plant = (props) => {
   const [editdatadetail, setEditDataDetail] = useState({
+    id: 0,
+    id_plant: 0,
+    path_image: "",
     name_chemical: "",
     quantity_chemical: 0,
     unit: "",
@@ -126,7 +129,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    defaultValue="ทดสอบ"
+                                    defaultValue={data.name_chemical}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
