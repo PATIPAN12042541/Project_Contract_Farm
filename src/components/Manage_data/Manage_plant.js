@@ -5,12 +5,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const Manage_plant = (props) => {
+  
   const [editdatadetail, setEditDataDetail] = useState([]);
-  const { register, control, handleSubmit, reset } = useForm({
-    defaultValues: {
-      detail: editdatadetail,
-    },
-  });
 
   const getEditDataDetail = async () => {
     const response = await axios.get(
@@ -20,11 +16,18 @@ const Manage_plant = (props) => {
     reset(response.data);
   };
 
+  const { register, control, handleSubmit, reset } = useForm({
+    defaultValues: {
+      detail: editdatadetail,
+    },
+  });
+
   useEffect(() => {
     getEditDataDetail();
     reset(editdatadetail);
   }, []);
 
+  
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
