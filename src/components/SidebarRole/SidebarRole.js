@@ -51,6 +51,8 @@ const SidebarRole = () => {
     const roleMenu = async(roleid) => {
       const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${roleid}`);
       setMenus(menu_);
+
+      console.log(menu_);
     }
 
     const axiosJWT = axios.create();
