@@ -134,7 +134,6 @@ export const updatePlant = async (req, res) => {
 
 export const postManagePlant = async (req, res) => {
     const { name_chemical, quantity_chemical, unit, note } = req.body;
-
     try {
       await PlantDataDetail.create({
         id_plant: req.params.id,
