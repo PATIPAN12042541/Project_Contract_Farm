@@ -29,7 +29,7 @@ export const getPlant = async (req, res) => {
 export const getManagePlantEdit = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
-      "select id,id_name_plant from plant_detail where id_name_plant = :id_plant ",
+      "select id_name_plant from plant_detail where id_name_plant = :id_plant ",
       {
         replacements: { id_plant: req.params.id },
         type: db.QueryTypes.SELECT,

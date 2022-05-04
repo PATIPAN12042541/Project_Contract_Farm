@@ -28,7 +28,7 @@ const Manage_plant = (props) => {
 
   const getEditDataDetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`
+      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
     );
     setEditDataDetail(response.data);
   };
