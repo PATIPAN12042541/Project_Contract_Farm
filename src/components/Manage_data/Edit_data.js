@@ -332,7 +332,7 @@ const Edit_data = () => {
                           <center>รูปภาพ</center>
                         </th>
                         <th>
-                          <center>ลบข้อมูล</center>
+                          <center>แก้ไข/ลบข้อมูล</center>
                         </th>
                       </tr>
                     </thead>
