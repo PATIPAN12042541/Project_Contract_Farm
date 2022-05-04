@@ -134,10 +134,9 @@ const Manage_plant = (props) => {
                                     placeholder="ปริมาณสารเคมีที่ใช้"
                                     name={`detail.${index}.name_chemical`}
                                     defaultValue={data.name_chemical}
-                                    {...register("detail", { required: true })}
-                                    // {...register(
-                                    //   `detail.${index}.name_chemical`
-                                    // )}
+                                    {...register(
+                                      `detail.${index}.name_chemical`
+                                    )}
                                   />
                                 </div>
                               </div>
