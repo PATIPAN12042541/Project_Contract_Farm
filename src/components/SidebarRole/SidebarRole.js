@@ -141,7 +141,7 @@ const SidebarRole = () => {
             {/* <SidebarAdmin /> */}
             /***************** ทดลองเมนูตาม Role **************/
               {menurole.map((item,index) => (
-                <nav className="mt-2" key={index}>
+                <nav className="mt-2">
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                     data-widget="treeview"
@@ -150,16 +150,29 @@ const SidebarRole = () => {
                   >
                     <li className="nav-item">
                       <li className="nav-item">
-                        <a href={item.link} className="nav-link" onClick={(e)=>{
-                          console.log("id nav : "+item.id);
-                          console.log("id role : "+item.role_id);
-                          subMenu1(item.role_id,item.id);
-                        }}>
+                        <a href={item.link} 
+                           className="nav-link" 
+                           onClick={(e) => {
+                            console.log("id nav : " + item.id);
+                            console.log("id role : " + item.role_id);
+                            subMenu1(item.role_id, item.id);
+                          }} 
+                          key={index}>
                           <p>
                             {item.menu_name}
                             <i className="fas fa-angle-left right"></i>
                           </p>
                         </a>
+                        {submenurole.map((itemsublv1,index) => {
+                          <ul className="nav nav-treeview">
+                            <li className="nav-item">
+                              <Link className="nav-link" to={itemsublv1.link}>
+                                <i className="far fa-circle nav-icon"></i>
+                                <p>{itemsublv1.menu_name}</p>
+                              </Link>
+                            </li>
+                          </ul>
+                        })}
                       </li>
                     </li>
                   </ul>
