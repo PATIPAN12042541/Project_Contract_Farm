@@ -10,6 +10,7 @@ import First_Page from "./components/First_Page";
 import Edit_data from "./components/Manage_data/Edit_data";
 import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
+import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
 
 function App() {
   let params = useParams();
@@ -51,6 +52,11 @@ function App() {
             exact
             path="/Manage_plant/:id"
             element={<Page_manage_data />}
+          />
+          <Route
+            exact
+            path="/Manage_plant_edit/:id"
+            element={<Page_manage_data_edit />}
           />
         </Routes>
       </BrowserRouter>

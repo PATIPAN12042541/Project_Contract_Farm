@@ -372,14 +372,20 @@ const Edit_data = () => {
                                 </button>
                               </Link>
                               <> </>
-                              <button
-                                type="submit"
-                                className="btn btn-warning"
-                                style={{ color: "#FFFFFF" }}
+                              <Link
+                                to={{
+                                  pathname: `/Manage_plant_edit/${data.id_plant}`,
+                                  state: { id: data.id_plant },
+                                }}
                               >
-                                <BsFillPencilFill />
-                              </button>
-
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillPencilFill />
+                                </button>
+                              </Link>
                               <> </>
                               <button
                                 type="submit"
