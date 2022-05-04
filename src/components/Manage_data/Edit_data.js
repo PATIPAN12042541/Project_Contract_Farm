@@ -5,6 +5,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
+import { BsPlusLg } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
 import { Link } from "react-router-dom";
@@ -19,16 +20,16 @@ const Edit_data = () => {
   const [enddate, setEndDate] = useState();
 
   /***** set edit data *****/
-  const [edit_name_plant,setEditNamePlant] = useState();
-  const [edit_start_date_plant,setEditStartDatePlant] = useState();
-  const [edit_end_date_plant,setEditEndDatePlant] = useState();
-  const [edit_plant_image,setEditPlantImage] = useState();
+  const [edit_name_plant, setEditNamePlant] = useState();
+  const [edit_start_date_plant, setEditStartDatePlant] = useState();
+  const [edit_end_date_plant, setEditEndDatePlant] = useState();
+  const [edit_plant_image, setEditPlantImage] = useState();
   /*************************/
 
-  const [image, setImage] = useState({ preview: '', data: '' });
+  const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
 
-  const [editimage, setEditImage] = useState({ preview: '', data: '' });
+  const [editimage, setEditImage] = useState({ preview: "", data: "" });
   const [edit_image_name, setEditImageName] = useState();
 
   // const [plantimage, setPlantImage] = useState();
@@ -37,27 +38,29 @@ const Edit_data = () => {
     getPlant();
   }, []);
 
-  const uploadImg = async() => {
-    let formData = new FormData()
-        formData.append('file', image.data)
+  const uploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", image.data);
 
-        console.log(formData);
+    console.log(formData);
 
-        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-                    .then(res => console.log(res.data))
-                    .catch(err => console.error(err));
-  }
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
 
-  const editUploadImg = async()=>{
-    let formData = new FormData()
-        formData.append('file', editimage.data)
+  const editUploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", editimage.data);
 
-        console.log(formData);
+    console.log(formData);
 
-        await axios.post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-                    .then(res => console.log(res.data))
-                    .catch(err => console.error(err));
-  }
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
 
   const getPlant = async () => {
     const response = await axios.get(
@@ -66,28 +69,23 @@ const Edit_data = () => {
     setPlantData(response.data);
   };
 
-  const deletePlants = async(id) => {
+  const deletePlants = async (id) => {
     Swal.fire({
-      title: 'Are you sure delete?',
+      title: "Are you sure delete?",
       text: "You want delete data !",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'OK'
-    }).then(async(result) => {
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        
         try {
-         await axios.delete(
+          await axios.delete(
             `${process.env.REACT_APP_API_URL}/getplant/DeletePlant/${id}`
-          );  
-          getPlant();         
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )   
+          );
+          getPlant();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         } catch (error) {
           Swal.fire({
             icon: "error",
@@ -96,23 +94,20 @@ const Edit_data = () => {
           });
         }
       }
-    })
+    });
   };
 
   const postPlant = async (e) => {
     e.preventDefault();
     try {
       await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/getplant/DetailPlant`,
-          {
-            id_name_plant: idplant,
-            name_plant: nameplant,
-            start_date_plant: startdate,
-            end_date_plant: enddate,
-            image_url:image_name,
-          }
-        )
+        .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
+          id_name_plant: idplant,
+          name_plant: nameplant,
+          start_date_plant: startdate,
+          end_date_plant: enddate,
+          image_url: image_name,
+        })
         .then(function (response) {
           getPlant();
           Swal.fire({
@@ -129,7 +124,7 @@ const Edit_data = () => {
           });
         });
 
-        uploadImg();
+      uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -141,28 +136,30 @@ const Edit_data = () => {
 
   const updatePlant = async (id) => {
     try {
-      if (edit_image_name === undefined){
-        await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
-          name_plant: edit_name_plant,
-          start_date_plant: edit_start_date_plant,
-          end_date_plant: edit_end_date_plant,
-        });
-      }else{
-        await axios.patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
-          name_plant: edit_name_plant,
-          start_date_plant: edit_start_date_plant,
-          end_date_plant: edit_end_date_plant,
-          plant_image: "../dist/img/" + edit_image_name
-        });
+      if (edit_image_name === undefined) {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,
+          {
+            name_plant: edit_name_plant,
+            start_date_plant: edit_start_date_plant,
+            end_date_plant: edit_end_date_plant,
+          }
+        );
+      } else {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,
+          {
+            name_plant: edit_name_plant,
+            start_date_plant: edit_start_date_plant,
+            end_date_plant: edit_end_date_plant,
+            plant_image: "../dist/img/" + edit_image_name,
+          }
+        );
 
         editUploadImg();
       }
       getPlant();
-      Swal.fire(
-        'Succes !',
-        'Your file has been Update.',
-        'success'
-      )
+      Swal.fire("Succes !", "Your file has been Update.", "success");
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -170,8 +167,7 @@ const Edit_data = () => {
         text: "Update Error!",
       });
     }
-}
-
+  };
 
   return (
     <div className="content-wrapper">
@@ -332,7 +328,7 @@ const Edit_data = () => {
                           <center>รูปภาพ</center>
                         </th>
                         <th>
-                          <center>แก้ไข/ลบข้อมูล</center>
+                          <center>เพิ่ม/แก้ไข/ลบข้อมูล</center>
                         </th>
                       </tr>
                     </thead>
@@ -369,10 +365,10 @@ const Edit_data = () => {
                               >
                                 <button
                                   type="submit"
-                                  className="btn btn-warning"
+                                  className="btn btn-success"
                                   style={{ color: "#FFFFFF" }}
                                 >
-                                  <BsFillPencilFill />
+                                  <BsPlusLg />
                                 </button>
                               </Link>
                               <> </>
