@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -8,10 +8,15 @@ function refreshPage() {
   setTimeout(() => {
     window.location.reload(false);
   }, 500);
-  <Link to="/Edit_data" />;
 }
 
 const Manage_plant = (props) => {
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    () => navigate("/Edit_data", { replace: true }),
+    [navigate]
+  );
+
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
       detail: [
@@ -57,7 +62,7 @@ const Manage_plant = (props) => {
             );
           }
           Swal.fire("Success", "success");
-          refreshPage();
+          handleOnClick();
         } catch (error) {
           Swal.fire({
             icon: "error",
