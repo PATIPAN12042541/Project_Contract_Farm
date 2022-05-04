@@ -14,6 +14,7 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
+    const [menus,setMenus] = useState('');
     const history = useNavigate;
 
 
@@ -38,6 +39,8 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
 
+        roleMenu(decoded.role_id);
+
       } catch (error) {
         if (error.response) {
           history("/");
@@ -45,52 +48,10 @@ const SidebarRole = () => {
       }
     }
 
-    const rolemenu = () => {
-      <SidebarDev />
-      /*if (id === 1){
-        console.log("SidebarDev : "+id);
-        return <SidebarDev />
-      }else if(id === 2){
-        console.log("SidebarAdmin : "+id);
-        return <SidebarAdmin />
-      }else{
-        console.log("menu roid id 2 : "+id);
-      }*/
+    const roleMenu = async(roleid) => {
+      const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${roleid}`);
+      setMenus(menu_);
     }
-
-    // const rolemenu = async() =>{
-    //   try {
-    //     //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
-
-    //     // const response = await axios.get("http://localhost:4000/user/token");
-    //     const response = await axios.get(
-    //       `${process.env.REACT_APP_API_URL}/user/token`
-    //     );
-    //     setToken(response.data.accessToken);
-    //     const decoded = jwt_decode(response.data.accessToken);
-    //     setName(decoded.name);
-    //     setLastName(decoded.last_name);
-    //     setRoleID(decoded.role_id);
-    //     setExpire(decoded.exp);
-
-    //     console.log("menu roid id 1 : "+decoded.role_id);
-
-    //     /*if (decoded.role_id === 1){
-    //       console.log("SidebarDev : "+decoded.role_id);
-    //       return <SidebarDev></SidebarDev>
-    //     }else if(decoded.role_id === 2){
-    //       console.log("SidebarAdmin : "+decoded.role_id);
-    //       return <SidebarAdmin />
-    //     }else{
-    //       console.log("menu roid id 2 : "+decoded.role_id);
-    //     }*/
-
-    //   } catch (error) {
-    //     if (error.response) {
-    //       history("/");
-    //     }
-    //   }
-    // }
 
     const axiosJWT = axios.create();
 
@@ -171,6 +132,29 @@ const SidebarRole = () => {
             {/* {rolemenu(roleid)} */}
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
+            /******************* Menu Role by Database ****************/
+              {menus.map((item) => (
+                <nav className="mt-2">
+                  <ul
+                    className="nav nav-pills nav-sidebar flex-column nav-child-indent"
+                    data-widget="treeview"
+                    role="menu"
+                    data-accordion="false"
+                  >
+                    <li className="nav-item">
+                      <li className="nav-item">
+                        <a href={item.link} className="nav-link">
+                          <p>
+                            {item.menu_name}
+                            <i className="fas fa-angle-left right"></i>
+                          </p>
+                        </a>
+                      </li>
+                    </li>
+                  </ul>
+                </nav>
+              ))}
+            /*********************************************************/
             <nav className="mt-2">
               <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
