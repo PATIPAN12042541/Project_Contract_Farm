@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -12,7 +12,6 @@ function refreshPage() {
 }
 
 const Manage_plant = (props) => {
-
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
       detail: [
@@ -60,7 +59,7 @@ const Manage_plant = (props) => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Error",
+        title: "error",
         text: "Save Error!",
       });
     }
