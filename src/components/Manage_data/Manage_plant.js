@@ -4,11 +4,11 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-function refreshPage() {
-  setTimeout(() => {
-    window.location.reload(false);
-  }, 500);
-}
+// function refreshPage() {
+//   setTimeout(() => {
+//     window.location.reload(false);
+//   }, 500);
+// }
 
 const Manage_plant = (props) => {
   const navigate = useNavigate();
@@ -62,7 +62,6 @@ const Manage_plant = (props) => {
             );
           }
           Swal.fire("Success", "success");
-          //refreshPage(); // refash page
           handleOnClick(); //callback page
         } catch (error) {
           Swal.fire({
