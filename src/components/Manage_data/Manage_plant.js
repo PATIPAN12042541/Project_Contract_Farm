@@ -32,17 +32,17 @@ const Manage_plant = (props) => {
 
   console.log(editdatadetail);
 
-
   const { register, control, handleSubmit } = useForm({
-    defaultValues: editdatadetail,
-    // detail: [
-    //   {
-    //     name_chemical: editdatadetail.name_chemical,
-    //     quantity_chemical: editdatadetail.quantity_chemical,
-    //     note: editdatadetail.note,
-    //     unit: editdatadetail.unit,
-    //   },
-    // ],
+    defaultValues: {
+      detail: [
+        {
+          name_chemical: "ทดสอบ",
+          quantity_chemical: "15",
+          note: "-",
+          unit: "ml",
+        },
+      ],
+    },
   });
   const { fields, append, remove } = useFieldArray({
     control,
