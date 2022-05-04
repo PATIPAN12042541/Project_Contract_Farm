@@ -112,7 +112,7 @@ export const getDataImagePlant = async (req, res) => {
     );
     res.json(imageplants);
   } catch (error) {
-    res.json({ message: error.message + id_plant });
+    res.json({ message: error.message });
   }
 };
 
@@ -133,21 +133,18 @@ export const updatePlant = async (req, res) => {
 };
 
 export const postManagePlant = async (req, res) => {
-    const { name_chemical, quantity_chemical, unit, note } = req.body;
+  const { name_chemical, quantity_chemical, unit, note } = req.body;
 
-    try {
-      await PlantDataDetail.create({
-        id_plant: req.params.id,
-        name_chemical: name_chemical,
-        quantity_chemical: quantity_chemical,
-        unit: unit,
-        note: note,
-      });
-      res.json({ msg: "Registration Successful" });
-    } catch (error) {
-      res.json({
-        message:
-          error.messag + " id " + req.params.id + " data " + name_chemical,
-      });
-    }
+  try {
+    await PlantDataDetail.create({
+      id_plant: req.params.id,
+      name_chemical: name_chemical,
+      quantity_chemical: quantity_chemical,
+      unit: unit,
+      note: note,
+    });
+    res.json({ msg: "Registration Successful" });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
 };
