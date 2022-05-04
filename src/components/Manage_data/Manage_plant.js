@@ -11,11 +11,29 @@ function refreshPage() {
 }
 
 const Manage_plant = (props) => {
+
+  
+
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate("/Edit_data", { replace: true }),
     [navigate]
   );
+
+  const [editdatadetail, setEditDataDetail] = useState([]);
+
+  useEffect(() => {
+    getEditDataDetail();
+  }, []);
+
+  const getEditDataDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`
+    );
+    setEditDataDetail(response.data);
+  };
+
+  console.log(editdatadetail);
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
