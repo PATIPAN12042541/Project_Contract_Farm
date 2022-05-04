@@ -55,28 +55,28 @@ const SidebarRole = () => {
 
     const axiosJWT = axios.create();
 
-    axiosJWT.interceptors.request.use(
-      async (config) => {
-        const currentDate = new Date();
-        if (expire * 1000 < currentDate.getTime()) {
-          const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/user/token`
-          );
-          //const response = await axios.get('http://localhost:4000/user/token');
-          config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-          setToken(response.data.accessToken);
-          const decoded = jwt_decode(response.data.accessToken);
-          setName(decoded.name);
-          setLastName(decoded.last_name);
-          setRoleID(decoded.role_id);
-          setExpire(decoded.exp);
-        }
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      }
-    );
+    // axiosJWT.interceptors.request.use(
+    //   async (config) => {
+    //     const currentDate = new Date();
+    //     if (expire * 1000 < currentDate.getTime()) {
+    //       const response = await axios.get(
+    //         `${process.env.REACT_APP_API_URL}/user/token`
+    //       );
+    //       //const response = await axios.get('http://localhost:4000/user/token');
+    //       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+    //       setToken(response.data.accessToken);
+    //       const decoded = jwt_decode(response.data.accessToken);
+    //       setName(decoded.name);
+    //       setLastName(decoded.last_name);
+    //       setRoleID(decoded.role_id);
+    //       setExpire(decoded.exp);
+    //     }
+    //     return config;
+    //   },
+    //   (error) => {
+    //     return Promise.reject(error);
+    //   }
+    // );
 
     const getUsers = async () => {
       try{
