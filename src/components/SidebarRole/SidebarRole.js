@@ -14,7 +14,8 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const [menurole,setRoleMenus] = useState([]);
+    const [menurole,setMenuRole] = useState([]);
+    const [submenurole,setSubMenusRole] = useState([]);
     const history = useNavigate;
 
 
@@ -50,9 +51,15 @@ const SidebarRole = () => {
 
     const roleMenu = async(id) => {
       const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/${id}`);
-      setRoleMenus(menu_.data);
+      setMenuRole(menu_.data);
 
-      console.log(menu_.data);
+    }
+
+    const subMenu1 = async(role_id,menuid) => {
+      const sublv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${menuid}`);
+      setSubMenusRole(sublv1.data);
+
+      console.log(sublv1.data);
     }
 
     const axiosJWT = axios.create();
@@ -134,7 +141,7 @@ const SidebarRole = () => {
             {/* <SidebarAdmin /> */}
             /***************** ทดลองเมนูตาม Role **************/
               {menurole.map((item,index) => (
-                <nav className="mt-2" key={index}>
+                <nav className="mt-2">
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                     data-widget="treeview"
@@ -143,15 +150,34 @@ const SidebarRole = () => {
                   >
                     <li className="nav-item">
                       <li className="nav-item">
-                        <a href={item.link} className="nav-link" onClick={(e)=>{
-                          console.log("id nav : "+item.id);
-                          console.log("id role : "+item.role_id);
-                        }}>
+                        <a href={item.link} 
+                           className="nav-link" 
+                           onClick={(e) => {
+                            console.log("id nav : " + item.id);
+                            console.log("id role : " + item.role_id);
+                            subMenu1(item.role_id, item.id);
+                          }} 
+                          key={index}>
                           <p>
                             {item.menu_name}
                             <i className="fas fa-angle-left right"></i>
                           </p>
                         </a>
+                        {submenurole.map((itemsublv1,index) => {
+                          return (
+                          <ul className="nav nav-treeview">
+                            <li className="nav-item">
+                              <Link className="nav-link" 
+                                    to={itemsublv1.link}
+                                    key={index}>
+                                <i className="far fa-circle nav-icon"></i>
+                                <p>{itemsublv1.menu_name}</p>
+                              </Link>
+                            </li>
+                          </ul>
+                          )
+                        })}
+                      
                       </li>
                     </li>
                   </ul>
