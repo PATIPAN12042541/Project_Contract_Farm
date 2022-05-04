@@ -32,7 +32,6 @@ const Manage_plant = (props) => {
   });
 
   const onSubmit = async (data) => {
-    
     const detail_array = [];
     try {
       for (let i = 0; i < data.detail.length; i++) {
@@ -54,6 +53,7 @@ const Manage_plant = (props) => {
         title: "Success",
         text: "Save OK !",
       });
+      refreshPage();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -188,16 +188,18 @@ const Manage_plant = (props) => {
                         ย้อนกลับ
                       </button>
                     </Link>
-                    <button
-                      type="submit"
-                      className="btn btn-default float-right"
-                      style={{
-                        backgroundColor: "#8CC152",
-                        color: "#FFFFFF",
-                      }}
-                    >
-                      ยืนยัน
-                    </button>
+                    <Link to="/Edit_data">
+                      <button
+                        type="submit"
+                        className="btn btn-default float-right"
+                        style={{
+                          backgroundColor: "#8CC152",
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        ยืนยัน
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>
