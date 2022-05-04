@@ -21,7 +21,6 @@ const SidebarRole = () => {
     useEffect(() => {
       refreshToken();
       //getUsers();
-      roleMenu();
     }, []);
 
 
@@ -51,7 +50,7 @@ const SidebarRole = () => {
       const menu_ = await axios.get(`${process.env.REACT_APP_API_URL}/menu/main/1`);
       setRoleMenus(menu_.data);
 
-      //console.log(menu_.data);
+      console.log(menu_.data);
     }
 
     const axiosJWT = axios.create();
@@ -96,7 +95,7 @@ const SidebarRole = () => {
       }
     };
 
-    console.log(menurole);
+    console.log(roleMenu());
 
     return (
         <aside className="main-sidebar sidebar-light-primary elevation-4">
