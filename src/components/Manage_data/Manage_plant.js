@@ -4,21 +4,9 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-function refreshPage() {
-  setTimeout(() => {
-    window.location.reload(false);
-  }, 500);
-}
-
 const Manage_plant = (props) => {
-  const navigate = useNavigate();
-  const handleOnClick = useCallback(
-    () => navigate("/Edit_data", { replace: true }),
-    [navigate]
-  );
-
   const [editdatadetail, setEditDataDetail] = useState([]);
- 
+
   const getEditDataDetail = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
@@ -32,7 +20,11 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: editdatadetail,
+      detail: [
+        {
+          name_chemical: "ทดสอบ",
+        },
+      ],
     },
   });
 
@@ -40,6 +32,7 @@ const Manage_plant = (props) => {
     control,
     name: "detail",
   });
+
   console.log("detail", editdatadetail);
   console.log("fields", fields);
 
@@ -69,7 +62,6 @@ const Manage_plant = (props) => {
             );
           }
           Swal.fire("Success", "success");
-          //refreshPage(); // refash page
           handleOnClick(); //callback page
         } catch (error) {
           Swal.fire({
@@ -81,6 +73,12 @@ const Manage_plant = (props) => {
       }
     });
   };
+
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    () => navigate("/Edit_data", { replace: true }),
+    [navigate]
+  );
 
   return (
     <div className="content-wrapper">
@@ -127,7 +125,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    defaultValue={data.name_chemical}
+                                    defaultValue="ทดสอบ"
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}

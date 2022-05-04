@@ -29,9 +29,9 @@ export const getPlant = async (req, res) => {
 export const getManagePlantEdit = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
-      // "select  plant_data_detail.id_plant," +
-      //   "        plant_data_detail.id," +
-      "select  plant_data_detail.name_chemical," +
+      "select  plant_data_detail.id_plant," +
+        "        plant_data_detail.id," +
+        "        plant_data_detail.name_chemical," +
         "        plant_data_detail.quantity_chemical," +
         "        plant_data_detail.unit," +
         "        plant_data_detail.note," +
