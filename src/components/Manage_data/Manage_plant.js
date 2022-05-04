@@ -35,7 +35,6 @@ const Manage_plant = (props) => {
     const detail_array = [];
     try {
       for (let i = 0; i < data.detail.length; i++) {
-        console.log(i);
         detail_array.push(
           await axios.post(
             `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
