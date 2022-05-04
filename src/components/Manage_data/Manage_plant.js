@@ -38,13 +38,14 @@ const Manage_plant = (props) => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
       detail: [
-        {
-          name_chemical: "",
-          quantity_chemical: "",
-          unit: "",
-          note: "",
-          path_image: "",
-        },
+        editdatadetail, 
+        // {
+        //   name_chemical: "",
+        //   quantity_chemical: "",
+        //   unit: "",
+        //   note: "",
+        //   path_image: "",
+        // },
       ],
     },
   });
