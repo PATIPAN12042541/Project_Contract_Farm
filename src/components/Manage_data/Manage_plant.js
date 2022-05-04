@@ -5,7 +5,12 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const Manage_plant = (props) => {
-  const [editdatadetail, setEditDataDetail] = useState([]);
+  const [editdatadetail, setEditDataDetail] = useState({
+    name_chemical: "",
+    quantity_chemical: 0,
+    unit: "",
+    note: "",
+  });
 
   const getEditDataDetail = async () => {
     const response = await axios.get(
@@ -20,11 +25,7 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: [
-        {
-          name_chemical: "ทดสอบ",
-        },
-      ],
+      detail: editdatadetail,
     },
   });
 
