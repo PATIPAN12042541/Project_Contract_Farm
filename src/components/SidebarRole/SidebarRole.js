@@ -148,7 +148,7 @@ const SidebarRole = () => {
                     role="menu"
                     data-accordion="false"
                   >
-                    <li className="nav-item">
+                    {/* <li className="nav-item"> */}
                       <li className="nav-item">
                         <a href={item.link} 
                            className="nav-link" 
@@ -163,28 +163,23 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
-                          console.log("นอก if "+submenurole.length)
                           if (submenurole.length){
-                            console.log("ใน if "+submenurole.length)
                             return (
-                              <ul className="nav nav-treeview">
+                              <ul className="nav nav-treeview" key={index}>
                                 <li className="nav-item">
                                   <Link className="nav-link" 
-                                        to={itemsublv1.link}
-                                        key={index}>
+                                        to={itemsublv1.link}>
                                     <i className="far fa-circle nav-icon"></i>
                                     <p>{itemsublv1.menu_name}</p>
                                   </Link>
                                 </li>
                               </ul>
                               )
-                          }else{
-                            console.log("else");
                           }
                         })}
                       
                       </li>
-                    </li>
+                    {/* </li> */}
                   </ul>
                 </nav>
               ))}
