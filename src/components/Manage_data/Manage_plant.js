@@ -51,8 +51,6 @@ const Manage_plant = (props) => {
     control,
     name: "detail",
   });
-  
-  console.log(fields);
 
   const onSubmit = async (data) => {
     Swal.fire({
