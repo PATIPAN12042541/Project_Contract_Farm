@@ -40,12 +40,11 @@ const Manage_plant = (props) => {
           .push(
             await axios.post(
               `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
-              {
-                name_chemical: e.detail[i].name_chemical,
-                quantity_chemical: e.detail[i].quantity_chemical,
-                unit: e.detail[i].unit,
-                note: e.detail[i].note,
-              }
+              JSON.stringify(e)
+              // name_chemical: e.detail[i].name_chemical,
+              // quantity_chemical: e.detail[i].quantity_chemical,
+              // unit: e.detail[i].unit,
+              // note: e.detail[i].note,
             )
           )
           .then(function (response) {
