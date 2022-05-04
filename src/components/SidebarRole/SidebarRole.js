@@ -14,7 +14,7 @@ const SidebarRole = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const [menus,setMenus] = useState('');
+    const [menus,setMenus] = useState([]);
     const history = useNavigate;
 
 
@@ -135,7 +135,7 @@ const SidebarRole = () => {
             {/* <SidebarDev /> */}
             {/* <SidebarAdmin /> */}
             /******************* Menu Role by Database ****************/
-              {/* {menus.map((item) => (
+              {menus.map((item) => (
                 <nav className="mt-2">
                   <ul
                     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
@@ -155,7 +155,7 @@ const SidebarRole = () => {
                     </li>
                   </ul>
                 </nav>
-              ))} */}
+              ))}
             /*********************************************************/
             <nav className="mt-2">
               <ul
