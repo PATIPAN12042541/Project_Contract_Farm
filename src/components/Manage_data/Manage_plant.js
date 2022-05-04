@@ -35,7 +35,7 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: [editdatadetail],
+      detail: editdatadetail,
       // detail: [
       //   {
       //     name_chemical: "",
@@ -51,6 +51,8 @@ const Manage_plant = (props) => {
     control,
     name: "detail",
   });
+
+  consloe.log(editdatadetail);
 
   const onSubmit = async (data) => {
     Swal.fire({
