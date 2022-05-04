@@ -6,40 +6,32 @@ import axios from "axios";
 
 const Manage_plant = (props) => {
   const [editdatadetail, setEditDataDetail] = useState([]);
-
   const { register, control, handleSubmit, reset } = useForm({
     defaultValues: {
       detail: editdatadetail,
     },
   });
 
+  const getEditDataDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
+    );
+    setEditDataDetail(response.data);
+    reset(response.data);
+  };
+
+  useEffect(() => {
+    getEditDataDetail();
+    reset(editdatadetail);
+  }, []);
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
 
-  // const getEditDataDetail = async () => {
-  //   const response = await axios.get(
-  //     `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
-  //   );
-  //   setEditDataDetail(response.data);
-  // };
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
-      )
-      .then((res) => {
-        setEditDataDetail(res.data);
-        reset(res.data);
-      });
-  }, [reset]);
-
-  useEffect(() => {
-    setEditDataDetail();
-  }, []);
-
-  console.log("fields", editdatadetail);
+  console.log("detail", editdatadetail);
+  console.log("fields", fields);
 
   const onSubmit = async (data) => {
     Swal.fire({
