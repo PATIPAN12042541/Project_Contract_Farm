@@ -163,19 +163,22 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
-                          console.log("itemsublv1 id : "+itemsublv1.id);
-                          return (
-                          <ul className="nav nav-treeview">
-                            <li className="nav-item">
-                              <Link className="nav-link" 
-                                    to={itemsublv1.link}
-                                    key={index}>
-                                <i className="far fa-circle nav-icon"></i>
-                                <p>{itemsublv1.menu_name}</p>
-                              </Link>
-                            </li>
-                          </ul>
-                          )
+                          console.log("นอก if "+itemsublv1.link)
+                          if (itemsublv1.link !== null){
+                            console.log("ใน if "+itemsublv1.link)
+                            return (
+                              <ul className="nav nav-treeview">
+                                <li className="nav-item">
+                                  <Link className="nav-link" 
+                                        to={itemsublv1.link}
+                                        key={index}>
+                                    <i className="far fa-circle nav-icon"></i>
+                                    <p>{itemsublv1.menu_name}</p>
+                                  </Link>
+                                </li>
+                              </ul>
+                              )
+                          }
                         })}
                       
                       </li>
