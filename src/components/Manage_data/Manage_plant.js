@@ -34,14 +34,13 @@ const Manage_plant = (props) => {
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: [
-        {
-          name_chemical: "ทดสอบ",
-          quantity_chemical: "15",
-          note: "-",
-          unit: "ml",
-        },
-      ],
+      detail: editdatadetail,
+      // {
+      //   name_chemical: "ทดสอบ",
+      //   quantity_chemical: "15",
+      //   note: "-",
+      //   unit: "ml",
+      // },
     },
   });
   const { fields, append, remove } = useFieldArray({
@@ -122,7 +121,7 @@ const Manage_plant = (props) => {
                     <hr />
                     <ul>
                       {fields.map((data, index) => (
-                        <li key={data.id}>
+                        <li key={index}>
                           {index + 1}
                           <div className="callout callout-info">
                             <div className="row">
@@ -147,6 +146,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณที่ใช้"
+                                    defaultValue={data.quantity_chemical}
                                     {...register(
                                       `detail.${index}.quantity_chemical`
                                     )}
@@ -160,6 +160,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="หน่วยนับ"
+                                    defaultValue={data.unit}
                                     {...register(`detail.${index}.unit`)}
                                   />
                                 </div>
@@ -173,6 +174,7 @@ const Manage_plant = (props) => {
                                     rows="3"
                                     className="form-control"
                                     placeholder="Note"
+                                    defaultValue={data.note}
                                     {...register(`detail.${index}.note`)}
                                   />
                                 </div>
