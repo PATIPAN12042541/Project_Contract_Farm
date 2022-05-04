@@ -164,16 +164,19 @@ const SidebarRole = () => {
                           </p>
                         </a>
                         {submenurole.map((itemsublv1,index) => {
+                          console.log("index : "+index);
+                          return (
                           <ul className="nav nav-treeview">
-                          <li className="nav-item">
-                            <Link className="nav-link" 
-                                  to={itemsublv1.link}
-                                  key={index}>
-                              <i className="far fa-circle nav-icon"></i>
-                              <p>{itemsublv1.menu_name}</p>
-                            </Link>
-                          </li>
-                        </ul>
+                            <li className="nav-item">
+                              <Link className="nav-link" 
+                                    to={itemsublv1.link}
+                                    key={index}>
+                                <i className="far fa-circle nav-icon"></i>
+                                <p>{itemsublv1.menu_name}</p>
+                              </Link>
+                            </li>
+                          </ul>
+                          )
                         })}
                       
                       </li>
