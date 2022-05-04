@@ -24,7 +24,6 @@ const Manage_plant = (props) => {
 
   useEffect(() => {
     getEditDataDetail();
-    reset(editdatadetail);
   }, []);
 
   
