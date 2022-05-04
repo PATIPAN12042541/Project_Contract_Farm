@@ -51,6 +51,11 @@ const Manage_plant = (props) => {
         icon: "success",
         title: "Success",
         text: "Save OK !",
+        confirmButtonText: "OK",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          <Link to="/Edit_data" />;
+        }
       });
     } catch (error) {
       Swal.fire({
