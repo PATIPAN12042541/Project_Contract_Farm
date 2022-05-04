@@ -31,7 +31,7 @@ const Manage_plant = (props) => {
   };
 
   //console.log(editdatadetail);
-  console.log(fields);
+
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -47,11 +47,12 @@ const Manage_plant = (props) => {
       // ],
     },
   });
-
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
+  
+  console.log(fields);
 
   const onSubmit = async (data) => {
     Swal.fire({
