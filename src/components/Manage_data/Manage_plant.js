@@ -36,23 +36,12 @@ const Manage_plant = (props) => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
       detail: editdatadetail,
-      // detail: [
-      //   {
-      //     name_chemical: "",
-      //     quantity_chemical: "",
-      //     unit: "",
-      //     note: "",
-      //     path_image: "",
-      //   },
-      // ],
     },
   });
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
-
-  console.log(editdatadetail);
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -138,7 +127,7 @@ const Manage_plant = (props) => {
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
-                                    defaultValue={data.name_chemical}
+                                    defaultValue={`detail.${index}.name_chemical`}
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
