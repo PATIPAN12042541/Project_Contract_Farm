@@ -19,11 +19,6 @@ const Manage_plant = (props) => {
 
   const [editdatadetail, setEditDataDetail] = useState([]);
  
-
-  useEffect(() => {
-    getEditDataDetail();
-  }, []);
-
   const getEditDataDetail = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
@@ -31,16 +26,21 @@ const Manage_plant = (props) => {
     setEditDataDetail(response.data);
   };
 
+  useEffect(() => {
+    getEditDataDetail();
+  }, []);
+
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      detail: setEditDataDetail,
+      detail: editdatadetail,
     },
   });
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: "detail",
   });
-
+  console.log("detail", editdatadetail);
   console.log("fields", fields);
 
   const onSubmit = async (data) => {
