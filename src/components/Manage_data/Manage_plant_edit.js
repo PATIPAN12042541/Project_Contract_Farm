@@ -7,6 +7,7 @@ import axios from "axios";
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
 
+  
   const getManageDetail = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
@@ -14,6 +15,11 @@ const Manage_plant_edit = (props) => {
     setManageDetail(response.data);
   };
 
+  useEffect(() => {
+    getManageDetail();
+  }, []);
+
+  
   return (
     <div className="content-wrapper">
       <section className="content-header">
