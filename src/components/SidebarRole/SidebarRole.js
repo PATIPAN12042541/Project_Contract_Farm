@@ -18,7 +18,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-    }, [roleid]);
+    }, []);
 
 
     const refreshToken = async () => {
