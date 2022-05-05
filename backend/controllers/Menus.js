@@ -1,4 +1,5 @@
 import Menus from "../models/RoleMenu.js";
+
 export const getMenusRoleMain = async (req, res) => {
     try {
         const menus = await Menus.findAll({
@@ -25,8 +26,10 @@ export const getMenusRoleSubLV1 = async (req, res) => {
             where:{
                 role_id:req.params.role_id,
                 //parent_id:req.params.parent_id,
-                [menus.gt]: 0,
-                status:1,
+                parent_id : {
+                    [Op.gt]: 0
+                },
+                status:1
             },
             order: [
                 ['index_menu','asc'],
