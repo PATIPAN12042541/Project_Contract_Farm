@@ -132,7 +132,8 @@ const SidebarRole = () => {
             >
               <li className="nav-item">
                 <li className="nav-item">
-                  <a href={item.link} className="nav-link">
+                  <a href={item.link} 
+                     className="nav-link">
                     <p>
                       {item.menu_name}
                       <i className="fas fa-angle-left right"></i>
