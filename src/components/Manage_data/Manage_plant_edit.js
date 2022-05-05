@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
+import { BsCheckSquareFill } from "react-icons/bs";
+import FileUpload from "@hawk-ui/file-upload";
+import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
+import Zoom from "react-medium-image-zoom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
@@ -94,7 +99,62 @@ const Manage_plant_edit = (props) => {
                                       data-widget="expandable-table"
                                       aria-expanded="true"
                                     >
-                                      <td>ทดสอบระบบ</td>
+                                      <td>
+                                        <div className="row">
+                                          <div className="col-2">
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              disabled
+                                              placeholder="ชื่อสารเคมีที่ใช้"
+                                              defaultValue=""
+                                            />
+                                          </div>
+                                          <div className="col-1">
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              disabled
+                                              placeholder="ปริมาณสารเคมีที่ใช้"
+                                              defaultValue=""
+                                            />
+                                          </div>
+                                          <div className="col-1">
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              disabled
+                                              placeholder="หน่วย"
+                                              defaultValue=""
+                                            />
+                                          </div>
+                                          <div className="col-2">
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              disabled
+                                              placeholder="note"
+                                              defaultValue=""
+                                            />
+                                          </div>
+                                          <div className="col-2">
+                                            <FileUpload
+                                              btnIcon="fas fa-upload"
+                                              multiple
+                                              accept="image/*"
+                                            />
+                                          </div>
+                                          <div className="col-1">
+                                            <button
+                                              type="submit"
+                                              className="btn btn-success"
+                                            >
+                                              <BsCheckSquareFill />
+                                              ยืนยัน
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
