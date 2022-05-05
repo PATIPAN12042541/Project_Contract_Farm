@@ -37,7 +37,7 @@ const Manage_plant_edit = (props) => {
           await axios.delete(
             `${process.env.REACT_APP_API_URL}/getplant/DeleteManagePlant/${id}`
           );
-          getPlant();
+          getManageDetail();
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         } catch (error) {
           Swal.fire({
