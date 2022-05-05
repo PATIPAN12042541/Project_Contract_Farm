@@ -3,6 +3,7 @@ import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
 
+
 const Manage_plant_edit = () => {
   return (
     <div className="content-wrapper">
@@ -25,10 +26,8 @@ const Manage_plant_edit = () => {
                 </div>
                 <div className="card-body">
                   <div className="col-12">
-                    <table className="table table-bordered table-hover">
-                      <thead
-                        style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
-                      >
+                    <table className="table table-hover">
+                      <thead>
                         <th>#</th>
                         <th>ชื่อสารเคมีที่ใช้</th>
                         <th>ปริมาณสารเคมีที่ใช้</th>
@@ -36,7 +35,7 @@ const Manage_plant_edit = () => {
                         <th>Note.</th>
                         <th>upload</th>
                         <th>
-                          <center>ลบ/เเก้ไขข้อมูล </center>
+                          <center>ลบ/เเก้ไขข้อมูล</center>
                         </th>
                       </thead>
                       <tbody>
@@ -64,7 +63,7 @@ const Manage_plant_edit = () => {
                             <center>
                               <button
                                 type="submit"
-                                className="btn btn-danger"
+                                className="expandable-table-caret btn btn-danger"
                                 style={{ color: "#FFFFFF" }}
                               >
                                 <BsFillTrashFill />
@@ -72,8 +71,21 @@ const Manage_plant_edit = () => {
                             </center>
                           </td>
                         </tr>
-                        <tr className="expandable-body d-none">
-                          <td colSpan={8}>ทดสอบระบบ</td>
+                        <tr className="expandable-body">
+                          <td colSpan={8}>
+                            <div className="p-0">
+                              <table className="table table-hover">
+                                <tbody>
+                                  <tr
+                                    data-widget="expandable-table"
+                                    aria-expanded="true"
+                                  >
+                                    <td>ทดสอบระบบ</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
