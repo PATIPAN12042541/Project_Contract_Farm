@@ -158,7 +158,7 @@ const SidebarRole = () => {
                             <i className="fas fa-angle-left right"></i>
                           </p>
                         </a>
-                        {/* {submenurole.map((itemsublv1,index) => {
+                        {submenurole.map((itemsublv1,index) => {
                           return (
                             <ul className="nav nav-treeview" key={index}>
                               <li className="nav-item">
@@ -170,7 +170,7 @@ const SidebarRole = () => {
                               </li>
                             </ul>
                             )
-                        })} */}
+                        })}
                       
                       </li>
                     </li>
