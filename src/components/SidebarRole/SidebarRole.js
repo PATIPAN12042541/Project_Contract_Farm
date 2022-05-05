@@ -14,7 +14,7 @@ const SidebarRole = () => {
     const [users, setUsers] = useState([]);
     const [menurole,setMenuRole] = useState([]);
     const [submenurole,setSubMenusRole] = useState([]);
-    const history = useNavigate;
+    const history = useNavigate();
 
 
     useEffect(() => {
@@ -42,11 +42,7 @@ const SidebarRole = () => {
 
         subMenu1(decoded.role_id);
 
-        console.log("1");
-
       } catch (error) {
-        console.log("2");
-        console.log("error : "+error.response);
         if (error.response) {
           history("/");
         }
