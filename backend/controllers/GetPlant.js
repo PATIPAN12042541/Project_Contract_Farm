@@ -175,3 +175,19 @@ export const postManagePlant = async (req, res) => {
       res.json({ message: error.message });
     }
 };
+
+
+export const DeleteManagePlant = async (req, res) => {
+  try {
+    await PlantDataDetail.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Plant Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};

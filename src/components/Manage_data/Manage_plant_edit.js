@@ -22,6 +22,34 @@ const Manage_plant_edit = (props) => {
     getManageDetail();
   }, []);
 
+  const deleteManageDetail = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/getplant/DeleteManagePlant/${id}`
+          );
+          getPlant();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
+  };
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -83,6 +111,9 @@ const Manage_plant_edit = (props) => {
                                   type="submit"
                                   className="expandable-table-caret btn btn-danger"
                                   style={{ color: "#FFFFFF" }}
+                                  onClick={() => {
+                                    deleteManageDetail(data.id);
+                                  }}
                                 >
                                   <BsFillTrashFill />
                                 </button>
