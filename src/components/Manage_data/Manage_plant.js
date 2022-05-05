@@ -130,7 +130,7 @@ const Manage_plant = (props) => {
                                 <div className="form-group">
                                   <label>ชื่อสารเคมีที่ใช้</label>
                                   <select
-                                    className="select2"
+                                    className="select2 form-control"
                                     multiple="multiple"
                                     data-placeholder="Select a State"
                                   >
