@@ -121,7 +121,7 @@ const Manage_plant = (props) => {
                     </button>
                     <hr />
                     <ul>
-                      {this.fields.map((data, index) => (
+                      {fields.map((data, index) => (
                         <li key={data.id}>
                           {index + 1}
                           <div className="callout callout-info">
