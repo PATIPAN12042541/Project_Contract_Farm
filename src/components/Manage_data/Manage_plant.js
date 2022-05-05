@@ -133,13 +133,20 @@ const Manage_plant = (props) => {
                                     className="select2 form-control"
                                     data-placeholder="Select a State"
                                   >
-                                    <option>Alabama</option>
+                                    {this.getChemical.map((Chemical) => {
+                                      return (
+                                        <option key={Chemical.name_chemical}>
+                                          {Chemical.name_chemical}
+                                        </option>
+                                      );
+                                    })}
+                                    {/* <option>Alabama</option>
                                     <option>Alaska</option>
                                     <option>California</option>
                                     <option>Delaware</option>
                                     <option>Tennessee</option>
                                     <option>Texas</option>
-                                    <option>Washington</option>
+                                    <option>Washington</option> */}
                                   </select>
                                   {/* <select
                                     className="select2"
