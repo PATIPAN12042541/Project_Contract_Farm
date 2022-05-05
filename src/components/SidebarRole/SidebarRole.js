@@ -163,6 +163,7 @@ const SidebarRole = () => {
                           console.log("itemsublv1 parent : "+itemsublv1.parent_id)
 
                           if(item.id === itemsublv1.parent_id){
+                            return(
                             <ul className="nav nav-treeview">
                               <li className="nav-item">
                                 <Link className="nav-link" to={itemsublv1.link}>
@@ -171,7 +172,7 @@ const SidebarRole = () => {
                                 </Link>
                               </li>
                             </ul>
-                          }
+                            )}
 
                         })}
 
