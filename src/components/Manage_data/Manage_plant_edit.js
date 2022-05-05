@@ -60,8 +60,9 @@ const Manage_plant_edit = (props) => {
         .patch(
           `${process.env.REACT_APP_API_URL}/getplant/UpdateManagePlant/${id}`,
           {
-            namechemical: namechemical,
-            quantitychemical: quantitychemical,
+            id_plant: props.id,
+            name_chemical: namechemical,
+            quantity_chemical: quantitychemical,
             unit: unit,
             note: note,
           }
