@@ -181,13 +181,13 @@ const SidebarRole = () => {
                 </nav>
               ))}
             <nav className="mt-2">
-              {/* <ul
+              <ul
                 className="nav nav-pills nav-sidebar flex-column nav-child-indent"
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false"
               >
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <li className="nav-item">
                     <a href="/contract_farm" className="nav-link">
                       <p>
@@ -248,8 +248,8 @@ const SidebarRole = () => {
                       </li>
                     </ul>
                   </li>
-                </li>
-              </ul> */}
+                </li> */}
+              </ul>
             </nav>
           </div>
         </aside>
