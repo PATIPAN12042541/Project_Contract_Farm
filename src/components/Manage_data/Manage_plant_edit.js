@@ -1,5 +1,6 @@
 import React from "react";
 import Zoom from "react-medium-image-zoom";
+import { Link } from "react-router-dom";
 import { BsFillPencilFill } from "react-icons/bs";
 
 const Manage_plant_edit = () => {
