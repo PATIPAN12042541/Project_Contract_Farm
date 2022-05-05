@@ -6,6 +6,25 @@ const Manage_plant_edit = () => {
       <section className="content-header">
         <div className="container-fluid"></div>
       </section>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 ">
+              <div className="card card-primary">
+                <div
+                  className="card-header"
+                  style={{
+                    backgroundColor: "#8CC152",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  <h3 className="card-title">แก้ไขรายรายละเอียด</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
