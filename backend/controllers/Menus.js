@@ -20,10 +20,12 @@ export const getMenusRoleMain = async (req, res) => {
 
 export const getMenusRoleSubLV1 = async (req, res) => {
     try {
+        const { Op } = require("sequelize");
         const menus = await Menus.findAll({
             where:{
                 role_id:req.params.role_id,
-                parent_id:req.params.parent_id,
+                //parent_id:req.params.parent_id,
+                [menus.gt]: 0,
                 status:1,
             },
             order: [
