@@ -27,7 +27,7 @@ export const getMenusRoleSubLV1 = async (req, res) => {
                 role_id:req.params.role_id,
                 //parent_id:req.params.parent_id,
                 parent_id : {
-                    [Op.gt]: 0
+                    [menus.gt]: 0
                 },
                 status:1
             },
