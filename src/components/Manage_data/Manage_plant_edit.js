@@ -47,7 +47,10 @@ const Manage_plant_edit = () => {
                         </th>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr
+                          data-widget="expandable-table"
+                          aria-expanded="false"
+                        >
                           <td>1</td>
                           <td>พรีวาทอน</td>
                           <td>20</td>
@@ -70,8 +73,6 @@ const Manage_plant_edit = () => {
                             <center>
                               <button
                                 type="submit"
-                                data-widget="expandable-table"
-                                aria-expanded="false"
                                 className="expandable-table-caret btn btn-warning"
                                 style={{ color: "#FFFFFF" }}
                               >
@@ -90,7 +91,7 @@ const Manage_plant_edit = () => {
                                     data-widget="expandable-table"
                                     aria-expanded="false"
                                   >
-                                    <td colSpan={6}>ทดสอบระบบ</td>
+                                    <td colSpan={7}>ทดสอบระบบ</td>
                                   </tr>
                                 </tbody>
                               </table>
