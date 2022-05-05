@@ -137,7 +137,7 @@ const Manage_plant = (props) => {
                                       `detail.${index}.name_chemical`
                                     )}
                                   >
-                                    {this.getChemical.map((options) => {
+                                    {getChemical.map((options) => {
                                       return (
                                         <option key={options}>{options}</option>
                                       );
