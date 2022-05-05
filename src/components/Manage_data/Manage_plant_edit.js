@@ -20,6 +20,13 @@ const Manage_plant_edit = () => {
                 >
                   <h3 className="card-title">แก้ไขรายรายละเอียดข้อมูล</h3>
                 </div>
+                <div className="card-body">
+                  <div className="form-group">
+                    <div className="row">
+                        
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
