@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
+import axios from "axios";
 
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
