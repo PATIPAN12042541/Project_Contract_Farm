@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
 
+const Manage_plant_edit = (props) => {
+  const [managedetail, setManageDetail] = useState([]);
 
-const Manage_plant_edit = () => {
+  const getManageDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
+    );
+    setManageDetail(response.data);
+  };
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -38,56 +46,58 @@ const Manage_plant_edit = () => {
                           <center>ลบ/เเก้ไขข้อมูล</center>
                         </th>
                       </thead>
-                      <tbody>
-                        <tr
-                          data-widget="expandable-table"
-                          aria-expanded="false"
-                        >
-                          <td>1</td>
-                          <td>พรีวาทอน</td>
-                          <td>20</td>
-                          <td>ml.</td>
-                          <td>-</td>
-                          <td>
-                            <Zoom>
-                              <img
-                                src="../dist/img/insecticide/Pic_1.png"
-                                className="img-fluid mb-2"
-                                alt="white sample"
-                                width="50"
-                                height="50"
-                              ></img>
-                            </Zoom>
-                          </td>
-                          <td>
-                            <center>
-                              <button
-                                type="submit"
-                                className="expandable-table-caret btn btn-danger"
-                                style={{ color: "#FFFFFF" }}
-                              >
-                                <BsFillTrashFill />
-                              </button>
-                            </center>
-                          </td>
-                        </tr>
-                        <tr className="expandable-body d-none">
-                          <td colSpan={8}>
-                            <div className="p-0">
-                              <table className="table table-hover">
-                                <tbody>
-                                  <tr
-                                    data-widget="expandable-table"
-                                    aria-expanded="true"
-                                  >
-                                    <td>ทดสอบระบบ</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
+                      {managedetail.map((data, index) => (
+                        <tbody>
+                          <tr
+                            data-widget="expandable-table"
+                            aria-expanded="false"
+                          >
+                            <td>{index + 1}</td>
+                            <td>{data.name_chemical}</td>
+                            <td>{data.quantity_chemical}</td>
+                            <td>{data.unit}</td>
+                            <td>{data.note}</td>
+                            <td>
+                              <Zoom>
+                                <img
+                                  src={data.path_image}
+                                  className="img-fluid mb-2"
+                                  alt="white sample"
+                                  width="50"
+                                  height="50"
+                                ></img>
+                              </Zoom>
+                            </td>
+                            <td>
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="expandable-table-caret btn btn-danger"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                              </center>
+                            </td>
+                          </tr>
+                          <tr className="expandable-body d-none">
+                            <td colSpan={8}>
+                              <div className="p-0">
+                                <table className="table table-hover">
+                                  <tbody>
+                                    <tr
+                                      data-widget="expandable-table"
+                                      aria-expanded="true"
+                                    >
+                                      <td>ทดสอบระบบ</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
                     </table>
                   </div>
                 </div>
