@@ -7,9 +7,9 @@ function refreshPage() {
 }
 
 const First_Page = () => {
-  useEffect(() => {
-    refreshPage();
-  }, []);
+  // useEffect(() => {
+  //   refreshPage();
+  // }, []);
 
   return (
     <div className="content-wrapper">
