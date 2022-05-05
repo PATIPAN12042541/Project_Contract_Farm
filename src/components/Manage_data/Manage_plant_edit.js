@@ -67,7 +67,7 @@ const Manage_plant_edit = (props) => {
           }
         )
         .then(function (response) {
-          getPlant();
+          getManageDetail();
           Swal.fire({
             icon: "success",
             title: "Success",
@@ -81,8 +81,6 @@ const Manage_plant_edit = (props) => {
             text: "Save Error!",
           });
         });
-
-      uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
