@@ -131,7 +131,6 @@ const Manage_plant = (props) => {
                                   <label>ชื่อสารเคมีที่ใช้</label>
                                   <select
                                     className="select2 form-control"
-                                    multiple="multiple"
                                     data-placeholder="Select a State"
                                   >
                                     <option>Alabama</option>
