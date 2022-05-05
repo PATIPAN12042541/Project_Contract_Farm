@@ -104,7 +104,6 @@ const Manage_plant_edit = (props) => {
                                             <input
                                               type="text"
                                               className="form-control"
-                                              disabled
                                               placeholder="ชื่อสารเคมีที่ใช้"
                                               defaultValue=""
                                             />
@@ -113,7 +112,6 @@ const Manage_plant_edit = (props) => {
                                             <input
                                               type="text"
                                               className="form-control"
-                                              disabled
                                               placeholder="ปริมาณสารเคมีที่ใช้"
                                               defaultValue=""
                                             />
@@ -122,7 +120,6 @@ const Manage_plant_edit = (props) => {
                                             <input
                                               type="text"
                                               className="form-control"
-                                              disabled
                                               placeholder="หน่วย"
                                               defaultValue=""
                                             />
@@ -131,7 +128,6 @@ const Manage_plant_edit = (props) => {
                                             <input
                                               type="text"
                                               className="form-control"
-                                              disabled
                                               placeholder="note"
                                               defaultValue=""
                                             />
