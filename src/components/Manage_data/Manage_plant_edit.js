@@ -89,7 +89,7 @@ const Manage_plant_edit = () => {
                                 <tbody>
                                   <tr
                                     data-widget="expandable-table"
-                                    aria-expanded="false"
+                                    aria-expanded="true"
                                   >
                                     <td>ทดสอบระบบ</td>
                                   </tr>
