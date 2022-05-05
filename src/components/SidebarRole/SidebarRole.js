@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const SidebarRole = () => {
     const [name, setName] = useState('');
     const [last_name,setLastName] = useState('');
+    const [roleid,setRoleID] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [menurole,setMenuRole] = useState([]);
