@@ -46,17 +46,15 @@ const Manage_plant_edit = () => {
                           <td>ml.</td>
                           <td>-</td>
                           <td>
-                            <center>
-                              <Zoom>
-                                <img
-                                  src="../dist/img/insecticide/Pic_1.png"
-                                  className="img-fluid mb-2"
-                                  alt="white sample"
-                                  width="100"
-                                  height="100"
-                                ></img>
-                              </Zoom>
-                            </center>
+                            <Zoom>
+                              <img
+                                src="../dist/img/insecticide/Pic_1.png"
+                                className="img-fluid mb-2"
+                                alt="white sample"
+                                width="50"
+                                height="50"
+                              ></img>
+                            </Zoom>
                           </td>
                           <td>
                             <center>
