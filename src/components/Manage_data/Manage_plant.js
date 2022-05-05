@@ -131,7 +131,9 @@ const Manage_plant = (props) => {
                                   <label>ชื่อสารเคมีที่ใช้</label>
                                   <select
                                     className="select2 form-control"
-                                    data-placeholder="Select a State"
+                                    {...register(
+                                      `detail.${index}.name_chemical`
+                                    )}
                                   >
                                     {getChemical.map((Chemical, index) => {
                                       return (
@@ -141,20 +143,6 @@ const Manage_plant = (props) => {
                                       );
                                     })}
                                   </select>
-                                  {/* <select
-                                    className="select2"
-                                    multiple="multiple"
-                                    data-placeholder="Select a State"
-                                    {...register(
-                                      `detail.${index}.name_chemical`
-                                    )}
-                                  >
-                                    {getChemical.map((options) => {
-                                      return (
-                                        <option key={options}>{options}</option>
-                                      );
-                                    })}
-                                  </select> */}
                                   {/* <input
                                     type="text"
                                     className="form-control"
