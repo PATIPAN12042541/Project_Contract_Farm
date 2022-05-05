@@ -43,10 +43,9 @@ const SidebarRole = () => {
         subMenu1(decoded.role_id)
 
       } catch (error) {
-        /*if (error.response) {
+        if (error.response) {
           history("/");
-        }*/
-        history("/");
+        }
       }
     }
 
