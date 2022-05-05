@@ -83,7 +83,20 @@ const Manage_plant_edit = () => {
                           </td>
                         </tr>
                         <tr className="expandable-body">
-                          <td colSpan={6}>ทดสอบระบบ</td>
+                          <td>
+                            <div className="p-0" style="">
+                              <table class="table table-hover">
+                                <tbody>
+                                  <tr
+                                    data-widget="expandable-table"
+                                    aria-expanded="true"
+                                  >
+                                    <td colSpan={6}>ทดสอบระบบ</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
