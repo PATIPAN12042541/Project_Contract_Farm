@@ -90,7 +90,7 @@ const Manage_plant_edit = (props) => {
                             </td>
                           </tr>
                           <tr className="expandable-body d-none">
-                            <td colSpan={8}>
+                            <td colSpan={9}>
                               <div className="p-0">
                                 <table className="table table-hover">
                                   <tbody>
