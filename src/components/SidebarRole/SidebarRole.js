@@ -18,6 +18,7 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
+      window.location.reload();
     }, []);
 
 
