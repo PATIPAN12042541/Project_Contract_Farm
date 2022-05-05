@@ -38,7 +38,7 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
 
-      //subMenu1(decoded.role_id);
+      subMenu1(decoded.role_id);
     } catch (error) {
       if (error.response) {
         history("/");
@@ -133,10 +133,7 @@ const SidebarRole = () => {
               <li className="nav-item">
                 <li className="nav-item">
                   <a href={item.link} 
-                     className="nav-link"
-                     onClick={(e)=>{
-                      subMenu1(item.roleid);
-                     }}>
+                     className="nav-link">
                     <p>
                       {item.menu_name}
                       <i className="fas fa-angle-left right"></i>
