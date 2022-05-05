@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import SidebarDev from '../SidebarRole/SidebarDev';
-import SidebarAdmin from '../SidebarRole/SidebarAdmin.js';
 
 const SidebarRole = () => {
     const [name, setName] = useState('');
@@ -45,9 +43,10 @@ const SidebarRole = () => {
         subMenu1(decoded.role_id)
 
       } catch (error) {
-        if (error.response) {
+        /*if (error.response) {
           history("/");
-        }
+        }*/
+        history("/");
       }
     }
 
