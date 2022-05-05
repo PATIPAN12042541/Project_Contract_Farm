@@ -46,6 +46,7 @@ const SidebarRole = () => {
 
       } catch (error) {
         console.log("2");
+        console.log("error : "+error.response);
         if (error.response) {
           history("/");
         }
