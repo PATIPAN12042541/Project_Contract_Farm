@@ -147,15 +147,13 @@ const SidebarRole = () => {
                     role="menu"
                     data-accordion="false"
                   >
-                    {/* <li className="nav-item"> */}
+                    <li className="nav-item">
                       <li className="nav-item">
                         <a href={item.link} 
-                           className="nav-link" 
-                           onClick={(e) => {
-                            subMenu1(item.role_id, item.id);
-                          }} >
+                           className="nav-link" >
                           <p>
                             {item.menu_name}
+                            subMenu1({item.role_id},{item.id})
                             <i className="fas fa-angle-left right"></i>
                           </p>
                         </a>
@@ -174,7 +172,7 @@ const SidebarRole = () => {
                         })}
                       
                       </li>
-                    {/* </li> */}
+                    </li>
                   </ul>
                 </nav>
               ))}
