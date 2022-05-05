@@ -42,7 +42,7 @@ const SidebarRole = () => {
 
         roleMenu(decoded.role_id);
 
-        subMenu1(decoded.role_id,1)
+        subMenu1(decoded.role_id)
 
       } catch (error) {
         if (error.response) {
@@ -57,8 +57,8 @@ const SidebarRole = () => {
 
     }
 
-    const subMenu1 = async(role_id,menuid) => {
-      const sublv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}/${menuid}`);
+    const subMenu1 = async(role_id) => {
+      const sublv1 = await axios.get(`${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}`);
       setSubMenusRole(sublv1.data);
 
       console.log(sublv1.data);
