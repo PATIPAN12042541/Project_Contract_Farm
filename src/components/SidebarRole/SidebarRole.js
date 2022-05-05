@@ -8,10 +8,8 @@ import { useNavigate } from 'react-router-dom';
 const SidebarRole = () => {
     const [name, setName] = useState('');
     const [last_name,setLastName] = useState('');
-    const [roleid, setRoleID] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
-    const [users, setUsers] = useState([]);
     const [menurole,setMenuRole] = useState([]);
     const [submenurole,setSubMenusRole] = useState([]);
     const history = useNavigate();
@@ -19,7 +17,6 @@ const SidebarRole = () => {
 
     useEffect(() => {
       refreshToken();
-      getUsers();
     }, []);
 
 
@@ -86,23 +83,6 @@ const SidebarRole = () => {
         return Promise.reject(error);
       }
     );
-
-    const getUsers = async () => {
-      try{
-        const response = await axiosJWT.get(
-          `${process.env.REACT_APP_API_URL}/check_users`,
-          {
-            //const response = await axiosJWT.get('http://localhost:4000/check_users', {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setUsers(response.data);
-      }catch(err){
-        console.log(err);
-      }
-    };
 
     return (
         <aside className="main-sidebar sidebar-light-primary elevation-4">
