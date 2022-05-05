@@ -11,11 +11,25 @@ import axios from "axios";
 // }
 
 const Manage_plant = (props) => {
+
+  const [getChemical, setGetChemical] = useState([]);
+
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate("/Edit_data", { replace: true }),
     [navigate]
   );
+
+  const getChemicals = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical`
+    );
+    setGetChemical(response.data);
+  };
+
+  useEffect(() => {
+    getChemicals();
+  }, []);
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -107,7 +121,7 @@ const Manage_plant = (props) => {
                     </button>
                     <hr />
                     <ul>
-                      {fields.map((data, index) => (
+                      {this.fields.map((data, index) => (
                         <li key={data.id}>
                           {index + 1}
                           <div className="callout callout-info">
@@ -115,14 +129,28 @@ const Manage_plant = (props) => {
                               <div className="col-12 col-sm-8">
                                 <div className="form-group">
                                   <label>ชื่อสารเคมีที่ใช้</label>
-                                  <input
+                                  <select
+                                    className="select2"
+                                    multiple="multiple"
+                                    data-placeholder="Select a State"
+                                    {...register(
+                                      `detail.${index}.name_chemical`
+                                    )}
+                                  >
+                                    {this.getChemical.map((options) => {
+                                      return (
+                                        <option key={options}>{options}</option>
+                                      );
+                                    })}
+                                  </select>
+                                  {/* <input
                                     type="text"
                                     className="form-control"
                                     placeholder="ปริมาณสารเคมีที่ใช้"
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
-                                  />
+                                  /> */}
                                 </div>
                               </div>
                               <div className="col-12 col-sm-3">
