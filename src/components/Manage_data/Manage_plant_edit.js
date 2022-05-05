@@ -27,24 +27,12 @@ const Manage_plant_edit = () => {
                     <table className="table table-hover">
                       <thead>
                         <th>#</th>
-                        <th>
-                          <center>ชื่อสารเคมีที่ใช้</center>
-                        </th>
-                        <th>
-                          <center>ปริมาณสารเคมีที่ใช้</center>
-                        </th>
-                        <th>
-                          <center>หน่วย</center>
-                        </th>
-                        <th>
-                          <center>Note.</center>
-                        </th>
-                        <th>
-                          <center>upload</center>
-                        </th>
-                        <th>
-                          <center>ลบ/เเก้ไขข้อมูล</center>
-                        </th>
+                        <th>ชื่อสารเคมีที่ใช้</th>
+                        <th>ปริมาณสารเคมีที่ใช้</th>
+                        <th>หน่วย</th>
+                        <th>Note.</th>
+                        <th>upload</th>
+                        <th>ลบ/เเก้ไขข้อมูล</th>
                       </thead>
                       <tbody>
                         <tr
@@ -77,14 +65,13 @@ const Manage_plant_edit = () => {
                                 style={{ color: "#FFFFFF" }}
                               >
                                 <BsFillPencilFill />
-                                แก้ไข
                               </button>
                             </center>
                           </td>
                         </tr>
                         <tr className="expandable-body">
-                          <td colSpan={7}>
-                            <div className="p-0" c>
+                          <td colSpan={8}>
+                            <div className="p-0">
                               <table className="table table-hover">
                                 <tbody>
                                   <tr
@@ -101,6 +88,13 @@ const Manage_plant_edit = () => {
                       </tbody>
                     </table>
                   </div>
+                </div>
+                <div className="card-footer">
+                  <Link to="/Edit_data">
+                    <button type="button" className="btn btn-default">
+                      ย้อนกลับ
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
