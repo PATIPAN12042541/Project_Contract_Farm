@@ -5,7 +5,6 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
 import FileUpload from "@hawk-ui/file-upload";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
-import Zoom from "react-medium-image-zoom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
