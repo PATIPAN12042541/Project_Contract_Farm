@@ -133,6 +133,19 @@ const Manage_plant = (props) => {
                                     className="select2"
                                     multiple="multiple"
                                     data-placeholder="Select a State"
+                                  >
+                                    <option>Alabama</option>
+                                    <option>Alaska</option>
+                                    <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                  </select>
+                                  {/* <select
+                                    className="select2"
+                                    multiple="multiple"
+                                    data-placeholder="Select a State"
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
@@ -142,7 +155,7 @@ const Manage_plant = (props) => {
                                         <option key={options}>{options}</option>
                                       );
                                     })}
-                                  </select>
+                                  </select> */}
                                   {/* <input
                                     type="text"
                                     className="form-control"
