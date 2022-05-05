@@ -83,7 +83,7 @@ const Manage_plant_edit = () => {
                           </td>
                         </tr>
                         <tr className="expandable-body">
-                          <td>
+                          <td colSpan={7}>
                             <div className="p-0" c>
                               <table className="table table-hover">
                                 <tbody>
@@ -91,7 +91,7 @@ const Manage_plant_edit = () => {
                                     data-widget="expandable-table"
                                     aria-expanded="false"
                                   >
-                                    <td colSpan={7}>ทดสอบระบบ</td>
+                                    <td>ทดสอบระบบ</td>
                                   </tr>
                                 </tbody>
                               </table>
