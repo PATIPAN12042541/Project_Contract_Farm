@@ -71,7 +71,7 @@ const Manage_plant_edit = () => {
                             </center>
                           </td>
                         </tr>
-                        <tr className="expandable-body">
+                        <tr className="expandable-body d-none">
                           <td colSpan={8}>
                             <div className="p-0">
                               <table className="table table-hover">
