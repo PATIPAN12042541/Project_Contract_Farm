@@ -21,10 +21,22 @@ const Manage_plant_edit = () => {
                   <h3 className="card-title">แก้ไขรายรายละเอียดข้อมูล</h3>
                 </div>
                 <div className="card-body">
-                  <div className="form-group">
-                    <div className="row">
-                        
-                    </div>
+                  <div className="col-12">
+                    <table className="table table-bordered table-hover">
+                      <thead>
+                        <th>#</th>
+                        <th>ชื่อสารเคมีที่ใช้</th>
+                        <th>ปริมาณสารเคมีที่ใช้</th>
+                        <th>
+                          <center>หน่วย</center>
+                        </th>
+                        <th>Note</th>
+                        <th>Upload</th>
+                        <th>
+                          <center>ลบ/เเก้ไขข้อมูล</center>
+                        </th>
+                      </thead>
+                    </table>
                   </div>
                 </div>
               </div>
