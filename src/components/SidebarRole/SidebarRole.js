@@ -5,6 +5,7 @@ import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import sprout from "./logo/sprout.png";
+import user6 from "./logo/user6-128x128.jpg";
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -107,7 +108,7 @@ const SidebarRole = () => {
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
             <img
-              src="dist/img/user6-128x128.jpg"
+              src={user6}
               className="img-circle elevation-2"
               alt="User Image"
             />
