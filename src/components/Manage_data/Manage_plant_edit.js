@@ -10,6 +10,10 @@ import Swal from "sweetalert2";
 
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
+  const [namechemical, setNamechemical] = useState([]);
+  const [quantitychemical, setQuantitychemical] = useState([]);
+  const [unit, setUnit] = useState([]);
+  const [note, setNote] = useState([]);
 
   const getManageDetail = async () => {
     const response = await axios.get(
@@ -48,6 +52,44 @@ const Manage_plant_edit = (props) => {
         }
       }
     });
+  };
+
+  const postManageDetail = async (id) => {
+    try {
+      await axios
+        .patch(
+          `${process.env.REACT_APP_API_URL}/getplant/UpdateManagePlant/${id}`,
+          {
+            namechemical: namechemical,
+            quantitychemical: quantitychemical,
+            unit: unit,
+            note: note,
+          }
+        )
+        .then(function (response) {
+          getPlant();
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+
+      uploadImg();
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   return (
@@ -136,7 +178,10 @@ const Manage_plant_edit = (props) => {
                                               type="text"
                                               className="form-control"
                                               placeholder="ชื่อสารเคมีที่ใช้"
-                                              defaultValue=""
+                                              defaultValue={data.name_chemical}
+                                              onChange={(e) =>
+                                                setNamechemical(e.target.value)
+                                              }
                                             />
                                           </div>
                                           <div className="col-1">
@@ -144,7 +189,14 @@ const Manage_plant_edit = (props) => {
                                               type="text"
                                               className="form-control"
                                               placeholder="ปริมาณสารเคมีที่ใช้"
-                                              defaultValue=""
+                                              defaultValue={
+                                                data.quantity_chemical
+                                              }
+                                              onChange={(e) =>
+                                                setQuantitychemical(
+                                                  e.target.value
+                                                )
+                                              }
                                             />
                                           </div>
                                           <div className="col-1">
@@ -152,7 +204,10 @@ const Manage_plant_edit = (props) => {
                                               type="text"
                                               className="form-control"
                                               placeholder="หน่วย"
-                                              defaultValue=""
+                                              defaultValue={data.unit}
+                                              onChange={(e) =>
+                                                setUnit(e.target.value)
+                                              }
                                             />
                                           </div>
                                           <div className="col-2">
@@ -160,7 +215,10 @@ const Manage_plant_edit = (props) => {
                                               type="text"
                                               className="form-control"
                                               placeholder="note"
-                                              defaultValue=""
+                                              defaultValue={data.note}
+                                              onChange={(e) =>
+                                                setNote(e.target.value)
+                                              }
                                             />
                                           </div>
                                           <div className="col-2">
@@ -174,6 +232,9 @@ const Manage_plant_edit = (props) => {
                                             <button
                                               type="submit"
                                               className="btn btn-success"
+                                              onClick={() => {
+                                                postManageDetail(data.id);
+                                              }}
                                             >
                                               <BsCheckSquareFill />
                                               ยืนยัน

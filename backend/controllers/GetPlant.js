@@ -191,3 +191,19 @@ export const DeleteManagePlant = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const UpdateManagePlant = async (req, res) => {
+  try {
+    await PlantDataDetail.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    res.json({
+      message: "Plant Updated",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
