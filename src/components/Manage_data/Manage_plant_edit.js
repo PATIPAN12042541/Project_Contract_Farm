@@ -1,7 +1,7 @@
 import React from "react";
 import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
-import { BsFillPencilFill } from "react-icons/bs";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const Manage_plant_edit = () => {
   return (
@@ -60,29 +60,16 @@ const Manage_plant_edit = () => {
                             <center>
                               <button
                                 type="submit"
-                                className="expandable-table-caret btn btn-warning"
+                                className="btn btn-danger"
                                 style={{ color: "#FFFFFF" }}
                               >
-                                <BsFillPencilFill />
+                                <BsFillTrashFill />
                               </button>
                             </center>
                           </td>
                         </tr>
-                        <tr className="expandable-body">
-                          <td colSpan={8}>
-                            <div className="p-0">
-                              <table className="table table-hover">
-                                <tbody>
-                                  <tr
-                                    data-widget="expandable-table"
-                                    aria-expanded="true"
-                                  >
-                                    <td>ทดสอบระบบ</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </td>
+                        <tr className="expandable-body d-none">
+                          <td colSpan={8}>ทดสอบระบบ</td>
                         </tr>
                       </tbody>
                     </table>
