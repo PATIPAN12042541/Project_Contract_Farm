@@ -25,15 +25,19 @@ const Manage_plant_edit = () => {
                 </div>
                 <div className="card-body">
                   <div className="col-12">
-                    <table className="table table-hover">
-                      <thead>
+                    <table className="table table-bordered table-hover">
+                      <thead
+                        style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                      >
                         <th>#</th>
                         <th>ชื่อสารเคมีที่ใช้</th>
                         <th>ปริมาณสารเคมีที่ใช้</th>
                         <th>หน่วย</th>
                         <th>Note.</th>
                         <th>upload</th>
-                        <th>ลบ/เเก้ไขข้อมูล</th>
+                        <th>
+                          <center>ลบ/เเก้ไขข้อมูล </center>
+                        </th>
                       </thead>
                       <tbody>
                         <tr
