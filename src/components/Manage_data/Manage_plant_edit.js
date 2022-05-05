@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -7,7 +7,6 @@ import axios from "axios";
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
 
-  
   const getManageDetail = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
@@ -19,7 +18,6 @@ const Manage_plant_edit = (props) => {
     getManageDetail();
   }, []);
 
-  
   return (
     <div className="content-wrapper">
       <section className="content-header">
