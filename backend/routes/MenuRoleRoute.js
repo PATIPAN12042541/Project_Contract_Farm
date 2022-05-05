@@ -5,6 +5,6 @@ import {getMenusRoleMain,
 
 const router = express.Router();
 router.get('/main/:role_id', getMenusRoleMain);
-router.get('/sublv1/:role_id/:parent_id', getMenusRoleSubLV1);
+router.get('/sublv1/:role_id', getMenusRoleSubLV1);
 
 export default router;
