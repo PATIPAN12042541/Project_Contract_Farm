@@ -42,6 +42,8 @@ const SidebarRole = () => {
 
         roleMenu(decoded.role_id);
 
+        subMenu1(decoded.role_id,1)
+
       } catch (error) {
         if (error.response) {
           history("/");
