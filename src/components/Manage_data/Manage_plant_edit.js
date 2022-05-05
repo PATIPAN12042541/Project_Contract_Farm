@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
-import { BsFillPencilFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { BsFillTrashFill } from "react-icons/bs";
+import axios from "axios";
 
-const Manage_plant_edit = () => {
+const Manage_plant_edit = (props) => {
+  const [managedetail, setManageDetail] = useState([]);
+
+  const getManageDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/ManagePlantEdit/${props.id}`
+    );
+    setManageDetail(response.data);
+  };
+
+  useEffect(() => {
+    getManageDetail();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -27,80 +42,76 @@ const Manage_plant_edit = () => {
                     <table className="table table-hover">
                       <thead>
                         <th>#</th>
-                        <th>
-                          <center>ชื่อสารเคมีที่ใช้</center>
-                        </th>
-                        <th>
-                          <center>ปริมาณสารเคมีที่ใช้</center>
-                        </th>
-                        <th>
-                          <center>หน่วย</center>
-                        </th>
-                        <th>
-                          <center>Note.</center>
-                        </th>
-                        <th>
-                          <center>upload</center>
-                        </th>
+                        <th>ชื่อสารเคมีที่ใช้</th>
+                        <th>ปริมาณสารเคมีที่ใช้</th>
+                        <th>หน่วย</th>
+                        <th>Note.</th>
+                        <th>upload</th>
                         <th>
                           <center>ลบ/เเก้ไขข้อมูล</center>
                         </th>
                       </thead>
-                      <tbody>
-                        <tr
-                          data-widget="expandable-table"
-                          aria-expanded="false"
-                        >
-                          <td>1</td>
-                          <td>พรีวาทอน</td>
-                          <td>20</td>
-                          <td>ml.</td>
-                          <td>-</td>
-                          <td>
-                            <center>
+                      {managedetail.map((data, index) => (
+                        <tbody>
+                          <tr
+                            data-widget="expandable-table"
+                            aria-expanded="false"
+                          >
+                            <td>{index + 1}</td>
+                            <td>{data.name_chemical}</td>
+                            <td>{data.quantity_chemical}</td>
+                            <td>{data.unit}</td>
+                            <td>{data.note}</td>
+                            <td>
                               <Zoom>
                                 <img
-                                  src="../dist/img/insecticide/Pic_1.png"
+                                  src={data.path_image}
                                   className="img-fluid mb-2"
                                   alt="white sample"
-                                  width="100"
-                                  height="100"
+                                  width="50"
+                                  height="50"
                                 ></img>
                               </Zoom>
-                            </center>
-                          </td>
-                          <td>
-                            <center>
-                              <button
-                                type="submit"
-                                className="expandable-table-caret btn btn-warning"
-                                style={{ color: "#FFFFFF" }}
-                              >
-                                <BsFillPencilFill />
-                                แก้ไข
-                              </button>
-                            </center>
-                          </td>
-                        </tr>
-                        <tr className="expandable-body">
-                          <td>
-                            <div className="p-0" c>
-                              <table className="table table-hover">
-                                <tbody>
-                                  <tr
-                                    data-widget="expandable-table"
-                                    aria-expanded="false"
-                                  >
-                                    <td colSpan={7}>ทดสอบระบบ</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
+                            </td>
+                            <td>
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="expandable-table-caret btn btn-danger"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                              </center>
+                            </td>
+                          </tr>
+                          <tr className="expandable-body d-none">
+                            <td colSpan={8}>
+                              <div className="p-0">
+                                <table className="table table-hover">
+                                  <tbody>
+                                    <tr
+                                      data-widget="expandable-table"
+                                      aria-expanded="true"
+                                    >
+                                      <td>ทดสอบระบบ</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
                     </table>
                   </div>
+                </div>
+                <div className="card-footer">
+                  <Link to="/Edit_data">
+                    <button type="button" className="btn btn-default">
+                      ย้อนกลับ
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
