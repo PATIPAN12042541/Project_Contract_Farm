@@ -22,20 +22,28 @@ export const getMenusRoleMain = async (req, res) => {
 
 export const getMenusRoleSubLV1 = async (req, res) => {
     try {
-        const menus = await Menus.findAll({
-            where:{
-                role_id:req.params.role_id,
-                //parent_id:1,
-                parent_id :{
-                    [db.gt]: 0
-                },
-                status:1
-            },
-            order: [
-                ['index_menu','asc'],
-            ]
-        })
-        
+        // const menus = await Menus.findAll({
+        //     where:{
+        //         role_id:req.params.role_id,
+        //         //parent_id:1,
+        //         parent_id :{
+        //             [db.gt]: 0
+        //         },
+        //         status:1
+        //     },
+        //     order: [
+        //         ['index_menu','asc'],
+        //     ]
+        // })
+
+        const menus = await Menus.sequelize.query('select id,menu_name,index_menu,parent_id,link,status,role_id '+
+                                                  'from role_menu '+
+                                                  'where role_id = :role_id '+
+                                                  'and parent_id > 0',
+                                                  {
+                                                    replacements : {role_id : req.params.role_id},
+                                                    type: db.QueryTypes.SELECT
+                                                  })
         res.json(menus);
     } catch (error) {
         res.json({ message: error.message });
