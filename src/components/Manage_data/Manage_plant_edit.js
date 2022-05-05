@@ -18,7 +18,7 @@ const Manage_plant_edit = () => {
                     color: "#FFFFFF",
                   }}
                 >
-                  <h3 className="card-title">แก้ไขรายละเอียดข้อมูล</h3>
+                  <h3 className="card-title">แก้ไขรายรายละเอียด</h3>
                 </div>
               </div>
             </div>
