@@ -58,7 +58,6 @@ const Manage_plant_edit = () => {
                           <td>-</td>
                           <td>
                             <center>
-                              {" "}
                               <Zoom>
                                 <img
                                   src="../dist/img/insecticide/Pic_1.png"
