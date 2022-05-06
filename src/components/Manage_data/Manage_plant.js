@@ -42,8 +42,8 @@ const Manage_plant = (props) => {
 
   const handleFileChange = (e) => {
     const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
+      preview: URL.createObjectURL(e.target.files),
+      data: e.target.files,
     }
     setImage(img)
 
@@ -223,6 +223,7 @@ const Manage_plant = (props) => {
                                       <input
                                         type="file"
                                         accept="image/*"
+                                        multiple 
                                         className="custom-file-input"
                                         {...register(
                                           `detail.${index}.path_image`
