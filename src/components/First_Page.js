@@ -18,8 +18,12 @@ const First_Page = () => {
       <div className="content-header">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-12">
-              <img src="./First_page.png" />
+            <div
+              style={{
+                backgroundImage: `url("./First_page.png")`,
+              }}
+            >
+              Hello World
             </div>
           </div>
         </div>
