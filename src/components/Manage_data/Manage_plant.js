@@ -59,7 +59,7 @@ const Manage_plant = (props) => {
   // };
 
   const onSubmit = async (data) => {
-    console.log(data.detail.path_image);
+    console.log(data);
     // Swal.fire({
     //   icon: "success",
     //   title: "Are you sure Confirm?",
