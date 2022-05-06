@@ -230,7 +230,8 @@ const Manage_plant = (props) => {
                                       <label className="custom-file-label">
                                         Choose file
                                       </label>
-                                      <Zoom>
+                                    </div>
+                                    <Zoom>
                                         <img
                                           src={
                                             image.preview
@@ -242,7 +243,6 @@ const Manage_plant = (props) => {
                                           height="100"
                                         />
                                       </Zoom>
-                                    </div>
                                   </div>
                                 </div>
                               </div>
