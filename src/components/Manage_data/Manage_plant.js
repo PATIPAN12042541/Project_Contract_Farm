@@ -41,13 +41,27 @@ const Manage_plant = (props) => {
   };
 
   const handleFileChange = (e) => {
-    const img = {
+    /*const img = {
       preview: URL.createObjectURL(e.target.files[0]),
       data: e.target.files[0],
     }
     setImage(img)
 
-    uploadImg();
+    uploadImg();*/
+
+    // Convert the FileList into an array and iterate
+    Array.from(e.target.files).forEach(file => {
+            
+      // Define a new file reader
+      let reader = new FileReader();
+      
+      // Function to execute after loading the file
+      reader.onload = () => console.log(reader.result);
+      
+      // Read the file as a text
+      reader.readAsText(file);
+      
+  });
   }
 
 
