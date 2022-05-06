@@ -57,6 +57,12 @@ const Manage_plant = (props) => {
       console.log(file.type);
       console.log(file.lastModifiedDate);
 
+      const img = {
+        preview: URL.createObjectURL(file.target.files),
+        data: e.target.files,
+      }
+
+      setImage(img);
       
   });
   }
