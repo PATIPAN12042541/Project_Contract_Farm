@@ -51,6 +51,7 @@ const Manage_plant = (props) => {
   });
 
   const onSubmit = async (data) => {
+    console.log(data);
     Swal.fire({
       icon: "success",
       title: "Are you sure Confirm?",
@@ -197,6 +198,7 @@ const Manage_plant = (props) => {
                                     <div className="custom-file">
                                       <input
                                         type="file"
+                                        accept="image/*"
                                         className="custom-file-input"
                                         {...register(
                                           `detail.${index}.path_image`
