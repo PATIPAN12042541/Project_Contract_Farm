@@ -216,7 +216,6 @@ const Manage_plant = (props) => {
                                   accept="image/*"
                                   multiple
                                   {...register(`detail.${index}.path_image`)}
-                                  onUpload={handleSubmit(onLoadImage)}
                                 />
                               </div>
                               <div className="col-12 col-sm-1">
