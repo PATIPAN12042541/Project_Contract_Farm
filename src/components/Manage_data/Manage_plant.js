@@ -59,6 +59,7 @@ const Manage_plant = (props) => {
         let formData = new FormData();
         try {
           for (let i = 0; i < data.detail.length; i++) {
+            
             detail_array.push(
               await axios.post(
                 `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
@@ -70,16 +71,16 @@ const Manage_plant = (props) => {
                   note: data.detail[i].note,
                   path_image: data.detail[i].path_image[0].name,
                 }
-              )
-            );
-            formData.append("file", data.detail[i].path_image[0]),
+              ),
+              formData.append("file", data.detail[i].path_image[0]),
               await axios
                 .post(
                   `${process.env.REACT_APP_API_URL}/public/dist/img`,
                   formData
                 )
                 .then((res) => console.log(res.data))
-                .catch((err) => console.error(err));
+                .catch((err) => console.error(err))
+            );
           }
           Swal.fire("Success", "success");
           handleOnClick(); //callback page
