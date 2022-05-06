@@ -57,7 +57,7 @@ const Manage_plant = (props) => {
     console.log(data);
     for (let i = 0; i < data.detail.length; i++) {
       image_array.push(
-        comsole.log(data.detail[i].path_image[0])
+        console.log(data.detail[i].path_image[0])
         // setImage(
         //   URL.createObjectURL(data.detail[i].path_image[0]),
         //   data.detail[i].path_image[0]
