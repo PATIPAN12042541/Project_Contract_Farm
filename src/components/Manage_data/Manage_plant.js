@@ -198,7 +198,7 @@ const Manage_plant = (props) => {
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-4">
+                              <div className="col-12 col-sm-3">
                                 <div className="form-group">
                                   <label>File input</label>
                                   <div className="input-group">
