@@ -200,9 +200,10 @@ const Manage_plant = (props) => {
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-3">
+                              <div className="col-12 col-sm-1">
                                 <label>Upload</label>
                                 <FileUpload
+                                  btnIcon="fas fa-upload"
                                   type="file"
                                   accept="image/*"
                                   multiple
@@ -217,7 +218,7 @@ const Manage_plant = (props) => {
                                   }}
                                 />
                               </div>
-                              <div className="col-1">
+                              <div className="col-12 col-sm-1">
                                 <Zoom>
                                   <img
                                     src={
