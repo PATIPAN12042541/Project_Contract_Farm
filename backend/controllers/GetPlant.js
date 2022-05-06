@@ -2,6 +2,7 @@ import db from "../config/Database.js";
 import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
 import PlantDataDetail from "../models/PlantDataDetail_M.js";
+import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -50,9 +51,6 @@ export const getManagePlantEdit = async (req, res) => {
     res.json({ message: eror.message });
   }
 };
-
-
-
 
 export const postDetailPlant = async (req, res) => {
   const {
@@ -162,19 +160,39 @@ export const updatePlant = async (req, res) => {
 };
 
 export const postManagePlant = async (req, res) => {
-    const { name_chemical, quantity_chemical, unit, note } = req.body;
-    try {
-      await PlantDataDetail.create({
-        id_plant: req.params.id,
-        name_chemical: name_chemical,
-        quantity_chemical: quantity_chemical,
-        unit: unit,
-        note: note,
-      });
-      res.json({ msg: "Registration Successful" });
-    } catch (error) {
-      res.json({ message: error.message });
+  const { auto_id, name_chemical, quantity_chemical, unit, note, path_image } =
+    req.body;
+  try {
+    await PlantDataDetail.create({
+      id_plant: req.params.id,
+      name_chemical: name_chemical,
+      quantity_chemical: quantity_chemical,
+      unit: unit,
+      note: note,
+      auto_id: auto_id,
+    });
+    res.json({ msg: "Registration Successful" });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+
+  const auto = await db.query(
+    "select id from plant_data_detail where auto_id = :	auto_id ",
+    {
+      replacements: { auto_id: auto_id },
+      type: db.QueryTypes.SELECT,
     }
+  );
+
+  try {
+    await ImagePlantDetail.create({
+      id_plant: auto[0].id,
+      path_image: "../dist/img/insecticide/" + path_image,
+      last_update: Date().toLocaleString(),
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
 };
 
 

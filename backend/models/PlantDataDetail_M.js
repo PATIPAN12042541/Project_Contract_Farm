@@ -20,6 +20,9 @@ const PlantDataDetail = db.define(
     note: {
       type: DataTypes.STRING,
     },
+    auto_id: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,
