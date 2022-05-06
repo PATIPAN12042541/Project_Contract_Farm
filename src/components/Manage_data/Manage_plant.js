@@ -14,6 +14,7 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [image, setImage] = useState({ preview: "", data: "" });
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -209,6 +210,15 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
+                                        onUpload={(file) => {
+                                          const img = {
+                                            preview: URL.createObjectURL(
+                                              file[0]
+                                            ),
+                                            data: file[0],
+                                          };
+                                          setImage(img);
+                                        }}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
@@ -221,16 +231,8 @@ const Manage_plant = (props) => {
                                 <Zoom>
                                   <img
                                     src={
-                                      {
-                                        ...register(
-                                          `detail.${index}.path_image`
-                                        ).preview,
-                                      }
-                                        ? {
-                                            ...register(
-                                              `detail.${index}.path_image`
-                                            ).preview,
-                                          }
+                                      image.preview
+                                        ? image.preview
                                         : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                                     }
                                     className="img-fluid mb-2"
