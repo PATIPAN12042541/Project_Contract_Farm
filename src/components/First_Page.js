@@ -18,12 +18,8 @@ const First_Page = () => {
       className="content-wrapper"
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
       }}
-    >
-      <div>ยินดีต้องรับสู่ระบบ Contract Farming</div>
-    </div>
+    ></div>
   );
 };
 
