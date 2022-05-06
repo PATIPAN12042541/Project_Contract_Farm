@@ -4,8 +4,6 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import Zoom from "react-medium-image-zoom";
-
 // function refreshPage() {
 //   setTimeout(() => {
 //     window.location.reload(false);
@@ -14,7 +12,6 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [image, setImage] = useState({ preview: "", data: "" });
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -52,19 +49,14 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onLoadImage = async (data) => {
-    const image_array = [];
-    console.log(data);
-    // for (let i = 0; i < data.detail.length; i++) {
-    //   image_array.push(
-    //     console.log(data.detail[i].path_image[0])
-    //     // setImage(
-    //     //   URL.createObjectURL(data.detail[i].path_image[0]),
-    //     //   data.detail[i].path_image[0]
-    //     // )
-    //   );
-    // }
-  };
+  // const uploadimage = (e) => {
+  //   const file = e.target.files[0];
+  //   const storageRef = app.storage().ref();
+  //   const fileRef = storageRef.child(file.name);
+  //   fileRef.put(file).then(() => {
+  //     console.log("Uploaded a file");
+  //   });
+  // };
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -78,6 +70,7 @@ const Manage_plant = (props) => {
       if (result.isConfirmed) {
         const detail_array = [];
         let formData = new FormData();
+
         try {
           for (let i = 0; i < data.detail.length; i++) {
             const uuid = uuidv4();
@@ -210,7 +203,7 @@ const Manage_plant = (props) => {
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-3">
+                              <div className="col-12 col-sm-4">
                                 <div className="form-group">
                                   <label>File input</label>
                                   <div className="input-group">
@@ -222,27 +215,12 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onChange={handleSubmit(onLoadImage)}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
                                       </label>
                                     </div>
                                   </div>
-                                </div>
-                              </div>
-                              <div className="col-12 col-sm-1">
-                                <div className="form-group">
-                                  <Zoom>
-                                    <img
-                                      src={
-                                        "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                      }
-                                      className="img-fluid mb-2"
-                                      width="100"
-                                      height="100"
-                                    />
-                                  </Zoom>
                                 </div>
                               </div>
                             </div>
