@@ -203,8 +203,7 @@ const Manage_plant = (props) => {
                                   <label>File input</label>
                                   <div className="input-group">
                                     <div className="custom-file">
-                                      <input
-                                        className="custom-file-input"
+                                      <FileUpload
                                         type="file"
                                         accept="image/*"
                                         multiple
