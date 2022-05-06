@@ -4,6 +4,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import Zoom from "react-medium-image-zoom";
+
 // function refreshPage() {
 //   setTimeout(() => {
 //     window.location.reload(false);
