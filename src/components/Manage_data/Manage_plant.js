@@ -54,6 +54,14 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
+  const onLoadImage = async (data) => {
+    console.log(data);
+    const img_array = [];
+    for (let i = 0; i < data.detail.length; i++) {
+      img_array.push(setImage(data.detail[i].path_image));
+    }
+  };
+
   const onSubmit = async (data) => {
     console.log(data);
     // Swal.fire({
@@ -208,19 +216,7 @@ const Manage_plant = (props) => {
                                   accept="image/*"
                                   multiple
                                   {...register(`detail.${index}.path_image`)}
-
-                                  onUpload={(file) => {
-                                    console.log("query file", file);
-                                    console.log(
-                                      "data_img",
-                                      `detail.${index}.path_image`
-                                    );
-                                    const img = {
-                                      preview: URL.createObjectURL(file[0]),
-                                      data: file[0],
-                                    };
-                                    setImage(img);
-                                  }}
+                                  onUpload={handleSubmit(onLoadImage)}
                                 />
                               </div>
                               <div className="col-12 col-sm-1">
