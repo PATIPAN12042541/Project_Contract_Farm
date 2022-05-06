@@ -49,15 +49,6 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  // const uploadimage = (e) => {
-  //   const file = e.target.files[0];
-  //   const storageRef = app.storage().ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   fileRef.put(file).then(() => {
-  //     console.log("Uploaded a file");
-  //   });
-  // };
-
   const onSubmit = async (data) => {
     console.log(data);
     // Swal.fire({
@@ -87,7 +78,7 @@ const Manage_plant = (props) => {
     //               path_image: data.detail[i].path_image[0].name,
     //             }
     //           ),
-    //           formData.append("file", data.detail[i].path_image),
+    //           formData.append("file", data.detail[i].path_image[0]),
     //           await axios
     //             .post(
     //               `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
@@ -108,7 +99,7 @@ const Manage_plant = (props) => {
     //     }
     //   }
     // });
-  };;
+  };
 
   return (
     <div className="content-wrapper">
@@ -223,6 +214,28 @@ const Manage_plant = (props) => {
                                     </div>
                                   </div>
                                 </div>
+                              </div>
+                              <div className="col-1">
+                                <Zoom>
+                                  <img
+                                    src={
+                                      {
+                                        ...register(
+                                          `detail.${index}.path_image`
+                                        ).preview,
+                                      }
+                                        ? {
+                                            ...register(
+                                              `detail.${index}.path_image`
+                                            ).preview,
+                                          }
+                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                    }
+                                    className="img-fluid mb-2"
+                                    width="100"
+                                    height="100"
+                                  />
+                                </Zoom>
                               </div>
                             </div>
                             <button
