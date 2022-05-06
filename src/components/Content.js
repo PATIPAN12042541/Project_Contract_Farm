@@ -39,7 +39,7 @@ const Content = () => {
                   style={{ backgroundColor: "#8CC152" }}
                 >
                   <center>
-                    <h3 className="card-title">แปลงปลูกผัก</h3>
+                    <h3 className="card-title">แปลงเพาะปลูก</h3>
                   </center>
                 </div>
                 <div className="card-body">

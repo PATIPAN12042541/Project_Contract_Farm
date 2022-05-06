@@ -190,7 +190,7 @@ const Edit_data = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                 >
-                  <h3 className="card-title">รายละเอียดข้อมูล</h3>
+                  <h3 className="card-title">จัดการข้อมูลแปลงเพาะปลูก</h3>
                 </div>
                 <div className="card-body">
                   <div className="col-12">
@@ -199,7 +199,7 @@ const Edit_data = () => {
                         className="card-header"
                         style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                       >
-                        <h3 className="card-title">เพิ่มข้อมูล</h3>
+                        <h3 className="card-title">เพิ่มข้อมูลแปลกเพาะปลูก</h3>
                       </div>
                       <form onSubmit={postPlant}>
                         <div className="card-body">
@@ -319,7 +319,7 @@ const Edit_data = () => {
                       <tr>
                         <th>#</th>
                         <th>
-                          <center>ชื่อแปลงผัก</center>
+                          <center>ชื่อแปลงเพาะปลูก</center>
                         </th>
                         <th>
                           <center>วันที่เริ่มต้น</center>
