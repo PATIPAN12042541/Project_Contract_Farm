@@ -17,12 +17,12 @@ const First_Page = () => {
     <div className="content-wrapper">
       <div className="content-header">
         <div className="container-fluid">
-          <div className="row mb-2">
-            <div className="col-sm-6">
+          <div className="row">
+            <div className="col-sm-12">
               <form>
-                <h1 className="m-0">
+                {/* <h1 className="m-0">
                   ยินดีต้อนรับเข้าสู่ระบบ Contract Farming
-                </h1>
+                </h1> */}
                 <img src="./First_page.png"></img>
               </form>
             </div>
