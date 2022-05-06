@@ -4,11 +4,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-// function refreshPage() {
-//   setTimeout(() => {
-//     window.location.reload(false);
-//   }, 500);
-// }
+
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -48,15 +44,6 @@ const Manage_plant = (props) => {
     control,
     name: "detail",
   });
-
-  // const uploadimage = (e) => {
-  //   const file = e.target.files[0];
-  //   const storageRef = app.storage().ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   fileRef.put(file).then(() => {
-  //     console.log("Uploaded a file");
-  //   });
-  // };
 
   const onSubmit = async (data) => {
     Swal.fire({
