@@ -15,19 +15,13 @@ const First_Page = () => {
 
   return (
     <div className="content-wrapper">
-      <div className="content-header">
-        <div className="container-fluid">
-          <div className="row">
-            <div
-              style={{
-                backgroundImage: `url("./First_page.png")`,
-              }}
-            >
-              Hello World
-            </div>
-          </div>
-        </div>
-      </div>
+      <div
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+        }}
+      ></div>
     </div>
   );
 };
