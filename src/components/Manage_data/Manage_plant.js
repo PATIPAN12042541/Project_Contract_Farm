@@ -214,7 +214,7 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onUpload={handleSubmit(onLoadImage)}
+                                        onChange={handleSubmit(onLoadImage)}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
