@@ -211,6 +211,10 @@ const Manage_plant = (props) => {
 
                                   onUpload={(file) => {
                                     console.log("query file", file);
+                                    console.log(
+                                      "data_img",
+                                      `detail.${index}.path_image`
+                                    );
                                     const img = {
                                       preview: URL.createObjectURL(file[0]),
                                       data: file[0],
