@@ -217,7 +217,7 @@ const Manage_plant = (props) => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-3">
+                              <div className="col-12 col-sm-1">
                                 <div className="form-group">
                                   <Zoom>
                                     <img
