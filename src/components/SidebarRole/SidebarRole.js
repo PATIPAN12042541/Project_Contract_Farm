@@ -59,7 +59,7 @@ const SidebarRole = () => {
     );
     setSubMenusRole(sublv1.data);
 
-    console.log(sublv1.data);
+    //console.log(sublv1.data);
   };
 
   const axiosJWT = axios.create();
