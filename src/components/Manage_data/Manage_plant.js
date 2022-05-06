@@ -204,13 +204,15 @@ const Manage_plant = (props) => {
                                   <div className="input-group">
                                     <div className="custom-file">
                                       <input
+                                        className="custom-file-input"
                                         type="file"
                                         accept="image/*"
-                                        className="custom-file-input"
+                                        multiple
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
                                         onUpload={(file) => {
+                                          console.log("query file", file);
                                           const img = {
                                             preview: URL.createObjectURL(
                                               file[0]
