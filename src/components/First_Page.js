@@ -21,7 +21,9 @@ const First_Page = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
         }}
-      ></div>
+      >
+        ยินดีต้องรับสู่ระบบ Contract Farming
+      </div>
     </div>
   );
 };
