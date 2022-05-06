@@ -52,14 +52,11 @@ const Manage_plant = (props) => {
     // Convert the FileList into an array and iterate
     Array.from(e.target.files).forEach(file => {
             
-      // Define a new file reader
-      let reader = new FileReader();
-      
-      // Function to execute after loading the file
-      reader.onload = () => console.log(reader.result);
-      
-      // Read the file as a text
-      reader.readAsText(file);
+      console.log(file.name);
+      console.log(file.size);
+      console.log(file.type);
+      console.log(file.lastModifiedDate);
+
       
   });
   }
