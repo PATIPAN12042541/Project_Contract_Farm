@@ -217,17 +217,19 @@ const Manage_plant = (props) => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="col-1">
-                                <Zoom>
-                                  <img
-                                    src={
-                                      "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                    }
-                                    className="img-fluid mb-2"
-                                    width="100"
-                                    height="100"
-                                  />
-                                </Zoom>
+                              <div className="col-12 col-sm-3">
+                                <div className="form-group">
+                                  <Zoom>
+                                    <img
+                                      src={
+                                        "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                      }
+                                      className="img-fluid mb-2"
+                                      width="100"
+                                      height="100"
+                                    />
+                                  </Zoom>
+                                </div>
                               </div>
                             </div>
                             <button
