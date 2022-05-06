@@ -57,15 +57,14 @@ const Manage_plant = (props) => {
       if (result.isConfirmed) {
         const detail_array = [];
         let formData = new FormData();
-
         try {
           for (let i = 0; i < data.detail.length; i++) {
-            const uuid = uuidv4();
+            
             detail_array.push(
               await axios.post(
                 `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
                 {
-                  auto_id: uuid,
+                  auto_id: uuidv4(),
                   name_chemical: data.detail[i].name_chemical,
                   quantity_chemical: data.detail[i].quantity_chemical,
                   unit: data.detail[i].unit,
