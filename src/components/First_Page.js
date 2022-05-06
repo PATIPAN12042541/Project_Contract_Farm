@@ -14,16 +14,15 @@ const First_Page = () => {
   // }, []);
 
   return (
-    <div className="content-wrapper">
-      <div
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-        }}
-      >
-        ยินดีต้องรับสู่ระบบ Contract Farming
-      </div>
+    <div
+      className="content-wrapper"
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+      }}
+    >
+      <div>ยินดีต้องรับสู่ระบบ Contract Farming</div>
     </div>
   );
 };
