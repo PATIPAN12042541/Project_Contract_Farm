@@ -14,6 +14,7 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [image, setImage] = useState({ preview: "", data: "" });
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -51,10 +52,20 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-
   const onLoadImage = async (data) => {
+    const image_array = [];
     console.log(data);
+    for (let i = 0; i < data.detail.length; i++) {
+      image_array.push(
+        setImage(
+          URL.createObjectURL(data.detail[i].path_image[0]),
+          data.detail[i].path_image[0]
+        )
+      );
+    }
   };
+
+  console.log(image);
 
   const onSubmit = async (data) => {
     console.log(data);
