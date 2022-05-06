@@ -57,6 +57,7 @@ export const getManagePlantEdit = async (req, res) => {
 export const postDetailPlant = async (req, res) => {
   const {
     id_name_plant,
+    autoid_check,
     name_plant,
     start_date_plant,
     end_date_plant,
@@ -66,16 +67,16 @@ export const postDetailPlant = async (req, res) => {
   try {
     await PlantDetail.create({
       id_name_plant: id_name_plant,
-      quantity_chemical: 0,
+      autoid_check: autoid_check,
       unit: "",
       note: "",
       last_update: Date().toLocaleString(),
     });
 
     const IdPlant = await db.query(
-      "select id,id_name_plant from plant_detail where id_name_plant = :id_name_plant ",
+      "select id,id_name_plant from plant_detail where autoid_check = :autoid_check ",
       {
-        replacements: { id_name_plant: id_name_plant },
+        replacements: { autoid_check: autoid_check },
         type: db.QueryTypes.SELECT,
       }
     );

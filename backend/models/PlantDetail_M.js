@@ -8,8 +8,8 @@ const PlantDetail = db.define(
     id_name_plant: {
       type: DataTypes.STRING,
     },
-    quantity_chemical: {
-      type: DataTypes.INTEGER,
+    autoid_check: {
+      type: DataTypes.STRING,
     },
     unit: {
       type: DataTypes.STRING,

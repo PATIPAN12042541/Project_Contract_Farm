@@ -11,6 +11,7 @@ import FileUpload from "@hawk-ui/file-upload";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { v4 as uuidv4 } from "uuid";
 
 const Edit_data = () => {
   const [plantdata, setPlantData] = useState([]);
@@ -99,10 +100,12 @@ const Edit_data = () => {
 
   const postPlant = async (e) => {
     e.preventDefault();
+    const autoid = uuidv4();
     try {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
           id_name_plant: idplant,
+          autoid_check: autoid,
           name_plant: nameplant,
           start_date_plant: startdate,
           end_date_plant: enddate,
