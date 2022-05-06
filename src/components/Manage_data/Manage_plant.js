@@ -51,6 +51,11 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
+
+  const onLoadImage = async (data) => {
+    console.log(data);
+  };
+
   const onSubmit = async (data) => {
     console.log(data);
     // Swal.fire({
@@ -209,6 +214,7 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
+                                        onUpload={handleSubmit(onLoadImage)}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
