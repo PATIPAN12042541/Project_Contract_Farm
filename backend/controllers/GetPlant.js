@@ -177,7 +177,7 @@ export const postManagePlant = async (req, res) => {
   }
 
   const auto = await db.query(
-    "select id from plant_data_detail where auto_id = :	auto_id ",
+    "select id from plant_data_detail where auto_id = :auto_id ",
     {
       replacements: { auto_id: auto_id },
       type: db.QueryTypes.SELECT,
