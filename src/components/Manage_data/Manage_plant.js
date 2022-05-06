@@ -86,7 +86,7 @@ const Manage_plant = (props) => {
                   path_image: data.detail[i].path_image[0].name,
                 }
               ),
-              formData.append("file", detail[i].path_image),
+              formData.append("file", data.detail[i].path_image),
               await axios
                 .post(
                   `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
