@@ -56,11 +56,10 @@ const Manage_plant = (props) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const detail_array = [];
-        let formData = new FormData();
+        
         try {
           for (let i = 0; i < data.detail.length; i++) {
             console.log(data.detail[i].path_image[0]);
-            
             detail_array.push(
               await axios.post(
                 `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
@@ -74,7 +73,7 @@ const Manage_plant = (props) => {
                 }
               )
             );
-
+            let formData = new FormData();
             formData.append("file", data.detail[i].path_image[0]),
               await axios
                 .post(
