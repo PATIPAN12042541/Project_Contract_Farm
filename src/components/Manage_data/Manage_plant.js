@@ -59,55 +59,56 @@ const Manage_plant = (props) => {
   // };
 
   const onSubmit = async (data) => {
-    Swal.fire({
-      icon: "success",
-      title: "Are you sure Confirm?",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "OK",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        const detail_array = [];
-        let formData = new FormData();
+    console.log(data.detail.path_image);
+    // Swal.fire({
+    //   icon: "success",
+    //   title: "Are you sure Confirm?",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#3085d6",
+    //   cancelButtonColor: "#d33",
+    //   confirmButtonText: "OK",
+    // }).then(async (result) => {
+    //   if (result.isConfirmed) {
+    //     const detail_array = [];
+    //     let formData = new FormData();
 
-        try {
-          for (let i = 0; i < data.detail.length; i++) {
-            const uuid = uuidv4();
-            detail_array.push(
-              await axios.post(
-                `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
-                {
-                  auto_id: uuid,
-                  name_chemical: data.detail[i].name_chemical,
-                  quantity_chemical: data.detail[i].quantity_chemical,
-                  unit: data.detail[i].unit,
-                  note: data.detail[i].note,
-                  path_image: data.detail[i].path_image[0].name,
-                }
-              ),
-              formData.append("file", data.detail[i].path_image),
-              await axios
-                .post(
-                  `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
-                  formData
-                )
-                .then((res) => console.log(res.data))
-                .catch((err) => console.error(err))
-            );
-          }
-          Swal.fire("Success", "success");
-          handleOnClick(); //callback page
-        } catch (error) {
-          Swal.fire({
-            icon: "error",
-            title: "error",
-            text: "Save Error!",
-          });
-        }
-      }
-    });
-  };
+    //     try {
+    //       for (let i = 0; i < data.detail.length; i++) {
+    //         const uuid = uuidv4();
+    //         detail_array.push(
+    //           await axios.post(
+    //             `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
+    //             {
+    //               auto_id: uuid,
+    //               name_chemical: data.detail[i].name_chemical,
+    //               quantity_chemical: data.detail[i].quantity_chemical,
+    //               unit: data.detail[i].unit,
+    //               note: data.detail[i].note,
+    //               path_image: data.detail[i].path_image[0].name,
+    //             }
+    //           ),
+    //           formData.append("file", data.detail[i].path_image),
+    //           await axios
+    //             .post(
+    //               `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
+    //               formData
+    //             )
+    //             .then((res) => console.log(res.data))
+    //             .catch((err) => console.error(err))
+    //         );
+    //       }
+    //       Swal.fire("Success", "success");
+    //       handleOnClick(); //callback page
+    //     } catch (error) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: "error",
+    //         text: "Save Error!",
+    //       });
+    //     }
+    //   }
+    // });
+  };;
 
   return (
     <div className="content-wrapper">
