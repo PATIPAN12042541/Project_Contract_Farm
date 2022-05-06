@@ -210,14 +210,12 @@ const Manage_plant = (props) => {
                                   {...register(`detail.${index}.path_image`)}
 
                                   onUpload={(file) => {
-                                    console.log("query file", file);
-                                    console.log("array", {
-                                      ...register(`detail.${index}.path_image`),
-                                    });
-                                    
+                                    console.log("query file", file.index);
                                     const img = {
-                                      preview: URL.createObjectURL(file[0]),
-                                      data: file[0],
+                                      preview: URL.createObjectURL(
+                                        file[0].index
+                                      ),
+                                      data: file[0].index,
                                     };
                                     setImage(img);
                                   }}
