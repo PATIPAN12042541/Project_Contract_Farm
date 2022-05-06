@@ -19,9 +19,7 @@ const First_Page = () => {
         style={{
           backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
         }}
-      >
-        Hello World
-      </div>
+      ></div>
     </div>
   );
 };
