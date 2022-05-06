@@ -57,7 +57,6 @@ const Manage_plant = (props) => {
       if (result.isConfirmed) {
         const detail_array = [];
         let formData = new FormData();
-
         try {
           for (let i = 0; i < data.detail.length; i++) {
             detail_array.push(
@@ -73,7 +72,6 @@ const Manage_plant = (props) => {
                 }
               )
             );
-
             formData.append("file", data.detail[i].path_image[0]),
               await axios
                 .post(
