@@ -46,6 +46,8 @@ const Manage_plant = (props) => {
       data: e.target.files[0],
     }
     setImage(img)
+
+    uploadImg();
   }
 
 
