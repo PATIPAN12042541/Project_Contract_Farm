@@ -57,10 +57,11 @@ const Manage_plant = (props) => {
     console.log(data);
     for (let i = 0; i < data.detail.length; i++) {
       image_array.push(
-        setImage(
-          URL.createObjectURL(data.detail[i].path_image[0]),
-          data.detail[i].path_image[0]
-        )
+        comsole.log(data.detail[i].path_image[0])
+        // setImage(
+        //   URL.createObjectURL(data.detail[i].path_image[0]),
+        //   data.detail[i].path_image[0]
+        // )
       );
     }
   };
@@ -68,7 +69,6 @@ const Manage_plant = (props) => {
   console.log(image);
 
   const onSubmit = async (data) => {
-    console.log(data);
     // Swal.fire({
     //   icon: "success",
     //   title: "Are you sure Confirm?",
@@ -80,7 +80,6 @@ const Manage_plant = (props) => {
     //   if (result.isConfirmed) {
     //     const detail_array = [];
     //     let formData = new FormData();
-
     //     try {
     //       for (let i = 0; i < data.detail.length; i++) {
     //         const uuid = uuidv4();
