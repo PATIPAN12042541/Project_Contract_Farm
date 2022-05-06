@@ -192,6 +192,9 @@ export const DeleteManagePlant = async (req, res) => {
   }
 };
 
+
+
+
 export const UpdateManagePlant = async (req, res) => {
   try {
     await PlantDataDetail.update(req.body, {

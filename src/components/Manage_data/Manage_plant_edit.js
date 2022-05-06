@@ -55,6 +55,7 @@ const Manage_plant_edit = (props) => {
   };
 
   const postManageDetail = async (id) => {
+    console.log(id);
     try {
       await axios
         .patch(
