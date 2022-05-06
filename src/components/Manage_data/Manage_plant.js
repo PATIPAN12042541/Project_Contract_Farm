@@ -197,7 +197,7 @@ const Manage_plant = (props) => {
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-4">
+                              <div className="col-12 col-sm-3">
                                 <div className="form-group">
                                   <label>File input</label>
                                   <div className="input-group">
@@ -221,17 +221,7 @@ const Manage_plant = (props) => {
                                 <Zoom>
                                   <img
                                     src={
-                                      {
-                                        ...register(
-                                          `detail.${index}.path_image`
-                                        ).preview,
-                                      }
-                                        ? {
-                                            ...register(
-                                              `detail.${index}.path_image`
-                                            ).preview,
-                                          }
-                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                      "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                                     }
                                     className="img-fluid mb-2"
                                     width="100"
