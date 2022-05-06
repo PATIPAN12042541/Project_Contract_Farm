@@ -201,34 +201,21 @@ const Manage_plant = (props) => {
                                 </div>
                               </div>
                               <div className="col-12 col-sm-3">
-                                <div className="form-group">
-                                  <label>File input</label>
-                                  <div className="input-group">
-                                    <div className="custom-file">
-                                      <FileUpload
-                                        type="file"
-                                        accept="image/*"
-                                        multiple
-                                        {...register(
-                                          `detail.${index}.path_image`
-                                        )}
-                                        onUpload={(file) => {
-                                          console.log("query file", file);
-                                          const img = {
-                                            preview: URL.createObjectURL(
-                                              file[0]
-                                            ),
-                                            data: file[0],
-                                          };
-                                          setImage(img);
-                                        }}
-                                      />
-                                      <label className="custom-file-label">
-                                        Choose file
-                                      </label>
-                                    </div>
-                                  </div>
-                                </div>
+                                <label>Upload</label>
+                                <FileUpload
+                                  type="file"
+                                  accept="image/*"
+                                  multiple
+                                  {...register(`detail.${index}.path_image`)}
+                                  onUpload={(file) => {
+                                    console.log("query file", file);
+                                    const img = {
+                                      preview: URL.createObjectURL(file[0]),
+                                      data: file[0],
+                                    };
+                                    setImage(img);
+                                  }}
+                                />
                               </div>
                               <div className="col-1">
                                 <Zoom>
