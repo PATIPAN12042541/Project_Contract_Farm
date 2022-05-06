@@ -199,7 +199,7 @@ const Edit_data = () => {
                         className="card-header"
                         style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                       >
-                        <h3 className="card-title">เพิ่มข้อมูลแปลกเพาะปลูก</h3>
+                        <h3 className="card-title">เพิ่มข้อมูลแปลงเพาะปลูก</h3>
                       </div>
                       <form onSubmit={postPlant}>
                         <div className="card-body">
@@ -220,13 +220,13 @@ const Edit_data = () => {
                               </div>
                               <div className="col-5">
                                 <center>
-                                  <label>ชื่อแปลงผัก</label>
+                                  <label>ชื่อแปลงเพาะปลูก</label>
                                 </center>
                                 <input
                                   type="text"
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
-                                  placeholder="ชื่อแปลงผัก"
+                                  placeholder="ชื่อแปลงเพาะปลูก"
                                   defaultValue={nameplant}
                                   onChange={(e) => setNamePlant(e.target.value)}
                                 ></input>
