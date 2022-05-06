@@ -4,8 +4,6 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
-import FileUpload from "@hawk-ui/file-upload";
 import Zoom from "react-medium-image-zoom";
 
 // function refreshPage() {
@@ -16,7 +14,6 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [image, setImage] = useState({ preview: "", data: "" });
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -53,14 +50,6 @@ const Manage_plant = (props) => {
     control,
     name: "detail",
   });
-
-  const onLoadImage = async (data) => {
-    console.log(data);
-    const img_array = [];
-    for (let i = 0; i < data.detail.length; i++) {
-      img_array.push(setImage(data.detail[i].path_image));
-    }
-  };
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -208,24 +197,42 @@ const Manage_plant = (props) => {
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-1">
-                                <label>Upload</label>
-                                <FileUpload
-                                  btnIcon="fas fa-upload"
-                                  type="file"
-                                  accept="image/*"
-                                  multiple
-                                  {...register(`detail.${index}.path_image`)}
-                                />
+                              <div className="col-12 col-sm-4">
+                                <div className="form-group">
+                                  <label>File input</label>
+                                  <div className="input-group">
+                                    <div className="custom-file">
+                                      <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="custom-file-input"
+                                        {...register(
+                                          `detail.${index}.path_image`
+                                        )}
+                                      />
+                                      <label className="custom-file-label">
+                                        Choose file
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="col-12 col-sm-1">
+                              <div className="col-1">
                                 <Zoom>
                                   <img
-                                    // src={
-                                    //   image.preview
-                                    //     ? image.preview
-                                    //     : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                    // }
+                                    src={
+                                      {
+                                        ...register(
+                                          `detail.${index}.path_image`
+                                        ).preview,
+                                      }
+                                        ? {
+                                            ...register(
+                                              `detail.${index}.path_image`
+                                            ).preview,
+                                          }
+                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                    }
                                     className="img-fluid mb-2"
                                     width="100"
                                     height="100"
