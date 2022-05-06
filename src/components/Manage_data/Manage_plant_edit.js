@@ -10,10 +10,10 @@ import Swal from "sweetalert2";
 
 const Manage_plant_edit = (props) => {
   const [managedetail, setManageDetail] = useState([]);
-  const [namechemical, setNamechemical] = useState([]);
-  const [quantitychemical, setQuantitychemical] = useState([]);
-  const [unit, setUnit] = useState([]);
-  const [note, setNote] = useState([]);
+  const [namechemical, setNamechemical] = useState();
+  const [quantitychemical, setQuantitychemical] = useState();
+  const [unit, setUnit] = useState();
+  const [note, setNote] = useState();
 
   const getManageDetail = async () => {
     const response = await axios.get(

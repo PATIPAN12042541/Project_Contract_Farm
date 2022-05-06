@@ -193,7 +193,7 @@ export const DeleteManagePlant = async (req, res) => {
 };
 
 
-
+s
 
 export const UpdateManagePlant = async (req, res) => {
   try {
@@ -204,7 +204,7 @@ export const UpdateManagePlant = async (req, res) => {
     });
 
     res.json({
-      message: "Plant Updated",
+      message: "Detail Updated Saccess",
     });
   } catch (error) {
     res.json({ message: error.message });
