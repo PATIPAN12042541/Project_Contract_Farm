@@ -18,7 +18,13 @@ const First_Page = () => {
       <div className="content-header">
         <div className="container-fluid">
           <div className="row">
-            <div style={{ backgroundImage: "url(./First_page.png)" }}>
+            <div
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/First_page.png"
+                })`,
+              }}
+            >
               Hello World
             </div>
           </div>
