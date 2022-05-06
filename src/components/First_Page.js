@@ -18,6 +18,8 @@ const First_Page = () => {
       <div
         style={{
           backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
         }}
       ></div>
     </div>
