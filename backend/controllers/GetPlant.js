@@ -187,7 +187,7 @@ export const postManagePlant = async (req, res) => {
   try {
     await ImagePlantDetail.create({
       id_plant: auto[0].id,
-      path_image: "../dist/img/insecticide/" + path_image,
+      path_image: "../dist/img/" + path_image,
       last_update: Date().toLocaleString(),
     });
   } catch (error) {
