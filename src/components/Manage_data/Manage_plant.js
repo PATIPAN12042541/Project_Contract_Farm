@@ -50,205 +50,216 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    // Swal.fire({
-    //   icon: "success",
-    //   title: "Are you sure Confirm?",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "OK",
-    // }).then(async (result) => {
-    //   if (result.isConfirmed) {
-    //     const detail_array = [];
-    //     try {
-    //       for (let i = 0; i < data.detail.length; i++) {
-    //         detail_array.push(
-    //           await axios.post(
-    //             `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
-    //             {
-    //               name_chemical: data.detail[i].name_chemical,
-    //               quantity_chemical: data.detail[i].quantity_chemical,
-    //               unit: data.detail[i].unit,
-    //               note: data.detail[i].note,
-    //             }
-    //           )
-    //         );
-    //       }
-    //       Swal.fire("Success", "success");
-    //       handleOnClick(); //callback page
-    //     } catch (error) {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: "error",
-    //         text: "Save Error!",
-    //       });
-    //     }
-    //   }
-    // });
-  };
 
-  return (
-    <div className="content-wrapper">
-      <section className="content-header">
-        <div className="container-fluid"></div>
-      </section>
-      <section className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12 ">
-              <div className="card card-primary">
-                <div
-                  className="card-header"
-                  style={{
-                    backgroundColor: "#8CC152",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  <h3 className="card-title">จัดการรายละเอียดข้อมูล</h3>
-                </div>
+    // const uploadimage = (e) => {
+    //   const file = e.target.files[0];
+    //   const storageRef = app.storage().ref();
+    //   const fileRef = storageRef.child(file.name);
+    //   fileRef.put(file).then(() => {
+    //     console.log("Uploaded a file");
+    //   });
+    // };
 
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="card-body">
-                    <button
-                      type="button"
-                      className="btn  btn-outline-success"
-                      onClick={() => {
-                        append();
-                      }}
-                    >
-                      เพิ่มข้อมูล (+)
-                    </button>
-                    <hr />
-                    <ul>
-                      {fields.map((data, index) => (
-                        <li key={data.id}>
-                          {index + 1}
-                          <div className="callout callout-info">
-                            <div className="row">
-                              <div className="col-12 col-sm-8">
-                                <div className="form-group">
-                                  <label>ชื่อสารเคมีที่ใช้</label>
-                                  <select
-                                    className="select2 form-control"
-                                    {...register(
-                                      `detail.${index}.name_chemical`
-                                    )}
-                                  >
-                                    {getChemical.map((Chemical, index) => {
-                                      return (
-                                        <option key={index}>
-                                          {Chemical.name_chemical}
-                                        </option>
-                                      );
-                                    })}
-                                  </select>
-                                  {/* <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="ปริมาณสารเคมีที่ใช้"
-                                    {...register(
-                                      `detail.${index}.name_chemical`
-                                    )}
-                                  /> */}
+    const onSubmit = async (data) => {
+      console.log(data.detail[0].path_image[0]);
+      // Swal.fire({
+      //   icon: "success",
+      //   title: "Are you sure Confirm?",
+      //   showCancelButton: true,
+      //   confirmButtonColor: "#3085d6",
+      //   cancelButtonColor: "#d33",
+      //   confirmButtonText: "OK",
+      // }).then(async (result) => {
+      //   if (result.isConfirmed) {
+      //     const detail_array = [];
+      //     try {
+      //       for (let i = 0; i < data.detail.length; i++) {
+      //         detail_array.push(
+      //           await axios.post(
+      //             `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
+      //             {
+      //               name_chemical: data.detail[i].name_chemical,
+      //               quantity_chemical: data.detail[i].quantity_chemical,
+      //               unit: data.detail[i].unit,
+      //               note: data.detail[i].note,
+      //               path_image: data.detail[i].path_image[0],
+      //             }
+      //           ),
+      //           await axios
+      //             .post(
+      //               `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
+      //               data.detail[i].path_image
+      //             )
+      //             .then((res) => console.log(res.data))
+      //             .catch((err) => console.error(err))
+      //         );
+      //       }
+      //       Swal.fire("Success", "success");
+      //       handleOnClick(); //callback page
+      //     } catch (error) {
+      //       Swal.fire({
+      //         icon: "error",
+      //         title: "error",
+      //         text: "Save Error!",
+      //       });
+      //     }
+      //   }
+      // });
+    };
+
+    return (
+      <div className="content-wrapper">
+        <section className="content-header">
+          <div className="container-fluid"></div>
+        </section>
+        <section className="content">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-12 ">
+                <div className="card card-primary">
+                  <div
+                    className="card-header"
+                    style={{
+                      backgroundColor: "#8CC152",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    <h3 className="card-title">จัดการรายละเอียดข้อมูล</h3>
+                  </div>
+
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="card-body">
+                      <button
+                        type="button"
+                        className="btn  btn-outline-success"
+                        onClick={() => {
+                          append();
+                        }}
+                      >
+                        เพิ่มข้อมูล (+)
+                      </button>
+                      <hr />
+                      <ul>
+                        {fields.map((data, index) => (
+                          <li key={data.id}>
+                            {index + 1}
+                            <div className="callout callout-info">
+                              <div className="row">
+                                <div className="col-12 col-sm-8">
+                                  <div className="form-group">
+                                    <label>ชื่อสารเคมีที่ใช้</label>
+                                    <select
+                                      className="select2 form-control"
+                                      {...register(
+                                        `detail.${index}.name_chemical`
+                                      )}
+                                    >
+                                      {getChemical.map((Chemical, index) => {
+                                        return (
+                                          <option key={index}>
+                                            {Chemical.name_chemical}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
+                                  </div>
+                                </div>
+                                <div className="col-12 col-sm-3">
+                                  <div className="form-group">
+                                    <label>ปริมาณที่ใช้</label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      placeholder="ปริมาณที่ใช้"
+                                      {...register(
+                                        `detail.${index}.quantity_chemical`
+                                      )}
+                                    />
+                                  </div>
+                                </div>
+                                <div className="col-12 col-sm-1">
+                                  <div className="form-group">
+                                    <label>หน่วย</label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      placeholder="หน่วยนับ"
+                                      {...register(`detail.${index}.unit`)}
+                                    />
+                                  </div>
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-3">
-                                <div className="form-group">
-                                  <label>ปริมาณที่ใช้</label>
-                                  <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="ปริมาณที่ใช้"
-                                    {...register(
-                                      `detail.${index}.quantity_chemical`
-                                    )}
-                                  />
+                              <div className="row">
+                                <div className="col-12 col-sm-8">
+                                  <div className="form-group">
+                                    <label>Note.</label>
+                                    <textarea
+                                      rows="3"
+                                      className="form-control"
+                                      placeholder="Note"
+                                      {...register(`detail.${index}.note`)}
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="col-12 col-sm-1">
-                                <div className="form-group">
-                                  <label>หน่วย</label>
-                                  <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="หน่วยนับ"
-                                    {...register(`detail.${index}.unit`)}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="row">
-                              <div className="col-12 col-sm-8">
-                                <div className="form-group">
-                                  <label>Note.</label>
-                                  <textarea
-                                    rows="3"
-                                    className="form-control"
-                                    placeholder="Note"
-                                    {...register(`detail.${index}.note`)}
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-12 col-sm-4">
-                                <div className="form-group">
-                                  <label>File input</label>
-                                  <div className="input-group">
-                                    <div className="custom-file">
-                                      <input
-                                        type="file"
-                                        accept="image/*"
-                                        className="custom-file-input"
-                                        {...register(
-                                          `detail.${index}.path_image`
-                                        )}
-                                      />
-                                      <label className="custom-file-label">
-                                        Choose file
-                                      </label>
+                                <div className="col-12 col-sm-4">
+                                  <div className="form-group">
+                                    <label>File input</label>
+                                    <div className="input-group">
+                                      <div className="custom-file">
+                                        <input
+                                          type="file"
+                                          accept="image/*"
+                                          className="custom-file-input"
+                                          onChange={uploadimage}
+                                          {...register(
+                                            `detail.${index}.path_image`
+                                          )}
+                                        />
+                                        <label className="custom-file-label">
+                                          Choose file
+                                        </label>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                              <button
+                                onClick={() => remove(index)}
+                                className="btn btn-outline-danger"
+                                type="button"
+                              >
+                                Delete
+                              </button>
                             </div>
-                            <button
-                              onClick={() => remove(index)}
-                              className="btn btn-outline-danger"
-                              type="button"
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="card-footer">
-                    <Link to="/Edit_data">
-                      <button type="button" className="btn btn-default">
-                        ย้อนกลับ
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="card-footer">
+                      <Link to="/Edit_data">
+                        <button type="button" className="btn btn-default">
+                          ย้อนกลับ
+                        </button>
+                      </Link>
+                      <button
+                        type="submit"
+                        className="btn btn-default float-right"
+                        style={{
+                          backgroundColor: "#8CC152",
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        ยืนยัน
                       </button>
-                    </Link>
-                    <button
-                      type="submit"
-                      className="btn btn-default float-right"
-                      style={{
-                        backgroundColor: "#8CC152",
-                        color: "#FFFFFF",
-                      }}
-                    >
-                      ยืนยัน
-                    </button>
-                  </div>
-                </form>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+    );
 };
 
 export default Manage_plant;
