@@ -223,6 +223,7 @@ const Manage_plant = (props) => {
                                       <input
                                         type="file"
                                         accept="image/*"
+                                        multiple 
                                         className="custom-file-input"
                                         {...register(
                                           `detail.${index}.path_image`
