@@ -4,6 +4,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
+import FileUpload from "@hawk-ui/file-upload";
 import Zoom from "react-medium-image-zoom";
 
 // function refreshPage() {
