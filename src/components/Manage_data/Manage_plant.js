@@ -210,7 +210,6 @@ const Manage_plant = (props) => {
                                           type="file"
                                           accept="image/*"
                                           className="custom-file-input"
-                                          onChange={uploadimage}
                                           {...register(
                                             `detail.${index}.path_image`
                                           )}
