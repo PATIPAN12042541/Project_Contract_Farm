@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+
+
 function refreshPage() {
   setTimeout(() => {
     window.location.reload(false);
@@ -21,6 +23,7 @@ const First_Page = () => {
                 <h1 className="m-0">
                   ยินดีต้อนรับเข้าสู่ระบบ Contract Farming
                 </h1>
+                <img src="./First_page.png"></img>
               </form>
             </div>
           </div>
