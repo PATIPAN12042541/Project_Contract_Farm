@@ -46,6 +46,26 @@ try {
 }
 /****************************************************************************/
 
+/******** Upload File To Folder public/dist/img/ to frontend **************/
+const storage_2 = diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../public/dist/img/insecticide");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload_2 = multer({ storage: storage_2 });
+try {
+  app.post("/public/dist/img/insecticide", upload_2.single("file"), function (req, res) {
+    res.json({});
+  });
+} catch (error) {
+  res.json(console.log("Upload 2 Fail"));
+}
+/****************************************************************************/
+
 app.use(cookieParser());
 app.use(express.json());
 app.use("/role_group", RoleRoutes);
