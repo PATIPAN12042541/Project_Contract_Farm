@@ -59,7 +59,7 @@ const Manage_plant = (props) => {
         
         try {
           for (let i = 0; i < data.detail.length; i++) {
-            console.log(data.detail[i].path_image[0]);
+
             detail_array.push(
               await axios.post(
                 `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
