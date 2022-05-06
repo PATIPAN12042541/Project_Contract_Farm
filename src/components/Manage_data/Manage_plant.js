@@ -4,10 +4,12 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import Zoom from "react-medium-image-zoom";
 
 
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [image, setImage] = useState({ preview: "", data: "" });
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -25,6 +27,27 @@ const Manage_plant = (props) => {
   useEffect(() => {
     getChemicals();
   }, []);
+
+  const uploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", image.data);
+
+    console.log(formData);
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
+
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
+
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -202,10 +225,23 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
+                                        onChange={handleFileChange}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
                                       </label>
+                                      <Zoom>
+                                        <img
+                                          src={
+                                            image.preview
+                                              ? image.preview
+                                              : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                          }
+                                          className="img-fluid mb-2"
+                                          width="100"
+                                          height="100"
+                                        />
+                                      </Zoom>
                                     </div>
                                   </div>
                                 </div>
