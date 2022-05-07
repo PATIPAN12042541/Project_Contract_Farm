@@ -28,11 +28,12 @@ const Manage_plant = (props) => {
     getChemicals();
   }, []);
 
-  const uploadImg = async () => {
+  const uploadImg = async (image_object) => {
     let formData = new FormData();
-    formData.append("file", image.data);
+    formData.append("file", image_object);
 
     console.log(formData);
+    console.log("image.data : "+image_object);
 
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
@@ -219,6 +220,7 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
+
                                         onChange={async(e)=>{
 
                                          const img = {
@@ -229,6 +231,8 @@ const Manage_plant = (props) => {
                                          console.log("e.target.files : "+e.target.files);
                                          console.log("image preview : "+img.preview);
                                          console.log("image data : "+img.data);
+
+                                         uploadImg(img.data);
 
                                         }}
                                       />
