@@ -51,8 +51,6 @@ const Manage_plant = (props) => {
           unit: "",
           note: "",
           path_image: "",
-          image_preview:"",
-          image_data:"",
         },
       ],
     },
@@ -220,20 +218,16 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-
                                         onChange={async(e)=>{
 
                                          const img = {
                                           preview: URL.createObjectURL(e.target.files[0]),
                                           data: e.target.files[0],
                                         }
-                                         setImage(img);
+                                         //setImage(img);
                                          console.log("e.target.files : "+e.target.files);
                                          console.log("image preview : "+img.preview);
                                          console.log("image data : "+img.data);
-
-                                         uploadImg(img.data);
-
                                         }}
                                       />
                                       <label className="custom-file-label">
