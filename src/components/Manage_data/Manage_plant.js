@@ -225,13 +225,9 @@ const Manage_plant = (props) => {
                                          )
 
                                          const img = {
-                                          preview: URL.createObjectURL(register(
-                                            `detail.${index}.image_preview`
-                                           )),
-                                          data: e.target.files[0],
+                                          preview: URL.createObjectURL(e.target.files[data.id]),
+                                          data: e.target.files[data.id],
                                         }
-                                    
-
                                          setImage(img);
                                         }}
                                       />
