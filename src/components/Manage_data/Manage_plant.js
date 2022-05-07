@@ -239,13 +239,18 @@ const Manage_plant = (props) => {
                                     <div className="custom-file">
                                       <input
                                         type="file"
-                                        accept="image/*"
-                                        multiple 
+                                        accept="image/*" 
                                         className="custom-file-input"
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onChange={handleFileChange}
+                                        onChange={(e)=>{
+                                          const img = {
+                                            preview: URL.createObjectURL(e.target.files[index]),
+                                            data: e.target.files[index],
+                                          }
+                                          setImage(img)
+                                        }}
                                       />
                                       <label className="custom-file-label">
                                         Choose file
