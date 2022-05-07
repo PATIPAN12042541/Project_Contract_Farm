@@ -246,8 +246,7 @@ const Manage_plant = (props) => {
                                           className="img-fluid mb-2"
                                           width="100"
                                           height="100"
-                                          onLoad={console.log("onLoad image.preview : "+image.preview)}
-                                          onLoadStart={console.log("onLoadStart image.preview : "+image.preview)}
+                                          onLoad={setImage('')}
                                         />
                                       </Zoom>
                                   </div>
