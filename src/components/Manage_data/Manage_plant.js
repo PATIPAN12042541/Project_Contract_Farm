@@ -219,7 +219,7 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onClick={(e)=>{
+                                        onChange={(e)=>{
 
                                          const img = {
                                           preview: URL.createObjectURL(e.target.files[0]),
@@ -227,8 +227,8 @@ const Manage_plant = (props) => {
                                         }
                                          setImage(img);
                                          
-                                         console.log("image : "+image.preview);
-                                         console.log("image : "+image.data);
+                                         console.log("image preview : "+image.preview);
+                                         console.log("image data : "+image.data);
                                         }}
                                       />
                                       <label className="custom-file-label">
