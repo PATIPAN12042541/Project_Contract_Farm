@@ -219,7 +219,7 @@ const Manage_plant = (props) => {
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onChange={(e)=>{
+                                        onChange={async(e)=>{
 
                                          const img = {
                                           preview: URL.createObjectURL(e.target.files[0]),
@@ -235,7 +235,7 @@ const Manage_plant = (props) => {
 
                                           console.log(formData);
 
-                                           axios
+                                          await axios
                                             .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
                                             .then((res) => console.log(res.data))
                                             .catch((err) => console.error(err));
