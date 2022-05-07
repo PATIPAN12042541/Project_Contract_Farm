@@ -220,13 +220,17 @@ const Manage_plant = (props) => {
                                           `detail.${index}.path_image`
                                         )}
                                         onChange={(e)=>{
+                                         register(
+                                          `detail.${index}.image_preview`
+                                         )
+
                                          const img = {
-                                          preview: URL.createObjectURL(e.target.files[index]),
-                                          data: e.target.files[index],
-                                        }              
-                                        
-                                        console.log("preview : "+img.preview);
-                                        console.log("data : "+img.data);
+                                          preview: URL.createObjectURL(register(
+                                            `detail.${index}.image_preview`
+                                           )),
+                                          data: e.target.files[0],
+                                        }
+                                    
 
                                          setImage(img);
                                         }}
