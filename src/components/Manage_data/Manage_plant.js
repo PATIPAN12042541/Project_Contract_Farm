@@ -226,7 +226,9 @@ const Manage_plant = (props) => {
                                           data: e.target.files[0],
                                         }
                                          setImage(img);
-
+                                         control.log("resgister : "+register(
+                                          `detail.${index}.path_image`
+                                        ));
                                          console.log("image : "+image.preview);
                                          console.log("image : "+image.data);
                                         }}
