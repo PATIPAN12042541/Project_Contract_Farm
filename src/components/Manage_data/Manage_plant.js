@@ -227,8 +227,8 @@ const Manage_plant = (props) => {
                                         }
                                          setImage(img);
                                          console.log("e.target.files : "+e.target.files);
-                                         console.log("image preview : "+image.preview);
-                                         console.log("image data : "+image.data);
+                                         console.log("image preview : "+img.preview);
+                                         console.log("image data : "+img.data);
                                         }}
                                       />
                                       <label className="custom-file-label">
