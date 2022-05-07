@@ -247,6 +247,7 @@ const Manage_plant = (props) => {
                                           width="100"
                                           height="100"
                                           onLoad={console.log("image.preview : "+image.preview)}
+                                          onLoadStart={console.log("onLoadStart image.preview : "+image.preview)}
                                         />
                                       </Zoom>
                                   </div>
