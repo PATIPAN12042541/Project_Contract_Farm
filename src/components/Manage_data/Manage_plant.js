@@ -246,7 +246,6 @@ const Manage_plant = (props) => {
                                           className="img-fluid mb-2"
                                           width="100"
                                           height="100"
-                                          onLoad={setImage({ preview: "", data: "" })}
                                         />
                                       </Zoom>
                                   </div>
