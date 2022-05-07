@@ -40,33 +40,6 @@ const Manage_plant = (props) => {
       .catch((err) => console.error(err));
   };
 
-  const handleFileChange = (e) => {
-    /*const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    }
-    setImage(img)
-
-    uploadImg();*/
-
-    // Convert the FileList into an array and iterate
-    Array.from(e.target.files).forEach(file => {
-            
-      console.log(file.name);
-      console.log(file.size);
-      console.log(file.type);
-      console.log(file.lastModifiedDate);
-
-      const img = {
-        preview: URL.createObjectURL(file),
-        data: file,
-      }
-
-      setImage(img);
-      
-  });
-  }
-
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -77,6 +50,8 @@ const Manage_plant = (props) => {
           unit: "",
           note: "",
           path_image: "",
+          image_preview:"",
+          image_data:"",
         },
       ],
     },
@@ -245,11 +220,12 @@ const Manage_plant = (props) => {
                                           `detail.${index}.path_image`
                                         )}
                                         onChange={(e)=>{
-                                          const img = {
-                                            preview: URL.createObjectURL(e.target.files[index]),
-                                            data: e.target.files[index],
-                                          }
-                                          setImage(img)
+                                         register(
+                                          `detail.${index}.image_preview`
+                                         )
+                                         console.log(register(
+                                          `detail.${index}.image_preview`
+                                         ))
                                         }}
                                       />
                                       <label className="custom-file-label">
