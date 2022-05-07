@@ -220,17 +220,15 @@ const Manage_plant = (props) => {
                                           `detail.${index}.path_image`
                                         )}
                                         onChange={(e)=>{
-                                         register(
-                                          `detail.${index}.image_preview`
-                                         )
-
-                                         console.log("e.target.files : "+e.target.files[0]);
 
                                          const img = {
                                           preview: URL.createObjectURL(e.target.files[0]),
                                           data: e.target.files[0],
                                         }
                                          setImage(img);
+
+                                         console.log("image : "+image.preview);
+                                         console.log("image : "+image.data);
                                         }}
                                       />
                                       <label className="custom-file-label">
