@@ -88,14 +88,14 @@ const Manage_plant = (props) => {
                   path_image: data.detail[i].path_image[0].name,
                 }
               ),
-              formData.append("file", data.detail[i].path_image[0]),
+              /*formData.append("file", data.detail[i].path_image[0]),
               await axios
                 .post(
                   `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
                   formData
                 )
                 .then((res) => console.log(res.data))
-                .catch((err) => console.error(err))
+                .catch((err) => console.error(err))*/
             );
           }
           Swal.fire("Success", "success");
