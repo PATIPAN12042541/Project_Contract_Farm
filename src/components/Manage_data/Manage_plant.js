@@ -230,15 +230,6 @@ const Manage_plant = (props) => {
                                          console.log("image preview : "+img.preview);
                                          console.log("image data : "+img.data);
 
-                                          let formData = new FormData();
-                                          formData.append("file", img.data);
-
-                                          console.log(formData);
-
-                                          await axios
-                                            .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
-                                            .then((res) => console.log(res.data))
-                                            .catch((err) => console.error(err));
                                         }}
                                       />
                                       <label className="custom-file-label">
@@ -255,6 +246,7 @@ const Manage_plant = (props) => {
                                           className="img-fluid mb-2"
                                           width="100"
                                           height="100"
+                                          onLoad={console.log("image.preview : "+image.preview)}
                                         />
                                       </Zoom>
                                   </div>
