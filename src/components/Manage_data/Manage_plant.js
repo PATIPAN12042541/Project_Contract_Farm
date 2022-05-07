@@ -229,6 +229,16 @@ const Manage_plant = (props) => {
                                          console.log("e.target.files : "+e.target.files);
                                          console.log("image preview : "+img.preview);
                                          console.log("image data : "+img.data);
+
+                                          let formData = new FormData();
+                                          formData.append("file", img.data);
+
+                                          console.log(formData);
+
+                                           axios
+                                            .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
+                                            .then((res) => console.log(res.data))
+                                            .catch((err) => console.error(err));
                                         }}
                                       />
                                       <label className="custom-file-label">
