@@ -153,7 +153,7 @@ const Manage_plant = (props) => {
                                 <div className="form-group">
                                   <label>ชื่อสารเคมีที่ใช้</label>
                                   <select
-                                    className="select2 form-control"
+                                    className="form-control"
                                     placeholder=""
                                     {...register(
                                       `detail.${index}.name_chemical`
