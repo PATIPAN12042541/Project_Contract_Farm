@@ -124,13 +124,13 @@ const SidebarRole = () => {
         {/* <SidebarDev /> */}
         {/* <SidebarAdmin /> */}
         {menurole.map((item, index) => (
-          // <nav className="mt-2" key={index}>
-          //   <ul
-          //     className="nav nav-pills nav-sidebar flex-column nav-child-indent"
-          //     data-widget="treeview"
-          //     role="menu"
-          //     data-accordion="false"
-          //   >
+          <nav className="mt-2" key={index}>
+            <ul
+              className="nav nav-pills nav-sidebar flex-column nav-child-indent"
+              data-widget="treeview"
+              // role="menu"
+              data-accordion="false"
+            >
               <ListGroup className="nav-item">
                 <ListGroup className="nav-item">
                   <a href={item.link} 
@@ -159,8 +159,8 @@ const SidebarRole = () => {
                   })}
                 </ListGroup>
               </ListGroup>
-          //   </ul>
-          // </nav>
+            </ul>
+          </nav>
         ))}
         <nav className="mt-2">
           <ul
