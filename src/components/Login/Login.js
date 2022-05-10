@@ -46,11 +46,11 @@ const Login = () => {
                                      value={username} 
                                      onChange={(e)=>setUsername(e.target.value)}
                                      />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
+                              <Form.Group className="input-group-append">
+                                  <Form.Group className="input-group-text">
                                         <span className="fas fa-user" />
-                                  </div>
-                              </div>
+                                  </Form.Group>
+                              </Form.Group>
                           </Form.Group>
                           <Form.Group className="input-group mb-3">
                               <Form.Control type="password" 
@@ -58,11 +58,11 @@ const Login = () => {
                                      placeholder="Password" 
                                      value={password} 
                                      onChange={(e)=>setPassword(e.target.value)} />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
+                              <Form.Group className="input-group-append">
+                                  <Form.Group className="input-group-text">
                                       <span className="fas fa-lock" />
-                                  </div>
-                              </div>
+                                  </Form.Group>
+                              </Form.Group>
                           </Form.Group>
                           <div className="row">
                               <div className="col-4">
