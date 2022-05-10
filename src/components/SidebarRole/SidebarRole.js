@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
-import { ListItem } from '@mui/material';
+import { ListGroup } from 'react-bootstrap';
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -131,8 +131,8 @@ const SidebarRole = () => {
               role="menu"
               data-accordion="false"
             >
-              <ListItem className="nav-item">
-                <ListItem className="nav-item">
+              <ListGroup className="nav-item">
+                <ListGroup className="nav-item">
                   <a href={item.link} 
                      className="nav-link">
                     <p>
@@ -147,18 +147,18 @@ const SidebarRole = () => {
                     if (item.id === itemsublv1.parent_id) {
                       return (
                         <ul className="nav nav-treeview" key={index}>
-                          <ListItem className="nav-item">
+                          <ListGroup className="nav-item">
                             <Link className="nav-link" to={itemsublv1.link}>
                               <i className="far fa-circle nav-icon"></i>
                               <p>{itemsublv1.menu_name}</p>
                             </Link>
-                          </ListItem>
+                          </ListGroup>
                         </ul>
                       );
                     }
                   })}
-                </ListItem>
-              </ListItem>
+                </ListGroup>
+              </ListGroup>
             </ul>
           </nav>
         ))}
