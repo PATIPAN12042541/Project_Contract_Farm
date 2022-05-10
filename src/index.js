@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
+import Switch from './components/Switch';
 
 axios.defaults.withCredentials = true;
 
@@ -13,7 +14,7 @@ const root = ReactDOMClient.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Switch />
   </React.StrictMode>
 );
 
