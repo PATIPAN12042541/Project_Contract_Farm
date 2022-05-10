@@ -104,7 +104,7 @@ const Manage_plant = (props) => {
           Swal.fire({
             icon: "error",
             title: "error",
-            text: "Save Error!",
+            text: error,
           });
         }
       }
