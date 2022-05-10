@@ -37,9 +37,9 @@ const Login = () => {
               </div>
               <div className="card">
                   <div className="card-body login-card-body">
-                      <form onSubmit={Auth}>
+                      <Form onSubmit={Auth}>
                           <div className="input-group mb-3">
-                              <input type="text" 
+                              <Form.Control type="text" 
                                      className="form-control" 
                                      placeholder="Username"
                                      value={username} 
@@ -52,7 +52,7 @@ const Login = () => {
                               </div>
                           </div>
                           <div className="input-group mb-3">
-                              <input type="password" 
+                              <Form.Control type="password" 
                                      className="form-control" 
                                      placeholder="Password" 
                                      value={password} 
@@ -71,7 +71,7 @@ const Login = () => {
                                   <a href='/Register'><button type="button" className="btn btn-info btn-block">Register</button></a>
                               </div>
                           </div>
-                      </form>
+                      </Form>
                   </div>
               </div>
           </div>
