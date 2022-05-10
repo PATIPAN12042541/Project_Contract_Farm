@@ -20,7 +20,7 @@ const SidebarRole = () => {
 
   useLayoutEffect(()=>{
     refreshToken();
-  })
+  }, [])
   
   useEffect(() => {
     //refreshToken();
