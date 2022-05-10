@@ -36,9 +36,9 @@ const SidebarRole = () => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
-      roleMenu(decoded.role_id);
+      //roleMenu(decoded.role_id);
 
-      subMenu1(decoded.role_id);
+      //subMenu1(decoded.role_id);
     } catch (error) {
       if (error.response) {
         history("/");
@@ -119,6 +119,8 @@ const SidebarRole = () => {
             </a>
           </div>
         </div>
+        {roleMenu({roleid})};
+        {subMenu1({roleid})};
         {/* {rolemenu(roleid)} */}
         {/* <SidebarDev /> */}
         {/* <SidebarAdmin /> */}
