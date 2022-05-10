@@ -5,8 +5,8 @@ import Swal from 'sweetalert2'
 import { Form } from 'react-bootstrap';
 
 const Login = () => {
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const [msg, setMsg] = useState();
     const Nav = useNavigate();
 
@@ -44,7 +44,7 @@ const Login = () => {
                                      className="form-control" 
                                      placeholder="Username"
                                      value={username} 
-                                     onChange={(e)=>this.setUsername(e.target.value)}
+                                     onChange={(e)=>setUsername(e.target.value)}
                                      />
                               <Form.Group className="input-group-append">
                                   <Form.Group className="input-group-text">
@@ -57,7 +57,7 @@ const Login = () => {
                                      className="form-control" 
                                      placeholder="Password" 
                                      value={password} 
-                                     onChange={(e)=>this.setPassword(e.target.value)} />
+                                     onChange={(e)=>setPassword(e.target.value)} />
                               <Form.Group className="input-group-append">
                                   <Form.Group className="input-group-text">
                                       <span className="fas fa-lock" />
