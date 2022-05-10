@@ -12,6 +12,7 @@ import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
 import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
 import Page_Edit_chemical from "./Page_2/Page_Edit_chemical";
+import Weather from "./components/Weather/Weather";
 
 function App() {
   let params = useParams();
@@ -33,6 +34,7 @@ function App() {
             }
           ></Route>
           <Route index element={<Page_Login />} />
+          <Route exact path="/Weather" element={<Weather />} />
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
