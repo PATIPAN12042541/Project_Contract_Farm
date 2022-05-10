@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useLayoutEffect} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
