@@ -17,14 +17,10 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-
-  useLayoutEffect(()=>{
-    refreshToken();
-  }, [])
   
   useEffect(() => {
     refreshToken();
-    console.log("roleid : "+roleid);
+    setTimeout(() => console.log("roleid : "+roleid), 3000);
   }, []);
 
   const refreshToken = async () => {
