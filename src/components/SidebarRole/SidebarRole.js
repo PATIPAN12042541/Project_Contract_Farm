@@ -23,7 +23,7 @@ const SidebarRole = () => {
   }, [])
   
   useEffect(() => {
-    //refreshToken();
+    refreshToken();
     console.log("roleid : "+roleid);
   }, []);
 
