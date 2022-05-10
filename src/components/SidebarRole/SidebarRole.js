@@ -133,13 +133,13 @@ const SidebarRole = () => {
             >
               <ListGroup className="nav-item">
                 <ListGroup className="nav-item">
-                  <Link to={item.link} 
+                  <a href={item.link} 
                      className="nav-link">
                     <p>
                       {item.menu_name}
                       <i className="fas fa-angle-left right"></i>
                     </p>
-                  </Link>
+                  </a>
                   {submenurole.map((itemsublv1, index) => {
                     //console.log("item id : " + item.id);
                     //console.log("itemsublv1 parent : " + itemsublv1.parent_id);
