@@ -39,7 +39,7 @@ const Login = () => {
               <div className="card">
                   <div className="card-body login-card-body">
                       <Form onSubmit={Auth}>
-                          <div className="input-group mb-3">
+                          <Form.Group className="input-group mb-3">
                               <Form.Control type="text" 
                                      className="form-control" 
                                      placeholder="Username"
@@ -51,8 +51,8 @@ const Login = () => {
                                         <span className="fas fa-user" />
                                   </div>
                               </div>
-                          </div>
-                          <div className="input-group mb-3">
+                          </Form.Group>
+                          <Form.Group className="input-group mb-3">
                               <Form.Control type="password" 
                                      className="form-control" 
                                      placeholder="Password" 
@@ -63,7 +63,7 @@ const Login = () => {
                                       <span className="fas fa-lock" />
                                   </div>
                               </div>
-                          </div>
+                          </Form.Group>
                           <div className="row">
                               <div className="col-4">
                                   <button type="submit" className="btn btn-primary btn-block">Login</button>
