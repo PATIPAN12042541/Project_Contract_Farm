@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
 
 const List_Chemical = () => {
   return (
@@ -24,7 +25,18 @@ const List_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                    <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                      <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                      <br />
+                                      <Table responsive="md">
+                                          <thead>
+                                              <tr>
+                                                  <th></th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <td></td>
+                                          </tbody>
+                                      </Table>
                                   </div>
                               </div>
                           </div>
