@@ -19,7 +19,6 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
-                console.log(response.data);
                 Nav('/contract_farm');
             })
             .catch(function (error){
