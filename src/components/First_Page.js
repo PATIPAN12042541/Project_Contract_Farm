@@ -3,8 +3,7 @@ import axios from 'axios';
 import "./CSS/First_Page.css";
 
 const First_Page = () => {
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]); 
+
   const [data, setData] = useState([]);
 
   
