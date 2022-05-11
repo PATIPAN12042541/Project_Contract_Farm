@@ -10,7 +10,7 @@ const First_Page = () => {
   const get_api_weather = async () => {
     await axios
       .get(
-        `${process.env.BASE_URL}/weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=${process.env.API_KEY}`
+        `https://api.openweathermap.org/data/2.5//weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=f95c293c45ca886ddb11fec556e1cb16`
       )
       .then((res) => res.json())
       .then((result) => {
