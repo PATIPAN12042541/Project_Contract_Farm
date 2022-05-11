@@ -26,11 +26,14 @@ const Add_Chemical = () => {
                                   <div className="row">
                                       <Form inline>
                                           <Form.Group>
-                                              <Form.Label>ประเภทสารเคมี</Form.Label>
-                                              <Form.Control
-                                                  type="text"
-                                                  className="mx-sm-6"
-                                              />
+                                              <Form.Label className='col-md-3'>
+                                                  ประเภทสารเคมี
+                                              </Form.Label>
+                                              <col md={9}>
+                                                  <Form.Control className='col-md-9'
+                                                                type="text"
+                                                  />
+                                              </col>
                                           </Form.Group>
                                       </Form>
                                   </div>
