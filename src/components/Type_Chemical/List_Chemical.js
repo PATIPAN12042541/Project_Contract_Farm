@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 const List_Chemical = () => {
   return (
@@ -17,11 +18,13 @@ const List_Chemical = () => {
                           <div className="card card-success">
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
-                                
+                                  <center>
+                                      <h3 className="card-title">ประเภทข้อมูลสารเคมี</h3>
+                                  </center>
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      
+                                    <Button variant="success">เพิ่มประเภทสารเคมี</Button>
                                   </div>
                               </div>
                           </div>
