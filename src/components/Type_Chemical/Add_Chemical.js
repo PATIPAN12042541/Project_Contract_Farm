@@ -32,8 +32,8 @@ const Add_Chemical = () => {
                                               </div>
                                           </div>
                                       </div>
-                                      <div classname="row">
-                                          <button type="button" className="btn btn-info">บันทึก</button>
+                                      <div className="row">
+                                          <button type="button" className="btn btn-info">บันทึก</button>&nbsp;
                                           <button type="button" className="btn btn-default">ล้างข้อมูล</button>
                                       </div>
                                   </div>
