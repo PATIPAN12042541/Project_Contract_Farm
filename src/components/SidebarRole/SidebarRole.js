@@ -20,9 +20,7 @@ const SidebarRole = (props) => {
   
   useEffect(() => {
     refreshToken();
-
-    roleMenu();
-  }, []);
+  }, [roleMenu,subMenu1]);
 
   const refreshToken = async () => {
     try {
@@ -39,9 +37,9 @@ const SidebarRole = (props) => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
-      //roleMenu(decoded.role_id);
+      roleMenu(decoded.role_id);
 
-      //subMenu1(decoded.role_id);
+      subMenu1(decoded.role_id);
     } catch (error) {
       if (error.response) {
         history("/");
@@ -49,30 +47,11 @@ const SidebarRole = (props) => {
     }
   };
 
-  const roleMenu = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/user/token`
-    );
-    setToken(response.data.accessToken);
-    const decoded = jwt_decode(response.data.accessToken);
-    setName(decoded.name);
-    setLastName(decoded.last_name);
-    setRoleID(decoded.role_id);
-    setExpire(decoded.exp);
-
+  const roleMenu = async (id) => {
     const menu_ = await axios.get(
-      `${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`
-    );
-    setMenuRole(menu_.data);
-
-    subMenu1(decoded.role_id);
-
-
-
-    /*const menu_ = await axios.get(
       `${process.env.REACT_APP_API_URL}/menu/main/${id}`
     );
-    setMenuRole(menu_.data);*/
+    setMenuRole(menu_.data);
   };
 
   const subMenu1 = async (role_id) => {
