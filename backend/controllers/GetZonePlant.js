@@ -11,7 +11,7 @@ export const GetZonePlant = async (req, res) => {
   }
 };
 
-export const getPlant = async (req, res) => {
+export const getDataPlant = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
       "SELECT plant_detail.id as id_plant," +
@@ -24,7 +24,7 @@ export const getPlant = async (req, res) => {
         "plant_image " +
         "FROM zone_plant " +
         "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
-        "LEFT JOIN  plant ON plant_detail.id =plant.id_plant " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
         "WHERE id_zone = :id_plant",
       {
         replacements: { id_plant: req.params.id },

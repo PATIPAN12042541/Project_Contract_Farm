@@ -1,10 +1,10 @@
 import express from "express";
-import { GetZonePlant, getPlant } from "../controllers/GetZonePlant.js";
+import { GetZonePlant, getDataPlant } from "../controllers/GetZonePlant.js";
 
 const router = express.Router();
 
 router.get("/", GetZonePlant);
-router.get("/plant", getPlant);
+router.get("/plant", getDataPlant);
 
 
 export default router;
