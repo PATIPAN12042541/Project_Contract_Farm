@@ -7,7 +7,6 @@ import { Form } from 'react-bootstrap';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [msg, setMsg] = useState();
     const Nav = useNavigate();
 
     const Auth = async (e) => {
