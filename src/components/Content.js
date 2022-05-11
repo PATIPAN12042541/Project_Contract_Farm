@@ -39,7 +39,7 @@ const Content = () => {
                   style={{ backgroundColor: "#8CC152" }}
                 >
                   <center>
-                    <h3 className="card-title">แปลงเพาะปลูก</h3>
+                    <h3 className="card-title">โซนเพาะปลูก</h3>
                   </center>
                 </div>
                 <div className="card-body">
@@ -66,13 +66,15 @@ const Content = () => {
                               height={300}
                             />
                             <div className="card-img-overlay d-flex flex-column justify-content-end">
-                              <ImageListItemBar
-                                className="card-title text-primary text-white"
-                                title={
-                                  "Plant " + data.plant_detail_id_name_plant
-                                }
-                                subtitle={data.name_plant}
-                              />
+                              <center>
+                                <ImageListItemBar
+                                  className="card-title text-primary text-white"
+                                  title={
+                                    "Plant " + data.plant_detail_id_name_plant
+                                  }
+                                  subtitle={data.name_plant}
+                                />
+                              </center>
                             </div>
                           </div>
                         </Link>
