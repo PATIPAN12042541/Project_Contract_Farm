@@ -8,8 +8,8 @@ const First_Page = () => {
 
   useEffect(() => {
 
-  lat = "14.8060348";
-  long = "100.030848";
+    setLat("14.8060348");
+    setLong ("100.030848");
 
   await fetch(`${process.env.BASE_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.API_KEY}`)
       .then(res => res.json())
