@@ -25,7 +25,7 @@ const Add_Chemical = () => {
                               <Form className="form-horizontal">
                                   <div className="card-body">
                                       <div className="row">
-                                          <div className="form-group row">
+                                          <div className="form-group">
                                               <Form.Label className="col-6 col-form-label">ประเภทสารเคมี</Form.Label>
                                               <div className="col-6">
                                                   <Form.Control type="text" className="form-control" />
