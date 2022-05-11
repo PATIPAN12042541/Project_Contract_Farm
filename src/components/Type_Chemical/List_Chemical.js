@@ -27,6 +27,7 @@ const List_Chemical = () => {
                                   <div className="row">
                                       <Button variant="success">เพิ่มประเภทสารเคมี</Button>
                                   </div>
+                                  <hr />
                                   <div className="row">
                                       <Table responsive="md">
                                           <thead>
