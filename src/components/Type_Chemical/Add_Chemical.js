@@ -22,20 +22,18 @@ const Add_Chemical = () => {
                                       <h3 className="card-title">เพิ่มประเภทข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <div className="card-body">
-                                  <div className="row">
-                                      <Form inline>
-                                          <Form.Group>
-                                              <Form.Label className='col-md-3'>
-                                                  ประเภทสารเคมี
-                                              </Form.Label>
-                                                  <Form.Control className='col-md-9'
-                                                                type="text"
-                                                  />
-                                          </Form.Group>
-                                      </Form>
+                              <Form className="form-horizontal">
+                                  <div className="card-body">
+                                      <div className="row">
+                                          <div className="form-group row">
+                                              <Form.Label className="col-6 col-form-label">ประเภทสารเคมี</Form.Label>
+                                              <div className="col-6">
+                                                  <Form.Control type="text" className="form-control" />
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
-                              </div>
+                              </Form>
                           </div>
                       </div>
                   </div>
