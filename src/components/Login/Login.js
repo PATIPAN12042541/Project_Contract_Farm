@@ -19,8 +19,8 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
-                const token_context = React.createContext(response.data);
                 Nav('/contract_farm');
+                window.location.reload();
             })
             .catch(function (error){
                 Swal.fire({
