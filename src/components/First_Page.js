@@ -15,9 +15,7 @@ const First_Page = () => {
   // function search api
   const search = (e) => {
     if (e.key === "Enter") {
-      fetch(
-        `${api.base}weather?lat=${query}&units=metric&APPID=${api.key}`
-      )
+      fetch(`${api.base}weather?lat=35&lon=139&appid=${api.key}`)
         .then((res) => res.json())
         .then((result) => {
           setQuery("");
