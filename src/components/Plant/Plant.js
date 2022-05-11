@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Plant = (props) => {
+
+ const [datadetail, setDatadetail] = useState([]);
+
+ const getPlantData = async () => {
+   const response = await axios.get(
+     `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
+   );
+   setDatadetail(response.data);
+   console.log(response.data);
+ };
+
+ useEffect(() => {
+   getPlantData();
+ }, []);
+    
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -25,7 +42,7 @@ const Plant = (props) => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                      
+
                   </div>
                 </div>
               </div>

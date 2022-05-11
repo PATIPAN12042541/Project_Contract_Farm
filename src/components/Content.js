@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Content = () => {
