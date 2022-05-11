@@ -18,6 +18,7 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
+                console.log(response.data);
                 Nav('/contract_farm');
             })
             .catch(function (error){
@@ -29,7 +30,6 @@ const Login = () => {
             });
     }
 
-  
     return (
       <div className="hold-transition login-page">
             <div className="login-box">
