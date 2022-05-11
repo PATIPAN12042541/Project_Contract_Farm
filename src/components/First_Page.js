@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-
+import React, { useState } from "react";
+import Keys from "../Keys";
+import "./CSS/First_Page.css";
 
 function refreshPage() {
   setTimeout(() => {
@@ -9,18 +9,83 @@ function refreshPage() {
 }
 
 const First_Page = () => {
-  // useEffect(() => {
-  //   refreshPage();
-  // }, []);
+  //////
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState({});
+
+  const api = {
+    key: Keys.API_KEY,
+    base: Keys.BASE_URL,
+  };
+
+  // function search api
+  const search = (e) => {
+    if (e.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setQuery("");
+          setWeather(result);
+          console.log(result);
+        });
+    }
+  };
+  // function check date
+  const dateBuild = (d) => {
+    let date = String(new window.Date());
+    date = date.slice(3, 15);
+    return date;
+  };
 
   return (
     <div
       className="content-wrapper"
-      style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
-        backgroundSize: "cover",
-      }}
-    ></div>
+      // style={{
+      //   backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
+      //   backgroundSize: "cover",
+      // }}
+    >
+      <div
+        className={
+          typeof weather.main != "undefined"
+            ? weather.main.temp > 18
+              ? "App hot"
+              : "App cold"
+            : "App"
+        }
+      >
+        <main>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="search-bar"
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+              onKeyPress={search}
+            />
+          </div>
+          {typeof weather.main != "undefined" ? (
+            <div>
+              <div className="location-container">
+                <div className="location">
+                  {weather.name}, {weather.sys.country}
+                </div>
+                <div className="date"> {dateBuild(new Date())}</div>
+              </div>
+              <div className="weather-container">
+                <div className="temperature">
+                  {Math.round(weather.main.temp)}°C
+                </div>
+                <div className="weather">{weather.weather[0].main}</div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </main>
+      </div>
+    </div>
   );
 };
 
