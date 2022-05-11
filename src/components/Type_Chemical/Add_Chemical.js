@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form'
+import { Link } from 'react-router-dom'
 
 const Add_Chemical = () => {
   return (
@@ -34,7 +35,7 @@ const Add_Chemical = () => {
                                       </div>
                                       <div className="row">
                                           <button type="button" className="btn btn-info">บันทึก</button>&nbsp;
-                                          <button type="button" className="btn btn-default">ล้างข้อมูล</button>
+                                          <Link to={"/Type_Chemical"} className="btn btn-default">ย้อนกลับ</Link>
                                       </div>
                                   </div>
                               </Form>
