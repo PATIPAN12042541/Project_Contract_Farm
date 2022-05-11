@@ -42,7 +42,43 @@ const Plant = (props) => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-
+                    {datadetail.map((data, index) => (
+                      <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
+                        <Link
+                          to={{
+                            pathname: `/Data_detail/${data.id}`,
+                            state: { id: data.id },
+                          }}
+                          params={data.id}
+                          className="text-white"
+                        >
+                          <div className="card mb-12 bg-gradient-dark">
+                            <img
+                              className="card-img-top"
+                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              loading="lazy"
+                              width={250}
+                              height={300}
+                            />
+                            <div className="card-img-overlay d-flex flex-column justify-content-end">
+                              <center>
+                                <ImageListItemBar
+                                  className="card-title text-primary text-white"
+                                  title={
+                                    "Zone " +
+                                    data.zone_name +
+                                    " - " +
+                                    data.id_zone
+                                  }
+                                  //subtitle={data.name_plant}
+                                />
+                              </center>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
