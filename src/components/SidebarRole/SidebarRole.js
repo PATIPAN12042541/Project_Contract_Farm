@@ -17,12 +17,9 @@ const SidebarRole = (props) => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-
-  const theme = useContext(token_context);
   
   useEffect(() => {
     refreshToken();
-    console.log("theme : "+theme);
   }, []);
 
   const refreshToken = async () => {
