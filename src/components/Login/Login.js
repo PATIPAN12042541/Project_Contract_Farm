@@ -8,6 +8,7 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [msg, setMsg] = useState();
+    const [token1, setToken1] = useState("");
     const Nav = useNavigate();
 
     const Auth = async (e) => {
