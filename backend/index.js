@@ -9,6 +9,7 @@ import PlantRoute from "./routes/PlantRoute.js";
 import MenuRoute from "./routes/MenuRoleRoute.js"
 import multer, { diskStorage } from 'multer';
 import Chemical from "./routes/ChemicalRoute.js";
+import Zoneplant from "./routes/ZonePlantRoute.js";
 
 dotenv.config();
 const app = express();
@@ -58,9 +59,13 @@ const storage_2 = diskStorage({
 
 const upload_2 = multer({ storage: storage_2 });
 try {
-  app.post("/public/dist/img/insecticide", upload_2.single("file"), function (req, res) {
-    res.json({});
-  });
+  app.post(
+    "/public/dist/img/insecticide",
+    upload_2.single("file"),
+    function (req, res) {
+      res.json({});
+    }
+  );
 } catch (error) {
   res.json(console.log("Upload 2 Fail"));
 }
@@ -71,6 +76,7 @@ app.use(express.json());
 app.use("/role_group", RoleRoutes);
 app.use("/user", UserRoute);
 app.use("/getplant", PlantRoute);
+app.use("/zoneplant", Zoneplant);
 app.use("/menu", MenuRoute);
 app.use("/getChemical", Chemical);
  
