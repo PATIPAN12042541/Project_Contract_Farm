@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Keys from "../Keys";
+import keys from "../keys";
 import "./CSS/First_Page.css";
 
 function refreshPage() {
@@ -14,8 +14,8 @@ const First_Page = () => {
   const [weather, setWeather] = useState({});
 
   const api = {
-    key: Keys.API_KEY,
-    base: Keys.BASE_URL,
+    key: keys.API_KEY,
+    base: keys.BASE_URL,
   };
 
   // function search api

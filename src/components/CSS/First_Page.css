@@ -8,7 +8,7 @@
     width: 480px;
     height: 800px;
     margin: 2rem auto;
-    background-image: url("ima_weather/app.jpeg");
+    background-image: url("../ima_weather/app.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     transition: 0.2s ease;
@@ -25,7 +25,7 @@
     background-image: linear-gradient(to bottom,
             rgba(255, 167, 16, 0.52),
             rgba(0, 0, 0, 0.73)),
-        url("ima_weather/hot.jpeg");
+        url("../ima_weather/hot.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     transition: 0.2s ease;
@@ -40,7 +40,7 @@ main {
     background-image: linear-gradient(to bottom,
             rgba(0, 229, 255, 0.52),
             rgba(0, 0, 0, 0.73)),
-        url("ima_weather/cold.jpeg");
+        url("../ima_weather/cold.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     transition: 0.2s ease;
