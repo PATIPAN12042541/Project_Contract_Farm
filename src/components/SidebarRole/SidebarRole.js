@@ -20,7 +20,6 @@ const SidebarRole = (pops) => {
   
   useEffect(() => {
     refreshToken();
-    console.log("refreshToken : "+Cookies.refreshToken);
   }, []);
 
   const refreshToken = async () => {
