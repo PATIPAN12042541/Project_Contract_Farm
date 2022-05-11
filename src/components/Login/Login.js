@@ -8,7 +8,6 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [msg, setMsg] = useState();
-    const [token1, setToken1] = useState("");
     const Nav = useNavigate();
 
     const Auth = async (e) => {
@@ -20,7 +19,7 @@ const Login = () => {
             })
             .then(function (response){
                 Nav('/contract_farm');
-                window.location.reload();
+                //window.location.reload();
             })
             .catch(function (error){
                 Swal.fire({
