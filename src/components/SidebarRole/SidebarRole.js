@@ -20,6 +20,7 @@ const SidebarRole = (props) => {
   
   useEffect(() => {
     refreshToken();
+    console.log("accessToken : "+this.accessToken);
   }, []);
 
   const refreshToken = async () => {
