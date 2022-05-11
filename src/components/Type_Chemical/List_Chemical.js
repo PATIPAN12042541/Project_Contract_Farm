@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom'
 
 const List_Chemical = () => {
   return (
@@ -25,7 +26,9 @@ const List_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                      <Link to={"/Add_Chemical"}>
+                                          <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                      </Link>
                                   </div>
                                   <hr />
                                   <div className="row">
