@@ -77,20 +77,6 @@ const Plant = (props) => {
                                 />
                               </center>
                             </div>
-                            <div className="card-img-overlay d-flex flex-column justify-content-end">
-                              <center>
-                                <ImageListItemBar
-                                  className="card-title text-primary text-white"
-                                  title={
-                                    "Zone " +
-                                    data.zone_name +
-                                    " - " +
-                                    data.id_zone
-                                  }
-                                  //subtitle={data.name_plant}
-                                />
-                              </center>
-                            </div>
                           </div>
                         </Link>
                       </div>
