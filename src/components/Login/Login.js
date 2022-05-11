@@ -24,7 +24,7 @@ const Login = () => {
             .catch(function (error){
                 Swal.fire({
                     icon: 'error',
-                    title: error.response.data.msg,
+                    title: error,
                     text: 'Login Error!'
                   })
             });
