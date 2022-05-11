@@ -139,9 +139,6 @@ const SidebarRole = () => {
                     </p>
                   </a>
                   {submenurole.map((itemsublv1, index) => {
-                    //console.log("item id : " + item.id);
-                    //console.log("itemsublv1 parent : " + itemsublv1.parent_id);
-
                     if (item.id === itemsublv1.parent_id) {
                       return (
                         <ul className="nav nav-treeview" key={index}>
