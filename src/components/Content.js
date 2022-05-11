@@ -49,10 +49,10 @@ const Content = () => {
                         <Link
                           //to={`/Data_detail/${data.id}`}
                           to={{
-                            pathname: `/Data_detail/${data.id_plant}`,
-                            state: { id: data.id_plant },
+                            pathname: `/Data_detail/${data.id}`,
+                            state: { id: data.id },
                           }}
-                          params={data.id_plant}
+                          params={data.id}
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
@@ -68,12 +68,7 @@ const Content = () => {
                               <center>
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
-                                  title={
-                                    "Zone " +
-                                    data.zone_name +
-                                    " - " +
-                                    data.id_name_plant
-                                  }
+                                  title={"Zone " + data.zone_name}
                                   //subtitle={data.name_plant}
                                 />
                               </center>
