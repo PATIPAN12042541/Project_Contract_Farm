@@ -45,7 +45,7 @@ const Plant = (props) => {
                 <div className="card-body">
                   <div className="row">
                     {datadetail.map((data, index) => (
-                      <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
+                      <div className="col-md-12" key={index}>
                         <Link
                           to={{
                             pathname: `/Data_detail/${data.id}`,
