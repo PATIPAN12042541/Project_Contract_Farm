@@ -3,6 +3,12 @@ import "./CSS/First_Page.css";
 
 const First_Page = () => {
   const [data, setData] = useState([]);
+  
+  const dateBuild = (d) => {
+    let date = String(new window.Date());
+    date = date.slice(3, 15);
+    return date;
+  };
 
   const get_api_weather = async () => {
     await fetch(
@@ -23,27 +29,27 @@ const First_Page = () => {
     <div className="content-wrapper">
       <div
         className={
-          typeof weather.main != "undefined"
-            ? weather.main.temp > 18
+          typeof data.main != "undefined"
+            ? data.main.temp > 18
               ? "App hot"
               : "App cold"
             : "App"
         }
       >
         <main>
-          {typeof weather.main != "undefined" ? (
+          {typeof data.main != "undefined" ? (
             <div>
               <div className="location-container">
                 <div className="location">
-                  {weather.name}, {weather.sys.country}
+                  {data.name}, {data.sys.country}
                 </div>
                 <div className="date"> {dateBuild(new Date())}</div>
               </div>
               <div className="weather-container">
                 <div className="temperature">
-                  {Math.round(weather.main.temp)}°C
+                  {Math.round(data.main.temp)}°C
                 </div>
-                <div className="weather">{weather.weather[0].main}</div>
+                <div className="weather">{data.weather[0].main}</div>
               </div>
             </div>
           ) : (
