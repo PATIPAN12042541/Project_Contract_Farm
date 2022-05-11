@@ -61,7 +61,7 @@ function App() {
             element={<Page_manage_data_edit />}
           />
           <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
-          <Route exact path="/Type_Chemical" element={<List_Chemical />} />
+          <Route exact path="/Type_Chemical" element={<><Header /><SidebarRole /><List_Chemical /><Footer /></>} />
         </Routes>
       </BrowserRouter>
     </div>
