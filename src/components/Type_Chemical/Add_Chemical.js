@@ -1,4 +1,5 @@
 import React from 'react'
+import Form from 'react-bootstrap/Form'
 
 const Add_Chemical = () => {
   return (
@@ -23,7 +24,15 @@ const Add_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      
+                                      <Form inline>
+                                          <Form.Group>
+                                              <Form.Label>ประเภทสารเคมี</Form.Label>
+                                              <Form.Control
+                                                  type="text"
+                                                  className="mx-sm-6"
+                                              />
+                                          </Form.Group>
+                                      </Form>
                                   </div>
                               </div>
                           </div>
