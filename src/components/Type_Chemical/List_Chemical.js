@@ -1,4 +1,7 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom'
 
 const List_Chemical = () => {
   return (
@@ -17,11 +20,32 @@ const List_Chemical = () => {
                           <div className="card card-success">
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
-                                
+                                  <center>
+                                      <h3 className="card-title">ประเภทข้อมูลสารเคมี</h3>
+                                  </center>
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      
+                                      <Link to={"/Add_Chemical"}>
+                                          <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                      </Link>
+                                  </div>
+                                  <hr />
+                                  <div className="row">
+                                      <Table responsive="md">
+                                          <thead>
+                                              <tr>
+                                                  <th>ลำดับ</th>
+                                                  <th>ประเภทสารเคมี</th>
+                                                  <th>แก้ไข</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                          </tbody>
+                                      </Table>
                                   </div>
                               </div>
                           </div>

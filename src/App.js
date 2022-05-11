@@ -13,6 +13,7 @@ import Page_manage_data from "./Page_2/Page_manage_data";
 import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
 import Page_Edit_chemical from "./Page_2/Page_Edit_chemical";
 import List_Chemical from "./components/Type_Chemical/List_Chemical.js";
+import Add_Chemical from "./components/Type_Chemical/Add_Chemical.js";
 
 function App() {
   let params = useParams();
@@ -62,6 +63,7 @@ function App() {
           />
           <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
           <Route exact path="/Type_Chemical" element={<><Header /><SidebarRole /><List_Chemical /><Footer /></>} />
+          <Route exact path="/Add_Chemical" element={<><Header /><SidebarRole /><Add_Chemical /><Footer /></>} />
         </Routes>
       </BrowserRouter>
     </div>
