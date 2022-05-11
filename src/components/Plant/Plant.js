@@ -68,7 +68,7 @@ const Plant = (props) => {
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
                                   title={
-                                    "Zone " +
+                                    "Plant " +
                                     data.zone_name +
                                     " - " +
                                     data.id_zone
