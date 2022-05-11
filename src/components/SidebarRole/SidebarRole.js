@@ -8,7 +8,7 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 
-const SidebarRole = () => {
+const SidebarRole = (props) => {
   const [name, setName] = useState("");
   const [last_name, setLastName] = useState("");
   const [roleid, setRoleID] = useState("");
@@ -20,6 +20,8 @@ const SidebarRole = () => {
   
   useEffect(() => {
     refreshToken();
+
+    console.log("props : "+props.accessToken);
   }, []);
 
   const refreshToken = async () => {
