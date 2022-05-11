@@ -8,7 +8,6 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [msg, setMsg] = useState();
-    const [token1, setToken1] = useState("");
     const Nav = useNavigate();
 
     const Auth = async (e) => {
@@ -19,13 +18,13 @@ const Login = () => {
                 password: password
             })
             .then(function (response){
-                const token_context = React.createContext(response.data);
                 Nav('/contract_farm');
+                // window.location.reload();
             })
             .catch(function (error){
                 Swal.fire({
                     icon: 'error',
-                    title: error.response.data.msg,
+                    title: error,
                     text: 'Login Error!'
                   })
             });
