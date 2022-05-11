@@ -62,7 +62,6 @@ function App() {
           <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
         </Routes>
       </BrowserRouter>
-      ,
     </div>
   );
 }
