@@ -23,20 +23,17 @@ const Add_Chemical = () => {
                                   </center>
                               </div>
                               <div className="card-body">
-                              <Form inline>
-  <Form.Group>
-    <Form.Label htmlFor="inputPassword6">Password</Form.Label>
-    <Form.Control
-      type="password"
-      className="mx-sm-3"
-      id="inputPassword6"
-      aria-describedby="passwordHelpInline"
-    />
-    <Form.Text id="passwordHelpInline" muted>
-      Must be 8-20 characters long.
-    </Form.Text>
-  </Form.Group>
-</Form>
+                                  <div className="row">
+                                      <Form inline>
+                                          <Form.Group>
+                                              <Form.Label>
+                                                  ประเภทสารเคมี
+                                              </Form.Label>
+                                                  <Form.Control type="text"
+                                                  />
+                                          </Form.Group>
+                                      </Form>
+                                  </div>
                               </div>
                           </div>
                       </div>
