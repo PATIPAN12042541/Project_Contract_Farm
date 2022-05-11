@@ -6,7 +6,8 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
-import { ListGroup,Figure } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image'
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -95,14 +96,12 @@ const SidebarRole = () => {
         className="brand-link"
         style={{ backgroundColor: "#8CC152" }}
       >
-        <Figure>
-        <Figure.Image
+        <Image
           src={logo}
           alt="sprout"
           className="brand-image img-circle elevation-3"
           style={{ opacity: ".8" }}
         />
-        </Figure>
         <span className="brand-text font-weight-light text-white">
           Contract Farming
         </span>
@@ -110,13 +109,11 @@ const SidebarRole = () => {
       <div className="sidebar">
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
-          <Figure>
-            <Figure.Image
+            <Image
               src={user6}
               className="img-circle elevation-2"
               alt="User Image"
             />
-          </Figure>
           </div>
           <div className="info">
             <a href="/contract_farm" className="d-block">
