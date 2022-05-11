@@ -31,10 +31,14 @@ const List_Chemical = () => {
                                       <Table responsive="md">
                                           <thead>
                                               <tr>
-                                                  <th></th>
+                                                  <th>ลำดับ</th>
+                                                  <th>ประเภทสารเคมี</th>
+                                                  <th>แก้ไข</th>
                                               </tr>
                                           </thead>
                                           <tbody>
+                                              <td></td>
+                                              <td></td>
                                               <td></td>
                                           </tbody>
                                       </Table>
