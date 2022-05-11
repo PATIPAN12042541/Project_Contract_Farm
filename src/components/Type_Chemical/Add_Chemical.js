@@ -29,11 +29,9 @@ const Add_Chemical = () => {
                                               <Form.Label className='col-md-3'>
                                                   ประเภทสารเคมี
                                               </Form.Label>
-                                              <col md={9}>
                                                   <Form.Control className='col-md-9'
                                                                 type="text"
                                                   />
-                                              </col>
                                           </Form.Group>
                                       </Form>
                                   </div>
