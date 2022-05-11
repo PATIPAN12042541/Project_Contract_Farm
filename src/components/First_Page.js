@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import keys from "../keys";
+import keys from "./keys";
 import "./CSS/First_Page.css";
 
 function refreshPage() {
