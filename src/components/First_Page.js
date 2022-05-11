@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "./CSS/First_Page.css";
 
-function refreshPage() {
-  setTimeout(() => {
-    window.location.reload(false);
-  }, 500);
-}
 
 const First_Page = () => {
   //////
@@ -20,7 +15,9 @@ const First_Page = () => {
   // function search api
   const search = (e) => {
     if (e.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(
+        `${api.base}weather?lat=${query}&units=metric&APPID=${api.key}`
+      )
         .then((res) => res.json())
         .then((result) => {
           setQuery("");
@@ -37,13 +34,7 @@ const First_Page = () => {
   };
 
   return (
-    <div
-      className="content-wrapper"
-      // style={{
-      //   backgroundImage: `url(${process.env.PUBLIC_URL + "/First_page.png"})`,
-      //   backgroundSize: "cover",
-      // }}
-    >
+    <div className="content-wrapper">
       <div
         className={
           typeof weather.main != "undefined"
