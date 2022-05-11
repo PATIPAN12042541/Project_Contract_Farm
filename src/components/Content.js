@@ -14,7 +14,7 @@ const Content = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant`
+      `${process.env.REACT_APP_API_URL}/zoneplant`
     );
 
     setPlant(response.data);
@@ -58,9 +58,8 @@ const Content = () => {
                           <div className="card mb-2 bg-gradient-dark">
                             <img
                               className="card-img-top"
-                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                              alt={data.id_name_plant}
+                              src={`${data.image_zone}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
                               loading="lazy"
                               width={250}
                               height={300}
@@ -70,7 +69,10 @@ const Content = () => {
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
                                   title={
-                                    "Zone " + data.plant_detail_id_name_plant
+                                    "Zone " +
+                                    data.zone_name +
+                                    " - " +
+                                    data.id_name_plant
                                   }
                                   //subtitle={data.name_plant}
                                 />
