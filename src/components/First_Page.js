@@ -13,8 +13,8 @@ const First_Page = () => {
   const [weather, setWeather] = useState({});
 
   const api = {
-    key: keys.process.env.API_KEY,
-    base: keys.process.env.BASE_URL,
+    key: process.env.API_KEY,
+    base: process.env.BASE_URL,
   };
 
   // function search api
