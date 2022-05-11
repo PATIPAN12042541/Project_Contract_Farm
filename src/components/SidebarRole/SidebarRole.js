@@ -60,7 +60,10 @@ const SidebarRole = (props) => {
     setRoleID(decoded.role_id);
     setExpire(decoded.exp);
 
-    roleMenu(decoded.role_id);
+    const menu_ = await axios.get(
+      `${process.env.REACT_APP_API_URL}/menu/main/${decoded.role_id}`
+    );
+    setMenuRole(menu_.data);
 
     subMenu1(decoded.role_id);
 
