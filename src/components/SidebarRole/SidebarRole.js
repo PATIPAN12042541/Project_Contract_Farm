@@ -20,7 +20,7 @@ const SidebarRole = (props) => {
   
   useEffect(() => {
     refreshToken();
-  }, [roleMenu,subMenu1]);
+  }, []);
 
   const refreshToken = async () => {
     try {
