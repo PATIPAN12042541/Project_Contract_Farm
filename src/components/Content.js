@@ -70,9 +70,9 @@ const Content = () => {
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
                                   title={
-                                    "Plant " + data.plant_detail_id_name_plant
+                                    "Zone " + data.plant_detail_id_name_plant
                                   }
-                                  subtitle={data.name_plant}
+                                  //subtitle={data.name_plant}
                                 />
                               </center>
                             </div>
