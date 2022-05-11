@@ -18,7 +18,7 @@ const Login = () => {
             })
             .then(function (response){
                 Nav('/contract_farm');
-                // window.location.reload();
+                window.location.reload();
             })
             .catch(function (error){
                 Swal.fire({
