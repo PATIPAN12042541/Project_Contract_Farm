@@ -31,8 +31,10 @@ const Add_Chemical = () => {
                                               <Form.Control type="text" className="form-control" />
                                           </div>
                                       </div>
+                                  </div>
+                                  <div class="card-footer">
                                       <button type="button" className="btn btn-info">บันทึก</button>&nbsp;
-                                          <Link to={"/Type_Chemical"} className="btn btn-default">ย้อนกลับ</Link>
+                                      <Link to={"/Type_Chemical"} className="btn btn-default">ย้อนกลับ</Link>
                                   </div>
                               </Form>
                           </div>
