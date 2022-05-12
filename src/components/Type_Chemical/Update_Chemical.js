@@ -33,7 +33,7 @@ const Update_Chemical = () => {
                 title: "Success",
                 text: "Update Success!",
               });
-            navigate.push("/TypeChemical");
+            navigate("/TypeChemical");
         }catch(error){
             Swal.fire({
                 icon: "error",
