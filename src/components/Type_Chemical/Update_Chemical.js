@@ -1,9 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
+    const navigate = useNavigate();
+    const {id} = useParams();
+
+    useEffect(()=>{
+        getTypeChemicalById()
+    },[])
+
+    const getTypeChemicalById = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
+        setTypeChemical(response.data.typeChemical);
+    }
+
     return (
         <div className="content-wrapper">
             <section className="content-header">
@@ -31,6 +45,7 @@ const Update_Chemical = () => {
                                             <div className="col-sm-10">
                                                 <Form.Control type="text" 
                                                                 className="form-control" 
+                                                                value={typeChemical}
                                                                 onChange={(e)=>setTypeChemical(e.target.value)}/>
                                             </div>
                                         </div>
