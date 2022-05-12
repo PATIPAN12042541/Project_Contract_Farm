@@ -38,7 +38,7 @@ const List_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <Link to={"/Add_Chemical"}>
+                                      <Link to={"/addChemical"}>
                                           <Button variant="success">เพิ่มประเภทสารเคมี</Button>
                                       </Link>
                                   </div>
