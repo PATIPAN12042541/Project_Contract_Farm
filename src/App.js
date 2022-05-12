@@ -14,6 +14,7 @@ import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
 import Page_Edit_chemical from "./Page_2/Page_Edit_chemical";
 import List_Chemical from "./components/Type_Chemical/List_Chemical.js";
 import Add_Chemical from "./components/Type_Chemical/Add_Chemical.js";
+import Update_Chemical from "./components/Type_Chemical/Update_Chemical.js";
 import Page_chemical from "./Page_1/Page_chemical";
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
           <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
           <Route
             exact
-            path="/Type_Chemical"
+            path="/TypeChemical"
             element={
               <>
                 <Header />
@@ -77,12 +78,24 @@ function App() {
           />
           <Route
             exact
-            path="/Add_Chemical"
+            path="/addTypeChemical"
             element={
               <>
                 <Header />
                 <SidebarRole />
                 <Add_Chemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/editTypeChemical/:id"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Update_Chemical />
                 <Footer />
               </>
             }

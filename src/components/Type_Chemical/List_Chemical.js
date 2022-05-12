@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const List_Chemical = () => {
     const [listChemicals,setListChemicals] = useState([]);
@@ -15,6 +16,39 @@ const List_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListChemicals(response.data);
     }
+
+    const deleteTypeChemical = async (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want Delete !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK !'
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                await axios.delete(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`)
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Delete Success!",
+                        });
+
+                        getListChemical();
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Delete Fail!",
+                            text: error,
+                        });
+                    });
+            }
+        })
+    }
+
 
     return (
       <div className="content-wrapper">
@@ -38,7 +72,7 @@ const List_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <Link to={"/addChemical"}>
+                                      <Link to={"/addTypeChemical"}>
                                           <Button variant="success">เพิ่มประเภทสารเคมี</Button>
                                       </Link>
                                   </div>
@@ -59,10 +93,10 @@ const List_Chemical = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
-                                                            <Link to={`/editChemical/${listChemical.id}`}><button className='btn btn-block btn-info'>แก้ไขข้อมูล</button></Link>
+                                                            <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
-                                                        <button className='btn btn-block btn-danger'>ลบข้อมูล</button>
+                                                        <Button variant="danger" onClick={(e)=>deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
                                                         </td>
                                                     </tr>
                                                 ))}
