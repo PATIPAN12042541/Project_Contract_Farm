@@ -60,6 +60,16 @@ const Add_Chemical = () => {
                                                             onChange={(e)=>setTypeChemical(e.target.value)}/>
                                           </div>
                                       </div>
+                                      <div className="form-group row">
+                                          <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
+                                            <div className="col-sm-10">
+                                                <Form.Check
+                                                    type="switch"
+                                                    id="custom-switch"
+                                                    label="Active"
+                                                />
+                                            </div>
+                                      </div>
                                   </div>
                                   <div className ="card-footer">
                                       <button type="submit" className="btn btn-info">บันทึก</button>&nbsp;
