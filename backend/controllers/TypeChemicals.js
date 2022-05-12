@@ -1,4 +1,4 @@
-import Type_Chemical from "../models/TypeChemicalModel";
+import Type_Chemical from "../models/TypeChemicalModel.js";
 
 export const createTypeChemical = async(req, res) => {
     const { type_chemical } = req.body;
