@@ -55,32 +55,25 @@ const Plant = (props) => {
                           className="text-white"
                         >
                           <div className="card mb-12 bg-gradient-dark">
-                            <div class="text-on-image">
-                              {data.zone_name + "-" + data.id_zone}
-                            </div>
-                            <img
+                            {/* <img
                               className="card-img-top"
                               src={`${data.plant_image}?w=248&fit=crop&auto=format`}
                               srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                               loading="lazy"
                               width={250}
                               height={300}
+                            /> */}
+                            <img
+                              src={data.plant_image}
+                              alt="Snow"
+                              width={250}
+                              height={300}
                             />
-
-                            {/* <div className="card-img-overlay d-flex flex-column justify-content-start">
-                              <center>
-                                <ImageListItemBar
-                                  className="card-title text-primary text-white"
-                                  title={
-                                    "Plant " +
-                                    data.zone_name +
-                                    " - " +
-                                    data.id_zone
-                                  }
-                                  //subtitle={data.name_plant}
-                                />
-                              </center>
-                            </div> */}
+                            <div class="bottom-left">Bottom Left</div>
+                            <div class="top-left">Top Left</div>
+                            <div class="top-right">Top Right</div>
+                            <div class="bottom-right">Bottom Right</div>
+                            <div class="centered">Centered</div>
                           </div>
                         </Link>
                       </div>
