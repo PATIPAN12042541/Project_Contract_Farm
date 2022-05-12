@@ -59,10 +59,10 @@ const List_Chemical = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
-                                                            <Link to={`/editChemical/${listChemical.id}`} className="button is-small is-info">แก้ไขข้อมูล</Link>
+                                                            <Link to={`/editChemical/${listChemical.id}`}><button className='btn btn-block btn-info'>แก้ไขข้อมูล</button></Link>
                                                         </td>
                                                         <td>
-                                                            <button className="button is-small is-danger">ลบข้อมูล</button>
+                                                        <button className='btn btn-block btn-danger'>ลบข้อมูล</button>
                                                         </td>
                                                     </tr>
                                                 ))}
