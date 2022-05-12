@@ -84,7 +84,7 @@ const List_Chemical = () => {
                                                             <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
-                                                        <Button variant="danger" onClick={deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
+                                                        <Button variant="danger" onClick={(e)=>deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
                                                         </td>
                                                     </tr>
                                                 ))}
