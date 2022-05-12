@@ -21,3 +21,16 @@ export const getAllTypeChemical = async (req, res) => {
         res.json(error);
     }  
 }
+
+export const getTypeChemicalByID = async (req, res) => {
+    try {
+        const typeChemicals = await Type_Chemical.findAll({
+            where:{
+                id : req.params.id
+            }
+        });
+        res.json(typeChemicals[0]);
+    } catch (error) {
+        res.json(error);
+    }  
+}
