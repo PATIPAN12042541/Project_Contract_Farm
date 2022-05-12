@@ -4,9 +4,10 @@ import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
-    const [typeChemical,setTypeChemical] = useState('');
+    const [typeChemical,setTypeChemical] = useState("");
     const navigate = useNavigate();
     const {id} = useParams();
 

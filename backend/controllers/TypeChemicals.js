@@ -1,9 +1,9 @@
-import Type_Chemical from "../models/TypeChemicalModel.js";
+import TypeChemical from "../models/TypeChemicalModel.js";
 
 export const createTypeChemical = async(req, res) => {
     const { type_chemical } = req.body;
     try {
-        await Type_Chemical.create({
+        await TypeChemical.create({
             type_chemical: type_chemical,
         });
         res.json({msg: "Create Successful"});
@@ -15,7 +15,7 @@ export const createTypeChemical = async(req, res) => {
 
 export const getAllTypeChemical = async (req, res) => {
     try {
-        const typeChemicals = await Type_Chemical.findAll();
+        const typeChemicals = await TypeChemical.findAll();
         res.json(typeChemicals);
     } catch (error) {
         res.json(error);
@@ -24,7 +24,7 @@ export const getAllTypeChemical = async (req, res) => {
 
 export const getTypeChemicalByID = async (req, res) => {
     try {
-        const typeChemicals = await Type_Chemical.findAll({
+        const typeChemicals = await TypeChemical.findAll({
             where:{
                 id : req.params.id
             }
