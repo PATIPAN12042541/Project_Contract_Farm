@@ -16,6 +16,7 @@ import List_Chemical from "./components/Type_Chemical/List_Chemical.js";
 import Add_Chemical from "./components/Type_Chemical/Add_Chemical.js";
 import Update_Chemical from "./components/Type_Chemical/Update_Chemical.js";
 import Page_chemical from "./Page_1/Page_chemical";
+import Page_manage_zone from "./Page_2/Page_manage_zone";
 
 function App() {
   let params = useParams();
@@ -101,6 +102,11 @@ function App() {
             }
           />
           <Route exact path="/Page_chemical/:id" element={<Page_chemical />} />
+          <Route
+            exact
+            path="/Page_manage_zone"
+            element={<Page_manage_zone />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
