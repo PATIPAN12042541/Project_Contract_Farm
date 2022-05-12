@@ -15,7 +15,7 @@ const Add_Chemical = () => {
           <section className="content">
               <div className="container-fluid">
                   <div className="row">
-                      <div className="col-md-12">
+                      <div className="col-md-6">
                           <div className="card card-info">
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
