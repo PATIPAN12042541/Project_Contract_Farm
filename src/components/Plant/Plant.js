@@ -55,13 +55,18 @@ const Plant = (props) => {
                           className="text-white"
                         >
                           <div className="card mb-12 bg-gradient-dark">
-                            <img
+                            {/* <img
                               className="card-img-top"
                               src={`${data.plant_image}?w=248&fit=crop&auto=format`}
                               srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                               loading="lazy"
                               width={250}
                               height={300}
+                            /> */}
+                            <img
+                              src={data.plant_image}
+                              alt="Snow"
+                              style="width:100%;"
                             />
                             <div class="bottom-left">Bottom Left</div>
                             <div class="top-left">Top Left</div>
