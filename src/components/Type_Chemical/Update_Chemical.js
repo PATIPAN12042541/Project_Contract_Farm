@@ -64,7 +64,7 @@ const Update_Chemical = () => {
                                         <h3 className="card-title">แก้ไขประเภทข้อมูลสารเคมี</h3>
                                     </center>
                                 </div>
-                                <Form className="form-horizontal" onsubmit={updateTypeChemical}>
+                                <Form className="form-horizontal" onSubmit={updateTypeChemical}>
                                     <div className="card-body">
                                         <div className="form-group row">
                                             <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
