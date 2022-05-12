@@ -56,7 +56,7 @@ const Plant = (props) => {
                           <div className="card mb-12 bg-gradient-white">
                             <div className="container">
                               <div className="text-block-code">
-                                {data.zone_name + "-" + data.id_zone}
+                                {data.zone_name + "-" + data.id_name_plant}
                               </div>
                               <div className="text-block-Plant">
                                 {data.name_plant}
@@ -68,10 +68,8 @@ const Plant = (props) => {
                                 วันที่สิ้นสุด : {data.end_date_plant}
                               </div>
                               <img
-                                className="img-fluid card-img-top"
+                                className="ima-size card-img-top"
                                 src={data.plant_image}
-                                width={250}
-                                height={100}
                               />
                               <div className="text-block-name">
                                 ผู้รับผิดชอบ : นาย ก นามสกุล ก
