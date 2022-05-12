@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const List_Chemical = () => {
-  return (
+    const [listChemicals,setListChemicals] = useState([]);
+
+    useEffect(()=>{
+        getListChemical();
+    },[])
+
+    const getListChemical = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
+        setListChemicals(response.data);
+    }
+
+    return (
       <div className="content-wrapper">
           <section className="content-header">
               <div className="container-fluid">
@@ -42,10 +54,18 @@ const List_Chemical = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
+                                                {listChemicals.map((listChemical, index) => (
+                                                    <tr key={listChemical.id}>
+                                                        <td>{index + 1}</td>
+                                                        <td>{listChemical.type_chemical}</td>
+                                                        <td>
+                                                            <Link to={`/editChemical/${listChemical.id}`} className="button is-small is-info">แก้ไขข้อมูล</Link>
+                                                        </td>
+                                                        <td>
+                                                            <button className="button is-small is-danger">ลบข้อมูล</button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
                                           </tbody>
                                       </Table>
                                   </div>
