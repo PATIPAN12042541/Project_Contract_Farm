@@ -71,7 +71,7 @@ const Plant = (props) => {
                                 className="img-fluid card-img-top"
                                 src={data.plant_image}
                                 width={250}
-                                //  height={300}
+                                height={100}
                               />
                               <div className="text-block-name">
                                 ผู้รับผิดชอบ : นาย ก นามสกุล ก
