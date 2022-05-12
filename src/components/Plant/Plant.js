@@ -56,7 +56,7 @@ const Plant = (props) => {
                           <div className="card mb-12 bg-gradient-white">
                             <div className="container">
                               <div className="text-block-code">
-                                {data.zone_name + "-" + data.id_zone}
+                                {data.zone_name + "-" + data.id_name_plant}
                               </div>
                               <div className="text-block-Plant">
                                 {data.name_plant}
