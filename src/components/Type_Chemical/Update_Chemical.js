@@ -20,7 +20,7 @@ const Update_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.typeChemical);
 
-        console.log(response.data.typeChemical);
+        console.log(response.data.type_chemical);
     }
 
     return (
