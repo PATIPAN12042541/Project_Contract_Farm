@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const List_Chemical = () => {
     const [listChemicals,setListChemicals] = useState([]);
@@ -83,7 +84,7 @@ const List_Chemical = () => {
                                                             <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
-                                                        <Button variant="danger">ลบข้อมูล</Button>
+                                                        <Button variant="danger" onClick={deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
                                                         </td>
                                                     </tr>
                                                 ))}
