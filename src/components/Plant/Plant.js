@@ -54,21 +54,26 @@ const Plant = (props) => {
                           className="text-white"
                         >
                           <div className="card mb-12 bg-gradient-white">
-                            <div class="container">
-                              <div class="text-block-code">A1-1</div>
-                              <div class="text-block-Plant">แปลงเพาะปลูก</div>
-                              <div class="text-block-stdate">
-                                วันที่เริ่มปลูก : 11/05/2565
+                            <div className="container">
+                              <div className="text-block-code">
+                                {data.zone_name + "-" + data.id_zone}
                               </div>
-                              <div class="text-block-eddate">
-                                วันที่สิ้นสุด : 11/05/2565
+                              <div className="text-block-Plant">
+                                {data.name_plant}
+                              </div>
+                              <div className="text-block-stdate">
+                                วันที่เริ่มปลูก : {data.start_date_plant}
+                              </div>
+                              <div className="text-block-eddate">
+                                วันที่สิ้นสุด : {data.end_date_plant}
                               </div>
                               <img
-                                className="img-fluid"
+                                className="img-fluid card-img-top"
                                 src={data.plant_image}
                                 width={250}
+                                //  height={300}
                               />
-                              <div class="text-block-name">
+                              <div className="text-block-name">
                                 ผู้รับผิดชอบ : นาย ก นามสกุล ก
                               </div>
                             </div>
