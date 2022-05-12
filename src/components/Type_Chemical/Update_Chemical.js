@@ -50,7 +50,6 @@ const Update_Chemical = () => {
                                             <div className="col-sm-10">
                                                 <Form.Control  type="text" 
                                                                className="form-control"
-                                                               ref={typeChemical} 
                                                                onChange={(e)=>setTypeChemical(e.target.value)}/>
                                             </div>
                                         </div>
