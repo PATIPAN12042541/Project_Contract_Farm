@@ -63,6 +63,9 @@ const Plant = (props) => {
                               width={250}
                               height={300}
                             />
+                            <div class="text-on-image">
+                              <h3>{data.zone_name + "-" + data.id_zone}</h3>
+                            </div>
                             <div className="card-img-overlay d-flex flex-column justify-content-start">
                               <center>
                                 <ImageListItemBar
