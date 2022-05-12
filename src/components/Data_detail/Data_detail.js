@@ -47,7 +47,7 @@ const Data_detail = (props) => {
                         <div className="col-12">
                           <img
                             className="img-fluid"
-                            src="https://cache-igetweb-v2.mt108.info/uploads/images-cache/7290/product/d0dd9fd358ce54949fa632dd77c7790b_full.jpg"
+                            src={data.path_image}
                             loading="lazy"
                           />
                         </div>
