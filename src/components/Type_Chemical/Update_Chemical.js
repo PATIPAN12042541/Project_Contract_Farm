@@ -48,10 +48,10 @@ const Update_Chemical = () => {
                                         <div className="form-group row">
                                             <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
                                             <div className="col-sm-10">
-                                                <Form.Control type="text" 
-                                                              className="form-control"
-                                                              value={typeChemical} 
-                                                              onChange={(e)=>setTypeChemical(e.target.value)}/>
+                                                <Form.Control  type="text" 
+                                                               className="form-control"
+                                                               ref={typeChemical} 
+                                                               onChange={(e)=>setTypeChemical(e.target.value)}/>
                                             </div>
                                         </div>
                                     </div>
