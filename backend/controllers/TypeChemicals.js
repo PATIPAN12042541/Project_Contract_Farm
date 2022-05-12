@@ -8,6 +8,16 @@ export const createTypeChemical = async(req, res) => {
         });
         res.json({msg: "Create Successful"});
     } catch (error) {
-        console.log(error);
+        //console.log(error);
+        res.json(error)
     }
+}
+
+export const getAllTypeChemical = async (req, res) => {
+    try {
+        const typeChemicals = await Type_Chemical.findAll();
+        res.json(typeChemicals);
+    } catch (error) {
+        res.json(error);
+    }  
 }
