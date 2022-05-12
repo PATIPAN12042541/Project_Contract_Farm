@@ -47,10 +47,10 @@ const Plant = (props) => {
                       <div className="col-md-12" key={index}>
                         <Link
                           to={{
-                            pathname: `/Page_chemical/${data.id}`,
-                            state: { id: data.id },
+                            pathname: `/Page_chemical/${data.id_plant}`,
+                            state: { id: data.id_plant },
                           }}
-                          params={data.id}
+                          params={data.id_plant}
                           className="text-white"
                         >
                           <div className="card mb-12 bg-gradient-white">
