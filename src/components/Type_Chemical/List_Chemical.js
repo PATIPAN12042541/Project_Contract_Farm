@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const List_Chemical = () => {
-    const [listChemicals,setListChemicals] = useState('');
+    const [listChemicals,setListChemicals] = useState([]);
 
     useEffect(()=>{
         getListChemical();
