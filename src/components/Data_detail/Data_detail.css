@@ -1,0 +1,19 @@
+.ima-size {
+    max-width: 100%;
+    height: 50;
+}
+
+
+.font-size {
+    display: block;
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.font-size2 {
+    font-size: 18px;
+}

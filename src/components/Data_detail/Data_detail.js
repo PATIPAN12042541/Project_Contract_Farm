@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 import axios from "axios";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
+import "./Data_detail.css";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
@@ -37,7 +37,8 @@ const Data_detail = (props) => {
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <h1 className="card-title">
-                      รายละเอียดสารเคมี {data.name_chemical}
+                      รายละเอียดสารเคมี พรีวาธอน
+                      {/* รายละเอียดสารเคมี {data.name_chemical} */}
                     </h1>
                   </div>
                   <div className="card-body">
@@ -45,55 +46,76 @@ const Data_detail = (props) => {
                       <div className="col-12 col-sm-4">
                         <div className="col-12">
                           <img
-                            className="img-fluid mb-2"
-                            src={data.path_image}
-                            alt={data.name_chemical}
+                            className="img-fluid"
+                            src="https://cache-igetweb-v2.mt108.info/uploads/images-cache/7290/product/d0dd9fd358ce54949fa632dd77c7790b_full.jpg"
                             loading="lazy"
-                          />
-                          <ImageListItemBar
-                            className="card-title text-primary text-white"
-                            title={data.name_chemical}
                           />
                         </div>
                       </div>
                       <div className="col-12 col-sm-8">
                         <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
                           <div className="row">
-                            <div className="col-12 col-sm-4">
+                            <div className="col-12 col-sm-6">
                               <div className="info-box bg-light">
                                 <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">
-                                    วันที่เริ่มต้น
-                                  </span>
-                                  <span className="info-box-number text-center text-muted mb-0">
-                                    {data.start_date_plant}
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">ชื่อสามัญ : </b>
+                                    chlorantraniliprole
                                   </span>
                                 </div>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-4">
+                            <div className="col-12 col-sm-6">
                               <div className="info-box bg-light">
                                 <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">
-                                    วันที่สิ้นสุด
-                                  </span>
-                                  <span className="info-box-number text-center text-muted mb-0">
-                                    {data.end_date_plant}
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      วัน/เดือน/ปี :{" "}
+                                    </b>
+                                    11/05/2565
                                   </span>
                                 </div>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-4">
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
                               <div className="info-box bg-light">
                                 <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">
-                                    ปริมาณสารเคมีที่ใช้
-                                  </span>
-                                  <span className="info-box-number text-center text-muted mb-0">
-                                    {data.quantity_chemical} {data.unit}
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      อัตรา (cc : L.) :{" "}
+                                    </b>
+                                    40 cc : 25 L.
                                   </span>
                                 </div>
                               </div>
+                            </div>
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      ระยะเวลาตกค้าง :{" "}
+                                    </b>
+                                    3 วัน
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-number text-center text-black mb-0 font-size2">
+                                    วันที่เก็บเกี่ยวผลผลิตได้
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-6 font-size">
+                              19/05/2565
                             </div>
                           </div>
                           <div className="row">
