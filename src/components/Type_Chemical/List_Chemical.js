@@ -38,7 +38,7 @@ const List_Chemical = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <Link to={"/addChemical"}>
+                                      <Link to={"/addTypeChemical"}>
                                           <Button variant="success">เพิ่มประเภทสารเคมี</Button>
                                       </Link>
                                   </div>
@@ -59,10 +59,10 @@ const List_Chemical = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
-                                                            <Link to={`/editChemical/${listChemical.id}`}><button className='btn btn-block btn-info'>แก้ไขข้อมูล</button></Link>
+                                                            <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
-                                                        <button className='btn btn-block btn-danger'>ลบข้อมูล</button>
+                                                        <Button variant="danger">ลบข้อมูล</Button>
                                                         </td>
                                                     </tr>
                                                 ))}
