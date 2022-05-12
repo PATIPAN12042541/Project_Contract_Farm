@@ -47,7 +47,7 @@ const Plant = (props) => {
                       <div className="col-md-12" key={index}>
                         <Link
                           to={{
-                            pathname: `/Data_detail/${data.id}`,
+                            pathname: `/Page_chemical/${data.id}`,
                             state: { id: data.id },
                           }}
                           params={data.id}
