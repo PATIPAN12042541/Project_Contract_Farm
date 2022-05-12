@@ -66,7 +66,7 @@ const Plant = (props) => {
                             <div class="text-on-image">
                               <h3>{data.zone_name + "-" + data.id_zone}</h3>
                             </div>
-                            <div className="card-img-overlay d-flex flex-column justify-content-start">
+                            {/* <div className="card-img-overlay d-flex flex-column justify-content-start">
                               <center>
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
@@ -79,7 +79,7 @@ const Plant = (props) => {
                                   //subtitle={data.name_plant}
                                 />
                               </center>
-                            </div>
+                            </div> */}
                           </div>
                         </Link>
                       </div>
