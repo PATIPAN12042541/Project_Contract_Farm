@@ -66,7 +66,8 @@ const Plant = (props) => {
                             <img
                               src={data.plant_image}
                               alt="Snow"
-                              style="width:100%;"
+                              width={250}
+                              height={300}
                             />
                             <div class="bottom-left">Bottom Left</div>
                             <div class="top-left">Top Left</div>
