@@ -7,7 +7,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
-    const [typeChemical,setTypeChemical] = useState("");
+    const [typeChemical,setTypeChemical] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
