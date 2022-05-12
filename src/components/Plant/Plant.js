@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Plant.css";
 import { Link } from "react-router-dom";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Plant = (props) => {
+  const [datadetail, setDatadetail] = useState([]);
 
- const [datadetail, setDatadetail] = useState([]);
+  const getPlantData = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
+    );
+    setDatadetail(response.data);
+    console.log(response.data);
+  };
 
- const getPlantData = async () => {
-   const response = await axios.get(
-     `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
-   );
-   setDatadetail(response.data);
-   console.log(response.data);
- };
-
- useEffect(() => {
-   getPlantData();
- }, []);
-    
+  useEffect(() => {
+    getPlantData();
+  }, []);
 
   return (
     <div className="content-wrapper">
@@ -54,26 +53,26 @@ const Plant = (props) => {
                           params={data.id}
                           className="text-white"
                         >
-                          <div className="card mb-12 bg-gradient-dark">
-                            {/* <img
-                              className="card-img-top"
-                              src={`${data.plant_image}?w=248&fit=crop&auto=format`}
-                              srcSet={`${data.plant_image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                              loading="lazy"
-                              width={250}
-                              height={300}
-                            /> */}
-                            <img
-                              src={data.plant_image}
-                              alt="Snow"
-                              width={250}
-                              height={300}
-                            />
-                            <div class="bottom-left">Bottom Left</div>
-                            <div class="top-left">Top Left</div>
-                            <div class="top-right">Top Right</div>
-                            <div class="bottom-right">Bottom Right</div>
-                            <div class="centered">Centered</div>
+                          <div className="card mb-12 bg-gradient-white">
+                            <div class="container">
+                              <div class="text-block-code">A1-1</div>
+                              <div class="text-block-Plant">แปลงเพาะปลูก</div>
+                              <div class="text-block-stdate">
+                                วันที่เริ่มปลูก : 11/05/2565
+                              </div>
+                              <div class="text-block-eddate">
+                                วันที่สิ้นสุด : 11/05/2565
+                              </div>
+                              <img
+                                className="card-img-top"
+                                src={data.plant_image}
+                                width={250}
+                                height={300}
+                              />
+                              <div class="text-block-name">
+                                ผู้รับผิดชอบ : นาย ก นามสกุล ก
+                              </div>
+                            </div>
                           </div>
                         </Link>
                       </div>
