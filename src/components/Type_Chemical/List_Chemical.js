@@ -16,7 +16,7 @@ const List_Chemical = () => {
           <section className="content">
               <div className="container-fluid">
                   <div className="row">
-                      <div className="col-md-6">
+                      <div className="col-md-12">
                           <div className="card card-success">
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
