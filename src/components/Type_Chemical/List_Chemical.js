@@ -12,7 +12,7 @@ const List_Chemical = () => {
     },[])
 
     const getListChemical = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListChemicals(response.data);
     }
 
