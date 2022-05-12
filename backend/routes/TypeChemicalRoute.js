@@ -1,8 +1,8 @@
 import express from "express";
-import {TypeChemicals} from "../controllers/TypeChemicals.js"
+import {createTypeChemical} from "../controllers/TypeChemicals.js"
 
 const router = express.Router();
 
-router.post("/addTypeChemical", TypeChemicals);
+router.post("/addTypeChemical", createTypeChemical);
 
 export default router;
