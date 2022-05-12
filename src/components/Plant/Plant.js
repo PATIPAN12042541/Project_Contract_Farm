@@ -64,7 +64,7 @@ const Plant = (props) => {
                                 วันที่สิ้นสุด : 11/05/2565
                               </div>
                               <img
-                                className="card-img-top"
+                                className="img-fluid card-img-top"
                                 src={data.plant_image}
                                 width={250}
                                 height={300}
