@@ -37,10 +37,12 @@ const List_Chemical = () => {
                                               <tr>
                                                   <th>ลำดับ</th>
                                                   <th>ประเภทสารเคมี</th>
-                                                  <th>แก้ไข</th>
+                                                  <th>แก้ไขข้อมูล</th>
+                                                  <th>ลบข้อมูล</th>
                                               </tr>
                                           </thead>
                                           <tbody>
+                                              <td></td>
                                               <td></td>
                                               <td></td>
                                               <td></td>
