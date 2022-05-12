@@ -32,7 +32,7 @@ const Add_Chemical = () => {
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="card-footer">
+                                  <div className ="card-footer">
                                       <button type="button" className="btn btn-info">บันทึก</button>&nbsp;
                                       <Link to={"/Type_Chemical"} className="btn btn-default">ย้อนกลับ</Link>
                                   </div>
