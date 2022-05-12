@@ -64,7 +64,7 @@ const Plant = (props) => {
                               height={300}
                             />
                             <div class="text-on-image">
-                              <h3>{data.zone_name + "-" + data.id_zone}</h3>
+                              {data.zone_name + "-" + data.id_zone}
                             </div>
                             {/* <div className="card-img-overlay d-flex flex-column justify-content-start">
                               <center>
