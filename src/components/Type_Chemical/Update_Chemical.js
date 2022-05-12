@@ -18,9 +18,7 @@ const Update_Chemical = () => {
 
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
-        setTypeChemical(response.data.typeChemical);
-
-        console.log(response.data.type_chemical);
+        setTypeChemical(response.data.type_chemical);
     }
 
     return (
@@ -50,6 +48,7 @@ const Update_Chemical = () => {
                                             <div className="col-sm-10">
                                                 <Form.Control  type="text" 
                                                                className="form-control"
+                                                               value={typeChemical}
                                                                onChange={(e)=>setTypeChemical(e.target.value)}/>
                                             </div>
                                         </div>
