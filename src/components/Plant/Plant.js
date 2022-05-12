@@ -55,6 +55,9 @@ const Plant = (props) => {
                           className="text-white"
                         >
                           <div className="card mb-12 bg-gradient-dark">
+                            <div class="text-on-image">
+                              {data.zone_name + "-" + data.id_zone}
+                            </div>
                             <img
                               className="card-img-top"
                               src={`${data.plant_image}?w=248&fit=crop&auto=format`}
@@ -63,7 +66,8 @@ const Plant = (props) => {
                               width={250}
                               height={300}
                             />
-                            <div className="card-img-overlay d-flex flex-column justify-content-start">
+
+                            {/* <div className="card-img-overlay d-flex flex-column justify-content-start">
                               <center>
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
@@ -76,7 +80,7 @@ const Plant = (props) => {
                                   //subtitle={data.name_plant}
                                 />
                               </center>
-                            </div>
+                            </div> */}
                           </div>
                         </Link>
                       </div>
