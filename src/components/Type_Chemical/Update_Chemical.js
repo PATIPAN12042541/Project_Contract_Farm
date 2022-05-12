@@ -5,13 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Update_Chemical = () => {
-    const [typeChemical,setTypeChemical] = useState([]);
+    const [typeChemical,setTypeChemical] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
         getTypeChemicalById()
     },[])
+
 
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
