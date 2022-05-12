@@ -18,23 +18,35 @@ const List_Chemical = () => {
     }
 
     const deleteTypeChemical = async (id) => {
-        await axios.delete(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`)
-        .then(function (response) {
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Delete Success!",
-              });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want Delete !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                await axios.delete(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`)
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Delete Success!",
+                        });
 
-            getListChemical();
+                        getListChemical();
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Delete Fail!",
+                            text: error,
+                        });
+                    });
+            }
         })
-        .catch(function (error) {
-            Swal.fire({
-                icon: "error",
-                title: "Delete Fail!",
-                text: error,
-              });
-        });
     }
 
 
