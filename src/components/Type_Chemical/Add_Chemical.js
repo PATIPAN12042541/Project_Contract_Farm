@@ -28,7 +28,6 @@ const Add_Chemical = () => {
                 text: "Save Error!",
               });
         });
-
     }
   
     return (
