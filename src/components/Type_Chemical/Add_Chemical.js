@@ -63,7 +63,7 @@ const Add_Chemical = () => {
                                   </div>
                                   <div className ="card-footer">
                                       <button type="submit" className="btn btn-info">บันทึก</button>&nbsp;
-                                      <Link to={"/Type_Chemical"} className="btn btn-default">ย้อนกลับ</Link>
+                                      <Link to={"/TypeChemical"} className="btn btn-default">ย้อนกลับ</Link>
                                   </div>
                               </Form>
                           </div>

@@ -66,7 +66,7 @@ function App() {
           <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
           <Route
             exact
-            path="/Type_Chemical"
+            path="/TypeChemical"
             element={
               <>
                 <Header />
