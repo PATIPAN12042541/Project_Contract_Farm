@@ -16,6 +16,27 @@ const List_Chemical = () => {
         setListChemicals(response.data);
     }
 
+    const deleteTypeChemical = async (id) => {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`)
+        .then(function (response) {
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Delete Success!",
+              });
+
+            getListChemical();
+        })
+        .catch(function (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Delete Fail!",
+                text: error,
+              });
+        });
+    }
+
+
     return (
       <div className="content-wrapper">
           <section className="content-header">
