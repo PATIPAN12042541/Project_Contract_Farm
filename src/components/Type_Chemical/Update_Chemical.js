@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Update_Chemical = () => {
-    const [typeChemical,setTypeChemical] = useState("");
+    const [typeChemical,setTypeChemical] = useState([]);
     const navigate = useNavigate();
     const {id} = useParams();
 
