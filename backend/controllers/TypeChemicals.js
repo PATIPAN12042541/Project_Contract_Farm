@@ -34,3 +34,34 @@ export const getTypeChemicalByID = async (req, res) => {
         res.json(error);
     }  
 }
+
+export const updateTypeChemical = async (req, res) => {
+    try {
+        await TypeChemical.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Type Chemical Updated"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
+}
+
+export const deleteTypeChemical = async (req, res) => {
+    try {
+        await TypeChemical.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Type Chemical Deleted"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
+}
+

@@ -21,6 +21,29 @@ const Update_Chemical = () => {
         setTypeChemical(response.data.type_chemical);
     }
 
+    const updateTypeChemical = async (e) => {
+        e.preventDefault();
+        try{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
+                type_chemical: typeChemical
+            });
+
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+              });
+            navigate.push("/TypeChemical");
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+              });
+        }
+    }
+
+
     return (
         <div className="content-wrapper">
             <section className="content-header">
@@ -41,7 +64,7 @@ const Update_Chemical = () => {
                                         <h3 className="card-title">แก้ไขประเภทข้อมูลสารเคมี</h3>
                                     </center>
                                 </div>
-                                <Form className="form-horizontal">
+                                <Form className="form-horizontal" onsubmit={updateTypeChemical}>
                                     <div className="card-body">
                                         <div className="form-group row">
                                             <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
