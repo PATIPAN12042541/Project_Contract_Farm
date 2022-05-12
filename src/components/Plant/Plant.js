@@ -68,10 +68,8 @@ const Plant = (props) => {
                                 วันที่สิ้นสุด : {data.end_date_plant}
                               </div>
                               <img
-                                className="img-fluid card-img-top"
+                                className="ima-size card-img-top"
                                 src={data.plant_image}
-                                width={250}
-                                height={100}
                               />
                               <div className="text-block-name">
                                 ผู้รับผิดชอบ : นาย ก นามสกุล ก
