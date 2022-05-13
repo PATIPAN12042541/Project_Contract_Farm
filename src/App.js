@@ -49,7 +49,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <Edit_data />
+                <Edit_data id={params.id} />
                 <Footer />
               </>
             }

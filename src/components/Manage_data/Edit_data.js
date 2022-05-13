@@ -13,7 +13,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
-const Edit_data = () => {
+const Edit_data = (props) => {
   const [plantdata, setPlantData] = useState([]);
   const [idplant, setIdPlant] = useState();
   const [nameplant, setNamePlant] = useState();
@@ -65,7 +65,7 @@ const Edit_data = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant`
+      `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
   };
