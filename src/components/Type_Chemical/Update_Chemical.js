@@ -87,6 +87,7 @@ const Update_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
+                                                    value={checkStatus}
                                                 />
                                             </div>
                                       </div>
