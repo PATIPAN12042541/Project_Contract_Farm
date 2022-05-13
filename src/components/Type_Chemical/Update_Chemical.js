@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useState,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
-import ToggleButton from 'react-bootstrap/ToggleButton'
 import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -81,12 +80,11 @@ const Update_Chemical = () => {
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
+                                          <Form.Label className="col-sm-2 col-form-label">Active</Form.Label>
                                             <div className="col-sm-10">
                                                 <input
                                                     type="checkbox"
                                                     id="custom-switch"
-                                                    label="Active"
                                                     checked={checked}
                                                     onChange={() => setChecked(!checked)}
                                                 />
