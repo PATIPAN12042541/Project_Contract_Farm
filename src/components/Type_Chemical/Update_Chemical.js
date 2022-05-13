@@ -22,6 +22,7 @@ const Update_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
         setCheckStatus(response.data.status);
+        window.location.reload();
     }
 
     const updateTypeChemical = async (e) => {
@@ -87,6 +88,7 @@ const Update_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
+                                                    defaultChecked={(checkStatus === 1)?true:false}
                                                 />
                                             </div>
                                       </div>
