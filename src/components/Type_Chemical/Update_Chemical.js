@@ -15,12 +15,13 @@ const Update_Chemical = () => {
 
     useEffect(()=>{
         getTypeChemicalById()
-    },[checked])
+    },[])
 
 
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
+        console.log(response.data.status);
         setChecked((response.data.status === 1)?true:false);
         setCheckStatus(response.data.status)
     }
