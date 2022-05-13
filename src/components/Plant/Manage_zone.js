@@ -206,7 +206,9 @@ const Manage_zone = () => {
                                 type="submit"
                                 className="btn btn-danger"
                                 style={{ color: "#FFFFFF" }}
-                                onClick={deleteZone(data.id)}
+                                onClick={() => {
+                                  deleteZone(data.id);
+                                }}
                               >
                                 <BsFillTrashFill />
                               </button>
