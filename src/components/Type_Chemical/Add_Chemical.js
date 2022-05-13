@@ -74,10 +74,10 @@ const Add_Chemical = () => {
                                                     value={checkStatus}
                                                     onChange={(e)=>{
                                                         if(e.target.checked === false){
-                                                            setCheckStatus(0);
+                                                            setCheckStatus(1);
                                                             console.log("Check 2 : "+checkStatus);
                                                         }else if (e.target.checked === true){
-                                                            setCheckStatus(1);
+                                                            setCheckStatus(0);
                                                             console.log("Check 2 : "+checkStatus);
                                                         }
                                                     }}
