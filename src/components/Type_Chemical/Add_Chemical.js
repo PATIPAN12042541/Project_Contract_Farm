@@ -65,15 +65,15 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
-                                                111111
+                                                11111122222
                                                 <Form.Check
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
                                                     defaultChecked={false}
                                                     onChange={(e)=>{
-                                                        console.log("ก่อน Set State : "+e.target.checked);
-                                                        setCheck(e.target.checked);
+                                                        console.log("ก่อน Set State : "+e.target.checked.value);
+                                                        setCheck(e.target.checked.value);
                                                         console.log("check 1 : "+e.target.checked);
                                                         console.log("หลัง Set State : "+check);
                                                         // /*if(check === false){
