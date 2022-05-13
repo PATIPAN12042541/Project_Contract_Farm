@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
     const [checked, setChecked] = useState(false);
-    const [checkStatus, setCheckStatus] = useState('');
+    //const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
@@ -29,7 +29,7 @@ const Update_Chemical = () => {
         try{
             await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
                 type_chemical: typeChemical,
-                status : checkStatus,
+                status : checked,
             });
 
             Swal.fire({
@@ -86,8 +86,8 @@ const Update_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={checkStatus}
-                                                    onChange={() => setChecked(!checkStatus)}
+                                                    defaultChecked={setChecked}
+                                                    onChange={() => setChecked(!checked)}
                                                 />
                                             </div>
                                       </div>
