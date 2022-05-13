@@ -70,7 +70,7 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={false}
+                                                    defaultChecked={check}
                                                     value={check}
                                                     onChange={(e)=>{
                                                         console.log("check 1 นอก If: "+check);
