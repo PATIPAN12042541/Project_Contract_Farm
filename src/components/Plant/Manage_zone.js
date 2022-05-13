@@ -80,10 +80,10 @@ const Manage_zone = () => {
                           <center>preview</center>
                         </th>
                         <th>
-                          <center>ข้อมูลแปลงผัก</center>
+                          <center>เเก้ไข/ลบข้อมูล</center>
                         </th>
                         <th>
-                          <center>เเก้ไข/ลบข้อมูล</center>
+                          <center>ข้อมูลแปลงผัก</center>
                         </th>
                       </tr>
                     </thead>
@@ -105,24 +105,7 @@ const Manage_zone = () => {
                               </Zoom>
                             </center>
                           </td>
-                          <td className="col-md-1">
-                            <center>
-                              <Link
-                                to={{
-                                  pathname: `/Edit_data/${data.id}`,
-                                  state: { id: data.id },
-                                }}
-                              >
-                                <button
-                                  type="submit"
-                                  className="btn btn-primary"
-                                  style={{ color: "#FFFFFF" }}
-                                >
-                                  <BsFillExclamationCircleFill />
-                                </button>
-                              </Link>
-                            </center>
-                          </td>
+
                           <td className="col-md-2">
                             <center>
                               <button
@@ -141,6 +124,24 @@ const Manage_zone = () => {
                               >
                                 <BsFillTrashFill />
                               </button>
+                            </center>
+                          </td>
+                          <td className="col-md-1">
+                            <center>
+                              <Link
+                                to={{
+                                  pathname: `/Edit_data/${data.id}`,
+                                  state: { id: data.id },
+                                }}
+                              >
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillExclamationCircleFill />
+                                </button>
+                              </Link>
                             </center>
                           </td>
                         </tr>
@@ -226,6 +227,7 @@ const Manage_zone = () => {
         show={showEdit}
         onHide={handleClose2}
         aria-labelledby="contained-modal-title-vcenter"
+        centered
       >
         <Modal.Header
           style={{
