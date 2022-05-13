@@ -287,7 +287,6 @@ const Manage_zone = () => {
         show={show}
         onHide={handleClose}
         aria-labelledby="contained-modal-title-vcenter"
-        centered
       >
         <Modal.Header
           style={{
@@ -373,7 +372,6 @@ const Manage_zone = () => {
         show={showEdit}
         onHide={handleClose2}
         aria-labelledby="contained-modal-title-vcenter"
-        centered
       >
         <Modal.Header
           style={{
