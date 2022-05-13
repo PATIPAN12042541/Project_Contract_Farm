@@ -1,4 +1,5 @@
 import db from "../config/Database.js";
+import ZonePlant from "../models/ZonePlant.js";
 
 export const GetZonePlant = async (req, res) => {
   try {
@@ -37,4 +38,19 @@ export const getDataPlant = async (req, res) => {
   }
 };
 
+export const postZone = async (req, res) => {
+  const { zone_name, image_zone, auto_id_zone } = req.body;
 
+  try {
+    await ZonePlant.create({
+      zone_name: zone_name,
+      image_zone: "../dist/img/" + image_zone,
+      auto_id_zone: auto_id_zone,
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+
+  res.json({ msg: "Successful" });
+};
+  

@@ -10,6 +10,9 @@ const ZonePlant = db.define(
     image_zone: {
       type: DataTypes.STRING,
     },
+    auto_id_zone: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,

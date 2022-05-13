@@ -25,6 +25,8 @@ const Manage_zone = () => {
   const handleShow2 = () => setShowEdit(true);
 
   const [plant, setPlant] = useState([]);
+  const [idzone, setIdZone] = useState([]);
+
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
 
@@ -50,6 +52,42 @@ const Manage_zone = () => {
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
+  };
+
+  const postZone = async (e) => {
+    e.preventDefault();
+    const autoid = uuidv4();
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/zoneplant/postZone`, {
+          zone_name: idzone,
+          image_zone: image_name,
+          auto_id_zone: autoid,
+        })
+        .then(function (response) {
+          getPlant();
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+
+      uploadImg();
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   return (
@@ -188,14 +226,15 @@ const Manage_zone = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+          <form onSubmit={postZone}>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
-
               <form.Control
                 type="text"
                 placeholder="รหัสโซนเพาะปลูก"
+                defaultValue={idzone}
                 autoFocus
+                onChange={(e) => setIdZone(e.target.value)}
               />
             </form.Group>
             <form.Group
