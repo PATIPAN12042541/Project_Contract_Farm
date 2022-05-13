@@ -56,9 +56,7 @@ const Manage_zone = () => {
       .catch((err) => console.error(err));
   };
 
-  const postZone = async (e) => {
-    console.log("click");
-    e.preventDefault();
+  const postZone = async () => {
     const autoid = uuidv4();
     try {
       await axios
