@@ -24,6 +24,16 @@ const Update_Chemical = () => {
         setCheckStatus(response.data.status);
     }
 
+    const statusChecked = () =>{
+        if (checkStatus === 1){
+            setChecked(true);
+            console.log("true : "+checked);
+        }else{
+            setChecked(false);
+            console.log("false : "+checked);
+        }
+    }
+
     const updateTypeChemical = async (e) => {
         e.preventDefault();
         try{
@@ -86,7 +96,9 @@ const Update_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={console.log(checkStatus)}
+                                                    defaultChecked={()=>{
+                                                        statusChecked()
+                                                    }}
                                                     onChange={(e)=>{
                                                         setChecked((checkStatus === 1)?true:false);
                                                         setChecked(!checked);
