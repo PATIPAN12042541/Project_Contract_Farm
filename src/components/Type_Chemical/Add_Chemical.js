@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
+    const [check,setCheck] = useState(false);
+    const [checkStatus,setCheckStatus] = useState(0);
 
     const AddChemical = async(e)=>{
         e.preventDefault();
@@ -63,11 +65,22 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
+                                                11111122222
                                                 <Form.Check
                                                     type="checkbox"
-                                                    class="custom-control-input"
                                                     id="custom-switch"
                                                     label="Active"
+                                                    defaultChecked={check}
+                                                    value={checkStatus}
+                                                    onChange={(e)=>{
+                                                        if(e.target.checked === false){
+                                                            setCheckStatus(0);
+                                                            console.log("Check 2 : "+checkStatus);
+                                                        }else if (e.target.checked === true){
+                                                            setCheckStatus(1);
+                                                            console.log("Check 2 : "+checkStatus);
+                                                        }
+                                                    }}
                                                 />
                                             </div>
                                       </div>
