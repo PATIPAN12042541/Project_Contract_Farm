@@ -25,6 +25,7 @@ const Manage_zone = () => {
   const handleShow2 = () => setShowEdit(true);
 
   const [plant, setPlant] = useState([]);
+  const [id, setID] = useState([]);
   const [idzone, setIdZone] = useState([]);
   const [pathimage, setPathImage] = useState([]);
 
@@ -200,6 +201,7 @@ const Manage_zone = () => {
                                 style={{ color: "#FFFFFF" }}
                                 onClick={() => {
                                   setIdZone(data.zone_name);
+                                  setID(data.id);
                                   setPathImage(data.image_zone);
                                   handleShow2();
                                 }}
@@ -352,7 +354,12 @@ const Manage_zone = () => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
-              <form.Control type="text" defaultValue={idzone} autoFocus />
+              <form.Control
+                id={id}
+                type="text"
+                defaultValue={idzone}
+                autoFocus
+              />
             </form.Group>
             <form.Group
               className="mb-3"
