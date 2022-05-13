@@ -235,6 +235,7 @@ const Manage_zone = () => {
                                 onClick={() => {
                                   setIdZone(data.zone_name);
                                   setID(data.id);
+                                  setPathImage("");
                                   setPathImage(data.image_zone);
                                   handleShow2();
                                 }}
