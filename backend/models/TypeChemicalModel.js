@@ -4,7 +4,9 @@ const { DataTypes } = Sequelize;
 const Type_Chemical = db.define('type_chemical',{
     type_chemical:{
         type: DataTypes.STRING,
-        status : DataTypes.INTEGER,
+    },
+    status:{
+        type: DataTypes.INTEGER,
     }
 },{
     freezeTableName:true
