@@ -83,7 +83,6 @@ const Update_Chemical = () => {
                                         <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
-                                                {checked}
                                                 <input
                                                     type="checkbox"
                                                     id="custom-switch"
