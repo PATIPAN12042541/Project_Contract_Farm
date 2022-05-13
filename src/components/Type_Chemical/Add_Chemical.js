@@ -11,6 +11,7 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
+        console.log(checked);
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
             type_chemical: typeChemical,
             status : (checked === true) ? 1 : 0,
