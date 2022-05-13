@@ -11,10 +11,10 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
-        console.log(e.target.checked);
+        console.log(checked);
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
             type_chemical: typeChemical,
-            status : (e.target.checked === true) ? 1 : 0,
+            status : (checked === true) ? 1 : 0,
         })
         .then(function (response) {
             Swal.fire({
@@ -72,7 +72,9 @@ const Add_Chemical = () => {
                                                     label="Active"
                                                     defaultChecked={false}
                                                     onChange={(e)=>{
+                                                        console.log(checked);
                                                         setChecked(!checked);
+                                                        console.log(checked);
                                                     }}
                                                 />
                                             </div>
