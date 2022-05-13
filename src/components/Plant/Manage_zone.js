@@ -94,7 +94,7 @@ const Manage_zone = () => {
                             <center>
                               <Zoom>
                                 <img
-                                  src={data.mage_zone}
+                                  src={data.image_zone}
                                   className="img-fluid mb-2"
                                   alt="white sample"
                                   width="100"
