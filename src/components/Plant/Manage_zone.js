@@ -123,6 +123,39 @@ const Manage_zone = () => {
     });
   };
 
+
+  const updateZone = async (id) => {
+    try {
+      if (image_name === undefined) {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
+          {
+            zone_name: idzone,
+            image_zone: "../dist/img/" + image_name,
+          }
+        );
+      } else {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
+          {
+            zone_name: idzone,
+            image_zone: "../dist/img/" + image_name,
+          }
+        );
+
+        uploadImg();
+      }
+      getPlant();
+      Swal.fire("Succes !", "Your file has been Update.", "success");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.message,
+        text: "Update Error!",
+      });
+    }
+  };
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -254,7 +287,6 @@ const Manage_zone = () => {
         show={show}
         onHide={handleClose}
         aria-labelledby="contained-modal-title-vcenter"
-        centered
       >
         <Modal.Header
           style={{
@@ -340,7 +372,6 @@ const Manage_zone = () => {
         show={showEdit}
         onHide={handleClose2}
         aria-labelledby="contained-modal-title-vcenter"
-        centered
       >
         <Modal.Header
           style={{
@@ -355,10 +386,10 @@ const Manage_zone = () => {
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
               <form.Control
-                id={id}
                 type="text"
                 defaultValue={idzone}
                 autoFocus
+                onChange={(e) => setIdZone(e.target.value)}
               />
             </form.Group>
             <form.Group
@@ -373,11 +404,32 @@ const Manage_zone = () => {
                     btnIcon="fas fa-upload"
                     multiple
                     accept="image/*"
+                    onUpload={(file) => {
+                      console.log("query file", file);
+
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setImageName(e.name);
+                      });
+
+                      const img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setImage(img);
+                    }}
                   />
                 </Col>
                 <Col md>
                   <form.Label>Preview</form.Label>
-                  <img src={pathimage} className="img-fluid" />
+                  <img
+                    src={
+                      image.preview
+                        ? image.preview
+                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                    }
+                    className="img-fluid"
+                  />
                 </Col>
               </Row>
             </form.Group>
@@ -394,7 +446,9 @@ const Manage_zone = () => {
           <button
             type="submit"
             className="btn btn-success"
-            onClick={handleClose2}
+            onClick={() => {
+              updateZone(id);
+            }}
           >
             Save Changes
           </button>
