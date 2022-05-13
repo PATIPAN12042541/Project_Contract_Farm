@@ -8,14 +8,14 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState('');
     //const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
         getTypeChemicalById()
-    },[checked])
+    },[])
 
 
     const getTypeChemicalById = async () => {
