@@ -108,6 +108,7 @@ const Edit_data = (props) => {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
           id_name_plant: idplant,
+          id_zone: props.id,
           autoid_check: autoid,
           name_plant: nameplant,
           start_date_plant: startdate,

@@ -67,6 +67,7 @@ export const getManagePlantEdit = async (req, res) => {
 export const postDetailPlant = async (req, res) => {
   const {
     id_name_plant,
+    id_zone,
     autoid_check,
     name_plant,
     start_date_plant,
@@ -77,6 +78,7 @@ export const postDetailPlant = async (req, res) => {
   try {
     await PlantDetail.create({
       id_name_plant: id_name_plant,
+      id_zone: id_zone,
       autoid_check: autoid_check,
       unit: "",
       note: "",
