@@ -27,11 +27,11 @@ export const getPlant = async (req, res) => {
         "from plant " +
         "left join plant_detail on plant.id_plant = plant_detail.id " +
         "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
-        "where zone_plant.id = :zone_plant_id " +
-        {
-          replacements: { zone_plant_id: req.params.id },
-          type: db.QueryTypes.SELECT,
-        }
+        "where zone_plant.id = :zone_plant_id ",
+      {
+        replacements: { zone_plant_id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
     );
     res.json(plants);
   } catch (error) {
