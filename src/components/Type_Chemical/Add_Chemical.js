@@ -64,6 +64,7 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
+                                                111111
                                                 <Form.Check
                                                     type="checkbox"
                                                     className="custom-control-input"
