@@ -27,7 +27,7 @@ const Manage_zone = () => {
   const [plant, setPlant] = useState([]);
   const [id, setID] = useState([]);
   const [idzone, setIdZone] = useState([]);
-  const [pathimage, setPathImage] = useState([]);
+  const [pathimage, setPathImage] = useState([""]);
 
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
