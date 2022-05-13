@@ -13,7 +13,7 @@ import {
 
 const router = express.Router();
 
-router.get("/getdata/:id", getPlant);
+router.get("/:id", getPlant);
 router.get("/Data_detail/:id", getDataImagePlant);
 router.post("/DetailPlant", postDetailPlant);
 router.patch("/UpdatePlant/:id", updatePlant);
