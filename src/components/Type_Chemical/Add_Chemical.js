@@ -68,6 +68,9 @@ const Add_Chemical = () => {
                                                     class="custom-control-input"
                                                     id="custom-switch"
                                                     label="Active"
+                                                    onChange={(e)=>{
+                                                        console.log("Check : "+this.checked)
+                                                    }}
                                                 />
                                             </div>
                                       </div>
