@@ -69,7 +69,6 @@ const Add_Chemical = () => {
                                                     className="custom-control-input"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={checkStatus}
                                                     onChange={(e)=>{
                                                         console.log("Check : "+setCheckStatus(!checkStatus))
                                                     }}
