@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState('');
     const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
@@ -21,8 +21,15 @@ const Update_Chemical = () => {
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
-        setChecked((response.data.status === 1)?true:false);
-        setCheckStatus(response.data.status)
+        setCheckStatus(response.data.status);
+
+        if (response.data.status === 1){
+            setChecked(true);
+            console.log("true : "+checkStatus);
+        }else{
+            setChecked(false);
+            console.log("false : "+checkStatus);
+        }
     }
 
     const updateTypeChemical = async (e) => {
@@ -87,10 +94,10 @@ const Update_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={checked}
+                                                    defaultChecked={(checkStatus === 1)?true:false}
                                                     onChange={(e)=>{
+                                                        setChecked((checkStatus === 1)?true:false);
                                                         setChecked(!checked);
-                                                        console.log(checked);
                                                         if (checked === true){
                                                             setCheckStatus("1");
                                                         }else{
