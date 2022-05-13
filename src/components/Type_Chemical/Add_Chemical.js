@@ -71,6 +71,7 @@ const Add_Chemical = () => {
                                                     id="custom-switch"
                                                     label="Active"
                                                     defaultChecked={false}
+                                                    value={0}
                                                     onChange={(e)=>{
                                                         console.log("ก่อน Set State : "+e.target.checked.value);
                                                         setCheck(e.target.checked.value);
