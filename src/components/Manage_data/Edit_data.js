@@ -67,7 +67,7 @@ const Edit_data = (props) => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
+      `${process.env.REACT_APP_API_URL}/getplant/getdata/${props.id}`
     );
     setPlantData(response.data);
     console.log(response.data);
