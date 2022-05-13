@@ -55,6 +55,7 @@ const Manage_zone = () => {
   };
 
   const postZone = async (e) => {
+    console.log("click");
     e.preventDefault();
     const autoid = uuidv4();
     try {
