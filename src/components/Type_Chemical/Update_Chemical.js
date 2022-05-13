@@ -92,10 +92,8 @@ const Update_Chemical = () => {
                                                         setChecked(!checked);
                                                         if (checked === true){
                                                             setCheckStatus("1");
-                                                            console.log("1 : "+checked);
                                                         }else{
                                                             setCheckStatus("0");
-                                                            console.log("0 : "+checked);
                                                         }
                                                     }}
                                                 />
