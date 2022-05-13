@@ -12,8 +12,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
+import Collapse from "react-bootstrap/Collapse";
 
 const Edit_data = () => {
+  /************ set open table  ***************/
+  const [open, setOpen] = useState(false);
+  /*********************************************/
   const [plantdata, setPlantData] = useState([]);
   const [idplant, setIdPlant] = useState();
   const [nameplant, setNamePlant] = useState();
@@ -337,11 +341,14 @@ const Edit_data = () => {
                     </thead>
                     {plantdata.map((data, index) => (
                       <tbody key={data.id_plant}>
-                        <tr
-                          data-widget="expandable-table"
-                          aria-expanded="false"
-                        >
-                          <td>{data.plant_detail_id_name_plant}</td>
+                        <tr>
+                          <td
+                            onClick={() => setOpen(!open)}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={open}
+                          >
+                            {data.plant_detail_id_name_plant}
+                          </td>
                           <td>{data.name_plant}</td>
                           <td>{data.start_date_plant}</td>
                           <td>{data.end_date_plant}</td>
@@ -402,100 +409,104 @@ const Edit_data = () => {
                             </center>
                           </td>
                         </tr>
-                        <tr className="expandable-body d-none">
-                          <td colSpan={6}>
-                            <div className="row">
-                              <div className="col-2">
-                                <input
-                                  type="text"
-                                  className="form-control"
-                                  disabled
-                                  placeholder="# หมายเลข "
-                                  defaultValue={data.plant_detail_id_name_plant}
-                                />
-                              </div>
-                              <div className="col-3">
-                                <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="ชื่อแปลงผัก"
-                                  defaultValue={data.name_plant}
-                                  onChange={(e) =>
-                                    setEditNamePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-2">
-                                <input
-                                  type="date"
-                                  className="form-control"
-                                  placeholder="วันที่เริ่มต้น"
-                                  defaultValue={data.start_date_plant}
-                                  onChange={(e) =>
-                                    setEditStartDatePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-2">
-                                <input
-                                  type="date"
-                                  className="form-control"
-                                  placeholder="วันที่สิ้นสุด"
-                                  defaultValue={data.end_date_plant}
-                                  onChange={(e) =>
-                                    setEditEndDatePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-1">
-                                <FileUpload
-                                  btnIcon="fas fa-upload"
-                                  multiple
-                                  accept="image/*"
-                                  onUpload={(file) => {
-                                    console.log("query file", file);
-
-                                    const filesArray = [].slice.call(file);
-                                    filesArray.forEach((e) => {
-                                      setEditImageName(e.name);
-                                    });
-
-                                    const edit_img = {
-                                      preview: URL.createObjectURL(file[0]),
-                                      data: file[0],
-                                    };
-                                    setEditImage(edit_img);
-                                  }}
-                                />
-                              </div>
-                              <div className="col-1">
-                                <Zoom>
-                                  <img
-                                    src={
-                                      editimage.preview
-                                        ? editimage.preview
-                                        : data.plant_image
+                        <Collapse in={open}>
+                          <tr id="example-collapse-text">
+                            <td colSpan={6}>
+                              <div className="row">
+                                <div className="col-2">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    disabled
+                                    placeholder="# หมายเลข "
+                                    defaultValue={
+                                      data.plant_detail_id_name_plant
                                     }
-                                    className="img-fluid mb-2"
-                                    width="100"
-                                    height="100"
                                   />
-                                </Zoom>
+                                </div>
+                                <div className="col-3">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="ชื่อแปลงผัก"
+                                    defaultValue={data.name_plant}
+                                    onChange={(e) =>
+                                      setEditNamePlant(e.target.value)
+                                    }
+                                  />
+                                </div>
+                                <div className="col-2">
+                                  <input
+                                    type="date"
+                                    className="form-control"
+                                    placeholder="วันที่เริ่มต้น"
+                                    defaultValue={data.start_date_plant}
+                                    onChange={(e) =>
+                                      setEditStartDatePlant(e.target.value)
+                                    }
+                                  />
+                                </div>
+                                <div className="col-2">
+                                  <input
+                                    type="date"
+                                    className="form-control"
+                                    placeholder="วันที่สิ้นสุด"
+                                    defaultValue={data.end_date_plant}
+                                    onChange={(e) =>
+                                      setEditEndDatePlant(e.target.value)
+                                    }
+                                  />
+                                </div>
+                                <div className="col-1">
+                                  <FileUpload
+                                    btnIcon="fas fa-upload"
+                                    multiple
+                                    accept="image/*"
+                                    onUpload={(file) => {
+                                      console.log("query file", file);
+
+                                      const filesArray = [].slice.call(file);
+                                      filesArray.forEach((e) => {
+                                        setEditImageName(e.name);
+                                      });
+
+                                      const edit_img = {
+                                        preview: URL.createObjectURL(file[0]),
+                                        data: file[0],
+                                      };
+                                      setEditImage(edit_img);
+                                    }}
+                                  />
+                                </div>
+                                <div className="col-1">
+                                  <Zoom>
+                                    <img
+                                      src={
+                                        editimage.preview
+                                          ? editimage.preview
+                                          : data.plant_image
+                                      }
+                                      className="img-fluid mb-2"
+                                      width="100"
+                                      height="100"
+                                    />
+                                  </Zoom>
+                                </div>
+                                <div className="col-1">
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    onClick={() => {
+                                      updatePlant(data.plant_id);
+                                    }}
+                                  >
+                                    <BsCheckSquareFill /> ยืนยัน
+                                  </button>
+                                </div>
                               </div>
-                              <div className="col-1">
-                                <button
-                                  type="submit"
-                                  className="btn btn-success"
-                                  onClick={() => {
-                                    updatePlant(data.plant_id);
-                                  }}
-                                >
-                                  <BsCheckSquareFill /> ยืนยัน
-                                </button>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
+                            </td>
+                          </tr>
+                        </Collapse>
                       </tbody>
                     ))}
                   </table>
