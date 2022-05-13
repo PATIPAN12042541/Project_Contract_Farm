@@ -89,6 +89,7 @@ const Update_Chemical = () => {
                                                     defaultChecked={(checkStatus === 1)?true:false}
                                                     onChange={(e)=>{
                                                         setChecked((checkStatus === 1)?true:false);
+                                                        setChecked(!checked);
                                                         if (checked === true){
                                                             setCheckStatus("1");
                                                             console.log("1 : "+checked);
