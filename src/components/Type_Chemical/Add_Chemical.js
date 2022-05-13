@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
-    const [check,setCheck] = useState(false);
+    const [check,setCheck] = useState(true);
     const [checkStatus,setCheckStatus] = useState(0);
 
     const AddChemical = async(e)=>{
@@ -74,7 +74,7 @@ const Add_Chemical = () => {
                                                     value={check}
                                                     onChange={(e)=>{
                                                         setCheck(e.target.checked);
-                                                        console.log("check 1 นอก If: "+check);
+                                                        console.log("check 1 : "+check);
                                                         // /*if(check === false){
                                                         //     setCheck(e.target.checked);
                                                         //     setCheckStatus(0);
