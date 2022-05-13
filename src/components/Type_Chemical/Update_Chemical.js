@@ -21,6 +21,7 @@ const Update_Chemical = () => {
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
+        setCheckStatus(response.data.status);
 
         if (checkStatus === 1){
             setChecked(true);
@@ -29,8 +30,6 @@ const Update_Chemical = () => {
             setChecked(false);
             console.log("false : "+checked);
         }
-
-        setCheckStatus(response.data.status);
     }
 
     const updateTypeChemical = async (e) => {
