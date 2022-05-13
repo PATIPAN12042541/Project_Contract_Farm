@@ -8,12 +8,13 @@ import Swal from 'sweetalert2'
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
     const [checked, setChecked] = useState(true);
-    const [checkStatus,setCheckStatus] = useState('');
+    const [checkStatus, setCheckStatus] = useState('');
 
     const AddChemical = async(e)=>{
         e.preventDefault();
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
-            type_chemical: typeChemical
+            type_chemical: typeChemical,
+            status : (checked)?"1":"0",
         })
         .then(function (response) {
             Swal.fire({
@@ -65,7 +66,6 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
-                                                11111122222
                                                 <Form.Check
                                                     type="checkbox"
                                                     id="custom-switch"
@@ -73,14 +73,11 @@ const Add_Chemical = () => {
                                                     defaultChecked={false}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
-                                                        console.log(checked);
-                                                        /*if(e.target.checked === false){
-                                                            setCheckStatus(0);
-                                                            console.log("Check 2 : "+checkStatus);
-                                                        }else if (e.target.checked === true){
-                                                            setCheckStatus(1);
-                                                            console.log("Check 2 : "+checkStatus);
-                                                        }*/
+                                                        // if (checked === true){
+                                                        //     setCheckStatus("1");
+                                                        // }else{
+                                                        //     setCheckStatus("0");
+                                                        // }
                                                     }}
                                                 />
                                             </div>
