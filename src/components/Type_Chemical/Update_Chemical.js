@@ -21,14 +21,7 @@ const Update_Chemical = () => {
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
-        if (response.data.status === 1 ){
-            setChecked(true);
-            console.log("1 : "+checked);
-        }else{
-            setChecked(false);
-            console.log("2 : "+checked);
-        }
-        setCheckStatus(response.data.status)
+        setCheckStatus(response.data.status);
     }
 
     const updateTypeChemical = async (e) => {
@@ -95,12 +88,14 @@ const Update_Chemical = () => {
                                                     label="Active"
                                                     defaultChecked={(checkStatus === 1)?true:false}
                                                     onChange={(e)=>{
-                                                        setChecked(!checked);
+                                                        setChecked(!(checkStatus === 1)?true:false);
                                                         console.log(checked);
                                                         if (checked === true){
                                                             setCheckStatus("1");
+                                                            console.log("1 : "+checked);
                                                         }else{
                                                             setCheckStatus("0");
+                                                            console.log("0 : "+checked);
                                                         }
                                                     }}
                                                 />
