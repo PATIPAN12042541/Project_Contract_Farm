@@ -11,10 +11,11 @@ import FileUpload from "@hawk-ui/file-upload";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { v4 as uuidv4 } from "uuid";
 
 const Manage_zone = () => {
   const [show, setShow] = useState(false);
-
   const [showEdit, setShowEdit] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -24,6 +25,8 @@ const Manage_zone = () => {
   const handleShow2 = () => setShowEdit(true);
 
   const [plant, setPlant] = useState([]);
+  const [image, setImage] = useState({ preview: "", data: "" });
+  const [image_name, setImageName] = useState();
 
   useEffect(() => {
     getPlant();
@@ -36,6 +39,19 @@ const Manage_zone = () => {
 
     setPlant(response.data);
   };
+
+  const uploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", image.data);
+
+    console.log(formData);
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -194,11 +210,32 @@ const Manage_zone = () => {
                     btnIcon="fas fa-upload"
                     multiple
                     accept="image/*"
+                    onUpload={(file) => {
+                      console.log("query file", file);
+
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setImageName(e.name);
+                      });
+
+                      const img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setImage(img);
+                    }}
                   />
                 </Col>
                 <Col md>
                   <form.Label>Preview</form.Label>
-                  <img src="../dist/img/Plant2.jpg" className="img-fluid" />
+                  <img
+                    src={
+                      image.preview
+                        ? image.preview
+                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                    }
+                    className="img-fluid"
+                  />
                 </Col>
               </Row>
             </form.Group>
