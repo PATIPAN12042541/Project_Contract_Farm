@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
-    const [check,setCheck] = useState(true);
+    const [check,setCheck] = useState(false);
     const [checkStatus,setCheckStatus] = useState(0);
 
     const AddChemical = async(e)=>{
@@ -75,17 +75,17 @@ const Add_Chemical = () => {
                                                     onChange={(e)=>{
                                                         setCheck(e.target.checked);
                                                         console.log("check 1 นอก If: "+check);
-                                                        if(check === false){
-                                                            setCheck(e.target.checked);
-                                                            setCheckStatus(0);
-                                                            console.log("check 1 : "+check);
-                                                            console.log("Check 2 : "+checkStatus);
-                                                        }else if (check === true){
-                                                            setCheck(e.target.checked);
-                                                            setCheckStatus(1);
-                                                            console.log("check 1 : "+check);
-                                                            console.log("Check 2 : "+checkStatus);
-                                                        }
+                                                        // /*if(check === false){
+                                                        //     setCheck(e.target.checked);
+                                                        //     setCheckStatus(0);
+                                                        //     console.log("check 1 : "+check);
+                                                        //     console.log("Check 2 : "+checkStatus);
+                                                        // }else if (check === true){
+                                                        //     setCheck(e.target.checked);
+                                                        //     setCheckStatus(1);
+                                                        //     console.log("check 1 : "+check);
+                                                        //     console.log("Check 2 : "+checkStatus);
+                                                        // }*/
                                                     }}
                                                 />
                                             </div>
