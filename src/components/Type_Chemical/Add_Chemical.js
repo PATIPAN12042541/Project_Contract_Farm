@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
-    const [checkStatus,setCheckStatus] = useState(0);
+    const [checkStatus,setCheckStatus] = useState(false);
 
     const AddChemical = async(e)=>{
         e.preventDefault();
@@ -69,13 +69,13 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={true}
+                                                    defaultChecked={false}
                                                     onChange={(e)=>{
-                                                        if(checkStatus === 0){
-                                                            setCheckStatus(1);
-                                                            console.log("Check : "+checkStatus);
-                                                        }else{
+                                                        if(checkStatus === false){
                                                             setCheckStatus(0);
+                                                            console.log("Check : "+checkStatus);
+                                                        }else if (checkStatus === true){
+                                                            setCheckStatus(1);
                                                             console.log("Check : "+checkStatus);
                                                         }
                                                     }}
