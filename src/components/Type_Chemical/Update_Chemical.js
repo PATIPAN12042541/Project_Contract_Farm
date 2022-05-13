@@ -15,7 +15,7 @@ const Update_Chemical = () => {
 
     useEffect(()=>{
         getTypeChemicalById()
-    },[])
+    },[checkStatus])
 
 
     const getTypeChemicalById = async () => {
