@@ -39,7 +39,9 @@ export const getMenusRoleSubLV1 = async (req, res) => {
         const menus = await Menus.sequelize.query('select id,menu_name,index_menu,parent_id,link,status,role_id '+
                                                   'from role_menu '+
                                                   'where role_id = :role_id '+
-                                                  'and parent_id > 0',
+                                                  'and parent_id > 0 ' +
+                                                  'and status = 1 ' +
+                                                  'order by index_menu asc',
                                                   {
                                                     replacements : {role_id : req.params.role_id},
                                                     type: db.QueryTypes.SELECT
