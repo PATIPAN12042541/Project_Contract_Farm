@@ -73,7 +73,7 @@ const Add_Chemical = () => {
                                                     defaultChecked={false}
                                                     onChange={(e)=>{
                                                         console.log(checked);
-                                                        setChecked(!checked);
+                                                        setChecked(e.target.checked);
                                                         console.log(checked);
                                                     }}
                                                 />
