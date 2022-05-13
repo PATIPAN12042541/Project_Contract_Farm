@@ -8,6 +8,9 @@ const PlantDetail = db.define(
     id_name_plant: {
       type: DataTypes.STRING,
     },
+    id_zone: {
+      type: DataTypes.INTEGER,
+    },
     autoid_check: {
       type: DataTypes.STRING,
     },

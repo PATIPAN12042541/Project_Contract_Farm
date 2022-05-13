@@ -13,7 +13,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
-const Edit_data = () => {
+const Edit_data = (props) => {
+
+
   const [plantdata, setPlantData] = useState([]);
   const [idplant, setIdPlant] = useState();
   const [nameplant, setNamePlant] = useState();
@@ -65,9 +67,10 @@ const Edit_data = () => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant`
+      `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+    console.log(response.data);
   };
 
   const deletePlants = async (id) => {
@@ -105,6 +108,7 @@ const Edit_data = () => {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
           id_name_plant: idplant,
+          id_zone: props.id,
           autoid_check: autoid,
           name_plant: nameplant,
           start_date_plant: startdate,

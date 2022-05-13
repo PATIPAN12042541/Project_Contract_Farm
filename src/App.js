@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import SidebarRole from "./components/SidebarRole/SidebarRole";
 import Footer from "./components/Footer";
@@ -7,7 +7,7 @@ import Page_1_2 from "./Page_2/Page_1_2";
 import Page_Login from "./Page_Login/Page_Login";
 import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
-import Edit_data from "./components/Manage_data/Edit_data";
+import Page_Edit_Plant from "./Page_2/Page_Edit_Plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
 import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
@@ -19,8 +19,6 @@ import Page_chemical from "./Page_1/Page_chemical";
 import Page_manage_zone from "./Page_2/Page_manage_zone";
 
 function App() {
-  let params = useParams();
-
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -42,18 +40,7 @@ function App() {
           <Route exact path="/Home" element={<Page_1_1 />} />
           <Route exact path="/Detail" element={<Page_1_2 />} />
           <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
-          <Route
-            exact
-            path="/Edit_data/:id"
-            element={
-              <>
-                <Header />
-                <SidebarRole />
-                <Edit_data />
-                <Footer />
-              </>
-            }
-          />
+          <Route exact path="/Edit_data/:id" element={<Page_Edit_Plant />} />
           <Route
             exact
             path="/Manage_plant/:id"

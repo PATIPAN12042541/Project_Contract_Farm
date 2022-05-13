@@ -7,17 +7,29 @@ import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 export const getPlant = async (req, res) => {
   try {
     const plants = await db.query(
-      //"select * from plant left join plant_detail on plant.id_plant = plant_detail.id",
+      // "select plant.id as plant_id," +
+      //   "       plant.id_plant as id_plant," +
+      //   "       plant.name_plant as name_plant," +
+      //   "       plant.start_date_plant as start_date_plant," +
+      //   "       plant.end_date_plant as end_date_plant," +
+      //   "       plant.plant_image as plant_image," +
+      //   "       plant_detail.id as plant_detail_id," +
+      //   "       plant_detail.id_name_plant as plant_detail_id_name_plant " +
+      //   "       from plant left join plant_detail on plant.id_plant = plant_detail.id",
       "select plant.id as plant_id," +
-        "       plant.id_plant as id_plant," +
-        "       plant.name_plant as name_plant," +
-        "       plant.start_date_plant as start_date_plant," +
-        "       plant.end_date_plant as end_date_plant," +
-        "       plant.plant_image as plant_image," +
-        "       plant_detail.id as plant_detail_id," +
-        "       plant_detail.id_name_plant as plant_detail_id_name_plant " +
-        "       from plant left join plant_detail on plant.id_plant = plant_detail.id",
+        "  plant.id_plant as id_plant," +
+        "  plant.name_plant as name_plant," +
+        "  plant.start_date_plant as start_date_plant," +
+        "  plant.end_date_plant as end_date_plant," +
+        "  plant.plant_image as plant_image," +
+        "  plant_detail.id as plant_detail_id," +
+        "  plant_detail.id_name_plant as plant_detail_id_name_plant " +
+        "from plant " +
+        "left join plant_detail on plant.id_plant = plant_detail.id " +
+        "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
+        "where zone_plant.id = :zone_plant_id ",
       {
+        replacements: { zone_plant_id: req.params.id },
         type: db.QueryTypes.SELECT,
       }
     );
@@ -55,6 +67,7 @@ export const getManagePlantEdit = async (req, res) => {
 export const postDetailPlant = async (req, res) => {
   const {
     id_name_plant,
+    id_zone,
     autoid_check,
     name_plant,
     start_date_plant,
@@ -65,6 +78,7 @@ export const postDetailPlant = async (req, res) => {
   try {
     await PlantDetail.create({
       id_name_plant: id_name_plant,
+      id_zone: id_zone,
       autoid_check: autoid_check,
       unit: "",
       note: "",
