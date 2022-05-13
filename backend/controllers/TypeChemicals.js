@@ -4,6 +4,7 @@ export const createTypeChemical = async(req, res) => {
     const { type_chemical,status } = req.body;
     try {
         await TypeChemical.create({
+
             type_chemical: type_chemical,
             status: status,
         });
