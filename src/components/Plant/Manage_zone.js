@@ -127,6 +127,7 @@ const Manage_zone = () => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
+
               <form.Control
                 type="text"
                 placeholder="รหัสโซนเพาะปลูก"
@@ -179,10 +180,13 @@ const Manage_zone = () => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header>
-          <Modal.Title>
-            <center>แก้ไขข้อมูล</center>
-          </Modal.Title>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+          }}
+        >
+          <Modal.Title centered>แก้ไขข้อมูล</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
