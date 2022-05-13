@@ -14,8 +14,7 @@ import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
 const Edit_data = (props) => {
-  
-  console.log(props.id);
+
 
   const [plantdata, setPlantData] = useState([]);
   const [idplant, setIdPlant] = useState();
@@ -71,6 +70,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+    console.log(response.data);
   };
 
   const deletePlants = async (id) => {

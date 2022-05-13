@@ -22,12 +22,12 @@ export const getPlant = async (req, res) => {
         "  plant.start_date_plant as start_date_plant," +
         "  plant.end_date_plant as end_date_plant," +
         "  plant.plant_image as plant_image," +
-        "   plant_detail.id as plant_detail_id," +
+        "  plant_detail.id as plant_detail_id," +
         "  plant_detail.id_name_plant as plant_detail_id_name_plant " +
-        " from plant " +
+        "from plant " +
         "left join plant_detail on plant.id_plant = plant_detail.id " +
         "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
-        "where zone_plant.id = :id" +
+        "where zone_plant.id = :id " +
         {
           replacements: { id: req.params.id },
           type: db.QueryTypes.SELECT,
