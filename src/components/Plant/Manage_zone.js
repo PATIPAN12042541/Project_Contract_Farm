@@ -289,11 +289,7 @@ const Manage_zone = () => {
           >
             Close
           </button>
-          <button
-            type="submit"
-            className="btn btn-success"
-            onClick={(postZone, handleClose)}
-          >
+          <button type="submit" className="btn btn-success" onSubmit={postZone}>
             Save Changes
           </button>
         </Modal.Footer>
