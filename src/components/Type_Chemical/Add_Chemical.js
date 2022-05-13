@@ -13,7 +13,7 @@ const Add_Chemical = () => {
         e.preventDefault();
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
             type_chemical: typeChemical,
-            status : (checked ? 1 : 0)
+            status : (checked = true ? 1 : 0)
         })
         .then(function (response) {
             Swal.fire({
