@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState('');
     const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
@@ -31,16 +31,6 @@ const Update_Chemical = () => {
         }
 
         setCheckStatus(response.data.status);
-    }
-
-    const statusChecked = () =>{
-        if (checkStatus === 1){
-            setChecked(true);
-            console.log("true : "+checked);
-        }else{
-            setChecked(false);
-            console.log("false : "+checked);
-        }
     }
 
     const updateTypeChemical = async (e) => {
