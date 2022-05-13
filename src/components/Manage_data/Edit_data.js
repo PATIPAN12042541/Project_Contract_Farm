@@ -14,6 +14,9 @@ import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
 const Edit_data = (props) => {
+  
+  console.log(props.id);
+
   const [plantdata, setPlantData] = useState([]);
   const [idplant, setIdPlant] = useState();
   const [nameplant, setNamePlant] = useState();
