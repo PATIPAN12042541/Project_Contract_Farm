@@ -26,6 +26,7 @@ const Manage_zone = () => {
 
   const [plant, setPlant] = useState([]);
   const [idzone, setIdZone] = useState([]);
+  const [pathimage, setPathImage] = useState([]);
 
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
@@ -197,7 +198,11 @@ const Manage_zone = () => {
                                 type="submit"
                                 className="btn btn-warning"
                                 style={{ color: "#FFFFFF" }}
-                                onClick={handleShow2}
+                                onClick={() => {
+                                  setIdZone(data.zone_name);
+                                  setPathImage(data.image_zone);
+                                  handleShow2();
+                                }}
                               >
                                 <BsFillPencilFill />
                               </button>
@@ -347,11 +352,7 @@ const Manage_zone = () => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
-              <form.Control
-                type="text"
-                placeholder="รหัสโซนเพาะปลูก"
-                autoFocus
-              />
+              <form.Control type="text" placeholder={idzone} autoFocus />
             </form.Group>
             <form.Group
               className="mb-3"
@@ -369,7 +370,7 @@ const Manage_zone = () => {
                 </Col>
                 <Col md>
                   <form.Label>Preview</form.Label>
-                  <img src="../dist/img/Plant2.jpg" className="img-fluid" />
+                  <img src={pathimage} className="img-fluid" />
                 </Col>
               </Row>
             </form.Group>
