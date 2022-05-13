@@ -69,6 +69,7 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
+                                                    defaultChecked={true}
                                                     onChange={(e)=>{
                                                         if(checkStatus === 0){
                                                             setCheckStatus(1);
