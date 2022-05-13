@@ -70,7 +70,11 @@ const Add_Chemical = () => {
                                                     id="custom-switch"
                                                     label="Active"
                                                     onChange={(e)=>{
-                                                        console.log("Check : "+setCheckStatus(!checkStatus))
+                                                        if(checkStatus === 0){
+                                                            setCheckStatus(1);
+                                                        }else{
+                                                            setCheckStatus(0);
+                                                        }
                                                     }}
                                                 />
                                             </div>
