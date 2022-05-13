@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const List_Chemical = () => {
     const [listChemicals,setListChemicals] = useState([]);
+    const Navigate = useNavigate();
 
     useEffect(()=>{
         getListChemical();

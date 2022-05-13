@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState('');
+    const [checked, setChecked] = useState(false);
     //const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
@@ -82,6 +82,7 @@ const Update_Chemical = () => {
                                         <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
+                                                {checked}
                                                 <Form.Check
                                                     type="checkbox"
                                                     id="custom-switch"
