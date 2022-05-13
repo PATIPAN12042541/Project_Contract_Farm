@@ -423,11 +423,7 @@ const Manage_zone = () => {
                 <Col md>
                   <form.Label>Preview</form.Label>
                   <img
-                    src={
-                      image.preview
-                        ? image.preview
-                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                    }
+                    src={image.preview ? image.preview : pathimage}
                     className="img-fluid"
                   />
                 </Col>
