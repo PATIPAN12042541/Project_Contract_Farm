@@ -160,7 +160,12 @@ const Manage_zone = () => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+          }}
+        >
           <Modal.Title>
             <center>เพิ่มข้อมูล</center>
           </Modal.Title>
