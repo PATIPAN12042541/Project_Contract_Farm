@@ -54,22 +54,18 @@ const Manage_zone = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <div className="row">
-                    <div className="col-md-11">
-                      <h1 className="card-title">จัดการโซนเพาะปลูก</h1>
-                    </div>
-                    <div className="col-md-1">
-                      <button
-                        type="submit"
-                        className="btn btn-success"
-                        onClick={handleShow}
-                      >
-                        เพิ่มข้อมูล
-                      </button>
-                    </div>
-                  </div>
+                  <h1 className="card-title">จัดการโซนเพาะปลูก</h1>
                 </div>
                 <div className="card-body">
+                  <right>
+                    <button
+                      type="submit"
+                      className="btn btn-success"
+                      onClick={handleShow}
+                    >
+                      เพิ่มข้อมูล
+                    </button>
+                  </right>
                   <table className="table table-bordered table-hover">
                     <thead>
                       <tr>
