@@ -226,7 +226,7 @@ const Manage_zone = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={postZone}>
+          <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
               <form.Control
@@ -291,7 +291,7 @@ const Manage_zone = () => {
           <button
             type="submit"
             className="btn btn-success"
-            onClick={handleClose}
+            onClick={(postZone, handleClose)}
           >
             Save Changes
           </button>
