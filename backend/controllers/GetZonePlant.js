@@ -54,3 +54,18 @@ export const postZone = async (req, res) => {
   res.json({ msg: "Successful" });
 };
   
+
+export const DeleteZone = async (req, res) => {
+  try {
+    await ZonePlant.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Deleted Successful",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};

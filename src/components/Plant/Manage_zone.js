@@ -56,6 +56,7 @@ const Manage_zone = () => {
       .catch((err) => console.error(err));
   };
 
+  // Post Data
   const postZone = async () => {
     const autoid = uuidv4();
     try {
@@ -89,6 +90,35 @@ const Manage_zone = () => {
         text: "Save Error!",
       });
     }
+  };
+
+  // delete data
+  const deleteZone = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/zoneplant/DeleteZone/${id}`
+          );
+          getPlant();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
   };
 
   return (
@@ -176,6 +206,7 @@ const Manage_zone = () => {
                                 type="submit"
                                 className="btn btn-danger"
                                 style={{ color: "#FFFFFF" }}
+                                onClick={deleteZone(data.id)}
                               >
                                 <BsFillTrashFill />
                               </button>
