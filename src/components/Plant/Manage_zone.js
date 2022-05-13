@@ -30,6 +30,8 @@ const Manage_zone = () => {
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
 
+  const postData = () => postZone();
+
   useEffect(() => {
     getPlant();
   }, []);
@@ -289,7 +291,7 @@ const Manage_zone = () => {
           >
             Close
           </button>
-          <button type="submit" className="btn btn-success" onSubmit={postZone}>
+          <button type="submit" className="btn btn-success" onClick={postData}>
             Save Changes
           </button>
         </Modal.Footer>
