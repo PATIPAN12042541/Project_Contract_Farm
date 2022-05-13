@@ -14,8 +14,7 @@ const Update_Chemical = () => {
     const {id} = useParams();
 
     useEffect(()=>{
-        //getTypeChemicalById()
-        console.log("test");
+        getTypeChemicalById()
     },[])
 
 
