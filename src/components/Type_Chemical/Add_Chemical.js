@@ -70,12 +70,12 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={check}
-                                                    value={check}
+                                                    defaultChecked={false}
                                                     onChange={(e)=>{
+                                                        console.log("ก่อน Set State : "+e.target.checked);
                                                         setCheck(e.target.checked);
                                                         console.log("check 1 : "+e.target.checked);
-                                                        console.log("check 2 : "+check);
+                                                        console.log("หลัง Set State : "+check);
                                                         // /*if(check === false){
                                                         //     setCheck(e.target.checked);
                                                         //     setCheckStatus(0);
