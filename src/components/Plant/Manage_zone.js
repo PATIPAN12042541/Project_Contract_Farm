@@ -352,7 +352,7 @@ const Manage_zone = () => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
-              <form.Control type="text" placeholder={idzone} autoFocus />
+              <form.Control type="text" defaultValue={idzone} autoFocus />
             </form.Group>
             <form.Group
               className="mb-3"
