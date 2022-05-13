@@ -74,7 +74,8 @@ const Add_Chemical = () => {
                                                     value={check}
                                                     onChange={(e)=>{
                                                         setCheck(e.target.checked);
-                                                        console.log("check 1 : "+check);
+                                                        console.log("check 1 : "+e.target.checked);
+                                                        console.log("check 2 : "+check);
                                                         // /*if(check === false){
                                                         //     setCheck(e.target.checked);
                                                         //     setCheckStatus(0);
