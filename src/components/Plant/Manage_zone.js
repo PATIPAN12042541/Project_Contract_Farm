@@ -249,6 +249,7 @@ const Manage_zone = () => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
+              <hr></hr>
               <Row>
                 <Col md>
                   <form.Label>อัพโหลด</form.Label>
