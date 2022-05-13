@@ -3,14 +3,22 @@ import Modal from "react-bootstrap/Modal";
 import form from "react-bootstrap/Form";
 import Zoom from "react-medium-image-zoom";
 import { BsFillTrashFill } from "react-icons/bs";
-import { BsCheckSquareFill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
+import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
+import FileUpload from "@hawk-ui/file-upload";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Manage_zone = () => {
   const [show, setShow] = useState(false);
 
+  const [showEdit, setShowEdit] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleClose2 = () => setShowEdit(false);
+  const handleShow2 = () => setShowEdit(true);
 
   return (
     <div className="content-wrapper">
@@ -80,6 +88,7 @@ const Manage_zone = () => {
                               type="submit"
                               className="btn btn-warning"
                               style={{ color: "#FFFFFF" }}
+                              onClick={handleShow2}
                             >
                               <BsFillPencilFill />
                             </button>
@@ -109,16 +118,18 @@ const Manage_zone = () => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header>
+          <Modal.Title>
+            <center>เพิ่มข้อมูล</center>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <form.Label>Email address</form.Label>
+              <form.Label>รหัสโซนเพาะปลูก</form.Label>
               <form.Control
-                type="email"
-                placeholder="name@example.com"
+                type="text"
+                placeholder="รหัสโซนเพาะปลูก"
                 autoFocus
               />
             </form.Group>
@@ -126,16 +137,97 @@ const Manage_zone = () => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <form.Label>Example textarea</form.Label>
-              <form.Control as="textarea" rows={3} />
+              <Row>
+                <Col md>
+                  <form.Label>อัพโหลด</form.Label>
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                  />
+                </Col>
+                <Col md>
+                  <form.Label>Preview</form.Label>
+                  <img src="../dist/img/Plant2.jpg" className="img-fluid" />
+                </Col>
+              </Row>
             </form.Group>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button variant="secondary" onClick={handleClose}>
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            onClick={handleClose}
+          >
             Close
           </button>
-          <button variant="primary" onClick={handleClose}>
+          <button
+            type="submit"
+            className="btn btn-success"
+            onClick={handleClose}
+          >
+            Save Changes
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* #### EDTT #### */}
+      <Modal
+        show={showEdit}
+        onHide={handleClose2}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>
+            <center>แก้ไขข้อมูล</center>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>รหัสโซนเพาะปลูก</form.Label>
+              <form.Control
+                type="text"
+                placeholder="รหัสโซนเพาะปลูก"
+                autoFocus
+              />
+            </form.Group>
+            <form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Row>
+                <Col md>
+                  <form.Label>อัพโหลด</form.Label>
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                  />
+                </Col>
+                <Col md>
+                  <form.Label>Preview</form.Label>
+                  <img src="../dist/img/Plant2.jpg" className="img-fluid" />
+                </Col>
+              </Row>
+            </form.Group>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            onClick={handleClose2}
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            className="btn btn-success"
+            onClick={handleClose2}
+          >
             Save Changes
           </button>
         </Modal.Footer>
