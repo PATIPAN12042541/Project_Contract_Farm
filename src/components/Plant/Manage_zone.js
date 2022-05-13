@@ -3,11 +3,13 @@ import Modal from "react-bootstrap/Modal";
 import form from "react-bootstrap/Form";
 import Zoom from "react-medium-image-zoom";
 import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 const Manage_zone = () => {
   const [show, setShow] = useState(false);
@@ -62,14 +64,17 @@ const Manage_zone = () => {
                           <center>preview</center>
                         </th>
                         <th>
+                          <center>ข้อมูลแปลงผัก</center>
+                        </th>
+                        <th>
                           <center>ลบ/เเก้ไข</center>
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>A1</td>
-                        <td>
+                        <td className="col-md-2">A1</td>
+                        <td className="col-md-7">
                           <center>
                             <Zoom>
                               <img
@@ -82,7 +87,25 @@ const Manage_zone = () => {
                             </Zoom>
                           </center>
                         </td>
-                        <td>
+                        <td className="col-md-1">
+                          <center>
+                            <Link
+                              to={{
+                                pathname: `/Edit_data`,
+                                // state: { id: data.id_plant },
+                              }}
+                            >
+                              <button
+                                type="submit"
+                                className="btn btn-primary"
+                                style={{ color: "#FFFFFF" }}
+                              >
+                                <BsFillExclamationCircleFill />
+                              </button>
+                            </Link>
+                          </center>
+                        </td>
+                        <td className="col-md-2">
                           <center>
                             <button
                               type="submit"
