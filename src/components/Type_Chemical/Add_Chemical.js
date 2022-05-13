@@ -72,8 +72,10 @@ const Add_Chemical = () => {
                                                     onChange={(e)=>{
                                                         if(checkStatus === 0){
                                                             setCheckStatus(1);
+                                                            console.log("Check : "+checkStatus);
                                                         }else{
                                                             setCheckStatus(0);
+                                                            console.log("Check : "+checkStatus);
                                                         }
                                                     }}
                                                 />
