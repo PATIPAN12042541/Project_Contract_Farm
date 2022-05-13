@@ -88,6 +88,7 @@ const Update_Chemical = () => {
                                                     id="custom-switch"
                                                     label="Active"
                                                     defaultChecked={checked}
+                                                    checked={checked}
                                                     onChange={() => setChecked(!checked)}
                                                 />
                                             </div>
