@@ -379,7 +379,7 @@ const Manage_zone = () => {
             color: "#FFFFFF",
           }}
         >
-          <Modal.Title centered>แก้ไขข้อมูล</Modal.Title>
+          <Modal.Title>แก้ไขข้อมูล</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
