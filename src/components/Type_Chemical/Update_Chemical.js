@@ -80,7 +80,7 @@ const Update_Chemical = () => {
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">Active</Form.Label>
+                                          <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
                                             <div className="col-sm-10">
                                                 <input
                                                     type="checkbox"
