@@ -15,7 +15,6 @@ const Update_Chemical = () => {
 
     useEffect(()=>{
         getTypeChemicalById()
-        window.location.reload();
     },[])
 
 
