@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState('');
+    const [checked, setChecked] = useState(true);
     const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
@@ -22,14 +22,6 @@ const Update_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
         setCheckStatus(response.data.status);
-
-        if (response.data.status === 1){
-            setChecked(true);
-            console.log("true : "+checkStatus);
-        }else{
-            setChecked(false);
-            console.log("false : "+checkStatus);
-        }
     }
 
     const updateTypeChemical = async (e) => {
