@@ -67,7 +67,6 @@ const Add_Chemical = () => {
                                                 111111
                                                 <Form.Check
                                                     type="checkbox"
-                                                    className="custom-control-input"
                                                     id="custom-switch"
                                                     label="Active"
                                                     onChange={(e)=>{
