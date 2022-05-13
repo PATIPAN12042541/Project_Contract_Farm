@@ -8,6 +8,8 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
+    const [checked, setChecked] = useState();
+    const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
@@ -19,13 +21,16 @@ const Update_Chemical = () => {
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
+        setChecked((response.data.status = 1)?true:false);
+        setCheckStatus(response.data.status)
     }
 
     const updateTypeChemical = async (e) => {
         e.preventDefault();
         try{
             await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
-                type_chemical: typeChemical
+                type_chemical: typeChemical,
+                status : checkStatus,
             });
 
             Swal.fire({
@@ -75,6 +80,25 @@ const Update_Chemical = () => {
                                                                onChange={(e)=>setTypeChemical(e.target.value)}/>
                                             </div>
                                         </div>
+                                        <div className="form-group row">
+                                          <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
+                                            <div className="col-sm-10">
+                                                <Form.Check
+                                                    type="checkbox"
+                                                    id="custom-switch"
+                                                    label="Active"
+                                                    defaultChecked={checked}
+                                                    onChange={(e)=>{
+                                                        setChecked(!checked);
+                                                        if (checked === true){
+                                                            setCheckStatus("1");
+                                                        }else{
+                                                            setCheckStatus("0");
+                                                        }
+                                                    }}
+                                                />
+                                            </div>
+                                      </div>
                                     </div>
                                     <div className ="card-footer">
                                         <button type="submit" className="btn btn-info">บันทึก</button>&nbsp;
