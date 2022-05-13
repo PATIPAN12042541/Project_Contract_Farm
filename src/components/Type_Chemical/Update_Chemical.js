@@ -8,21 +8,20 @@ import Swal from 'sweetalert2'
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
-    const [checked, setChecked] = useState(true);
-    const [checkStatus, setCheckStatus] = useState('');
+    const [checked, setChecked] = useState(false);
+    //const [checkStatus, setCheckStatus] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
-        //getTypeChemicalById()
-        console.log("test");
+        getTypeChemicalById()
     },[])
 
 
     const getTypeChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
         setTypeChemical(response.data.type_chemical);
-        setCheckStatus(response.data.status);
+        setChecked(response.data.status);
     }
 
     const updateTypeChemical = async (e) => {
@@ -30,7 +29,7 @@ const Update_Chemical = () => {
         try{
             await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
                 type_chemical: typeChemical,
-                status : checkStatus,
+                status : checked,
             });
 
             Swal.fire({
@@ -83,12 +82,12 @@ const Update_Chemical = () => {
                                         <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Status</Form.Label>
                                             <div className="col-sm-10">
-                                                {console.log((checkStatus === 1)?true:false)}
                                                 <Form.Check
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={(checkStatus === 1)?true:false}
+                                                    defaultChecked={setChecked}
+                                                    onChange={() => setChecked(!checked)}
                                                 />
                                             </div>
                                       </div>
