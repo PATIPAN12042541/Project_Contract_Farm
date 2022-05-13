@@ -23,7 +23,7 @@ const Update_Chemical = () => {
         setTypeChemical(response.data.type_chemical);
         setCheckStatus(response.data.status);
 
-        if (checkStatus === 1){
+        if (response.data.status === 1){
             setChecked(true);
             console.log("true : "+checkStatus);
         }else{
