@@ -89,16 +89,13 @@ const Update_Chemical = () => {
                                                     defaultChecked={(checkStatus === 1)?true:false}
                                                     onChange={(e)=>{
                                                         setChecked((checkStatus === 1)?true:false);
-                                                        console.log("ก่อน "+checked);
-                                                        setChecked(!checked);
-                                                        console.log("หลัง "+checked);
-                                                        // if (checkStatus === 1){
-                                                        //     setCheckStatus("1");
-                                                        //     console.log("1 : "+checked);
-                                                        // }else{
-                                                        //     setCheckStatus("0");
-                                                        //     console.log("0 : "+checked);
-                                                        // }
+                                                        if (checked === true){
+                                                            setCheckStatus("1");
+                                                            console.log("1 : "+checked);
+                                                        }else{
+                                                            setCheckStatus("0");
+                                                            console.log("0 : "+checked);
+                                                        }
                                                     }}
                                                 />
                                             </div>
