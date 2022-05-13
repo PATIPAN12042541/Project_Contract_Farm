@@ -18,11 +18,6 @@ const List_Chemical = () => {
         setListChemicals(response.data);
     }
 
-    const link_update = (id) =>{
-        Navigate(`/editTypeChemical/${id}`)
-        window.location.reload();
-    }
-
     const deleteTypeChemical = async (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -99,8 +94,7 @@ const List_Chemical = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
-                                                            {/* <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link> */}
-                                                            <Button variant="info" onClick={(e)=>link_update(listChemical.id)}>แก้ไขข้อมูล</Button>
+                                                            <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
                                                         <Button variant="danger" onClick={(e)=>deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
