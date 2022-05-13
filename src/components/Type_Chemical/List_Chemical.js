@@ -100,7 +100,7 @@ const List_Chemical = () => {
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
                                                             {/* <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link> */}
-                                                            <Button variant="info" onClick={link_update(listChemical.id)}>แก้ไขข้อมูล</Button>
+                                                            <Button variant="info" onClick={(e)=>link_update(listChemical.id)}>แก้ไขข้อมูล</Button>
                                                         </td>
                                                         <td>
                                                         <Button variant="danger" onClick={(e)=>deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
