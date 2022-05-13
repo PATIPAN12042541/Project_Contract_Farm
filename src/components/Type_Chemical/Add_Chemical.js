@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
-    const [check,setCheck] = useState(true);
+    const [check,setCheck] = useState(false);
     const [checkStatus,setCheckStatus] = useState(0);
 
     const AddChemical = async(e)=>{
