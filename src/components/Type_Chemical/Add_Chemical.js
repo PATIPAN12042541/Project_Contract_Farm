@@ -70,24 +70,16 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                     label="Active"
-                                                    defaultChecked={false}
-                                                    value={0}
+                                                    defaultChecked={check}
+                                                    value={checkStatus}
                                                     onChange={(e)=>{
-                                                        console.log("ก่อน Set State : "+e.target.checked.value);
-                                                        setCheck(e.target.checked.value);
-                                                        console.log("check 1 : "+e.target.checked);
-                                                        console.log("หลัง Set State : "+check);
-                                                        // /*if(check === false){
-                                                        //     setCheck(e.target.checked);
-                                                        //     setCheckStatus(0);
-                                                        //     console.log("check 1 : "+check);
-                                                        //     console.log("Check 2 : "+checkStatus);
-                                                        // }else if (check === true){
-                                                        //     setCheck(e.target.checked);
-                                                        //     setCheckStatus(1);
-                                                        //     console.log("check 1 : "+check);
-                                                        //     console.log("Check 2 : "+checkStatus);
-                                                        // }*/
+                                                        if(e.target.checked.value === false){
+                                                            setCheckStatus(0);
+                                                            console.log("Check 2 : "+checkStatus);
+                                                        }else if (check === true){
+                                                            setCheckStatus(1);
+                                                            console.log("Check 2 : "+checkStatus);
+                                                        }
                                                     }}
                                                 />
                                             </div>
