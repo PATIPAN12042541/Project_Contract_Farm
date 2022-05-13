@@ -75,7 +75,7 @@ const Manage_zone = () => {
                       style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
-                        <th>#รหัสโซน</th>
+                        <th>#</th>
                         <th>
                           <center>preview</center>
                         </th>
