@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import form from "react-bootstrap/Form";
 import Zoom from "react-medium-image-zoom";
@@ -22,6 +23,19 @@ const Manage_zone = () => {
   const handleClose2 = () => setShowEdit(false);
   const handleShow2 = () => setShowEdit(true);
 
+  const [plant, setPlant] = useState([]);
+
+  useEffect(() => {
+    getPlant();
+  }, []);
+
+  const getPlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant`
+    );
+
+    setPlant(response.data);
+  };
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -71,61 +85,64 @@ const Manage_zone = () => {
                         </th>
                       </tr>
                     </thead>
+
                     <tbody>
-                      <tr>
-                        <td className="col-md-2">A1</td>
-                        <td className="col-md-7">
-                          <center>
-                            <Zoom>
-                              <img
-                                src="../dist/img/Plant2.jpg"
-                                className="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                              />
-                            </Zoom>
-                          </center>
-                        </td>
-                        <td className="col-md-1">
-                          <center>
-                            <Link
-                              to={{
-                                pathname: `/Edit_data`,
-                                // state: { id: data.id_plant },
-                              }}
-                            >
+                      {plant.map((data, index) => (
+                        <tr key={index}>
+                          <td className="col-md-2">{data.zone_name}</td>
+                          <td className="col-md-7">
+                            <center>
+                              <Zoom>
+                                <img
+                                  src={data.image_zone}
+                                  className="img-fluid mb-2"
+                                  alt="white sample"
+                                  width="100"
+                                  height="100"
+                                />
+                              </Zoom>
+                            </center>
+                          </td>
+                          <td className="col-md-1">
+                            <center>
+                              <Link
+                                to={{
+                                  pathname: `/Edit_data/${data.id}`,
+                                  state: { id: data.id },
+                                }}
+                              >
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsFillExclamationCircleFill />
+                                </button>
+                              </Link>
+                            </center>
+                          </td>
+                          <td className="col-md-2">
+                            <center>
                               <button
                                 type="submit"
-                                className="btn btn-primary"
+                                className="btn btn-warning"
+                                style={{ color: "#FFFFFF" }}
+                                onClick={handleShow2}
+                              >
+                                <BsFillPencilFill />
+                              </button>
+                              <> </>
+                              <button
+                                type="submit"
+                                className="btn btn-danger"
                                 style={{ color: "#FFFFFF" }}
                               >
-                                <BsFillExclamationCircleFill />
+                                <BsFillTrashFill />
                               </button>
-                            </Link>
-                          </center>
-                        </td>
-                        <td className="col-md-2">
-                          <center>
-                            <button
-                              type="submit"
-                              className="btn btn-warning"
-                              style={{ color: "#FFFFFF" }}
-                              onClick={handleShow2}
-                            >
-                              <BsFillPencilFill />
-                            </button>
-                            <> </>
-                            <button
-                              type="submit"
-                              className="btn btn-danger"
-                              style={{ color: "#FFFFFF" }}
-                            >
-                              <BsFillTrashFill />
-                            </button>
-                          </center>
-                        </td>
-                      </tr>
+                            </center>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

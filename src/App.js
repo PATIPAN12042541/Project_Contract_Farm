@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
           <Route
             exact
-            path="/Edit_data"
+            path="/Edit_data/:id"
             element={
               <>
                 <Header />
