@@ -13,7 +13,7 @@ const Update_Chemical = () => {
     const navigate = useNavigate();
     const {id} = useParams();
 
-    useEffect(()=>{
+    useEffect(async()=>{
         //getTypeChemicalById()
 
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`);
