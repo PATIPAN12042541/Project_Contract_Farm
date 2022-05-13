@@ -70,7 +70,10 @@ const Manage_zone = () => {
                   </div>
                 </div>
                 <div className="card-body">
-                  <table className="table table-bordered table-hover">
+                  <table
+                    className="table table-bordered table-hover"
+                    style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                  >
                     <thead>
                       <tr>
                         <th>#รหัสโซน</th>
