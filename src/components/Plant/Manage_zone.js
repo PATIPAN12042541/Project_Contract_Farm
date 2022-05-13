@@ -235,8 +235,6 @@ const Manage_zone = () => {
                         : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                     }
                     className="img-fluid"
-                    width="100"
-                    height="100"
                   />
                 </Col>
               </Row>
