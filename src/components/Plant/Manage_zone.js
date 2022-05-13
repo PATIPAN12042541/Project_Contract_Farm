@@ -27,7 +27,7 @@ const Manage_zone = () => {
   const [plant, setPlant] = useState([]);
   const [id, setID] = useState([]);
   const [idzone, setIdZone] = useState([]);
-  const [pathimage, setPathImage] = useState([""]);
+  const [pathimage, setPathImage] = useState([]);
 
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
@@ -122,7 +122,6 @@ const Manage_zone = () => {
       }
     });
   };
-
 
   const updateZone = async (id) => {
     try {
@@ -235,7 +234,6 @@ const Manage_zone = () => {
                                 onClick={() => {
                                   setIdZone(data.zone_name);
                                   setID(data.id);
-                                  setPathImage("");
                                   setPathImage(data.image_zone);
                                   handleShow2();
                                 }}
