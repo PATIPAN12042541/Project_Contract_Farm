@@ -83,7 +83,7 @@ const Manage_zone = () => {
                           <center>ข้อมูลแปลงผัก</center>
                         </th>
                         <th>
-                          <center>ลบ/เเก้ไข</center>
+                          <center>เเก้ไข/ลบข้อมูล</center>
                         </th>
                       </tr>
                     </thead>
