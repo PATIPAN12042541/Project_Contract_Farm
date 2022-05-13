@@ -8,13 +8,14 @@ import Swal from 'sweetalert2'
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
     const [checked, setChecked] = useState(true);
+    const [checkStatus, setCheckStatus] = useState('');
 
     const AddChemical = async(e)=>{
         e.preventDefault();
-        console.log(checked);
+        console.log(checkStatus);
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
             type_chemical: typeChemical,
-            status : (checked === true) ? 1 : 0,
+            status : checkStatus,
         })
         .then(function (response) {
             Swal.fire({
@@ -72,10 +73,12 @@ const Add_Chemical = () => {
                                                     label="Active"
                                                     defaultChecked={false}
                                                     onChange={(e)=>{
-                                                        console.log(checked);
-                                                        // setChecked(!checked);
-                                                        setChecked(!e.target.checked);
-                                                        console.log(checked);
+                                                        setChecked(!checked);
+                                                        if (checked === true){
+                                                            setCheckStatus("1");
+                                                        }else{
+                                                            setCheckStatus("0");
+                                                        }
                                                     }}
                                                 />
                                             </div>
