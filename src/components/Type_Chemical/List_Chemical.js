@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const List_Chemical = () => {
     const [listChemicals,setListChemicals] = useState([]);
+    const Navigate = useNavigate();
 
     useEffect(()=>{
         getListChemical();
@@ -15,6 +16,11 @@ const List_Chemical = () => {
     const getListChemical = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListChemicals(response.data);
+    }
+
+    const link_update = (id) =>{
+        Navigate(`/editTypeChemical/${id}`)
+        window.location.reload();
     }
 
     const deleteTypeChemical = async (id) => {
@@ -93,7 +99,8 @@ const List_Chemical = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listChemical.type_chemical}</td>
                                                         <td>
-                                                            <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
+                                                            {/* <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link> */}
+                                                            <Button variant="info" onClick={link_update(listChemical.id)}>แก้ไขข้อมูล</Button>
                                                         </td>
                                                         <td>
                                                         <Button variant="danger" onClick={(e)=>deleteTypeChemical(listChemical.id)}>ลบข้อมูล</Button>
