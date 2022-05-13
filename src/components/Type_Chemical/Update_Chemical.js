@@ -15,7 +15,7 @@ const Update_Chemical = () => {
 
     useEffect(()=>{
         getTypeChemicalById()
-    },[checkStatus])
+    },[])
 
 
     const getTypeChemicalById = async () => {
@@ -88,7 +88,7 @@ const Update_Chemical = () => {
                                                     id="custom-switch"
                                                     label="Active"
                                                     defaultChecked={(checkStatus === 1)?true:false}
-                                                    onChange={(e)=>{
+                                                    onChange={()=>{
                                                         setChecked((checkStatus === 1)?true:false);
                                                         setChecked(!checked);
                                                         if (checked === true){
