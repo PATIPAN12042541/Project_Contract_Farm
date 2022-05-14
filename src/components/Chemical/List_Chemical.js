@@ -56,7 +56,7 @@ const List_Chemical = () => {
                                                 <th>ER MUL</th>
                                                 <th>รูปภาพ</th>
                                                 <th>แก้ไขข้อมูล</th>
-                                                <th>Status Active</th>
+                                                <th>ลบข้อมูล</th>
                                             </tr>
                                         </thead>
                                         <tbody>
