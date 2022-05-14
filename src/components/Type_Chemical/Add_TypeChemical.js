@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 const Add_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState("");
     const [checked, setChecked] = useState(false);
+    const navigate = useNavigate();
 
     const AddChemical = async(e)=>{
         e.preventDefault();
@@ -21,7 +22,7 @@ const Add_Chemical = () => {
                 title: "Success",
                 text: "Save OK !",
               });
-            window.location.reload();
+              navigate("/TypeChemical")
         })
         .catch(function (error) {
             Swal.fire({
