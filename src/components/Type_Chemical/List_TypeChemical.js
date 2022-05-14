@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
 
 const List_Chemical = () => {
     const [listChemicals,setListChemicals] = useState([]);
-    const Navigate = useNavigate();
 
     useEffect(()=>{
         getListChemical();
