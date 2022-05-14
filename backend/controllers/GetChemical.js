@@ -3,7 +3,7 @@ import db from "../config/Database.js";
 export const getChemical = async (req, res) => {
   try {
     const chemical = await db.query(
-      "SELECT name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical",
+      "SELECT id,name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical",
       {
         type: db.QueryTypes.SELECT,
       }
