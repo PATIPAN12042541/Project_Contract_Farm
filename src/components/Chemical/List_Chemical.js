@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Image from 'react-bootstrap/Image'
 
 const List_Chemical = () => {
 
@@ -69,7 +70,7 @@ const List_Chemical = () => {
                                                       <td>
                                                           <center>
                                                               <Zoom>
-                                                                  <img
+                                                                  <Image 
                                                                       src={listChemical.path_img}
                                                                       className="img-fluid mb-2"
                                                                       alt="white sample"
