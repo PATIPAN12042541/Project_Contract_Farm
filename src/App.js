@@ -12,9 +12,9 @@ import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
 import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
 import Page_Edit_chemical from "./Page_2/Page_Edit_chemical";
-import List_Chemical from "./components/Type_Chemical/List_Chemical.js";
-import Add_Chemical from "./components/Type_Chemical/Add_Chemical.js";
-import Update_Chemical from "./components/Type_Chemical/Update_Chemical.js";
+import List_TypeChemical from "./components/Type_Chemical/List_TypeChemical.js";
+import Add_TypeChemical from "./components/Type_Chemical/Add_TypeChemical.js";
+import Update_TypeChemical from "./components/Type_Chemical/Update_TypeChemical.js";
 import Page_chemical from "./Page_1/Page_chemical";
 import Page_manage_zone from "./Page_2/Page_manage_zone";
 
@@ -59,7 +59,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <List_Chemical />
+                <List_TypeChemical />
                 <Footer />
               </>
             }
@@ -71,7 +71,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <Add_Chemical />
+                <Add_TypeChemical />
                 <Footer />
               </>
             }
@@ -83,7 +83,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <Update_Chemical />
+                <Update_TypeChemical />
                 <Footer />
               </>
             }
