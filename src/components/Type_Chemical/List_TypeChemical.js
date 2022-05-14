@@ -78,7 +78,7 @@ const List_Chemical = () => {
                                   </div>
                                   <hr />
                                   <div className="row">
-                                      <Table className = "table table-bordered table-hover dataTable dtr-inline">
+                                      <Table className = "table table-bordered table-hover dataTable dtr-inline" responsive>
                                           <thead>
                                               <tr>
                                                   <th>ลำดับ</th>
