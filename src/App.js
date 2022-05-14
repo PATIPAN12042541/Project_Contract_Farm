@@ -95,8 +95,7 @@ function App() {
             path="/Page_manage_zone"
             element={<Page_manage_zone />}
           />
-        </Routes>
-        <Route
+          <Route
             exact
             path="/ListChemical"
             element={
@@ -108,6 +107,7 @@ function App() {
               </>
             }
           />
+        </Routes>
       </BrowserRouter>
     </div>
   );
