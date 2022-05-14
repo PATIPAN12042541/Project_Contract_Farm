@@ -75,6 +75,7 @@ const List_Chemical = () => {
                                                                       alt="white sample"
                                                                       width="100"
                                                                       height="100"
+                                                                      thumbnail 
                                                                   />
                                                               </Zoom>
                                                           </center>
