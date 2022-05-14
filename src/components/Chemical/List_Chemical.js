@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from "react";
+import Zoom from "react-medium-image-zoom";
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
@@ -8,6 +9,10 @@ import Swal from 'sweetalert2'
 const List_Chemical = () => {
 
     const [listChemicals,setListChemicals] = useState([]);
+
+    useEffect(()=>{
+        getListChemical();
+    },[])
 
     const getListChemical = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/getChemical`);
