@@ -37,13 +37,13 @@ const List_Chemical = () => {
                             <div className="card-header"
                                  style={{ backgroundColor: "#8CC152" }}>
                                 <center>
-                                    <h3 className="card-title">ประเภทข้อมูลสารเคมี</h3>
+                                    <h3 className="card-title">ข้อมูลสารเคมี</h3>
                                 </center>
                             </div>
                             <div className="card-body">
                                 <div className="row">
                                     <Link to={"#"}>
-                                        <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                                        <Button variant="success">เพิ่มข้อมูลสารเคมี</Button>
                                     </Link>
                                 </div>
                                 <hr />
