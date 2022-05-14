@@ -61,7 +61,7 @@ const List_Chemical = () => {
                                         </thead>
                                         <tbody>
                                               {listChemicals.map((listChemical, index) => (
-                                                  <tr key={index}>
+                                                  <tr key={listChemical.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{listChemical.name_chemical}</td>
                                                       <td>{listChemical.name_chemical_eng}</td>
