@@ -41,16 +41,6 @@ const Manage_plant_chemical = (props) => {
               1
             </input>
           </div>
-          <div className="form-group">
-            <input type="text" className="form-control">
-              2
-            </input>
-          </div>
-          <div className="form-group">
-            <input type="text" className="form-control">
-              3
-            </input>
-          </div>
         </div>
       </div>
     </div>
