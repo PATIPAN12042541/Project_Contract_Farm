@@ -13,16 +13,24 @@ const Manage_plant_chemical = (props) => {
     setGetChemical(response.data);
   };
 
+  useEffect(() => {
+    getChemicals();
+  }, []);
+
   return (
     <div className="content-wrapper">
       จัดการข้อมูล
-      <div className="form-group">
-        <label>ชื่อสารเคมีที่ใช้</label>
-        <select className="form-control" placeholder="">
-          {getChemical.map((Chemical, index) => {
-            return <option key={index}>{Chemical.name_chemical}</option>;
-          })}
-        </select>
+      <div className="row">
+        <div className="col-12 col-sm-8">
+          <div className="form-group">
+            <label>ชื่อสารเคมีที่ใช้</label>
+            <select className="form-control" placeholder="">
+              {getChemical.map((Chemical, index) => {
+                return <option key={index}>{Chemical.name_chemical}</option>;
+              })}
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   );
