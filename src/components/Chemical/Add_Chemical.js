@@ -41,8 +41,8 @@ const Add_Chemical = () => {
                               <Form className="form-horizontal">
                                   <div className="card-body">
                                       <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
-                                          <div className="col-sm-10">
+                                          <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
+                                          <div className="col-sm-9">
                                               <select className="form-control"
                                                   onChange={(e) => { setTypeChemicalID(e.target.value) }}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
@@ -56,24 +56,24 @@ const Add_Chemical = () => {
                                           </div>
                                       </div>
                                       <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">ชื่อสารเคมี (ไทย)</Form.Label>
-                                          <div className="col-sm-10">
+                                          <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (ไทย)</Form.Label>
+                                          <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (ไทย)"/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
-                                          <div className="col-sm-10">
+                                          <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
+                                          <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (Eng)"/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
-                                            <div className="col-sm-10">
+                                          <Form.Label className="col-sm-3 col-form-label">Active Status</Form.Label>
+                                            <div className="col-sm-9">
                                                 <input
                                                     type="checkbox"
                                                     id="custom-switch"
