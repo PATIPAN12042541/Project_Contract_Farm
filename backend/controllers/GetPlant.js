@@ -146,7 +146,7 @@ export const getDataImagePlant = async (req, res) => {
         "FROM plant_data_detail  " +
         "LEFT JOIN name_chemical ON plant_data_detail.id_name_chemical = name_chemical.id " +
         "LEFT JOIN residual_period_chemical ON plant_data_detail.id_residual_period = residual_period_chemical.id " +
-        "WHERE plant_detail.id =  :id_plant",
+        "WHERE plant_data_detail.id_plant =  :id_plant",
       {
         replacements: { id_plant: req.params.id },
         type: db.QueryTypes.SELECT,
