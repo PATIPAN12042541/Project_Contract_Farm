@@ -17,7 +17,6 @@ const Add_Chemical = () => {
 
     const getListTypeChemicals = async() => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
-        //const response = await axios.get("http://localhost:4000/role_group");
         setListTypeChemical(response.data);
     }
   
