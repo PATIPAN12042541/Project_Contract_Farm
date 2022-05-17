@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
 import FileUpload from "@hawk-ui/file-upload";
@@ -9,6 +9,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const Manage_plant_edit = (props) => {
+  const navigate = useNavigate();
   const [managedetail, setManageDetail] = useState([]);
   const [namechemical, setNamechemical] = useState();
   const [quantitychemical, setQuantitychemical] = useState();
@@ -254,11 +255,13 @@ const Manage_plant_edit = (props) => {
                   </div>
                 </div>
                 <div className="card-footer">
-                  <Link to="/Edit_data">
-                    <button type="button" className="btn btn-default">
-                      ย้อนกลับ
-                    </button>
-                  </Link>
+                  <button
+                    type="button"
+                    className="btn btn-default"
+                    onClick={() => navigate(-1)}
+                  >
+                    ย้อนกลับ
+                  </button>
                 </div>
               </div>
             </div>
