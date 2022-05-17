@@ -42,24 +42,17 @@ export const getPlant = async (req, res) => {
 export const getManagePlantEdit = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
-      "SELECT plant_data_detail.id," +
-        "    plant_data_detail.id_plant," +
-        "    plant_data_detail.quantity_chemical," +
-        "    plant_data_detail.note," +
-        "    plant_data_detail.date_start," +
-        "    plant_data_detail.date_end," +
-        "    name_chemical.id as id_name_chemical," +
-        "    name_chemical.name_chemical ," +
-        "    name_chemical.name_chemical_eng," +
-        "    name_chemical.eu_mrl," +
-        "    name_chemical.path_img," +
-        "    residual_period_chemical.id as id_res_period," +
-        "    residual_period_chemical.time," +
-        "     residual_period_chemical.unit " +
-        "FROM plant_data_detail  " +
-        "LEFT JOIN name_chemical ON plant_data_detail.id_name_chemical = name_chemical.id " +
-        "LEFT JOIN residual_period_chemical ON plant_data_detail.id_residual_period = residual_period_chemical.id " +
-        "WHERE plant_detail.id =  :id_plant",
+      "select  plant_data_detail.id_plant," +
+        "        plant_data_detail.id," +
+        "        plant_data_detail.name_chemical," +
+        "        plant_data_detail.quantity_chemical," +
+        "        plant_data_detail.unit," +
+        "        plant_data_detail.note," +
+        "        image_plant_detail.path_image " +
+        "FROM plant_data_detail " +
+        "LEFT JOIN image_plant_detail " +
+        "ON plant_data_detail.id = image_plant_detail.id_plant " +
+        "WHERE plant_data_detail.id_plant = :id_plant ",
       {
         replacements: { id_plant: req.params.id },
         type: db.QueryTypes.SELECT,
@@ -136,22 +129,23 @@ export const DeletePlant = async (req, res) => {
 export const getDataImagePlant = async (req, res) => {
   try {
     const imageplants = await db.query(
-      "  SELECT plant_detail.id," +
-        "         plant_detail.id_name_plant," +
-        "         plant.name_plant," +
-        "         plant.start_date_plant," +
-        "         plant.end_date_plant," +
-        "         plant.plant_image," +
-        "         plant_data_detail.id AS 'id_data_detail'," +
-        "         plant_data_detail.name_chemical," +
-        "         plant_data_detail.quantity_chemical," +
-        "         plant_data_detail.unit," +
-        "         plant_data_detail.note," +
-        "         image_plant_detail.path_image " +
-        "FROM plant_data_detail " +
-        "LEFT JOIN image_plant_detail ON image_plant_detail.id_plant = plant_data_detail.id " +
-        "LEFT JOIN plant_detail ON plant_detail.id = plant_data_detail.id_plant " +
-        "LEFT JOIN plant ON plant.id_plant = plant_detail.id " +
+      "SELECT plant_data_detail.id," +
+        "    plant_data_detail.id_plant," +
+        "    plant_data_detail.quantity_chemical," +
+        "    plant_data_detail.note," +
+        "    plant_data_detail.date_start," +
+        "    plant_data_detail.date_end," +
+        "    name_chemical.id as id_name_chemical," +
+        "    name_chemical.name_chemical ," +
+        "    name_chemical.name_chemical_eng," +
+        "    name_chemical.eu_mrl," +
+        "    name_chemical.path_img," +
+        "    residual_period_chemical.id as id_res_period," +
+        "    residual_period_chemical.time," +
+        "     residual_period_chemical.unit " +
+        "FROM plant_data_detail  " +
+        "LEFT JOIN name_chemical ON plant_data_detail.id_name_chemical = name_chemical.id " +
+        "LEFT JOIN residual_period_chemical ON plant_data_detail.id_residual_period = residual_period_chemical.id " +
         "WHERE plant_detail.id =  :id_plant",
       {
         replacements: { id_plant: req.params.id },
