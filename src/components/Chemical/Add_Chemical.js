@@ -2,6 +2,7 @@ import React, { useState ,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Zoom from "react-medium-image-zoom"
 import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
