@@ -5,9 +5,7 @@ import axios from "axios";
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
   const [getselect, setSelect] = useState([]);
-  const [change, setChange] = useState([]);
 
-  console.log(change);
   const getChemicals = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical`
@@ -15,9 +13,9 @@ const Manage_plant_chemical = (props) => {
     setGetChemical(response.data);
   };
 
-  const getSelect = async () => {
+  const getSelect = async (data) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getChemical/Select/${change}`
+      `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
     );
     setSelect(response.data);
     console.log(response.data);
@@ -37,7 +35,7 @@ const Manage_plant_chemical = (props) => {
             <select
               className="form-control"
               placeholder=""
-              onChange={(e) => setChange(e.target.value)}
+              onChange={(e) => getSelect(e.target.value)}
             >
               {getChemical.map((Chemical, index) => {
                 return (
