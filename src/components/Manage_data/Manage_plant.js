@@ -276,7 +276,7 @@ const Manage_plant = (props) => {
                     <button
                       type="button"
                       className="btn btn-default"
-                      onClick={() => handleOnClick(-1)}
+                      onClick={() => navigate(-1)}
                     >
                       ย้อนกลับ
                     </button>
