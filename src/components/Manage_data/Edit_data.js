@@ -362,7 +362,6 @@ const Edit_data = (props) => {
                                   pathname: `/Manage_plant/${data.id_plant}`,
                                   state: {
                                     id: data.id_plant,
-                                    id_edit: props.id,
                                   },
                                 }}
                               >
