@@ -75,6 +75,14 @@ const Add_Chemical = () => {
                                             </div>
                                       </div>
                                       <div className="form-group row">
+                                          <Form.Label className="col-sm-3 col-form-label">EU MRL</Form.Label>
+                                          <div className="col-sm-9">
+                                                <input type="text"
+                                                    className="form-control"
+                                                    placeholder="EU MRL"/>
+                                            </div>
+                                      </div>
+                                      <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">รูป</Form.Label>
                                           <div className="col-sm-9">
                                                 <Zoom>
