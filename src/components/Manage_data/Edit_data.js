@@ -45,8 +45,6 @@ const Edit_data = (props) => {
     let formData = new FormData();
     formData.append("file", image.data);
 
-    console.log(formData);
-
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
       .then((res) => console.log(res.data))
@@ -56,8 +54,6 @@ const Edit_data = (props) => {
   const editUploadImg = async () => {
     let formData = new FormData();
     formData.append("file", editimage.data);
-
-    console.log(formData);
 
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
@@ -268,8 +264,6 @@ const Edit_data = (props) => {
                                   multiple
                                   accept="image/*"
                                   onUpload={(file) => {
-                                    console.log("query file", file);
-
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach((e) => {
                                       setImageName(e.name);
@@ -460,8 +454,6 @@ const Edit_data = (props) => {
                                   multiple
                                   accept="image/*"
                                   onUpload={(file) => {
-                                    console.log("query file", file);
-
                                     const filesArray = [].slice.call(file);
                                     filesArray.forEach((e) => {
                                       setEditImageName(e.name);
