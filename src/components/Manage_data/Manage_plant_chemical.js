@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
-import Zoom from "react-medium-image-zoom";
+
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
