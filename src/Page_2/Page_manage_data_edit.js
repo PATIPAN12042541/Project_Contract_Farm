@@ -15,7 +15,7 @@ const Page_manage_data_edit = () => {
     <>
       <Header />
       <SidebarRole />
-      <Manage_plant_edit id={params.id} id_edit={location.state} />
+      <Manage_plant_edit id={(location.id, location.state)} />
       <Footer />
     </>
   );
