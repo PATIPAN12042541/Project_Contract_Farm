@@ -6,6 +6,7 @@ import "./Data_detail.css";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
+  console.log(props.id);
   useEffect(() => {
     getDatadetail();
   }, []);
