@@ -6,7 +6,6 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Zoom from "react-medium-image-zoom";
 
-
 const Manage_plant = (props) => {
   const [getChemical, setGetChemical] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
@@ -33,14 +32,16 @@ const Manage_plant = (props) => {
     formData.append("file", image_object);
 
     console.log(formData);
-    console.log("image.data : "+image_object);
+    console.log("image.data : " + image_object);
 
     await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
+      .post(
+        `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
+        formData
+      )
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
   };
-
 
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
@@ -75,7 +76,6 @@ const Manage_plant = (props) => {
         let formData = new FormData();
         try {
           for (let i = 0; i < data.detail.length; i++) {
-            
             detail_array.push(
               await axios.post(
                 `${process.env.REACT_APP_API_URL}/getplant/ManagePlant/${props.id}`,
@@ -270,16 +270,13 @@ const Manage_plant = (props) => {
                     </ul>
                   </div>
                   <div className="card-footer">
-                    <Link
-                      to={{
-                        pathname: `/Edit_data/${props.id}`,
-                        state: { id: props.id },
-                      }}
+                    <button
+                      type="button"
+                      className="btn btn-default"
+                      onClick={() => handleOnClick(-1)}
                     >
-                      <button type="button" className="btn btn-default">
-                        ย้อนกลับ
-                      </button>
-                    </Link>
+                      ย้อนกลับ
+                    </button>
                     <button
                       type="submit"
                       className="btn btn-default float-right"
