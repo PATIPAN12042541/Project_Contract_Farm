@@ -21,7 +21,7 @@ const Manage_plant = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical`
     );
     setGetChemical(response.data);
-    console.log(response.data);
+    
   };
 
   useEffect(() => {
