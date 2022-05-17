@@ -34,13 +34,18 @@ const Manage_plant_chemical = (props) => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-12 col-sm-8">
-          <div className="form-group">
-            <input type="text" className="form-control">
-              1
-            </input>
-          </div>
+      <div className="col-12 col-sm-2">
+        <div className="form-group">
+          <input type="text" className="form-control">
+            1
+          </input>
+        </div>
+      </div>
+      <div className="col-12 col-sm-2">
+        <div className="form-group">
+          <input type="text" className="form-control">
+            2
+          </input>
         </div>
       </div>
     </div>
