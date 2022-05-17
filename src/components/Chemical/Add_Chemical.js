@@ -8,7 +8,8 @@ import Swal from 'sweetalert2'
 const Add_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
     const [typeChemicalID,setTypeChemicalID] = useState()
-    const [image, setImage] = useState({ preview: "", data: "" });
+    const [image, setImage] = useState({ preview: "", data: "" })
+    const [image_name, setImageName] = useState()
 
     useEffect(() => {
         getListTypeChemicals();
@@ -88,6 +89,24 @@ const Add_Chemical = () => {
                                                         height="100"
                                                     />
                                                 </Zoom>
+
+                                                <FileUpload
+                                                    btnIcon="fas fa-upload"
+                                                    multiple
+                                                    accept="image/*"
+                                                    onUpload={(file) => {
+                                                        const filesArray = [].slice.call(file);
+                                                        filesArray.forEach((e) => {
+                                                            setImageName(e.name);
+                                                        });
+
+                                                        const img = {
+                                                            preview: URL.createObjectURL(file[0]),
+                                                            data: file[0],
+                                                        };
+                                                        setImage(img);
+                                                    }}
+                                />
                                             </div>
                                       </div>
                                       <div className="form-group row">
