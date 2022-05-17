@@ -29,6 +29,7 @@ const Manage_plant = (props) => {
 
   useEffect(() => {
     getChemicals();
+
   }, []);
 
   const uploadImg = async (image_object) => {
@@ -170,7 +171,7 @@ const Manage_plant = (props) => {
                                   >
                                     {getChemical.map((Chemical, index) => {
                                       return (
-                                        <option key={index}>
+                                        <option key={index} value={Chemical.id}>
                                           {Chemical.name_chemical}
                                         </option>
                                       );
