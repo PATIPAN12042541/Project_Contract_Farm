@@ -63,6 +63,10 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
+  const onQuery = async (data) => {
+    console.log(data);
+  };
+
   const onSubmit = async (data) => {
     Swal.fire({
       icon: "success",
@@ -160,9 +164,14 @@ const Manage_plant = (props) => {
                                       `detail.${index}.name_chemical`
                                     )}
                                   >
-                                    {getChemical.map((Chemical, index) => {
+                                    {getChemical.map((Chemical) => {
                                       return (
-                                        <option key={index}>
+                                        <option
+                                          key={index}
+                                          onClick={() => {
+                                            onQuery(Chemical);
+                                          }}
+                                        >
                                           {Chemical.name_chemical}
                                         </option>
                                       );
