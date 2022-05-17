@@ -48,28 +48,30 @@ const Manage_plant_chemical = (props) => {
           </div>
         </div>
         {getselect.map((data, index) => {
-          <div>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่อไทย</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={data.name_chemical}
-                />
+            return (
+              <div>
+                <div className="col-12 col-sm-2">
+                  <div className="form-group">
+                    <label>ชื่อไทย</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={data.name_chemical}
+                    />
+                  </div>
+                </div>
+                <div className="col-12 col-sm-2">
+                  <div className="form-group">
+                    <label>ชื่ออังกฤษ</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={data.name_chemical_eng}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่ออังกฤษ</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={data.name_chemical_eng}
-                />
-              </div>
-            </div>
-          </div>;
+            );
         })}
       </div>
     </div>
