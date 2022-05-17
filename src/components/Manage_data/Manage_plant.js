@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
+
+  console.log(props);
   const [getChemical, setGetChemical] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
 
