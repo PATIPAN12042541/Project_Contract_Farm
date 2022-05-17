@@ -7,13 +7,12 @@ import { v4 as uuidv4 } from "uuid";
 import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
-  const [selectedValue, setSelectedValue] = useState();
+
+  const [select, setSelect] = useState([]);
+  console.log(select);
+
   const [getChemical, setGetChemical] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
-
-
-
-  console.log(selectedValue);
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -168,15 +167,11 @@ const Manage_plant = (props) => {
                                     {...register(
                                       `detail.${index}.name_chemical`
                                     )}
+                                    onChange={(e) => setSelect(e.target.value)}
                                   >
                                     {getChemical.map((Chemical, index) => {
                                       return (
-                                        <option
-                                          onChange={(value) =>
-                                            setSelectedValue(value)
-                                          }
-                                          key={index}
-                                        >
+                                        <option key={index}>
                                           {Chemical.name_chemical}
                                         </option>
                                       );
