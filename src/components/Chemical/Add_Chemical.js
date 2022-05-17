@@ -45,7 +45,7 @@ const Add_Chemical = () => {
                                           <div className="col-sm-10">
                                               <select className="form-control"
                                                   onChange={(e) => { setTypeChemicalID(e.target.value) }}>
-                                                  <option>--เลือก Role--</option>
+                                                  <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
                                                           value={item.id}>
