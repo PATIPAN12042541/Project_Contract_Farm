@@ -49,7 +49,7 @@ const Manage_plant_chemical = (props) => {
         </div>
       </div>
       {getselect.map((data, index) => {
-        <div>
+        <div className="row">
           <div className="col-12 col-sm-2">
             <div className="form-group">
               <label>ชื่อไทย</label>
