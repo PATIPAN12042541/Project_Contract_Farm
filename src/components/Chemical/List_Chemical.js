@@ -42,7 +42,7 @@ const List_Chemical = () => {
                             </div>
                             <div className="card-body">
                                 <div className="row">
-                                    <Link to={"#"}>
+                                    <Link to={"/AddChemical"}>
                                         <Button variant="success">เพิ่มข้อมูลสารเคมี</Button>
                                     </Link>
                                 </div>

@@ -18,6 +18,7 @@ import Update_TypeChemical from "./components/Type_Chemical/Update_TypeChemical.
 import Page_chemical from "./Page_1/Page_chemical";
 import Page_manage_zone from "./Page_2/Page_manage_zone";
 import List_Chemical from "./components/Chemical/List_Chemical.js"
+import Add_Chemical from "./components/Chemical/Add_Chemical.js";
 
 function App() {
   return (
@@ -103,6 +104,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <List_Chemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/AddChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Add_Chemical />
                 <Footer />
               </>
             }
