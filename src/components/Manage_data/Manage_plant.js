@@ -213,21 +213,28 @@ const Manage_plant = (props) => {
                                     <div className="custom-file">
                                       <input
                                         type="file"
-                                        accept="image/*" 
+                                        accept="image/*"
                                         className="custom-file-input"
                                         {...register(
                                           `detail.${index}.path_image`
                                         )}
-                                        onChange={async(e)=>{
-
-                                         const img = {
-                                          preview: URL.createObjectURL(e.target.files[0]),
-                                          data: e.target.files[0],
-                                        }
-                                         setImage(img);
-                                         console.log("e.target.files : "+e.target.files);
-                                         console.log("image preview : "+img.preview);
-                                         console.log("image data : "+img.data);
+                                        onChange={async (e) => {
+                                          const img = {
+                                            preview: URL.createObjectURL(
+                                              e.target.files[0]
+                                            ),
+                                            data: e.target.files[0],
+                                          };
+                                          setImage(img);
+                                          console.log(
+                                            "e.target.files : " + e.target.files
+                                          );
+                                          console.log(
+                                            "image preview : " + img.preview
+                                          );
+                                          console.log(
+                                            "image data : " + img.data
+                                          );
                                         }}
                                       />
                                       <label className="custom-file-label">
@@ -235,17 +242,17 @@ const Manage_plant = (props) => {
                                       </label>
                                     </div>
                                     <Zoom>
-                                        <img
-                                          src={
-                                            image.preview
-                                              ? image.preview
-                                              : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                          }
-                                          className="img-fluid mb-2"
-                                          width="100"
-                                          height="100"
-                                        />
-                                      </Zoom>
+                                      <img
+                                        src={
+                                          image.preview
+                                            ? image.preview
+                                            : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                        }
+                                        className="img-fluid mb-2"
+                                        width="100"
+                                        height="100"
+                                      />
+                                    </Zoom>
                                   </div>
                                 </div>
                               </div>
@@ -263,7 +270,12 @@ const Manage_plant = (props) => {
                     </ul>
                   </div>
                   <div className="card-footer">
-                    <Link to="/Edit_data">
+                    <Link
+                      to={{
+                        pathname: `/Edit_data/${props.id}`,
+                        state: { id: props.id },
+                      }}
+                    >
                       <button type="button" className="btn btn-default">
                         ย้อนกลับ
                       </button>
