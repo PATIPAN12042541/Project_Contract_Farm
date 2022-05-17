@@ -133,7 +133,7 @@ export const getDataImagePlant = async (req, res) => {
         "    plant_data_detail.id_plant," +
         "    plant_data_detail.quantity_chemical," +
         "    plant_data_detail.note," +
-        "    FORMAT(plant_data_detail.date_start,'dd/MM/yyyy') as date_start," +
+        "    DATE_FORMAT (plant_data_detail.date_start,'DD-MM-YYYY') as date_start," +
         "    plant_data_detail.date_end," +
         "    name_chemical.id as id_name_chemical," +
         "    name_chemical.name_chemical ," +
