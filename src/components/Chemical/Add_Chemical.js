@@ -3,12 +3,14 @@ import Form from 'react-bootstrap/Form'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Zoom from "react-medium-image-zoom"
+import FileUpload from "@hawk-ui/file-upload"
 import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
     const [typeChemicalID,setTypeChemicalID] = useState()
-    const [image, setImage] = useState({ preview: "", data: "" });
+    const [image, setImage] = useState({ preview: "", data: "" })
+    const [image_name, setImageName] = useState()
 
     useEffect(() => {
         getListTypeChemicals();
@@ -16,7 +18,6 @@ const Add_Chemical = () => {
 
     const getListTypeChemicals = async() => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
-        //const response = await axios.get("http://localhost:4000/role_group");
         setListTypeChemical(response.data);
     }
   
@@ -88,6 +89,24 @@ const Add_Chemical = () => {
                                                         height="100"
                                                     />
                                                 </Zoom>
+
+                                                <FileUpload
+                                                    btnIcon="fas fa-upload"
+                                                    multiple
+                                                    accept="image/*"
+                                                    onUpload={(file) => {
+                                                        const filesArray = [].slice.call(file);
+                                                        filesArray.forEach((e) => {
+                                                            setImageName(e.name);
+                                                        });
+
+                                                        const img = {
+                                                            preview: URL.createObjectURL(file[0]),
+                                                            data: file[0],
+                                                        };
+                                                        setImage(img);
+                                                    }}
+                                />
                                             </div>
                                       </div>
                                       <div className="form-group row">
