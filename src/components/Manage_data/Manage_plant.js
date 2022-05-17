@@ -12,7 +12,7 @@ const Manage_plant = (props) => {
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
-    () => navigate("/Edit_data", { replace: true }),
+    () => navigate(`/Edit_data/${props.id_edit}`, { replace: true }),
     [navigate]
   );
 
