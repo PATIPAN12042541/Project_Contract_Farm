@@ -64,7 +64,7 @@ const Manage_plant = (props) => {
   });
 
   const onQuery = async (data) => {
-    console.log(data);
+    console.log("data", data);
   };
 
   const onSubmit = async (data) => {
