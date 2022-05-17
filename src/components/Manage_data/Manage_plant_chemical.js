@@ -4,7 +4,9 @@ import axios from "axios";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [change, setChange] = useState([]);
 
+  console.log(change);
   const getChemicals = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical`
@@ -16,17 +18,23 @@ const Manage_plant_chemical = (props) => {
     getChemicals();
   }, []);
 
- 
-
   return (
     <div className="content-wrapper">
       <div className="row">
         <div className="col-12 col-sm-8">
           <div className="form-group">
             <label>ชื่อสารเคมีที่ใช้</label>
-            <select className="form-control" placeholder="">
+            <select
+              className="form-control"
+              placeholder=""
+              onChange={(e) => setChange(e.target.value)}
+            >
               {getChemical.map((Chemical, index) => {
-                return <option key={index}>{Chemical.name_chemical}</option>;
+                return (
+                  <option key={index} value={Chemical.id}>
+                    {Chemical.name_chemical}
+                  </option>
+                );
               })}
             </select>
           </div>
