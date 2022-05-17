@@ -1,14 +1,19 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray, useMemo } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
+  const [selectedValue, setSelectedValue] = useState();
   const [getChemical, setGetChemical] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
+
+
+
+  console.log(selectedValue);
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
@@ -167,10 +172,10 @@ const Manage_plant = (props) => {
                                     {getChemical.map((Chemical, index) => {
                                       return (
                                         <option
+                                          onChange={(value) =>
+                                            setSelectedValue(value)
+                                          }
                                           key={index}
-                                          onChange={() => {
-                                            onQuery(Chemical);
-                                          }}
                                         >
                                           {Chemical.name_chemical}
                                         </option>
