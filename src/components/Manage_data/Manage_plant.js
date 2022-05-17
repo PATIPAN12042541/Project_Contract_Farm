@@ -164,7 +164,7 @@ const Manage_plant = (props) => {
                                       `detail.${index}.name_chemical`
                                     )}
                                   >
-                                    {getChemical.map((Chemical) => {
+                                    {getChemical.map((Chemical, index) => {
                                       return (
                                         <option
                                           key={index}
