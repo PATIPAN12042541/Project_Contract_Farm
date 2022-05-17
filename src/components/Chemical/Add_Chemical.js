@@ -2,11 +2,13 @@ import React, { useState ,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Zoom from "react-medium-image-zoom"
 import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
     const [typeChemicalID,setTypeChemicalID] = useState()
+    const [image, setImage] = useState({ preview: "", data: "" });
 
     useEffect(() => {
         getListTypeChemicals();
@@ -69,6 +71,23 @@ const Add_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (Eng)"/>
+                                            </div>
+                                      </div>
+                                      <div className="form-group row">
+                                          <Form.Label className="col-sm-3 col-form-label">รูป</Form.Label>
+                                          <div className="col-sm-9">
+                                                <Zoom>
+                                                    <img
+                                                        src={
+                                                            image.preview
+                                                                ? image.preview
+                                                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                                        }
+                                                        className="img-fluid mb-2"
+                                                        width="100"
+                                                        height="100"
+                                                    />
+                                                </Zoom>
                                             </div>
                                       </div>
                                       <div className="form-group row">
