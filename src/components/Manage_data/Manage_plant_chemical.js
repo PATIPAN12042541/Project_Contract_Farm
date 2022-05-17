@@ -17,6 +17,8 @@ const Manage_plant_chemical = (props) => {
     getChemicals();
   }, []);
 
+ 
+
   return (
     <div className="content-wrapper">
       จัดการข้อมูล
@@ -29,6 +31,25 @@ const Manage_plant_chemical = (props) => {
                 return <option key={index}>{Chemical.name_chemical}</option>;
               })}
             </select>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 col-sm-8">
+          <div className="form-group">
+            <input type="text" className="form-control">
+              1
+            </input>
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control">
+              2
+            </input>
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control">
+              3
+            </input>
           </div>
         </div>
       </div>
