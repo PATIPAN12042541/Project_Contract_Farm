@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [getselect, setSelect] = useState([]);
   const [change, setChange] = useState([]);
 
   console.log(change);
@@ -14,8 +15,17 @@ const Manage_plant_chemical = (props) => {
     setGetChemical(response.data);
   };
 
+  const getSelect = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/Select/${change}`
+    );
+    setSelect(response.data);
+    console.log(response.data);
+  };
+
   useEffect(() => {
     getChemicals();
+    getSelect();
   }, []);
 
   return (
