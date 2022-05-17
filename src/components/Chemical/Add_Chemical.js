@@ -56,6 +56,22 @@ const Add_Chemical = () => {
                                           </div>
                                       </div>
                                       <div className="form-group row">
+                                          <Form.Label className="col-sm-2 col-form-label">ชื่อสารเคมี (ไทย)</Form.Label>
+                                          <div className="col-sm-10">
+                                                <input type="text"
+                                                    className="form-control"
+                                                    placeholder="ชื่อสารเคมี (ไทย)"/>
+                                            </div>
+                                      </div>
+                                      <div className="form-group row">
+                                          <Form.Label className="col-sm-2 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
+                                          <div className="col-sm-10">
+                                                <input type="text"
+                                                    className="form-control"
+                                                    placeholder="ชื่อสารเคมี (Eng)"/>
+                                            </div>
+                                      </div>
+                                      <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
                                             <div className="col-sm-10">
                                                 <input
