@@ -168,7 +168,7 @@ const Manage_plant = (props) => {
                                       return (
                                         <option
                                           key={index}
-                                          onClick={() => {
+                                          onChange={() => {
                                             onQuery(Chemical);
                                           }}
                                         >
