@@ -21,7 +21,6 @@ const Manage_plant_chemical = (props) => {
 
   return (
     <div className="content-wrapper">
-      จัดการข้อมูล
       <div className="row">
         <div className="col-12 col-sm-8">
           <div className="form-group">
