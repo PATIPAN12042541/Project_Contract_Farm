@@ -68,13 +68,12 @@ const Manage_plant_chemical = (props) => {
                     </Form.Select>
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>State</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>Choose...</option>
-                      <option>...</option>
-                    </Form.Select>
-                  </Form.Group>
+                  <Form.Select aria-label="Default select example">
+                    <option>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
 
                   {getselect.map((data, index) => {
                     return (
