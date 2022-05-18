@@ -57,7 +57,7 @@ const Manage_plant_chemical = (props) => {
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>ชื่อสารเคมี</Form.Label>
                     <Form.Select
-                      defaultValue=""
+                      defaultValue="..."
                       onChange={(e) => getSelect(e.target.value)}
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
