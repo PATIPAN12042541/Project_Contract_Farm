@@ -29,15 +29,13 @@ const Manage_plant_chemical = (props) => {
       );
       setSelect(response.data);
     } else {
-      setSelect([
-        {
-          id: "",
-          name_chemical: "",
-          name_chemical_eng: "",
-          path_img: "",
-          eu_mrl: "",
-        },
-      ]);
+      setSelect([{
+      id: "",
+      name_chemical: "",
+      name_chemical_eng: "",
+      path_img: "",
+      eu_mrl: "",
+    },]);
     }
   };
 
@@ -81,14 +79,13 @@ const Manage_plant_chemical = (props) => {
                       })}
                     </select>
                   </div>
-
+                  <label className="col-sm-1 col-form-label">
+                    ชื่อภาษาอังกฤษ
+                  </label>
                   {getselect.map((data, index) => {
                     return (
-                      <div className="form-group row" key={index}>
-                        <label className="col-sm-3 col-form-label">
-                          ชื่อภาษาอังกฤษ
-                        </label>
-                        <div className="col-sm-6">
+                      <>
+                        <div className="col-sm-4">
                           <input
                             type="text"
                             className="form-control form-control-border"
@@ -101,7 +98,7 @@ const Manage_plant_chemical = (props) => {
                         <label className="col-sm-1 col-form-label">
                           EU-MRL
                         </label>
-                        <div className="col-sm-2">
+                        <div className="col-sm-1">
                           <input
                             type="text"
                             className="form-control form-control-border"
@@ -111,7 +108,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </div>
-                      </div>
+                      </>
                     );
                   })}
                 </div>
