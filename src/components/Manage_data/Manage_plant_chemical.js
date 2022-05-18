@@ -72,23 +72,33 @@ const Manage_plant_chemical = (props) => {
                   <label className="col-sm-1 col-form-label">
                     ชื่อภาษาอังกฤษ
                   </label>
-                  <div className="col-sm-4">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="ชื่อภาษาอังกฤษ"
-                      readOnly
-                    />
-                  </div>
-                  <label className="col-sm-1 col-form-label">EU-MRL</label>
-                  <div className="col-sm-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="EU-MRL"
-                      readOnly
-                    />
-                  </div>
+                  {getselect.map((data, index) => {
+                    return (
+                      <>
+                        <div className="col-sm-4" key={index}>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder={data.name_chemical_eng}
+                            defaultValue={data.name_chemical_eng}
+                            readOnly
+                          />
+                        </div>
+                        <label className="col-sm-1 col-form-label">
+                          EU-MRL
+                        </label>
+                        <div className="col-sm-1" key={index}>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder={data.eu_mrl}
+                            defaultValue={data.eu_mrl}
+                            readOnly
+                          />
+                        </div>
+                      </>
+                    );
+                  })}
                 </div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">Password</label>
