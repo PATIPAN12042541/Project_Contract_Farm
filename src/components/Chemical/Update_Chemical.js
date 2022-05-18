@@ -21,8 +21,8 @@ const Update_Chemical = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getListTypeChemicals()
         getChemicalById()
+        getListTypeChemicals()
     },[])
 
     const getListTypeChemicals = async() => {
@@ -37,7 +37,8 @@ const Update_Chemical = () => {
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
-        console.log("typeChemicalID : "+response.data.type_chemical_id);
+        console.log("typeChemicalID 1 : "+response.data.type_chemical_id);
+        console.log("typeChemicalID 2 : "+typeChemicalID);
     }
   
   
