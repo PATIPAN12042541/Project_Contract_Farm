@@ -37,8 +37,6 @@ const Update_Chemical = () => {
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
-        console.log("typeChemicalID 1 : "+response.data.type_chemical_id);
-        console.log("typeChemicalID 2 : "+typeChemicalID);
     }
   
   
@@ -69,7 +67,8 @@ const Update_Chemical = () => {
                                           <div className="col-sm-9">
                                               <select className="form-control"
                                                   onChange={(e) => { setTypeChemicalID(e.target.value) }}
-                                                  defaultValue={typeChemicalID}>
+                                                  defaultValue={typeChemicalID}
+                                                  select>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
