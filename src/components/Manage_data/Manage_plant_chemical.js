@@ -63,12 +63,12 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate2 = async (date) => {
+    setEndDate("");
     var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
 
     var day = new_date.format("DD");
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
-
     setEndDate(year + "-" + month + "-" + day);
   };
 
@@ -117,7 +117,7 @@ const Manage_plant_chemical = (props) => {
                           })}
                         </select>
                       </div>
-                      <label className="col-sm-1 col-form-label">
+                      <label className="col-sm-ห1 col-form-label">
                         ชื่อภาษาอังกฤษ
                       </label>
                       <div className="col-sm-4">
