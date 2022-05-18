@@ -42,15 +42,15 @@ const Manage_plant_chemical = (props) => {
       </section>
       <section className="content">
         <div className="container-fluid">
-          <div class="card card-info">
+          <div className="card card-info">
             <div
-              class="card-header"
+              className="card-header"
               style={{
                 backgroundColor: "#8CC152",
                 color: "#FFFFFF",
               }}
             >
-              <h3 class="card-title">จัดการข้อมูลสารเคมี</h3>
+              <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
             <Form className="form-horizontal">
               <div className="card-body">
