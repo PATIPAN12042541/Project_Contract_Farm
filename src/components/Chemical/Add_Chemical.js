@@ -162,6 +162,9 @@ const Add_Chemical = () => {
                                             <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
+                                                    onChange={(e)=>{
+                                                        setChecked(!checked);
+                                                    }}
                                                 />
                                             </div>
                                       </div>
