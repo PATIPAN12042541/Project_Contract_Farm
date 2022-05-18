@@ -43,6 +43,7 @@ const Manage_plant_chemical = (props) => {
               className="form-control"
               onChange={(e) => getSelect(e.target.value)}
             >
+              <option>------กรุณาเลือกสารเคมี------</option>
               {getChemical.map((Chemical, index) => {
                 return (
                   <option key={index} value={Chemical.id}>
