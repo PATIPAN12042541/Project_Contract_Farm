@@ -13,7 +13,7 @@ const Update_Chemical = () => {
     const [nameChemicalThai,setNameChemicalThai] = useState("")
     const [nameChemicalEng,setNameChemicalEng] = useState("")
     const [eumrl,setEumrl] = useState("")
-    const [typeChemicalID,setTypeChemicalID] = useState()
+    const [typeChemicalID,setTypeChemicalID] = useState("")
     const [image, setImage] = useState({ preview: "", data: "" })
     const [imgUrl,setImgUrl] = useState("")
     const [image_name, setImageName] = useState()
@@ -36,7 +36,7 @@ const Update_Chemical = () => {
         setNameChemicalEng(response.data.nameChemicalEng)
         setEumrl(response.data.eumrl)
         setImgUrl(response.data.path_img)
-        setChecked(response.data.type_chemical_id)
+        setTypeChemicalID(response.data.type_chemical_id)
     }
   
   
@@ -57,7 +57,7 @@ const Update_Chemical = () => {
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
                                   <center>
-                                      <h3 className="card-title">เพิ่มข้อมูลสารเคมี</h3>
+                                      <h3 className="card-title">แก้ไขข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
                               <Form className="form-horizontal">
@@ -70,7 +70,8 @@ const Update_Chemical = () => {
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={item.id}>
+                                                          value={item.id}
+                                                          selected={typeChemicalID}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
