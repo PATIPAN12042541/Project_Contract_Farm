@@ -52,6 +52,7 @@ const List_Chemical = () => {
                                         <thead>
                                             <tr>
                                                 <th>ลำดับ</th>
+                                                <th>ประเภทสารเคมี</th>
                                                 <th>ชื่อสารเคมี (ไทย)</th>
                                                 <th>ชื่อสารเคมี (Eng)</th>
                                                 <th>ER MUL</th>
@@ -64,6 +65,7 @@ const List_Chemical = () => {
                                               {listChemicals.map((listChemical, index) => (
                                                   <tr key={listChemical.id}>
                                                       <td>{index + 1}</td>
+                                                      <td>{listChemical.type_chemical}</td>
                                                       <td>{listChemical.name_chemical}</td>
                                                       <td>{listChemical.name_chemical_eng}</td>
                                                       <td>{listChemical.eu_mrl}</td>
