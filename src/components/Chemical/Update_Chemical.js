@@ -82,7 +82,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (ไทย)"
-                                                    value={NameChemicalThai}
+                                                    value={nameChemicalThai}
                                                     onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
@@ -92,7 +92,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (Eng)"
-                                                    value={NameChemicalEng}
+                                                    value={nameChemicalEng}
                                                     onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
@@ -102,7 +102,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="EU MRL"
-                                                    value={Eumrl}
+                                                    value={eumrl}
                                                     pattern="[0-9]*"
                                                     onKeyPress={(e) => {
                                                         if (!/[0-9]/.test(e.key)) {
