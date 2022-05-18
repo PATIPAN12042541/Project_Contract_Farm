@@ -120,7 +120,7 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           class="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
-                          value=""
+                          defaultValue=""
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
@@ -134,7 +134,7 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           class="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
-                          value=""
+                          defaultValue=""
                         />
                       </div>
                     </div>
