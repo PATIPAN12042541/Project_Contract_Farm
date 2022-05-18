@@ -21,8 +21,8 @@ const Update_Chemical = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getChemicalById()
         getListTypeChemicals()
+        getChemicalById()
     },[])
 
     const getListTypeChemicals = async() => {
@@ -68,12 +68,12 @@ const Update_Chemical = () => {
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
                                           <div className="col-sm-9">
                                               <select className="form-control"
-                                                  onChange={(e) => { setTypeChemicalID(e.target.value) }}>
+                                                  onChange={(e) => { setTypeChemicalID(e.target.value) }}
+                                                  defaultValue={typeChemicalID}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={item.id}
-                                                          selected>
+                                                          value={item.id}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
