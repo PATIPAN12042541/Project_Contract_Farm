@@ -43,6 +43,7 @@ const Manage_plant_chemical = (props) => {
             <select
               className="form-control"
               placeholder=""
+              defaultValue=""
               onChange={(e) => getSelect(e.target.value)}
             >
               {getChemical.map((Chemical, index) => {
@@ -58,13 +59,13 @@ const Manage_plant_chemical = (props) => {
         {getselect.map((data, index) => {
           return (
             <>
-              <div className="col-12 col-sm-2">
+              <div className="col-12 col-sm-2" key={index}>
                 <div className="form-group">
                   <label>ชื่อไทย</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={data.name_chemical}
+                    defaultValue={data.name_chemical}
                   />
                 </div>
               </div>
@@ -74,7 +75,7 @@ const Manage_plant_chemical = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    value={data.name_chemical_eng}
+                    defaultValue={data.name_chemical_eng}
                   />
                 </div>
               </div>
