@@ -56,7 +56,7 @@ const Manage_plant_chemical = (props) => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder={data.name_chemical}
+                      value={data.name_chemical}
                     />
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const Manage_plant_chemical = (props) => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder={data.name_chemical_eng}
+                      value={data.name_chemical_eng}
                     />
                   </div>
                 </div>
