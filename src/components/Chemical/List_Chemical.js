@@ -19,6 +19,38 @@ const List_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/getChemical`);
         setListChemicals(response.data);
     }
+
+    const deleteChemical = async (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want Delete !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK !'
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                await axios.delete(`${process.env.REACT_APP_API_URL}/getChemical/deleteChemical/${id}`)
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Delete Success!",
+                        });
+
+                        getListChemical();
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Delete Fail!",
+                            text: error,
+                        });
+                    });
+            }
+        })
+    }
   
     return (
         <div className="content-wrapper">
@@ -87,7 +119,7 @@ const List_Chemical = () => {
                                                           <Link to={`/UpdateChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                       </td>
                                                       <td>
-                                                      <Button variant="danger">ลบข้อมูล</Button>
+                                                          <Button variant="danger" onClick={(e)=>deleteChemical(listChemical.id)}>ลบข้อมูล</Button>
                                                       </td>
                                                   </tr>
                                               ))}

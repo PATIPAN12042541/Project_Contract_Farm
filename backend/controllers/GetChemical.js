@@ -14,7 +14,8 @@ export const getChemical = async (req, res) => {
              "name_chemical.status "+
              "FROM name_chemical "+
              "LEFT JOIN type_chemical "+
-             "on name_chemical.type_chemical_id = type_chemical.id",
+             "on name_chemical.type_chemical_id = type_chemical.id "+
+             "and name_chemical.type_chemical_id = 1",
       {
         type: db.QueryTypes.SELECT,
       }
