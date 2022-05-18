@@ -62,11 +62,7 @@ const Manage_plant_chemical = (props) => {
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
                       {getChemical.map((Chemical) => {
-                        return (
-                          <option value={Chemical.id}>
-                            {Chemical.name_chemical}
-                          </option>
-                        );
+                        return <option>{Chemical.name_chemical}</option>;
                       })}
                     </Form.Select>
                   </Form.Group>
