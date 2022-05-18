@@ -83,6 +83,7 @@ const Update_Chemical = () => {
                                                 <Form.Control type="text"
                                                               className="form-control"
                                                               placeholder="ชื่อสารเคมี (ไทย)"
+                                                              value={nameChemicalThai}
                                                               onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
@@ -91,6 +92,7 @@ const Update_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <Form.Control type="text"
                                                               className="form-control"
+                                                              value={nameChemicalEng}
                                                               placeholder="ชื่อสารเคมี (Eng)"
                                                               onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
