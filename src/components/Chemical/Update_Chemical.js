@@ -48,7 +48,7 @@ const Update_Chemical = () => {
                                       <h3 className="card-title">เพิ่มข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <Form className="form-horizontal" onSubmit={AddChemical}>
+                              <Form className="form-horizontal">
                                   <div className="card-body">
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
