@@ -69,12 +69,11 @@ const Update_Chemical = () => {
                                           <div className="col-sm-9">
                                               <select className="form-control"
                                                   onChange={(e) => { setTypeChemicalID(e.target.value) }}
-                                                  value={typeChemicalID}>
+                                                  defaultValue={typeChemicalID}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={item.id}
-                                                          selected>
+                                                          value={item.id}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
