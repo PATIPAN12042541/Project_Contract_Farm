@@ -88,7 +88,7 @@ const Manage_plant_chemical = (props) => {
                         <label className="col-sm-3 col-form-label">
                           ชื่อภาษาอังกฤษ
                         </label>
-                        <div className="col-sm-4">
+                        <div className="col-sm-6">
                           <input
                             type="text"
                             className="form-control form-control-border"
@@ -98,7 +98,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </div>
-                        <label className="col-sm-3 col-form-label">
+                        <label className="col-sm-1 col-form-label">
                           EU-MRL
                         </label>
                         <div className="col-sm-2">
