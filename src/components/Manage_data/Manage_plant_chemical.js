@@ -4,15 +4,7 @@ import axios from "axios";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [getselect, setSelect] = useState([
-    {
-      id: "",
-      name_chemical: "",
-      name_chemical_eng: "",
-      path_img: "",
-      eu_mrl: "",
-    },
-  ]);
+  const [getselect, setSelect] = useState([]);
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -41,8 +33,6 @@ const Manage_plant_chemical = (props) => {
             <label>ชื่อสารเคมีที่ใช้</label>
             <select
               className="form-control"
-              placeholder=""
-              defaultValue=""
               onChange={(e) => getSelect(e.target.value)}
             >
               {getChemical.map((Chemical, index) => {
