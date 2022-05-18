@@ -56,8 +56,9 @@ const Manage_plant_chemical = (props) => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="selecttype">
                     <Form.Label>ชื่อสารเคมี</Form.Label>
-                    <Form.Select
+                    <Select
                       defaultValue=""
+                      className="custom-select form-control-border"
                       onChange={(e) => getSelect(e.target.value)}
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
@@ -68,7 +69,7 @@ const Manage_plant_chemical = (props) => {
                           </option>
                         );
                       })}
-                    </Form.Select>
+                    </Select>
                   </Form.Group>
 
                   {getselect.map((data, index) => {
