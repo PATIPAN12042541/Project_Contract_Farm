@@ -67,11 +67,12 @@ const Update_Chemical = () => {
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
                                           <div className="col-sm-9">
                                               <select className="form-control"
+                                                      value={2}
                                                       onChange={(e) => { setTypeChemicalID(e.target.value) }}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={typeChemicalID}>
+                                                          value={item.id}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
@@ -86,7 +87,7 @@ const Update_Chemical = () => {
                                                               placeholder="ชื่อสารเคมี (ไทย)"
                                                               value={nameChemicalThai}
                                                               onChange={(e)=>setNameChemicalThai(e.target.value)}/>
-                                            </div>
+                                        </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
