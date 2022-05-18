@@ -89,6 +89,7 @@ const List_Chemical = () => {
                                                 <th>ชื่อสารเคมี (Eng)</th>
                                                 <th>ER MUL</th>
                                                 <th>รูปภาพ</th>
+                                                <th>Active</th>
                                                 <th>แก้ไขข้อมูล</th>
                                                 <th>ลบข้อมูล</th>
                                             </tr>
@@ -114,6 +115,9 @@ const List_Chemical = () => {
                                                                   />
                                                               </Zoom>
                                                           </center>
+                                                      </td>
+                                                      <td>
+                                                          {(listChemical.status === 1)?<Image src="../../../public/dist/img/symbol_true.png" />:<Image src="../../../public/dist/img/symbol_false.png" />}
                                                       </td>
                                                       <td>
                                                           <Link to={`/UpdateChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
