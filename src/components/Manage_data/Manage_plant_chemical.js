@@ -54,11 +54,10 @@ const Manage_plant_chemical = (props) => {
             <Form className="form-horizontal">
               <div className="card-body">
                 <Row className="mb-3">
-                  <Form.Group as={Col} controlId="selecttype">
+                  <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>ชื่อสารเคมี</Form.Label>
-                    <Select
+                    <Form.Select
                       defaultValue=""
-                      className="custom-select form-control-border"
                       onChange={(e) => getSelect(e.target.value)}
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
@@ -69,7 +68,7 @@ const Manage_plant_chemical = (props) => {
                           </option>
                         );
                       })}
-                    </Select>
+                    </Form.Select>
                   </Form.Group>
 
                   {getselect.map((data, index) => {
