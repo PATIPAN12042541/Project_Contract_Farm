@@ -19,7 +19,7 @@ const Manage_plant_chemical = (props) => {
 
   const checkinputexpired = async (data) => {
     console.log(data);
-    if (data) {
+    if (data && data !== "----ระยะเวลาตกค้าง----") {
       setCheckInput(false);
     } else {
       setCheckInput(true);
