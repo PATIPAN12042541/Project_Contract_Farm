@@ -32,9 +32,9 @@ const Update_Chemical = () => {
 
     const getChemicalById = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/getChemical/getChemicalID/${id}`);
-        setNameChemicalThai(response.data.nameChemicalThai)
-        setNameChemicalEng(response.data.nameChemicalEng)
-        setEumrl(response.data.eumrl)
+        setNameChemicalThai(response.data.name_chemical)
+        setNameChemicalEng(response.data.name_chemical_eng)
+        setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
     }
