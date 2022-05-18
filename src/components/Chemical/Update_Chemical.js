@@ -17,6 +17,7 @@ const Update_Chemical = () => {
     const [image, setImage] = useState({ preview: "", data: "" })
     const [imgUrl,setImgUrl] = useState("")
     const [image_name, setImageName] = useState()
+    const {id} = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
