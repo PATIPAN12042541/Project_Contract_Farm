@@ -48,7 +48,7 @@ const Update_Chemical = () => {
                 name_chemical: nameChemicalThai,
                 name_chemical_eng : nameChemicalEng,
                 eu_mrl : eumrl,
-                path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
+                path_img : (image_name === undefined)?imgUrl:'../dist/img/insecticide/'+image_name,
                 type_chemical_id : typeChemicalID,
                 status : checked,
             });
@@ -151,7 +151,7 @@ const Update_Chemical = () => {
                                                         src={
                                                             image.preview
                                                                 ? image.preview
-                                                                : image.data
+                                                                : imgUrl
                                                         }
                                                         className="img-fluid mb-2"
                                                         width="100"
