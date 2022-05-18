@@ -53,17 +53,26 @@ const Manage_plant_chemical = (props) => {
             </div>
             <Form className="form-horizontal">
               <div className="card-body">
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="formGridState">
+                <Row className="mb-4">
+                  <Form.Group as={Col} controlId="selecttype">
                     <Form.Label>ชื่อสารเคมี</Form.Label>
-                    <Form.Select
-                      defaultValue="..."
-                      onChange={(e) => getSelect(e.target.value)}
-                    >
+                    <Form.Select onChange={(e) => getSelect(e.target.value)}>
                       <option>------กรุณาเลือกสารเคมี------</option>
-                      {/* {getChemical.map((Chemical) => {
-                        return <option>{Chemical.name_chemical}</option>;
-                      })} */}
+                      {getChemical.map((Chemical) => {
+                        return (
+                          <option defaultValue={Chemical.id}>
+                            {Chemical.name_chemical}
+                          </option>
+                        );
+                      })}
+                    </Form.Select>
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridState">
+                    <Form.Label>State</Form.Label>
+                    <Form.Select defaultValue="Choose...">
+                      <option>Choose...</option>
+                      <option>...</option>
                     </Form.Select>
                   </Form.Group>
 
