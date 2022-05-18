@@ -4,6 +4,8 @@ import moment from "moment";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [endDate, setEndDate] = useState([""]);
+  const [expired, setExpired] = useState([]);
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -14,7 +16,7 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
 
-  const [endDate, setEndDate] = useState([""]);
+  
 
   const getChemicals = async () => {
     const response = await axios.get(
