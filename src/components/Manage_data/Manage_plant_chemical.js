@@ -61,19 +61,20 @@ const Manage_plant_chemical = (props) => {
                       onChange={(e) => getSelect(e.target.value)}
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
-                      {getChemical.map((Chemical, index) => {
+                      {getChemical.map((Chemical) => {
                         return (
-                          <option key={index} value={Chemical.id}>
+                          <option value={Chemical.id}>
                             {Chemical.name_chemical}
                           </option>
                         );
                       })}
                     </Form.Select>
                   </Form.Group>
+
                   {getselect.map((data, index) => {
                     return (
                       <>
-                        <Form.Group key={index} as={Col} controlId="nameeng">
+                        <Form.Group as={Col} controlId="nameeng">
                           <Form.Label>ชื่อภาษาอังกฤษ</Form.Label>
                           <Form.Control
                             placeholder={data.name_chemical_eng}
@@ -81,7 +82,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </Form.Group>
-                        <Form.Group key={index} as={Col} controlId="EUMRL">
+                        <Form.Group as={Col} controlId="EUMRL">
                           <Form.Label>EU-MRL</Form.Label>
                           <Form.Control
                             placeholder={data.eu_mrl}
