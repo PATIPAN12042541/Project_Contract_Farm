@@ -44,15 +44,25 @@ const Update_Chemical = () => {
     const updateChemical = async (e) => {
         e.preventDefault();
         try{
-            await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
-                name_chemical: nameChemicalThai,
-                name_chemical_eng : nameChemicalEng,
-                eu_mrl : eumrl,
-                path_img : (image_name === undefined)?imgUrl:'../dist/img/insecticide/'+image_name,
-                type_chemical_id : typeChemicalID,
-                status : checked,
-            });
-
+            if (image_name === undefined){
+                await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
+                    name_chemical: nameChemicalThai,
+                    name_chemical_eng : nameChemicalEng,
+                    eu_mrl : eumrl,
+                    type_chemical_id : typeChemicalID,
+                    status : checked,
+                });
+            }else{
+                await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
+                    name_chemical: nameChemicalThai,
+                    name_chemical_eng : nameChemicalEng,
+                    eu_mrl : eumrl,
+                    path_img : image_name,
+                    type_chemical_id : typeChemicalID,
+                    status : checked,
+                });
+            }
+            
             Swal.fire({
                 icon: "success",
                 title: "Success",
