@@ -4,6 +4,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Zoom from "react-medium-image-zoom"
 import FileUpload from "@hawk-ui/file-upload"
+import Image from 'react-bootstrap/Image'
 
 import Swal from 'sweetalert2'
 
@@ -93,7 +94,7 @@ const Add_Chemical = () => {
                                           <Form.Label className="col-sm-3 col-form-label">รูป</Form.Label>
                                           <div className="col-sm-9">
                                                 <Zoom>
-                                                    <img
+                                                    <Image
                                                         src={
                                                             image.preview
                                                                 ? image.preview
