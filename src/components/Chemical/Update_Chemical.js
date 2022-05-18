@@ -37,7 +37,7 @@ const Update_Chemical = () => {
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
-        console.log("typeChemicalID : "+typeChemicalID);
+        console.log("typeChemicalID : "+response.data.type_chemical_id);
     }
   
   
