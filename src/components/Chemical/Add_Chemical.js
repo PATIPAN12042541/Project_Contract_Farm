@@ -35,7 +35,7 @@ const Add_Chemical = () => {
             name_chemical: nameChemicalThai,
             name_chemical_eng : nameChemicalEng,
             eu_mrl : eumrl,
-            path_img : image_name,
+            path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
             type_chemical_id : checked,
         })
         .then(function (response) {
