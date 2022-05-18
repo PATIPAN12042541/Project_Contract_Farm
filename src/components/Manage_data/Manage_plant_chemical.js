@@ -58,14 +58,14 @@ const Manage_plant_chemical = (props) => {
         </div>
         {getselect.map((data, index) => {
           return (
-            <>
-              <div className="col-12 col-sm-2" key={index}>
+            <div key={index}>
+              <div className="col-12 col-sm-2">
                 <div className="form-group">
                   <label>ชื่อไทย</label>
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={data.name_chemical}
+                    Value={data.name_chemical}
                   />
                 </div>
               </div>
@@ -75,11 +75,11 @@ const Manage_plant_chemical = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={data.name_chemical_eng}
+                    Value={data.name_chemical_eng}
                   />
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
