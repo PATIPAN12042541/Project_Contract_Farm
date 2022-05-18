@@ -66,9 +66,7 @@ const Update_Chemical = () => {
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
                                           <div className="col-sm-9">
                                               <select className="form-control"
-                                                  onChange={(e) => { setTypeChemicalID(e.target.value) }}
-                                                  defaultValue={typeChemicalID}
-                                                  select>
+                                                  onChange={(e) => { setTypeChemicalID(e.target.value) }}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
