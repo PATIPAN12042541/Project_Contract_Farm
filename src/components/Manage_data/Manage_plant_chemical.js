@@ -123,21 +123,21 @@ const Manage_plant_chemical = (props) => {
                           value=""
                         />
                       </div>
-                    </div>
-                    <div className="form-group row">
-                      <label className="col-sm-1 col-form-label">
-                        วันที่สิ้นสุด
-                      </label>
-                      <div
-                        className="col-sm-2 input-group date"
-                        data-target-input="nearest"
-                      >
-                        <input
-                          type="date"
-                          class="form-control form-control-border"
-                          placeholder="วันที่สิ้นสุด"
-                          value=""
-                        />
+                      <div className="form-group row">
+                        <label className="col-sm-1 col-form-label">
+                          วันที่สิ้นสุด
+                        </label>
+                        <div
+                          className="col-sm-2 input-group date"
+                          data-target-input="nearest"
+                        >
+                          <input
+                            type="date"
+                            class="form-control form-control-border"
+                            placeholder="วันที่สิ้นสุด"
+                            value=""
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
