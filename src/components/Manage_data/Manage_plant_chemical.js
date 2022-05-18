@@ -41,14 +41,9 @@ const Manage_plant_chemical = (props) => {
     }
   };
 
-  const setEnddate = async (datest) => {
-    const newDate = new Date(
-      endDate.getFullYear(),
-      endDate.getMonth(),
-      datest + 8
-    );
-    setEndDate(newDate);
-    console.log(newDate);
+  const setEnddate = async (date) => {
+    var result = new Date(date) + 2;
+    console.log(result);
   };
 
   useEffect(() => {
@@ -146,6 +141,7 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
                           defaultValue={endDate}
+                          readOnly
                         />
                       </div>
                     </div>
