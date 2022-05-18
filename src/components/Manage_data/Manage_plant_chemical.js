@@ -47,32 +47,54 @@ const Manage_plant_chemical = (props) => {
             </select>
           </div>
         </div>
-        {getselect.map((data, index) => {
-            return (
-              <>
-                <div className="col-12 col-sm-2">
-                  <div className="form-group">
-                    <label>ชื่อไทย</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={data.name_chemical}
-                    />
+        if(getselect)
+        {
+          <>
+            {getselect.map((data, index) => {
+              return (
+                <>
+                  <div className="col-12 col-sm-2">
+                    <div className="form-group">
+                      <label>ชื่อไทย</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={data.name_chemical}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="col-12 col-sm-2">
-                  <div className="form-group">
-                    <label>ชื่ออังกฤษ</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={data.name_chemical_eng}
-                    />
+                  <div className="col-12 col-sm-2">
+                    <div className="form-group">
+                      <label>ชื่ออังกฤษ</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={data.name_chemical_eng}
+                      />
+                    </div>
                   </div>
-                </div>
-              </>
-            );
-        })}
+                </>
+              );
+            })}
+          </>
+        }
+        else
+        {
+          <>
+            <div className="col-12 col-sm-2">
+              <div className="form-group">
+                <label>ชื่อไทย</label>
+                <input type="text" className="form-control" value="" />
+              </div>
+            </div>
+            <div className="col-12 col-sm-2">
+              <div className="form-group">
+                <label>ชื่ออังกฤษ</label>
+                <input type="text" className="form-control" value="" />
+              </div>
+            </div>
+          </>
+        }
       </div>
     </div>
   );
