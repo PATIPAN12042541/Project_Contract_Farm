@@ -84,7 +84,7 @@ const Manage_plant_chemical = (props) => {
                   </label>
                   {getselect.map((data, index) => {
                     return (
-                      <>
+                      <div>
                         <div className="col-sm-4">
                           <input
                             type="text"
@@ -108,7 +108,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </div>
-                      </>
+                      </div>
                     );
                   })}
                 </div>
