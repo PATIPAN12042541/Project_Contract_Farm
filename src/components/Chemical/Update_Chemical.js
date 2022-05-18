@@ -80,37 +80,37 @@ const Update_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (ไทย)</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="ชื่อสารเคมี (ไทย)"
-                                                    value={nameChemicalThai}
-                                                    onChange={(e)=>setNameChemicalThai(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              placeholder="ชื่อสารเคมี (ไทย)"
+                                                              value={nameChemicalThai}
+                                                              onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="ชื่อสารเคมี (Eng)"
-                                                    value={nameChemicalEng}
-                                                    onChange={(e)=>setNameChemicalEng(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              placeholder="ชื่อสารเคมี (Eng)"
+                                                              value={nameChemicalEng}
+                                                              onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">EU MRL</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="EU MRL"
-                                                    value={eumrl}
-                                                    pattern="[0-9]*"
-                                                    onKeyPress={(e) => {
-                                                        if (!/[0-9]/.test(e.key)) {
-                                                          e.preventDefault();
-                                                        }
-                                                      }}
-                                                    onChange={(e)=>setEumrl(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              placeholder="EU MRL"
+                                                              value={eumrl}
+                                                              pattern="[0-9]*"
+                                                              onKeyPress={(e) => {
+                                                                    if (!/[0-9]/.test(e.key)) {
+                                                                    e.preventDefault();
+                                                                    }
+                                                                }}
+                                                              onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -153,6 +153,7 @@ const Update_Chemical = () => {
                                             <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
+                                                    checked={checked}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
                                                     }}
