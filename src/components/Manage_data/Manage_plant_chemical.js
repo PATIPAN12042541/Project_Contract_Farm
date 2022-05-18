@@ -63,10 +63,10 @@ const Manage_plant_chemical = (props) => {
               <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
             <form className="form-horizontal">
-              <div className="card-body">
-                {getselect.map((data, index) => {
-                  return (
-                    <div className="form-group row" key={index}>
+              {getselect.map((data, index) => {
+                return (
+                  <div className="card-body" key={index}>
+                    <div className="form-group row">
                       <label className="col-sm-1 col-form-label">
                         ชื่อสารเคมี
                       </label>
@@ -92,7 +92,6 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          id="name_chemical_eng"
                           placeholder={data.name_chemical_eng}
                           defaultValue={data.name_chemical_eng}
                           readOnly
@@ -103,17 +102,39 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          id="eu_mrl"
                           placeholder={data.eu_mrl}
                           defaultValue={data.eu_mrl}
                           readOnly
                         />
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        วันที่เริ่มต้น
+                      </label>
+                      <div
+                        className="col-sm-4 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="text"
+                          className="form-control datetimepicker-input"
+                          data-target="#reservationdate"
+                        />
+                        <div
+                          className="input-group-append"
+                          data-target="#reservationdate"
+                          data-toggle="datetimepicker"
+                        >
+                          <div className="input-group-text">
+                            <i className="fa fa-calendar"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
               <div className="card-footer">
                 <button
                   type="submit"
@@ -123,7 +144,7 @@ const Manage_plant_chemical = (props) => {
                     color: "#FFFFFF",
                   }}
                 >
-                  Cancel
+                  ยืนยัน
                 </button>
               </div>
             </form>
