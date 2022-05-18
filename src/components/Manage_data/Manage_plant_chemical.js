@@ -35,7 +35,53 @@ const Manage_plant_chemical = (props) => {
 
   return (
     <div className="content-wrapper">
-      <div className="row">
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Horizontal Form</h3>
+        </div>
+        <form className="form-horizontal">
+          <div className="card-body">
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Email</label>
+              <div className="col-sm-10">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Password</label>
+              <div className="col-sm-10">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <div className="offset-sm-2 col-sm-10">
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" />
+                  <label className="form-check-label">Remember me</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="card-footer">
+            <button type="submit" className="btn btn-info">
+              Sign in
+            </button>
+            <button type="submit" className="btn btn-default float-right">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+      {/* <div className="row">
         <div className="col-12 col-sm-8">
           <div className="form-group">
             <label>ชื่อสารเคมีที่ใช้</label>
@@ -82,7 +128,7 @@ const Manage_plant_chemical = (props) => {
             </div>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };
