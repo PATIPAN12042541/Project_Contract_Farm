@@ -71,7 +71,7 @@ const Update_Chemical = () => {
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
                                                           value={item.id}
-                                                          defaultValue={typeChemicalID}>
+                                                          selected={typeChemicalID}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
