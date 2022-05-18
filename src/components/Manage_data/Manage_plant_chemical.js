@@ -49,8 +49,8 @@ const Manage_plant_chemical = (props) => {
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
 
-    console.log(year + "-" + month + "-" + day);
-    setEndDate(new_date);
+    
+    setEndDate(year + "-" + month + "-" + day);
   };
 
   useEffect(() => {
