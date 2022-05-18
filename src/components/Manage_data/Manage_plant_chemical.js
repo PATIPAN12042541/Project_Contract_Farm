@@ -54,19 +54,21 @@ const Manage_plant_chemical = (props) => {
               <div className="card-body">
                 <div className="form-group row">
                   <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
-                  <select
-                    className="col-sm-4"
-                    onChange={(e) => getSelect(e.target.value)}
-                  >
-                    <option>------กรุณาเลือกสารเคมี------</option>
-                    {getChemical.map((Chemical, index) => {
-                      return (
-                        <option key={index} value={Chemical.id}>
-                          {Chemical.name_chemical}
-                        </option>
-                      );
-                    })}
-                  </select>
+                  <div className="col-sm-4">
+                    <select
+                      className="form-control"
+                      onChange={(e) => getSelect(e.target.value)}
+                    >
+                      <option>------กรุณาเลือกสารเคมี------</option>
+                      {getChemical.map((Chemical, index) => {
+                        return (
+                          <option key={index} value={Chemical.id}>
+                            {Chemical.name_chemical}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
                   <label className="col-sm-1 col-form-label">
                     ชื่อภาษาอังกฤษ
                   </label>
