@@ -122,7 +122,7 @@ const Manage_plant_chemical = (props) => {
                       >
                         <input
                           type="date"
-                          class="form-control form-control-border"
+                          className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
                           onChange={(e) => setEnddate(e.target.value)}
@@ -137,7 +137,7 @@ const Manage_plant_chemical = (props) => {
                       >
                         <input
                           type="date"
-                          class="form-control form-control-border"
+                          className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
                           defaultValue=""
                         />
