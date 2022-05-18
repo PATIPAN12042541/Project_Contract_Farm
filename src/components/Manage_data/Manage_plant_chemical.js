@@ -150,6 +150,14 @@ const Manage_plant_chemical = (props) => {
                           readOnly
                         />
                       </div>
+                      <label className="col-sm-1 col-form-label">
+                        ระยะเวลาตกค้าง
+                      </label>
+                      <div className="col-sm-2 input-group date">
+                        <select className="custom-select form-control-border">
+                          <option>------กรุณาเลือกสารเคมี------</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 );
