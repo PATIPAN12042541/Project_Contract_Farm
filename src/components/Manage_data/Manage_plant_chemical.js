@@ -43,8 +43,8 @@ const Manage_plant_chemical = (props) => {
 
   const setEnddate = async (date) => {
     const current = new Date(date);
-    current.setDate(current.getDate() + 2);
-    console.log(current.toDateString());
+    current.setDate(current.getDate() + 8);
+    setEndDate(current.toDateString());
   };
 
   useEffect(() => {
