@@ -4,7 +4,15 @@ import axios from "axios";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [getselect, setSelect] = useState([]);
+  const [getselect, setSelect] = useState([
+    {
+      id: "",
+      name_chemical: "",
+      name_chemical_eng: "",
+      path_img: "",
+      eu_mrl: "",
+    },
+  ]);
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -30,7 +38,7 @@ const Manage_plant_chemical = (props) => {
       <div className="row">
         <div className="col-12 col-sm-8">
           <div className="form-group">
-            <label>ชื่อสารเคมีที่ใช้งาน</label>
+            <label>ชื่อสารเคมีที่ใช้</label>
             <select
               className="form-control"
               onChange={(e) => getSelect(e.target.value)}
