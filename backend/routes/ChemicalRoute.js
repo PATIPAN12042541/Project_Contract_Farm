@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getChemical,
+  getChemicalMaster,
   getSelect,
   createChemical,
   getChemicalByID,
@@ -12,6 +13,7 @@ import {
 const router = express.Router();
 
 router.get("/", getChemical);
+router.get("/master", getChemicalMaster);
 router.get("/Select/:id", getSelect);
 router.get("/getExpired", getExpired);
 router.post("/createChemical", createChemical);
