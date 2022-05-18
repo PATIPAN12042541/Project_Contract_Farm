@@ -54,7 +54,7 @@ const Manage_plant_chemical = (props) => {
               <div className="card-body">
                 <div className="form-group row">
                   <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
-                  <div className="col-sm-5">
+                  <div className="col-sm-3">
                     <input
                       type="text"
                       className="form-control"
@@ -64,11 +64,23 @@ const Manage_plant_chemical = (props) => {
                   <label className="col-sm-1 col-form-label">
                     ชื่อภาษาอังกฤษ
                   </label>
-                  <div className="col-sm-5">
+                  <div className="col-sm-3">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="ชื่อภาษาอังกฤษ"
+                      readOnly
+                    />
+                  </div>
+                  <label className="col-sm-1 col-form-label">
+                    EU-MRL
+                  </label>
+                  <div className="col-sm-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="EU-MRL"
+                      readOnly
                     />
                   </div>
                 </div>
