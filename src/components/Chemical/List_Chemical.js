@@ -82,7 +82,7 @@ const List_Chemical = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                          <Link to={`#`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
+                                                          <Link to={`/UpdateChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                       </td>
                                                       <td>
                                                       <Button variant="danger">ลบข้อมูล</Button>

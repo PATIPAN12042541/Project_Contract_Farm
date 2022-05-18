@@ -1,25 +1,28 @@
 import React, { useState ,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useNavigate,useParams } from 'react-router-dom'
 import axios from 'axios'
 import Zoom from "react-medium-image-zoom"
 import FileUpload from "@hawk-ui/file-upload"
 import Image from 'react-bootstrap/Image'
 import Swal from 'sweetalert2'
 
-const Add_Chemical = () => {
+const Update_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
     const [checked, setChecked] = useState(false)
     const [nameChemicalThai,setNameChemicalThai] = useState("")
     const [nameChemicalEng,setNameChemicalEng] = useState("")
     const [eumrl,setEumrl] = useState("")
-    const [typeChemicalID,setTypeChemicalID] = useState()
+    const [typeChemicalID,setTypeChemicalID] = useState("")
     const [image, setImage] = useState({ preview: "", data: "" })
+    const [imgUrl,setImgUrl] = useState("")
     const [image_name, setImageName] = useState()
+    const {id} = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
-        getListTypeChemicals();
+        getListTypeChemicals()
+        getChemicalById()
     },[])
 
     const getListTypeChemicals = async() => {
@@ -27,43 +30,16 @@ const Add_Chemical = () => {
         setListTypeChemical(response.data);
     }
 
-    const AddChemical = async(e)=>{
-        e.preventDefault();
-        console.log("image_name : "+image_name)
-        await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
-            name_chemical: nameChemicalThai,
-            name_chemical_eng : nameChemicalEng,
-            eu_mrl : eumrl,
-            path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
-            type_chemical_id : checked,
-        })
-        .then(function (response) {
-            uploadImg();
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              navigate("/ListChemical")
-        })
-        .catch(function (error) {
-            Swal.fire({
-                icon: "error",
-                title: error,
-                text: "Save Error!",
-              });
-        });
+    const getChemicalById = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/getChemical/getChemicalID/${id}`);
+        setNameChemicalThai(response.data.name_chemical)
+        setNameChemicalEng(response.data.name_chemical_eng)
+        setEumrl(response.data.eu_mrl)
+        setImgUrl(response.data.path_img)
+        setTypeChemicalID(response.data.type_chemical_id)
+        console.log("typeChemicalID : "+response.data.type_chemical_id);
     }
-
-    const uploadImg = async () => {
-        let formData = new FormData();
-        formData.append("file", image.data);
-    
-        await axios
-          .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
-          .then((res) => console.log(res.data))
-          .catch((err) => console.error(err));
-      };
+  
   
     return (
     <div className="content-wrapper">
@@ -82,10 +58,10 @@ const Add_Chemical = () => {
                               <div className="card-header"
                                    style={{ backgroundColor: "#8CC152" }}>
                                   <center>
-                                      <h3 className="card-title">เพิ่มข้อมูลสารเคมี</h3>
+                                      <h3 className="card-title">แก้ไขข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <Form className="form-horizontal" onSubmit={AddChemical}>
+                              <Form className="form-horizontal">
                                   <div className="card-body">
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
@@ -95,7 +71,8 @@ const Add_Chemical = () => {
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={item.id}>
+                                                          value={item.id}
+                                                          selected>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
@@ -105,34 +82,37 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (ไทย)</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="ชื่อสารเคมี (ไทย)"
-                                                    onChange={(e)=>setNameChemicalThai(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              placeholder="ชื่อสารเคมี (ไทย)"
+                                                              value={nameChemicalThai}
+                                                              onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ชื่อสารเคมี (Eng)</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="ชื่อสารเคมี (Eng)"
-                                                    onChange={(e)=>setNameChemicalEng(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              value={nameChemicalEng}
+                                                              placeholder="ชื่อสารเคมี (Eng)"
+                                                              onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">EU MRL</Form.Label>
                                           <div className="col-sm-9">
-                                                <input type="text"
-                                                    className="form-control"
-                                                    placeholder="EU MRL"
-                                                    pattern="[0-9]*"
-                                                    onKeyPress={(e) => {
-                                                        if (!/[0-9]/.test(e.key)) {
-                                                          e.preventDefault();
-                                                        }
-                                                      }}
-                                                    onChange={(e)=>setEumrl(e.target.value)}/>
+                                                <Form.Control type="text"
+                                                              className="form-control"
+                                                              placeholder="EU MRL"
+                                                              pattern="[0-9]*"
+                                                              value={eumrl}
+                                                              onKeyPress={(e) => {
+                                                                    if (!/[0-9]/.test(e.key)) {
+                                                                    e.preventDefault();
+                                                                    }
+                                                                }}
+                                                              onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -143,7 +123,7 @@ const Add_Chemical = () => {
                                                         src={
                                                             image.preview
                                                                 ? image.preview
-                                                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                                                : imgUrl
                                                         }
                                                         className="img-fluid mb-2"
                                                         width="100"
@@ -175,6 +155,7 @@ const Add_Chemical = () => {
                                             <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
+                                                    checked={checked}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
                                                     }}
@@ -196,4 +177,4 @@ const Add_Chemical = () => {
   )
 }
 
-export default Add_Chemical
+export default Update_Chemical
