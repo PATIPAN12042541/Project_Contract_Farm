@@ -163,11 +163,15 @@ const Manage_plant_chemical = (props) => {
                       </label>
                       <div className="col-sm-2 input-group date">
                         <select className="custom-select form-control-border">
-                          <option>----ระยะเวลาตกค้าง----</option>
+                          <option>
+                            <center>----ระยะเวลาตกค้าง----</center>
+                          </option>
                           {expired.map((expired, index) => {
                             return (
                               <option key={index} value={expired.id}>
-                                {expired.time + " " + expired.unit}
+                                <center>
+                                  {expired.time + " " + expired.unit}
+                                </center>
                               </option>
                             );
                           })}
