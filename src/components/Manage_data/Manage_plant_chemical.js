@@ -33,14 +33,12 @@ const Manage_plant_chemical = (props) => {
 
   const getSelect = async (data) => {
     if (data !== "------กรุณาเลือกสารเคมี------") {
-      setCheckInput(false);
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
       );
       setSelect(response.data);
       setCheckInput(false);
     } else {
-      setCheckInput(true);
       setSelect([
         {
           id: "",
@@ -61,6 +59,7 @@ const Manage_plant_chemical = (props) => {
     var year = new_date.format("YYYY");
 
     setEndDate(year + "-" + month + "-" + day);
+    setCheckInput(false);
   };
 
   useEffect(() => {
