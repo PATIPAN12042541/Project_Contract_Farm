@@ -37,6 +37,7 @@ const Update_Chemical = () => {
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
+        setChecked(response.data.status)
     }
   
   
