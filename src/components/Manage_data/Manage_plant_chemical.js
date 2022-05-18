@@ -81,13 +81,14 @@ const Manage_plant_chemical = (props) => {
                       })}
                     </select>
                   </div>
-                  <label className="col-sm-1 col-form-label">
-                    ชื่อภาษาอังกฤษ
-                  </label>
+
                   {getselect.map((data, index) => {
                     return (
                       <div className="row" key={index}>
-                        <div className="col-sm-10">
+                        <label className="col-sm-1 col-form-label">
+                          ชื่อภาษาอังกฤษ
+                        </label>
+                        <div className="col-sm-8">
                           <input
                             type="text"
                             className="form-control form-control-border"
