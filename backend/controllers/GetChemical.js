@@ -4,17 +4,18 @@ import NameChemical from "../models/ChemicalModel.js";
 export const getChemical = async (req, res) => {
   try {
     const chemical = await db.query(
-      "SELECT name_chemical.id,"+
-             "name_chemical.name_chemical,"+
-             "name_chemical.name_chemical_eng,"+
-             "name_chemical.eu_mrl,"+
-             "name_chemical.path_img,"+
-             "name_chemical.type_chemical_id,"+
-             "type_chemical.type_chemical,"+
-             "name_chemical.status "+
-             "FROM name_chemical "+
-             "LEFT JOIN type_chemical "+
-             "on name_chemical.type_chemical_id = type_chemical.id",
+      "SELECT name_chemical.id," +
+        "name_chemical.name_chemical," +
+        "name_chemical.name_chemical_eng," +
+        "name_chemical.eu_mrl," +
+        "name_chemical.path_img," +
+        "name_chemical.type_chemical_id," +
+        "type_chemical.type_chemical," +
+        "name_chemical.status " +
+        "FROM name_chemical " +
+        "LEFT JOIN type_chemical " +
+        "on name_chemical.type_chemical_id = type_chemical.id " +
+        "Where name_chemical.status = 1 ",
       {
         type: db.QueryTypes.SELECT,
       }
@@ -27,22 +28,21 @@ export const getChemical = async (req, res) => {
 
 export const getChemicalByID = async (req, res) => {
   try {
-      const nameChemicals = await NameChemical.findAll({
-          where:{
-              id : req.params.id
-          }
-      });
-      res.json(nameChemicals[0]);
+    const nameChemicals = await NameChemical.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(nameChemicals[0]);
   } catch (error) {
-      res.json(error);
-  }  
-}
-
+    res.json(error);
+  }
+};
 
 export const getSelect = async (req, res) => {
   try {
     const Select = await db.query(
-      "SELECT id,name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical where id = :id AND status = 1",
+      "SELECT id,name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical where status = 1  id = :id  ",
       {
         replacements: { id: req.params.id },
         type: db.QueryTypes.SELECT,
