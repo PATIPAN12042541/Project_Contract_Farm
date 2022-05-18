@@ -6,6 +6,7 @@ const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
   const [endDate, setEndDate] = useState([""]);
   const [expired, setExpired] = useState([]);
+  const [checkinput, setCheckInput] = useState(true);
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -32,11 +33,14 @@ const Manage_plant_chemical = (props) => {
 
   const getSelect = async (data) => {
     if (data !== "------กรุณาเลือกสารเคมี------") {
+      setCheckInput(false);
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
       );
       setSelect(response.data);
+      setCheckInput(false);
     } else {
+      setCheckInput(true);
       setSelect([
         {
           id: "",
@@ -164,7 +168,7 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          disabled={false}
+                          disabled={checkinput}
                         >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
