@@ -70,7 +70,8 @@ const Update_Chemical = () => {
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={item.id}>
+                                                          value={item.id}
+                                                          defaultValue={typeChemicalID}>
                                                           {item.type_chemical}
                                                       </option>
                                                   ))}
@@ -153,6 +154,7 @@ const Update_Chemical = () => {
                                             <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
+                                                    checked={checked}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
                                                     }}
