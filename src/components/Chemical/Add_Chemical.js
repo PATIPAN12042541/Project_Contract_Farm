@@ -39,6 +39,7 @@ const Add_Chemical = () => {
             type_chemical_id : checked,
         })
         .then(function (response) {
+            uploadImg();
             Swal.fire({
                 icon: "success",
                 title: "Success",
@@ -54,6 +55,16 @@ const Add_Chemical = () => {
               });
         });
     }
+
+    const uploadImg = async () => {
+        let formData = new FormData();
+        formData.append("file", image.data);
+    
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
+          .then((res) => console.log(res.data))
+          .catch((err) => console.error(err));
+      };
   
     return (
     <div className="content-wrapper">
@@ -116,6 +127,12 @@ const Add_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="EU MRL"
+                                                    pattern="[0-9]*"
+                                                    onKeyPress={(e) => {
+                                                        if (!/[0-9]/.test(e.key)) {
+                                                          e.preventDefault();
+                                                        }
+                                                      }}
                                                     onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
