@@ -29,13 +29,15 @@ const Manage_plant_chemical = (props) => {
       );
       setSelect(response.data);
     } else {
-      setSelect([{
-      id: "",
-      name_chemical: "",
-      name_chemical_eng: "",
-      path_img: "",
-      eu_mrl: "",
-    },]);
+      setSelect([
+        {
+          id: "",
+          name_chemical: "",
+          name_chemical_eng: "",
+          path_img: "",
+          eu_mrl: "",
+        },
+      ]);
     }
   };
 
