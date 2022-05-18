@@ -128,54 +128,6 @@ const Manage_plant_chemical = (props) => {
           </div>
         </div>
       </section>
-      {/* <div className="row">
-        <div className="col-12 col-sm-8">
-          <div className="form-group">
-            <label>ชื่อสารเคมีที่ใช้</label>
-            <select
-              className="form-control"
-              onChange={(e) => getSelect(e.target.value)}
-            >
-              <option>------กรุณาเลือกสารเคมี------</option>
-              {getChemical.map((Chemical, index) => {
-                return (
-                  <option key={index} value={Chemical.id}>
-                    {Chemical.name_chemical}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-      </div>
-      {getselect.map((data, index) => {
-        return (
-          <div className="row" key={index}>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่อไทย</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={data.name_chemical}
-                  defaultValue={data.name_chemical}
-                />
-              </div>
-            </div>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่ออังกฤษ</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={data.name_chemical_eng}
-                  defaultValue={data.name_chemical_eng}
-                />
-              </div>
-            </div>
-          </div>
-        );
-      })} */}
     </div>
   );
 };
