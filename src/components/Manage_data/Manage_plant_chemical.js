@@ -30,7 +30,7 @@ const Manage_plant_chemical = (props) => {
       <div className="row">
         <div className="col-12 col-sm-8">
           <div className="form-group">
-            <label>ชื่อสารเคมีที่ใช้</label>
+            <label>ชื่อสารเคมีที่ใช้งาน</label>
             <select
               className="form-control"
               onChange={(e) => getSelect(e.target.value)}
