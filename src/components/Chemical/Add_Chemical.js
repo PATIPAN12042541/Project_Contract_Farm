@@ -30,6 +30,7 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
+        console.log("image_name : "+image_name)
         await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
             name_chemical: nameChemicalThai,
             name_chemical_eng : nameChemicalEng,
