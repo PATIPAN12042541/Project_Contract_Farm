@@ -18,6 +18,7 @@ const Manage_plant_chemical = (props) => {
   ]);
 
   const checkinputexpired = async (data) => {
+    console.log(data);
     if (data) {
       setCheckInput(false);
     } else {
@@ -136,27 +137,27 @@ const Manage_plant_chemical = (props) => {
                         />
                       </div>
                     </div>
-                    <label className="col-sm-1 col-form-label">
-                      ระยะเวลาตกค้าง
-                    </label>
-                    <div className="col-sm-2 input-group date">
-                      <select
-                        className="custom-select form-control-border"
-                        onChange={(data) =>
-                          checkinputexpired(data.target.value)
-                        }
-                      >
-                        <option>----ระยะเวลาตกค้าง----</option>
-                        {expired.map((expired, index2) => {
-                          return (
-                            <option key={index2} value={expired.id}>
-                              {expired.time + " " + expired.unit}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
                     <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        ระยะเวลาตกค้าง
+                      </label>
+                      <div className="col-sm-2 input-group date">
+                        <select
+                          className="custom-select form-control-border"
+                          onChange={(data) =>
+                            checkinputexpired(data.target.value)
+                          }
+                        >
+                          <option>----ระยะเวลาตกค้าง----</option>
+                          {expired.map((expired, index2) => {
+                            return (
+                              <option key={index2} value={expired.id}>
+                                {expired.time + " " + expired.unit}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </div>
                       <label className="col-sm-1 col-form-label">
                         วันที่เริ่มต้น
                       </label>
