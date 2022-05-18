@@ -87,7 +87,7 @@ const Manage_plant_chemical = (props) => {
                   {getselect.map((data, index) => {
                     return (
                       <div className="row" key={index}>
-                        <div className="col-sm-4">
+                        <div className="col-sm-10">
                           <input
                             type="text"
                             className="form-control form-control-border"
@@ -100,7 +100,7 @@ const Manage_plant_chemical = (props) => {
                         <label className="col-sm-1 col-form-label">
                           EU-MRL
                         </label>
-                        <div className="col-sm-1">
+                        <div className="col-sm-2">
                           <input
                             type="text"
                             className="form-control form-control-border"
