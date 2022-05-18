@@ -117,7 +117,7 @@ const List_Chemical = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                          {(listChemical.status === 1)?<Image src="../../../public/dist/img/symbol_true.png" />:<Image src="../../../public/dist/img/symbol_false.png" />}
+                                                          {(listChemical.status === 1)?<Image src="../dist/img/symbol_true.png" />:<Image src="../dist/img/symbol_false.png" />}
                                                       </td>
                                                       <td>
                                                           <Link to={`/UpdateChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
