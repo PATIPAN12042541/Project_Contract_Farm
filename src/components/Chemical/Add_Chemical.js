@@ -4,6 +4,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Zoom from "react-medium-image-zoom"
 import FileUpload from "@hawk-ui/file-upload"
+
 import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
@@ -124,9 +125,11 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                 /> */}
-                                                <input type="checkbox" 
-                                                checked data-bootstrap-switch data-off-color="danger" 
-                                                data-on-color="success" />
+                                                <Form.Check 
+    type="switch"
+    id="custom-switch"
+    label="Check this switch"
+  />
                                             </div>
                                       </div>
                                   </div>
