@@ -70,7 +70,7 @@ const Update_Chemical = () => {
                                                       onChange={(e) => { setTypeChemicalID(e.target.value) }}>
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
-                                                      <option key={typeChemicalID}
+                                                      <option key={item.id}
                                                           value={typeChemicalID}>
                                                           {item.type_chemical}
                                                       </option>
