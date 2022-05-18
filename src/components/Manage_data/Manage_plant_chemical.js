@@ -16,7 +16,12 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
 
-  
+  const getExpired = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
+    );
+    setExpired(response.data);
+  };
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -56,6 +61,7 @@ const Manage_plant_chemical = (props) => {
 
   useEffect(() => {
     getChemicals();
+    getExpired();
   }, []);
 
   return (
@@ -157,7 +163,14 @@ const Manage_plant_chemical = (props) => {
                       </label>
                       <div className="col-sm-2 input-group date">
                         <select className="custom-select form-control-border">
-                          <option>------กรุณาเลือกสารเคมี------</option>
+                          <option>------กรุณาเลือกระยะเวลาตกค้าง------</option>
+                          {expired.map((expired, index) => {
+                            return (
+                              <option key={index} value={expired.id}>
+                                {expired.time + " " + expired.unit}
+                              </option>
+                            );
+                          })}
                         </select>
                       </div>
                     </div>

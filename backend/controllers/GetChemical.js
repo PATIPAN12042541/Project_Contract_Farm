@@ -26,6 +26,19 @@ export const getChemical = async (req, res) => {
   }
 };
 
+
+export const getExpired = async (req, res) => {
+  try {
+    const expired = await db.query("SELECT * FROM residual_period_chemical", {
+      type: db.QueryTypes.SELECT,
+    });
+    res.json(expired);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
 export const getChemicalByID = async (req, res) => {
   try {
     const nameChemicals = await NameChemical.findAll({
