@@ -23,12 +23,12 @@ const Manage_plant_chemical = (props) => {
   };
 
   const getSelect = async (data) => {
-    console.log(data);
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
-    );
-    setSelect(response.data);
-    
+    if (data !== "------กรุณาเลือกสารเคมี------") {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
+      );
+      setSelect(response.data);
+    }
   };
 
   useEffect(() => {
