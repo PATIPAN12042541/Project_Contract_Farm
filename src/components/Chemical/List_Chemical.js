@@ -117,7 +117,17 @@ const List_Chemical = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                          {(listChemical.status === 1)?<Image src="../dist/img/symbol_true.png" />:<Image src="../dist/img/symbol_false.png" />}
+                                                          {(listChemical.status === 1)?<Image src="../dist/img/symbol_true.png" 
+                                                                                              className="img-fluid mb-2"
+                                                                                              alt="white sample"
+                                                                                              width="100"
+                                                                                              height="100"
+                                                                                              thumbnail />:<Image src="../dist/img/symbol_false.png" 
+                                                                                                                  className="img-fluid mb-2"
+                                                                                                                  alt="white sample"
+                                                                                                                  width="100"
+                                                                                                                  height="100"
+                                                                                                                  thumbnail/>}
                                                       </td>
                                                       <td>
                                                           <Link to={`/UpdateChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
