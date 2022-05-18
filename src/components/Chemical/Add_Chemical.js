@@ -17,6 +17,7 @@ const Add_Chemical = () => {
     const [typeChemicalID,setTypeChemicalID] = useState()
     const [image, setImage] = useState({ preview: "", data: "" })
     const [image_name, setImageName] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getListTypeChemicals();
