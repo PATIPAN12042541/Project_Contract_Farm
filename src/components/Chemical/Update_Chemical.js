@@ -48,7 +48,7 @@ const Update_Chemical = () => {
                 name_chemical: nameChemicalThai,
                 name_chemical_eng : nameChemicalEng,
                 eu_mrl : eumrl,
-                path_img : (image_name === undefined)?imgUrl:'../dist/img/insecticide/'+image_name,
+                path_img : (image_name !== undefined)?imgUrl:'../dist/img/insecticide/'+image_name,
                 type_chemical_id : typeChemicalID,
                 status : checked,
             });
