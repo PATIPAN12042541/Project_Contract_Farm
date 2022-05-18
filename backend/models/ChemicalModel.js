@@ -17,7 +17,10 @@ const NameChemical = db.define('name_chemical',{
     },
     type_chemical_id:{
         type: DataTypes.INTEGER,
-    }
+    },
+    status:{
+        type: DataTypes.INTEGER,
+    },
 },{
     freezeTableName:true
 });
