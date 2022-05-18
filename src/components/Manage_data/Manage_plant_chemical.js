@@ -70,7 +70,7 @@ const Manage_plant_chemical = (props) => {
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>State</Form.Label>
-                    <Form.Select defaultValue="Choose...">
+                    <Form.Select aria-label="Default select example">
                       <option>Choose...</option>
                       <option>...</option>
                     </Form.Select>
@@ -118,3 +118,4 @@ const Manage_plant_chemical = (props) => {
 };
 
 export default Manage_plant_chemical;
+
