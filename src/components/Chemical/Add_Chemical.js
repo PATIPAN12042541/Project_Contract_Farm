@@ -9,6 +9,9 @@ import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
+    const [nameChemicalThai,setNameChemicalThai] = useState("")
+    const [nameChemicalEng,setNameChemicalEng] = useState("")
+    const [eumrl,setEumrl] = useState("")
     const [typeChemicalID,setTypeChemicalID] = useState()
     const [image, setImage] = useState({ preview: "", data: "" })
     const [image_name, setImageName] = useState()
@@ -64,7 +67,8 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="ชื่อสารเคมี (ไทย)"/>
+                                                    placeholder="ชื่อสารเคมี (ไทย)"
+                                                    onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -72,7 +76,8 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="ชื่อสารเคมี (Eng)"/>
+                                                    placeholder="ชื่อสารเคมี (Eng)"
+                                                    onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -80,7 +85,8 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="EU MRL"/>
+                                                    placeholder="EU MRL"
+                                                    onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">

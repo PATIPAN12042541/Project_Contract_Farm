@@ -14,6 +14,9 @@ const NameChemical = db.define('name_chemical',{
     },
     path_img:{
         type: DataTypes.STRING,
+    },
+    type_chemical_id:{
+        type: DataTypes.INTEGER,
     }
 },{
     freezeTableName:true
