@@ -7,7 +7,7 @@ import FileUpload from "@hawk-ui/file-upload"
 import Image from 'react-bootstrap/Image'
 import Swal from 'sweetalert2'
 
-const Add_Chemical = () => {
+const Update_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
     const [checked, setChecked] = useState(false)
     const [nameChemicalThai,setNameChemicalThai] = useState("")
@@ -26,44 +26,7 @@ const Add_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListTypeChemical(response.data);
     }
-
-    const AddChemical = async(e)=>{
-        e.preventDefault();
-        console.log("image_name : "+image_name)
-        await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
-            name_chemical: nameChemicalThai,
-            name_chemical_eng : nameChemicalEng,
-            eu_mrl : eumrl,
-            path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
-            type_chemical_id : checked,
-        })
-        .then(function (response) {
-            uploadImg();
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              navigate("/ListChemical")
-        })
-        .catch(function (error) {
-            Swal.fire({
-                icon: "error",
-                title: error,
-                text: "Save Error!",
-              });
-        });
-    }
-
-    const uploadImg = async () => {
-        let formData = new FormData();
-        formData.append("file", image.data);
-    
-        await axios
-          .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
-          .then((res) => console.log(res.data))
-          .catch((err) => console.error(err));
-      };
+  
   
     return (
     <div className="content-wrapper">
@@ -196,4 +159,4 @@ const Add_Chemical = () => {
   )
 }
 
-export default Add_Chemical
+export default Update_Chemical
