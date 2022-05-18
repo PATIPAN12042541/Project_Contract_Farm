@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -14,6 +12,8 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
+
+  const [endDate, setEndDate] = useState([""]);
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -42,7 +42,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (datest) => {
-    console.log(datest);
+    console.log(datest + 8, "datest");
   };
 
   useEffect(() => {
@@ -139,7 +139,7 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
-                          defaultValue=""
+                          defaultValue={endDate}
                         />
                       </div>
                     </div>
