@@ -31,7 +31,6 @@ const Manage_plant_chemical = (props) => {
 
   useEffect(() => {
     getChemicals();
-    getSelect();
   }, []);
 
   return (
