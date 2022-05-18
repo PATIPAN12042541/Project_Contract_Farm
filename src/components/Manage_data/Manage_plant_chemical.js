@@ -17,14 +17,6 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
 
-  const checkinputexpired = async (data) => {
-    console.log(data);
-    if (data && data !== "----ระยะเวลาตกค้าง----") {
-      setCheckInput(false);
-    } else {
-      setCheckInput(true);
-    }
-  };
 
   const getExpired = async () => {
     const response = await axios.get(
@@ -67,6 +59,7 @@ const Manage_plant_chemical = (props) => {
     var year = new_date.format("YYYY");
 
     setEndDate(year + "-" + month + "-" + day);
+    setCheckInput(false);
   };
 
   useEffect(() => {
@@ -139,26 +132,6 @@ const Manage_plant_chemical = (props) => {
                     </div>
                     <div className="form-group row">
                       <label className="col-sm-1 col-form-label">
-                        ระยะเวลาตกค้าง
-                      </label>
-                      <div className="col-sm-2 input-group date">
-                        <select
-                          className="custom-select form-control-border"
-                          onChange={(data) =>
-                            checkinputexpired(data.target.value)
-                          }
-                        >
-                          <option>----ระยะเวลาตกค้าง----</option>
-                          {expired.map((expired, index2) => {
-                            return (
-                              <option key={index2} value={expired.id}>
-                                {expired.time + " " + expired.unit}
-                              </option>
-                            );
-                          })}
-                        </select>
-                      </div>
-                      <label className="col-sm-1 col-form-label">
                         วันที่เริ่มต้น
                       </label>
                       <div
@@ -171,7 +144,6 @@ const Manage_plant_chemical = (props) => {
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
                           onChange={(e) => setEnddate(e.target.value)}
-                          disabled={checkinput}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
@@ -188,6 +160,25 @@ const Manage_plant_chemical = (props) => {
                           defaultValue={endDate}
                           readOnly
                         />
+                      </div>
+                      <label className="col-sm-1 col-form-label">
+                        ระยะเวลาตกค้าง
+                      </label>
+                      <div className="col-sm-2 input-group date">
+                        <select
+                          className="custom-select form-control-border"
+                          defaultValue="1"
+                          disabled={checkinput}
+                        >
+                          <option>----ระยะเวลาตกค้าง----</option>
+                          {expired.map((expired, index2) => {
+                            return (
+                              <option key={index2} value={expired.id}>
+                                {expired.time + " " + expired.unit}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </div>
                     </div>
                   </div>
