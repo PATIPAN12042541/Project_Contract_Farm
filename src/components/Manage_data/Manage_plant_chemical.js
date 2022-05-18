@@ -113,10 +113,14 @@ const Manage_plant_chemical = (props) => {
               </div>
 
               <div className="card-footer">
-                <button type="submit" className="btn btn-info">
-                  Sign in
-                </button>
-                <button type="submit" className="btn btn-default float-right">
+                <button
+                  type="submit"
+                  className="btn btn-default float-right"
+                  style={{
+                    backgroundColor: "#8CC152",
+                    color: "#FFFFFF",
+                  }}
+                >
                   Cancel
                 </button>
               </div>
