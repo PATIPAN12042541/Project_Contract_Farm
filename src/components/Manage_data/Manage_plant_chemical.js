@@ -28,7 +28,6 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
     );
     setSelect(response.data);
-    console.log(response.data);
   };
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const Manage_plant_chemical = (props) => {
                   {getselect.map((data, index) => {
                     return (
                       <>
-                        <Form.Group as={Col} controlId="nameeng">
+                        <Form.Group key={index} as={Col} controlId="nameeng">
                           <Form.Label>ชื่อภาษาอังกฤษ</Form.Label>
                           <Form.Control
                             placeholder={data.name_chemical_eng}
@@ -82,7 +81,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="EUMRL">
+                        <Form.Group key={index} as={Col} controlId="EUMRL">
                           <Form.Label>EU-MRL</Form.Label>
                           <Form.Control
                             placeholder={data.eu_mrl}
