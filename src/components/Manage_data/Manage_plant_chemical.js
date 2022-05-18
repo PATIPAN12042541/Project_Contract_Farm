@@ -41,6 +41,10 @@ const Manage_plant_chemical = (props) => {
     }
   };
 
+  const setEnddate = async (datest) => {
+    console.log(datest);
+  };
+
   useEffect(() => {
     getChemicals();
   }, []);
@@ -121,6 +125,7 @@ const Manage_plant_chemical = (props) => {
                           class="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
+                          onChange={(e) => setEnddate(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
