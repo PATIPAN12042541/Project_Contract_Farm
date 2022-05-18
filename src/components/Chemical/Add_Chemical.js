@@ -4,13 +4,20 @@ import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Zoom from "react-medium-image-zoom"
 import FileUpload from "@hawk-ui/file-upload"
+import Image from 'react-bootstrap/Image'
+
 import Swal from 'sweetalert2'
 
 const Add_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
+    const [checked, setChecked] = useState(false)
+    const [nameChemicalThai,setNameChemicalThai] = useState("")
+    const [nameChemicalEng,setNameChemicalEng] = useState("")
+    const [eumrl,setEumrl] = useState("")
     const [typeChemicalID,setTypeChemicalID] = useState()
     const [image, setImage] = useState({ preview: "", data: "" })
     const [image_name, setImageName] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getListTypeChemicals();
@@ -19,6 +26,32 @@ const Add_Chemical = () => {
     const getListTypeChemicals = async() => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListTypeChemical(response.data);
+    }
+
+    const AddChemical = async(e)=>{
+        e.preventDefault();
+        await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
+            name_chemical: nameChemicalThai,
+            name_chemical_eng : nameChemicalEng,
+            eu_mrl : eumrl,
+            path_img : image_name,
+            type_chemical_id : checked,
+        })
+        .then(function (response) {
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Save OK !",
+              });
+              navigate("/ListChemical")
+        })
+        .catch(function (error) {
+            Swal.fire({
+                icon: "error",
+                title: error,
+                text: "Save Error!",
+              });
+        });
     }
   
     return (
@@ -41,7 +74,7 @@ const Add_Chemical = () => {
                                       <h3 className="card-title">เพิ่มข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <Form className="form-horizontal">
+                              <Form className="form-horizontal" onSubmit={AddChemical}>
                                   <div className="card-body">
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
@@ -63,7 +96,8 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="ชื่อสารเคมี (ไทย)"/>
+                                                    placeholder="ชื่อสารเคมี (ไทย)"
+                                                    onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -71,7 +105,8 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="ชื่อสารเคมี (Eng)"/>
+                                                    placeholder="ชื่อสารเคมี (Eng)"
+                                                    onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
@@ -79,14 +114,15 @@ const Add_Chemical = () => {
                                           <div className="col-sm-9">
                                                 <input type="text"
                                                     className="form-control"
-                                                    placeholder="EU MRL"/>
+                                                    placeholder="EU MRL"
+                                                    onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">รูป</Form.Label>
                                           <div className="col-sm-9">
                                                 <Zoom>
-                                                    <img
+                                                    <Image
                                                         src={
                                                             image.preview
                                                                 ? image.preview
@@ -119,10 +155,9 @@ const Add_Chemical = () => {
                                       </div>
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">Active Status</Form.Label>
-                                            <div className="col-sm-9">
+                                            <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
-                                                    id="custom-switch"
                                                 />
                                             </div>
                                       </div>

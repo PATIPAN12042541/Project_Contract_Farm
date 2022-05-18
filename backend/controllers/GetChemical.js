@@ -1,4 +1,5 @@
 import db from "../config/Database.js";
+import NameChemical from "../models/ChemicalModel.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -29,3 +30,25 @@ export const getSelect = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const createChemical = async(req, res) => {
+  const { name_chemical,
+          name_chemical_eng,
+          eu_mrl,
+          path_img,
+          type_chemical_id } = req.body;
+  try {
+      await NameChemical.create({
+
+        name_chemical: name_chemical,
+        name_chemical_eng :name_chemical_eng,
+        eu_mrl : eu_mrl,
+        path_img : path_img,
+        type_chemical_id: type_chemical_id,
+      });
+      res.json({msg: "Create Successful"});
+  } catch (error) {
+      //console.log(error);
+      res.json(error)
+  }
+}
