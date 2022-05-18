@@ -43,7 +43,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    const new_date = moment(date, "YYYY-MM-DD").add(8, "days");
+    const new_date = moment(date, "yyyy-MM-dd").add(8, "days");
     setEndDate(new_date);
   };
 
