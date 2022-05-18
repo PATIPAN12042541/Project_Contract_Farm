@@ -61,6 +61,8 @@ const Update_Chemical = () => {
                     type_chemical_id : typeChemicalID,
                     status : checked,
                 });
+
+                uploadImg();
             }
             
             Swal.fire({
@@ -77,6 +79,16 @@ const Update_Chemical = () => {
               });
         }
     }
+
+    const uploadImg = async () => {
+        let formData = new FormData();
+        formData.append("file", image.data);
+    
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
+          .then((res) => console.log(res.data))
+          .catch((err) => console.error(err));
+      };
   
   
     return (
