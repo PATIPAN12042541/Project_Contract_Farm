@@ -113,13 +113,29 @@ const Manage_plant_chemical = (props) => {
                         วันที่เริ่มต้น
                       </label>
                       <div
-                        className="col-sm-4 input-group date"
+                        className="col-sm-2 input-group date"
                         data-target-input="nearest"
                       >
                         <input
                           type="date"
                           class="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        วันที่สิ้นสุด
+                      </label>
+                      <div
+                        className="col-sm-2 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          class="form-control form-control-border"
+                          placeholder="วันที่สิ้นสุด"
                           value=""
                         />
                       </div>
