@@ -15,16 +15,27 @@ const Update_Chemical = () => {
     const [eumrl,setEumrl] = useState("")
     const [typeChemicalID,setTypeChemicalID] = useState()
     const [image, setImage] = useState({ preview: "", data: "" })
+    const [imgUrl,setImgUrl] = useState("")
     const [image_name, setImageName] = useState()
     const navigate = useNavigate()
 
     useEffect(() => {
-        getListTypeChemicals();
+        getListTypeChemicals()
+        getChemicalById()
     },[])
 
     const getListTypeChemicals = async() => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListTypeChemical(response.data);
+    }
+
+    const getChemicalById = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/getChemical/getChemicalID/${id}`);
+        setNameChemicalThai(response.data.nameChemicalThai)
+        setNameChemicalEng(response.data.nameChemicalEng)
+        setEumrl(response.data.eumrl)
+        setImgUrl(response.data.path_img)
+        setChecked(response.data.status)
     }
   
   
@@ -71,6 +82,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (ไทย)"
+                                                    value={NameChemicalThai}
                                                     onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
@@ -80,6 +92,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="ชื่อสารเคมี (Eng)"
+                                                    value={NameChemicalEng}
                                                     onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
@@ -89,6 +102,7 @@ const Update_Chemical = () => {
                                                 <input type="text"
                                                     className="form-control"
                                                     placeholder="EU MRL"
+                                                    value={Eumrl}
                                                     pattern="[0-9]*"
                                                     onKeyPress={(e) => {
                                                         if (!/[0-9]/.test(e.key)) {
