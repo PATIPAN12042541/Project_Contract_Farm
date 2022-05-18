@@ -4,7 +4,15 @@ import axios from "axios";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [getselect, setSelect] = useState([]);
+  const [getselect, setSelect] = useState([
+    {
+      id: "",
+      name_chemical: "",
+      name_chemical_eng: "",
+      path_img: "",
+      eu_mrl: "",
+    },
+  ]);
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -47,54 +55,32 @@ const Manage_plant_chemical = (props) => {
             </select>
           </div>
         </div>
-        if(getselect)
-        {
-          <>
-            {getselect.map((data, index) => {
-              return (
-                <>
-                  <div className="col-12 col-sm-2">
-                    <div className="form-group">
-                      <label>ชื่อไทย</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={data.name_chemical}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-2">
-                    <div className="form-group">
-                      <label>ชื่ออังกฤษ</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={data.name_chemical_eng}
-                      />
-                    </div>
-                  </div>
-                </>
-              );
-            })}
-          </>
-        }
-        else
-        {
-          <>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่อไทย</label>
-                <input type="text" className="form-control" value="" />
+        {getselect.map((data, index) => {
+          return (
+            <>
+              <div className="col-12 col-sm-2">
+                <div className="form-group">
+                  <label>ชื่อไทย</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={data.name_chemical}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="col-12 col-sm-2">
-              <div className="form-group">
-                <label>ชื่ออังกฤษ</label>
-                <input type="text" className="form-control" value="" />
+              <div className="col-12 col-sm-2">
+                <div className="form-group">
+                  <label>ชื่ออังกฤษ</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={data.name_chemical_eng}
+                  />
+                </div>
               </div>
-            </div>
-          </>
-        }
+            </>
+          );
+        })}
       </div>
     </div>
   );
