@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -42,10 +43,8 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    
-    const today = new Date(date);
-   
-    console.log(today);
+    const new_date = moment(date, "YYYY-MM-DD").add("days", 5);
+    console.log(new_date);
   };
 
   useEffect(() => {
