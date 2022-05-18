@@ -162,7 +162,10 @@ const Manage_plant_chemical = (props) => {
                         ระยะเวลาตกค้าง
                       </label>
                       <div className="col-sm-2 input-group date">
-                        <select className="custom-select form-control-border">
+                        <select
+                          className="custom-select form-control-border"
+                          readOnly={true}
+                        >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
                             return (
