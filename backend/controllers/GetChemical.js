@@ -42,7 +42,7 @@ export const createChemical = async(req, res) => {
         name_chemical: name_chemical,
         name_chemical_eng :name_chemical_eng,
         eu_mrl : eu_mrl,
-        //path_img : path_img,
+        path_img : path_img,
         type_chemical_id: type_chemical_id,
       });
       res.json({msg: "Create Successful"});
