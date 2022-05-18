@@ -41,7 +41,13 @@ const Manage_plant_chemical = (props) => {
       <section className="content">
         <div className="container-fluid">
           <div class="card card-info">
-            <div class="card-header">
+            <div
+              class="card-header"
+              style={{
+                backgroundColor: "#8CC152",
+                color: "#FFFFFF",
+              }}
+            >
               <h3 class="card-title">Horizontal Form</h3>
             </div>
             <form className="form-horizontal">
