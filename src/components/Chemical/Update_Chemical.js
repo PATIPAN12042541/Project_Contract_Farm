@@ -83,7 +83,6 @@ const Update_Chemical = () => {
                                                 <Form.Control type="text"
                                                               className="form-control"
                                                               placeholder="ชื่อสารเคมี (ไทย)"
-                                                              value={nameChemicalThai}
                                                               onChange={(e)=>setNameChemicalThai(e.target.value)}/>
                                             </div>
                                       </div>
@@ -93,7 +92,6 @@ const Update_Chemical = () => {
                                                 <Form.Control type="text"
                                                               className="form-control"
                                                               placeholder="ชื่อสารเคมี (Eng)"
-                                                              value={nameChemicalEng}
                                                               onChange={(e)=>setNameChemicalEng(e.target.value)}/>
                                             </div>
                                       </div>
@@ -103,7 +101,6 @@ const Update_Chemical = () => {
                                                 <Form.Control type="text"
                                                               className="form-control"
                                                               placeholder="EU MRL"
-                                                              value={eumrl}
                                                               pattern="[0-9]*"
                                                               onKeyPress={(e) => {
                                                                     if (!/[0-9]/.test(e.key)) {
@@ -153,7 +150,6 @@ const Update_Chemical = () => {
                                             <div className="col-sm-9 col-form-label">
                                                 <input
                                                     type="checkbox"
-                                                    checked={checked}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
                                                     }}
