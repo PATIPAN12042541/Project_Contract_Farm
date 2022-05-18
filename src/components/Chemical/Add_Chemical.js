@@ -125,11 +125,7 @@ const Add_Chemical = () => {
                                                     type="checkbox"
                                                     id="custom-switch"
                                                 /> */}
-                                                <Form.Check 
-    type="switch"
-    id="custom-switch"
-    label="Check this switch"
-  />
+                                                
                                             </div>
                                       </div>
                                   </div>
