@@ -62,56 +62,54 @@ const Manage_plant_chemical = (props) => {
             </div>
             <form className="form-horizontal">
               <div className="card-body">
-                <div className="form-group row">
-                  <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
-                  <div className="col-sm-4">
-                    <select
-                      className="custom-select form-control-border"
-                      onChange={(e) => getSelect(e.target.value)}
-                    >
-                      <option>------กรุณาเลือกสารเคมี------</option>
-                      {getChemical.map((Chemical, index) => {
-                        return (
-                          <option key={index} value={Chemical.id}>
-                            {Chemical.name_chemical}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                  <label className="col-sm-1 col-form-label">
-                    ชื่อภาษาอังกฤษ
-                  </label>
-                  {getselect.map((data, index) => {
-                    return (
-                      <div>
-                        <div className="col-sm-4">
-                          <input
-                            type="text"
-                            className="form-control form-control-border"
-                            id="name_chemical_eng"
-                            placeholder={data.name_chemical_eng}
-                            defaultValue={data.name_chemical_eng}
-                            readOnly
-                          />
-                        </div>
-                        <label className="col-sm-1 col-form-label">
-                          EU-MRL
-                        </label>
-                        <div className="col-sm-1">
-                          <input
-                            type="text"
-                            className="form-control form-control-border"
-                            id="eu_mrl"
-                            placeholder={data.eu_mrl}
-                            defaultValue={data.eu_mrl}
-                            readOnly
-                          />
-                        </div>
+                {getselect.map((data, index) => {
+                  return (
+                    <div className="form-group row" key={index}>
+                      <label className="col-sm-1 col-form-label">
+                        ชื่อสารเคมี
+                      </label>
+                      <div className="col-sm-4">
+                        <select
+                          className="custom-select form-control-border"
+                          onChange={(e) => getSelect(e.target.value)}
+                        >
+                          <option>------กรุณาเลือกสารเคมี------</option>
+                          {getChemical.map((Chemical, index) => {
+                            return (
+                              <option key={index} value={Chemical.id}>
+                                {Chemical.name_chemical}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </div>
-                    );
-                  })}
-                </div>
+                      <label className="col-sm-1 col-form-label">
+                        ชื่อภาษาอังกฤษ
+                      </label>
+                      <div className="col-sm-4">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          id="name_chemical_eng"
+                          placeholder={data.name_chemical_eng}
+                          defaultValue={data.name_chemical_eng}
+                          readOnly
+                        />
+                      </div>
+                      <label className="col-sm-1 col-form-label">EU-MRL</label>
+                      <div className="col-sm-1">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          id="eu_mrl"
+                          placeholder={data.eu_mrl}
+                          defaultValue={data.eu_mrl}
+                          readOnly
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="card-footer">
