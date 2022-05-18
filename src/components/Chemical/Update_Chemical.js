@@ -121,7 +121,7 @@ const Update_Chemical = () => {
                                                         src={
                                                             image.preview
                                                                 ? image.preview
-                                                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                                                : imgUrl
                                                         }
                                                         className="img-fluid mb-2"
                                                         width="100"
