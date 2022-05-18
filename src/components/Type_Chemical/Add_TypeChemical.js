@@ -10,7 +10,7 @@ const Add_Chemical = () => {
     const [checked, setChecked] = useState(false);
     const navigate = useNavigate();
 
-    const AddChemical = async(e)=>{
+    const AddTypeChemical = async(e)=>{
         e.preventDefault();
         await axios.post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`,{
             type_chemical: typeChemical,
@@ -53,7 +53,7 @@ const Add_Chemical = () => {
                                       <h3 className="card-title">เพิ่มประเภทข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <Form className="form-horizontal" onSubmit={AddChemical}>
+                              <Form className="form-horizontal" onSubmit={AddTypeChemical}>
                                   <div className="card-body">
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
