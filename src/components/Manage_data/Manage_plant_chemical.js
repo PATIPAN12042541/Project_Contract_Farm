@@ -28,6 +28,8 @@ const Manage_plant_chemical = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
       );
       setSelect(response.data);
+    }else{
+        getselect();
     }
   };
 
@@ -77,10 +79,11 @@ const Manage_plant_chemical = (props) => {
                   {getselect.map((data, index) => {
                     return (
                       <>
-                        <div className="col-sm-4" key={index}>
+                        <div className="col-sm-4">
                           <input
                             type="text"
                             className="form-control form-control-border"
+                            id="name_chemical_eng"
                             placeholder={data.name_chemical_eng}
                             defaultValue={data.name_chemical_eng}
                             readOnly
@@ -89,10 +92,11 @@ const Manage_plant_chemical = (props) => {
                         <label className="col-sm-1 col-form-label">
                           EU-MRL
                         </label>
-                        <div className="col-sm-1" key={index}>
+                        <div className="col-sm-1">
                           <input
                             type="text"
                             className="form-control form-control-border"
+                            id="eu_mrl"
                             placeholder={data.eu_mrl}
                             defaultValue={data.eu_mrl}
                             readOnly
