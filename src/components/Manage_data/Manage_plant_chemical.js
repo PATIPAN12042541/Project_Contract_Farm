@@ -63,10 +63,10 @@ const Manage_plant_chemical = (props) => {
               <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
             <form className="form-horizontal">
-              <div className="card-body">
-                {getselect.map((data, index) => {
-                  return (
-                    <div className="form-group row" key={index}>
+              {getselect.map((data, index) => {
+                return (
+                  <div className="card-body" key={index}>
+                    <div className="form-group row">
                       <label className="col-sm-1 col-form-label">
                         ชื่อสารเคมี
                       </label>
@@ -92,7 +92,6 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          id="name_chemical_eng"
                           placeholder={data.name_chemical_eng}
                           defaultValue={data.name_chemical_eng}
                           readOnly
@@ -103,17 +102,47 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          id="eu_mrl"
                           placeholder={data.eu_mrl}
                           defaultValue={data.eu_mrl}
                           readOnly
                         />
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        วันที่เริ่มต้น
+                      </label>
+                      <div
+                        className="col-sm-2 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          class="form-control form-control-border"
+                          placeholder="วันที่เริ่มต้น"
+                          value=""
+                        />
+                      </div>
+                      <div className="form-group row">
+                        <label className="col-sm-1 col-form-label">
+                          วันที่สิ้นสุด
+                        </label>
+                        <div
+                          className="col-sm-2 input-group date"
+                          data-target-input="nearest"
+                        >
+                          <input
+                            type="date"
+                            class="form-control form-control-border"
+                            placeholder="วันที่สิ้นสุด"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
               <div className="card-footer">
                 <button
                   type="submit"
@@ -123,7 +152,7 @@ const Manage_plant_chemical = (props) => {
                     color: "#FFFFFF",
                   }}
                 >
-                  Cancel
+                  ยืนยัน
                 </button>
               </div>
             </form>
