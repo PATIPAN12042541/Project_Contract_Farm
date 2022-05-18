@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -50,13 +52,13 @@ const Manage_plant_chemical = (props) => {
             >
               <h3 class="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
-            <form className="form-horizontal">
+            <Form className="form-horizontal">
               <div className="card-body">
-                <div className="form-group row">
-                  <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
-                  <div className="col-sm-4">
-                    <select
-                      className="form-control"
+                <Row className="mb-3">
+                  <Form.Group as={Col} controlId="selecttype">
+                    <Form.Label>ชื่อสารเคมี</Form.Label>
+                    <Form.Select
+                      defaultValue=""
                       onChange={(e) => getSelect(e.target.value)}
                     >
                       <option>------กรุณาเลือกสารเคมี------</option>
@@ -67,57 +69,31 @@ const Manage_plant_chemical = (props) => {
                           </option>
                         );
                       })}
-                    </select>
-                  </div>
-                  <label className="col-sm-1 col-form-label">
-                    ชื่อภาษาอังกฤษ
-                  </label>
+                    </Form.Select>
+                  </Form.Group>
                   {getselect.map((data, index) => {
                     return (
                       <>
-                        <div className="col-sm-4" key={index}>
-                          <input
-                            type="text"
-                            className="form-control"
+                        <Form.Group as={Col} controlId="nameeng" key={index}>
+                          <Form.Label>ชื่อภาษาอังกฤษ</Form.Label>
+                          <Form.Control
                             placeholder={data.name_chemical_eng}
                             defaultValue={data.name_chemical_eng}
                             readOnly
                           />
-                        </div>
-                        <label className="col-sm-1 col-form-label">
-                          EU-MRL
-                        </label>
-                        <div className="col-sm-1" key={index}>
-                          <input
-                            type="text"
-                            className="form-control"
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="EUMRL" key={index}>
+                          <Form.Label>EU-MRL</Form.Label>
+                          <Form.Control
                             placeholder={data.eu_mrl}
                             defaultValue={data.eu_mrl}
                             readOnly
                           />
-                        </div>
+                        </Form.Group>
                       </>
                     );
                   })}
-                </div>
-                <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">Password</label>
-                  <div className="col-sm-10">
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <div className="offset-sm-2 col-sm-10">
-                    <div className="form-check">
-                      <input type="checkbox" className="form-check-input" />
-                      <label className="form-check-label">Remember me</label>
-                    </div>
-                  </div>
-                </div>
+                </Row>
               </div>
 
               <div className="card-footer">
@@ -128,7 +104,7 @@ const Manage_plant_chemical = (props) => {
                   Cancel
                 </button>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
       </section>
