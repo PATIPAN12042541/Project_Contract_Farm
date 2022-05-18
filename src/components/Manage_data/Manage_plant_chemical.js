@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -28,6 +27,7 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
     );
     setSelect(response.data);
+    console.log(response.data);
   };
 
   useEffect(() => {
@@ -41,63 +41,66 @@ const Manage_plant_chemical = (props) => {
       </section>
       <section className="content">
         <div className="container-fluid">
-          <div className="card card-info">
+          <div class="card card-info">
             <div
-              className="card-header"
+              class="card-header"
               style={{
                 backgroundColor: "#8CC152",
                 color: "#FFFFFF",
               }}
             >
-              <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
+              <h3 class="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
-            <Form className="form-horizontal">
+            <form className="form-horizontal">
               <div className="card-body">
-                <Row className="mb-4">
-                  <Form.Group as={Col} controlId="selecttype">
-                    <Form.Label>ชื่อสารเคมี</Form.Label>
-                    <Form.Select onChange={(e) => getSelect(e.target.value)}>
+                <div className="form-group row">
+                  <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
+                  <div className="col-sm-4">
+                    <select
+                      className="custom-select form-control-border"
+                      onChange={(e) => getSelect(e.target.value)}
+                    >
                       <option>------กรุณาเลือกสารเคมี------</option>
-                      {getChemical.map((Chemical) => {
+                      {getChemical.map((Chemical, index) => {
                         return (
-                          <option defaultValue={Chemical.id}>
+                          <option key={index} value={Chemical.id}>
                             {Chemical.name_chemical}
                           </option>
                         );
                       })}
-                    </Form.Select>
-                  </Form.Group>
-
-                  <Form.Select aria-label="Default select example">
-                    <option>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </Form.Select>
-
+                    </select>
+                  </div>
+                  <label className="col-sm-1 col-form-label">
+                    ชื่อภาษาอังกฤษ
+                  </label>
                   {getselect.map((data, index) => {
                     return (
                       <>
-                        <Form.Group as={Col} controlId="nameeng">
-                          <Form.Label>ชื่อภาษาอังกฤษ</Form.Label>
-                          <Form.Control
+                        <div className="col-sm-4" key={index}>
+                          <input
+                            type="text"
+                            className="form-control form-control-border"
                             placeholder={data.name_chemical_eng}
                             defaultValue={data.name_chemical_eng}
                             readOnly
                           />
-                        </Form.Group>
-                        <Form.Group as={Col} controlId="EUMRL">
-                          <Form.Label>EU-MRL</Form.Label>
-                          <Form.Control
+                        </div>
+                        <label className="col-sm-1 col-form-label">
+                          EU-MRL
+                        </label>
+                        <div className="col-sm-1" key={index}>
+                          <input
+                            type="text"
+                            className="form-control form-control-border"
                             placeholder={data.eu_mrl}
                             defaultValue={data.eu_mrl}
                             readOnly
                           />
-                        </Form.Group>
+                        </div>
                       </>
                     );
                   })}
-                </Row>
+                </div>
               </div>
 
               <div className="card-footer">
@@ -108,13 +111,60 @@ const Manage_plant_chemical = (props) => {
                   Cancel
                 </button>
               </div>
-            </Form>
+            </form>
           </div>
         </div>
       </section>
+      {/* <div className="row">
+        <div className="col-12 col-sm-8">
+          <div className="form-group">
+            <label>ชื่อสารเคมีที่ใช้</label>
+            <select
+              className="form-control"
+              onChange={(e) => getSelect(e.target.value)}
+            >
+              <option>------กรุณาเลือกสารเคมี------</option>
+              {getChemical.map((Chemical, index) => {
+                return (
+                  <option key={index} value={Chemical.id}>
+                    {Chemical.name_chemical}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+      </div>
+      {getselect.map((data, index) => {
+        return (
+          <div className="row" key={index}>
+            <div className="col-12 col-sm-2">
+              <div className="form-group">
+                <label>ชื่อไทย</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={data.name_chemical}
+                  defaultValue={data.name_chemical}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-2">
+              <div className="form-group">
+                <label>ชื่ออังกฤษ</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={data.name_chemical_eng}
+                  defaultValue={data.name_chemical_eng}
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })} */}
     </div>
   );
 };
 
 export default Manage_plant_chemical;
-
