@@ -117,6 +117,11 @@ const Add_Chemical = () => {
                                                     className="form-control"
                                                     placeholder="EU MRL"
                                                     pattern="[0-9]*"
+                                                    onKeyPress={(e) => {
+                                                        if (!/[0-9]/.test(e.key)) {
+                                                          e.preventDefault();
+                                                        }
+                                                      }}
                                                     onChange={(e)=>setEumrl(e.target.value)}/>
                                             </div>
                                       </div>
