@@ -30,28 +30,32 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
-        await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
-            name_chemical: nameChemicalThai,
-            name_chemical_eng : nameChemicalEng,
-            eu_mrl : eumrl,
-            path_img : image_name,
-            type_chemical_id : checked,
-        })
-        .then(function (response) {
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              navigate("/ListChemical")
-        })
-        .catch(function (error) {
-            Swal.fire({
-                icon: "error",
-                title: error,
-                text: "Save Error!",
-              });
-        });
+        console.log(nameChemicalThai);
+        console.log(nameChemicalEng);
+        console.log(eumrl);
+        console.log(checked);
+        // await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
+        //     name_chemical: nameChemicalThai,
+        //     name_chemical_eng : nameChemicalEng,
+        //     eu_mrl : eumrl,
+        //     path_img : image_name,
+        //     type_chemical_id : checked,
+        // })
+        // .then(function (response) {
+        //     Swal.fire({
+        //         icon: "success",
+        //         title: "Success",
+        //         text: "Save OK !",
+        //       });
+        //       navigate("/ListChemical")
+        // })
+        // .catch(function (error) {
+        //     Swal.fire({
+        //         icon: "error",
+        //         title: error,
+        //         text: "Save Error!",
+        //       });
+        // });
     }
   
     return (
