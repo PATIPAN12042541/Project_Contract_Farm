@@ -37,6 +37,7 @@ const Update_Chemical = () => {
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
         setTypeChemicalID(response.data.type_chemical_id)
+        console.log(typeChemicalID);
     }
   
   
@@ -70,7 +71,7 @@ const Update_Chemical = () => {
                                                   <option>--เลือกประเภทสารเคมี--</option>
                                                   {ListTypeChemical.map((item) => (
                                                       <option key={item.id}
-                                                          value={(item.id===typeChemicalID)?typeChemicalID:item.id}
+                                                          value={item.id}
                                                           selected>
                                                           {item.type_chemical}
                                                       </option>
