@@ -49,7 +49,8 @@ export const createChemical = async(req, res) => {
           name_chemical_eng,
           eu_mrl,
           path_img,
-          type_chemical_id } = req.body;
+          type_chemical_id,
+          status } = req.body;
   try {
       await NameChemical.create({
         name_chemical: name_chemical,
@@ -57,10 +58,41 @@ export const createChemical = async(req, res) => {
         eu_mrl : eu_mrl,
         path_img : path_img,
         type_chemical_id: type_chemical_id,
+        status : status,
       });
       res.json({msg: "Create Successful"});
   } catch (error) {
       //console.log(error);
       res.json(error)
   }
+}
+
+export const updateChemical = async (req, res) => {
+  try {
+      await NameChemical.update(req.body, {
+          where: {
+              id: req.params.id
+          }
+      });
+      res.json({
+          "message": "Chemical Updated"
+      });
+  } catch (error) {
+      res.json({ message: error.message });
+  }  
+}
+
+export const deleteChemical = async (req, res) => {
+  try {
+      await NameChemical.destroy({
+          where: {
+              id: req.params.id
+          }
+      });
+      res.json({
+          "message": "Chemical Deleted"
+      });
+  } catch (error) {
+      res.json({ message: error.message });
+  }  
 }

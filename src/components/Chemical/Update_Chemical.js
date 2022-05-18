@@ -36,8 +36,36 @@ const Update_Chemical = () => {
         setNameChemicalEng(response.data.name_chemical_eng)
         setEumrl(response.data.eu_mrl)
         setImgUrl(response.data.path_img)
+        setImageName({data:response.data.path_img})
         setTypeChemicalID(response.data.type_chemical_id)
         setChecked(response.data.status)
+    }
+
+    const updateChemical = async (e) => {
+        e.preventDefault();
+        try{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
+                name_chemical: nameChemicalThai,
+                name_chemical_eng : nameChemicalEng,
+                eu_mrl : eumrl,
+                path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
+                type_chemical_id : typeChemicalID,
+                status : checked,
+            });
+
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+              });
+            navigate("/ListChemical")
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+              });
+        }
     }
   
   
@@ -61,7 +89,7 @@ const Update_Chemical = () => {
                                       <h3 className="card-title">แก้ไขข้อมูลสารเคมี</h3>
                                   </center>
                               </div>
-                              <Form className="form-horizontal">
+                              <Form className="form-horizontal" onSubmit={updateChemical}>
                                   <div className="card-body">
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
@@ -123,7 +151,7 @@ const Update_Chemical = () => {
                                                         src={
                                                             image.preview
                                                                 ? image.preview
-                                                                : imgUrl
+                                                                : image.data
                                                         }
                                                         className="img-fluid mb-2"
                                                         width="100"
