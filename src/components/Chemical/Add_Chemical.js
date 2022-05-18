@@ -120,10 +120,9 @@ const Add_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">Active Status</Form.Label>
                                             <div className="col-sm-9">
-                                                <input
-                                                    type="checkbox"
-                                                    id="custom-switch"
-                                                />
+                                                <input type="checkbox" 
+                                                checked data-bootstrap-switch data-off-color="danger" 
+                                                data-on-color="success" />
                                             </div>
                                       </div>
                                   </div>
