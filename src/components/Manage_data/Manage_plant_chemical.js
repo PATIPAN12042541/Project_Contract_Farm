@@ -140,6 +140,7 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
                           defaultValue={endDate}
+                          readOnly
                         />
                       </div>
                     </div>
