@@ -48,17 +48,27 @@ const Manage_plant_chemical = (props) => {
                 color: "#FFFFFF",
               }}
             >
-              <h3 class="card-title">Horizontal Form</h3>
+              <h3 class="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
             <form className="form-horizontal">
               <div className="card-body">
                 <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">Email</label>
-                  <div className="col-sm-10">
+                  <label className="col-sm-1 col-form-label">ชื่อสารเคมี</label>
+                  <div className="col-sm-5">
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="ชื่อสารเคมี"
+                    />
+                  </div>
+                  <label className="col-sm-1 col-form-label">
+                    ชื่อภาษาอังกฤษ
+                  </label>
+                  <div className="col-sm-5">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="ชื่อภาษาอังกฤษ"
                     />
                   </div>
                 </div>
