@@ -15,6 +15,19 @@ export const getChemical = async (req, res) => {
   }
 };
 
+export const getChemicalByID = async (req, res) => {
+  try {
+      const nameChemicals = await NameChemical.findAll({
+          where:{
+              id : req.params.id
+          }
+      });
+      res.json(nameChemicals[0]);
+  } catch (error) {
+      res.json(error);
+  }  
+}
+
 
 export const getSelect = async (req, res) => {
   try {
