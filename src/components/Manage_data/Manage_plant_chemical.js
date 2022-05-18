@@ -85,7 +85,7 @@ const Manage_plant_chemical = (props) => {
                   {getselect.map((data, index) => {
                     return (
                       <div className="form-group row" key={index}>
-                        <label className="col-sm-1 col-form-label">
+                        <label className="col-sm-3 col-form-label">
                           ชื่อภาษาอังกฤษ
                         </label>
                         <div className="col-sm-4">
@@ -98,7 +98,7 @@ const Manage_plant_chemical = (props) => {
                             readOnly
                           />
                         </div>
-                        <label className="col-sm-1 col-form-label">
+                        <label className="col-sm-3 col-form-label">
                           EU-MRL
                         </label>
                         <div className="col-sm-2">
