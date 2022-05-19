@@ -18,13 +18,21 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
-
+  const [IdExpired, setIDExpired] = useState([]);
 
   const Checkdata = async () => {
     console.log("getselect ", getselect[0].id);
     console.log("startDate ", startDate);
     console.log("endDate ", endDate);
-    
+    console.log("IdExpired ", IdExpired);
+  };
+
+  const getIDExpired = async (e) => {
+    const index = e.target.selectedIndex;
+    const el = e.target.childNodes[index];
+    const id_expired = el.getAttribute("id");
+
+    setIDExpired(id_expired);
   };
 
   const getExpired = async () => {
@@ -195,7 +203,9 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue=""
                           disabled={checkinput}
-                          onChange={setEnddate2}
+                          onChange={(e) => (
+                            getIDExpired(e.target.value), setEnddate2
+                          )}
                         >
                           <option id="0" value="0">
                             ----ระยะเวลาตกค้าง----
