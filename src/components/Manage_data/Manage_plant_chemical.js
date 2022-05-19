@@ -83,14 +83,14 @@ const Manage_plant_chemical = (props) => {
     setEndDate(year + "-" + month + "-" + day);
   };
 
-  const postManageChemical = (async) => {
-    console.log("getselect" + getselect);
-    console.log("idExpired" + idExpired);
-    console.log("STdate" + STdate);
-    console.log("endDate" + endDate);
-    console.log("ratioCC" + ratioCC);
-    console.log("ratioL" + ratioL);
-    console.log("Note" + Note);
+  const postManageChemical = () => {
+    console.log(getselect);
+    console.log(idExpired);
+    console.log(STdate);
+    console.log(endDate);
+    console.log(ratioCC);
+    console.log(ratioL);
+    console.log(Note);
   };
 
   useEffect(() => {
