@@ -21,12 +21,10 @@ const Manage_plant_chemical = (props) => {
 
 
   const Checkdata = async () => {
-    console.log("getChemical ", getChemical);
-    console.log("endDate ", endDate);
+    console.log("getselect ", getselect[0].id);
     console.log("startDate ", startDate);
-    console.log("expired ", expired);
-    console.log("checkinput ", checkinput);
-    console.log("getselect ", getselect);
+    console.log("endDate ", endDate);
+    
   };
 
   const getExpired = async () => {
