@@ -5,7 +5,6 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [endDate, setEndDate] = useState([""]);
   const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
@@ -23,7 +22,7 @@ const Manage_plant_chemical = (props) => {
   const [idNameChemical, setIdNameChemical] = useState([]);
   const [idExpired, setIdExpired] = useState([]);
   const [STdate, setSTdate] = useState([]);
-  const [EDdate, setEDdate] = useState([]);
+  const [endDate, setEndDate] = useState([""]);
   const [ratioCC, setRatioCC] = useState([]);
   const [ratioL, setRatioL] = useState([]);
   const [Note, setNote] = useState([]);
@@ -124,6 +123,7 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-4">
                         <select
                           className="custom-select form-control-border"
+                          defaultValue={idNameChemical}
                           onChange={
                             ((e) => getSelect(e.target.value),
                             setIdNameChemical)
@@ -194,6 +194,7 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
                           defaultValue={endDate}
+                          onChange={(e) => setEndDate(e.target.value)}
                           readOnly
                         />
                       </div>
@@ -203,13 +204,9 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue={EDdate}
+                          defaultValue={idExpired}
                           disabled={checkinput}
-                          onChange={
-                            ((e) => setEDdate(e.target.value),
-                            setEnddate2,
-                            setIdExpired)
-                          }
+                          onChange={(setEnddate2, setIdExpired)}
                         >
                           <option id="0" value="0">
                             ----ระยะเวลาตกค้าง----
