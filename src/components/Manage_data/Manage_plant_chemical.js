@@ -362,7 +362,6 @@ const Manage_plant_chemical = (props) => {
                     <th>
                       <center>วันที่สิ้นสุด</center>
                     </th>
-                    <th>Note</th>
                     <th>
                       <center>รูปภาพ</center>
                     </th>
@@ -423,7 +422,7 @@ const Manage_plant_chemical = (props) => {
                       </td>
                     </tr>
                     <tr className="expandable-body d-none">
-                        <td colSpan={6}>{data.note}</td>
+                      <td colSpan={6}>Note : {data.note}</td>
                     </tr>
                   </tbody>
                 ))}
