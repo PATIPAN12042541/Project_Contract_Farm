@@ -179,10 +179,10 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue="1"
                           disabled={checkinput}
-                          onChange={(data) =>
+                          onChange={(e) =>
                             setEnddate2({
-                              name: data.target.value,
-                              id: this.props.data.id,
+                              name: e.target.value,
+                              id: e.target.id,
                             })
                           }
                         >
