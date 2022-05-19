@@ -8,6 +8,7 @@ const Manage_plant_chemical = (props) => {
   const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
+  /// PostDdata
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -17,9 +18,6 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
-
-  /// PostDdata
-  const [idNameChemical, setIdNameChemical] = useState([]);
   const [idExpired, setIdExpired] = useState([]);
   const [STdate, setSTdate] = useState([]);
   const [endDate, setEndDate] = useState([""]);
@@ -86,7 +84,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const postManageChemical = (async) => {
-    console.log("idNameChemical" + idNameChemical);
+    console.log("getselect" + getselect);
     console.log("idExpired" + idExpired);
     console.log("STdate" + STdate);
     console.log("endDate" + endDate);
@@ -117,7 +115,7 @@ const Manage_plant_chemical = (props) => {
             >
               <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
-            <form className="form-horizontal" onSubmit={postManageChemical}>
+            <form className="form-horizontal">
               {getselect.map((data, index) => {
                 return (
                   <div className="card-body" key={index}>
@@ -128,10 +126,7 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-4">
                         <select
                           className="custom-select form-control-border"
-                          onChange={
-                            ((e) => getSelect(e.target.value),
-                            setIdNameChemical)
-                          }
+                          onChange={(e) => getSelect(e.target.value)}
                         >
                           <option>------กรุณาเลือกสารเคมี------</option>
                           {getChemical.map((Chemical, index) => {
@@ -286,6 +281,7 @@ const Manage_plant_chemical = (props) => {
                     backgroundColor: "#8CC152",
                     color: "#FFFFFF",
                   }}
+                  onClick={postManageChemical}
                 >
                   ยืนยัน
                 </button>
