@@ -19,14 +19,17 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
   const [IdExpired, setIDExpired] = useState([]);
+  const [ratiocc, setRatiocc] = useState([]);
+  const [ratioL, setratioL] = useState([]);
+  const [note, setNote] = useState([]);
 
   const Checkdata = async () => {
+    console.log("id_page ", props.id);
     console.log("getselect ", getselect[0].id);
     console.log("startDate ", startDate);
     console.log("endDate ", endDate);
     console.log("IdExpired ", IdExpired);
   };
-
 
   const getExpired = async () => {
     const response = await axios.get(
@@ -224,6 +227,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="CC"
+                          defaultValue={ratiocc}
+                          onChange={(e) => setRatiocc(e.target.value)}
                         />
                       </div>
                       <div className="col-sm-1">
@@ -231,6 +236,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="L"
+                          defaultValue={ratioL}
+                          onChange={(e) => setratioL(e.target.value)}
                         />
                       </div>
                     </div>
@@ -241,6 +248,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="-"
+                          defaultValue={note}
+                          onChange={(e) => setNote(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>
