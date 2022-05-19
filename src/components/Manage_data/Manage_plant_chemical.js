@@ -53,7 +53,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    var new_date = moment(date, "YYYY-MM-DD").add("days", time);
+    var new_date = moment(date, "YYYY-MM-DD").add("days", time+1);
 
     var day = new_date.format("DD");
     var month = new_date.format("MM");
@@ -70,7 +70,7 @@ const Manage_plant_chemical = (props) => {
     const el = data.target.childNodes[index];
     const date = el.getAttribute("value");
 
-    var new_date = moment(startDate, "YYYY-MM-DD").add("days", date);
+    var new_date = moment(startDate, "YYYY-MM-DD").add("days", date + 1);
     var day = new_date.format("DD");
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
