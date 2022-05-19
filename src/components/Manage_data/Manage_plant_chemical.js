@@ -319,6 +319,21 @@ const Manage_plant_chemical = (props) => {
           </div>
         </div>
       </section>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="card card-info">
+            <div
+              className="card-header"
+              style={{
+                backgroundColor: "#8CC152",
+                color: "#FFFFFF",
+              }}
+            >
+              <h3 className="card-title">ตารางข้อมูล</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
