@@ -158,10 +158,10 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
-                          onChange={
-                            ((e) => setEnddate(e.target.value),
-                            (e) => setStartDate(e.target.value))
-                          }
+                          onChange={(e) => (
+                            setEnddate(e.target.value),
+                            setStartDate(e.target.value)
+                          )}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
