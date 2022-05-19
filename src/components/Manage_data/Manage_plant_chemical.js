@@ -343,7 +343,7 @@ const Manage_plant_chemical = (props) => {
               <h3 className="card-title">ตารางข้อมูล</h3>
             </div>
             <div className="card-body">
-              <table className="table table-head-fixed text-nowrap">
+              <table className="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>
@@ -373,7 +373,7 @@ const Manage_plant_chemical = (props) => {
                 </thead>
                 {datadetail.map((data, index) => (
                   <tbody key={index}>
-                    <tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
                       <td>{index + 1}</td>
                       <td>
                         {data.name_chemical +
@@ -393,7 +393,6 @@ const Manage_plant_chemical = (props) => {
                       <td>
                         <center>{data.date_end}</center>
                       </td>
-                      <td>{data.note}</td>
                       <td>
                         <center>
                           <Zoom>
@@ -422,6 +421,9 @@ const Manage_plant_chemical = (props) => {
                           </button>
                         </center>
                       </td>
+                    </tr>
+                    <tr className="expandable-body d-none">
+                        <td colSpan={6}>{data.note}</td>
                     </tr>
                   </tbody>
                 ))}
