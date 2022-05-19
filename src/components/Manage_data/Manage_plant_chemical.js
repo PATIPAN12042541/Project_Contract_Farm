@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
+import Zoom from "react-medium-image-zoom";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -53,7 +54,6 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-  
     var new_date = moment(date, "YYYY-MM-DD").add("days", 4);
 
     var day = new_date.format("DD");
@@ -205,6 +205,20 @@ const Manage_plant_chemical = (props) => {
                             );
                           })}
                         </select>
+                      </div>
+                      <label className="col-sm-1 col-form-label">รูปภาพ</label>
+                      <div
+                        className="col-sm-2 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <Zoom>
+                          <img
+                            src={data.path_img}
+                            className="img-fluid mb-2"
+                            width="100"
+                            height="100"
+                          />
+                        </Zoom>
                       </div>
                     </div>
                   </div>
