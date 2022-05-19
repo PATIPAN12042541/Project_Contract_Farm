@@ -205,26 +205,6 @@ const Manage_plant_chemical = (props) => {
                           })}
                         </select>
                       </div>
-                      <label className="col-sm-1 col-form-label">รูปภาพ</label>
-                      <div
-                        className="col-sm-2 input-group date"
-                        data-target-input="nearest"
-                      >
-                        <Zoom>
-                          <img
-                            src={
-                              data.path_img
-                                ? data.path_img
-                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                            }
-                            className="img-fluid mb-2"
-                            width="100"
-                            height="100"
-                          />
-                        </Zoom>
-                      </div>
-                    </div>
-                    <div className="form-group row">
                       <label className="col-sm-1 col-form-label">
                         อัตรา (cc : L.)
                       </label>
@@ -242,14 +222,34 @@ const Manage_plant_chemical = (props) => {
                           defaultValue="L"
                         />
                       </div>
+                    </div>
+                    <div className="form-group row">
                       <label className="col-sm-1 col-form-label">Note</label>
                       <div className="col-sm-6">
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          defaultValue="CC"
+                          defaultValue="-"
                         />
                       </div>
+                    </div>
+                    <label className="col-sm-1 col-form-label">รูปภาพ</label>
+                    <div
+                      className="col-sm-2 input-group date"
+                      data-target-input="nearest"
+                    >
+                      <Zoom>
+                        <img
+                          src={
+                            data.path_img
+                              ? data.path_img
+                              : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                          }
+                          className="img-fluid mb-2"
+                          width="100"
+                          height="100"
+                        />
+                      </Zoom>
                     </div>
                   </div>
                 );
