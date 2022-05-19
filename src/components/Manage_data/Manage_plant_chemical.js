@@ -123,7 +123,6 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-4">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue={idNameChemical}
                           onChange={
                             ((e) => getSelect(e.target.value),
                             setIdNameChemical)
