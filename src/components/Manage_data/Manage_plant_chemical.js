@@ -19,6 +19,16 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
 
+
+  const Checkdata = async () => {
+    console.log("getChemical ", getChemical);
+    console.log("endDate ", endDate);
+    console.log("startDate ", startDate);
+    console.log("expired ", expired);
+    console.log("checkinput ", checkinput);
+    console.log("getselect ", getselect);
+  };
+
   const getExpired = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
@@ -252,12 +262,13 @@ const Manage_plant_chemical = (props) => {
               })}
               <div className="card-footer">
                 <button
-                  type="submit"
+                  type="input"
                   className="btn btn-default float-right"
                   style={{
                     backgroundColor: "#8CC152",
                     color: "#FFFFFF",
                   }}
+                  onClick={Checkdata}
                 >
                   ยืนยัน
                 </button>
