@@ -8,7 +8,7 @@ const Manage_plant_chemical = (props) => {
   const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
-  const [time, setTime] = useState("3");
+  const [time, setTime] = useState([]);
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -53,7 +53,11 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    var new_date = moment(date, "YYYY-MM-DD").add("days", time+1);
+    console.log(time);
+    if (time == undefined) {
+      setTime("3");
+    }
+    var new_date = moment(date, "YYYY-MM-DD").add("days", time + 1);
 
     var day = new_date.format("DD");
     var month = new_date.format("MM");
