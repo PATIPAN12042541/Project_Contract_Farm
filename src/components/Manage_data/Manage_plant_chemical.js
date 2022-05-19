@@ -8,7 +8,7 @@ const Manage_plant_chemical = (props) => {
   const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
-  const [time, setTime] = useState("3");
+  const [time, setTime] = useState("4");
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -53,7 +53,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    var new_date = moment(date, "YYYY-MM-DD").add("days", time + 1);
+    var new_date = moment(date, "YYYY-MM-DD").add("days", time);
 
     var day = new_date.format("DD");
     var month = new_date.format("MM");
@@ -70,7 +70,7 @@ const Manage_plant_chemical = (props) => {
     const el = data.target.childNodes[index];
     const date = el.getAttribute("value");
 
-    var new_date = moment(startDate, "YYYY-MM-DD").add("days", date + 1);
+    var new_date = moment(startDate, "YYYY-MM-DD").add("days", date);
     var day = new_date.format("DD");
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
@@ -187,9 +187,7 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue="1"
                           disabled={checkinput}
-                          onChange={
-                            ((e) => setTime(e.target.value), setEnddate2)
-                          }
+                          onChange={setEnddate2}
                         >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
