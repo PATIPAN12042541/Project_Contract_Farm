@@ -350,9 +350,7 @@ const Manage_plant_chemical = (props) => {
                     <th>
                       <center>#</center>
                     </th>
-                    <th>
-                      <center>ชื่อสารเคมี (ชื่อภาษาอังกฤษ)</center>
-                    </th>
+                    <th>ชื่อสารเคมี (ชื่อภาษาอังกฤษ)</th>
                     <th>
                       <center>ระยะเวลาตกค้าง</center>
                     </th>
@@ -365,9 +363,7 @@ const Manage_plant_chemical = (props) => {
                     <th>
                       <center>วันที่สิ้นสุด</center>
                     </th>
-                    <th>
-                      <center>Note</center>
-                    </th>
+                    <th>Note</th>
                     <th>
                       <center>รูปภาพ</center>
                     </th>
@@ -385,10 +381,18 @@ const Manage_plant_chemical = (props) => {
                         data.name_chemical_eng +
                         " )"}
                     </td>
-                    <td>{data.time + " " + data.unit}</td>
-                    <td>{data.cc + " CC " + data.liter + " L"}</td>
-                    <td>{data.date_start}</td>
-                    <td>{data.date_end}</td>
+                    <td>
+                      <center>{data.time + " " + data.unit}</center>
+                    </td>
+                    <td>
+                      <center>{data.cc + " CC " + data.liter + " L"}</center>
+                    </td>
+                    <td>
+                      <center>{data.date_start}</center>
+                    </td>
+                    <td>
+                      <center>{data.date_end}</center>
+                    </td>
                     <td>{data.note}</td>
                     <td>
                       <center>
