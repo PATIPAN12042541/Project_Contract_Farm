@@ -62,8 +62,8 @@ const Manage_plant_chemical = (props) => {
     setCheckInput(false);
   };
 
-  const setEnddate2 = async(id) => {
-    console.log(id)
+  const setEnddate2 = async (data) => {
+    console.log(data);
     // setEndDate([""]);
     // var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
     // var day = new_date.format("DD");
@@ -179,7 +179,12 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue="1"
                           disabled={checkinput}
-                          onChange={(data) => setEnddate2(data.target.id)}
+                          onChange={(data) =>
+                            setEnddate2({
+                              name: data.target.value,
+                              id: data.target.id,
+                            })
+                          }
                         >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
