@@ -1,6 +1,6 @@
 import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
-import PlantDataDetails_M from "../models/PlantDataDetails_M";
+import PlantDataDetails_M from "../models/PlantDataDetails_M.js";
 
 export const getChemical = async (req, res) => {
   try {
