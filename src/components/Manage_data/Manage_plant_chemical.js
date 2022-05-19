@@ -29,6 +29,9 @@ const Manage_plant_chemical = (props) => {
     console.log("startDate ", startDate);
     console.log("endDate ", endDate);
     console.log("IdExpired ", IdExpired);
+    console.log("ratiocc ", ratiocc);
+    console.log("ratioL ", ratioL);
+    console.log("note ", note);
   };
 
   const getExpired = async () => {
