@@ -5,9 +5,10 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
+  const [endDate, setEndDate] = useState([""]);
+  const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
-  /// PostDdata
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -17,12 +18,6 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
-  const [idExpired, setIdExpired] = useState([]);
-  const [startDate, setStartDate] = useState([""]);
-  const [endDate, setEndDate] = useState([""]);
-  const [ratioCC, setRatioCC] = useState([]);
-  const [ratioL, setRatioL] = useState([]);
-  const [Note, setNote] = useState([]);
 
   const getExpired = async () => {
     const response = await axios.get(
@@ -80,16 +75,6 @@ const Manage_plant_chemical = (props) => {
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
     setEndDate(year + "-" + month + "-" + day);
-  };
-
-  const postManageChemical = () => {
-    console.log(getselect[0].id);
-    console.log(idExpired);
-    console.log(startDate);
-    console.log(endDate);
-    console.log(ratioCC);
-    console.log(ratioL);
-    console.log(Note);
   };
 
   useEffect(() => {
@@ -172,7 +157,7 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
-                          defaultValue={startDate}
+                          defaultValue=""
                           onChange={(e) => (
                             setEnddate(e.target.value),
                             setStartDate(e.target.value)
@@ -191,7 +176,6 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
                           defaultValue={endDate}
-                          onChange={(e) => setEndDate(e.target.value)}
                           readOnly
                         />
                       </div>
@@ -201,8 +185,9 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
+                          defaultValue=""
                           disabled={checkinput}
-                          onChange={(setEnddate2, setIdExpired)}
+                          onChange={setEnddate2}
                         >
                           <option id="0" value="0">
                             ----ระยะเวลาตกค้าง----
@@ -228,8 +213,6 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="CC"
-                          defaultValue={ratioCC}
-                          onChange={(e) => setRatioCC(e.target.value)}
                         />
                       </div>
                       <div className="col-sm-1">
@@ -237,8 +220,6 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="L"
-                          defaultValue={ratioL}
-                          onChange={(e) => setRatioL(e.target.value)}
                         />
                       </div>
                     </div>
@@ -249,8 +230,6 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="-"
-                          defaultValue={Note}
-                          onChange={(e) => setNote(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>
@@ -273,13 +252,12 @@ const Manage_plant_chemical = (props) => {
               })}
               <div className="card-footer">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-default float-right"
                   style={{
                     backgroundColor: "#8CC152",
                     color: "#FFFFFF",
                   }}
-                  onClick={postManageChemical}
                 >
                   ยืนยัน
                 </button>
