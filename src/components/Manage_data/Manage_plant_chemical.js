@@ -422,7 +422,7 @@ const Manage_plant_chemical = (props) => {
                       </td>
                     </tr>
                     <tr className="expandable-body d-none">
-                      <td colSpan={6}>Note : {data.note}</td>
+                      <td colSpan={8}>Note : {data.note}</td>
                     </tr>
                   </tbody>
                 ))}
