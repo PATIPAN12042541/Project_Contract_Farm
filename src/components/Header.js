@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import Clock from "react-live-clock";
 
 const Header = () => {
   const history = useNavigate();
@@ -14,9 +14,9 @@ const Header = () => {
       //await axios.delete('http://localhost:4000/user/logout');
       history("/");
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-}
+  };
 
   return (
     <nav
@@ -36,6 +36,9 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
+        <li className="nav-item d-none d-sm-inline-block">
+          <Clock format={"HH:mm:ss"} ticking={true} />
+        </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
