@@ -9,7 +9,6 @@ const Manage_plant_chemical = (props) => {
   const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
-  const [time, setTime] = useState([]);
   const [getselect, setSelect] = useState([
     {
       id: "",
@@ -40,7 +39,6 @@ const Manage_plant_chemical = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
       );
       setSelect(response.data);
-      console.log(response.data);
     } else {
       setSelect([
         {
