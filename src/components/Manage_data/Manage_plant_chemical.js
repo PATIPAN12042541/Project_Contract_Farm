@@ -28,7 +28,6 @@ const Manage_plant_chemical = (props) => {
 
   // data in table
   const [datadetail, setDatadetail] = useState([]);
-  console.log(datadetail);
 
   const getDatadetail = async () => {
     const response = await axios.get(
