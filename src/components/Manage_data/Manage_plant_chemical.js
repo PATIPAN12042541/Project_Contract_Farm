@@ -331,7 +331,41 @@ const Manage_plant_chemical = (props) => {
             >
               <h3 className="card-title">ตารางข้อมูล</h3>
             </div>
-            <div className="card-body">sdsdsdasd</div>
+            <div className="card-body">
+              <table className="table table-head-fixed text-nowrap">
+                <thead>
+                  <tr>
+                    <th>
+                      <center>#</center>
+                    </th>
+                    <th>
+                      <center>ชื่อสารเคมี (ชื่อภาษาอังกฤษ)</center>
+                    </th>
+                    <th>
+                      <center>ระยะเวลาตกค้าง</center>
+                    </th>
+                    <th>
+                      <center>อัตราส่วน</center>
+                    </th>
+                    <th>
+                      <center>วันที่เริ่มต้น</center>
+                    </th>
+                    <th>
+                      <center>วันที่สิ้นสุด</center>
+                    </th>
+                    <th>
+                      <center>Note</center>
+                    </th>
+                    <th>
+                      <center>รูปภาพ</center>
+                    </th>
+                    <th>
+                      <center>แก้ไข/ลบ</center>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
           </div>
         </div>
       </section>
