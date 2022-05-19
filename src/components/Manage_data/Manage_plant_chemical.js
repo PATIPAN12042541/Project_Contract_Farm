@@ -36,6 +36,8 @@ const Manage_plant_chemical = (props) => {
     setDatadetail(response.data);
   };
 
+  console.log(datadetail);
+
   const Checkdata = async () => {
     try {
       await axios
@@ -132,6 +134,34 @@ const Manage_plant_chemical = (props) => {
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
     setEndDate(year + "-" + month + "-" + day);
+  };
+
+  const deleteChemical = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/getChemical/DeleteChemical/${id}`
+          );
+          getDatadetail();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -415,7 +445,13 @@ const Manage_plant_chemical = (props) => {
                             <BsFillPencilFill />
                           </button>
                           <> </>
-                          <button type="submit" className="btn btn-danger">
+                          <button
+                            type="submit"
+                            className="btn btn-danger"
+                            onClick={() => {
+                              deleteChemical(data.id);
+                            }}
+                          >
                             <BsFillTrashFill />
                           </button>
                         </center>

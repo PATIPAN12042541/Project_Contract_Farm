@@ -172,3 +172,18 @@ export const ManageChemical = async (req, res) => {
     res.json(error);
   }
 };
+
+export const DeleteChemical = async (req, res) => {
+  try {
+    await PlantDataDetail_M.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Chemical Detail Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
