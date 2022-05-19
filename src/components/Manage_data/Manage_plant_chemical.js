@@ -5,6 +5,7 @@ import moment from "moment";
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
   const [endDate, setEndDate] = useState([""]);
+  const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
   const [getselect, setSelect] = useState([
@@ -16,7 +17,6 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
-
 
   const getExpired = async () => {
     const response = await axios.get(
@@ -68,8 +68,8 @@ const Manage_plant_chemical = (props) => {
 
     const option = el.getAttribute("id");
     const option2 = el.getAttribute("value");
-     setEndDate("");
-     
+    setEndDate("");
+    console.log(startDate);
     // var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
     // var day = new_date.format("DD");
     // var month = new_date.format("MM");
@@ -158,7 +158,10 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
-                          onChange={(e) => setEnddate(e.target.value)}
+                          onChange={
+                            ((e) => setEnddate(e.target.value),
+                            (e) => setStartDate(e.target.value))
+                          }
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
