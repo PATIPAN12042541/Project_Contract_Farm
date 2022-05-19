@@ -373,7 +373,7 @@ const Edit_data = (props) => {
                                   <BsPlusLg />
                                 </button>
                               </Link>
-                              <> </>
+                              {/* <> </>
                               <Link
                                 to={{
                                   pathname: `/Manage_plant_edit/${data.id_plant}`,
@@ -387,7 +387,7 @@ const Edit_data = (props) => {
                                 >
                                   <BsFillPencilFill />
                                 </button>
-                              </Link>
+                              </Link> */}
                               <> </>
                               <button
                                 type="submit"
