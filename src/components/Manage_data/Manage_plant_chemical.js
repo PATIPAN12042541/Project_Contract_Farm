@@ -439,14 +439,6 @@ const Manage_plant_chemical = (props) => {
                         <center>
                           <button
                             type="submit"
-                            className="btn btn-warning"
-                            style={{ color: "#FFFFFF" }}
-                          >
-                            <BsFillPencilFill />
-                          </button>
-                          <> </>
-                          <button
-                            type="submit"
                             className="btn btn-danger"
                             onClick={() => {
                               deleteChemical(data.id);
