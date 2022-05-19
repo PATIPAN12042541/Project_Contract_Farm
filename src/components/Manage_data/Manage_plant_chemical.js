@@ -68,7 +68,7 @@ const Manage_plant_chemical = (props) => {
 
     const option = el.getAttribute("id");
     const option2 = el.getAttribute("value");
-    console.log(option, "-", option2);
+    console.log(el);
     // setEndDate([""]);
     // var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
     // var day = new_date.format("DD");
