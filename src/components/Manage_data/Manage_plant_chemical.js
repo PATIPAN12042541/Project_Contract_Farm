@@ -214,7 +214,11 @@ const Manage_plant_chemical = (props) => {
                       >
                         <Zoom>
                           <img
-                            src={data.path_img}
+                            src={
+                              data.path_img
+                                ? data.path_img
+                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                            }
                             className="img-fluid mb-2"
                             width="100"
                             height="100"
