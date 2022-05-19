@@ -25,14 +25,7 @@ const Manage_plant_chemical = (props) => {
   const [note, setNote] = useState([]);
 
   const Checkdata = async () => {
-    Swal.fire({
-      icon: "success",
-      title: "Are you sure Confirm?",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "OK",
-    }).then(async (result) => {
+
       try {
         await axios
           .post(
@@ -68,7 +61,7 @@ const Manage_plant_chemical = (props) => {
           text: "Save Error!",
         });
       }
-    });
+   
   };
 
   const getExpired = async () => {
