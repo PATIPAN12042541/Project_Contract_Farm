@@ -182,7 +182,7 @@ const Manage_plant_chemical = (props) => {
                           onChange={(data) =>
                             setEnddate2({
                               name: data.target.value,
-                              id: data.target.id,
+                              id: this.props.data.id,
                             })
                           }
                         >
