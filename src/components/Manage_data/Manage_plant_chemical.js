@@ -122,7 +122,7 @@ const Manage_plant_chemical = (props) => {
                           })}
                         </select>
                       </div>
-                      <label className="col-sm-ห1 col-form-label">
+                      <label className="col-sm-1 col-form-label">
                         ชื่อภาษาอังกฤษ
                       </label>
                       <div className="col-sm-4">
@@ -222,6 +222,33 @@ const Manage_plant_chemical = (props) => {
                             height="100"
                           />
                         </Zoom>
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        อัตรา (cc : L.)
+                      </label>
+                      <div className="col-sm-1">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          defaultValue="CC"
+                        />
+                      </div>
+                      <div className="col-sm-1">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          defaultValue="L"
+                        />
+                      </div>
+                      <label className="col-sm-1 col-form-label">Note</label>
+                      <div className="col-sm-8">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          defaultValue="CC"
+                        />
                       </div>
                     </div>
                   </div>
