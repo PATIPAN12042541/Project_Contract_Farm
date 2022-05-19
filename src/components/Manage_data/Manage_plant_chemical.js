@@ -63,13 +63,14 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate2 = async (date) => {
-    setEndDate("");
-    var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
+    console.log(date);
+    // setEndDate([""]);
+    // var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
 
-    var day = new_date.format("DD");
-    var month = new_date.format("MM");
-    var year = new_date.format("YYYY");
-    setEndDate(year + "-" + month + "-" + day);
+    // var day = new_date.format("DD");
+    // var month = new_date.format("MM");
+    // var year = new_date.format("YYYY");
+    // setEndDate(year + "-" + month + "-" + day);
   };
 
   useEffect(() => {
@@ -179,7 +180,7 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue="1"
                           disabled={checkinput}
-                          onChange={(data) => setEnddate2(data.target.value)}
+                          onChange={(data) => setEnddate2(data.target.id)}
                         >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
