@@ -86,7 +86,7 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       อัตรา (cc : L.) :{" "}
                                     </b>
-                                    40 cc : 25 L.
+                                    {data.cc} cc : {data.liter} L.
                                   </span>
                                 </div>
                               </div>
