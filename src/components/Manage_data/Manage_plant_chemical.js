@@ -225,27 +225,27 @@ const Manage_plant_chemical = (props) => {
                     </div>
                     <div className="form-group row">
                       <label className="col-sm-1 col-form-label">Note</label>
-                      <div className="col-sm-5">
+                      <div className="col-sm-8">
                         <input
                           type="text"
                           className="form-control form-control-border"
                           defaultValue="-"
                         />
                       </div>
-                    </div>
-                    <label className="col-sm-1 col-form-label">รูปภาพ</label>
-                    <div className="col-sm-2">
-                      <Zoom>
-                        <img
-                          src={
-                            data.path_img
-                              ? data.path_img
-                              : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                          }
-                          width="100"
-                          height="100"
-                        />
-                      </Zoom>
+                      <label className="col-sm-1 col-form-label">รูปภาพ</label>
+                      <div className="col-sm-2">
+                        <Zoom>
+                          <img
+                            src={
+                              data.path_img
+                                ? data.path_img
+                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                            }
+                            width="100"
+                            height="100"
+                          />
+                        </Zoom>
+                      </div>
                     </div>
                   </div>
                 );
