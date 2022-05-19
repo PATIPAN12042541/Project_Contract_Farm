@@ -1,6 +1,6 @@
 import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
-import PlantDataDetails_M from "../models/PlantDataDetails_M.js";
+import PlantDataDetails from "../models/PlantDataDetails_M.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -156,7 +156,7 @@ export const ManageChemical = async (req, res) => {
     date_end,
   } = req.body;
   try {
-    await PlantDataDetails_M.create({
+    await PlantDataDetails.create({
       id_plant: req.params.id,
       id_name_chemical: id_name_chemical,
       id_residual_period: id_residual_period,

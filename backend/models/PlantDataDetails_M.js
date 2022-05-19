@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
-const PlantDataDetail = db.define(
+const PlantDataDetails = db.define(
   "plant_data_detail",
   {
     id_plant: {
