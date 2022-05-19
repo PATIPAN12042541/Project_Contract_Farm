@@ -243,7 +243,7 @@ const Manage_plant_chemical = (props) => {
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">Note</label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-6">
                         <input
                           type="text"
                           className="form-control form-control-border"
