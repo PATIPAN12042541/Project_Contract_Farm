@@ -53,13 +53,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate = async (date) => {
-    setExpired([
-      {
-        id: "",
-        time: "",
-        unit: "",
-      },
-    ]);
+  
     var new_date = moment(date, "YYYY-MM-DD").add("days", 4);
 
     var day = new_date.format("DD");
