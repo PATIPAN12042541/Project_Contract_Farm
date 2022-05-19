@@ -65,9 +65,10 @@ const Manage_plant_chemical = (props) => {
   const setEnddate2 = async (data) => {
     const index = data.target.selectedIndex;
     const el = data.target.childNodes[index];
-    const option = el.getAttribute("id");
 
-    console.log(option);
+    const option = el.getAttribute("id");
+    const option2 = el.getAttribute("value");
+    console.log(option, "-", option2);
     // setEndDate([""]);
     // var new_date = moment(endDate, "YYYY-MM-DD").add("days", date);
     // var day = new_date.format("DD");
