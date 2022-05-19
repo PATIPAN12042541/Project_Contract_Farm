@@ -8,6 +8,7 @@ import {
   updateChemical,
   getExpired,
   deleteChemical,
+  ManageChemical,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -16,6 +17,7 @@ router.get("/", getChemical);
 router.get("/master", getChemicalMaster);
 router.get("/Select/:id", getSelect);
 router.get("/getExpired", getExpired);
+router.post("/ManageChemical/:id", ManageChemical);
 router.post("/createChemical", createChemical);
 router.get("/getChemicalID/:id",getChemicalByID);
 router.patch("/updateChemical/:id",updateChemical);

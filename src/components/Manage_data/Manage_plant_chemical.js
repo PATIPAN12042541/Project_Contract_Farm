@@ -19,6 +19,15 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
 
+  /// PostDdata
+  const [idNameChemical, setIdNameChemical] = useState([]);
+  const [idExpired, setIdExpired] = useState([]);
+  const [STdate, setSTdate] = useState([]);
+  const [EDdate, setEDdate] = useState([]);
+  const [ratioCC, setRatioCC] = useState([]);
+  const [ratioL, setRatioL] = useState([]);
+  const [Note, setNote] = useState([]);
+
   const getExpired = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
@@ -77,6 +86,11 @@ const Manage_plant_chemical = (props) => {
     setEndDate(year + "-" + month + "-" + day);
   };
 
+  const postManageChemical = async (e) => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   useEffect(() => {
     getChemicals();
     getExpired();
@@ -99,7 +113,7 @@ const Manage_plant_chemical = (props) => {
             >
               <h3 className="card-title">จัดการข้อมูลสารเคมี</h3>
             </div>
-            <form className="form-horizontal">
+            <form className="form-horizontal" onSubmit={postManageChemical}>
               {getselect.map((data, index) => {
                 return (
                   <div className="card-body" key={index}>
@@ -110,7 +124,10 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-4">
                         <select
                           className="custom-select form-control-border"
-                          onChange={(e) => getSelect(e.target.value)}
+                          onChange={
+                            ((e) => getSelect(e.target.value),
+                            setIdNameChemical)
+                          }
                         >
                           <option>------กรุณาเลือกสารเคมี------</option>
                           {getChemical.map((Chemical, index) => {
@@ -157,10 +174,11 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
-                          defaultValue=""
+                          defaultValue={STdate}
                           onChange={(e) => (
                             setEnddate(e.target.value),
-                            setStartDate(e.target.value)
+                            setStartDate(e.target.value),
+                            setSTdate(e.target.value)
                           )}
                         />
                       </div>
@@ -185,9 +203,13 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue=""
+                          defaultValue={EDdate}
                           disabled={checkinput}
-                          onChange={setEnddate2}
+                          onChange={
+                            ((e) => setEDdate(e.target.value),
+                            setEnddate2,
+                            setIdExpired)
+                          }
                         >
                           <option id="0" value="0">
                             ----ระยะเวลาตกค้าง----
@@ -213,6 +235,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="CC"
+                          defaultValue={ratioCC}
+                          onChange={(e) => setRatioCC(e.target.value)}
                         />
                       </div>
                       <div className="col-sm-1">
@@ -220,6 +244,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="L"
+                          defaultValue={ratioL}
+                          onChange={(e) => setRatioL(e.target.value)}
                         />
                       </div>
                     </div>
@@ -230,6 +256,8 @@ const Manage_plant_chemical = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="-"
+                          defaultValue={Note}
+                          onChange={(e) => setNote(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>

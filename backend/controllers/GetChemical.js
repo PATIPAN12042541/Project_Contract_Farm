@@ -143,3 +143,6 @@ export const deleteChemical = async (req, res) => {
       res.json({ message: error.message });
   }  
 }
+
+
+export const ManageChemical = async (req, res) => {};
