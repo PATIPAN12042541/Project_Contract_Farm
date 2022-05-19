@@ -275,7 +275,7 @@ const Manage_plant_chemical = (props) => {
               })}
               <div className="card-footer">
                 <button
-                  type="submit"
+                  type="button"
                   className="btn btn-default float-right"
                   style={{
                     backgroundColor: "#8CC152",
