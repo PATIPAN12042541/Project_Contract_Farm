@@ -1,5 +1,6 @@
 import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
+import PlantDataDetails_M from "../models/PlantDataDetails_M";
 
 export const getChemical = async (req, res) => {
   try {
@@ -50,7 +51,6 @@ export const getChemicalMaster = async (req, res) => {
   }
 };
 
-
 export const getExpired = async (req, res) => {
   try {
     const expired = await db.query("SELECT * FROM residual_period_chemical", {
@@ -61,7 +61,6 @@ export const getExpired = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const getChemicalByID = async (req, res) => {
   try {
@@ -91,58 +90,85 @@ export const getSelect = async (req, res) => {
   }
 };
 
-export const createChemical = async(req, res) => {
-  const { name_chemical,
-          name_chemical_eng,
-          eu_mrl,
-          path_img,
-          type_chemical_id,
-          status } = req.body;
+export const createChemical = async (req, res) => {
+  const {
+    name_chemical,
+    name_chemical_eng,
+    eu_mrl,
+    path_img,
+    type_chemical_id,
+    status,
+  } = req.body;
   try {
-      await NameChemical.create({
-        name_chemical: name_chemical,
-        name_chemical_eng :name_chemical_eng,
-        eu_mrl : eu_mrl,
-        path_img : path_img,
-        type_chemical_id: type_chemical_id,
-        status : status,
-      });
-      res.json({msg: "Create Successful"});
+    await NameChemical.create({
+      name_chemical: name_chemical,
+      name_chemical_eng: name_chemical_eng,
+      eu_mrl: eu_mrl,
+      path_img: path_img,
+      type_chemical_id: type_chemical_id,
+      status: status,
+    });
+    res.json({ msg: "Create Successful" });
   } catch (error) {
-      //console.log(error);
-      res.json(error)
+    //console.log(error);
+    res.json(error);
   }
-}
+};
 
 export const updateChemical = async (req, res) => {
   try {
-      await NameChemical.update(req.body, {
-          where: {
-              id: req.params.id
-          }
-      });
-      res.json({
-          "message": "Chemical Updated"
-      });
+    await NameChemical.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Chemical Updated",
+    });
   } catch (error) {
-      res.json({ message: error.message });
-  }  
-}
+    res.json({ message: error.message });
+  }
+};
 
 export const deleteChemical = async (req, res) => {
   try {
-      await NameChemical.destroy({
-          where: {
-              id: req.params.id
-          }
-      });
-      res.json({
-          "message": "Chemical Deleted"
-      });
+    await NameChemical.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Chemical Deleted",
+    });
   } catch (error) {
-      res.json({ message: error.message });
-  }  
-}
+    res.json({ message: error.message });
+  }
+};
 
-
-export const ManageChemical = async (req, res) => {};
+export const ManageChemical = async (req, res) => {
+  const {
+    id_name_chemical,
+    id_residual_period,
+    cc,
+    liter,
+    note,
+    date_start,
+    date_end,
+  } = req.body;
+  try {
+    await PlantDataDetails_M.create({
+      id_plant: req.params.id,
+      id_name_chemical: id_name_chemical,
+      id_residual_period: id_residual_period,
+      cc: cc,
+      liter: liter,
+      note: note,
+      date_start: date_start,
+      date_end: date_end,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    //console.log(error);
+    res.json(error);
+  }
+};

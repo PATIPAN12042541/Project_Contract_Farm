@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import Zoom from "react-medium-image-zoom";
+import Swal from "sweetalert2";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -26,12 +27,47 @@ const Manage_plant_chemical = (props) => {
   const Checkdata = async () => {
     console.log("id_page ", props.id);
     console.log("getselect ", getselect[0].id);
-    console.log("startDate ", startDate);
-    console.log("endDate ", endDate);
     console.log("IdExpired ", IdExpired);
     console.log("ratiocc ", ratiocc);
     console.log("ratioL ", ratioL);
     console.log("note ", note);
+    console.log("startDate ", startDate);
+    console.log("endDate ", endDate);
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
+          {
+            id_name_chemical: getselect[0].id,
+            id_residual_period: IdExpired,
+            cc: ratiocc,
+            liter: ratioL,
+            note: note,
+            date_start: startDate,
+            date_end: endDate,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const getExpired = async () => {

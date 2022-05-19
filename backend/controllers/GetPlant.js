@@ -7,15 +7,6 @@ import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 export const getPlant = async (req, res) => {
   try {
     const plants = await db.query(
-      // "select plant.id as plant_id," +
-      //   "       plant.id_plant as id_plant," +
-      //   "       plant.name_plant as name_plant," +
-      //   "       plant.start_date_plant as start_date_plant," +
-      //   "       plant.end_date_plant as end_date_plant," +
-      //   "       plant.plant_image as plant_image," +
-      //   "       plant_detail.id as plant_detail_id," +
-      //   "       plant_detail.id_name_plant as plant_detail_id_name_plant " +
-      //   "       from plant left join plant_detail on plant.id_plant = plant_detail.id",
       "select plant.id as plant_id," +
         "  plant.id_plant as id_plant," +
         "  plant.name_plant as name_plant," +
@@ -131,7 +122,8 @@ export const getDataImagePlant = async (req, res) => {
     const imageplants = await db.query(
       "SELECT plant_data_detail.id," +
         "    plant_data_detail.id_plant," +
-        "    plant_data_detail.quantity_chemical," +
+        "    plant_data_detail.cc," +
+        "    plant_data_detail.liter," +
         "    plant_data_detail.note," +
         "    plant_data_detail.date_start," +
         "    plant_data_detail.date_end," +
@@ -142,7 +134,7 @@ export const getDataImagePlant = async (req, res) => {
         "    name_chemical.path_img," +
         "    residual_period_chemical.id as id_res_period," +
         "    residual_period_chemical.time," +
-        "     residual_period_chemical.unit " +
+        "    residual_period_chemical.unit " +
         "FROM plant_data_detail  " +
         "LEFT JOIN name_chemical ON plant_data_detail.id_name_chemical = name_chemical.id " +
         "LEFT JOIN residual_period_chemical ON plant_data_detail.id_residual_period = residual_period_chemical.id " +
