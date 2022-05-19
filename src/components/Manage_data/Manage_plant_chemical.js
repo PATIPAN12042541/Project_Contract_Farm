@@ -212,14 +212,14 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          defaultValue="CC"
+                          placeholder="CC"
                         />
                       </div>
                       <div className="col-sm-1">
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          defaultValue="L"
+                          placeholder="L"
                         />
                       </div>
                     </div>
@@ -229,7 +229,7 @@ const Manage_plant_chemical = (props) => {
                         <input
                           type="text"
                           className="form-control form-control-border"
-                          defaultValue="-"
+                          placeholder="-"
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>
