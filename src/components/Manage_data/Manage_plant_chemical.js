@@ -225,7 +225,7 @@ const Manage_plant_chemical = (props) => {
                     </div>
                     <div className="form-group row">
                       <label className="col-sm-1 col-form-label">Note</label>
-                      <div className="col-sm-6">
+                      <div className="col-sm-5">
                         <input
                           type="text"
                           className="form-control form-control-border"
@@ -245,7 +245,7 @@ const Manage_plant_chemical = (props) => {
                               ? data.path_img
                               : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                           }
-                          className="img-fluid mb-2"
+                          className="img-fluid form-control"
                           width="100"
                           height="100"
                         />
