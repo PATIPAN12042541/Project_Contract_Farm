@@ -3,6 +3,8 @@ import axios from "axios";
 import moment from "moment";
 import Zoom from "react-medium-image-zoom";
 import Swal from "sweetalert2";
+import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillPencilFill } from "react-icons/bs";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
@@ -374,6 +376,50 @@ const Manage_plant_chemical = (props) => {
                     </th>
                   </tr>
                 </thead>
+                {datadetail.map((data, index) => (
+                  <tbody>
+                    <td>{index + 1}</td>
+                    <td>
+                      {data.name_chemical +
+                        " ( " +
+                        data.name_chemical_eng +
+                        " )"}
+                    </td>
+                    <td>{data.time + " " + data.unit}</td>
+                    <td>{data.cc + " CC " + data.liter + " L"}</td>
+                    <td>{data.date_start}</td>
+                    <td>{data.date_end}</td>
+                    <td>{data.note}</td>
+                    <td>
+                      <center>
+                        <Zoom>
+                          <img
+                            src={data.path_img}
+                            className="img-fluid mb-2"
+                            alt="white sample"
+                            width="100"
+                            height="100"
+                          />
+                        </Zoom>
+                      </center>
+                    </td>
+                    <td>
+                      <center>
+                        <button
+                          type="submit"
+                          className="btn btn-warning"
+                          style={{ color: "#FFFFFF" }}
+                        >
+                          <BsFillPencilFill />
+                        </button>
+                        <> </>
+                        <button type="submit" className="btn btn-danger">
+                          <BsFillTrashFill />
+                        </button>
+                      </center>
+                    </td>
+                  </tbody>
+                ))}
               </table>
             </div>
           </div>
