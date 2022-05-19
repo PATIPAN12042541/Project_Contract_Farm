@@ -24,44 +24,53 @@ const Manage_plant_chemical = (props) => {
   const [ratioL, setratioL] = useState([]);
   const [note, setNote] = useState([]);
 
-  const Checkdata = async () => {
+  // data in table
+  const [datadetail, setDatadetail] = useState([]);
+  console.log(datadetail);
 
-      try {
-        await axios
-          .post(
-            `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
-            {
-              id_name_chemical: getselect[0].id,
-              id_residual_period: IdExpired,
-              cc: ratiocc,
-              liter: ratioL,
-              note: note,
-              date_start: startDate,
-              date_end: endDate,
-            }
-          )
-          .then(function (response) {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Save OK !",
-            });
-          })
-          .catch(function (error) {
-            Swal.fire({
-              icon: "error",
-              title: error.response.data.msg,
-              text: "Save Error!",
-            });
+  const getDatadetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
+    );
+    setDatadetail(response.data);
+  };
+
+  const Checkdata = async () => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
+          {
+            id_name_chemical: getselect[0].id,
+            id_residual_period: IdExpired,
+            cc: ratiocc,
+            liter: ratioL,
+            note: note,
+            date_start: startDate,
+            date_end: endDate,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
           });
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
         });
-      }
-   
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const getExpired = async () => {
@@ -126,6 +135,7 @@ const Manage_plant_chemical = (props) => {
 
   useEffect(() => {
     getChemicals();
+    getDatadetail();
     getExpired();
   }, []);
 
