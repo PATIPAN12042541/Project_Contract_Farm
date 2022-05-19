@@ -373,55 +373,57 @@ const Manage_plant_chemical = (props) => {
                   </tr>
                 </thead>
                 {datadetail.map((data, index) => (
-                  <tbody>
-                    <td>{index + 1}</td>
-                    <td>
-                      {data.name_chemical +
-                        " ( " +
-                        data.name_chemical_eng +
-                        " )"}
-                    </td>
-                    <td>
-                      <center>{data.time + " " + data.unit}</center>
-                    </td>
-                    <td>
-                      <center>{data.cc + " CC " + data.liter + " L"}</center>
-                    </td>
-                    <td>
-                      <center>{data.date_start}</center>
-                    </td>
-                    <td>
-                      <center>{data.date_end}</center>
-                    </td>
-                    <td>{data.note}</td>
-                    <td>
-                      <center>
-                        <Zoom>
-                          <img
-                            src={data.path_img}
-                            className="img-fluid mb-2"
-                            alt="white sample"
-                            width="100"
-                            height="100"
-                          />
-                        </Zoom>
-                      </center>
-                    </td>
-                    <td>
-                      <center>
-                        <button
-                          type="submit"
-                          className="btn btn-warning"
-                          style={{ color: "#FFFFFF" }}
-                        >
-                          <BsFillPencilFill />
-                        </button>
-                        <> </>
-                        <button type="submit" className="btn btn-danger">
-                          <BsFillTrashFill />
-                        </button>
-                      </center>
-                    </td>
+                  <tbody key={index}>
+                    <tr>
+                      <td>{index + 1}</td>
+                      <td>
+                        {data.name_chemical +
+                          " ( " +
+                          data.name_chemical_eng +
+                          " )"}
+                      </td>
+                      <td>
+                        <center>{data.time + " " + data.unit}</center>
+                      </td>
+                      <td>
+                        <center>{data.cc + " CC " + data.liter + " L"}</center>
+                      </td>
+                      <td>
+                        <center>{data.date_start}</center>
+                      </td>
+                      <td>
+                        <center>{data.date_end}</center>
+                      </td>
+                      <td>{data.note}</td>
+                      <td>
+                        <center>
+                          <Zoom>
+                            <img
+                              src={data.path_img}
+                              className="img-fluid mb-2"
+                              alt="white sample"
+                              width="100"
+                              height="100"
+                            />
+                          </Zoom>
+                        </center>
+                      </td>
+                      <td>
+                        <center>
+                          <button
+                            type="submit"
+                            className="btn btn-warning"
+                            style={{ color: "#FFFFFF" }}
+                          >
+                            <BsFillPencilFill />
+                          </button>
+                          <> </>
+                          <button type="submit" className="btn btn-danger">
+                            <BsFillTrashFill />
+                          </button>
+                        </center>
+                      </td>
+                    </tr>
                   </tbody>
                 ))}
               </table>
