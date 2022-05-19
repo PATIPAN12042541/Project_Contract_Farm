@@ -234,10 +234,7 @@ const Manage_plant_chemical = (props) => {
                       </div>
                     </div>
                     <label className="col-sm-1 col-form-label">รูปภาพ</label>
-                    <div
-                      className="col-sm-2 input-group date"
-                      data-target-input="nearest"
-                    >
+                    <div className="col-sm-2">
                       <Zoom>
                         <img
                           src={
@@ -245,7 +242,7 @@ const Manage_plant_chemical = (props) => {
                               ? data.path_img
                               : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                           }
-                          className="img-fluid form-control"
+                          className="img-fluid mb-2"
                           width="100"
                           height="100"
                         />
