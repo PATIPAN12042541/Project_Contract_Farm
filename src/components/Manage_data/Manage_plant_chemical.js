@@ -180,7 +180,7 @@ const Manage_plant_chemical = (props) => {
                           className="custom-select form-control-border"
                           defaultValue="1"
                           disabled={checkinput}
-                          onChange={(data) => setEnddate2(data.target.id)}
+                          onChange={(data) => setEnddate2(data.id)}
                         >
                           <option>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
