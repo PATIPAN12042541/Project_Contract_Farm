@@ -40,6 +40,7 @@ const Manage_plant_chemical = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Select/${data}`
       );
       setSelect(response.data);
+      console.log(response.data);
     } else {
       setSelect([
         {
