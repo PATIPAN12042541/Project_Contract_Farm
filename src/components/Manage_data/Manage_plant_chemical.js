@@ -331,6 +331,7 @@ const Manage_plant_chemical = (props) => {
             >
               <h3 className="card-title">ตารางข้อมูล</h3>
             </div>
+            <div className="card-body">sdsdsdasd</div>
           </div>
         </div>
       </section>
