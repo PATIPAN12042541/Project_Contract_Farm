@@ -5,7 +5,6 @@ import Zoom from "react-medium-image-zoom";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);
-  const [startDate, setStartDate] = useState([""]);
   const [expired, setExpired] = useState([]);
   const [checkinput, setCheckInput] = useState(true);
   /// PostDdata
@@ -19,7 +18,7 @@ const Manage_plant_chemical = (props) => {
     },
   ]);
   const [idExpired, setIdExpired] = useState([]);
-  const [STdate, setSTdate] = useState([]);
+  const [startDate, setStartDate] = useState([""]);
   const [endDate, setEndDate] = useState([""]);
   const [ratioCC, setRatioCC] = useState([]);
   const [ratioL, setRatioL] = useState([]);
@@ -84,9 +83,9 @@ const Manage_plant_chemical = (props) => {
   };
 
   const postManageChemical = () => {
-    console.log(getselect);
+    console.log(getselect[0].id);
     console.log(idExpired);
-    console.log(STdate);
+    console.log(startDate);
     console.log(endDate);
     console.log(ratioCC);
     console.log(ratioL);
@@ -173,11 +172,10 @@ const Manage_plant_chemical = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
-                          defaultValue={STdate}
+                          defaultValue={startDate}
                           onChange={(e) => (
                             setEnddate(e.target.value),
-                            setStartDate(e.target.value),
-                            setSTdate(e.target.value)
+                            setStartDate(e.target.value)
                           )}
                         />
                       </div>
