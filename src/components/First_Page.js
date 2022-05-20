@@ -41,7 +41,7 @@ const First_Page = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
-              {/* <div
+              <div
                 className={
                   typeof data.main != "undefined"
                     ? data.main.temp > 18
@@ -75,10 +75,10 @@ const First_Page = () => {
                     ""
                   )}
                 </main>
-              </div> */}
+              </div>
             </div>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-12 col-sm-6 col-md-3">
               <div className="card">
                 <div className="card-header">
@@ -127,7 +127,7 @@ const First_Page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       {/* <div
