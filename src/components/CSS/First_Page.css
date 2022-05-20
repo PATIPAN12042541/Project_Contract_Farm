@@ -5,8 +5,8 @@
 }
 
 .App {
-    width: 480px;
-    height: 800px;
+    width: 800px;
+    height: 200px;
     margin: 2rem auto;
     background-image: url("../ima_weather/app.jpeg");
     background-repeat: no-repeat;
