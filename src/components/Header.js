@@ -23,6 +23,7 @@ const Header = () => {
   const getCheckTime = async () => {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/header`);
     setCheckTime(response.data);
+    setCountCheckTime(response.data.lenght);
   };
 
   const get_api_weather = async () => {
@@ -32,7 +33,6 @@ const Header = () => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
-        setCountCheckTime(result.lenght);
       });
   };
 
