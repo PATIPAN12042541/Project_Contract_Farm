@@ -59,7 +59,8 @@ const Header = () => {
             </span>
             {checktime.map((data, index) => {
               return (
-                <div className="dropdown-divider" key={index}>
+                <>
+                  <div className="dropdown-divider" />
                   <a
                     href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
                     className="dropdown-item"
@@ -74,7 +75,7 @@ const Header = () => {
                       {data.end_date_plant}
                     </span>
                   </a>
-                </div>
+                </>
               );
             })}
           </div>
