@@ -59,7 +59,6 @@ const First_Page = () => {
                 <div className="card-header">
                   <h3 className="card-title">Latest Members</h3>
                   <div className="card-tools">
-                    <span className="badge badge-danger">8 New Members</span>
                     <button
                       type="button"
                       className="btn btn-tool"
@@ -76,7 +75,6 @@ const First_Page = () => {
                     </button>
                   </div>
                 </div>
-
                 <div className="card-body p-0" style={{ display: "block" }}>
                   <ul className="users-list clearfix">
                     <li>
@@ -93,14 +91,15 @@ const First_Page = () => {
                       </a>
                       <span className="users-list-date">Yesterday</span>
                     </li>
+                    <li>
+                      <img src="dist/img/user8-128x128.jpg" alt="User Image" />
+                      <a className="users-list-name" href="#">
+                        Norman
+                      </a>
+                      <span className="users-list-date">Yesterday</span>
+                    </li>
                   </ul>
                 </div>
-              </div>
-              <div
-                className="card-footer text-center"
-                style={{ display: "block" }}
-              >
-                <a href="javascript:">View All Users</a>
               </div>
             </div>
           </div>
