@@ -26,10 +26,6 @@
     transition: 0.2s ease;
 }
 
-main {
-    min-height: 100vh;
-    padding: 25px;
-}
 
 .App.cold {
     background-image: linear-gradient(to bottom,

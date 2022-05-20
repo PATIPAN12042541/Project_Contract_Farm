@@ -50,7 +50,6 @@ const First_Page = () => {
                     : "App"
                 }
               >
-                <main>
                   {typeof data.main != "undefined" ? (
                     <div>
                       <div className="location-container">
@@ -74,7 +73,6 @@ const First_Page = () => {
                   ) : (
                     ""
                   )}
-                </main>
               </div>
             </div>
           </div>
