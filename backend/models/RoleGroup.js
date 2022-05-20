@@ -5,6 +5,9 @@ const { DataTypes } = Sequelize;
  const RoleGroup = db.define('role_group',{
     role_group_name:{
         type: DataTypes.STRING
+    },
+    status:{
+        type:DataTypes.INTEGER
     }
 },{
     freezeTableName:true

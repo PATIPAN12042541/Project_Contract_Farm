@@ -21,6 +21,7 @@ import List_Chemical from "./components/Chemical/List_Chemical.js"
 import Add_Chemical from "./components/Chemical/Add_Chemical.js";
 import Update_Chemical from "./components/Chemical/Update_Chemical.js";
 import ListTypeUser from "./components/TypeUser/ListTypeUser.js";
+import AddTypeUser from "./components/TypeUser/AddTypeUser.js";
 
 function App() {
   return (
@@ -142,6 +143,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <ListTypeUser />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/AddTypeUser"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <AddTypeUser />
                 <Footer />
               </>
             }

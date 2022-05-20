@@ -71,7 +71,7 @@ const ListTypeUser = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className="row">
-                                        <Link to={"/addTypeChemical"}>
+                                        <Link to={"/AddTypeUser"}>
                                             <Button variant="success">เพิ่มประเภทผู้ใช้งานระบบ</Button>
                                         </Link>
                                     </div>

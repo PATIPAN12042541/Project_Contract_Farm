@@ -1,5 +1,23 @@
 import RoleGroup from "../models/RoleGroup.js"
 import db from "../config/Database.js"
+
+export const createTypeRole = async(req, res) => {
+    const { role_group_name,status } = req.body;
+    try {
+        await RoleGroup.create({
+
+            role_group_name: role_group_name,
+            status: status,
+        });
+        res.json({msg: "Create Successful"});
+    } catch (error) {
+        //console.log(error);
+        res.json(error)
+    }
+}
+
+
+
 export const getRole = async (req, res) => {
     try {
         const rolegroups = await RoleGroup.findAll();
