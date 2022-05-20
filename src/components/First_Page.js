@@ -77,7 +77,7 @@ const First_Page = () => {
                   </div>
                 </div>
 
-                <div className="card-body p-0" style="display: block;">
+                <div className="card-body p-0" style={{ display: "block" }}>
                   <ul className="users-list clearfix">
                     <li>
                       <img src="dist/img/user1-128x128.jpg" alt="User Image" />
@@ -139,7 +139,7 @@ const First_Page = () => {
                 </div>
               </div>
 
-              <div class="card-footer text-center" style="display: block;">
+              <div class="card-footer text-center" style={{ display: "block" }}>
                 <a href="javascript:">View All Users</a>
               </div>
             </div>
