@@ -1,6 +1,6 @@
 
 .App {
-    width: 1000px;
+    width: auto;
     height: 400px;
     margin: 2rem auto;
     background-image: url("../ima_weather/app.jpeg");
@@ -37,6 +37,65 @@
     transition: 0.2s ease;
 }
 
+.App.clouds {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/clouds.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
+
+.App.rain {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/rain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
+
+.App.clear-sky {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/clear-sky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
+
+.App.thunderstorm {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/thunderstorm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
+
+.App.shower-rain {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/shower-rain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
+
+.App.mist {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 229, 255, 0.52),
+            rgba(0, 0, 0, 0.73)),
+        url("../ima_weather/mist.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease;
+}
 .search-container {
     width: 100%;
     margin: 0 0 75px;
@@ -63,15 +122,17 @@
 
 .location-container {
     color: white;
-    font-size: 30px;
-    text-align: center;
+    font-size: 26px;
+        text-align: left;
+        text-indent: 20px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .location-container .date {
     color: white;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
+        text-indent: 20px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -95,7 +156,7 @@
 
 .weather-container .weather {
     color: white;
-    font-size: 50px;
-    font-weight: 700;
+    font-size: 36px;
+        font-weight: 500;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }

@@ -1,4 +1,5 @@
 import { Icon } from "@mui/material";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import "./CSS/First_Page.css";
 
@@ -7,8 +8,9 @@ const First_Page = () => {
 
   const dateBuild = (d) => {
     let date = String(new window.Date());
-    date = date.slice(3, 15);
-    return date;
+    let date2 = moment(date).format("DD-MMM-YYYY");
+
+    return date2;
   };
 
   const get_api_weather = async () => {
@@ -44,35 +46,56 @@ const First_Page = () => {
               <div
                 className={
                   typeof data.main != "undefined"
-                    ? data.main.temp > 18
-                      ? "App hot"
-                      : "App cold"
+                    ? data.weather[0].main == "Clouds"
+                      ? "App clouds"
+                      : data.weather[0].main == "Rain"
+                      ? "App rain"
+                      : data.weather[0].main == "Thunderstorm"
+                      ? "App thunderstorm"
+                      : data.weather[0].main == "Shower rain"
+                      ? "App shower-rain"
+                      : data.weather[0].main == "Broken clouds"
+                      ? "App clouds"
+                      : data.weather[0].main == "Few clouds"
+                      ? "App clouds"
+                      : data.weather[0].main == "Mist"
+                      ? "App mist"
+                      : "App clear-sky"
                     : "App"
                 }
               >
-                  {typeof data.main != "undefined" ? (
-                    <div>
-                      <div className="location-container">
-                        <div className="location">
-                          {data.name}, {data.sys.country}
+                {typeof data.main != "undefined" ? (
+                  <div>
+                    <div className="row">
+                      <div className="col-sm-10">
+                        <div className="location-container">
+                          <div className="location">
+                            {" "}
+                            {data.name}, {data.sys.country}
+                          </div>
+                          <div className="date"> {dateBuild(new Date())}</div>
                         </div>
-                        <div className="date"> {dateBuild(new Date())}</div>
                       </div>
-                      <div className="weather-container">
-                        <div className="temperature">
-                          {Math.round(data.main.temp)}°C
-                        </div>
-                        <div className="weather">
-                          {data.weather[0].main}
-                          <img
-                            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                          />
+                      <div className="col-sm-2">
+                        <div className="weather-container">
+                          <div className="weather">
+                            <img
+                              src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                            />
+                            {data.weather[0].main}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    ""
-                  )}
+                    <div className="weather-container">
+                      <div className="temperature">
+                        {Math.round(data.main.temp)}°C
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
