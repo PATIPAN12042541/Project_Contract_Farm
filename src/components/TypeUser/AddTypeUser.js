@@ -56,16 +56,16 @@ const AddTypeUser = () => {
                                 <Form className="form-horizontal" onSubmit={AddTypeUser}>
                                     <div className="card-body">
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-2 col-form-label">ประเภทผู้ใช้งานระบบ</Form.Label>
-                                            <div className="col-sm-10">
+                                            <Form.Label className="col-sm-4 col-form-label">ประเภทผู้ใช้งานระบบ</Form.Label>
+                                            <div className="col-sm-8">
                                                 <Form.Control type="text"
                                                     className="form-control"
                                                     onChange={(e) => setTypeUser(e.target.value)} />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
-                                            <div className="col-sm-10 col-form-label">
+                                            <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
+                                            <div className="col-sm-8 col-form-label">
                                                 <input
                                                     type="checkbox"
                                                     id="custom-switch"
