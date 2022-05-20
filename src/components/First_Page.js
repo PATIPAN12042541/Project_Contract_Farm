@@ -39,59 +39,43 @@ const First_Page = () => {
       </div>
       <section className="content">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 col-sm-6 col-md-3">
-              <div className="small-box bg-danger">
-                <div className="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+          <div
+            className={
+              typeof data.main != "undefined"
+                ? data.main.temp > 18
+                  ? "App hot"
+                  : "App cold"
+                : "App"
+            }
+          >
+            <main>
+              {typeof data.main != "undefined" ? (
+                <div>
+                  <div className="location-container">
+                    <div className="location">
+                      {data.name}, {data.sys.country}
+                    </div>
+                    <div className="date"> {dateBuild(new Date())}</div>
+                  </div>
+                  <div className="weather-container">
+                    <div className="temperature">
+                      {Math.round(data.main.temp)}°C
+                    </div>
+                    <div className="weather">
+                      {data.weather[0].main}
+                      <img
+                        src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="icon">
-                  <i className="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div>
+              ) : (
+                ""
+              )}
+            </main>
           </div>
         </div>
       </section>
-      {/* <div
-        className={
-          typeof data.main != "undefined"
-            ? data.main.temp > 18
-              ? "App hot"
-              : "App cold"
-            : "App"
-        }
-      >
-        <main>
-          {typeof data.main != "undefined" ? (
-            <div>
-              <div className="location-container">
-                <div className="location">
-                  {data.name}, {data.sys.country}
-                </div>
-                <div className="date"> {dateBuild(new Date())}</div>
-              </div>
-              <div className="weather-container">
-                <div className="temperature">
-                  {Math.round(data.main.temp)}°C
-                </div>
-                <div className="weather">
-                  {data.weather[0].main}
-                  <img
-                    src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                  />
-                </div>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </main>
-      </div> */}
     </div>
   );
 };
