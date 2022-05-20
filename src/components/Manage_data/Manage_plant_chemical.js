@@ -36,7 +36,6 @@ const Manage_plant_chemical = (props) => {
     setDatadetail(response.data);
   };
 
-  console.log(datadetail);
 
   const Checkdata = async () => {
     try {
