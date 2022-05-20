@@ -71,12 +71,9 @@ const Header = () => {
               return (
                 <>
                   <div className="dropdown-divider" />
-                  <Link
+                  <a
+                    href={`${process.env.REACT_APP_API_URL}/Page_chemical/${data.id_plant}`}
                     className="dropdown-item"
-                    to={{
-                      pathname: `/Page_chemical/${data.id_plant}`,
-                      state: { id: data.id_plant },
-                    }}
                   >
                     <i className="fas fa-envelope mr-2" />{" "}
                     {data.zone_name +
@@ -87,7 +84,7 @@ const Header = () => {
                     <span className="float-right text-muted text-sm">
                       {data.end_date_plant}
                     </span>
-                  </Link>
+                  </a>
                 </>
               );
             })}
