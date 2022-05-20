@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const history = useNavigate();
   const [data, setData] = useState([]);
+  const [checktime, setCheckTime] = useState([]);
 
   const Logout = async () => {
     try {
@@ -16,6 +17,11 @@ const Header = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const getCheckTime = async () => {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/header`);
+    setCheckTime(response.data);
   };
 
   const get_api_weather = async () => {
@@ -31,6 +37,7 @@ const Header = () => {
 
   useEffect(() => {
     get_api_weather();
+    getCheckTime();
   }, []);
 
   return (
@@ -60,22 +67,30 @@ const Header = () => {
             <span className="dropdown-item dropdown-header">
               เเจ้งเตือนเวลา
             </span>
-            <div className="dropdown-divider" />
-            <a href="#" className="dropdown-item">
-              <i className="fas fa-envelope mr-2" /> แปลง A1
-              <span className="float-right text-muted text-sm">3 day</span>
-            </a>
-            <div className="dropdown-divider" />
-            <a href="#" className="dropdown-item">
-              <i className="fas fa-users mr-2" /> แปลง A3
-              <span className="float-right text-muted text-sm">12 day</span>
-            </a>
-            <div className="dropdown-divider" />
-            <a href="#" className="dropdown-item">
-              <i className="fas fa-file mr-2" /> แปลง A5
-              <span className="float-right text-muted text-sm">2 day</span>
-            </a>
-            <div className="dropdown-divider" />
+            {checktime.map((data, index) => {
+              return (
+                <>
+                  <div className="dropdown-divider" />
+                  <Link
+                    className="dropdown-item"
+                    to={{
+                      pathname: `/Page_chemical/${data.id_plant}`,
+                      state: { id: data.id_plant },
+                    }}
+                  >
+                    <i className="fas fa-envelope mr-2" />{" "}
+                    {data.zone_name +
+                      "-" +
+                      data.id_name_plant +
+                      " " +
+                      data.name_plant}
+                    <span className="float-right text-muted text-sm">
+                      {data.end_date_plant}
+                    </span>
+                  </Link>
+                </>
+              );
+            })}
           </div>
         </li>
         <li className="nav-item dropdown">

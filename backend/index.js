@@ -10,7 +10,8 @@ import MenuRoute from "./routes/MenuRoleRoute.js"
 import multer, { diskStorage } from 'multer';
 import Chemical from "./routes/ChemicalRoute.js";
 import Zoneplant from "./routes/ZonePlantRoute.js";
-import TypeChemical from "./routes/TypeChemicalRoute.js"
+import TypeChemical from "./routes/TypeChemicalRoute.js";
+import Header from "./routes/Header.js";
 
 dotenv.config();
 const app = express();
@@ -81,5 +82,7 @@ app.use("/zoneplant", Zoneplant);
 app.use("/menu", MenuRoute);
 app.use("/getChemical", Chemical);
 app.use("/chemical", TypeChemical);
+app.use("/header", Header);
+
  
 app.listen(4000, () => console.log("Server running at port 4000"));
