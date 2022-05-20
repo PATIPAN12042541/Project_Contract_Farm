@@ -37,18 +37,26 @@ const First_Page = () => {
           </div>
         </div>
       </div>
-      <div className="small-box bg-danger float-right">
-        <div className="inner">
-          <h3>65</h3>
-          <p>Unique Visitors</p>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 col-sm-6 col-md-3">
+              <div className="small-box bg-danger">
+                <div className="inner">
+                  <h3>65</h3>
+                  <p>Unique Visitors</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" className="small-box-footer">
+                  More info <i className="fas fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="icon">
-          <i className="ion ion-pie-graph"></i>
-        </div>
-        <a href="#" className="small-box-footer">
-          More info <i className="fas fa-arrow-circle-right"></i>
-        </a>
-      </div>
+      </section>
       {/* <div
         className={
           typeof data.main != "undefined"
