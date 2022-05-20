@@ -69,8 +69,8 @@ const UpdateTypeUser = () => {
                                 <Form className="form-horizontal" onSubmit={updateTypeUsers}>
                                     <div className="card-body">
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
-                                            <div className="col-sm-10">
+                                            <Form.Label className="col-sm-4 col-form-label">ประเภทสารเคมี</Form.Label>
+                                            <div className="col-sm-8">
                                                 <Form.Control type="text"
                                                     className="form-control"
                                                     value={typeUser}
@@ -78,8 +78,8 @@ const UpdateTypeUser = () => {
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
-                                            <div className="col-sm-10">
+                                            <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
+                                            <div className="col-sm-8">
                                                 <input
                                                     type="checkbox"
                                                     id="custom-switch"
