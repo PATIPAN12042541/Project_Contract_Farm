@@ -16,7 +16,7 @@ export const getRoleRegister = async (req, res) => {
                                           'status '+
                                           'FROM role_group '+
                                           'WHERE status = 1 '+
-                                          'and id != 1',
+                                          'and id = 3',
                                           {
                                             type: db.QueryTypes.SELECT
                                           });
