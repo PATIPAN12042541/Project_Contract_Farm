@@ -72,7 +72,7 @@ const Header = () => {
                 <>
                   <div className="dropdown-divider" />
                   <a
-                    href={`${process.env.REACT_APP_API_URL}/Page_chemical/${data.id_plant}`}
+                    href={`${process.env.REACT_APP_API_URL_A}/Page_chemical/${data.id_plant}`}
                     className="dropdown-item"
                   >
                     <i className="fas fa-envelope mr-2" />{" "}
