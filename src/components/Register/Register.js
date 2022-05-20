@@ -6,12 +6,12 @@ import Swal from 'sweetalert2'
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
-    const [username,setUserName] = useState();
-    const [password,setPassword] = useState();
-    const [confirmPassword,setConfirmPassword] = useState();
-    const [name,setName] = useState();
-    const [lastName,setLastName] = useState();
-    const [roleID,setRoleID] = useState();
+    const [username,setUserName] = useState("");
+    const [password,setPassword] = useState("");
+    const [confirmPassword,setConfirmPassword] = useState("");
+    const [name,setName] = useState("");
+    const [lastName,setLastName] = useState("");
+    const [roleID,setRoleID] = useState("");
     const Nav = useNavigate();
 
     useEffect(() => {
