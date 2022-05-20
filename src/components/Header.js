@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
-  const [countchecktime, setCountCheckTime] = useState([]);
 
   const Logout = async () => {
     try {
@@ -23,7 +22,6 @@ const Header = () => {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/header`);
     setCheckTime(response.data);
     console.log(response.data);
-    setCountCheckTime(response.data.lenght);
   };
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const Header = () => {
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
             <span className="badge badge-danger navbar-badge">
-              {countchecktime}
+              {checktime.length}
             </span>
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
