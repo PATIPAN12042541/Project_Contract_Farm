@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const history = useNavigate();
+  const [data, setData] = useState([]);
 
   const Logout = async () => {
     try {
@@ -17,6 +17,21 @@ const Header = () => {
       console.log(error);
     }
   };
+
+  const get_api_weather = async () => {
+    await fetch(
+      `https://api.openweathermap.org/data/2.5//weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=f95c293c45ca886ddb11fec556e1cb16`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+        console.log(result);
+      });
+  };
+
+  useEffect(() => {
+    get_api_weather();
+  }, []);
 
   return (
     <nav
@@ -36,6 +51,9 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
+        <li className="nav-item d-none d-sm-inline-block">
+          <p>{Math.round(data.main.temp)}°C</p>
+        </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
