@@ -40,7 +40,7 @@ const First_Page = () => {
       <section className="content">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-12">
               <div className="small-box bg-danger">
                 <div className="inner">
                   <h3>65</h3>
@@ -54,6 +54,8 @@ const First_Page = () => {
                 </a>
               </div>
             </div>
+          </div>
+          <div className="row">
             <div className="col-12 col-sm-6 col-md-3">
               <div className="card">
                 <div className="card-header">
