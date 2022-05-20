@@ -72,7 +72,7 @@ const Header = () => {
                 <>
                   <div className="dropdown-divider" />
                   <a
-                    href={`${process.env.REACT_APP_API_URL_A}/Page_chemical/${data.id_plant}`}
+                    href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
                     className="dropdown-item"
                   >
                     <i className="fas fa-envelope mr-2" />{" "}
