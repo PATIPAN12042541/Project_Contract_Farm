@@ -52,7 +52,7 @@ const First_Page = () => {
                 </div>
                 <div className="weather">
                   {data.weather[0].main}
-                  <Icon url="http://openweathermap.org/img/wn/10d@2x.png"></Icon>
+                  <image url="http://openweathermap.org/img/wn/10d@2x.png"/>
                 </div>
               </div>
             </div>
