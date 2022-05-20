@@ -20,7 +20,6 @@ const First_Page = () => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
-        console.log(result);
       });
   };
 
