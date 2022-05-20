@@ -16,8 +16,6 @@ export const createTypeRole = async(req, res) => {
     }
 }
 
-
-
 export const getRole = async (req, res) => {
     try {
         const rolegroups = await RoleGroup.findAll();
@@ -26,6 +24,20 @@ export const getRole = async (req, res) => {
         res.json({ message: error.message });
     }  
 }
+
+export const getTypeUserByID = async (req, res) => {
+    try {
+        const rolegroups = await RoleGroup.findAll({
+            where:{
+                id : req.params.id
+            }
+        });
+        res.json(rolegroups[0]);
+    } catch (error) {
+        res.json(error);
+    }  
+}
+
 
 export const getRoleRegister = async (req, res) => {
     try {
@@ -39,6 +51,21 @@ export const getRoleRegister = async (req, res) => {
                                             type: db.QueryTypes.SELECT
                                           });
         res.json(rolegroups);
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
+}
+
+export const updateTypeUser = async (req, res) => {
+    try {
+        await RoleGroup.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Type User Updated"
+        });
     } catch (error) {
         res.json({ message: error.message });
     }  

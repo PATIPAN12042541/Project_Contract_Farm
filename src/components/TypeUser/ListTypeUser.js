@@ -92,8 +92,7 @@ const ListTypeUser = () => {
                                                         <td>{index + 1}</td>
                                                         <td>{listTypeUser.role_group_name}</td>
                                                         <td>
-                                                            {/* <Link to={`/editTypeChemical/${listChemical.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link> */}
-                                                            <Button variant="info">แก้ไขข้อมูล</Button>
+                                                            <Link to={`/UpdateTypeUser/${listTypeUser.id}`}><Button variant="info">แก้ไขข้อมูล</Button></Link>
                                                         </td>
                                                         <td>
                                                             <Button variant="danger" onClick={(e) => deleteTypeUser(listTypeUser.id)}>ลบข้อมูล</Button>
