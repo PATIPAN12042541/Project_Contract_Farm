@@ -23,6 +23,7 @@ const Header = () => {
   const getCheckTime = async () => {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/header`);
     setCheckTime(response.data);
+    console.log(response.data);
     setCountCheckTime(response.data.lenght);
   };
 
