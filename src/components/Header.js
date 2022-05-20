@@ -51,9 +51,6 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
-        <li className="nav-item d-none d-sm-inline-block">
-          <p>°C</p>
-        </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
