@@ -32,12 +32,12 @@ const First_Page = () => {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1 className="m-0">Dashboard v2</h1>
+              <h1 className="m-0">Dashboard</h1>
             </div>
           </div>
         </div>
       </div>
-      <div className="small-box bg-danger float-sm-right">
+      <div className="small-box bg-danger float-right">
         <div className="inner">
           <h3>65</h3>
           <p>Unique Visitors</p>
