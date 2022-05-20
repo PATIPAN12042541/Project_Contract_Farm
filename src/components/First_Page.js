@@ -1,9 +1,10 @@
+import { Icon } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./CSS/First_Page.css";
 
 const First_Page = () => {
   const [data, setData] = useState([]);
-  
+
   const dateBuild = (d) => {
     let date = String(new window.Date());
     date = date.slice(3, 15);
@@ -49,7 +50,10 @@ const First_Page = () => {
                 <div className="temperature">
                   {Math.round(data.main.temp)}°C
                 </div>
-                <div className="weather">{data.weather[0].main}</div>
+                <div className="weather">
+                  {data.weather[0].main}
+                  <Icon url="http://openweathermap.org/img/wn/10d@2x.png"></Icon>
+                </div>
               </div>
             </div>
           ) : (
