@@ -26,3 +26,17 @@ export const getRoleRegister = async (req, res) => {
     }  
 }
 
+export const deleteTypeUser = async (req, res) => {
+    try {
+        await RoleGroup.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Type User Deleted"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
+}
