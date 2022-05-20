@@ -7,6 +7,7 @@ const Header = () => {
   const history = useNavigate();
   const [data, setData] = useState([]);
   const [checktime, setCheckTime] = useState([]);
+  const [countchecktime, setCountCheckTime] = useState([]);
 
   const Logout = async () => {
     try {
@@ -31,7 +32,7 @@ const Header = () => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
-        console.log(result);
+        setCountCheckTime(result.lenght);
       });
   };
 
@@ -61,7 +62,9 @@ const Header = () => {
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
-            <span className="badge badge-danger navbar-badge">15</span>
+            <span className="badge badge-danger navbar-badge">
+              {countchecktime}
+            </span>
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span className="dropdown-item dropdown-header">
