@@ -96,7 +96,7 @@ const ListTypeUser = () => {
                                                             <Button variant="info">แก้ไขข้อมูล</Button>
                                                         </td>
                                                         <td>
-                                                            <Button variant="danger" onClick={(e) => deleteTypeUser(listChemical.id)}>ลบข้อมูล</Button>
+                                                            <Button variant="danger" onClick={(e) => deleteTypeUser(listTypeUser.id)}>ลบข้อมูล</Button>
                                                         </td>
                                                     </tr>
                                                 ))}
