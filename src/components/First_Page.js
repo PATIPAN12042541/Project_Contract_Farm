@@ -6,10 +6,9 @@ import "./CSS/First_Page.css";
 const First_Page = () => {
   const [data, setData] = useState([]);
 
-  const dateBuild = (d) => {
+  const dateBuild = () => {
     //let date = String(new window.Date());
-    let date2 = moment(Date()).format("DD-MMM-YYYY");
-
+    const date2 = moment(new Date()).format("DD-MMM-YYYY");
     return date2;
   };
 
