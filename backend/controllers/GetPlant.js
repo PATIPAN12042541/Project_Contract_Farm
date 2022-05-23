@@ -60,6 +60,7 @@ export const postDetailPlant = async (req, res) => {
   const {
     id_name_plant,
     id_zone,
+    id_user,
     autoid_check,
     name_plant,
     start_date_plant,
@@ -88,6 +89,7 @@ export const postDetailPlant = async (req, res) => {
     try {
       await Plant.create({
         id_plant: IdPlant[0].id,
+        id_user: id_user,
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,

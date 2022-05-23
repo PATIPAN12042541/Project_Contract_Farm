@@ -114,6 +114,7 @@ const Edit_data = (props) => {
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
           id_name_plant: idplant,
           id_zone: props.id,
+          id_user: userid,
           autoid_check: autoid,
           name_plant: nameplant,
           start_date_plant: startdate,

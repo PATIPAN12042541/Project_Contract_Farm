@@ -8,6 +8,9 @@ const Plant = db.define(
     id_plant: {
       type: DataTypes.INTEGER,
     },
+    id_user: {
+      type: DataTypes.INTEGER,
+    },
     name_plant: {
       type: DataTypes.STRING,
     },
