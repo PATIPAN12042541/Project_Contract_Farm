@@ -72,7 +72,7 @@ const Edit_data = (props) => {
 
   const getPlantUser = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/getPlantUser`
+      `${process.env.REACT_APP_API_URL}/getplant/getUser`
     );
     setPlantUser(response.data);
     console.log(response.data);

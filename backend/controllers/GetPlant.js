@@ -236,7 +236,7 @@ export const UpdateManagePlant = async (req, res) => {
   }
 };
 
-export const getPlantUser = async (req, res) => {
+export const getUser = async (req, res) => {
   try {
     const plantUser = await db.query(
       "SELECT id," +
