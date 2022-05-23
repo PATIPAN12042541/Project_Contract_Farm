@@ -53,10 +53,10 @@ const Header = () => {
             </span>
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span className="dropdown-item dropdown-header">
-              เเจ้งเตือนเวลา
-            </span>
             {checktime.map((data, index) => {
+              <span className="dropdown-item dropdown-header" key={index}>
+                เเจ้งเตือนเวลา
+              </span>;
               return (
                 <>
                   <div className="dropdown-divider" />
