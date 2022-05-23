@@ -75,7 +75,6 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/user/getUsersByRole`
     );
     setPlantUser(response.data);
-    console.log(response.data);
   };
 
   const deletePlants = async (id) => {
