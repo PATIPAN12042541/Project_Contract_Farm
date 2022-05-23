@@ -75,6 +75,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/getPlantUser`
     );
     setPlantUser(response.data);
+    console.log(response.data);
   };
 
   const deletePlants = async (id) => {
