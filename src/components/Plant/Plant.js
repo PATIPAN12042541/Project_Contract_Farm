@@ -71,7 +71,8 @@ const Plant = (props) => {
                                 src={data.plant_image}
                               />
                               <div className="text-block-name">
-                                ผู้รับผิดชอบ : นาย ก นามสกุล ก
+                                ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
+                                {data.last_name}
                               </div>
                             </div>
                           </div>
