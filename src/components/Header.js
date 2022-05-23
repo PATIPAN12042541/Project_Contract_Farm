@@ -52,32 +52,34 @@ const Header = () => {
               {checktime.length}
             </span>
           </a>
-          <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            {checktime.map((data, index) => {
-              <span className="dropdown-item dropdown-header" key={index}>
-                เเจ้งเตือนเวลา
-              </span>;
-              return (
-                <>
-                  <div className="dropdown-divider" />
-                  <a
-                    href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
-                    className="dropdown-item"
-                  >
-                    <i className="fas fa-envelope mr-2" />{" "}
-                    {data.zone_name +
-                      "-" +
-                      data.id_name_plant +
-                      " " +
-                      data.name_plant}
-                    <span className="float-right text-muted text-sm">
-                      {data.end_date_plant}
-                    </span>
-                  </a>
-                </>
-              );
-            })}
-          </div>
+          {checktime.map((data, index) => {
+            return (
+              <div
+                className="dropdown-menu dropdown-menu-lg dropdown-menu-right"
+                key={index}
+              >
+                <span className="dropdown-item dropdown-header">
+                  เเจ้งเตือนเวลา
+                </span>
+
+                <div className="dropdown-divider" />
+                <a
+                  href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
+                  className="dropdown-item"
+                >
+                  <i className="fas fa-envelope mr-2" />{" "}
+                  {data.zone_name +
+                    "-" +
+                    data.id_name_plant +
+                    " " +
+                    data.name_plant}
+                  <span className="float-right text-muted text-sm">
+                    {data.end_date_plant}
+                  </span>
+                </a>
+              </div>
+            );
+          })}
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
