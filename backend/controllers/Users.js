@@ -13,6 +13,20 @@ export const getUsers = async(req, res) => {
     }
 }
 
+export const getUsersByRole = async(req, res) => {
+    try {
+        const users = await Users.findAll({
+            where:{
+                role_id : 3,
+            },
+            attributes:['id','username','name','last_name','role_id']
+        });
+        res.json(users);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 export const Register = async(req, res) => {
     const { username, 
