@@ -38,40 +38,51 @@ const Manage_plant_chemical = (props) => {
 
 
   const Checkdata = async () => {
-    try {
-      await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
-          {
-            id_name_chemical: getselect[0].id,
-            id_residual_period: IdExpired,
-            cc: ratiocc,
-            liter: ratioL,
-            note: note,
-            date_start: startDate,
-            date_end: endDate,
-          }
-        )
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
+    if (
+      getselect[0].id &&
+      IdExpired &&
+      ratiocc &&
+      note &&
+      startDate &&
+      endDate
+    ) {
+      try {
+        await axios
+          .post(
+            `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
+            {
+              id_name_chemical: getselect[0].id,
+              id_residual_period: IdExpired,
+              cc: ratiocc,
+              liter: ratioL,
+              note: note,
+              date_start: startDate,
+              date_end: endDate,
+            }
+          )
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
           });
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
         });
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
+      }
+    } else {
+      console.log("not data found");
     }
   };
 
