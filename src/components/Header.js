@@ -58,23 +58,21 @@ const Header = () => {
             </span>
             {checktime.map((data, index) => {
               return (
-                <>
-                  {/* <div className="dropdown-divider" /> */}
-                  <a
-                    href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
-                    className="dropdown-item"
-                  >
-                    <i className="fas fa-envelope mr-2" />{" "}
-                    {data.zone_name +
-                      "-" +
-                      data.id_name_plant +
-                      " " +
-                      data.name_plant}
-                    <span className="float-right text-muted text-sm">
-                      {data.end_date_plant}
-                    </span>
-                  </a>
-                </>
+                <a
+                  href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
+                  className="dropdown-item"
+                  key={index}
+                >
+                  <i className="fas fa-envelope mr-2" />{" "}
+                  {data.zone_name +
+                    "-" +
+                    data.id_name_plant +
+                    " " +
+                    data.name_plant}
+                  <span className="float-right text-muted text-sm">
+                    {data.end_date_plant}
+                  </span>
+                </a>
               );
             })}
           </div>
