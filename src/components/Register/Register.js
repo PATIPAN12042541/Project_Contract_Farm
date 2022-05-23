@@ -6,12 +6,12 @@ import Swal from 'sweetalert2'
 
 const Register = () => {
     const [rolegroup,setRoleGroup] = useState([]);
-    const [username,setUserName] = useState();
-    const [password,setPassword] = useState();
-    const [confirmPassword,setConfirmPassword] = useState();
-    const [name,setName] = useState();
-    const [lastName,setLastName] = useState();
-    const [roleID,setRoleID] = useState();
+    const [username,setUserName] = useState("");
+    const [password,setPassword] = useState("");
+    const [confirmPassword,setConfirmPassword] = useState("");
+    const [name,setName] = useState("");
+    const [lastName,setLastName] = useState("");
+    const [roleID,setRoleID] = useState("");
     const Nav = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Register = () => {
     },[])
 
     const getRole = async() => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/role_group`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/role_group/roleRegister`);
         //const response = await axios.get("http://localhost:4000/role_group");
         setRoleGroup(response.data);
     }
