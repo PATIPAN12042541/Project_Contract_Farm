@@ -117,6 +117,20 @@ export const DeletePlant = async (req, res) => {
   }
 };
 
+export const getPlantUser = async (req, res) => {
+  try {
+    const plantUser = await db.query("SELECT * FROM user where role_id = 3", {
+      type: db.QueryTypes.SELECT,
+    });
+    res.json(plantUser);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
+
+
 export const getDataImagePlant = async (req, res) => {
   try {
     const imageplants = await db.query(

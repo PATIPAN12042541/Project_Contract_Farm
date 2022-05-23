@@ -17,11 +17,12 @@ const Edit_data = (props) => {
 
 
   const [plantdata, setPlantData] = useState([]);
+  const [plantUser, setPlantUser] = useState([]);
   const [idplant, setIdPlant] = useState();
   const [nameplant, setNamePlant] = useState();
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
-
+  const [userid, setUserId] = useState();
   /***** set edit data *****/
   const [edit_name_plant, setEditNamePlant] = useState();
   const [edit_start_date_plant, setEditStartDatePlant] = useState();
@@ -39,6 +40,7 @@ const Edit_data = (props) => {
 
   useEffect(() => {
     getPlant();
+    getPlantUser();
   }, []);
 
   const uploadImg = async () => {
@@ -66,6 +68,13 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+  };
+
+  const getPlantUser = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/getPlantUser`
+    );
+    setPlantUser(response.data);
   };
 
   const deletePlants = async (id) => {
@@ -217,7 +226,7 @@ const Edit_data = (props) => {
                                   onChange={(e) => setIdPlant(e.target.value)}
                                 ></input>
                               </div>
-                              <div className="col-5">
+                              <div className="col-3">
                                 <center>
                                   <label>ชื่อแปลงเพาะปลูก</label>
                                 </center>
@@ -229,6 +238,24 @@ const Edit_data = (props) => {
                                   defaultValue={nameplant}
                                   onChange={(e) => setNamePlant(e.target.value)}
                                 ></input>
+                              </div>
+                              <div className="col-2">
+                                <center>
+                                  <label>ชื่อผู้รับผิดชอบ</label>
+                                </center>
+                                <select
+                                  className="custom-select form-control-border"
+                                  onChange={(e) => setUserId(e.target.value)}
+                                >
+                                  <option>------ผู้รับผิดชอบ------</option>
+                                  {plantUser.map((user, index) => {
+                                    return (
+                                      <option key={index} value={user.id}>
+                                        {user.name + " " + user.last_name}
+                                      </option>
+                                    );
+                                  })}
+                                </select>
                               </div>
                               <div className="col-2">
                                 <center>

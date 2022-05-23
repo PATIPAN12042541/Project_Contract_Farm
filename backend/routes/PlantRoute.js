@@ -9,11 +9,13 @@ import {
   getManagePlantEdit,
   DeleteManagePlant,
   UpdateManagePlant,
+  getPlantUser,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
 
 router.get("/:id", getPlant);
+router.get("/getPlantUser", getPlantUser);
 router.get("/Data_detail/:id", getDataImagePlant);
 router.post("/DetailPlant", postDetailPlant);
 router.patch("/UpdatePlant/:id", updatePlant);
