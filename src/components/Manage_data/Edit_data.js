@@ -72,7 +72,7 @@ const Edit_data = (props) => {
 
   const getPlantUser = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/getUser`
+      `${process.env.REACT_APP_API_URL}/user/getUsersByRole`
     );
     setPlantUser(response.data);
     console.log(response.data);

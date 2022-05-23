@@ -4,24 +4,6 @@ import PlantDetail from "../models/PlantDetail_M.js";
 import PlantDataDetail from "../models/PlantDataDetail_M.js";
 import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 
-export const getUser = async (req, res) => {
-  try {
-    const plantUser = await db.query(
-      "SELECT id," +
-        "     name," +
-        "     last_name," +
-        "     role_id " +
-        "FROM user where role_id = 3",
-      {
-        type: db.QueryTypes.SELECT,
-      }
-    );
-    res.json(plantUser);
-  } catch (error) {
-    res.json({ message: error.message });
-  }
-};
-
 
 export const getPlant = async (req, res) => {
   try {
