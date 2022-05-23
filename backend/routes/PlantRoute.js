@@ -15,7 +15,6 @@ import {
 const router = express.Router();
 
 router.get("/:id", getPlant);
-router.get("/getPlantUser", getPlantUser);
 router.get("/Data_detail/:id", getDataImagePlant);
 router.post("/DetailPlant", postDetailPlant);
 router.patch("/UpdatePlant/:id", updatePlant);
@@ -24,5 +23,6 @@ router.post("/ManagePlant/:id", postManagePlant);
 router.get("/ManagePlantEdit/:id", getManagePlantEdit);
 router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
 router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
+router.get("/getPlantUser", getPlantUser);
 
 export default router;
