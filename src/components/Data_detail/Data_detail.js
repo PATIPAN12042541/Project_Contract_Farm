@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import Content from "../Content";
 import axios from "axios";
+import Zoom from "react-medium-image-zoom";
 import "./Data_detail.css";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
-  
+
   useEffect(() => {
     getDatadetail();
   }, []);
@@ -45,11 +46,13 @@ const Data_detail = (props) => {
                     <div className="row">
                       <div className="col-12 col-sm-4">
                         <div className="col-12">
-                          <img
-                            className="img-fluid"
-                            src={data.path_img}
-                            loading="lazy"
-                          />
+                          <Zoom>
+                            <img
+                              className="img-fluid"
+                              src={data.path_img}
+                              loading="lazy"
+                            />
+                          </Zoom>
                         </div>
                       </div>
                       <div className="col-12 col-sm-8">
