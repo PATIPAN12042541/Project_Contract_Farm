@@ -137,7 +137,7 @@ const Data_detail = (props) => {
                                 <p>{data.note}</p>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-2">
+                            <div className="col-12 col-sm-4">
                               <button className="btn btn-info">
                                 แจ้งปัญหา
                               </button>{" "}
