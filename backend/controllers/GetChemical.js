@@ -27,7 +27,6 @@ export const getChemical = async (req, res) => {
   }
 };
 
-export const PostChangeStatus = async (req, res) => {};
 
 export const getChemicalMaster = async (req, res) => {
   try {

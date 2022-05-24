@@ -25,10 +25,7 @@ export const getDataPlant = async (req, res) => {
         "plant_image," +
         "user.name," +
         "user.last_name ," +
-        "case when (SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) != 'NULL' THEN " +
-        "	(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) " +
-        "  ELSE 0 " +
-        " END AS status_check " +
+        "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_check " +
         "FROM zone_plant " +
         "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
         "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
