@@ -141,12 +141,15 @@ const Data_detail = (props) => {
                           </div>
                           <div className="row">
                             <div className="col-12 col-sm-12">
-                              {/* <button className="btn btn-info">
-                                แจ้งปัญหา
-                              </button>{" "} */}
-                              <button className="btn btn-success float-right">
-                                เสร็จสิ้น
-                              </button>
+                              {data.status_check == "1" ? (
+                                <button className="btn btn-success float-right">
+                                  เสร็จสิ้น
+                                </button>
+                              ) : (
+                                <button className="btn btn-block float-right">
+                                  ยกเลิก
+                                </button>
+                              )}
                             </div>
                           </div>
                         </div>
