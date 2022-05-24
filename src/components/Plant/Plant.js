@@ -73,7 +73,10 @@ const Plant = (props) => {
                                   )}
                                 </div>
                                 <div className="text-block-eddate">
-                                  วันที่สิ้นสุด : {data.end_date_plant}
+                                  วันที่สิ้นสุด :{" "}
+                                  {moment(data.end_date_plant).format(
+                                    "DD-MM-YYYY"
+                                  )}
                                 </div>
 
                                 <img
