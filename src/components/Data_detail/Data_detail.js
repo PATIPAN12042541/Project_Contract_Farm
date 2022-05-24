@@ -20,7 +20,7 @@ const Data_detail = (props) => {
     console.log(response.data);
   };
 
-  const changeStatus = async (id) => {
+  const changeStatus = async (id, status) => {
     Swal.fire({
       title: "Are you sure complate?",
       text: "Okay Are you Ready ? ",
@@ -31,7 +31,7 @@ const Data_detail = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        console.log("okay status", id);
+        console.log("okay status", id, ":", status);
       }
     });
   };
@@ -159,7 +159,7 @@ const Data_detail = (props) => {
                                 <button
                                   className="btn btn-success float-right"
                                   onClick={() => {
-                                    changeStatus(data.id);
+                                    changeStatus(data.id, "1");
                                   }}
                                 >
                                   เสร็จสิ้น
