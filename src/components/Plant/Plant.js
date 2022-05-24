@@ -43,10 +43,11 @@ const Plant = (props) => {
                   <div className="row">
                     {datadetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
-                        <div className=" position-relative p-3 bg-gray">
+                        <div className=" position-relative p-3">
                           <div class="ribbon-wrapper ribbon-lg">
                             <div class="ribbon bg-success text-lg">Ribbon</div>
                           </div>
+
                           <Link
                             to={{
                               pathname: `/Page_chemical/${data.id_plant}`,
