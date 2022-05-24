@@ -42,7 +42,7 @@ const Data_detail = (props) => {
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <h1 className="card-title">
-                      รายละเอียดสารเคมี {data.name_chemical}
+                      รายละเอียดสารเคมี {data.name_chemical}{" "}
                       {data.status_check == "1" && (
                         <BsCheckCircleFill style={{ color: "#FFFFF" }} />
                       )}
