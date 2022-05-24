@@ -38,7 +38,21 @@ const Manage_plant_chemical = (props) => {
 
 
   const Checkdata = async () => {
-  
+      console.log(
+        getselect[0].id,
+        ":",
+        IdExpired,
+        ":",
+        ratiocc,
+        ":",
+        ratioL,
+        ":",
+        note,
+        ":",
+        startDate,
+        ":",
+        endDate
+      );
       try {
         await axios
           .post(
