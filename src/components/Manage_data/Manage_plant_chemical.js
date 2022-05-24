@@ -50,7 +50,6 @@ const Manage_plant_chemical = (props) => {
             note: note,
             date_start: startDate,
             date_end: endDate,
-            status_check: 0,
           }
         )
         .then(function (response) {

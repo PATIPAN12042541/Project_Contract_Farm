@@ -99,7 +99,6 @@ export const createChemical = async (req, res) => {
     eu_mrl,
     path_img,
     type_chemical_id,
-    status,
   } = req.body;
   try {
     await NameChemical.create({
@@ -108,7 +107,6 @@ export const createChemical = async (req, res) => {
       eu_mrl: eu_mrl,
       path_img: path_img,
       type_chemical_id: type_chemical_id,
-      status: status,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {
