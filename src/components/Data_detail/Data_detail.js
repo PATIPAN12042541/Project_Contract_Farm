@@ -19,6 +19,7 @@ const Data_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Data_detail/${props.id}`
     );
     setDatadetail(response.data);
+    console.log(response.data);
   };
 
   return (
