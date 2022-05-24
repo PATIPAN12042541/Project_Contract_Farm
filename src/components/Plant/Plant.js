@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Plant.css";
+import moment from "moment";
 import { Link } from "react-router-dom";
 
 const Plant = (props) => {
@@ -66,7 +67,10 @@ const Plant = (props) => {
                                   {data.name_plant}
                                 </div>
                                 <div className="text-block-stdate">
-                                  วันที่เริ่มปลูก : {data.start_date_plant}
+                                  วันที่เริ่มปลูก :{" "}
+                                  {moment(data.start_date_plant).format(
+                                    "DD-MM-YYYY"
+                                  )}
                                 </div>
                                 <div className="text-block-eddate">
                                   วันที่สิ้นสุด : {data.end_date_plant}
