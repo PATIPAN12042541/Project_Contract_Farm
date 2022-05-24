@@ -5,6 +5,9 @@ const { DataTypes } = Sequelize;
 const PlantDataDetail_M = db.define(
   "plant_data_detail",
   {
+    id_plant: {
+      type: DataTypes.INTEGER,
+    },
     id_name_chemical: {
       type: DataTypes.INTEGER,
     },
