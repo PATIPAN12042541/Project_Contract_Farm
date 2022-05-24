@@ -38,59 +38,42 @@ const Manage_plant_chemical = (props) => {
 
 
   const Checkdata = async () => {
-      console.log(
-        props.id,
-        ":",
-        getselect[0].id,
-        ":",
-        IdExpired,
-        ":",
-        ratiocc,
-        ":",
-        ratioL,
-        ":",
-        note,
-        ":",
-        startDate,
-        ":",
-        endDate
-      );
-      try {
-        await axios
-          .post(
-            `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
-            {
-              id_name_chemical: getselect[0].id,
-              id_residual_period: IdExpired,
-              cc: ratiocc,
-              liter: ratioL,
-              note: note,
-              date_start: startDate,
-              date_end: endDate,
-              status_check : 0,
-            }
-          )
-          .then(function (response) {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Save OK !",
-            });
-          })
-          .catch(function (error) {
-            Swal.fire({
-              icon: "error",
-              title: error.response.data.msg,
-              text: "Save Error!",
-            });
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/ManageChemical/${props.id}`,
+          {
+            id_name_chemical: getselect[0].id,
+            id_residual_period: IdExpired,
+            cc: ratiocc,
+            liter: ratioL,
+            note: note,
+            date_start: startDate,
+            date_end: endDate,
+            status_check: 0,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
           });
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
         });
-      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const getExpired = async () => {
@@ -363,13 +346,12 @@ const Manage_plant_chemical = (props) => {
               })}
               <div className="card-footer">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-default float-right"
                   style={{
                     backgroundColor: "#8CC152",
                     color: "#FFFFFF",
                   }}
-                  onClick={Checkdata}
                 >
                   ยืนยัน
                 </button>
