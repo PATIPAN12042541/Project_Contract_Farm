@@ -186,7 +186,7 @@ export const ManageChemical = async (req, res) => {
       note: note,
       date_start: date_start,
       date_end: date_end,
-      status_check: "0",
+      status_check: 0,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {
