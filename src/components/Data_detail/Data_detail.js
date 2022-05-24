@@ -37,7 +37,6 @@ const Data_detail = (props) => {
             status_check: status,
           }
         );
-        console.log("okay status", id, ":", status);
         getDatadetail();
       }
     });
@@ -146,11 +145,7 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                             <div
-                              className={
-                                typeof data.status_check == "1"
-                                  ? "col-12 col-sm-6 font-size"
-                                  : "col-12 col-sm-6 font-size2"
-                              }
+                              className="col-12 col-sm-6 font-size"
                               type="date"
                             >
                               {data.date_end}
