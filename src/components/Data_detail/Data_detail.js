@@ -131,17 +131,19 @@ const Data_detail = (props) => {
                             </div>
                           </div>
                           <div className="row">
-                            <div className="col-12 col-sm-8">
+                            <div className="col-12 col-sm-12">
                               <h4>Note.</h4>
                               <div className="post">
                                 <p>{data.note}</p>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-4">
-                              <button className="btn btn-info">
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-12">
+                              <button className="btn btn-info float-right">
                                 แจ้งปัญหา
                               </button>{" "}
-                              <button className="btn btn-success">
+                              <button className="btn btn-success float-right">
                                 เสร็จสิ้น
                               </button>
                             </div>
