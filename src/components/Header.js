@@ -7,8 +7,7 @@ const Header = () => {
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
 
-  console.log(checktime);
-  
+
   const Logout = async () => {
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/user/logout`);
@@ -55,9 +54,13 @@ const Header = () => {
             </span>
           </a>
           <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span className="dropdown-item dropdown-header">
-              เเจ้งเตือนเวลา
-            </span>
+            {checktime.length == "0" ? (
+              <span className="dropdown-item dropdown-header">ไม่พบข้อมูล</span>
+            ) : (
+              <span className="dropdown-item dropdown-header">
+                เเจ้งเตือนเวลา
+              </span>
+            )}
             {checktime.map((data, index) => {
               return (
                 <a
