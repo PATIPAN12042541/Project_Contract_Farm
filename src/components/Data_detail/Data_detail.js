@@ -130,11 +130,14 @@ const Data_detail = (props) => {
                             </div>
                           </div>
                           <div className="row">
-                            <div className="col-12">
+                            <div className="col-12 col-sm-10">
                               <h4>Note.</h4>
                               <div className="post">
                                 <p>{data.note}</p>
                               </div>
+                            </div>
+                            <div className="col-12 col-sm-2">
+                              <button className="btn btn-success">/</button>
                             </div>
                           </div>
                         </div>
