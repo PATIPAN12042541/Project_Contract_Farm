@@ -57,7 +57,7 @@ const Plant = (props) => {
                               <div className="position-relative">
                                 <div class="ribbon-wrapper ribbon-lg">
                                   <div class="ribbon bg-success text-lg">
-                                    Ribbon
+                                    เสร็จสิ้น
                                   </div>
                                 </div>
                                 <div className="text-block-code">
