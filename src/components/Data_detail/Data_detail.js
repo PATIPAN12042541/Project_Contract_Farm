@@ -43,7 +43,7 @@ const Data_detail = (props) => {
                     <h1 className="card-title">
                       รายละเอียดสารเคมี {data.name_chemical}
                     </h1>
-                    <div className="card-tools">
+                    <div className="card-tools" style={{ color: "red" }}>
                       <BsXCircleFill />
                     </div>
                   </div>
