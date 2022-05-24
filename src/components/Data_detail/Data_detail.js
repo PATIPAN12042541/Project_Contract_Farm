@@ -145,7 +145,11 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                             <div
-                              className="col-12 col-sm-6 font-size"
+                              className={
+                                data.status_check == "1"
+                                  ? "col-12 col-sm-6 font-size-success"
+                                  : "col-12 col-sm-6 font-size"
+                              }
                               type="date"
                             >
                               {data.date_end}
