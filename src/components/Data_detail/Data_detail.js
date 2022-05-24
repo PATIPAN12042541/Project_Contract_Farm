@@ -140,7 +140,7 @@ const Data_detail = (props) => {
                           </div>
                           <div className="row">
                             <div className="col-12 col-sm-12">
-                              <button className="btn btn-info float-right">
+                              <button className="btn btn-info">
                                 แจ้งปัญหา
                               </button>{" "}
                               <button className="btn btn-success float-right">
