@@ -146,7 +146,7 @@ const Data_detail = (props) => {
                                   เสร็จสิ้น
                                 </button>
                               ) : (
-                                <button className="btn btn-block float-right">
+                                <button className="btn btn-default float-right">
                                   ยกเลิก
                                 </button>
                               )}
