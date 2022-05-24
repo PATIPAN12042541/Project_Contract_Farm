@@ -131,6 +131,7 @@ export const getDataImagePlant = async (req, res) => {
         "    plant_data_detail.note," +
         "    plant_data_detail.date_start," +
         "    plant_data_detail.date_end," +
+        "    plant_data_detail.	status_check," +
         "    name_chemical.id as id_name_chemical," +
         "    name_chemical.name_chemical ," +
         "    name_chemical.name_chemical_eng," +
