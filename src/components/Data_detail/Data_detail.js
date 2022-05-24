@@ -137,7 +137,9 @@ const Data_detail = (props) => {
                               </div>
                             </div>
                             <div className="col-12 col-sm-2">
-                              <button className="btn btn-success">/</button>
+                              <button className="btn btn-success">
+                                เสร็จสิ้น
+                              </button>
                             </div>
                           </div>
                         </div>
