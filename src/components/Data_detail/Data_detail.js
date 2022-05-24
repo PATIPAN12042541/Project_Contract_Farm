@@ -4,6 +4,8 @@ import Content from "../Content";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import "./Data_detail.css";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { BsXCircleFill } from "react-icons/bs";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
@@ -41,6 +43,9 @@ const Data_detail = (props) => {
                     <h1 className="card-title">
                       รายละเอียดสารเคมี {data.name_chemical}
                     </h1>
+                    <div className="card-tools">
+                      <BsXCircleFill />
+                    </div>
                   </div>
                   <div className="card-body">
                     <div className="row">
