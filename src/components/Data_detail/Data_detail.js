@@ -31,6 +31,12 @@ const Data_detail = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/getChemical/updateChangeStatus/${id}`,
+          {
+            status_check: status,
+          }
+        );
         console.log("okay status", id, ":", status);
       }
     });
@@ -165,7 +171,12 @@ const Data_detail = (props) => {
                                   เสร็จสิ้น
                                 </button>
                               ) : (
-                                <button className="btn btn-default float-right">
+                                <button
+                                  className="btn btn-default float-right"
+                                  onClick={() => {
+                                    changeStatus(data.id, "0");
+                                  }}
+                                >
                                   ยกเลิก
                                 </button>
                               )}

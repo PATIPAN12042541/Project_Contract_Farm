@@ -5,7 +5,7 @@ const { DataTypes } = Sequelize;
 const PlantDataDetail_M = db.define(
   "plant_data_detail",
   {
-    id_plant: {
+    status_check: {
       type: DataTypes.INTEGER,
     },
     id_name_chemical: {
@@ -28,6 +28,9 @@ const PlantDataDetail_M = db.define(
     },
     date_end: {
       type: DataTypes.DATE,
+    },
+    status_check: {
+      type: DataTypes.INTEGER,
     },
   },
   {

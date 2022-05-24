@@ -27,6 +27,8 @@ export const getChemical = async (req, res) => {
   }
 };
 
+export const PostChangeStatus = async (req, res) => {};
+
 export const getChemicalMaster = async (req, res) => {
   try {
     const chemical = await db.query(
@@ -115,6 +117,21 @@ export const createChemical = async (req, res) => {
   }
 };
 
+export const UpdateChangeStatus = async (req, res) => {
+  try {
+    await PlantDataDetail_M.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Chemical Updated",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
 export const updateChemical = async (req, res) => {
   try {
     await NameChemical.update(req.body, {
@@ -129,6 +146,10 @@ export const updateChemical = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+
+
+
 
 export const deleteChemical = async (req, res) => {
   try {
