@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SimpleImageSlider from "react-simple-image-slider";
-import Content from "../Content";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import "./Data_detail.css";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { BsFillEmojiNeutralFill } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
@@ -20,6 +18,22 @@ const Data_detail = (props) => {
     );
     setDatadetail(response.data);
     console.log(response.data);
+  };
+
+  const changeStatus = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        console.log("okay status", id);
+      }
+    });
   };
 
   return (
@@ -142,7 +156,12 @@ const Data_detail = (props) => {
                           <div className="row">
                             <div className="col-12 col-sm-12">
                               {data.status_check == "0" ? (
-                                <button className="btn btn-success float-right">
+                                <button
+                                  className="btn btn-success float-right"
+                                  onClick={() => {
+                                    changeStatus(data.id);
+                                  }}
+                                >
                                   เสร็จสิ้น
                                 </button>
                               ) : (
