@@ -54,6 +54,11 @@ const Plant = (props) => {
                           <div className="card mb-12 bg-gradient-white">
                             <div className="container">
                               <div className="position-relative">
+                                <div class="ribbon-wrapper ribbon-lg">
+                                  <div class="ribbon bg-success text-lg">
+                                    Ribbon
+                                  </div>
+                                </div>
                                 <div className="text-block-code">
                                   {data.zone_name + "-" + data.id_name_plant}
                                 </div>
@@ -71,12 +76,6 @@ const Plant = (props) => {
                                   className="ima-size card-img-top"
                                   src={data.plant_image}
                                 />
-                                <div class="ribbon-wrapper ribbon-lg">
-                                  <div class="ribbon bg-success text-lg">
-                                    Ribbon
-                                  </div>
-                                </div>
-
                                 <div className="text-block-name">
                                   ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
                                   {data.last_name}
