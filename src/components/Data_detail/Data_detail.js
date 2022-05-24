@@ -141,7 +141,7 @@ const Data_detail = (props) => {
                           </div>
                           <div className="row">
                             <div className="col-12 col-sm-12">
-                              {data.status_check == "1" ? (
+                              {data.status_check == "0" ? (
                                 <button className="btn btn-success float-right">
                                   เสร็จสิ้น
                                 </button>
