@@ -5,7 +5,7 @@ import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import "./Data_detail.css";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { BsXCircleFill } from "react-icons/bs";
+import { BsFillEmojiNeutralFill } from "react-icons/bs";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
@@ -44,7 +44,7 @@ const Data_detail = (props) => {
                       รายละเอียดสารเคมี {data.name_chemical}
                     </h1>
                     <div className="card-tools" style={{ color: "red" }}>
-                      <BsXCircleFill />
+                      <BsFillEmojiNeutralFill />
                     </div>
                   </div>
                   <div className="card-body">
