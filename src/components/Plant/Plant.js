@@ -57,7 +57,7 @@ const Plant = (props) => {
                             <div className="container">
                               <div className="position-relative">
                                 {data.status_check ==
-                                  0(
+                                  "0"(
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-success text-lg">
                                         เสร็จสิ้น
