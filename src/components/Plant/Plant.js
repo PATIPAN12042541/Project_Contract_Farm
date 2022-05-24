@@ -53,32 +53,34 @@ const Plant = (props) => {
                         >
                           <div className="card mb-12 bg-gradient-white">
                             <div className="container">
-                              <div className="text-block-code">
-                                {data.zone_name + "-" + data.id_name_plant}
-                              </div>
-                              <div className="text-block-Plant">
-                                {data.name_plant}
-                              </div>
-                              <div className="text-block-stdate">
-                                วันที่เริ่มปลูก : {data.start_date_plant}
-                              </div>
-                              <div className="text-block-eddate">
-                                วันที่สิ้นสุด : {data.end_date_plant}
-                              </div>
                               <div className="position-relative">
+                                <div className="text-block-code">
+                                  {data.zone_name + "-" + data.id_name_plant}
+                                </div>
+                                <div className="text-block-Plant">
+                                  {data.name_plant}
+                                </div>
+                                <div className="text-block-stdate">
+                                  วันที่เริ่มปลูก : {data.start_date_plant}
+                                </div>
+                                <div className="text-block-eddate">
+                                  วันที่สิ้นสุด : {data.end_date_plant}
+                                </div>
+
                                 <img
                                   className="ima-size card-img-top"
                                   src={data.plant_image}
                                 />
                                 <div class="ribbon-wrapper ribbon-lg">
                                   <div class="ribbon bg-success text-lg">
-                                    เสร็จสิ้น
+                                    Ribbon
                                   </div>
                                 </div>
-                              </div>
-                              <div className="text-block-name">
-                                ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
-                                {data.last_name}
+
+                                <div className="text-block-name">
+                                  ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
+                                  {data.last_name}
+                                </div>
                               </div>
                             </div>
                           </div>
