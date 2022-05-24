@@ -7,6 +7,8 @@ const Header = () => {
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
 
+  console.log(checktime);
+  
   const Logout = async () => {
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/user/logout`);
