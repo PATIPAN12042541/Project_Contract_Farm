@@ -55,8 +55,8 @@ const Plant = (props) => {
                           <div className="card mb-12 bg-gradient-white">
                             <div className="container">
                               <div className="position-relative">
-                                <div class="ribbon-wrapper ribbon-lg">
-                                  <div class="ribbon bg-success text-lg">
+                                <div className="ribbon-wrapper ribbon-lg">
+                                  <div className="ribbon bg-success text-lg">
                                     เสร็จสิ้น
                                   </div>
                                 </div>

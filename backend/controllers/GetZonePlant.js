@@ -15,21 +15,41 @@ export const GetZonePlant = async (req, res) => {
 export const getDataPlant = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
-      "SELECT plant_detail.id as id_plant," +
-        " id_zone," +
-        " id_name_plant," +
-        " zone_name," +
-        " name_plant," +
-        " start_date_plant," +
-        " end_date_plant," +
-        " plant_image," +
-        " user.name," +
-        " user.last_name " +
-        " FROM zone_plant " +
-        " LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
-        " LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
-        " LEFT JOIN user ON  plant.id_user =  user.id " +
-        " WHERE id_zone = :id_plant",
+      "SELECT plant_detail.id as id_plants," +
+        "id_zone," +
+        "id_name_plant," +
+        "zone_name," +
+        "name_plant," +
+        "start_date_plant," +
+        "end_date_plant," +
+        "plant_image," +
+        "user.name," +
+        "user.last_name ," +
+        "case when (SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) != 'NULL' THEN " +
+        "	(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) " +
+        "  ELSE 0 " +
+        " END AS status_check " +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
+        "LEFT JOIN user ON  plant.id_user =  user.id " +
+        "WHERE id_zone = :id_plant",
+
+      // "SELECT plant_detail.id as id_plant," +
+      //   " id_zone," +
+      //   " id_name_plant," +
+      //   " zone_name," +
+      //   " name_plant," +
+      //   " start_date_plant," +
+      //   " end_date_plant," +
+      //   " plant_image," +
+      //   " user.name," +
+      //   " user.last_name " +
+      //   " FROM zone_plant " +
+      //   " LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+      //   " LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
+      //   " LEFT JOIN user ON  plant.id_user =  user.id " +
+      //   " WHERE id_zone = :id_plant",
       {
         replacements: { id_plant: req.params.id },
         type: db.QueryTypes.SELECT,
