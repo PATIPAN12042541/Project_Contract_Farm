@@ -147,7 +147,7 @@ const Data_detail = (props) => {
                             </div>
                             <div
                               className={
-                                typeof data.status_check == "0"
+                                typeof data.status_check == "1"
                                   ? "col-12 col-sm-6 font-size"
                                   : "col-12 col-sm-6 font-size2"
                               }
