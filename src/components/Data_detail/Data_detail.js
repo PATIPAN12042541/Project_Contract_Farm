@@ -165,7 +165,7 @@ const Data_detail = (props) => {
                           </div>
                           <div className="row">
                             <div className="col-12 col-sm-12">
-                              {data.status_check == "0" ? (
+                              {data.status_check == "1" ? (
                                 <button
                                   className="btn btn-success float-right"
                                   onClick={() => {
