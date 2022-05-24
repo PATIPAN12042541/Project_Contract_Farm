@@ -39,6 +39,8 @@ const Manage_plant_chemical = (props) => {
 
   const Checkdata = async () => {
       console.log(
+        props.id,
+        ":",
         getselect[0].id,
         ":",
         IdExpired,
