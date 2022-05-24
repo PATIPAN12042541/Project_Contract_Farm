@@ -38,6 +38,7 @@ const Data_detail = (props) => {
           }
         );
         console.log("okay status", id, ":", status);
+        getDatadetail();
       }
     });
   };
