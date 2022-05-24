@@ -38,14 +38,7 @@ const Manage_plant_chemical = (props) => {
 
 
   const Checkdata = async () => {
-    if (
-      getselect[0].id &&
-      IdExpired &&
-      ratiocc &&
-      note &&
-      startDate &&
-      endDate
-    ) {
+  
       try {
         await axios
           .post(
@@ -82,9 +75,6 @@ const Manage_plant_chemical = (props) => {
           text: "Save Error!",
         });
       }
-    } else {
-      console.log("not data found");
-    }
   };
 
   const getExpired = async () => {
