@@ -175,6 +175,7 @@ export const ManageChemical = async (req, res) => {
     note,
     date_start,
     date_end,
+    status_check,
   } = req.body;
   try {
     await PlantDataDetail_M.create({
@@ -186,7 +187,7 @@ export const ManageChemical = async (req, res) => {
       note: note,
       date_start: date_start,
       date_end: date_end,
-      status_check: 0,
+      status_check: status_check,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {
