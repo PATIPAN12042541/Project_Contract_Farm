@@ -22,9 +22,9 @@ const Data_detail = (props) => {
 
   const changeStatus = async (id) => {
     Swal.fire({
-      title: "Are you sure delete?",
-      text: "You want delete data !",
-      icon: "warning",
+      title: "Are you sure complate?",
+      text: "Okay Are you Ready ? ",
+      icon: "success",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
