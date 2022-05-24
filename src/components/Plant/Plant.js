@@ -43,39 +43,44 @@ const Plant = (props) => {
                   <div className="row">
                     {datadetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
-                        <Link
-                          to={{
-                            pathname: `/Page_chemical/${data.id_plant}`,
-                            state: { id: data.id_plant },
-                          }}
-                          params={data.id_plant}
-                          className="text-white"
-                        >
-                          <div className="card mb-12 bg-gradient-white">
-                            <div className="container">
-                              <div className="text-block-code">
-                                {data.zone_name + "-" + data.id_name_plant}
-                              </div>
-                              <div className="text-block-Plant">
-                                {data.name_plant}
-                              </div>
-                              <div className="text-block-stdate">
-                                วันที่เริ่มปลูก : {data.start_date_plant}
-                              </div>
-                              <div className="text-block-eddate">
-                                วันที่สิ้นสุด : {data.end_date_plant}
-                              </div>
-                              <img
-                                className="ima-size card-img-top"
-                                src={data.plant_image}
-                              />
-                              <div className="text-block-name">
-                                ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
-                                {data.last_name}
+                        <div className=" position-relative p-3 bg-gray">
+                          <div class="ribbon-wrapper ribbon-lg">
+                            <div class="ribbon bg-success text-lg">Ribbon</div>
+                          </div>
+                          <Link
+                            to={{
+                              pathname: `/Page_chemical/${data.id_plant}`,
+                              state: { id: data.id_plant },
+                            }}
+                            params={data.id_plant}
+                            className="text-white"
+                          >
+                            <div className="card mb-12 bg-gradient-white">
+                              <div className="container">
+                                <div className="text-block-code">
+                                  {data.zone_name + "-" + data.id_name_plant}
+                                </div>
+                                <div className="text-block-Plant">
+                                  {data.name_plant}
+                                </div>
+                                <div className="text-block-stdate">
+                                  วันที่เริ่มปลูก : {data.start_date_plant}
+                                </div>
+                                <div className="text-block-eddate">
+                                  วันที่สิ้นสุด : {data.end_date_plant}
+                                </div>
+                                <img
+                                  className="ima-size card-img-top"
+                                  src={data.plant_image}
+                                />
+                                <div className="text-block-name">
+                                  ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
+                                  {data.last_name}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        </div>
                       </div>
                     ))}
                   </div>
