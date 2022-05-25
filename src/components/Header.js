@@ -62,7 +62,7 @@ const Header = () => {
                 เเจ้งเตือนเวลา
               </span>
             )}
-            {checktime.map((data, index) => {
+            {/* {checktime.map((data, index) => {
               return (
                 <a
                   href={`http://node32367-env-0204914.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
@@ -80,7 +80,7 @@ const Header = () => {
                   </span>
                 </a>
               );
-            })}
+            })} */}
           </div>
         </li>
         <li className="nav-item dropdown">
