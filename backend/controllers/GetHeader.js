@@ -3,13 +3,7 @@ import db from "../config/Database.js";
 export const getCheckTime = async (req, res) => {
   try {
     const checkTime = await db.query(
-      "SELECT id_plant," +
-        "name_plant," +
-        "end_date_plant," +
-        "zone_name," +
-        "id_name_plant " +
-        " FROM " +
-        "( SELECT DISTINCT " +
+      "SELECT DISTINCT " +
         "plant.id_plant," +
         "plant.name_plant," +
         "plant.end_date_plant," +
@@ -33,8 +27,7 @@ export const getCheckTime = async (req, res) => {
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
         "LEFT JOIN plant ON plant_detail.id = plant.id_plant " +
         "WHERE plant_data_detail.date_end < NOW() " +
-        "AND plant_data_detail.status_check != 0 )",
-
+        "AND plant_data_detail.status_check != 0 ",
       // "SELECT DISTINCT " +
       //   "plant.id_plant," +
       //   "plant.name_plant," +
