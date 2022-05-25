@@ -13,7 +13,7 @@ export const getCheckTime = async (req, res) => {
         "LEFT JOIN plant_data_detail ON plant_detail.id = plant_data_detail.id_plant " +
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
         "LEFT JOIN plant ON plant_detail.id = plant.id_plant " +
-        "WHERE plant_data_detail.date_end BETWEEN NOW() AND NOW()+INTERVAL 7 DAY AND plant_data_detail.status_check != 0",
+        "WHERE plant_data_detail.date_end BETWEEN NOW()- INTERVAL 1 day  AND NOW()+INTERVAL 7 DAY AND plant_data_detail.status_check != 0",
       {
         type: db.QueryTypes.SELECT,
       }
