@@ -8,7 +8,7 @@ export const getCheckTime = async (req, res) => {
         "plant.name_plant," +
         "plant.end_date_plant," +
         "zone_plant.zone_name," +
-        "plant_detail.id_name_plant" +
+        "plant_detail.id_name_plant " +
         "FROM plant_detail " +
         "LEFT JOIN plant_data_detail ON plant_detail.id = plant_data_detail.id_plant " +
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
