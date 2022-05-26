@@ -34,7 +34,6 @@ const System_overview = () => {
                 <div className="card-tools">
                   <div
                     className="input-group input-group-sm"
-                    style={{ width: "150px" }}
                   >
                     <input
                       type="text"
@@ -51,7 +50,6 @@ const System_overview = () => {
               </div>
               <div
                 className="card-body table-responsive p-0"
-                style={{ height: "300px" }}
               >
                 <table className="table table-head-fixed text-nowrap">
                   <thead>
