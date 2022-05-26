@@ -89,7 +89,7 @@ const System_overview = () => {
                           <td
                             style={{
                               color:
-                                typeof data.status_check == "Success"
+                                data.status_check == "Success"
                                   ? "green"
                                   : "red",
                             }}
