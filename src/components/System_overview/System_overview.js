@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import axios from "axios";
 
 const System_overview = () => {
@@ -66,12 +67,16 @@ const System_overview = () => {
                           <td>
                             {data.start_date_plant == "null"
                               ? ""
-                              : data.start_date_plant}
+                              : moment(data.start_date_plant).format(
+                                  "DD-MMM-YYYY"
+                                )}
                           </td>
                           <td>
                             {data.end_date_plant == "null"
                               ? ""
-                              : data.end_date_plant}
+                              : moment(data.end_date_plant).format(
+                                  "DD-MMM-YYYY"
+                                )}
                           </td>
                           <td>
                             {data.name == "null" ? "" : data.name}{" "}
