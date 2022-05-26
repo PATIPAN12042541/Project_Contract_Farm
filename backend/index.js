@@ -12,6 +12,7 @@ import Chemical from "./routes/ChemicalRoute.js";
 import Zoneplant from "./routes/ZonePlantRoute.js";
 import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
+import OverView from "./routes/SystemOverview.js";
 
 dotenv.config();
 const app = express();
@@ -83,6 +84,8 @@ app.use("/menu", MenuRoute);
 app.use("/getChemical", Chemical);
 app.use("/chemical", TypeChemical);
 app.use("/header", Header);
+app.use("/header", Header);
+app.use("/OverView", OverView);
 
  
 app.listen(4000, () => console.log("Server running at port 4000"));
