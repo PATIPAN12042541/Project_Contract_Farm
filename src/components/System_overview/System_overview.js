@@ -34,7 +34,7 @@ const System_overview = () => {
                   <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
-                        <th>ชื่อโซนเพาะปลูก</th>
+                        <th>โซนเพาะปลูก</th>
                         <th>ชื่อเเปลง</th>
                         <th>วันที่เริ่มต้น</th>
                         <th>วันที่สิ้นสุด</th>
