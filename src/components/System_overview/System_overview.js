@@ -55,11 +55,10 @@ const System_overview = () => {
                       <tbody key={index}>
                         <tr>
                           <td>
-                            {(data.zone_name == "null" ? "" : data.zone_name) +
-                              "-" +
-                              (data.id_name_plant == "null"
-                                ? ""
-                                : data.id_name_plant)}
+                            {data.zone_name == "null" ? "" : data.zone_name} -{" "}
+                            {data.id_name_plant == "null"
+                              ? ""
+                              : data.id_name_plant}
                           </td>
                           <td>
                             {data.name_plant == "null" ? "" : data.name_plant}
