@@ -46,7 +46,9 @@ const System_overview = () => {
                         <th>Note</th>
                         <th>วันที่เริ่มต้นสารเคมี</th>
                         <th>วันที่สิ้นสุดสารเคมี</th>
-                        <th>สถานะ</th>
+                        <th>
+                          <center>สถานะ</center>
+                        </th>
                       </tr>
                     </thead>
                     {Overview.map((data, index) => (
@@ -71,14 +73,14 @@ const System_overview = () => {
                           <td>{data.date_end}</td>
                           <td
                             style={{
-                              color: "#ffffff",
+                              color: "white",
                               backgroundColor:
                                 data.status_check == "Success"
                                   ? "green"
                                   : "red",
                             }}
                           >
-                            {data.status_check}
+                            <center>{data.status_check}</center>
                           </td>
                         </tr>
                       </tbody>
