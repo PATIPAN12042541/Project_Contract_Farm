@@ -52,7 +52,7 @@ const System_overview = () => {
                       </tr>
                     </thead>
                     {Overview.map((data, index) => (
-                      <tbody key={index} border="1">
+                      <tbody key={index}>
                         <tr>
                           <td>
                             {data.zone_name == "null" ? "" : data.zone_name} -{" "}
