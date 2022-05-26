@@ -74,31 +74,29 @@ const System_overview = () => {
                               : data.end_date_plant}
                           </td>
                           <td>
-                            {(data.name == "null" ? "" : data.name) +
-                              " " +
-                              (data.last_name == "null" ? "" : data.last_name)}
+                            {data.name == "null" ? "" : data.name}{" "}
+                            {data.last_name == "null" ? "" : data.last_name}
                           </td>
                           <td>
-                            {(data.name_chemical == "null"
+                            {data.name_chemical == "null"
                               ? ""
-                              : data.name_chemical) +
-                              " ( " +
-                              (data.name_chemical_eng == "null"
-                                ? ""
-                                : data.name_chemical_eng) +
-                              " ) "}
+                              : data.name_chemical}
+                            {" ( "}
+                            {data.name_chemical_eng == "null"
+                              ? ""
+                              : data.name_chemical_eng}
+                            {" ) "}
                           </td>
                           <td>{data.eu_mrl == "null" ? "" : data.eu_mrl}</td>
                           <td>
-                            {(data.time == "null" ? "" : data.time) +
-                              " " +
-                              (data.unit == "null" ? "" : data.unit)}
+                            {data.time == "null" ? "" : data.time}{" "}
+                            {data.unit == "null" ? "" : data.unit}
                           </td>
                           <td>
-                            {(data.cc == "null" ? "" : data.cc) +
-                              " CC / " +
-                              (data.liter == "null" ? "" : data.liter) +
-                              " L"}
+                            {data.cc == "null" ? "" : data.cc}
+                            {" CC / "}
+                            {data.liter == "null" ? "" : data.liter}
+                            {" L"}
                           </td>
                           <td>{data.note == "null" ? "" : data.note}</td>
                           <td>
