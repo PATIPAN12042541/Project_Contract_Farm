@@ -11,13 +11,13 @@ import Page_Edit_Plant from "./Page_2/Page_Edit_Plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
 import Page_manage_data_edit from "./Page_2/Page_manage_data_edit";
-import Page_Edit_chemical from "./Page_2/Page_Edit_chemical";
+import Page_System_overview from "./Page_2/Page_System_overview";
 import List_TypeChemical from "./components/TypeChemical/List_TypeChemical.js";
 import Add_TypeChemical from "./components/TypeChemical/Add_TypeChemical.js";
 import Update_TypeChemical from "./components/TypeChemical/Update_TypeChemical.js";
 import Page_chemical from "./Page_1/Page_chemical";
 import Page_manage_zone from "./Page_2/Page_manage_zone";
-import List_Chemical from "./components/Chemical/List_Chemical.js"
+import List_Chemical from "./components/Chemical/List_Chemical.js";
 import Add_Chemical from "./components/Chemical/Add_Chemical.js";
 import Update_Chemical from "./components/Chemical/Update_Chemical.js";
 import ListTypeUser from "./components/TypeUser/ListTypeUser.js";
@@ -57,7 +57,11 @@ function App() {
             path="/Manage_plant_edit/:id"
             element={<Page_manage_data_edit />}
           />
-          <Route exact path="/Edit_chemical" element={<Page_Edit_chemical />} />
+          <Route
+            exact
+            path="/System_overview"
+            element={<Page_System_overview />}
+          />
           <Route
             exact
             path="/TypeChemical"
