@@ -86,7 +86,16 @@ const System_overview = () => {
                           <td>{data.note}</td>
                           <td>{data.date_start}</td>
                           <td>{data.date_end}</td>
-                          <td>{data.status_check}</td>
+                          <td
+                            style={{
+                              color:
+                                typeof data.status_check == "Success"
+                                  ? "green"
+                                  : "red",
+                            }}
+                          >
+                            {data.status_check}
+                          </td>
                         </tr>
                       </tbody>
                     ))}
