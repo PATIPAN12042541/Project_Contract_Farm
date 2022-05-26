@@ -30,8 +30,6 @@ const System_overview = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="card">
-                <div className="card-header">
-                </div>
                 <div className="card-body table-responsive p-0">
                   <table className="table table-head-fixed text-nowrap">
                     <thead>
