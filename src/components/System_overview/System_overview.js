@@ -66,12 +66,12 @@ const System_overview = () => {
                           </td>
                           <td>
                             {data.start_date_plant == "null"
-                              ? "-"
+                              ? ""
                               : data.start_date_plant}
                           </td>
                           <td>
                             {data.end_date_plant == "null"
-                              ? "-"
+                              ? ""
                               : data.end_date_plant}
                           </td>
                           <td>
