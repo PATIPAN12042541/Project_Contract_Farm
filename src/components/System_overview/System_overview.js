@@ -31,21 +31,6 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">ข้อมูลรายละเอียดทั้งหมด</h3>
-                  <div className="card-tools">
-                    <div className="input-group input-group-sm">
-                      <input
-                        type="text"
-                        className="form-control float-right"
-                        placeholder="Search"
-                      />
-                      <div className="input-group-append">
-                        <button type="submit" className="btn btn-default">
-                          <i className="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div className="card-body table-responsive p-0">
                   <table className="table table-head-fixed text-nowrap">
