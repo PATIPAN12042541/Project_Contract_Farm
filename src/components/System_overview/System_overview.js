@@ -65,12 +65,13 @@ const System_overview = () => {
                       <tbody key={index}>
                         <tr col={8}>
                           <td>
-                            {data.zone_name +
+                            {"ชื่อโซนเพาะปลูก " +
+                              data.zone_name +
                               "-" +
                               data.id_name_plant +
                               " ชื่อเเปลง : " +
                               data.name_plant +
-                              "วันที่ เริ่มต้น : " +
+                              " วันที่ เริ่มต้น : " +
                               data.start_date_plant +
                               " สิ้นสุด : " +
                               data.end_date_plant +
