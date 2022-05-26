@@ -71,7 +71,7 @@ const System_overview = () => {
                           <td>{data.date_end}</td>
                           <td
                             style={{
-                              color: "#FFFFF",
+                              color: "#ffffff",
                               backgroundColor:
                                 data.status_check == "Success"
                                   ? "green"
