@@ -28,7 +28,7 @@ export const getSystemOverview = async (req, res) => {
         "CASE " +
         "WHEN plant_data_detail.status_check = 0 THEN 'Success' " +
         "WHEN plant_data_detail.status_check IS NULL THEN 'Not Data Found' " +
-        "ELSE '์Not Success' " +
+        "ELSE 'Not Success' " +
         "END AS status_check " +
         "FROM zone_plant " +
         "LEFT JOIN plant_detail ON zone_plant.id = plant_detail.id_zone " +
