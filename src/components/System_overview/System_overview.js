@@ -31,10 +31,7 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <table
-                    className="table table-head-fixed text-nowrap"
-                    border="1"
-                  >
+                  <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
                         <th>โซนเพาะปลูก</th>
@@ -55,7 +52,7 @@ const System_overview = () => {
                       </tr>
                     </thead>
                     {Overview.map((data, index) => (
-                      <tbody key={index}>
+                      <tbody key={index} border="1">
                         <tr>
                           <td>
                             {data.zone_name == "null" ? "" : data.zone_name} -{" "}
