@@ -29,8 +29,8 @@ const System_overview = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <table>
-                <thead className="table table-head-fixed text-nowrap">
+              <table className="table table-head-fixed text-nowrap">
+                <thead>
                   <tr>
                     <th>#</th>
                     <th>ชื่อเเปลง</th>
@@ -47,6 +47,30 @@ const System_overview = () => {
                     <th>สถานะ</th>
                   </tr>
                 </thead>
+                {Overview.map((data, index) => (
+                  <tbody key={index}>
+                    <tr>
+                      <td>{data.id_name_plant}</td>
+                      <td>{data.name_plant}</td>
+                      <td>{data.start_date_plant}</td>
+                      <td>{data.end_date_plant}</td>
+                      <td>{data.name + " " + data.last_name}</td>
+                      <td>
+                        {data.name_chemical +
+                          " ( " +
+                          data.name_chemical_eng +
+                          " ) "}
+                      </td>
+                      <td>{data.eu_mrl}</td>
+                      <td>{data.time + " " + data.unit}</td>
+                      <td>{data.cc + " CC / " + data.liter + " L"}</td>
+                      <td>{data.note}</td>
+                      <td>{data.date_start}</td>
+                      <td>{data.date_end}</td>
+                      <td>{data.status_check}</td>
+                    </tr>
+                  </tbody>
+                ))}
               </table>
             </div>
           </div>
