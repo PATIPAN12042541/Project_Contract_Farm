@@ -68,14 +68,15 @@ const System_overview = () => {
                             {"ชื่อโซนเพาะปลูก " +
                               data.zone_name +
                               "-" +
-                              data.id_name_plant +
-                              " ชื่อเเปลง : " +
-                              data.name_plant +
-                              " วันที่ เริ่มต้น : " +
-                              data.start_date_plant +
-                              " สิ้นสุด : " +
-                              data.end_date_plant +
-                              " ผู้รับผิดชอบ : " +
+                              data.id_name_plant}
+                          </td>
+                          <td>{" ชื่อเเปลง : " + data.name_plant}</td>
+                          <td>
+                            {" วันที่ เริ่มต้น : " + data.start_date_plant}
+                          </td>
+                          <td>{" สิ้นสุด : " + data.end_date_plant}</td>
+                          <td>
+                            {" ผู้รับผิดชอบ : " +
                               data.name +
                               " " +
                               data.last_name}
