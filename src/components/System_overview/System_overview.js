@@ -31,7 +31,7 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">Fixed Header Table</h3>
+                  <h3 className="card-title">ข้อมูลรายละเอียดทั้งหมด</h3>
                   <div className="card-tools">
                     <div className="input-group input-group-sm">
                       <input
