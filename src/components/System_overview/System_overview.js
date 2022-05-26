@@ -102,7 +102,7 @@ const System_overview = () => {
                               ? ""
                               : data.cc + " CC / " + data.liter == "null"
                               ? ""
-                              : data.liter + " L"}
+                              : data.liter == "null" ? "" : data.liter+ " L"}
                           </td>
                           <td>{data.note == "null" ? "" : data.note}</td>
                           <td>
