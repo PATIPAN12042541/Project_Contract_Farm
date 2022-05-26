@@ -68,12 +68,10 @@ const System_overview = () => {
                     </thead>
                     {Overview.map((data, index) => (
                       <tbody key={index}>
-                        <tr>
+                        <tr col={8}>
                           <td>{data.id_name_plant}</td>
-                          <td>{data.name_plant}</td>
-                          <td>{data.start_date_plant}</td>
-                          <td>{data.end_date_plant}</td>
-                          <td>{data.name + " " + data.last_name}</td>
+                        </tr>
+                        <tr>
                           <td>
                             {data.name_chemical +
                               " ( " +
