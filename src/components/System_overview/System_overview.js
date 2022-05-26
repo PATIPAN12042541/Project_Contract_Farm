@@ -51,6 +51,11 @@ const System_overview = () => {
                   <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
+                        <th>ชื่อโซนเพาะปลูก</th>
+                        <th>ชื่อเเปลง</th>
+                        <th>วันที่เริ่มต้น</th>
+                        <th>วันที่สิ้นสุด</th>
+                        <th>ผู้รับผิดชอบ</th>
                         <th>ชื่อสารเคมี/ปุ๋ย</th>
                         <th>EU MRL</th>
                         <th>ระยะเวลา</th>
@@ -63,26 +68,12 @@ const System_overview = () => {
                     </thead>
                     {Overview.map((data, index) => (
                       <tbody key={index}>
-                        <tr col={8}>
-                          <td>
-                            {"ชื่อโซนเพาะปลูก " +
-                              data.zone_name +
-                              "-" +
-                              data.id_name_plant}
-                          </td>
-                          <td>{" ชื่อเเปลง : " + data.name_plant}</td>
-                          <td>
-                            {" วันที่ เริ่มต้น : " + data.start_date_plant}
-                          </td>
-                          <td>{" สิ้นสุด : " + data.end_date_plant}</td>
-                          <td>
-                            {" ผู้รับผิดชอบ : " +
-                              data.name +
-                              " " +
-                              data.last_name}
-                          </td>
-                        </tr>
                         <tr>
+                          <td>{data.zone_name + "-" + data.id_name_plant}</td>
+                          <td>{data.name_plant}</td>
+                          <td>{data.start_date_plant}</td>
+                          <td>{data.end_date_plant}</td>
+                          <td>{data.name + " " + data.last_name}</td>
                           <td>
                             {data.name_chemical +
                               " ( " +
