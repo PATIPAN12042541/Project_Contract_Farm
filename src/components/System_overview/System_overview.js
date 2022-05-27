@@ -14,17 +14,8 @@ const System_overview = () => {
     console.log(overview.data);
   };
 
-
-  const [pending, setPending] = useState(true);
-  const [rows, setRows] = useState([]);
-
   useEffect(() => {
     getOverview();
-    const timeout = setTimeout(() => {
-      setRows(Overview);
-      setPending(false);
-    }, 2000);
-    return () => clearTimeout(timeout);
   }, []);
 
   const columns = [
@@ -108,11 +99,9 @@ const System_overview = () => {
                   <DataTable
                     title="ข้อมูลทั้งหมด"
                     columns={columns}
-                    data={rows}
-                    progressPending={pending}
-                    pagination
+                    data={Overview}
+                    expandableRows
                   />
-
                   {/* <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
