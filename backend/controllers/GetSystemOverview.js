@@ -13,7 +13,7 @@ export const getSystemOverview = async (req, res) => {
         "user.last_name," +
         "name_chemical.name_chemical," +
         "name_chemical.name_chemical_eng, " +
-        "residual_period_chemical.time +' '+ residual_period_chemical.unit AS days " +
+        "residual_period_chemical.time +' '+ residual_period_chemical.unit AS days, " +
         "plant_data_detail.cc," +
         "plant_data_detail.liter," +
         "plant_data_detail.note," +
