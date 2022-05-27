@@ -21,12 +21,62 @@ const System_overview = () => {
   const columns = [
     {
       name: "โซนเพาะปลูก",
-      selector: (row) => row.zone_name,
+      selector: (row) => row.zone_id,
       sortable: true,
     },
     {
       name: "ชื่อเเปลง",
-      selector: (row) => row.year,
+      selector: (row) => row.name_plant,
+      sortable: true,
+    },
+    {
+      name: "วันที่เริ่มต้น",
+      selector: (row) => row.start_date_plant,
+      sortable: true,
+    },
+    {
+      name: "วันที่สิ้นสุด",
+      selector: (row) => row.end_date_plant,
+      sortable: true,
+    },
+    {
+      name: "ผู้รับผิดชอบ",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "ชื่อสารเคมี/ปุ๋ย",
+      selector: (row) => row.name_chemical,
+      sortable: true,
+    },
+    {
+      name: "ระยะเวลา",
+      selector: (row) => row.days,
+      sortable: true,
+    },
+    {
+      name: "ปริมาณที่ใช้ (cc/L)",
+      selector: (row) => row.quantity,
+      sortable: true,
+    },
+    {
+      name: "Note",
+      selector: (row) => row.note,
+      sortable: true,
+    },
+    {
+      name: "วันที่เริ่มต้นสารเคมี",
+      selector: (row) => row.date_start,
+      sortable: true,
+    },
+    {
+      name: "วันที่สิ้นสุดสารเคมี",
+      selector: (row) => row.date_end,
+      sortable: true,
+    },
+    {
+      name: "สถานะ",
+      selector: (row) => row.status_check,
       sortable: true,
     },
   ];
@@ -46,6 +96,7 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
+                  <DataTable columns={columns} data={Overview} selectableRows />
                   {/* <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
@@ -55,7 +106,6 @@ const System_overview = () => {
                         <th>วันที่สิ้นสุด</th>
                         <th>ผู้รับผิดชอบ</th>
                         <th>ชื่อสารเคมี/ปุ๋ย</th>
-                        <th>EU MRL</th>
                         <th>ระยะเวลา</th>
                         <th>ปริมาณที่ใช้</th>
                         <th>Note</th>
