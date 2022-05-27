@@ -32,7 +32,10 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <table className="table table-head-fixed text-nowrap">
+                  <table
+                    className="table table-head-fixed text-nowrap"
+                    style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                  >
                     <thead>
                       <tr>
                         <th>โซนเพาะปลูก</th>
