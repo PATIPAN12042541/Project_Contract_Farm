@@ -9,8 +9,7 @@ export const getSystemOverview = async (req, res) => {
         "plant.start_date_plant," +
         "plant.end_date_plant," +
         "CONCAT(user.name,' ',user.last_name) AS name," +
-        "name_chemical.name_chemical," +
-        "name_chemical.name_chemical_eng, " +
+        "CONCAT(name_chemical.name_chemical,' (',name_chemical.name_chemical_eng,')') AS name_chemical," +
         "CONCAT(residual_period_chemical.time, ' ',residual_period_chemical.unit) AS days, " +
         "plant_data_detail.cc," +
         "plant_data_detail.liter," +
