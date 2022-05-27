@@ -56,10 +56,10 @@ const System_overview = () => {
                       <tbody key={index}>
                         <tr>
                           <td>
-                            {data.zone_name == "null" ? "" : data.zone_name} -{" "}
+                            {data.zone_name == "null" ? "" : data.zone_name}
                             {data.id_name_plant == "null"
                               ? ""
-                              : data.id_name_plant}
+                              : " - " + data.id_name_plant}
                           </td>
                           <td>
                             {data.name_plant == "null" ? "" : data.name_plant}
@@ -82,11 +82,17 @@ const System_overview = () => {
                             {data.name_chemical == "null"
                               ? ""
                               : data.name_chemical}
-                            {" ( "}
+                            {data.name_chemical == "null" &&
+                            data.name_chemical_eng == "null"
+                              ? ""
+                              : " ( "}
                             {data.name_chemical_eng == "null"
                               ? ""
                               : data.name_chemical_eng}
-                            {" ) "}
+                            {data.name_chemical == "null" &&
+                            data.name_chemical_eng == "null"
+                              ? ""
+                              : " ) "}
                           </td>
                           <td>{data.eu_mrl == "null" ? "" : data.eu_mrl}</td>
                           <td>
@@ -95,7 +101,9 @@ const System_overview = () => {
                           </td>
                           <td>
                             {data.cc == "null" ? "" : data.cc}
-                            {" CC / "}
+                            {data.cc == "null" && data.liter == "null"
+                              ? ""
+                              : " CC / "}
                             {data.liter == "null" ? "" : data.liter}
                             {" L"}
                           </td>
