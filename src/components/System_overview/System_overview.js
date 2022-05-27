@@ -55,7 +55,7 @@ const System_overview = () => {
       sortable: true,
     },
     {
-      name: "ปริมาณที่ใช้ (cc/L)",
+      name: "cc/L",
       selector: (row) => row.quantity,
       sortable: true,
     },
@@ -96,7 +96,12 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <DataTable columns={columns} data={Overview} selectableRows />
+                  <DataTable
+                    title="ข้อมูลทั้งหมด"
+                    columns={columns}
+                    data={Overview}
+                    pagination
+                  />
                   {/* <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
