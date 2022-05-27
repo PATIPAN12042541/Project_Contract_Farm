@@ -15,8 +15,8 @@ const System_overview = () => {
   };
 
 
-  const [pending, setPending] = React.useState(true);
-  const [rows, setRows] = React.useState([]);
+  const [pending, setPending] = useState(true);
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
     getOverview();
