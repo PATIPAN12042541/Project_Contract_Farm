@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
+import DataTable from "react-data-table-component";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
@@ -17,6 +18,19 @@ const System_overview = () => {
     getOverview();
   }, []);
 
+  const columns = [
+    {
+      name: "โซนเพาะปลูก",
+      selector: (row) => row.zone_name,
+      sortable: true,
+    },
+    {
+      name: "ชื่อเเปลง",
+      selector: (row) => row.year,
+      sortable: true,
+    },
+  ];
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -32,7 +46,7 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <table className="table table-head-fixed text-nowrap">
+                  {/* <table className="table table-head-fixed text-nowrap">
                     <thead>
                       <tr>
                         <th>โซนเพาะปลูก</th>
@@ -129,7 +143,7 @@ const System_overview = () => {
                         </tr>
                       </tbody>
                     ))}
-                  </table>
+                  </table> */}
                 </div>
               </div>
             </div>
