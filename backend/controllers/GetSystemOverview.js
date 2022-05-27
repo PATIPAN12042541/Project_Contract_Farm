@@ -4,7 +4,7 @@ export const getSystemOverview = async (req, res) => {
   try {
     const Overview = await db.query(
       "SELECT " +
-        "CONCAT(zone_plant.zone_name, ' - ', plant_detail.id_name_plant) AS zone_id," +
+        "CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_id," +
         "plant.name_plant," +
         "plant.start_date_plant," +
         "plant.end_date_plant," +
@@ -12,7 +12,7 @@ export const getSystemOverview = async (req, res) => {
         "user.last_name," +
         "name_chemical.name_chemical," +
         "name_chemical.name_chemical_eng, " +
-        "residual_period_chemical.time +' '+ residual_period_chemical.unit AS days, " +
+        "CONCAT(residual_period_chemical.time, ' ', residual_period_chemical.unit AS) AS days, " +
         "plant_data_detail.cc," +
         "plant_data_detail.liter," +
         "plant_data_detail.note," +
