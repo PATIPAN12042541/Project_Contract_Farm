@@ -100,7 +100,7 @@ const System_overview = () => {
                     title="ข้อมูลทั้งหมด"
                     columns={columns}
                     data={Overview}
-                    expandableRows
+                    pagination
                   />
                   {/* <table className="table table-head-fixed text-nowrap">
                     <thead>
