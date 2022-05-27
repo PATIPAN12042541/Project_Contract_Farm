@@ -4,8 +4,7 @@ export const getSystemOverview = async (req, res) => {
   try {
     const Overview = await db.query(
       "SELECT " +
-        "CONCAT(zone_plant.zone_name, " -
-        ", plant_detail.id_name_plant) AS zone_id," +
+        "CONCAT(zone_plant.zone_name, ' - ', plant_detail.id_name_plant) AS zone_id," +
         "plant.name_plant," +
         "plant.start_date_plant," +
         "plant.end_date_plant," +
