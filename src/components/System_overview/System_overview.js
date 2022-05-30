@@ -122,7 +122,9 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <button type="button">CSV</button>
+                  <button type="submit" className="btn">
+                    CSV
+                  </button>
                   <input
                     className="input-css"
                     icon="search"
