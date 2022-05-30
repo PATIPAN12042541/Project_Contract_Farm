@@ -143,13 +143,7 @@ const System_overview = () => {
       grow: 2,
       cell: (row) => (
         <div
-          className={
-            typeof row.status_check == "Success"
-              ? row.status_check == "Not Success"
-                ? "NotSuccess"
-                : "Success"
-              : "NotFound"
-          }
+          className={row.status_check == "Success" ? "Success" : "NotSuccess"}
         >
           {row.status_check}
         </div>
