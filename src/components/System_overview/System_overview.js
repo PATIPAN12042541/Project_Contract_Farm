@@ -180,8 +180,7 @@ const System_overview = () => {
                         headers={headers}
                         style={{ color: "#ffffff" }}
                       >
-                        {" "}
-                        CSV
+                        Download CSV
                       </CSVLink>
                     </button>
                   </div>
