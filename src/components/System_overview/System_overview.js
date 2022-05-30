@@ -141,24 +141,26 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <input
-                    className="input-css"
-                    icon="search"
-                    placeholder="Search..."
-                    onChange={(e) => searchItems(e.target.value)}
-                  />
-                   <button
-                    type="submit"
-                    className="btn btn-secondary set-position"
-                  >
-                    <CSVLink
-                      data={Overview}
-                      headers={headers}
-                      style={{ color: "#ffffff" }}
+                  <div className="row right">
+                    <input
+                      className="input-css"
+                      icon="search"
+                      placeholder="Search..."
+                      onChange={(e) => searchItems(e.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      className="btn btn-secondary set-position"
                     >
-                      Download CSV
-                    </CSVLink>
-                  </button>
+                      <CSVLink
+                        data={Overview}
+                        headers={headers}
+                        style={{ color: "#ffffff" }}
+                      >
+                        Download CSV
+                      </CSVLink>
+                    </button>
+                  </div>
                   {searchInput.length > 1 ? (
                     <DataTable
                       columns={columns}
