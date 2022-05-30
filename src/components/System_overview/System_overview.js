@@ -166,14 +166,14 @@ const System_overview = () => {
                       columns={columns}
                       data={filteredResults}
                       fixedHeader
-                      pagination
+                      pagination={20}
                     />
                   ) : (
                     <DataTable
                       columns={columns}
                       data={Overview}
                       fixedHeader
-                      pagination
+                      pagination={20}
                     />
                   )}
                 </div>
