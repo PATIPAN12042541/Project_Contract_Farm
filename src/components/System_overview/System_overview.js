@@ -28,6 +28,7 @@ const System_overview = () => {
       name: "ชื่อเเปลง",
       selector: (row) => row.name_plant,
       sortable: true,
+      grow: 2,
     },
     {
       name: "วันที่เริ่มต้น",
@@ -65,6 +66,7 @@ const System_overview = () => {
       name: "Note",
       selector: (row) => row.note,
       sortable: true,
+      grow: 5,
     },
     {
       name: "วันที่เริ่มต้นสารเคมี",
@@ -80,6 +82,7 @@ const System_overview = () => {
       name: "สถานะ",
       selector: (row) => row.status_check,
       sortable: true,
+      grow: 2,
     },
   ];
 
