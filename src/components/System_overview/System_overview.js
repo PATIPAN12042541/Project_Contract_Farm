@@ -163,12 +163,13 @@ const System_overview = () => {
     // You can also pass a callback to style for additional customization
     {
       when: (row) => row.status_check.includes("Not Success", "Not Found"),
-      style: (row) => ({
-        backgroundColor:
-          row.phone.startsWith("9") || row.phone.startsWith("1")
-            ? "pink"
-            : "inerit",
-      }),
+      style: {
+        backgroundColor: "red",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
     },
   ];
 
