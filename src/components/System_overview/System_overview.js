@@ -36,6 +36,24 @@ const System_overview = () => {
       setFilteredResults(Overview);
     }
   };
+  
+  
+  
+  const headers = [
+    { label: "โซนเพาะปลูก", key: "zone_id" },
+    { label: "ชื่อเเปลง", key: "name_plant" },
+    { label: "วันที่เริ่มต้น", key: "start_date_plant" },
+    { label: "วันที่สิ้นสุด", key: "end_date_plant" },
+    { label: "ผู้รับผิดชอบ", key: "name" },
+    { label: "ชื่อสารเคมี/ปุ๋ย", key: "name_chemical" },
+    { label: "ระยะเวลา", key: "days" },
+    { label: "cc/L", key: "quantity" },
+    { label: "Note", key: "note" },
+    { label: "วันที่เริ่มต้นสารเคมี", key: "date_start" },
+    { label: "วันที่สิ้นสุดสารเคมี", key: "date_end" },
+    { label: "สถานะ", key: "status_check" },
+  ];
+
   //////////////////// End Search /////////////////////////////////
 
   // header columns
@@ -129,7 +147,7 @@ const System_overview = () => {
                   >
                     CSV
                   </button>
-                  <CSVLink data={Overview} headers={columns}>
+                  <CSVLink data={Overview} headers={headers}>
                     Download me
                   </CSVLink>
                   <input
