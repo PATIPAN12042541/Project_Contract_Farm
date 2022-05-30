@@ -146,10 +146,10 @@ const System_overview = () => {
           data-tag="allowRowEvents"
           className={
             row.status_check == "Success"
-              ? row.status_check == "Not Success"
-                ? "NotSuccess"
+              ? row.status_check == "Not Found"
+                ? "NotFound"
                 : "Success"
-              : "NotFound"
+              : "NotSuccess"
           }
         >
           {row.status_check}
