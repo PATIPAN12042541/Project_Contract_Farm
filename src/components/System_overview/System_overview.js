@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
 
   const getOverview = async () => {
@@ -17,6 +18,21 @@ const System_overview = () => {
   useEffect(() => {
     getOverview();
   }, []);
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = Overview.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(Overview);
+    }
+  };
 
   // header columns
   const columns = [
@@ -111,13 +127,23 @@ const System_overview = () => {
                       marginTop: "20px",
                       marginRight: "10px",
                     }}
+                    onChange={(e) => searchItems(e.target.value)}
                   />
-                  <DataTable
-                    columns={columns}
-                    data={Overview}
-                    fixedHeader
-                    pagination
-                  />
+                  {searchInput.length > 1 ? (
+                    <DataTable
+                      columns={columns}
+                      data={filteredResults}
+                      fixedHeader
+                      pagination
+                    />
+                  ) : (
+                    <DataTable
+                      columns={columns}
+                      data={Overview}
+                      fixedHeader
+                      pagination
+                    />
+                  )}
                 </div>
               </div>
             </div>
