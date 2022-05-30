@@ -13,6 +13,18 @@
     float: right;
 }
 
+.Success {
+    color: green;
+}
+
+
+.NotSuccess {
+    color: red;
+}
+
+.NotFound {
+    color: gray;
+}
 [data-column-id="zone_id"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;

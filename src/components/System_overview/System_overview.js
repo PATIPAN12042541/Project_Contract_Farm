@@ -142,80 +142,20 @@ const System_overview = () => {
       sortable: true,
       grow: 2,
       cell: (row) => (
-        <StyledCell className={getCssClass(row.status_check)}>
+        <div
+          className={
+            typeof row.status_check == "Success"
+              ? row.status_check == "NotSuccess"
+                ? "NotSuccess"
+                : "Success"
+              : "NotFound"
+          }
+        >
           {row.status_check}
-        </StyledCell>
+        </div>
       ),
-      // style: {
-      //   backgroundColor: "#8CC152",
-      //   color: "white",
-      //   "&:hover": {
-      //     cursor: "pointer",
-      //   },
-      // },
-    },
-    // cell : (row) => (
-    //   <StyledCell className={conditionalRowStyles}>
-    //     {row.AdditionalNewCases}
-    //   </StyledCell>
-    //)
-    //},
-  ];
-
-  const conditionalRowStyles = [
-    {
-      when: (row) => row.status_check.includes("Success"),
-      columns: "status_check",
-      style: {
-        backgroundColor: "#8CC152",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      },
-    },
-    // You can also pass a callback to style for additional customization
-    {
-      when: (row) => row.status_check.includes("Not Success"),
-      columns: "status_check",
-      style: {
-        backgroundColor: "pink",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      },
-    },
-    {
-      when: (row) => row.status_check.includes("Not Found"),
-      columns: "status_check",
-      style: {
-        backgroundColor: "gray",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      },
     },
   ];
-
-  const StyledCell = styled.div`
-    &.Success {
-      color: green;
-    }
-    &.NotSuccess {
-      color: red;
-    }
-    &.NotFound {
-      color: gray;
-    }
-  `;
-
-  function getCssClass(value) {
-    if (value === "Success") return "Success";
-    else if (value === "Not Success") return "NotSuccess";
-    return "NotFound";
-  }
 
   return (
     <div className="content-wrapper">
