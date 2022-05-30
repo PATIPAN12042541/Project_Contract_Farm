@@ -149,7 +149,7 @@ const System_overview = () => {
               ? row.status_check == "Not Success"
                 ? "NotSuccess"
                 : "Success"
-              : "NotSuccess"
+              : "NotFound"
           }
         >
           {row.status_check}
