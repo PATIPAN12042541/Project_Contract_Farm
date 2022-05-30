@@ -25,6 +25,8 @@
 .NotFound {
     color: gray;
 }
+
+
 [data-column-id="zone_id"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
