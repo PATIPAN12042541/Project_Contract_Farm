@@ -201,15 +201,13 @@ const System_overview = () => {
 
   const StyledCell = styled.div`
     &.Success {
-      background: green !important;
-      width: 100%;
-      height: 100%;
+      color: green;
     }
     &.NotSuccess {
-      background: orange;
+      color: red;
     }
     &.NotFound {
-      background: red !important;
+      color: gray;
     }
   `;
 
