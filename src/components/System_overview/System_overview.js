@@ -146,24 +146,24 @@ const System_overview = () => {
   const conditionalRowStyles = [
     {
       when: (row) => row.status_check.includes("Success"),
-      style: (row) => ({
+      style: {
         backgroundColor: "#8CC152",
         color: "white",
         "&:hover": {
           cursor: "pointer",
         },
-      }),
+      },
     },
     // You can also pass a callback to style for additional customization
     {
       when: (row) => row.status_check.includes("Not Success"),
-      style: (row) => ({
+      style: {
         backgroundColor: "pink",
         color: "white",
         "&:hover": {
           cursor: "pointer",
         },
-      }),
+      },
     },
     {
       when: (row) => row.status_check.includes("Not Found"),
