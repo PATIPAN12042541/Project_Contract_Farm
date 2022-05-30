@@ -113,7 +113,6 @@ const System_overview = () => {
                     }}
                   />
                   <DataTable
-                    title="ข้อมูลทั้งหมด"
                     columns={columns}
                     data={Overview}
                     fixedHeader
