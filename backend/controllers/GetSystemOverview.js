@@ -4,10 +4,9 @@ export const getSystemOverview = async (req, res) => {
   try {
     const Overview = await db.query(
       "SELECT " +
-        "CASE WHEN plant_detail.id_name_plant IS NULL THEN " +
-        "zone_plant.zone_name " +
-        "ELSE " +
-        "CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
+        "CASE " +
+        "   WHEN plant_detail.id_name_plant IS NOT THEN CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
+        "   ELSE zone_plant.zone_name " +
         "END AS zone_id, " +
         "CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_id," +
         "plant.name_plant," +
@@ -21,9 +20,9 @@ export const getSystemOverview = async (req, res) => {
         "plant_data_detail.date_start," +
         "plant_data_detail.date_end," +
         "CASE " +
-        "WHEN plant_data_detail.status_check = 0 THEN 'Success' " +
-        "WHEN plant_data_detail.status_check IS NULL THEN 'Not Data Found' " +
-        "ELSE 'Not Success' " +
+        "   WHEN plant_data_detail.status_check = 0 THEN 'Success' " +
+        "   WHEN plant_data_detail.status_check IS NULL THEN 'Not Data Found' " +
+        "   ELSE 'Not Success' " +
         "END AS status_check " +
         "FROM zone_plant " +
         "LEFT JOIN plant_detail ON zone_plant.id = plant_detail.id_zone " +
