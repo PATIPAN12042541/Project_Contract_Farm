@@ -23,6 +23,7 @@ const System_overview = () => {
       name: "โซนเพาะปลูก",
       selector: (row) => row.zone_id,
       sortable: true,
+      grow: 2,
     },
     {
       name: "ชื่อเเปลง",
@@ -50,7 +51,7 @@ const System_overview = () => {
       name: "ชื่อสารเคมี/ปุ๋ย",
       selector: (row) => row.name_chemical,
       sortable: true,
-      grow: 2,
+      grow: 5,
     },
     {
       name: "ระยะเวลา",
