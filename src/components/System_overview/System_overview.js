@@ -117,13 +117,14 @@ const System_overview = () => {
       id: "days",
       selector: (row) => row.days,
       sortable: true,
+      grow: 3,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
       },
     },
     {
-      name: "cc/L",
+      name: "CC/L",
       id: "quantity",
       selector: (row) => row.quantity,
       sortable: true,
@@ -144,14 +145,14 @@ const System_overview = () => {
       id: "date_start",
       selector: (row) => row.date_start,
       sortable: true,
-      grow: 3,
+      grow: 5,
     },
     {
       name: "วันที่สิ้นสุดสารเคมี",
       id: "date_end",
       selector: (row) => row.date_end,
       sortable: true,
-      grow: 3,
+      grow: 5,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
