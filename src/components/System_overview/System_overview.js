@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import "./System_overview.css";
+import { CSVLink } from "react-csv";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
@@ -122,8 +123,13 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <button type="submit" className="btn btn-secondary set-position">
-                    CSV
+                  <button
+                    type="submit"
+                    className="btn btn-secondary set-position"
+                  >
+                    <CSVLink data={Overview} headers={columns}>
+                      Download me
+                    </CSVLink>
                   </button>
                   <input
                     className="input-css"
