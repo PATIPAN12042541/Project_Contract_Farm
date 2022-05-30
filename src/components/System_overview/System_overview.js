@@ -152,6 +152,7 @@ const System_overview = () => {
   const conditionalRowStyles = [
     {
       when: (row) => row.status_check.includes("Success"),
+      selector: (row) => row.status_check,
       style: {
         backgroundColor: "#8CC152",
         color: "white",
@@ -163,6 +164,7 @@ const System_overview = () => {
     // You can also pass a callback to style for additional customization
     {
       when: (row) => row.status_check.includes("Not Success"),
+      selector: (row) => row.status_check,
       style: {
         backgroundColor: "pink",
         color: "white",
