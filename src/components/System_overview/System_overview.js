@@ -106,7 +106,7 @@ const System_overview = () => {
                   <input
                     icon="search"
                     placeholder="Search..."
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop: "-10px" }}
                   />
                   <DataTable
                     title="ข้อมูลทั้งหมด"
