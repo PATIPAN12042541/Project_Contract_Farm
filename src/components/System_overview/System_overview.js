@@ -144,8 +144,8 @@ const System_overview = () => {
       cell: (row) => (
         <div
           className={
-            typeof row.status_check === "Success"
-              ? row.status_check === "Not Success"
+            row.status_check == "Success"
+              ? row.status_check == "Not Success"
                 ? "NotSuccess"
                 : "Success"
               : "NotFound"
