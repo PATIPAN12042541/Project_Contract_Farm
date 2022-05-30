@@ -64,7 +64,6 @@ const System_overview = () => {
       selector: (row) => row.zone_id,
       sortable: true,
       grow: 4,
-      
     },
     {
       name: "ชื่อเเปลง",
@@ -79,7 +78,6 @@ const System_overview = () => {
       selector: (row) => row.start_date_plant,
       sortable: true,
       grow: 3,
-      
     },
     {
       name: "วันที่สิ้นสุด",
@@ -94,7 +92,6 @@ const System_overview = () => {
       selector: (row) => row.name,
       sortable: true,
       grow: 3,
-      
     },
     {
       name: "ชื่อสารเคมี/ปุ๋ย",
@@ -109,7 +106,6 @@ const System_overview = () => {
       selector: (row) => row.days,
       sortable: true,
       grow: 3,
-      
     },
     {
       name: "CC/L",
@@ -123,7 +119,6 @@ const System_overview = () => {
       selector: (row) => row.note,
       sortable: true,
       grow: 5,
-     
     },
     {
       name: "วันที่เริ่มต้นสารเคมี",
@@ -138,7 +133,6 @@ const System_overview = () => {
       selector: (row) => row.date_end,
       sortable: true,
       grow: 5,
-     
     },
     {
       name: "สถานะ",
@@ -146,9 +140,43 @@ const System_overview = () => {
       selector: (row) => row.status_check,
       sortable: true,
       grow: 2,
+      cell: (row) => row.status_check.includes("Success"),
     },
   ];
 
+  const conditionalRowStyles = [
+    {
+      when: (row) => row.status_check.includes("Success"),
+      style: (row) => ({
+        backgroundColor: "#8CC152",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      }),
+    },
+    // You can also pass a callback to style for additional customization
+    {
+      when: (row) => row.status_check.includes("Not Success"),
+      style: (row) => ({
+        backgroundColor: "pink",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      }),
+    },
+    {
+      when: (row) => row.status_check.includes("Not Found"),
+      style: {
+        backgroundColor: "gray",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
+    },
+  ];
 
   return (
     <div className="content-wrapper">
@@ -192,6 +220,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -200,6 +229,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
