@@ -15,15 +15,18 @@
 
 .Success {
     color: green;
+    font-weight: bold;
 }
 
 
 .NotSuccess {
     color: red;
+    font-weight: bold;
 }
 
 .NotFound {
     color: gray;
+    font-weight: bold;
 }
 
 
