@@ -5,7 +5,7 @@ export const getSystemOverview = async (req, res) => {
     const Overview = await db.query(
       "SELECT " +
         "CASE " +
-        "   WHEN plant_detail.id_name_plant IS NOT THEN CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
+        "   WHEN plant_detail.id_name_plant IS NOT NULL THEN CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
         "   ELSE zone_plant.zone_name " +
         "END AS zone_id, " +
         "CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_id," +
