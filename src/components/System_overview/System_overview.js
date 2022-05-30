@@ -145,7 +145,7 @@ const System_overview = () => {
         <div
           className={
             typeof row.status_check == "Success"
-              ? row.status_check == "NotSuccess"
+              ? row.status_check == "Not Success"
                 ? "NotSuccess"
                 : "Success"
               : "NotFound"
@@ -199,7 +199,6 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      //conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -208,7 +207,6 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      // conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
