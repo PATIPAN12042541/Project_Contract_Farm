@@ -166,7 +166,7 @@ const System_overview = () => {
                 <div className="card-body">
                   <div className="row right">
                     <input
-                      className="input-css"
+                      className="input-css col-4"
                       icon="search"
                       placeholder="Search..."
                       onChange={(e) => searchItems(e.target.value)}
