@@ -140,19 +140,26 @@ const System_overview = () => {
       selector: (row) => row.status_check,
       sortable: true,
       grow: 2,
-      style: {
-        backgroundColor: "#8CC152",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      },
+      // style: {
+      //   backgroundColor: "#8CC152",
+      //   color: "white",
+      //   "&:hover": {
+      //     cursor: "pointer",
+      //   },
+      // },
     },
+    // cell : (row) => (
+    //   <StyledCell className={conditionalRowStyles}>
+    //     {row.AdditionalNewCases}
+    //   </StyledCell>
+    //)
+    //},
   ];
 
   const conditionalRowStyles = [
     {
       when: (row) => row.status_check.includes("Success"),
+      columns: "status_check",
       style: {
         backgroundColor: "#8CC152",
         color: "white",
@@ -164,6 +171,7 @@ const System_overview = () => {
     // You can also pass a callback to style for additional customization
     {
       when: (row) => row.status_check.includes("Not Success"),
+      columns: "status_check",
       style: {
         backgroundColor: "pink",
         color: "white",
@@ -174,6 +182,7 @@ const System_overview = () => {
     },
     {
       when: (row) => row.status_check.includes("Not Found"),
+      columns: "status_check",
       style: {
         backgroundColor: "gray",
         color: "white",
@@ -226,7 +235,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      // conditionalRowStyles={conditionalRowStyles}
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -235,7 +244,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      // conditionalRowStyles={conditionalRowStyles}
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
