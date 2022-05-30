@@ -153,7 +153,7 @@ const System_overview = () => {
     {
       when: (row) => row.status_check.includes("Success"),
       style: {
-        backgroundColor: "green",
+        backgroundColor: "#8CC152",
         color: "white",
         "&:hover": {
           cursor: "pointer",
@@ -162,9 +162,19 @@ const System_overview = () => {
     },
     // You can also pass a callback to style for additional customization
     {
-      when: (row) => row.status_check.includes("Not Success", "Not Found"),
+      when: (row) => row.status_check.includes("Not Success"),
       style: {
-        backgroundColor: "red",
+        backgroundColor: "pink",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
+    },
+    {
+      when: (row) => row.status_check.includes("Not Found"),
+      style: {
+        backgroundColor: "gray",
         color: "white",
         "&:hover": {
           cursor: "pointer",
