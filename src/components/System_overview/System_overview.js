@@ -197,21 +197,23 @@ const System_overview = () => {
                       </CSVLink>
                     </button>
                   </div>
-                  {searchInput.length > 1 ? (
-                    <DataTable
-                      columns={columns}
-                      data={filteredResults}
-                      fixedHeader
-                      pagination
-                    />
-                  ) : (
-                    <DataTable
-                      columns={columns}
-                      data={Overview}
-                      fixedHeader
-                      pagination
-                    />
-                  )}
+                  <div className="row">
+                    {searchInput.length > 1 ? (
+                      <DataTable
+                        columns={columns}
+                        data={filteredResults}
+                        fixedHeader
+                        pagination
+                      />
+                    ) : (
+                      <DataTable
+                        columns={columns}
+                        data={Overview}
+                        fixedHeader
+                        pagination
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
