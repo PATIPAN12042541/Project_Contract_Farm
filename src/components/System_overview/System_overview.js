@@ -149,6 +149,30 @@ const System_overview = () => {
     },
   ];
 
+  const conditionalRowStyles = [
+    {
+      when: (row) => row.status_check.includes("Success"),
+      style: {
+        backgroundColor: "green",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
+    },
+    // You can also pass a callback to style for additional customization
+    {
+      when: (row) => row.status_check.includes("Not Success", "Not Found"),
+      style: (row) => ({
+        backgroundColor:
+          row.phone.startsWith("9") || row.phone.startsWith("1")
+            ? "pink"
+            : "inerit",
+      }),
+    },
+  ];
+
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -190,6 +214,8 @@ const System_overview = () => {
                       data={filteredResults}
                       fixedHeader
                       pagination
+                      highlightOnHover
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -197,6 +223,8 @@ const System_overview = () => {
                       data={Overview}
                       fixedHeader
                       pagination
+                      highlightOnHover
+                      conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
