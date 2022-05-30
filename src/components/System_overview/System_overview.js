@@ -63,7 +63,7 @@ const System_overview = () => {
       id: "zone_id",
       selector: (row) => row.zone_id,
       sortable: true,
-      grow: 5,
+      grow: 4,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
