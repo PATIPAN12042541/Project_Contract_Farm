@@ -20,7 +20,7 @@ export const getSystemOverview = async (req, res) => {
         "plant_data_detail.date_end," +
         "CASE " +
         "   WHEN plant_data_detail.status_check = 0 THEN 'Success' " +
-        "   WHEN plant_data_detail.status_check IS NULL THEN 'Not Data Found' " +
+        "   WHEN plant_data_detail.status_check IS NULL THEN 'Not Found' " +
         "   ELSE 'Not Success' " +
         "END AS status_check " +
         "FROM zone_plant " +
