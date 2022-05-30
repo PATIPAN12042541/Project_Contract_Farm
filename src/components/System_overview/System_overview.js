@@ -140,7 +140,6 @@ const System_overview = () => {
       selector: (row) => row.status_check,
       sortable: true,
       grow: 2,
-      cell: (row) => row.status_check.includes("Success"),
     },
   ];
 
