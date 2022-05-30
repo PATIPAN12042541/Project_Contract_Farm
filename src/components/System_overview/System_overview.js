@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
 
   const getOverview = async () => {
     const overview = await axios.get(
@@ -100,6 +101,7 @@ const System_overview = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
+              <input icon="search" placeholder="Search..." />
               <div className="card">
                 <div className="card-body table-responsive p-0">
                   <DataTable
