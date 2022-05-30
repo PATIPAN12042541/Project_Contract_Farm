@@ -60,6 +60,7 @@ const System_overview = () => {
   const columns = [
     {
       name: "โซนเพาะปลูก",
+      id: "zone_id",
       selector: (row) => row.zone_id,
       sortable: true,
       grow: 2,
@@ -70,12 +71,14 @@ const System_overview = () => {
     },
     {
       name: "ชื่อเเปลง",
+      id: "name_plant",
       selector: (row) => row.name_plant,
       sortable: true,
       grow: 3,
     },
     {
       name: "วันที่เริ่มต้น",
+      id: "start_date_plant",
       selector: (row) => row.start_date_plant,
       sortable: true,
       style: {
@@ -85,11 +88,13 @@ const System_overview = () => {
     },
     {
       name: "วันที่สิ้นสุด",
+      id: "end_date_plant",
       selector: (row) => row.end_date_plant,
       sortable: true,
     },
     {
       name: "ผู้รับผิดชอบ",
+      id: "name",
       selector: (row) => row.name,
       sortable: true,
       grow: 3,
@@ -100,12 +105,14 @@ const System_overview = () => {
     },
     {
       name: "ชื่อสารเคมี/ปุ๋ย",
+      id: "name_chemical",
       selector: (row) => row.name_chemical,
       sortable: true,
       grow: 5,
     },
     {
       name: "ระยะเวลา",
+      id: "days",
       selector: (row) => row.days,
       sortable: true,
       style: {
@@ -115,11 +122,13 @@ const System_overview = () => {
     },
     {
       name: "cc/L",
+      id: "quantity",
       selector: (row) => row.quantity,
       sortable: true,
     },
     {
       name: "Note",
+      id: "note",
       selector: (row) => row.note,
       sortable: true,
       grow: 5,
@@ -130,11 +139,13 @@ const System_overview = () => {
     },
     {
       name: "วันที่เริ่มต้นสารเคมี",
+      id: "date_start",
       selector: (row) => row.date_start,
       sortable: true,
     },
     {
       name: "วันที่สิ้นสุดสารเคมี",
+      id: "date_end",
       selector: (row) => row.date_end,
       sortable: true,
       style: {
@@ -144,6 +155,7 @@ const System_overview = () => {
     },
     {
       name: "สถานะ",
+      id: "status_check",
       selector: (row) => row.status_check,
       sortable: true,
       grow: 2,
