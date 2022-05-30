@@ -4,10 +4,11 @@ export const getSystemOverview = async (req, res) => {
   try {
     const Overview = await db.query(
       "SELECT " +
-        "CASE " +
-        "   WHEN plant_detail.id_name_plant IS NOT NULL THEN CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
-        "   ELSE zone_plant.zone_name " +
-        "END AS zone_id, " +
+        "zone_plant.zone_name as zone_id " +
+        // "CASE " +
+        // "   WHEN plant_detail.id_name_plant IS NOT NULL THEN CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) " +
+        // "   ELSE zone_plant.zone_name " +
+        // "END AS zone_id, " +
         "CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_id," +
         "plant.name_plant," +
         "plant.start_date_plant," +
