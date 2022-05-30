@@ -166,7 +166,7 @@ const System_overview = () => {
                 <div className="card-body">
                   <div className="row right">
                     <input
-                      className="input-css col-6"
+                      className="input-css"
                       icon="search"
                       placeholder="Search..."
                       onChange={(e) => searchItems(e.target.value)}
@@ -180,7 +180,8 @@ const System_overview = () => {
                         headers={headers}
                         style={{ color: "#ffffff" }}
                       >
-                        Download CSV
+                        {" "}
+                        CSV
                       </CSVLink>
                     </button>
                   </div>
