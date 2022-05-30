@@ -106,6 +106,7 @@ const System_overview = () => {
                     title="ข้อมูลทั้งหมด"
                     columns={columns}
                     data={Overview}
+                    fixedHeader
                     pagination
                   />
                 </div>
