@@ -144,7 +144,13 @@ const System_overview = () => {
       cell: (row) => (
         <div
           data-tag="allowRowEvents"
-          // className={row.status_check == "Success" ? "Success" : "NotSuccess"}
+          className={
+            row.status_check == "Success"
+              ? row.status_check == "Not Success"
+                ? "NotSuccess"
+                : "Success"
+              : "NotSuccess"
+          }
         >
           {row.status_check}
         </div>
