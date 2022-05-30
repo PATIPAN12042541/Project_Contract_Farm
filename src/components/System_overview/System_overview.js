@@ -145,8 +145,8 @@ const System_overview = () => {
         <div
           data-tag="allowRowEvents"
           className={
-            row.status_check == "Success"
-              ? row.status_check == "Not Found"
+            row.status_check === "Success"
+              ? row.status_check === "Not Found"
                 ? "NotFound"
                 : "Success"
               : "NotSuccess"
