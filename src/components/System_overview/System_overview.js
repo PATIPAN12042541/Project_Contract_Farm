@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
+import "./System_overview.css";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
@@ -120,13 +121,9 @@ const System_overview = () => {
               <div className="card">
                 <div className="card-body table-responsive p-0">
                   <input
+                    className="input-css"
                     icon="search"
                     placeholder="Search..."
-                    style={{
-                      float: "right",
-                      marginTop: "20px",
-                      marginRight: "10px",
-                    }}
                     onChange={(e) => searchItems(e.target.value)}
                   />
                   {searchInput.length > 1 ? (
