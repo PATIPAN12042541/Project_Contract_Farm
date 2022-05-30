@@ -45,7 +45,7 @@ const System_overview = () => {
       name: "ผู้รับผิดชอบ",
       selector: (row) => row.name,
       sortable: true,
-      grow: 2,
+      grow: 4,
     },
     {
       name: "ชื่อสารเคมี/ปุ๋ย",
