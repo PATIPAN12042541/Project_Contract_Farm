@@ -63,7 +63,7 @@ const System_overview = () => {
       id: "zone_id",
       selector: (row) => row.zone_id,
       sortable: true,
-      grow: 2,
+      grow: 3,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
@@ -81,6 +81,7 @@ const System_overview = () => {
       id: "start_date_plant",
       selector: (row) => row.start_date_plant,
       sortable: true,
+      grow: 3,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
@@ -91,6 +92,7 @@ const System_overview = () => {
       id: "end_date_plant",
       selector: (row) => row.end_date_plant,
       sortable: true,
+      grow: 3,
     },
     {
       name: "ผู้รับผิดชอบ",
@@ -142,12 +144,14 @@ const System_overview = () => {
       id: "date_start",
       selector: (row) => row.date_start,
       sortable: true,
+      grow: 3,
     },
     {
       name: "วันที่สิ้นสุดสารเคมี",
       id: "date_end",
       selector: (row) => row.date_end,
       sortable: true,
+      grow: 3,
       style: {
         backgroundColor: "#8CC152",
         color: "#FFFFFF",
