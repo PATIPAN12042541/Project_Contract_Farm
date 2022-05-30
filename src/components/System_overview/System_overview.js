@@ -20,6 +20,7 @@ const System_overview = () => {
     getOverview();
   }, []);
 
+  //////////////////// Start Search /////////////////////////////////
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
     if (searchInput !== "") {
@@ -34,6 +35,7 @@ const System_overview = () => {
       setFilteredResults(Overview);
     }
   };
+  //////////////////// End Search /////////////////////////////////
 
   // header columns
   const columns = [
@@ -120,6 +122,7 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
+                  <button type="button">CSV</button>
                   <input
                     className="input-css"
                     icon="search"
@@ -130,6 +133,7 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={filteredResults}
+                      actions={actionsMemo}
                       fixedHeader
                       pagination
                     />
@@ -137,6 +141,7 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={Overview}
+                      actions={actionsMemo}
                       fixedHeader
                       pagination
                     />
