@@ -133,7 +133,6 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={filteredResults}
-                      actions={actionsMemo}
                       fixedHeader
                       pagination
                     />
@@ -141,7 +140,6 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={Overview}
-                      actions={actionsMemo}
                       fixedHeader
                       pagination
                     />
