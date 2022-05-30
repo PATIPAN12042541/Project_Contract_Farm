@@ -140,6 +140,13 @@ const System_overview = () => {
       selector: (row) => row.status_check,
       sortable: true,
       grow: 2,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "white",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
     },
   ];
 
@@ -219,7 +226,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      conditionalRowStyles={conditionalRowStyles}
+                      // conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -228,7 +235,7 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      conditionalRowStyles={conditionalRowStyles}
+                      // conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
