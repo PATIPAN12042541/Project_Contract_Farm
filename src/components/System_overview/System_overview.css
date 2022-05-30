@@ -70,17 +70,17 @@
 [data-column-id="date_start"].rdt_TableCol {
     background-color: #8CC152;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 [data-column-id="date_end"].rdt_TableCol {
     background-color: #8CC152;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 [data-column-id="status_check"].rdt_TableCol {
     background-color: #8CC152;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 14px;
 }
