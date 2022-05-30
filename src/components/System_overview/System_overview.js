@@ -29,7 +29,7 @@ const System_overview = () => {
       name: "ชื่อเเปลง",
       selector: (row) => row.name_plant,
       sortable: true,
-      grow: 2,
+      grow: 3,
     },
     {
       name: "วันที่เริ่มต้น",
