@@ -141,7 +141,13 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <button
+                  <input
+                    className="input-css"
+                    icon="search"
+                    placeholder="Search..."
+                    onChange={(e) => searchItems(e.target.value)}
+                  />
+                   <button
                     type="submit"
                     className="btn btn-secondary set-position"
                   >
@@ -150,15 +156,9 @@ const System_overview = () => {
                       headers={headers}
                       style={{ color: "#ffffff" }}
                     >
-                      Download me
+                      Download CSV
                     </CSVLink>
                   </button>
-                  <input
-                    className="input-css"
-                    icon="search"
-                    placeholder="Search..."
-                    onChange={(e) => searchItems(e.target.value)}
-                  />
                   {searchInput.length > 1 ? (
                     <DataTable
                       columns={columns}
