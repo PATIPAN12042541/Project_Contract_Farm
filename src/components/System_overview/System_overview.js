@@ -101,9 +101,9 @@ const System_overview = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <input icon="search" placeholder="Search..." />
               <div className="card">
                 <div className="card-body table-responsive p-0">
+                  <input icon="search" placeholder="Search..." />
                   <DataTable
                     title="ข้อมูลทั้งหมด"
                     columns={columns}
