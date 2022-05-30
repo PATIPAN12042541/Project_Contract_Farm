@@ -149,42 +149,6 @@ const System_overview = () => {
     },
   ];
 
-  const conditionalRowStyles = [
-    {
-      when: (row) => row.status_check.includes("Success"),
-      selector: (row) => row.status_check,
-      style: (row) => ({
-        backgroundColor: "#8CC152",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      }),
-    },
-    // You can also pass a callback to style for additional customization
-    {
-      when: (row) => row.status_check.includes("Not Success"),
-      selector: (row) => row.status_check,
-      style: (row) => ({
-        backgroundColor: "pink",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      }),
-    },
-    {
-      when: (row) => row.status_check.includes("Not Found"),
-      style: {
-        backgroundColor: "gray",
-        color: "white",
-        "&:hover": {
-          cursor: "pointer",
-        },
-      },
-    },
-  ];
-
 
   return (
     <div className="content-wrapper">
@@ -228,7 +192,6 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      conditionalRowStyles={conditionalRowStyles}
                     />
                   ) : (
                     <DataTable
@@ -237,7 +200,6 @@ const System_overview = () => {
                       fixedHeader
                       pagination
                       highlightOnHover
-                      conditionalRowStyles={conditionalRowStyles}
                     />
                   )}
                 </div>
