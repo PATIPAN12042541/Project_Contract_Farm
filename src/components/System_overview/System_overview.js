@@ -78,6 +78,10 @@ const System_overview = () => {
       name: "วันที่เริ่มต้น",
       selector: (row) => row.start_date_plant,
       sortable: true,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "วันที่สิ้นสุด",
@@ -89,6 +93,10 @@ const System_overview = () => {
       selector: (row) => row.name,
       sortable: true,
       grow: 3,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "ชื่อสารเคมี/ปุ๋ย",
@@ -100,6 +108,10 @@ const System_overview = () => {
       name: "ระยะเวลา",
       selector: (row) => row.days,
       sortable: true,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "cc/L",
@@ -111,6 +123,10 @@ const System_overview = () => {
       selector: (row) => row.note,
       sortable: true,
       grow: 5,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "วันที่เริ่มต้นสารเคมี",
@@ -121,6 +137,10 @@ const System_overview = () => {
       name: "วันที่สิ้นสุดสารเคมี",
       selector: (row) => row.date_end,
       sortable: true,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "สถานะ",
