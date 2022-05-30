@@ -11,3 +11,62 @@
     float: right;
 }
 
+[data-column-id="zone_id"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="name_plant"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="start_date_plant"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="end_date_plant"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="name"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="name_chemical"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="days"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="quantity"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="note"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="date_start"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="date_end"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
+
+[data-column-id="status_check"].rdt_TableCol {
+    background-color: #8CC152;
+    color: #FFFFFF;
+}
