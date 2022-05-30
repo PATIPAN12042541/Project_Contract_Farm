@@ -163,7 +163,7 @@ const System_overview = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="card">
-                <div className="card-body table-responsive p-0">
+                <div className="card-body">
                   <div className="row right">
                     <input
                       className="input-css"
@@ -184,21 +184,21 @@ const System_overview = () => {
                       </CSVLink>
                     </button>
                   </div>
-                    {searchInput.length > 1 ? (
-                      <DataTable
-                        columns={columns}
-                        data={filteredResults}
-                        fixedHeader
-                        pagination
-                      />
-                    ) : (
-                      <DataTable
-                        columns={columns}
-                        data={Overview}
-                        fixedHeader
-                        pagination
-                      />
-                    )}
+                  {searchInput.length > 1 ? (
+                    <DataTable
+                      columns={columns}
+                      data={filteredResults}
+                      fixedHeader
+                      pagination
+                    />
+                  ) : (
+                    <DataTable
+                      columns={columns}
+                      data={Overview}
+                      fixedHeader
+                      pagination
+                    />
+                  )}
                 </div>
               </div>
             </div>
