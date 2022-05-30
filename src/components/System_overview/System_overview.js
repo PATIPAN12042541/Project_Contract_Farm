@@ -145,11 +145,10 @@ const System_overview = () => {
                     type="submit"
                     className="btn btn-secondary set-position"
                   >
-                    CSV
-                  </button>
-                  <CSVLink data={Overview} headers={headers}>
+                   <CSVLink data={Overview} headers={headers}>
                     Download me
                   </CSVLink>
+                  </button>
                   <input
                     className="input-css"
                     icon="search"
