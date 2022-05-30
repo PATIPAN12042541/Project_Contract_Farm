@@ -197,7 +197,6 @@ const System_overview = () => {
                       </CSVLink>
                     </button>
                   </div>
-                  <div className="row">
                     {searchInput.length > 1 ? (
                       <DataTable
                         columns={columns}
@@ -213,7 +212,6 @@ const System_overview = () => {
                         pagination
                       />
                     )}
-                  </div>
                 </div>
               </div>
             </div>
