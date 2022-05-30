@@ -140,7 +140,7 @@ const System_overview = () => {
       id: "status_check",
       selector: (row) => row.status_check,
       sortable: true,
-      grow: 2,
+      grow: 3,
       cell: (row) => (
         <div
           data-tag="allowRowEvents"
