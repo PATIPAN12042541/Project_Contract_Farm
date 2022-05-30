@@ -103,7 +103,11 @@ const System_overview = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-body table-responsive p-0">
-                  <input icon="search" placeholder="Search..." />
+                  <input
+                    icon="search"
+                    placeholder="Search..."
+                    style={{ float: "right" }}
+                  />
                   <DataTable
                     title="ข้อมูลทั้งหมด"
                     columns={columns}
