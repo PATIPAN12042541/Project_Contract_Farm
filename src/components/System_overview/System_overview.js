@@ -166,7 +166,7 @@ const System_overview = () => {
                       columns={columns}
                       data={filteredResults}
                       fixedHeader
-                      pagination={15}
+                      pagination
                       dense
                     />
                   ) : (
@@ -174,7 +174,7 @@ const System_overview = () => {
                       columns={columns}
                       data={Overview}
                       fixedHeader
-                      pagination={15}
+                      pagination
                       dense
                     />
                   )}
