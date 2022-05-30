@@ -145,9 +145,13 @@ const System_overview = () => {
                     type="submit"
                     className="btn btn-secondary set-position"
                   >
-                   <CSVLink data={Overview} headers={headers}>
-                    Download me
-                  </CSVLink>
+                    <CSVLink
+                      data={Overview}
+                      headers={headers}
+                      style={{ color: "#ffffff" }}
+                    >
+                      Download me
+                    </CSVLink>
                   </button>
                   <input
                     className="input-css"
