@@ -63,6 +63,10 @@ const System_overview = () => {
       selector: (row) => row.zone_id,
       sortable: true,
       grow: 2,
+      style: {
+        backgroundColor: "#8CC152",
+        color: "#FFFFFF",
+      },
     },
     {
       name: "ชื่อเเปลง",
@@ -167,7 +171,6 @@ const System_overview = () => {
                       data={filteredResults}
                       fixedHeader
                       pagination
-                      dense
                     />
                   ) : (
                     <DataTable
@@ -175,7 +178,6 @@ const System_overview = () => {
                       data={Overview}
                       fixedHeader
                       pagination
-                      dense
                     />
                   )}
                 </div>
