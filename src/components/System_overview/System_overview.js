@@ -3,30 +3,23 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import "./System_overview.css";
 import { CSVLink } from "react-csv";
-import styled from "styled-components";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-
-  const [pending, setPending] = React.useState(true);
-  const [rows, setRows] = React.useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getOverview = async () => {
     const overview = await axios.get(
       `${process.env.REACT_APP_API_URL}/OverView`
     );
     setOverview(overview.data);
+    setLoading(false);
   };
 
   useEffect(() => {
     getOverview();
-    const timeout = setTimeout(() => {
-      setRows(Overview);
-      setPending(false);
-    }, 2000);
-    return () => clearTimeout(timeout);
   }, []);
 
   //////////////////// Start Search /////////////////////////////////
@@ -203,6 +196,7 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={filteredResults}
+                      progressPending={loading}
                       fixedHeader
                       pagination
                       highlightOnHover
@@ -211,6 +205,7 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={Overview}
+                      progressPending={loading}
                       fixedHeader
                       pagination
                       highlightOnHover
