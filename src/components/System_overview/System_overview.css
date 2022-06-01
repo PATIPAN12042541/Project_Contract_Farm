@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Maitree:wght@600&display=swap');
+
 .input-css {
     margin-top: 20px;
     margin-right: 10px;
@@ -17,30 +17,30 @@
 
 .Success {
     color: green;
+    text-align: center;
         border: 1px solid green;
-            padding: 0.01em 16px;
-            border-radius: 16px;
+            padding: 0.01em 14px;
+                border-radius: 14px;
     font-weight: bold;
-    font-family: 'Maitree', serif;
 }
 
 
 .NotSuccess {
     color: red;
+    text-align: center;
     border: 1px solid red;
-        padding: 0.01em 16px;
-        border-radius: 16px;
+        padding: 0.01em 14px;
+            border-radius: 14px;
     font-weight: bold;
-    font-family: 'Maitree', serif;
 }
 
 .NotFound {
     color: gray;
+    text-align: center;
     border: 1px solid gray;
-        padding: 0.01em 16px;
-        border-radius: 16px;
+        padding: 0.01em 14px;
+            border-radius: 14px;
     font-weight: bold;
-    font-family: 'Maitree', serif;
 }
 
 

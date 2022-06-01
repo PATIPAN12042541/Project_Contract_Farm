@@ -2,20 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import "./System_overview.css";
-import { CSVLink } from "react-csv";
+import { CSVLink, CSVDownload } from "react-csv";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const getOverview = async () => {
     const overview = await axios.get(
       `${process.env.REACT_APP_API_URL}/OverView`
     );
     setOverview(overview.data);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -53,6 +51,51 @@ const System_overview = () => {
     { label: "สถานะ", key: "status_check" },
   ];
 
+  const datatest = [
+    {
+      zone_id: "A1-1",
+      name_plant: "แปลงกระเพรา",
+      start_date_plant: "2022-05-01",
+      end_date_plant: "2022-06-01",
+      name: "นาย A นามสกุล B",
+      name_chemical: "โพวาธอท",
+      days: "31 วัน",
+      quantity: "1cc : 8L",
+      note: "-",
+      date_start: "2022-05-01",
+      date_end: "2022-06-01",
+      status_check: "Success",
+    },
+    {
+      zone_id: "A1-2",
+      name_plant: "แปลงมะเขือ",
+      start_date_plant: "2022-05-01",
+      end_date_plant: "2022-06-01",
+      name: "นาย C นามสกุล B",
+      name_chemical: "โพวาธอท",
+      days: "31 วัน",
+      quantity: "2cc : 4L",
+      note: "-",
+      date_start: "2022-05-01",
+      date_end: "2022-06-01",
+      status_check: "Not Success",
+    },
+    {
+      zone_id: "A1-3",
+      name_plant: "",
+      start_date_plant: "",
+      end_date_plant: "",
+      name: "",
+      name_chemical: "",
+      days: "",
+      quantity: "",
+      note: "",
+      date_start: "",
+      date_end: "",
+      status_check: "Not Found",
+    },
+  ];
+
   //////////////////// End Search /////////////////////////////////
 
   // header columns
@@ -69,7 +112,7 @@ const System_overview = () => {
       id: "name_plant",
       selector: (row) => row.name_plant,
       sortable: true,
-      grow: 3,
+      grow: 4,
     },
     {
       name: "วันที่เริ่มต้น",
@@ -104,10 +147,10 @@ const System_overview = () => {
       id: "days",
       selector: (row) => row.days,
       sortable: true,
-      grow: 3,
+      grow: 2,
     },
     {
-      name: "CC/L",
+      name: "CC:L",
       id: "quantity",
       selector: (row) => row.quantity,
       sortable: true,
@@ -138,7 +181,7 @@ const System_overview = () => {
       id: "status_check",
       selector: (row) => row.status_check,
       sortable: true,
-      grow: 3,
+      grow: 5,
       cell: (row) => (
         <div
           data-tag="allowRowEvents"
@@ -184,8 +227,10 @@ const System_overview = () => {
                       className="btn btn-secondary set-position"
                     >
                       <CSVLink
-                        data={Overview}
+                        data={datatest}
                         headers={headers}
+                        filename="Contract_Farmming.csv"
+                        target="_blank"
                         style={{ color: "#ffffff" }}
                       >
                         Download CSV
@@ -196,7 +241,6 @@ const System_overview = () => {
                     <DataTable
                       columns={columns}
                       data={filteredResults}
-                      progressPending={loading}
                       fixedHeader
                       pagination
                       highlightOnHover
@@ -204,8 +248,7 @@ const System_overview = () => {
                   ) : (
                     <DataTable
                       columns={columns}
-                      data={Overview}
-                      progressPending={loading}
+                      data={datatest}
                       fixedHeader
                       pagination
                       highlightOnHover
