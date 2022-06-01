@@ -31,7 +31,7 @@ export const getSystemOverview = async (req, res) => {
         "LEFT JOIN name_chemical ON plant_data_detail.id_name_chemical = name_chemical.id " +
         "LEFT JOIN residual_period_chemical ON plant_data_detail.id_residual_period = residual_period_chemical.id ",
       {
-        replacements: { zone_plant_id: req.params.id },
+        // replacements: { zone_plant_id: req.params.id },
         type: db.QueryTypes.SELECT,
       }
     );
