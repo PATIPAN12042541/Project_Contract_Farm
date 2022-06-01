@@ -23,6 +23,7 @@ import Update_Chemical from "./components/Chemical/Update_Chemical.js";
 import ListTypeUser from "./components/TypeUser/ListTypeUser.js";
 import AddTypeUser from "./components/TypeUser/AddTypeUser.js";
 import UpdateTypeUser from "./components/TypeUser/UpdateTypeUser.js";
+import "./App.css";
 
 function App() {
   return (
