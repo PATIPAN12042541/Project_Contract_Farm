@@ -10,16 +10,23 @@ const System_overview = () => {
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
 
+  const [pending, setPending] = React.useState(true);
+  const [rows, setRows] = React.useState([]);
+
   const getOverview = async () => {
     const overview = await axios.get(
       `${process.env.REACT_APP_API_URL}/OverView`
     );
     setOverview(overview.data);
-    console.log(overview.data);
   };
 
   useEffect(() => {
     getOverview();
+    const timeout = setTimeout(() => {
+      setRows(Overview);
+      setPending(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
   }, []);
 
   //////////////////// Start Search /////////////////////////////////
@@ -37,9 +44,7 @@ const System_overview = () => {
       setFilteredResults(Overview);
     }
   };
-  
-  
-  
+
   const headers = [
     { label: "โซนเพาะปลูก", key: "zone_id" },
     { label: "ชื่อเเปลง", key: "name_plant" },
@@ -144,6 +149,7 @@ const System_overview = () => {
       cell: (row) => (
         <div
           data-tag="allowRowEvents"
+          variant="outlined"
           className={
             row.status_check === "Success"
               ? "Success"
