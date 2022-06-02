@@ -1,43 +1,63 @@
 import React from "react";
 import Zoom from "react-medium-image-zoom";
+import "./CSS/Detail.css";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 const Detail = () => {
   const image_url = [
     {
       id: "1",
-      url: "../dist/img/insecticide/Pic_1.png",
+      url: "../dist/img/insecticide/พรีวาทอน.png",
+      name_chemical: "พรีวาทอน",
+      eu_mrl: "20",
     },
     {
       id: "2",
-      url: "../dist/img/insecticide/Pic_2.png",
+      url: "../dist/img/insecticide/เอ็กซอล.jpg",
+      name_chemical: "เอ็กซอล",
+      eu_mrl: "4",
     },
     {
       id: "3",
-      url: "../dist/img/insecticide/Pic_3.png",
+      url: "../dist/img/insecticide/อะบาเเมคติน.png",
+      name_chemical: "อะบาเเมกติน",
+      eu_mrl: "2",
     },
     {
       id: "4",
-      url: "../dist/img/insecticide/Pic_4.png",
+      url: "../dist/img/insecticide/Bacillus sustilis.png",
+      name_chemical: "Bacillus thuringiensis",
+      eu_mrl: "0",
     },
     {
       id: "5",
-      url: "../dist/img/insecticide/Pic_5.png",
+      url: "../dist/img/insecticide/Azoxystrobin.png  ",
+      name_chemical: "อมิสตา",
+      eu_mrl: "7",
     },
     {
       id: "6",
-      url: "../dist/img/insecticide/Pic_6.png",
+      url: "../dist/img/insecticide/Mancozeb.png",
+      name_chemical: "แมนโคเซบ",
+      eu_mrl: "5",
     },
     {
       id: "7",
-      url: "../dist/img/insecticide/Pic_7.png",
+      url: "../dist/img/insecticide/Fosetyl-Al.jpg",
+      name_chemical: "อาลีเอท",
+      eu_mrl: "75",
     },
     {
       id: "8",
-      url: "../dist/img/insecticide/Pic_8.png",
+      url: "../dist/img/insecticide/DimethomorphEu.jpg",
+      name_chemical: "ไดออฟ",
+      eu_mrl: "10",
     },
     {
       id: "9",
-      url: "../dist/img/insecticide/Pic_9.png",
+      url: "../dist/img/insecticide/Bacillus sustilis.png",
+      name_chemical: "Bacillus sustillis",
+      eu_mrl: "0",
     },
   ];
 
@@ -69,14 +89,24 @@ const Detail = () => {
                 <div className="card-body">
                   <div className="row">
                     {image_url.map((data) => (
-                      <div className="col-sm-2" key={data.id}>
-                        <Zoom>
+                      <div
+                        className="col-md-12 col-lg-6 col-xl-3"
+                        key={data.id}
+                      >
+                        <div className="card mb-2 container">
+                          <div className="overlay">
+                            <div className="name">{data.name_chemical}</div>
+                            <div className="eu-mrl">
+                              {"Eu-MRL : " + data.eu_mrl}
+                            </div>
+                          </div>
                           <img
+                            className="img-set"
                             src={data.url}
-                            className="img-fluid mb-2"
-                            alt="white sample"
+                            width={250}
+                            height={300}
                           />
-                        </Zoom>
+                        </div>
                       </div>
                     ))}
                   </div>

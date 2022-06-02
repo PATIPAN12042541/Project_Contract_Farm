@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@1,700&display=swap');
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 1);
+    /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    font-family: 'Gentium Plus', serif !important;
+    font-weight: bold;
+}
+
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.eu-mrl {
+    position: absolute;
+    /* background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); */
+    color: black;
+    bottom: 110px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.name {
+    position: absolute;
+    /* background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); */
+    color: black;
+    bottom: 150px;
+    font-size: 28px;
+    text-align: center;
+}
