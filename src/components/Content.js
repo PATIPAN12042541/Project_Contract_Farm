@@ -45,7 +45,6 @@ const Content = () => {
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
                         <Link
-                          //to={`/Data_detail/${data.id}`}
                           to={{
                             pathname: `/Data_detail/${data.id}`,
                             state: { id: data.id },
@@ -67,7 +66,6 @@ const Content = () => {
                                 <ImageListItemBar
                                   className="card-title text-primary text-white"
                                   title={"Zone " + data.zone_name}
-                                  //subtitle={data.name_plant}
                                 />
                               </center>
                             </div>

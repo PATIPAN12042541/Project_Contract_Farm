@@ -10,7 +10,6 @@ img {
     bottom: 0;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 1);
-    /* Black see-through */
     color: #f1f1f1;
     width: 100%;
     transition: .5s ease;
@@ -19,11 +18,13 @@ img {
     font-weight: bold;
 }
 
-
 .container:hover .overlay {
     opacity: 1;
 }
 
+.container:hover .showName {
+    display: none;
+}
 .eu-mrl {
     position: absolute;
     /* background: rgb(0, 0, 0);
@@ -41,5 +42,17 @@ img {
     color: black;
     bottom: 150px;
     font-size: 28px;
+    text-align: center;
+}
+.showName {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.5);
+    /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
     text-align: center;
 }

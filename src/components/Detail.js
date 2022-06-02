@@ -100,6 +100,7 @@ const Detail = () => {
                               {"Eu-MRL : " + data.eu_mrl}
                             </div>
                           </div>
+                          <div className="showName">{data.name_chemical}</div>
                           <img
                             className="img-set"
                             src={data.url}
