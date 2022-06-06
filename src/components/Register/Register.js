@@ -59,10 +59,10 @@ const Register = () => {
         }
     }
     return (
-      <div className="hold-transition register-page ">
+      <div className="hold-transition register-page bg-img">
         <div className="register-box">
           <div className="register-logo">
-            <b style={{ color: "black" }}>Register</b>
+            <b style={{ color: "#FFFF" }}>Register</b>
           </div>
           <div className="card">
             <div className="card-body register-card-body">
@@ -150,13 +150,13 @@ const Register = () => {
                 </div>
                 <div className="row">
                   <div className="col-4">
-                    <button type="submit" className="btn btn-primary btn-block">
+                    <button type="submit" className="btn btn-primary">
                       Register
                     </button>
                   </div>
                   <div className="col-4">
                     <a href="/">
-                      <button type="button" className="btn btn-info btn-block">
+                      <button type="button" className="btn btn-info">
                         Back
                       </button>
                     </a>

@@ -4,7 +4,6 @@ import { useNavigate  } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Form } from 'react-bootstrap';
 import "./Login.css";
-import { BiSpa } from "react-icons/bi";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -107,9 +106,15 @@ const Login = () => {
                 className="fas fa-seedling fa-2x me-3 pt-5 mt-xl-4"
                 style={{ color: "green" }}
               ></i>
-              <span className="h1 fw-bold mb-0"> Contract Farming</span>
+              <span
+                className="h1 fw-bold mb-0"
+                style={{ textDecoration: "underline" }}
+              >
+                {" "}
+                Contract Farming
+              </span>
             </div>
-            <div className="d-flex align-items-center h-custom-2 px-5  ms-xl-4 mt-5 pt-5  mt-xl-n5">
+            <div className="d-flex align-items-center px-5 ms-xl-4 pt-5 mt-xl-n5 h-custom-2">
               <form style={{ width: "23rem" }} onSubmit={Auth}>
                 <h3 className="fw-normal mb-3 pb-3 letter">Log in</h3>
                 <div className="form-outline mb-4">
