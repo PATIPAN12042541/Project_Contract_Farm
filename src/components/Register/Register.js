@@ -59,9 +59,9 @@ const Register = () => {
         }
     }
     return (
-      <div className="hold-transition register-page">
+      <div className="hold-transition register-page ">
         <div className="register-box">
-          <div className="register-logo" >
+          <div className="register-logo">
             <b style={{ color: "black" }}>Register</b>
           </div>
           <div className="card">

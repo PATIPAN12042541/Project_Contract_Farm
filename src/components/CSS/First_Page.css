@@ -136,18 +136,15 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.weather-container {
-    text-align: center;
-}
 
 .weather-container .temperature {
     color: white;
     position: relative;
     display: inline-block;
-    margin: 30px auto;
+    margin: auto;
     padding: 15px 25px;
-    font-size: 100px;
-    font-weight: 700;
+    font-size: 80px;
+        font-weight: 500;
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     border: 2px solid white;
@@ -156,7 +153,7 @@
 
 .weather-container .weather {
     color: white;
-    font-size: 36px;
+    font-size: 24px;
         font-weight: 500;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
