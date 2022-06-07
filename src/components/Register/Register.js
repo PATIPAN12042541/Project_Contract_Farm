@@ -144,6 +144,17 @@ const Register = () => {
                       <span className="fas fa-lock" />
                     </div>
                   </div>
+                  {password !== "" || confirmPassword !== "" ? (
+                    password !== confirmPassword ? (
+                      <div className="input-group check-passworld">
+                        Passworld ไม่ตรงกัน
+                      </div>
+                    ) : (
+                      ""
+                    )
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="input-group mb-3">
                   <input

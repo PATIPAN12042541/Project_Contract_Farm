@@ -67,6 +67,14 @@
 .check-username {
     color: red;
     font-size: 14px;
-    margin-top: 1rem;
     margin-bottom: 1rem;
+    margin-top: -0.5rem;
+    }
+    
+    
+    .check-passworld {
+        color: red;
+        font-size: 14px;
+        margin-top: 1 rem;
+        margin-bottom: 0rem;
 }
