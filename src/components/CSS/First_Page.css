@@ -1,7 +1,7 @@
 
 .App {
     width: auto;
-    height: 400px;
+    height: 470px;
     margin: 2rem auto;
     background-image: url("../ima_weather/app.jpeg");
     background-repeat: no-repeat;
@@ -156,4 +156,13 @@
     font-size: 24px;
         font-weight: 500;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.weather-container .weather-set {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    text-align: left;
+    text-indent: 20px;
 }

@@ -19,6 +19,7 @@ const First_Page = () => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
+        console.log(result);
       });
   };
 
@@ -87,6 +88,16 @@ const First_Page = () => {
                     <div className="weather-container">
                       <div className="temperature">
                         {Math.round(data.main.temp)}°C
+                      </div>
+                    </div>
+                    <div className="weather-container">
+                      <div className="weather-set">
+                        ค่าความชื้น {data.main.humidity} %
+                      </div>
+                    </div>
+                    <div className="weather-container">
+                      <div className="weather-set">
+                        ความเร็วลม {data.wind.speed} m/s
                       </div>
                     </div>
                   </div>
