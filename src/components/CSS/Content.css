@@ -53,3 +53,20 @@
     background-size: cover;
     transition: 0.2s ease;
 }
+
+.check-red {
+    border-color: red !important;
+    border-width: 2px;
+}
+
+.check-green {
+    border-color: green !important;
+    border-width: 2px;
+}
+
+.check-username {
+    color: red;
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

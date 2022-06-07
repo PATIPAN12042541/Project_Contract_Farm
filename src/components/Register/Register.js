@@ -13,51 +13,66 @@ const Register = () => {
     const [lastName,setLastName] = useState("");
     const [roleID,setRoleID] = useState("");
     const Nav = useNavigate();
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
-        getRole();
-    },[])
+      getRole();
+    }, []);
 
-    const getRole = async() => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/role_group/roleRegister`);
-        //const response = await axios.get("http://localhost:4000/role_group");
-        setRoleGroup(response.data);
-    }
+    const getRole = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/role_group/roleRegister`
+      );
+      //const response = await axios.get("http://localhost:4000/role_group");
+      setRoleGroup(response.data);
+    };
 
-    const Register = async(e) =>{
-        e.preventDefault();
-        try{
-            await axios.post(`${process.env.REACT_APP_API_URL}/user/register`,{
+    const ShowandHide = (data) => {
+      if (data.length < 8) {
+        setShow(true);
+        setUserName(data);
+      } else {
+        setShow(false);
+        setUserName(data);
+      }
+    };
+
+    const Register = async (e) => {
+      e.preventDefault();
+      try {
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/user/register`, {
             //await axios.post("http://localhost:4000/user/register",{
-                username : username,
-                password : password,
-                confirmPassword : confirmPassword,
-                name : name,
-                last_name : lastName,
-                role_id : roleID
-            })
-            .then(function(response){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Save OK !'
-                    })
-                    Nav('/');
-            }).catch(function(error){
-                Swal.fire({
-                    icon: 'error',
-                    title: error.response.data.msg,
-                    text: 'Save Error!'
-                    })
-            })
-        }catch(error){
+            username: username,
+            password: password,
+            confirmPassword: confirmPassword,
+            name: name,
+            last_name: lastName,
+            role_id: roleID,
+          })
+          .then(function (response) {
             Swal.fire({
-                icon: 'error',
-                title: error.response.data.msg,
-                text: 'Save Error!'
-                })
-        }
-    }
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            Nav("/");
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
+    };
     return (
       <div className="hold-transition register-page bg-img">
         <div className="register-box">
@@ -73,7 +88,7 @@ const Register = () => {
                     className="form-control"
                     placeholder="Username"
                     value={username}
-                    onChange={(e) => setUserName(e.target.value)}
+                    onChange={(e) => ShowandHide(e.target.value)}
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -81,6 +96,13 @@ const Register = () => {
                     </div>
                   </div>
                 </div>
+                {show > 0 && username != "" ? (
+                  <div className="input-group check-username">
+                    Username กรุณาตั้งอย่างน้อย 8 ตัว
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="input-group mb-3">
                   <input
                     type="password"
@@ -95,16 +117,30 @@ const Register = () => {
                     </div>
                   </div>
                 </div>
-                <div className="input-group mb-3">
+                <div className="input-group mb-3 ">
                   <input
                     type="password"
-                    className="form-control"
+                    className={
+                      password !== "" || confirmPassword !== ""
+                        ? password !== confirmPassword
+                          ? "form-control check-red"
+                          : "form-control check-green"
+                        : "form-control"
+                    }
                     placeholder="Confirm password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                   <div className="input-group-append">
-                    <div className="input-group-text">
+                    <div
+                      className={
+                        password !== "" || confirmPassword !== ""
+                          ? password !== confirmPassword
+                            ? "input-group-text check-red"
+                            : "input-group-text check-green"
+                          : "input-group-text"
+                      }
+                    >
                       <span className="fas fa-lock" />
                     </div>
                   </div>
