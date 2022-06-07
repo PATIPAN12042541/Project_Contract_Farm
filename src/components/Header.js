@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
-
+  const [temperature, setTemperature] = useState([]);
 
   const Logout = async () => {
     try {
@@ -24,8 +24,19 @@ const Header = () => {
     setCheckTime(response.data);
   };
 
+  const get_api_weather2 = async () => {
+    await fetch(
+      `https://api.openweathermap.org/data/2.5//weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=f95c293c45ca886ddb11fec556e1cb16`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setTemperature(result.main.temp);
+      });
+  };
+
   useEffect(() => {
     getCheckTime();
+    get_api_weather2();
   }, []);
 
   return (
@@ -46,6 +57,11 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
+        <li className="nav-item d-none d-sm-inline-block">
+          <span className="nav-link text-white" to="/contract_farm">
+            อุณหภูมิวันนี้ {Math.round(temperature)} °C
+          </span>
+        </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />

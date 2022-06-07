@@ -182,6 +182,7 @@ const Manage_zone = () => {
                         type="submit"
                         className="btn btn-success"
                         onClick={handleShow}
+                        style={({ width: "100%" }, { display: "block" })}
                       >
                         เพิ่มข้อมูล
                       </button>
@@ -296,6 +297,12 @@ const Manage_zone = () => {
           <Modal.Title>
             <center>เพิ่มข้อมูล</center>
           </Modal.Title>
+          <span
+            style={({ color: "#FFFFF" }, { cursor: "pointer" })}
+            onClick={handleClose}
+          >
+            &times;
+          </span>
         </Modal.Header>
         <Modal.Body>
           <form>
