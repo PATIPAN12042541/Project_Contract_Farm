@@ -96,7 +96,7 @@ const Register = () => {
                     </div>
                   </div>
                 </div>
-                {show > 0 && username != "" ? (
+                {show > 0 && username !== "" ? (
                   <div className="input-group check-username">
                     Username กรุณาตั้งอย่างน้อย 8 ตัว
                   </div>
