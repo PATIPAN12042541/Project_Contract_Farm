@@ -293,6 +293,7 @@ const List_Chemical = () => {
           style={{
             backgroundColor: "rgb(140, 193, 82)",
             color: "#FFFFFF",
+            fontSize: "24px",
           }}
         >
           <Modal.Title>เพิ่มข้อมูลสารเคมี</Modal.Title>

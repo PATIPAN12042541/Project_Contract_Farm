@@ -70,13 +70,13 @@
     margin-top: -0.5rem;
     }
     
-    
-    .check-passworld {
-        color: red;
-        font-size: 14px;
-        margin-top: 1 rem;
-        margin-bottom: 0rem;
+.check-passworld {
+    color: red;
+    font-size: 14px;
+    margin-top: 1 rem;
+    margin-bottom: 0rem;
 }
+
 .check-passworld-lenght {
     color: red;
     font-size: 14px;
