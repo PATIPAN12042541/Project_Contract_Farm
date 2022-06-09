@@ -17,27 +17,35 @@ const List_Chemical = () => {
   const navigate = useNavigate();
 
   const AddTypeChemical = async (e) => {
-    e.preventDefault();
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
-        type_chemical: typeChemical,
-        status: checked,
-      })
-      .then(function (response) {
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Save OK !",
-        });
-        navigate("/TypeChemical");
-      })
-      .catch(function (error) {
-        Swal.fire({
-          icon: "error",
-          title: error,
-          text: "Save Error!",
-        });
-      });
+        e.preventDefault();
+        if (typeChemical == "") {
+          Swal.fire({
+            icon: "error",
+            title: "กรุณากรอกข้อมูล",
+            text: "Save Error!",
+          });
+        } else {
+          await axios
+            .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
+              type_chemical: typeChemical,
+              status: checked,
+            })
+            .then(function (response) {
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Save OK !",
+              });
+              navigate("/TypeChemical");
+            })
+            .catch(function (error) {
+              Swal.fire({
+                icon: "error",
+                title: error,
+                text: "Save Error!",
+              });
+            });
+        }
   };
 
   useEffect(() => {
