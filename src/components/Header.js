@@ -4,6 +4,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const locale = "en";
+  const [today, setDate] = React.useState(new Date());
+
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
   const [temperature, setTemperature] = useState([]);
@@ -37,9 +41,33 @@ const Header = () => {
   useEffect(() => {
     getCheckTime();
     get_api_weather2();
+
+    const timer = setInterval(() => {
+      setDate(new Date());
+    }, 60 * 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
-  
+  const day = today.toLocaleDateString(locale, { weekday: "long" });
+  const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, {
+    month: "long",
+  })}\n\n`;
+
+  const hour = today.getHours();
+
+  const wish = `Good ${
+    (hour < 12 && "Morning") || (hour < 17 && "Afternoon") || "Evening"
+  } `;
+
+  const time = today.toLocaleTimeString(locale, {
+    hour: "numeric",
+    hour12: true,
+    minute: "numeric",
+  });
+
   return (
     <nav
       className="main-header navbar navbar-expand navbar-white navbar-light"
@@ -52,14 +80,24 @@ const Header = () => {
           </a>
         </li>
         <li className="nav-item d-none d-sm-inline-block">
+          <span className="nav-link text-white">
+            {date}
+            {"เวลา "}
+            {time}
+            {" || "}
+            {wish}
+            {" || "}
+          </span>
+        </li>
+        {/* <li className="nav-item d-none d-sm-inline-block">
           <Link className="nav-link text-white" to="/contract_farm">
             Home
           </Link>
-        </li>
+        </li> */}
       </ul>
       <ul className="navbar-nav ml-auto ">
         <li className="nav-item d-none d-sm-inline-block">
-          <span className="nav-link text-white" to="/contract_farm">
+          <span className="nav-link text-white">
             อุณหภูมิวันนี้ {Math.round(temperature)} °C
           </span>
         </li>

@@ -1,16 +1,9 @@
-
-.input-css {
-    margin-top: 20px;
-    margin-left: 10px;
-    border-color: #ffff;
-    margin-bottom: 15px;
-}
-
 .set-position {
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 15px;
 }
+
 .right {
     float: right;
 }
@@ -19,9 +12,9 @@
 .Success {
     color: green;
     text-align: center;
-        border: 1px solid green;
-            padding: 0.01em 14px;
-                border-radius: 14px;
+    border: 1px solid green;
+    padding: 0.01em 14px;
+    border-radius: 14px;
     font-weight: bold;
 }
 
@@ -30,8 +23,8 @@
     color: red;
     text-align: center;
     border: 1px solid red;
-        padding: 0.01em 14px;
-            border-radius: 14px;
+    padding: 0.01em 14px;
+    border-radius: 14px;
     font-weight: bold;
 }
 
@@ -39,8 +32,8 @@
     color: gray;
     text-align: center;
     border: 1px solid gray;
-        padding: 0.01em 14px;
-            border-radius: 14px;
+    padding: 0.01em 14px;
+    border-radius: 14px;
     font-weight: bold;
 }
 
@@ -117,3 +110,10 @@
     font-size: 14px;
 }
 
+
+.input-css {
+    margin-top: 20px;
+    margin-left: 10px;
+    border-color: #ffff;
+    margin-bottom: 15px;
+}

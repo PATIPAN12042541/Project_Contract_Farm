@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
-import "./System_overview.css";
-import { CSVLink, CSVDownload } from "react-csv";
+import "../CSS/System_overview.css";
+import { BsSearch } from "react-icons/bs";
+import { CSVLink } from "react-csv";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
@@ -222,6 +223,7 @@ const System_overview = () => {
                       placeholder="Search..."
                       onChange={(e) => searchItems(e.target.value)}
                     />
+
                     <button
                       type="submit"
                       className="btn btn-secondary set-position"
