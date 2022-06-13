@@ -33,6 +33,8 @@ const ListTypeUser = () => {
           status: checked,
         })
         .then(function (response) {
+          getListTypeUser();
+          handleClose();
           Swal.fire({
             icon: "success",
             title: "Success",
