@@ -37,6 +37,7 @@ const List_Chemical = () => {
                 text: "Save OK !",
               });
               navigate("/TypeChemical");
+              handleClose();
             })
             .catch(function (error) {
               Swal.fire({
