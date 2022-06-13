@@ -44,7 +44,7 @@ const Header = () => {
 
   useEffect(() => {
     getCheckTime();
-    get_api_weather2();
+    // get_api_weather2();
 
     // const timer = setInterval(() => {
     //   setDate(new Date());
