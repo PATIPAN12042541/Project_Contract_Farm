@@ -77,6 +77,14 @@ const List_Chemical = () => {
         text: "Save Error!",
       });
     } else {
+
+      console.log(nameChemicalThai);
+      console.log(nameChemicalEng);
+      console.log(eumrl);
+      console.log(image_name);
+      console.log(typeChemicalID);
+      console.log(checked);
+
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`, {
           name_chemical: nameChemicalThai,
