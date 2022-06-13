@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useInterval } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTime } from "react-timer-hook";
 
 const Header = () => {
   const locale = "en";
@@ -9,6 +10,8 @@ const Header = () => {
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
   const [temperature, setTemperature] = useState([]);
+
+  const { seconds, minutes, hours, ampm } = useTime({ format: "12-hour" });
 
   const Logout = async () => {
     try {
@@ -38,14 +41,14 @@ const Header = () => {
     getCheckTime();
     get_api_weather2();
 
-    const timer = setInterval(() => {
-      setDate(new Date());
-    }, 60 * 1000);
+    // const timer = setInterval(() => {
+    //   setDate(new Date());
+    // }, 60 * 1000);
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+    // return () => {
+    //   clearInterval(timer);
+    // };
+  });
 
   // Function Date
   const day = today.toLocaleDateString(locale, { weekday: "long" });
@@ -61,12 +64,12 @@ const Header = () => {
   // } `;
 
   // Function Time
-  const time = today.toLocaleTimeString(locale, {
-    hour: "2-digit",
-    hour12: true,
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  // const time = today.toLocaleTimeString(locale, {
+  //   hour: "2-digit",
+  //   hour12: true,
+  //   minute: "2-digit",
+  //   second: "2-digit",
+  // });
 
   return (
     <nav
@@ -83,7 +86,8 @@ const Header = () => {
           <span className="nav-link text-white">
             {date}
             {"เวลา "}
-            {time}
+            <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+            <span> {ampm}</span>
           </span>
         </li>
       </ul>
