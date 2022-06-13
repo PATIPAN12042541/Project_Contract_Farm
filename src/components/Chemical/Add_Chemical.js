@@ -29,14 +29,19 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
-        console.log("image_name : "+image_name)
+        console.log("image_name : "+image_name);
+        console.log('nameChemicalThai : '+nameChemicalThai);
+        console.log('name_chemical_eng : '+nameChemicalEng);
+        console.log('eu_mrl : '+eumrl);
+        console.log('type_chemical_id : '+typeChemicalID);
+        console.log('status : '+status);
         await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
             name_chemical: nameChemicalThai,
             name_chemical_eng : nameChemicalEng,
             eu_mrl : eumrl,
             path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
             type_chemical_id : typeChemicalID,
-            status : checked,
+            status : status,
         })
         .then(function (response) {
             uploadImg();
