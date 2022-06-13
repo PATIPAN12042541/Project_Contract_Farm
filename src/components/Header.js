@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useInterval } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useTime } from "react-timer-hook";
+//import { useTime } from "react-timer-hook";
 
 const Header = () => {
   const locale = "en";
@@ -11,7 +11,12 @@ const Header = () => {
   const [checktime, setCheckTime] = useState([]);
   const [temperature, setTemperature] = useState([]);
 
-  const { seconds, minutes, hours, ampm } = useTime({ format: "12-hour" });
+  // const { seconds, minutes, hours, ampm } = useTime({
+  //   format: "12-hour",
+  //   hour: "2-digit",
+  //   minute: "2-digit",
+  //   second: "2-digit",
+  // });
 
   const Logout = async () => {
     try {
@@ -85,9 +90,9 @@ const Header = () => {
         <li className="nav-item d-none d-sm-inline-block">
           <span className="nav-link text-white">
             {date}
-            {"เวลา "}
+            {/* {"เวลา "}
             <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-            <span> {ampm}</span>
+            <span> {ampm}</span> */}
           </span>
         </li>
       </ul>
