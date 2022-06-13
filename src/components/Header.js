@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-
   const locale = "en";
   const [today, setDate] = React.useState(new Date());
 
@@ -15,8 +13,6 @@ const Header = () => {
   const Logout = async () => {
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/user/logout`);
-      //await axios.delete('http://node30998-env-3297740.th1.proen.cloud:4000/user/logout');
-      //await axios.delete('http://localhost:4000/user/logout');
       history("/");
     } catch (error) {
       console.log(error);
@@ -51,21 +47,25 @@ const Header = () => {
     };
   }, []);
 
+  // Function Date
   const day = today.toLocaleDateString(locale, { weekday: "long" });
+
   const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, {
     month: "long",
+    year: "numeric",
   })}\n\n`;
 
-  const hour = today.getHours();
+  // const hour = today.getHours();
+  // const wish = `Good ${
+  //   (hour < 12 && "Morning") || (hour < 17 && "Afternoon") || "Evening"
+  // } `;
 
-  const wish = `Good ${
-    (hour < 12 && "Morning") || (hour < 17 && "Afternoon") || "Evening"
-  } `;
-
+  // Function Time
   const time = today.toLocaleTimeString(locale, {
-    hour: "numeric",
+    hour: "2-digit",
     hour12: true,
-    minute: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
   });
 
   return (
@@ -84,16 +84,8 @@ const Header = () => {
             {date}
             {"เวลา "}
             {time}
-            {" || "}
-            {wish}
-            {" || "}
           </span>
         </li>
-        {/* <li className="nav-item d-none d-sm-inline-block">
-          <Link className="nav-link text-white" to="/contract_farm">
-            Home
-          </Link>
-        </li> */}
       </ul>
       <ul className="navbar-nav ml-auto ">
         <li className="nav-item d-none d-sm-inline-block">

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import "../CSS/System_overview.css";
-import { BsSearch } from "react-icons/bs";
 import { CSVLink } from "react-csv";
 
 const System_overview = () => {
@@ -229,7 +228,7 @@ const System_overview = () => {
                       className="btn btn-secondary set-position"
                     >
                       <CSVLink
-                        data={datatest}
+                        data={Overview}
                         headers={headers}
                         filename="Contract_Farmming.csv"
                         target="_blank"
@@ -250,7 +249,7 @@ const System_overview = () => {
                   ) : (
                     <DataTable
                       columns={columns}
-                      data={datatest}
+                      data={Overview}
                       fixedHeader
                       pagination
                       highlightOnHover
