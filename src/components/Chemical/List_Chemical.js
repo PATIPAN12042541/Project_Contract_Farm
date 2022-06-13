@@ -97,6 +97,9 @@ const List_Chemical = () => {
             text: "Save OK !",
           });
           navigate("/ListChemical");
+          handleClose();
+          getListChemical();
+          getListTypeChemicals();
         })
         .catch(function (error) {
           Swal.fire({
