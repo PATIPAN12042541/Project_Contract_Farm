@@ -31,14 +31,15 @@ const List_Chemical = () => {
               status: checked,
             })
             .then(function (response) {
-              getListChemical();
-              handleClose();
+              
               Swal.fire({
                 icon: "success",
                 title: "Success",
                 text: "Save OK !",
               });
-              navigate("/TypeChemical");           
+              navigate("/TypeChemical");
+              handleClose();
+              getListChemical();      
             })
             .catch(function (error) {
               Swal.fire({
