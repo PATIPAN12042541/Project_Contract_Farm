@@ -120,7 +120,7 @@ const Login = () => {
                 <div className="form-outline mb-4">
                   <label className="form-label">Username : </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control form-control-lg"
                     placeholder="Username"
                     value={username}
