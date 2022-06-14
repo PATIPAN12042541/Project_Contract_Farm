@@ -198,12 +198,12 @@ const List_Chemical = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    {/* <Button variant="success" onClick={handleShow}>
+                    <Button variant="success" onClick={handleShow}>
                       เพิ่มข้อมูลสารเคมี
-                    </Button> */}
-                    <Link to={"/AddChemical"}>
+                    </Button>
+                    {/* <Link to={"/AddChemical"}>
                       <Button variant="success">เพิ่มข้อมูลสารเคมี</Button>
-                    </Link>
+                    </Link> */}
                   </div>
                   <hr />
                   <div className="row">
