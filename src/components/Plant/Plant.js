@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Plant.css";
+import "../CSS/Plant.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 

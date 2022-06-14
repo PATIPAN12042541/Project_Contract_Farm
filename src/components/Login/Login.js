@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Form } from 'react-bootstrap';
-import "./Login.css";
+import "../CSS/Login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");

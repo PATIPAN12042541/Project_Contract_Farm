@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
-import "./Data_detail.css";
+import "../CSS/Data_detail.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 

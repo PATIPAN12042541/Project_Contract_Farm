@@ -7,6 +7,7 @@ div.body-color {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
+
 .img-position {
     object-fit: cover;
     object-position: right;
