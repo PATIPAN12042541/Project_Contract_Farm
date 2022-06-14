@@ -145,7 +145,7 @@ const SidebarRole = () => {
                           <ListGroup className="nav-item">
                             <Link className="nav-link" to={itemsublv1.link}>
                               {/* <i className="far fa-circle nav-icon"></i> */}
-                              <p style={{ color: "#00000" }}>
+                              <p style={{ color: "#00000 !important" }}>
                                 {itemsublv1.menu_name}
                               </p>
                             </Link>
