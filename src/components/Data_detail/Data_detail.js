@@ -89,7 +89,9 @@ const Data_detail = (props) => {
                                 <div className="info-box-content">
                                   <span className="info-box-text text-left text-black">
                                     <b className="font-size2">ชื่อสามัญ : </b>
-                                    <span>{data.name_chemical_eng}</span>
+                                    <span className="font-size-data">
+                                      {data.name_chemical_eng}
+                                    </span>
                                   </span>
                                 </div>
                               </div>
@@ -101,7 +103,9 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       วัน/เดือน/ปี :{" "}
                                     </b>
-                                    <span>{data.date_start}</span>
+                                    <span className="font-size-data">
+                                      {data.date_start}
+                                    </span>
                                   </span>
                                 </div>
                               </div>
@@ -115,7 +119,7 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       อัตรา (cc : L.) :{" "}
                                     </b>
-                                    <span>
+                                    <span className="font-size-data">
                                       {data.cc} cc : {data.liter} L.
                                     </span>
                                   </span>
@@ -129,7 +133,9 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       ระยะเวลาตกค้าง :{" "}
                                     </b>
-                                    <span>{data.time + " " + data.unit}</span>
+                                    <span className="font-size-data">
+                                      {data.time + " " + data.unit}
+                                    </span>
                                   </span>
                                 </div>
                               </div>
