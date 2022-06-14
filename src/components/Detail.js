@@ -9,7 +9,7 @@ const Detail = () => {
 
   const getListChemical = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getChemical/master`
+      `${process.env.REACT_APP_API_URL}/getChemical/master2`
     );
     setImage_url(response.data);
     console.log(response.data);

@@ -11,12 +11,14 @@ import {
   ManageChemical,
   DeleteChemical,
   UpdateChangeStatus,
+  getChemicalMaster2,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
 
 router.get("/", getChemical);
 router.get("/master", getChemicalMaster);
+router.get("/master2", getChemicalMaster2);
 router.get("/Select/:id", getSelect);
 router.get("/getExpired", getExpired);
 router.post("/ManageChemical/:id", ManageChemical);
