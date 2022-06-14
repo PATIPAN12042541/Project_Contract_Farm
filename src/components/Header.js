@@ -10,14 +10,18 @@ const Header = () => {
 
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
-  const [temperature, setTemperature] = useState([]);
+  //const [temperature, setTemperature] = useState([]);
 
   const { seconds, minutes, hours, ampm } = useTime({
     format: "12-hour",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    hours: "2-digit",
+    minutes: "2-digit",
+    seconds: "2-digit",
   });
+
+  const formatTime = (time) => {
+    return String(time).padStart(2, "0");
+  };
 
   const Logout = async () => {
     try {
@@ -46,14 +50,6 @@ const Header = () => {
   useEffect(() => {
     getCheckTime();
     // get_api_weather2();
-
-    // const timer = setInterval(() => {
-    //   setDate(new Date());
-    // }, 60 * 1000);
-
-    // return () => {
-    //   clearInterval(timer);
-    // };
   });
 
   // Function Date
@@ -63,19 +59,6 @@ const Header = () => {
     month: "long",
     year: "numeric",
   })}\n\n`;
-
-  // const hour = today.getHours();
-  // const wish = `Good ${
-  //   (hour < 12 && "Morning") || (hour < 17 && "Afternoon") || "Evening"
-  // } `;
-
-  // Function Time
-  // const time = today.toLocaleTimeString(locale, {
-  //   hour: "2-digit",
-  //   hour12: true,
-  //   minute: "2-digit",
-  //   second: "2-digit",
-  // });
 
   return (
     <nav
@@ -92,7 +75,8 @@ const Header = () => {
           <span className="nav-link text-white">
             {date}
             {"เวลา "}
-            <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+            <span>{formatTime(hours)}</span>:<span>{formatTime(minutes)}</span>:
+            <span>{formatTime(seconds)}</span>
             <span> {ampm}</span>
           </span>
         </li>
