@@ -152,7 +152,7 @@ const List_Chemical = () => {
       if (result.isConfirmed) {
         await axios
           .delete(
-            `${process.env.REACT_APP_API_URL}/getChemical/deleteChemical/${id}`
+            `${process.env.REACT_APP_API_URL}/getChemical/deleteChemical2/${id}`
           )
           .then(function (response) {
             Swal.fire({
