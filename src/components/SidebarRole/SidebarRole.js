@@ -144,7 +144,7 @@ const SidebarRole = () => {
                         <ul className="nav nav-treeview" key={index}>
                           <ListGroup className="nav-item">
                             <Link className="nav-link" to={itemsublv1.link}>
-                              <i className="far fa-circle nav-icon"></i>
+                              {/* <i className="far fa-circle nav-icon"></i> */}
                               <p>{itemsublv1.menu_name}</p>
                             </Link>
                           </ListGroup>
