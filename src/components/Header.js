@@ -2,6 +2,7 @@ import React, { useEffect, useState, useInterval } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTime } from "react-timer-hook";
+import "./CSS/Header.css";
 
 const Header = () => {
   const locale = "en";
@@ -130,10 +131,7 @@ const Header = () => {
                     data.id_name_plant +
                     " " +
                     data.name_plant}
-                  <span
-                    className="float-right text-muted"
-                    style={{ fontSize: ".4rem !important", color: "red" }}
-                  >
+                  <span className="float-right set-drowdown">
                     {data.end_date_plant}
                   </span>
                 </a>
