@@ -131,7 +131,13 @@ const Header = () => {
                     data.id_name_plant +
                     " " +
                     data.name_plant}
-                  <span className="set-drowdown"> {data.end_date_plant}</span>
+                  <span
+                    // className="float-right text-muted text-sm"
+                    className="set-drowdown text-sm"
+                  >
+                    {" "}
+                    {data.end_date_plant}
+                  </span>
                 </a>
               );
             })}
