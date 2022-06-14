@@ -50,7 +50,7 @@ const Header = () => {
   useEffect(() => {
     getCheckTime();
     // get_api_weather2();
-  });
+  }, []);
 
   // Function Date
   const day = today.toLocaleDateString(locale, { weekday: "long" });
