@@ -89,7 +89,7 @@ const Data_detail = (props) => {
                                 <div className="info-box-content">
                                   <span className="info-box-text text-left text-black">
                                     <b className="font-size2">ชื่อสามัญ : </b>
-                                    {data.name_chemical_eng}
+                                    <span>{data.name_chemical_eng}</span>
                                   </span>
                                 </div>
                               </div>
