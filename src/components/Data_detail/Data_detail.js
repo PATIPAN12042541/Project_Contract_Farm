@@ -101,7 +101,7 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       วัน/เดือน/ปี :{" "}
                                     </b>
-                                    {data.date_start}
+                                    <span>{data.date_start}</span>
                                   </span>
                                 </div>
                               </div>
@@ -115,7 +115,9 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       อัตรา (cc : L.) :{" "}
                                     </b>
-                                    {data.cc} cc : {data.liter} L.
+                                    <span>
+                                      {data.cc} cc : {data.liter} L.
+                                    </span>
                                   </span>
                                 </div>
                               </div>
@@ -127,7 +129,7 @@ const Data_detail = (props) => {
                                     <b className="font-size2">
                                       ระยะเวลาตกค้าง :{" "}
                                     </b>
-                                    {data.time + " " + data.unit}
+                                    <span>{data.time + " " + data.unit}</span>
                                   </span>
                                 </div>
                               </div>
