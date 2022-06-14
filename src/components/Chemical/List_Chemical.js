@@ -145,6 +145,8 @@ const List_Chemical = () => {
   };
 
   const deleteChemical = async (id) => {
+
+    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You want Delete !",
