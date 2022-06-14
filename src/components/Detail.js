@@ -1,65 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import "./CSS/Detail.css";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
+import axios from "axios";
 
 const Detail = () => {
-  const image_url = [
-    {
-      id: "1",
-      url: "../dist/img/insecticide/พรีวาทอน.png",
-      name_chemical: "พรีวาทอน",
-      eu_mrl: "20",
-    },
-    {
-      id: "2",
-      url: "../dist/img/insecticide/เอ็กซอล.jpg",
-      name_chemical: "เอ็กซอล",
-      eu_mrl: "4",
-    },
-    {
-      id: "3",
-      url: "../dist/img/insecticide/อะบาเเมคติน.png",
-      name_chemical: "อะบาเเมกติน",
-      eu_mrl: "2",
-    },
-    {
-      id: "4",
-      url: "../dist/img/insecticide/Bacillus sustilis.png",
-      name_chemical: "Bacillus thuringiensis",
-      eu_mrl: "0",
-    },
-    {
-      id: "5",
-      url: "../dist/img/insecticide/Azoxystrobin.png  ",
-      name_chemical: "อมิสตา",
-      eu_mrl: "7",
-    },
-    {
-      id: "6",
-      url: "../dist/img/insecticide/Mancozeb.png",
-      name_chemical: "แมนโคเซบ",
-      eu_mrl: "5",
-    },
-    {
-      id: "7",
-      url: "../dist/img/insecticide/Fosetyl-Al.jpg",
-      name_chemical: "อาลีเอท",
-      eu_mrl: "75",
-    },
-    {
-      id: "8",
-      url: "../dist/img/insecticide/DimethomorphEu.jpg",
-      name_chemical: "ไดออฟ",
-      eu_mrl: "10",
-    },
-    {
-      id: "9",
-      url: "../dist/img/insecticide/Bacillus sustilis.png",
-      name_chemical: "Bacillus sustillis",
-      eu_mrl: "0",
-    },
-  ];
+  const [image_url, setImage_url] = useState([]);
+
+  const getListChemical = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/master`
+    );
+    setImage_url(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getListChemical();
+  }, []);
 
   return (
     <div className="content-wrapper">
@@ -102,7 +60,7 @@ const Detail = () => {
                           </div>
                           <img
                             className="img-set"
-                            src={data.url}
+                            src={data.path_img}
                             width={250}
                             height={300}
                           />
