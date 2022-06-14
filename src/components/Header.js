@@ -131,8 +131,8 @@ const Header = () => {
                     " " +
                     data.name_plant}
                   <span
-                    className="float-right text-muted text-sm"
-                    style={{ fontSize: "10px !important" }}
+                    className="float-right text-muted"
+                    style={{ fontSize: ".4rem !important", color: "red" }}
                   >
                     {data.end_date_plant}
                   </span>
