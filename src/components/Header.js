@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useInterval } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-//import { useTime } from "react-timer-hook";
+import { useTime } from "react-timer-hook";
 
 const Header = () => {
   const locale = "en";
@@ -11,12 +11,12 @@ const Header = () => {
   const [checktime, setCheckTime] = useState([]);
   const [temperature, setTemperature] = useState([]);
 
-  // const { seconds, minutes, hours, ampm } = useTime({
-  //   format: "12-hour",
-  //   hour: "2-digit",
-  //   minute: "2-digit",
-  //   second: "2-digit",
-  // });
+  const { seconds, minutes, hours, ampm } = useTime({
+    format: "12-hour",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
 
   const Logout = async () => {
     try {
@@ -32,15 +32,15 @@ const Header = () => {
     setCheckTime(response.data);
   };
 
-  const get_api_weather2 = async () => {
-    await fetch(
-      `https://api.openweathermap.org/data/2.5//weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=f95c293c45ca886ddb11fec556e1cb16`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setTemperature(result.main.temp);
-      });
-  };
+  // const get_api_weather2 = async () => {
+  //   await fetch(
+  //     `https://api.openweathermap.org/data/2.5//weather/?lat=14.8060348&lon=100.030848&units=metric&APPID=f95c293c45ca886ddb11fec556e1cb16`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       setTemperature(result.main.temp);
+  //     });
+  // };
 
   useEffect(() => {
     getCheckTime();
@@ -90,18 +90,18 @@ const Header = () => {
         <li className="nav-item d-none d-sm-inline-block">
           <span className="nav-link text-white">
             {date}
-            {/* {"เวลา "}
+            {"เวลา "}
             <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-            <span> {ampm}</span> */}
+            <span> {ampm}</span>
           </span>
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
-        <li className="nav-item d-none d-sm-inline-block">
+        {/* <li className="nav-item d-none d-sm-inline-block">
           <span className="nav-link text-white">
             อุณหภูมิวันนี้ {Math.round(temperature)} °C
           </span>
-        </li>
+        </li> */}
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell text-white" />
