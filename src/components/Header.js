@@ -120,7 +120,7 @@ const Header = () => {
             )}
             {checktime.map((data, index) => {
               return (
-                <a              
+                <a
                   href={`http://node33263-env-7309918.th1.proen.cloud:3000/Page_chemical/${data.id_plant}`}
                   className="dropdown-item"
                   key={index}
@@ -131,9 +131,7 @@ const Header = () => {
                     data.id_name_plant +
                     " " +
                     data.name_plant}
-                  <span className="float-right set-drowdown">
-                    {data.end_date_plant}
-                  </span>
+                  <span className="set-drowdown"> {data.end_date_plant}</span>
                 </a>
               );
             })}
