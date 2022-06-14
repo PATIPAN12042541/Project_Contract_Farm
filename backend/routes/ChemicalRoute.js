@@ -7,7 +7,7 @@ import {
   getChemicalByID,
   updateChemical,
   getExpired,
-  deleteChemical,
+  deleteChemical2,
   ManageChemical,
   DeleteChemical,
   UpdateChangeStatus,
@@ -24,7 +24,7 @@ router.delete("/DeleteChemical/:id", DeleteChemical);
 router.post("/createChemical", createChemical);
 router.get("/getChemicalID/:id", getChemicalByID);
 router.patch("/updateChemical/:id", updateChemical);
-router.delete("/deleteChemical/:id", deleteChemical);
+router.delete("/deleteChemical/:id", deleteChemical2);
 router.patch("/updateChangeStatus/:id", UpdateChangeStatus);
 
 export default router;

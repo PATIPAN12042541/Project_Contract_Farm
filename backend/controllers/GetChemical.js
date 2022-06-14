@@ -76,6 +76,9 @@ export const getChemicalByID = async (req, res) => {
   }
 };
 
+
+
+
 export const getSelect = async (req, res) => {
   try {
     const Select = await db.query(
@@ -98,7 +101,7 @@ export const createChemical = async (req, res) => {
     eu_mrl,
     path_img,
     type_chemical_id,
-    status
+    status,
   } = req.body;
   try {
     await NameChemical.create({
@@ -107,7 +110,7 @@ export const createChemical = async (req, res) => {
       eu_mrl: eu_mrl,
       path_img: path_img,
       type_chemical_id: type_chemical_id,
-      status : status,
+      status: status,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {
@@ -146,11 +149,7 @@ export const updateChemical = async (req, res) => {
   }
 };
 
-
-
-
-
-export const deleteChemical = async (req, res) => {
+export const deleteChemical2 = async (req, res) => {
   try {
     await NameChemical.destroy({
       where: {
@@ -164,6 +163,11 @@ export const deleteChemical = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+
+
+
+
 
 export const ManageChemical = async (req, res) => {
   const {
