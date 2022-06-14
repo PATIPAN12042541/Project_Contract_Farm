@@ -218,7 +218,7 @@ const ListTypeUser = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="btn btn-default" onClick={handleClose}>
             ย้อนกลับ
           </Button>
           <button
@@ -230,7 +230,7 @@ const ListTypeUser = () => {
           </button>
         </Modal.Footer>
       </Modal>
-    </div> 
+    </div>
   );
 };
 

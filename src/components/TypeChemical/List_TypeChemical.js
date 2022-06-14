@@ -219,7 +219,7 @@ const List_Chemical = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="btn btn-default" onClick={handleClose}>
             ย้อนกลับ
           </Button>
           &nbsp;
