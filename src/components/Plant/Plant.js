@@ -56,69 +56,65 @@ const Plant = (props) => {
                 <div className="card-body">
                   <div className="row">
                     {datadetail.map((data, index) => (
-                      <div
-                        className="col-md-12"
-                        key={index}
-                        onClick={checkdate(data.end_date_plant)}
-                      >
-                        {/* <Link
+                      <div className="col-md-12" key={index}>
+                        <Link
                           to={{
                             pathname: `/Page_chemical/${data.id_plants}`,
                             state: { id: data.id_plants },
                           }}
                           params={data.id_plants}
                           className="text-white"
-                        > */}
-                        <div className="card mb-12 bg-gradient-white">
-                          <div className="container">
-                            <div className="position-relative">
-                              {data.status_check == "0" ? (
-                                <div className="ribbon-wrapper ribbon-lg">
-                                  <div className="ribbon bg-success text-lg">
-                                    เสร็จสิ้น
+                        >
+                          <div className="card mb-12 bg-gradient-white">
+                            <div className="container">
+                              <div className="position-relative">
+                                {data.status_check == "0" ? (
+                                  <div className="ribbon-wrapper ribbon-lg">
+                                    <div className="ribbon bg-success text-lg">
+                                      เสร็จสิ้น
+                                    </div>
                                   </div>
-                                </div>
-                              ) : moment(new Date()).format("DD-MM-YYYY") >
-                                data.end_date_plant ? (
-                                <div className="ribbon-wrapper ribbon-lg">
-                                  <div className="ribbon bg-danger text-lg">
-                                    เกินเวลาที่กำหนด
+                                ) : moment(new Date()).format("YYYY-MM-DD") >
+                                  data.end_date_plant ? (
+                                  <div className="ribbon-wrapper ribbon-lg">
+                                    <div className="ribbon bg-danger text-lg">
+                                      เกินเวลาที่กำหนด
+                                    </div>
                                   </div>
+                                ) : (
+                                  ""
+                                )}
+                                <div className="text-block-code">
+                                  {data.zone_name + "-" + data.id_name_plant}
                                 </div>
-                              ) : (
-                                ""
-                              )}
-                              <div className="text-block-code">
-                                {data.zone_name + "-" + data.id_name_plant}
-                              </div>
-                              <div className="text-block-Plant">
-                                {data.name_plant}
-                              </div>
-                              <div className="text-block-stdate">
-                                วันที่เริ่มปลูก :{" "}
-                                {moment(data.start_date_plant).format(
-                                  "DD-MM-YYYY"
-                                )}
-                              </div>
-                              <div className="text-block-eddate">
-                                วันที่สิ้นสุด :{" "}
-                                {moment(data.end_date_plant).format(
-                                  "DD-MM-YYYY"
-                                )}
-                              </div>
+                                <div className="text-block-Plant">
+                                  {data.name_plant}
+                                </div>
+                                <div className="text-block-stdate">
+                                  วันที่เริ่มปลูก :{" "}
+                                  {moment(data.start_date_plant).format(
+                                    "DD-MM-YYYY"
+                                  )}
+                                </div>
+                                <div className="text-block-eddate">
+                                  วันที่สิ้นสุด :{" "}
+                                  {moment(data.end_date_plant).format(
+                                    "DD-MM-YYYY"
+                                  )}
+                                </div>
 
-                              <img
-                                className="ima-size card-img-top"
-                                src={data.plant_image}
-                              />
-                              <div className="text-block-name">
-                                ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
-                                {data.last_name}
+                                <img
+                                  className="ima-size card-img-top"
+                                  src={data.plant_image}
+                                />
+                                <div className="text-block-name">
+                                  ผู้รับผิดชอบ : นาย {data.name} นามสกุล{" "}
+                                  {data.last_name}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        {/* </Link> */}
+                        </Link>
                       </div>
                     ))}
                   </div>
