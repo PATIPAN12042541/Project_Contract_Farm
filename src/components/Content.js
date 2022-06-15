@@ -47,13 +47,8 @@ const Content = () => {
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
                         <div className="card mb-2 bg-gradient-white container">
-                          <button
-                            className="btn set-button"
-                            style={{ float: "right" }}
-                          >
-                            <h2>
-                              <AiOutlineEdit />
-                            </h2>
+                          <button className="btn set-button">
+                            <AiOutlineEdit />
                           </button>
                           <Link
                             to={{
