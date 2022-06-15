@@ -17,8 +17,8 @@ const Plant = (props) => {
   };
 
   const sysdate2 = () => {
-    var date_today = moment().format("DD-MM-YYYY");
-    setDate_today(date_today);
+    var date_today2 = moment().format("DD-MM-YYYY");
+    setDate_today(date_today2);
   };
 
   useEffect(() => {
