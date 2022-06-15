@@ -15,7 +15,7 @@
     float: right;
     color: white;
         float: right;
-    padding-left: 80;
+    text-align: right;
     background: rgb(0, 0, 0);
         background: rgba(0, 0, 0, 0.5)
 }

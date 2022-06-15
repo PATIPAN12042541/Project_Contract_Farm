@@ -47,7 +47,7 @@ const Content = () => {
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
                         <div className="card mb-2 bg-gradient-white">
-                          <div className="set-button">
+                          <div className="set-button" >
                             <h2>
                               <AiOutlineEdit />
                             </h2>
