@@ -16,9 +16,8 @@ const Plant = (props) => {
   };
 
   const checkdate = () => {
-
     const chechdate = moment(new Date()).format("DD-MM-YYYY");
-    if ("26-05-2022" < chechdate) {
+    if ("26-05-2022" > chechdate) {
       console.log("น้อยกว่า");
       console.log("26-05-2022 < " + chechdate);
     } else {
@@ -75,7 +74,7 @@ const Plant = (props) => {
                                       เสร็จสิ้น
                                     </div>
                                   </div>
-                                ) : data.end_date_plant <
+                                ) : data.end_date_plant >
                                   moment(new Date()).format("DD-MM-YYYY") ? (
                                   <div className="ribbon-wrapper ribbon-lg">
                                     <div className="ribbon bg-danger text-lg">
