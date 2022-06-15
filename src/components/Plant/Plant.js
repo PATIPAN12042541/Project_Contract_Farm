@@ -15,14 +15,14 @@ const Plant = (props) => {
     setDatadetail(response.data);
   };
 
-  const checkdate = () => {
+  const checkdate = (data) => {
     const chechdate = moment(new Date()).format("DD-MM-YYYY");
-    if (chechdate < "26-05-2022") {
+    if (chechdate < data) {
       console.log("น้อยกว่า");
-      console.log("26-05-2022 < " + chechdate);
+      console.log(data + " < " + chechdate);
     } else {
       console.log("มากกว่า");
-      console.log("26-05-2022 < " + chechdate);
+      console.log(data + " < " + chechdate);
     }
   };
 
@@ -77,7 +77,10 @@ const Plant = (props) => {
                                 ) : moment(new Date()).format("DD-MM-YYYY") >
                                   data.end_date_plant ? (
                                   <div className="ribbon-wrapper ribbon-lg">
-                                    <div className="ribbon bg-danger text-lg">
+                                    <div
+                                      className="ribbon bg-danger text-lg"
+                                      onLoad={checkdate(data.end_date_plant)}
+                                    >
                                       เกินเวลาที่กำหนด
                                     </div>
                                   </div>
