@@ -46,39 +46,37 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
-                        <div className="container">
+                        <div className="card mb-2 bg-gradient-white">
                           <button className="btn set-button">
                             <h3>
                               <AiOutlineEdit />
                             </h3>
                           </button>
-                          <div className="card mb-2 bg-gradient-white">
-                            <Link
-                              to={{
-                                pathname: `/Data_detail/${data.id}`,
-                                state: { id: data.id },
-                              }}
-                              params={data.id}
-                              className="text-white"
-                            >
-                              <img
-                                className="card-img-top"
-                                src={`${data.image_zone}?w=248&fit=crop&auto=format`}
-                                srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                loading="lazy"
-                                width={250}
-                                height={300}
-                              />
-                              <div className="card-img-overlay d-flex flex-column justify-content-end">
-                                <center>
-                                  <ImageListItemBar
-                                    className="card-title text-primary text-white"
-                                    title={"Zone " + data.zone_name}
-                                  />
-                                </center>
-                              </div>
-                            </Link>
-                          </div>
+                          <Link
+                            to={{
+                              pathname: `/Data_detail/${data.id}`,
+                              state: { id: data.id },
+                            }}
+                            params={data.id}
+                            className="text-white"
+                          >
+                            <img
+                              className="card-img-top"
+                              src={`${data.image_zone}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              loading="lazy"
+                              width={250}
+                              height={300}
+                            />
+                            <div className="card-img-overlay d-flex flex-column justify-content-end">
+                              <center>
+                                <ImageListItemBar
+                                  className="card-title text-primary text-white"
+                                  title={"Zone " + data.zone_name}
+                                />
+                              </center>
+                            </div>
+                          </Link>
                         </div>
                       </div>
                     ))}
