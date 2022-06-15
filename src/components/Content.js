@@ -53,12 +53,13 @@ const Content = () => {
                           params={data.id}
                           className="text-white"
                         >
-                          <div className="card mb-2 bg-gradient-dark">
+                          <div className="set-button">
+                            <AiOutlineEdit />
+                          </div>
+                          <div className="card mb-2 bg-gradient-white">
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
-                              srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                              loading="lazy"
                               width={250}
                               height={300}
                             />
@@ -69,9 +70,6 @@ const Content = () => {
                                   title={"Zone " + data.zone_name}
                                 />
                               </center>
-                            </div>
-                            <div className="set-button">
-                              <AiOutlineEdit />
                             </div>
                           </div>
                         </Link>

@@ -84,10 +84,11 @@
     margin-top: -0.5rem;
 }
 .set-button {
-    margin-bottom: 20px;
-    margin-right: auto;
     cursor: pointer;
-        width: auto;
-        height: auto;
-    margin-top: 50px;
+    position: absolute;
+        padding-left: 20px;
+        padding-right: 30px;
+        top: 70px;
+        right: 20px;
+        font-size: 18px;
 }
