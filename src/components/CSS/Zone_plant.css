@@ -11,8 +11,7 @@
 
 .set-button {
     position: absolute;
-    cursor: pointer;
-    float: right;
+    cursor: none;
     color: white;
     background: rgb(0, 0, 0);
         background: rgba(0, 0, 0, 0.5)
