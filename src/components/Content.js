@@ -46,18 +46,18 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
-                        <Link
-                          to={{
-                            pathname: `/Data_detail/${data.id}`,
-                            state: { id: data.id },
-                          }}
-                          params={data.id}
-                          className="text-white"
-                        >
-                          <div className="card mb-2 bg-gradient-white">
-                            <div className="set-button">
-                              <AiOutlineEdit />
-                            </div>
+                        <div className="card mb-2 bg-gradient-white">
+                          <div className="set-button">
+                            <AiOutlineEdit />
+                          </div>
+                          <Link
+                            to={{
+                              pathname: `/Data_detail/${data.id}`,
+                              state: { id: data.id },
+                            }}
+                            params={data.id}
+                            className="text-white"
+                          >
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
@@ -74,8 +74,8 @@ const Content = () => {
                                 />
                               </center>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        </div>
                       </div>
                     ))}
                   </div>
