@@ -45,6 +45,9 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
+                        <div className="col-md-1">
+                          <AiOutlineEdit />
+                        </div>
                         <Link
                           to={{
                             pathname: `/Data_detail/${data.id}`,
@@ -54,9 +57,6 @@ const Content = () => {
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
-                            <div className="col-md-1">
-                              <AiOutlineEdit />
-                            </div>
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
