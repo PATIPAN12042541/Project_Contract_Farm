@@ -3,14 +3,14 @@
 }
 
 .container {
-    position: absolute;
+    position: relative !important;
     width: 100%;
         max-width: 400px;
 }
 
 
 .set-button {
-    position: absolute;
+    position: absolute !important;
         left: 80%;
             top: 10%;
         transform: translate(-50%, -50%);
