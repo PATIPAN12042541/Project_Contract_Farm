@@ -48,9 +48,9 @@ const Content = () => {
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
                         <div className="card mb-2 bg-gradient-white">
                           <div className="set-button">
-                            <h1>
+                            <h2>
                               <AiOutlineEdit />
-                            </h1>
+                            </h2>
                           </div>
                           <Link
                             to={{
