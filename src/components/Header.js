@@ -2,6 +2,7 @@ import React, { useEffect, useState, useInterval } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTime } from "react-timer-hook";
+import { Link } from "react-router-dom";
 import "./CSS/Header.css";
 
 const Header = () => {
@@ -60,6 +61,8 @@ const Header = () => {
     year: "numeric",
   })}\n\n`;
 
+  const changePage = () => {};
+
   return (
     <nav
       className="main-header navbar navbar-expand navbar-white navbar-light"
@@ -82,10 +85,12 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
-        <li className="nav-item d-none d-sm-inline-block">
-          <span className="nav-link text-white">
-            อุณหภูมิวันนี้ {Math.round(temperature)} °C
-          </span>
+        <li className="nav-item d-none d-sm-inline-block change-page">
+          <Link to="/weather">
+            <span className="nav-link text-white">
+              อุณหภูมิวันนี้ {Math.round(temperature)} °C
+            </span>
+          </Link>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">

@@ -7,6 +7,7 @@ import Page_1_2 from "./Page_2/Page_1_2";
 import Page_Login from "./Page_Login/Page_Login";
 import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
+import Home from "./components/TypeUser/Home";
 import Page_Edit_Plant from "./Page_2/Page_Edit_Plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
@@ -23,6 +24,8 @@ import Update_Chemical from "./components/Chemical/Update_Chemical.js";
 import ListTypeUser from "./components/TypeUser/ListTypeUser.js";
 import AddTypeUser from "./components/TypeUser/AddTypeUser.js";
 import UpdateTypeUser from "./components/TypeUser/UpdateTypeUser.js";
+
+import Content from "./components/Content";
 import "./App.css";
 
 function App() {
@@ -37,7 +40,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <First_Page />
+                <Home />
                 <Footer />
               </>
             }
@@ -45,6 +48,18 @@ function App() {
           <Route index element={<Page_Login />} />
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Home" element={<Page_1_1 />} />
+          <Route
+            exact
+            path="/weather"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <First_Page />
+                <Footer />
+              </>
+            }
+          />
           <Route exact path="/Detail" element={<Page_1_2 />} />
           <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
           <Route exact path="/Edit_data/:id" element={<Page_Edit_Plant />} />

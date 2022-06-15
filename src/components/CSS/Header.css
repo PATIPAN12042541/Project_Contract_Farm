@@ -3,3 +3,6 @@
     color: red;
     /* color:#6c757d !important; */
 }
+.change-page {
+    cursor: pointer;
+}
