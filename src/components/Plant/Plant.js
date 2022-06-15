@@ -15,7 +15,7 @@ const Plant = (props) => {
   };
 
 
-  console.log(datadetail);
+  console.log(datadetail.end_date_plant);
 
   useEffect(() => {
     getPlantData();
