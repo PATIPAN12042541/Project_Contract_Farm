@@ -10,7 +10,7 @@
 
 
 .set-button {
-    position: absolute;
+    position: relative;
     cursor: none;
     color: white;
     background: rgb(0, 0, 0);
