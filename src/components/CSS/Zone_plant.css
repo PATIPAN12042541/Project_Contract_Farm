@@ -10,6 +10,7 @@
 
 
 .set-button {
+    position: absolute;
     cursor: pointer;
     float: right;
 }
