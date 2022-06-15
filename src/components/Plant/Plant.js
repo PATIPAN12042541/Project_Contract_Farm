@@ -6,22 +6,19 @@ import { Link } from "react-router-dom";
 
 const Plant = (props) => {
   const [datadetail, setDatadetail] = useState([]);
+  const [date_today, setDate_today] = useState([]);
 
   const getPlantData = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
     );
     setDatadetail(response.data);
+    sysdate2();
   };
-
-
-
 
   const sysdate2 = () => {
     var date_today = moment().format("DD-MM-YYYY");
-
-    console.log(date_today);
-    return date_today;
+    setDate_today(date_today);
   };
 
   useEffect(() => {
@@ -71,8 +68,8 @@ const Plant = (props) => {
                                       เสร็จสิ้น
                                     </div>
                                   </div>
-                                ) : data.end_date_plant <
-                                  sysdate2()(
+                                ) : data.end_date_plant < date_today
+                                (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-danger text-lg">
                                         เกินเวลาที่กำหนด
