@@ -46,9 +46,9 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
-                        <div className="card mb-2 bg-gradient-white">
+                        <div className="card mb-2 bg-gradient-white container">
                           <button
-                            className="set-button"
+                            className="btn set-button"
                             style={{ float: "right" }}
                           >
                             <h2>

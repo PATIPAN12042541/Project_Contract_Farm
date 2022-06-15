@@ -10,9 +10,21 @@
 
 
 .set-button {
-    position: relative;
-    cursor: none;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #555;
     color: white;
-    background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5)
+    font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .set-button:hover {
+        background-color: black;
 }
