@@ -15,7 +15,12 @@ const Plant = (props) => {
   };
 
 
-  console.log(datadetail.end_date_plant);
+  const sysdate = () => {
+    var date_today = moment().format("DD-MM-YYYY");
+
+    console.log(date_today);
+    return date_today;
+  };
 
   useEffect(() => {
     getPlantData();
@@ -64,6 +69,15 @@ const Plant = (props) => {
                                       เสร็จสิ้น
                                     </div>
                                   </div>
+                                ) : data.end_date_plant <
+                                  sysdate()(
+                                    <div className="ribbon-wrapper ribbon-lg">
+                                      <div className="ribbon bg-danger text-lg">
+                                        เกินเวลาที่กำหนด
+                                      </div>
+                                    </div>
+                                  ) ? (
+                                  ""
                                 ) : (
                                   ""
                                 )}
