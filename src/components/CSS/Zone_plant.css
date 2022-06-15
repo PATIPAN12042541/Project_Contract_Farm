@@ -1,0 +1,15 @@
+.container img {
+    vertical-align: middle;
+}
+
+.container {
+    position: relative;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+
+.set-button {
+    cursor: pointer;
+    float: right;
+}

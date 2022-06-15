@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { AiOutlineEdit } from "react-icons/ai";
+import "./CSS/Zone_plant.css";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
@@ -60,6 +61,8 @@ const Content = () => {
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
+                              srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                              loading="lazy"
                               width={250}
                               height={300}
                             />
