@@ -14,6 +14,9 @@ const Plant = (props) => {
     setDatadetail(response.data);
   };
 
+
+  console.log(datadetail);
+
   useEffect(() => {
     getPlantData();
   }, []);
