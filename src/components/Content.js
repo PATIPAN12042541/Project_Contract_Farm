@@ -47,11 +47,6 @@ const Content = () => {
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
                         <div className="card mb-2 bg-gradient-white">
-                          <button className="btn btn-block set-button">
-                            <h5>
-                              <AiOutlineEdit />
-                            </h5>
-                          </button>
                           <Link
                             to={{
                               pathname: `/Data_detail/${data.id}`,
