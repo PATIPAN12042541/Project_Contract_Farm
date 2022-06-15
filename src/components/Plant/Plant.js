@@ -63,13 +63,15 @@ const Plant = (props) => {
                                     </div>
                                   </div>
                                 ) : data.end_date_plant <
-                                  moment().format("DD-MM-YYYY")(
-                                    <div className="ribbon-wrapper ribbon-lg">
-                                      <div className="ribbon bg-danger text-lg">
-                                        เกินเวลาที่กำหนด
+                                    moment().format("DD-MM-YYYY") &&
+                                  data.status_check !==
+                                    "0"(
+                                      <div className="ribbon-wrapper ribbon-lg">
+                                        <div className="ribbon bg-danger text-lg">
+                                          เกินเวลาที่กำหนด
+                                        </div>
                                       </div>
-                                    </div>
-                                  ) ? (
+                                    ) ? (
                                   ""
                                 ) : (
                                   ""
