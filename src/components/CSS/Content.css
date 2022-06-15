@@ -85,10 +85,4 @@
 }
 .set-button {
     cursor: pointer;
-    position: absolute;
-        padding-left: 20px;
-        padding-right: 30px;
-        top: 70px;
-        right: 20px;
-        font-size: 18px;
 }
