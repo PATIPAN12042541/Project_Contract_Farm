@@ -15,7 +15,9 @@ const Plant = (props) => {
   };
 
 
-  const sysdate = () => {
+
+
+  const sysdate2 = () => {
     var date_today = moment().format("DD-MM-YYYY");
 
     console.log(date_today);
@@ -70,7 +72,7 @@ const Plant = (props) => {
                                     </div>
                                   </div>
                                 ) : data.end_date_plant <
-                                  sysdate()(
+                                  sysdate2()(
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-danger text-lg">
                                         เกินเวลาที่กำหนด
