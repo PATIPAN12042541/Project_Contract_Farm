@@ -12,7 +12,6 @@ const Detail = () => {
       `${process.env.REACT_APP_API_URL}/getChemical/master2`
     );
     setImage_url(response.data);
-    console.log(response.data);
   };
 
   useEffect(() => {
