@@ -86,4 +86,7 @@
 .set-button {
     margin-bottom: 20px;
     margin-right: auto;
+    cursor: pointer;
+        width: auto;
+        height: auto;
 }
