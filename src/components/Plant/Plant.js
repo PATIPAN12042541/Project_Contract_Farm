@@ -56,7 +56,11 @@ const Plant = (props) => {
                 <div className="card-body">
                   <div className="row">
                     {datadetail.map((data, index) => (
-                      <div className="col-md-12" key={index}>
+                      <div
+                        className="col-md-12"
+                        key={index}
+                        onClick={checkdate(data.end_date_plant)}
+                      >
                         {/* <Link
                           to={{
                             pathname: `/Page_chemical/${data.id_plants}`,
@@ -77,10 +81,7 @@ const Plant = (props) => {
                               ) : moment(new Date()).format("DD-MM-YYYY") >
                                 data.end_date_plant ? (
                                 <div className="ribbon-wrapper ribbon-lg">
-                                  <div
-                                    className="ribbon bg-danger text-lg"
-                                    onClick={checkdate(data.end_date_plant)}
-                                  >
+                                  <div className="ribbon bg-danger text-lg">
                                     เกินเวลาที่กำหนด
                                   </div>
                                 </div>
