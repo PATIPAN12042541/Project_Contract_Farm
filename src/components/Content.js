@@ -49,34 +49,34 @@ const Content = () => {
                           <span className="col-md-2">
                             <AiOutlineEdit />
                           </span>
-                        </div>
-                        <Link
-                          to={{
-                            pathname: `/Data_detail/${data.id}`,
-                            state: { id: data.id },
-                          }}
-                          params={data.id}
-                          className="text-white"
-                        >
-                          <div className="card mb-2 bg-gradient-dark">
-                            <img
-                              className="card-img-top"
-                              src={`${data.image_zone}?w=248&fit=crop&auto=format`}
-                              srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                              loading="lazy"
-                              width={250}
-                              height={300}
-                            />
-                            <div className="card-img-overlay d-flex flex-column justify-content-end">
-                              <center>
-                                <ImageListItemBar
-                                  className="card-title text-primary text-white"
-                                  title={"Zone " + data.zone_name}
-                                />
-                              </center>
+                          <Link
+                            to={{
+                              pathname: `/Data_detail/${data.id}`,
+                              state: { id: data.id },
+                            }}
+                            params={data.id}
+                            className="text-white"
+                          >
+                            <div className="card mb-2 bg-gradient-dark">
+                              <img
+                                className="card-img-top"
+                                src={`${data.image_zone}?w=248&fit=crop&auto=format`}
+                                srcSet={`${data.image_zone}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                loading="lazy"
+                                width={250}
+                                height={300}
+                              />
+                              <div className="card-img-overlay d-flex flex-column justify-content-end">
+                                <center>
+                                  <ImageListItemBar
+                                    className="card-title text-primary text-white"
+                                    title={"Zone " + data.zone_name}
+                                  />
+                                </center>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        </div>
                       </div>
                     ))}
                   </div>
