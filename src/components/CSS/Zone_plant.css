@@ -13,5 +13,6 @@
     position: absolute;
     cursor: pointer;
     float: right;
-    color: white
+    color: white;
+        float: right;
 }
