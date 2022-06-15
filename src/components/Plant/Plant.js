@@ -67,7 +67,7 @@ const Plant = (props) => {
                                     data.end_date_plant &&
                                   data.status_check !== "0" ? (
                                   <div className="ribbon-wrapper ribbon-lg">
-                                    <div className="ribbon bg-danger text-lg">
+                                    <div className="ribbon bg-danger text-sm">
                                       เกินเวลาที่กำหนด
                                     </div>
                                   </div>
