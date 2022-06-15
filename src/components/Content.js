@@ -45,7 +45,7 @@ const Content = () => {
                   <div className="row">
                     {plant.map((data, index) => (
                       <div className="col-md-12 col-lg-6 col-xl-4" key={index}>
-                        <div className="col-md-1">
+                        <div className="float-right">
                           <AiOutlineEdit />
                         </div>
                         <Link
