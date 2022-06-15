@@ -15,7 +15,7 @@
     float: right;
     color: white;
         float: right;
-    text-align: right;
+    margin-right: 90%;
     background: rgb(0, 0, 0);
         background: rgba(0, 0, 0, 0.5)
 }
