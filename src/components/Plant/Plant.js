@@ -75,7 +75,8 @@ const Plant = (props) => {
                                     </div>
                                   </div>
                                 ) : moment(new Date()).format("YYYY-MM-DD") >
-                                  data.end_date_plant ? (
+                                    data.end_date_plant &&
+                                  data.status_check !== "0" ? (
                                   <div className="ribbon-wrapper ribbon-lg">
                                     <div className="ribbon bg-danger text-lg">
                                       เกินเวลาที่กำหนด
