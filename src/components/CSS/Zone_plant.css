@@ -16,5 +16,6 @@
     color: white;
         float: right;
     padding-left: 20px;
-    font-size: large;
+    background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5)
 }
