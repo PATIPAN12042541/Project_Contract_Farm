@@ -15,6 +15,10 @@ const Plant = (props) => {
     setDatadetail(response.data);
   };
 
+
+  console.log(moment(new Date()).format("DD-MM-YYYY"));
+  
+
   useEffect(() => {
     getPlantData();
   }, []);
