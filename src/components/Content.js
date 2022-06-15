@@ -53,10 +53,10 @@ const Content = () => {
                           params={data.id}
                           className="text-white"
                         >
-                          <div className="set-button">
-                            <AiOutlineEdit />
-                          </div>
                           <div className="card mb-2 bg-gradient-white">
+                            <div className="set-button">
+                              <AiOutlineEdit />
+                            </div>
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
