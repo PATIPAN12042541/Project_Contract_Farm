@@ -2,6 +2,7 @@ import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
+import { AiOutlineEdit } from "react-icons/ai";
 
 const Content = () => {
   const [plant, setPlant] = useState([]);
@@ -53,6 +54,9 @@ const Content = () => {
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
+                            <div>
+                              <AiOutlineEdit />
+                            </div>
                             <img
                               className="card-img-top"
                               src={`${data.image_zone}?w=248&fit=crop&auto=format`}
