@@ -54,7 +54,7 @@ const Content = () => {
                           className="text-white"
                         >
                           <div className="card mb-2 bg-gradient-dark">
-                            <div>
+                            <div className="col-md-1">
                               <AiOutlineEdit />
                             </div>
                             <img
