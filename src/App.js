@@ -7,7 +7,7 @@ import Page_1_2 from "./Page_2/Page_1_2";
 import Page_Login from "./Page_Login/Page_Login";
 import Register from "./components/Register/Register";
 import First_Page from "./components/First_Page";
-import Home from "./components/TypeUser/Home";
+import Home from "./components/Home";
 import Page_Edit_Plant from "./Page_2/Page_Edit_Plant";
 import Page_data_detail from "./Page_1/Page_data_detail";
 import Page_manage_data from "./Page_2/Page_manage_data";
