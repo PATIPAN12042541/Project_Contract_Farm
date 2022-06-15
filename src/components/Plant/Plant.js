@@ -15,12 +15,17 @@ const Plant = (props) => {
     setDatadetail(response.data);
   };
 
-
-  console.log(moment(new Date()).format("DD-MM-YYYY"));
-  
+  const checkdate = () => {
+    if ("26-05-2022" < moment(new Date()).format("DD-MM-YYYY")) {
+      console.log("น้อยกว่า");
+    } else {
+      console.log("มากกว่า");
+    }
+  };
 
   useEffect(() => {
     getPlantData();
+    checkdate();
   }, []);
 
   return (
