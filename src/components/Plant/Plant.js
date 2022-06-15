@@ -16,10 +16,14 @@ const Plant = (props) => {
   };
 
   const checkdate = () => {
-    if ("26-05-2022" < moment(new Date()).format("DD-MM-YYYY")) {
+
+    const chechdate = moment(new Date()).format("DD-MM-YYYY");
+    if ("26-05-2022" < chechdate) {
       console.log("น้อยกว่า");
+      console.log("26-05-2022 < " + chechdate);
     } else {
       console.log("มากกว่า");
+      console.log("26-05-2022 < " + chechdate);
     }
   };
 
