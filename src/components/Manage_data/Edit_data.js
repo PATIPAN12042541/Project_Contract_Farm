@@ -6,6 +6,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
 import { AiOutlineFundView } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
+import { BsFillChatSquareDotsFill } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
 import { Link } from "react-router-dom";
@@ -411,8 +412,11 @@ const Edit_data = (props) => {
                               </button>
                               <> </>
                               <button type="submit" className="btn btn-primary">
-                                <title>สถานะ</title>
                                 <AiOutlineFundView />
+                              </button>
+                              <> </>
+                              <button type="submit" className="btn btn-primary">
+                                <BsFillChatSquareDotsFill />
                               </button>
                             </center>
                           </td>
