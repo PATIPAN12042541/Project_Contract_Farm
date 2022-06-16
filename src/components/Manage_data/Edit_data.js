@@ -411,6 +411,7 @@ const Edit_data = (props) => {
                               </button>
                               <> </>
                               <button type="submit" className="btn btn-primary">
+                                <title>สถานะ</title>
                                 <AiOutlineFundView />
                               </button>
                             </center>
