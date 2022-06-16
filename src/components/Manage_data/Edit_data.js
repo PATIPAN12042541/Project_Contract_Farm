@@ -4,7 +4,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsCheckSquareFill } from "react-icons/bs";
-import { BsFillPencilFill } from "react-icons/bs";
+import { AiOutlineFundView } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
@@ -14,8 +14,6 @@ import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
 const Edit_data = (props) => {
-
-
   const [plantdata, setPlantData] = useState([]);
   const [plantUser, setPlantUser] = useState([]);
   const [idplant, setIdPlant] = useState();
@@ -401,21 +399,6 @@ const Edit_data = (props) => {
                                   <BsPlusLg />
                                 </button>
                               </Link>
-                              {/* <> </>
-                              <Link
-                                to={{
-                                  pathname: `/Manage_plant_edit/${data.id_plant}`,
-                                  state: { id: data.id_plant },
-                                }}
-                              >
-                                <button
-                                  type="submit"
-                                  className="btn btn-warning"
-                                  style={{ color: "#FFFFFF" }}
-                                >
-                                  <BsFillPencilFill />
-                                </button>
-                              </Link> */}
                               <> </>
                               <button
                                 type="submit"
@@ -425,6 +408,10 @@ const Edit_data = (props) => {
                                 }}
                               >
                                 <BsFillTrashFill />
+                              </button>
+                              <> </>
+                              <button type="submit" className="btn btn-primary">
+                                <AiOutlineFundView />
                               </button>
                             </center>
                           </td>
