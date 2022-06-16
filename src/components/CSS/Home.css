@@ -1,5 +1,18 @@
 .bg-image {
-    background-image: url("../First-Page.jpg");
+    background-image: url("../Login/login.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+.container {
+    position: relative;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.text-block {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+    font-size: 56px;
 }

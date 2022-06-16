@@ -10,28 +10,29 @@
     max-width: 2000px;
     margin: 0 auto;
 }
+
 .text-block-name {
     position: absolute;
     bottom: 10px;
-        right: 20px;
-        background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 18px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
 }
 
 .text-block-code {
     position: absolute;
     background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1;
-        padding-left: 20px;
-        padding-right: 20px;
-        top: 10px;
-        left: 20px;
-        font-size: 18px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding-left: 20px;
+    padding-right: 20px;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
 }
 
 .text-block-Plant {
