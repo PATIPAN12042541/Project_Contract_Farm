@@ -234,7 +234,7 @@ const System_overview = () => {
                         target="_blank"
                         style={{ color: "#ffffff" }}
                       >
-                        Download CSV
+                        Export CSV
                       </CSVLink>
                     </button>
                   </div>
