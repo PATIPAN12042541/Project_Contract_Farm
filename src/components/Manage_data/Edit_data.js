@@ -611,19 +611,25 @@ const Edit_data = (props) => {
         </Modal.Header>
         <Modal.Body>
           {" "}
-          <div className="col-12">
-            <center>
-              <label>สถานะ</label>
-            </center>
-            <select className="custom-select form-control-border">
-              {StatusPlant.map((status, index) => {
-                return (
-                  <option key={status.id} value={status.id}>
-                    {status.status_name}
-                  </option>
-                );
-              })}
-            </select>
+          <div className="form-group">
+            <div className="row">
+              <div className="col-sm-4">
+                <center>
+                  <label>สถานะ</label>
+                </center>
+              </div>
+              <div className="col-sm-8">
+                <select className="custom-select form-control-border">
+                  {StatusPlant.map((status, index) => {
+                    return (
+                      <option key={status.id} value={status.id}>
+                        {status.status_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
