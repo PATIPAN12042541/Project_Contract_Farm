@@ -370,6 +370,9 @@ const Edit_data = (props) => {
                           <center>รูปภาพ</center>
                         </th>
                         <th>
+                          <center>สถานะ</center>
+                        </th>
+                        <th>
                           <center>เพิ่ม/แก้ไข/ลบข้อมูล</center>
                         </th>
                       </tr>
@@ -396,6 +399,9 @@ const Edit_data = (props) => {
                                 />
                               </Zoom>
                             </center>
+                          </td>
+                          <td>
+                            <center>ปลูกผัก</center>
                           </td>
                           <td>
                             <center>
