@@ -54,11 +54,6 @@ const Edit_data = (props) => {
   const [StatusPlant, setStatusPlant] = useState([]);
   /*************************/
 
-  useEffect(() => {
-    getPlant();
-    getPlantUser();
-    getStatusPlant();
-  }, []);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -205,6 +200,15 @@ const Edit_data = (props) => {
       });
     }
   };
+  
+  useEffect(() => {
+    getPlant();
+    getPlantUser();
+    getStatusPlant();
+  }, []);
+
+
+
 
   return (
     <div className="content-wrapper">
