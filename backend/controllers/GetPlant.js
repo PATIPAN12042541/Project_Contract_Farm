@@ -46,9 +46,11 @@ export const getPlant = async (req, res) => {
   }
 };
 
+
 export const getStatusPlants = async (req, res) => {
   try {
     const statusPlant = await db.query("SELECT * FROM Status_plant ", {
+      replacements: { zone_plant_id: req.params.id },
       type: db.QueryTypes.SELECT,
     });
     res.json(statusPlant);
@@ -56,7 +58,6 @@ export const getStatusPlants = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const getManagePlantEdit = async (req, res) => {
   try {
