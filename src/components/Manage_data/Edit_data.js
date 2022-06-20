@@ -52,8 +52,9 @@ const Edit_data = (props) => {
 
   /****** status Plant ******/
   const [StatusPlant, setStatusPlant] = useState([]);
+  const [getStatus, setGetStatus] = useState([]);
+  const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
-
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -123,6 +124,10 @@ const Edit_data = (props) => {
         }
       }
     });
+  };
+
+  const postStatusPlant = async (id, status) => {
+    console.log(id + " " + status);
   };
 
   const postPlant = async (e) => {
@@ -206,9 +211,6 @@ const Edit_data = (props) => {
     getPlantUser();
     getStatusPlant();
   }, []);
-
-
-
 
   return (
     <div className="content-wrapper">
@@ -452,7 +454,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
-                                  onClick={Show_status}
+                                  onClick={
+                                    (Show_status, setGetIdplant(data.id_plant))
+                                  }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -488,7 +492,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
-                                  onClick={Show_status}
+                                  onClick={
+                                    (Show_status, setGetIdplant(data.id_plant))
+                                  }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -615,10 +621,13 @@ const Edit_data = (props) => {
             <div className="row">
               <div className="col-sm-2">สถานะ</div>
               <div className="col-sm-10">
-                <select className="custom-select form-control-border">
+                <select
+                  className="custom-select form-control-border"
+                  onChange={(e) => setGetStatus(e.target.value)}
+                >
                   {StatusPlant.map((status, index) => {
                     return (
-                      <option key={status.id} value={status.id}>
+                      <option key={index} value={status.id}>
                         {status.status_name}
                       </option>
                     );
@@ -632,7 +641,14 @@ const Edit_data = (props) => {
           <button className="btn btn-secondary" onClick={Close_status}>
             Close
           </button>
-          <button className="btn btn-success">SAVE</button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              postStatusPlant(getIdplant, getStatus);
+            }}
+          >
+            SAVE
+          </button>
         </Modal.Footer>
       </Modal>
     </div>
