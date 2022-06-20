@@ -85,7 +85,7 @@ const Header = () => {
         </li>
       </ul>
       <ul className="navbar-nav ml-auto ">
-        <li className="nav-item d-none d-sm-inline-block change-page">
+        <li className="nav-item  change-page">
           <Link to="/weather">
             <span className="nav-link text-white">
               อุณหภูมิวันนี้ {Math.round(temperature)} °C
