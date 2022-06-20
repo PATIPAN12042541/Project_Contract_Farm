@@ -46,7 +46,7 @@ export const getPlant = async (req, res) => {
   }
 };
 
-export const getStatusPlant = async (req, res) => {
+export const getStatusPlants = async (req, res) => {
   try {
     const statusPlant = await db.query("SELECT * FROM Status_plant ", {
       type: db.QueryTypes.SELECT,

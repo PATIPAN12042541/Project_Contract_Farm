@@ -9,7 +9,7 @@ import {
   getManagePlantEdit,
   DeleteManagePlant,
   UpdateManagePlant,
-  getStatusPlant,
+  getStatusPlants,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
@@ -23,6 +23,6 @@ router.post("/ManagePlant/:id", postManagePlant);
 router.get("/ManagePlantEdit/:id", getManagePlantEdit);
 router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
 router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
-router.get("/StatusPlant", getStatusPlant);
+router.get("/StatusPlant", getStatusPlants);
 
 export default router;
