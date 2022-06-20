@@ -83,11 +83,11 @@ const Edit_data = (props) => {
   };
 
   const getStatusPlant = async () => {
-    const response = await axios.get(
+    const statusplants = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/StatusPlant`
     );
-    setStatusPlant(response.data);
-    console.log(response.data);
+    setStatusPlant(statusplants.data);
+    console.log(statusplants.data);
   };
 
   const getPlantUser = async () => {
@@ -200,7 +200,7 @@ const Edit_data = (props) => {
       });
     }
   };
-  
+
   useEffect(() => {
     getPlant();
     getPlantUser();
