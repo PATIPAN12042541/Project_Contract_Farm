@@ -454,9 +454,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
-                                  onClick={
-                                    (Show_status, setGetIdplant(data.id_plant))
-                                  }
+                                  // onClick={
+                                  //   (Show_status, setGetIdplant(data.id_plant))
+                                  // }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -492,9 +492,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
-                                  onClick={
-                                    (Show_status, setGetIdplant(data.id_plant))
-                                  }
+                                  // onClick={
+                                  //   (Show_status, setGetIdplant(data.id_plant))
+                                  // }
                                 >
                                   <AiOutlineFundView />
                                 </button>
