@@ -454,6 +454,10 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_status();
+                                    setGetIdplant(data.id_plant);
+                                  }}
                                   // onClick={
                                   //   (Show_status, setGetIdplant(data.id_plant))
                                   // }
@@ -492,6 +496,10 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_status(); 
+                                    setGetIdplant(data.id_plant);
+                                  }}
                                   // onClick={
                                   //   (Show_status, setGetIdplant(data.id_plant))
                                   // }
