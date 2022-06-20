@@ -23,6 +23,6 @@ router.post("/ManagePlant/:id", postManagePlant);
 router.get("/ManagePlantEdit/:id", getManagePlantEdit);
 router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
 router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
-router.get("/StatusPlant", getStatusPlants);
+router.get("/Status/StatusPlant", getStatusPlants);
 
 export default router;
