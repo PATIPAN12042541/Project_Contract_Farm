@@ -544,12 +544,9 @@ const Edit_data = (props) => {
 
       <Modal show={show_status} onHide={Close_status}>
         <Modal.Header>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>สถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
-        </Modal.Body>
+        <Modal.Body>กำลังเตรีมการ ....</Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={Close_status}>
             Close
