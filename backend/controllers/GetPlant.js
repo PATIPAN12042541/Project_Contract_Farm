@@ -46,6 +46,21 @@ export const getPlant = async (req, res) => {
   }
 };
 
+export const getStatusPlant = async (req, res) => {
+  try {
+    const statusPlant = await db.query(
+      "SELECT id ,status_name FROM Status_plant ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(statusPlant);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
 export const getManagePlantEdit = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(

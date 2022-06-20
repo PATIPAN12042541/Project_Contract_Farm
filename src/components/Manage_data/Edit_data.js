@@ -50,9 +50,14 @@ const Edit_data = (props) => {
 
   // const [plantimage, setPlantImage] = useState();
 
+  /****** status Plant ******/
+  const [StatusPlant, setStatusPlant] = useState([]);
+  /*************************/
+
   useEffect(() => {
     getPlant();
     getPlantUser();
+    getStatusPlant();
   }, []);
 
   const uploadImg = async () => {
@@ -80,6 +85,13 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+  };
+
+  const getStatusPlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/StatusPlant`
+    );
+    setStatusPlant(response.data);
     console.log(response.data);
   };
 
