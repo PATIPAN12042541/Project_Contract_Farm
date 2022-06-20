@@ -609,7 +609,23 @@ const Edit_data = (props) => {
         <Modal.Header>
           <Modal.Title>สถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
-        <Modal.Body>กำลังเตรีมการ ....</Modal.Body>
+        <Modal.Body>
+          {" "}
+          <div className="col-12">
+            <center>
+              <label>สถานะ</label>
+            </center>
+            <select className="custom-select form-control-border">
+              {StatusPlant.map((status, index) => {
+                return (
+                  <option key={status.id} value={status.id}>
+                    {status.status_name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={Close_status}>
             Close

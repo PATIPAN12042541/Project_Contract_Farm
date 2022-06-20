@@ -59,7 +59,6 @@ export const getStatusPlants = async (req, res) => {
 };
 
 
-
 export const getManagePlantEdit = async (req, res) => {
   try {
     const getPlantDetailEdit = await db.query(
