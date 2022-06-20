@@ -449,15 +449,7 @@ const Edit_data = (props) => {
                                 </button>
                               </center>
                             ) : (
-                              <center>
-                                <Link
-                                  to={{
-                                    pathname: `/Manage_plant/${data.id_plant}`,
-                                    state: {
-                                      id: data.id_plant,
-                                    },
-                                  }}
-                                >
+                              <center>                              
                                   <button
                                     type="submit"
                                     className="btn btn-success"
@@ -466,7 +458,6 @@ const Edit_data = (props) => {
                                   >
                                     <BsPlusLg />
                                   </button>
-                                </Link>
                                 <> </>
                                 <button
                                   type="submit"
