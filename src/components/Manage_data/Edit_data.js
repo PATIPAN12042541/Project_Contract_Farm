@@ -551,7 +551,7 @@ const Edit_data = (props) => {
           escape key.
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-block" onClick={Close_status}>
+          <button className="btn btn-secondary" onClick={Close_status}>
             Close
           </button>
           <button className="btn btn-success">SAVE</button>
