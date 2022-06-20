@@ -89,7 +89,7 @@ const Edit_data = (props) => {
 
   const getStatusPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/StatusPlant`
+      `${process.env.REACT_APP_API_URL}/getplant/StatusPlant`
     );
     setStatusPlant(response.data);
     console.log(response.data);
