@@ -613,12 +613,10 @@ const Edit_data = (props) => {
           {" "}
           <div className="form-group">
             <div className="row">
-              <div className="col-sm-4">
-                <center>
-                  <label>สถานะ</label>
-                </center>
+              <div className="col-sm-2">
+                <label>สถานะ</label>
               </div>
-              <div className="col-sm-8">
+              <div className="col-sm-10">
                 <select className="custom-select form-control-border">
                   {StatusPlant.map((status, index) => {
                     return (
