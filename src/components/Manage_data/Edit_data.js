@@ -13,8 +13,23 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import form from "react-bootstrap/Form";
 
 const Edit_data = (props) => {
+  /*
+  Modal
+  */
+  const [show_status, setShow_status] = useState(false);
+
+  const Close_status = () => setShow_status(false);
+  const Show_status = () => setShow_status(true);
+
+  /*
+   */
+
   const [plantdata, setPlantData] = useState([]);
   const [plantUser, setPlantUser] = useState([]);
   const [idplant, setIdPlant] = useState();
@@ -411,7 +426,11 @@ const Edit_data = (props) => {
                                 <BsFillTrashFill />
                               </button>
                               <> </>
-                              <button type="submit" className="btn btn-primary">
+                              <button
+                                type="submit"
+                                className="btn btn-primary"
+                                onClick={Show_status}
+                              >
                                 <AiOutlineFundView />
                               </button>
                               <> </>
@@ -522,6 +541,22 @@ const Edit_data = (props) => {
           </div>
         </div>
       </section>
+
+      <Modal show={show_status} onHide={Close_status}>
+        <Modal.Header>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          I will not close if you click outside me. Don't even try to press
+          escape key.
+        </Modal.Body>
+        <Modal.Footer>
+          <button variant="secondary" onClick={Close_status}>
+            Close
+          </button>
+          <button variant="primary">Understood</button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
