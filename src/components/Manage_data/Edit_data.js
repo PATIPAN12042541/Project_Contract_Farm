@@ -449,15 +449,15 @@ const Edit_data = (props) => {
                                 </button>
                               </center>
                             ) : (
-                              <center>                              
-                                  <button
-                                    type="submit"
-                                    className="btn btn-success"
-                                    style={{ color: "#FFFFFF" }}
-                                    disabled
-                                  >
-                                    <BsPlusLg />
-                                  </button>
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  style={{ color: "#FFFFFF" }}
+                                  disabled
+                                >
+                                  <BsPlusLg disabled />
+                                </button>
                                 <> </>
                                 <button
                                   type="submit"
