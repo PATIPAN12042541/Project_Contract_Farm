@@ -14,19 +14,17 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-bootstrap/Modal";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import form from "react-bootstrap/Form";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import form from "react-bootstrap/Form";
 
 const Edit_data = (props) => {
   /*
   Modal
   */
   const [show_status, setShow_status] = useState(false);
-
   const Close_status = () => setShow_status(false);
   const Show_status = () => setShow_status(true);
-
   /*
    */
 
@@ -82,6 +80,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+    console.log(response.data);
   };
 
   const getPlantUser = async () => {
