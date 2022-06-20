@@ -400,7 +400,7 @@ const Edit_data = (props) => {
                             </center>
                           </td>
                           <td>
-                            <center>ปลูกผัก</center>
+                            <center>{data.status_name}</center>
                           </td>
                           <td>
                             <center>
