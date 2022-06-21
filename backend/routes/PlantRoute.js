@@ -25,6 +25,6 @@ router.get("/ManagePlantEdit/:id", getManagePlantEdit);
 router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
 router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
 router.get("/Status/StatusPlant", getStatusPlants);
-router.patch("/setstatus/UpdateStatusPlant/:id", UpdateStatusPlant);
+router.patch("/UpdateStatusPlant/:id", UpdateStatusPlant);
 
 export default router;

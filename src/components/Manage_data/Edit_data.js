@@ -131,7 +131,7 @@ const Edit_data = (props) => {
     console.log(id + " " + status);
     await axios
       .patch(
-        `${process.env.REACT_APP_API_URL}/getplant/setstatus/UpdateStatusPlant/${id}`,
+        `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
         {
           status_plant: status,
         }
