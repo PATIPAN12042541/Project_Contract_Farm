@@ -13,7 +13,6 @@ const Plant = (props) => {
       `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
     );
     setDatadetail(response.data);
-    console.log(response.data);
   };
 
 
