@@ -14,9 +14,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-bootstrap/Modal";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-// import form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import form from "react-bootstrap/Form";
 
 const Edit_data = (props) => {
   /******************** Modal Status *************/
@@ -757,64 +757,73 @@ const Edit_data = (props) => {
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="row">
-            <div className="col-3">
-              <input
+          <form>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>ชื่อแปลงผัก</form.Label>
+              <form.Control
                 type="text"
-                className="form-control"
                 placeholder="ชื่อแปลงผัก"
                 defaultValue={edit_name_plant}
+                autoFocus
                 onChange={(e) => setEditNamePlant(e.target.value)}
               />
-            </div>
-            <div className="col-2">
-              <input
+            </form.Group>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>วันที่เริ่มต้น</form.Label>
+              <form.Control
                 type="date"
-                className="form-control"
                 placeholder="วันที่เริ่มต้น"
                 defaultValue={edit_start_date_plant}
+                autoFocus
                 onChange={(e) => setEditStartDatePlant(e.target.value)}
               />
-            </div>
-            <div className="col-2">
-              <input
+            </form.Group>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>วันที่สิ้นสุด</form.Label>
+              <form.Control
                 type="date"
-                className="form-control"
                 placeholder="วันที่สิ้นสุด"
                 defaultValue={edit_end_date_plant}
+                autoFocus
                 onChange={(e) => setEditEndDatePlant(e.target.value)}
               />
-            </div>
-            <div className="col-1">
-              <FileUpload
-                btnIcon="fas fa-upload"
-                multiple
-                accept="image/*"
-                onUpload={(file) => {
-                  const filesArray = [].slice.call(file);
-                  filesArray.forEach((e) => {
-                    setEditImageName(e.name);
-                  });
+            </form.Group>
+            <form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <hr></hr>
+              <Row>
+                <Col md>
+                  <form.Label>อัพโหลด</form.Label>
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                    onUpload={(file) => {
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setEditImageName(e.name);
+                      });
 
-                  const edit_img = {
-                    preview: URL.createObjectURL(file[0]),
-                    data: file[0],
-                  };
-                  setEditImage(edit_img);
-                }}
-              />
-            </div>
-            <div className="col-1">
-              <Zoom>
-                <img
-                  src={editimage.preview ? editimage.preview : edit_path_img}
-                  className="img-fluid mb-2"
-                  width="100"
-                  height="100"
-                />
-              </Zoom>
-            </div>
-          </div>
+                      const edit_img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setEditImage(edit_img);
+                    }}
+                  />
+                </Col>
+                <Col md>
+                  <form.Label>Preview</form.Label>
+                  <img
+                    src={editimage.preview ? editimage.preview : edit_path_img}
+                    className="img-fluid"
+                  />
+                </Col>
+              </Row>
+            </form.Group>
+          </form>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={Close_status}>
