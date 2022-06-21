@@ -29,28 +29,30 @@ const Plant_detail = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <div className="card card-success">
-                <div
-                  className="card-header"
-                  style={{ backgroundColor: "#8CC152" }}
-                >
-                  <center>
-                    <h3 className="card-title">ปลูกผัก</h3>
-                  </center>
-                </div>
-                <div className="card-body">
-                  <div className="row">
-                    {plantdetail.map((data, index) => (
+              {plantdetail.map((data, index) => (
+                <div className="card card-success">
+                  <div
+                    className="card-header"
+                    style={{ backgroundColor: "#8CC152" }}
+                  >
+                    <center>
+                      <h3 className="card-title">
+                        ปลูกผัก : {data.name_plant}
+                      </h3>
+                    </center>
+                  </div>
+                  <div className="card-body">
+                    <div className="row">
                       <div className="col-md-12" key={index}>
                         <img
                           className="ima-size card-img-top"
                           src={data.plant_image}
                         />
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
