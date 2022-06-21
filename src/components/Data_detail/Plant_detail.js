@@ -49,10 +49,12 @@ const Plant_detail = (props) => {
                           src={data.plant_image}
                         />
                       </div>
-                      <div>
-                        <button className="btn btn-success">ยืนยัน</button>
-                      </div>
                     </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-success float-right">
+                      ยืนยัน
+                    </button>
                   </div>
                 </div>
               ))}
