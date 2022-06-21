@@ -48,7 +48,7 @@ const Plant = (props) => {
                     {datadetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
                         {data.status_plant == "1" ||
-                        data.status_plant == "2" ? (
+                        data.status_plant == "4" ? (
                           <Link
                             to={{
                               pathname: `/Plant_detail`,
