@@ -621,14 +621,16 @@ const Edit_data = (props) => {
 
       <Modal show={show_status} onHide={Close_status}>
         <Modal.Header>
-          <Modal.Title>สถานะแปลงปลูกผัก</Modal.Title>
+          <Modal.Title style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+            สถานะแปลงปลูกผัก
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {" "}
           <div className="form-group">
             <div className="row">
               <div className="col-sm-12">
-                <span>สถานะ</span>
+                <span>กรุณาเลือกสถานะ</span>
                 <select
                   className="custom-select form-control-border"
                   onChange={(e) => setGetStatus(e.target.value)}
