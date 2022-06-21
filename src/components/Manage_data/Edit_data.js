@@ -19,23 +19,24 @@ import Modal from "react-bootstrap/Modal";
 // import form from "react-bootstrap/Form";
 
 const Edit_data = (props) => {
-  /*
-  Modal Status
-  */
+  /******************** Modal Status *************/
   const [show_status, setShow_status] = useState(false);
   const Close_status = () => setShow_status(false);
   const Show_status = () => setShow_status(true);
-  /*
-   */
+  /***********************************************/
 
-  /*
-  Modal Status
-  */
+  /************** Modal Status *******************/
   const [showEdit, setshowEdit] = useState(false);
   const Close_Edit = () => setshowEdit(false);
   const Show_Edit = () => setshowEdit(true);
-  /*
-   */
+  /**********************************************/
+
+  /************** Edit Data ********************/
+  // const [editName, setEditName] = useState([]);
+  // const [editStDate, setEditStDate] = useState([]);
+  // const [editEdDate, setEditEdDate] = useState([]);
+  // const [editPathImg, setEditPathImg] = useState([]);
+  /*********************************************/
 
   const [plantdata, setPlantData] = useState([]);
   const [plantUser, setPlantUser] = useState([]);
@@ -45,10 +46,13 @@ const Edit_data = (props) => {
   const [enddate, setEndDate] = useState();
   const [userid, setUserId] = useState();
   /***** set edit data *****/
+
+  const [edit_plant_id, setPlantId] = useState();
   const [edit_name_plant, setEditNamePlant] = useState();
   const [edit_start_date_plant, setEditStartDatePlant] = useState();
   const [edit_end_date_plant, setEditEndDatePlant] = useState();
-  const [edit_plant_image, setEditPlantImage] = useState();
+  const [edit_path_img, setEditPathImg] = useState();
+  //const [edit_plant_image, setEditPlantImage] = useState();
   /*************************/
 
   const [image, setImage] = useState({ preview: "", data: "" });
@@ -433,12 +437,54 @@ const Edit_data = (props) => {
                           data-widget="expandable-table"
                           aria-expanded="false"
                         >
-                          <td onClick={Show_Edit}>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.id_plant);
+                              setEditNamePlant(data.name_plant);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
                             {data.plant_detail_id_name_plant}
                           </td>
-                          <td onClick={Show_Edit}>{data.name_plant}</td>
-                          <td onClick={Show_Edit}>{data.start_date_plant}</td>
-                          <td onClick={Show_Edit}>{data.end_date_plant}</td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.id_plant);
+                              setEditNamePlant(data.name_plant);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.name_plant}
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.id_plant);
+                              setEditNamePlant(data.name_plant);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.start_date_plant}
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.id_plant);
+                              setEditNamePlant(data.name_plant);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.end_date_plant}
+                          </td>
                           <td>
                             <center>
                               <Zoom>
@@ -452,7 +498,16 @@ const Edit_data = (props) => {
                               </Zoom>
                             </center>
                           </td>
-                          <td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.id_plant);
+                              setEditNamePlant(data.name_plant);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
                             <center>{data.status_name}</center>
                           </td>
                           <td>
@@ -701,18 +756,77 @@ const Edit_data = (props) => {
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Menu เเก้ไข</Modal.Body>
+        <Modal.Body>
+          <div className="row">
+            <div className="col-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="ชื่อแปลงผัก"
+                defaultValue={edit_name_plant}
+                onChange={(e) => setEditNamePlant(e.target.value)}
+              />
+            </div>
+            <div className="col-2">
+              <input
+                type="date"
+                className="form-control"
+                placeholder="วันที่เริ่มต้น"
+                defaultValue={edit_start_date_plant}
+                onChange={(e) => setEditStartDatePlant(e.target.value)}
+              />
+            </div>
+            <div className="col-2">
+              <input
+                type="date"
+                className="form-control"
+                placeholder="วันที่สิ้นสุด"
+                defaultValue={edit_end_date_plant}
+                onChange={(e) => setEditEndDatePlant(e.target.value)}
+              />
+            </div>
+            <div className="col-1">
+              <FileUpload
+                btnIcon="fas fa-upload"
+                multiple
+                accept="image/*"
+                onUpload={(file) => {
+                  const filesArray = [].slice.call(file);
+                  filesArray.forEach((e) => {
+                    setEditImageName(e.name);
+                  });
+
+                  const edit_img = {
+                    preview: URL.createObjectURL(file[0]),
+                    data: file[0],
+                  };
+                  setEditImage(edit_img);
+                }}
+              />
+            </div>
+            <div className="col-1">
+              <Zoom>
+                <img
+                  src={editimage.preview ? editimage.preview : edit_path_img}
+                  className="img-fluid mb-2"
+                  width="100"
+                  height="100"
+                />
+              </Zoom>
+            </div>
+          </div>
+        </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={Close_status}>
             Close
           </button>
           <button
             className="btn btn-success"
-            // onClick={() => {
-            //   postStatusPlant(getIdplant, getStatus);
-            // }}
+            onClick={() => {
+              updatePlant(edit_plant_id);
+            }}
           >
-            SAVE
+            <BsCheckSquareFill /> ยืนยัน
           </button>
         </Modal.Footer>
       </Modal>
