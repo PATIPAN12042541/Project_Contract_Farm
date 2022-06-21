@@ -84,7 +84,7 @@ const Plant = (props) => {
                                     {data.name_plant}
                                   </div>
                                   <div className="text-block-PlantStatus">
-                                    {data.status_name}
+                                    สถานะ : {data.status_name}
                                   </div>
                                   <div className="text-block-stdate">
                                     วันที่เริ่มปลูก :{" "}
@@ -145,6 +145,9 @@ const Plant = (props) => {
                                   </div>
                                   <div className="text-block-Plant">
                                     {data.name_plant}
+                                  </div>
+                                  <div className="text-block-PlantStatus">
+                                    สถานะ : {data.status_name}
                                   </div>
                                   <div className="text-block-stdate">
                                     วันที่เริ่มปลูก :{" "}
