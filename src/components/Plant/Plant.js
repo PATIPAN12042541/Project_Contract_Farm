@@ -45,10 +45,7 @@ const Plant = (props) => {
                 <div className="card-body">
                   <div className="row">
                     {datadetail.map((data, index) => (
-                      <div
-                        className="col-md-12 callout callout-success"
-                        key={index}
-                      >
+                      <div className="col-md-12" key={index}>
                         {data.status_plant == "1" ||
                         data.status_plant == "4" ? (
                           <Link
@@ -59,7 +56,7 @@ const Plant = (props) => {
                             params={data.id_plants}
                             className="text-white"
                           >
-                            <div className="card mb-12 bg-gradient-white">
+                            <div className="card mb-12 bg-gradient-white callout callout-success">
                               <div className="container">
                                 <div className="position-relative">
                                   {data.status_check == "0" ? (
