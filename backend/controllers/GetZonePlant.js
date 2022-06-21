@@ -59,6 +59,39 @@ export const getDataPlant = async (req, res) => {
   }
 };
 
+
+export const getPlantDetail = async (req, res) => {
+  try {
+    const Plant_Detail = await db.query(
+      "SELECT plant_detail.id as id_plants," +
+        "id_zone," +
+        "id_name_plant," +
+        "zone_name," +
+        "name_plant," +
+        "start_date_plant," +
+        "end_date_plant," +
+        "plant_image," +
+        "user.name," +
+        "plant.status_plant," +
+        "user.last_name ," +
+        "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_check" +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
+        "LEFT JOIN user ON  plant.id_user =  user.id " +
+        "WHERE plant_detail.id  = :id " +
+        {
+          replacements: { id: req.params.id },
+          type: db.QueryTypes.SELECT,
+        }
+    );
+    res.json(Plant_Detail);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};
+
+
 export const postZone = async (req, res) => {
   const { zone_name, image_zone, auto_id_zone } = req.body;
 

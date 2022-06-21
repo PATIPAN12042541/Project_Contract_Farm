@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Plant_detail = () => {
-  const [datadetail, setDatadetail] = useState([]);
+const Plant_detail = (props) => {
+  const [plantdetail, setPlantDetail] = useState([]);
 
-  // const getPlantData = async () => {
-  //     const response = await axios.get(
-  //       `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
-  //     );
-  //     setDatadetail(response.data);
-  //     console.log(response.data);
-  // };
+  const getPlantData = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
+    );
+    setPlantDetail(response.data);
+    console.log(response.data);
+  };
 
   useEffect(() => {
-    // getPlantData();
+    getPlantData();
   }, []);
 
   return (
@@ -40,7 +40,7 @@ const Plant_detail = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    {datadetail.map((data, index) => (
+                    {plantdetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
                         <img
                           className="ima-size card-img-top"
