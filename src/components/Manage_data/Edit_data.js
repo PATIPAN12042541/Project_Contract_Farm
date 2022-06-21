@@ -441,7 +441,7 @@ const Edit_data = (props) => {
                           <td
                             onClick={() => {
                               Show_Edit();
-                              setPlantId(data.id_plant);
+                              setPlantId(data.plant_id);
                               setEditNamePlant(data.name_plant);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
@@ -453,7 +453,7 @@ const Edit_data = (props) => {
                           <td
                             onClick={() => {
                               Show_Edit();
-                              setPlantId(data.id_plant);
+                              setPlantId(data.plant_id);
                               setEditNamePlant(data.name_plant);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
@@ -465,7 +465,7 @@ const Edit_data = (props) => {
                           <td
                             onClick={() => {
                               Show_Edit();
-                              setPlantId(data.id_plant);
+                              setPlantId(data.plant_id);
                               setEditNamePlant(data.name_plant);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
@@ -477,7 +477,7 @@ const Edit_data = (props) => {
                           <td
                             onClick={() => {
                               Show_Edit();
-                              setPlantId(data.id_plant);
+                              setPlantId(data.plant_id);
                               setEditNamePlant(data.name_plant);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
@@ -502,7 +502,7 @@ const Edit_data = (props) => {
                           <td
                             onClick={() => {
                               Show_Edit();
-                              setPlantId(data.id_plant);
+                              setPlantId(data.plant_id);
                               setEditNamePlant(data.name_plant);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
@@ -832,6 +832,7 @@ const Edit_data = (props) => {
           </button>
           <button
             className="btn btn-success"
+            type="submit"
             onClick={() => {
               updatePlant(edit_plant_id);
             }}
