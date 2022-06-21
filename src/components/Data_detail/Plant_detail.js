@@ -30,7 +30,7 @@ const Plant_detail = (props) => {
           <div className="row">
             <div className="col-md-12">
               {plantdetail.map((data, index) => (
-                <div className="card card-success">
+                <div className="card card-success" key={index}>
                   <div
                     className="card-header"
                     style={{ backgroundColor: "#8CC152" }}
@@ -43,7 +43,7 @@ const Plant_detail = (props) => {
                   </div>
                   <div className="card-body">
                     <div className="row">
-                      <div className="col-md-12" key={index}>
+                      <div className="col-md-12">
                         <img
                           className="ima-size card-img-top"
                           src={data.plant_image}
