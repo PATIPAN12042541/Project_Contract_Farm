@@ -195,14 +195,7 @@ function App() {
           <Route
             exact
             path="/Plant_detail/:id"
-            element={
-              <>
-                <Header />
-                <SidebarRole />
-                <Page_Plant_detail />
-                <Footer />
-              </>
-            }
+            element={<Page_Plant_detail />}
           />
         </Routes>
       </BrowserRouter>
