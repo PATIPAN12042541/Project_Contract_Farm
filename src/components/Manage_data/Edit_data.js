@@ -497,7 +497,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
-                                    Show_status(); 
+                                    Show_status();
                                     setGetIdplant(data.id_plant);
                                   }}
                                   // onClick={
@@ -627,8 +627,8 @@ const Edit_data = (props) => {
           {" "}
           <div className="form-group">
             <div className="row">
-              <div className="col-sm-2">สถานะ</div>
-              <div className="col-sm-10">
+              <div className="col-sm-12">
+                <span>สถานะ</span>
                 <select
                   className="custom-select form-control-border"
                   onChange={(e) => setGetStatus(e.target.value)}
