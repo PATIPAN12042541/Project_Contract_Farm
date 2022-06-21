@@ -143,7 +143,7 @@ const Edit_data = (props) => {
           title: "Success",
           text: "Save OK !",
         });
-        getPlant();
+        // getPlant();
       })
       .catch(function (error) {
         Swal.fire({
