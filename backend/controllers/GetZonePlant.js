@@ -24,6 +24,7 @@ export const getDataPlant = async (req, res) => {
         "end_date_plant," +
         "plant_image," +
         "user.name," +
+        "plant.status_plant," +
         "user.last_name ," +
         "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_check " +
         "FROM zone_plant " +
