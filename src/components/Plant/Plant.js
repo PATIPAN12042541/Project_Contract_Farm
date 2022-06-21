@@ -51,7 +51,7 @@ const Plant = (props) => {
                         data.status_plant == "4" ? (
                           <Link
                             to={{
-                              pathname: `/Plant_detail`,
+                              pathname: `/Plant_detail/${data.id_plants}`,
                               state: { id: data.id_plants },
                             }}
                             params={data.id_plants}

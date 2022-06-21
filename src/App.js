@@ -26,7 +26,7 @@ import AddTypeUser from "./components/TypeUser/AddTypeUser.js";
 import UpdateTypeUser from "./components/TypeUser/UpdateTypeUser.js";
 import Content from "./components/Content";
 import "./App.css";
-import Plant_detail from "./components/Data_detail/Plant_detail";
+import Page_Plant_detail from "./Page_1/Page_Plant_detail";
 
 function App() {
   return (
@@ -194,12 +194,12 @@ function App() {
           />
           <Route
             exact
-            path="/Plant_detail"
+            path="/Plant_detail/:id"
             element={
               <>
                 <Header />
                 <SidebarRole />
-                <Plant_detail />
+                <Page_Plant_detail />
                 <Footer />
               </>
             }
