@@ -233,7 +233,7 @@ const Edit_data = (props) => {
         editUploadImg();
       }
       getPlant();
-      Close_status();
+      Close_Edit();
       Swal.fire("Succes !", "Your file has been Update.", "success");
     } catch (error) {
       Swal.fire({
@@ -827,7 +827,7 @@ const Edit_data = (props) => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={Close_status}>
+          <button className="btn btn-secondary" onClick={Close_Edit}>
             Close
           </button>
           <button
