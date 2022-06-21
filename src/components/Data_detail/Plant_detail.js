@@ -51,8 +51,11 @@ const Plant_detail = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-success float-right">
+                  <div className="card-footer">
+                    <button
+                      type="submit"
+                      className="btn btn-success float-right"
+                    >
                       ยืนยัน
                     </button>
                   </div>
