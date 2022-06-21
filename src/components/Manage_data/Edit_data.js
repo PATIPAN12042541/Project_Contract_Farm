@@ -20,11 +20,20 @@ import Modal from "react-bootstrap/Modal";
 
 const Edit_data = (props) => {
   /*
-  Modal
+  Modal Status
   */
   const [show_status, setShow_status] = useState(false);
   const Close_status = () => setShow_status(false);
   const Show_status = () => setShow_status(true);
+  /*
+   */
+
+  /*
+  Modal Status
+  */
+  const [showEdit, setshowEdit] = useState(false);
+  const Close_Edit = () => setshowEdit(false);
+  const Show_Edit = () => setshowEdit(true);
   /*
    */
 
@@ -424,10 +433,12 @@ const Edit_data = (props) => {
                           data-widget="expandable-table"
                           aria-expanded="false"
                         >
-                          <td>{data.plant_detail_id_name_plant}</td>
-                          <td>{data.name_plant}</td>
-                          <td>{data.start_date_plant}</td>
-                          <td>{data.end_date_plant}</td>
+                          <td onClick={Show_Edit}>
+                            {data.plant_detail_id_name_plant}
+                          </td>
+                          <td onClick={Show_Edit}>{data.name_plant}</td>
+                          <td onClick={Show_Edit}>{data.start_date_plant}</td>
+                          <td onClick={Show_Edit}>{data.end_date_plant}</td>
                           <td>
                             <center>
                               <Zoom>
@@ -543,7 +554,7 @@ const Edit_data = (props) => {
                             )}
                           </td>
                         </tr>
-                        <tr className="expandable-body d-none">
+                        {/* <tr className="expandable-body d-none">
                           <td colSpan={7}>
                             <div className="row">
                               <div className="col-2">
@@ -634,7 +645,7 @@ const Edit_data = (props) => {
                               </div>
                             </div>
                           </td>
-                        </tr>
+                        </tr> */}
                       </tbody>
                     ))}
                   </table>
@@ -680,6 +691,26 @@ const Edit_data = (props) => {
             onClick={() => {
               postStatusPlant(getIdplant, getStatus);
             }}
+          >
+            SAVE
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showEdit} onHide={Close_Edit}>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Menu เเก้ไข</Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={Close_status}>
+            Close
+          </button>
+          <button
+            className="btn btn-success"
+            // onClick={() => {
+            //   postStatusPlant(getIdplant, getStatus);
+            // }}
           >
             SAVE
           </button>
