@@ -40,14 +40,14 @@ const Plant_detail = (props) => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    {/* {plantdetail.map((data, index) => (
+                    {plantdetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
                         <img
                           className="ima-size card-img-top"
                           src={data.plant_image}
                         />
                       </div>
-                    ))} */}
+                    ))}
                   </div>
                 </div>
               </div>
