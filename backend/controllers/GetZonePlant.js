@@ -74,7 +74,7 @@ export const getPlantDetail = async (req, res) => {
         "user.name," +
         "plant.status_plant," +
         "user.last_name ," +
-        "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_check" +
+        "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_check " +
         "FROM zone_plant " +
         "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
         "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
