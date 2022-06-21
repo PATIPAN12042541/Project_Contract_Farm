@@ -45,7 +45,10 @@ const Plant = (props) => {
                 <div className="card-body">
                   <div className="row">
                     {datadetail.map((data, index) => (
-                      <div className="col-md-12" key={index}>
+                      <div
+                        className="col-md-12 callout callout-success"
+                        key={index}
+                      >
                         {data.status_plant == "1" ||
                         data.status_plant == "4" ? (
                           <Link
