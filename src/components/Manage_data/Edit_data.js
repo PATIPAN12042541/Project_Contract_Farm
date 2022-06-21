@@ -458,6 +458,7 @@ const Edit_data = (props) => {
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.id_plant);
+                                    setGetIDStatus(data.status_plant);
                                   }}
                                   // onClick={
                                   //   (Show_status, setGetIdplant(data.id_plant))
@@ -500,6 +501,7 @@ const Edit_data = (props) => {
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.id_plant);
+                                    setGetIDStatus(data.status_plant);
                                   }}
                                   // onClick={
                                   //   (Show_status, setGetIdplant(data.id_plant))
