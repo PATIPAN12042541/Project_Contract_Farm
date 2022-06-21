@@ -51,6 +51,7 @@ const Edit_data = (props) => {
   // const [plantimage, setPlantImage] = useState();
 
   /****** status Plant ******/
+  const [getIDStatus, setGetIDStatus] = useState([]);
   const [StatusPlant, setStatusPlant] = useState([]);
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
@@ -81,6 +82,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
+    console.log(response.data);
   };
 
   const getStatusPlant = async () => {
@@ -88,7 +90,6 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Status/StatusPlant`
     );
     setStatusPlant(statusplants.data);
-    console.log(statusplants.data);
   };
 
   const getPlantUser = async () => {
