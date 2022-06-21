@@ -233,6 +233,7 @@ const Edit_data = (props) => {
         editUploadImg();
       }
       getPlant();
+      Close_status();
       Swal.fire("Succes !", "Your file has been Update.", "success");
     } catch (error) {
       Swal.fire({
