@@ -634,7 +634,7 @@ const Edit_data = (props) => {
                 <select
                   className="custom-select form-control-border"
                   onChange={(e) => setGetStatus(e.target.value)}
-                  value={getIdplant}
+                  defaultValue={getIDStatus}
                 >
                   {StatusPlant.map((status) => {
                     return (
