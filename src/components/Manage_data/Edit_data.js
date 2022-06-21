@@ -128,6 +128,7 @@ const Edit_data = (props) => {
   };
 
   const postStatusPlant = async (id, status) => {
+    console.log(id + " " + status);
     await axios
       .patch(
         `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
