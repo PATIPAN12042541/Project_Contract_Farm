@@ -136,12 +136,13 @@ const Edit_data = (props) => {
         }
       )
       .then(function (response) {
-        getPlant();
+        Close_status();
         Swal.fire({
           icon: "success",
           title: "Success",
           text: "Save OK !",
         });
+        getPlant();
       })
       .catch(function (error) {
         Swal.fire({
@@ -168,7 +169,6 @@ const Edit_data = (props) => {
           image_url: image_name,
         })
         .then(function (response) {
-          Close_status();
           Swal.fire({
             icon: "success",
             title: "Success",
