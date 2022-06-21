@@ -269,5 +269,21 @@ export const UpdateManagePlant = async (req, res) => {
 };
 
 
+export const UpdateStatusPlant = async (req, res) => {
+  try {
+    await PlantDataDetail.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    res.json({
+      message: "Status Updated Saccess",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
 
 

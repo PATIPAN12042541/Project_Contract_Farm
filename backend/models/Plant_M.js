@@ -23,6 +23,9 @@ const Plant = db.define(
     plant_image: {
       type: DataTypes.STRING,
     },
+    status_plant: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     freezeTableName: true,

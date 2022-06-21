@@ -128,7 +128,29 @@ const Edit_data = (props) => {
   };
 
   const postStatusPlant = async (id, status) => {
-    console.log(id + " " + status);
+
+    await axios
+      .patch(
+        `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
+        {
+          status_plant: status,
+        }
+      )
+      .then(function (response) {
+        getPlant();
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Save OK !",
+        });
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      });
   };
 
   const postPlant = async (e) => {
