@@ -56,7 +56,7 @@ const Plant = (props) => {
                             params={data.id_plants}
                             className="text-white"
                           >
-                            <div className="card mb-12 bg-gradient-white callout callout-success">
+                            <div className="card mb-12 bg-gradient-white">
                               <div className="container">
                                 <div className="position-relative">
                                   {data.status_check == "0" ? (
