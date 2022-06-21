@@ -56,7 +56,7 @@
             padding-right: 30px;
                 top: 100px;
                 right: 20px;
-                    font-size: 18px;
+                    font-size: 16px;
 }
 
 .text-block-stdate {
@@ -67,8 +67,8 @@
         padding-left: 20px;
         padding-right: 30px;
         top: 40px;
-        right: 30px;
-        font-size: 18px;
+        right: 20px;
+        font-size: 16px;
 }
 
 .text-block-eddate {
@@ -80,7 +80,7 @@
         padding-right: 30px;
         top: 70px;
         right: 20px;
-        font-size: 18px;
+        font-size: 16px;
 }
 
 .ima-size {
