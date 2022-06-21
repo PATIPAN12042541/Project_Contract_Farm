@@ -620,10 +620,8 @@ const Edit_data = (props) => {
       </section>
 
       <Modal show={show_status} onHide={Close_status}>
-        <Modal.Header>
-          <Modal.Title style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
-            สถานะแปลงปลูกผัก
-          </Modal.Title>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>สถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {" "}
