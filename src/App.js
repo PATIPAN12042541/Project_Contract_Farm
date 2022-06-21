@@ -24,9 +24,9 @@ import Update_Chemical from "./components/Chemical/Update_Chemical.js";
 import ListTypeUser from "./components/TypeUser/ListTypeUser.js";
 import AddTypeUser from "./components/TypeUser/AddTypeUser.js";
 import UpdateTypeUser from "./components/TypeUser/UpdateTypeUser.js";
-
 import Content from "./components/Content";
 import "./App.css";
+import Plant_detail from "./components/Data_detail/Plant_detail";
 
 function App() {
   return (
@@ -188,6 +188,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <UpdateTypeUser />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Plant_detail"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Plant_detail />
                 <Footer />
               </>
             }
