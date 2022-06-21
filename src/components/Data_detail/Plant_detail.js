@@ -49,6 +49,9 @@ const Plant_detail = (props) => {
                           src={data.plant_image}
                         />
                       </div>
+                      <div>
+                        <button className="btn btn-success">ยืนยัน</button>
+                      </div>
                     </div>
                   </div>
                 </div>
