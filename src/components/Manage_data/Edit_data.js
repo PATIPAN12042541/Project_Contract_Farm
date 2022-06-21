@@ -480,7 +480,7 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     Show_status();
-                                    setGetIdplant(data.id_plant);
+                                    setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
                                   // onClick={
@@ -523,7 +523,7 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     Show_status();
-                                    setGetIdplant(data.id_plant);
+                                    setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
                                   // onClick={
