@@ -83,6 +83,9 @@ const Plant = (props) => {
                                   <div className="text-block-Plant">
                                     {data.name_plant}
                                   </div>
+                                  <div className="text-block-PlantStatus">
+                                    {data.status_name}
+                                  </div>
                                   <div className="text-block-stdate">
                                     วันที่เริ่มปลูก :{" "}
                                     {moment(data.start_date_plant).format(
