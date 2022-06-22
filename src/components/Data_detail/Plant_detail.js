@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../CSS/Plant_detail.css";
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
@@ -48,9 +49,9 @@ const Plant_detail = (props) => {
                           className="ima-size card-img-top"
                           src={data.plant_image}
                         />
-                        <span>
+                        <div id="text-word">
                           <center>กำลังดำเนินการ...</center>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
