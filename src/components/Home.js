@@ -3,7 +3,7 @@ import "./CSS/Home.css";
 
 const Home = () => {
   return (
-    <div className="content-wrapper bg-image container">
+    <div className="content-wrapper bg-image container2">
       <div className="text-block">
         <p>
           <i
