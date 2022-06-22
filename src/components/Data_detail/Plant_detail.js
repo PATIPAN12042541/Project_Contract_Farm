@@ -37,9 +37,15 @@ const Plant_detail = (props) => {
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <center>
-                      <h3 className="card-title">
-                        ปลูกผัก : {data.name_plant}
-                      </h3>
+                      {data.status_plant == "1" ? (
+                        <h3 className="card-title">
+                          ปลูกผัก : {data.name_plant}
+                        </h3>
+                      ) : (
+                        <h3 className="card-title">
+                          ตัดผัก : {data.name_plant}
+                        </h3>
+                      )}
                     </center>
                   </div>
                   <div className="card-body">
