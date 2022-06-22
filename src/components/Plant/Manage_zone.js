@@ -51,7 +51,7 @@ const Manage_zone = () => {
     formData.append("file", image.data);
     console.log(formData);
     
-    if (file.size > 1e7) {
+    if (image.size > 1e7) {
       window.alert("Please upload a file smaller than 10 MB");
       return false;
     }
