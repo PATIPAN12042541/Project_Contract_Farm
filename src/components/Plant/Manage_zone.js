@@ -52,15 +52,17 @@ const Manage_zone = () => {
     console.log(formData);
     
     if (image.size > 1000000) {
-      window.alert("Please upload a file smaller than 10 MB");
-      return false;
+      Swal.fire({
+        icon: "error",
+        title: "กรุณา Upload File ให้หน่อยกว่า 1 MB",
+        text: "Save Error!",
+      });
+    } else {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.error(err));
     }
-
-
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.error(err));
   };
 
   // Post Data
