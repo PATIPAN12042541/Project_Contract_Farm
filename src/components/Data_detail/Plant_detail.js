@@ -48,8 +48,8 @@ const Plant_detail = (props) => {
                           className="ima-size card-img-top"
                           src={data.plant_image}
                         />
-                        <span style={{ textAlign: "center" }}>
-                          กำลังดำเนินการ...
+                        <span>
+                          <center>กำลังดำเนินการ...</center>
                         </span>
                       </div>
                     </div>
