@@ -41,6 +41,7 @@ const Manage_plant_chemical = (props) => {
     if (
       IdExpired == "" ||
       ratiocc == "" ||
+      note == "" ||
       ratioL == "" ||
       startDate == "" ||
       endDate == ""
