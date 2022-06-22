@@ -48,6 +48,7 @@ const Plant_detail = (props) => {
                           className="ima-size card-img-top"
                           src={data.plant_image}
                         />
+                        <span style={{ color: "#fff" }}>กำลังดำเนินการ...</span>
                       </div>
                     </div>
                   </div>
