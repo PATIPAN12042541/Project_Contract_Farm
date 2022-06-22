@@ -51,12 +51,6 @@ const Manage_plant_chemical = (props) => {
         text: "Save Error!",
       });
     } else {
-      const note_e = note;
-      if (note_e == "") {
-        note_e = "-";
-      } else {
-        note_e = note;
-      }
 
       try {
         await axios
@@ -67,7 +61,7 @@ const Manage_plant_chemical = (props) => {
               id_residual_period: IdExpired,
               cc: ratiocc,
               liter: ratioL,
-              note: note_e,
+              note: note,
               date_start: startDate,
               date_end: endDate,
             }
