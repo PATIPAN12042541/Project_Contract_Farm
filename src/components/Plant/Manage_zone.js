@@ -328,6 +328,7 @@ const Manage_zone = () => {
                     btnIcon="fas fa-upload"
                     multiple
                     accept="image/*"
+                    maxFileSize={1}
                     onUpload={(file) => {
                       console.log("query file", file);
 
