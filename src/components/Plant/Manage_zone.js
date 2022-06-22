@@ -49,8 +49,13 @@ const Manage_zone = () => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", image.data);
-
     console.log(formData);
+    
+    if (file.size > 1e7) {
+      window.alert("Please upload a file smaller than 10 MB");
+      return false;
+    }
+
 
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
