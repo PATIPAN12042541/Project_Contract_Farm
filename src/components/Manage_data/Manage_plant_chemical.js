@@ -51,7 +51,6 @@ const Manage_plant_chemical = (props) => {
         text: "Save Error!",
       });
     } else {
-
       try {
         await axios
           .post(
