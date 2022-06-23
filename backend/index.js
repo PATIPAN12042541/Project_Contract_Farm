@@ -13,6 +13,7 @@ import Zoneplant from "./routes/ZonePlantRoute.js";
 import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
+import History from "./routes/HistoryPlantRoute";
 
 dotenv.config();
 const app = express();
@@ -86,6 +87,8 @@ app.use("/chemical", TypeChemical);
 app.use("/header", Header);
 app.use("/header", Header);
 app.use("/OverView", OverView);
+app.use("/History", History);
+
 
  
 app.listen(4000, () => console.log("Server running at port 4000"));
