@@ -614,6 +614,7 @@ const Edit_data = (props) => {
                                 >
                                   <BsFillChatSquareDotsFill />
                                 </button>
+                                <> </>
                                 <button
                                   type="submit"
                                   className="btn btn-success"
