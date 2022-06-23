@@ -631,7 +631,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
-                                  onClick={postStatusPlant(data.id_plant, "1")}
+                                  onClick={() => {
+                                    postStatusPlant(data.id_plant, "1");
+                                  }}
                                 >
                                   <BsFillCheckCircleFill />
                                 </button>
