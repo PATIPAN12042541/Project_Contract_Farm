@@ -122,6 +122,7 @@ export const postDetailPlant = async (req, res) => {
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
         plant_image: "../dist/img/" + image_url,
+        status_plant: 1,
       });
     } catch (error) {
       res.json({ message: error.message });
