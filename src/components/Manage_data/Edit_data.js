@@ -787,7 +787,7 @@ const Edit_data = (props) => {
                 >
                   {StatusPlant.map((status) => {
                     return (
-                      <option key={status.id} value={status.id}>
+                      <option key={status.id} value={status.id} disabled>
                         {status.status_name}
                       </option>
                     );
