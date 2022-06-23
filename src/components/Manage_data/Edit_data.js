@@ -592,7 +592,7 @@ const Edit_data = (props) => {
                                 >
                                   <BsFillTrashFill />
                                 </button>
-                                <> </>
+                                {/* <> </>
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
@@ -606,7 +606,7 @@ const Edit_data = (props) => {
                                   // }
                                 >
                                   <AiOutlineFundView />
-                                </button>
+                                </button> */}
                                 <> </>
                                 <button
                                   type="submit"
