@@ -545,7 +545,7 @@ const Edit_data = (props) => {
                                 <> </>
                                 <button
                                   type="submit"
-                                  className="btn btn-primary"
+                                  className="btn btn-warning"
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.plant_id);
@@ -646,7 +646,7 @@ const Edit_data = (props) => {
                                 <> </>
                                 <button
                                   type="submit"
-                                  className="btn btn-primary"
+                                  className="btn btn-warning"
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.plant_id);
@@ -791,7 +791,7 @@ const Edit_data = (props) => {
                         key={status.id}
                         value={status.id}
                         style={{
-                          display: getIDStatus >= status.id ? "none" : "",
+                          display: getIDStatus >= status.id ? "none" : "block",
                         }}
                       >
                         {status.status_name}
