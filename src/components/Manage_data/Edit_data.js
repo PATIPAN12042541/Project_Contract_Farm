@@ -142,30 +142,41 @@ const Edit_data = (props) => {
   };
 
   const postStatusPlant = async (id, status) => {
-    console.log(id + " " + status);
-    await axios
-      .patch(
-        `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
-        {
-          status_plant: status,
-        }
-      )
-      .then(function (response) {
-        Close_status();
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Save OK !",
-        });
-        getPlant();
-      })
-      .catch(function (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
-        });
-      });
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await axios
+          .patch(
+            `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
+            {
+              status_plant: status,
+            }
+          )
+          .then(function (response) {
+            Close_status();
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            getPlant();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      }
+    });
   };
 
   const postPlant = async (e) => {
@@ -620,6 +631,7 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
+                                  onClick={postStatusPlant(data.id_plant, "1")}
                                 >
                                   <BsFillCheckCircleFill />
                                 </button>
