@@ -7,6 +7,7 @@ import { BsCheckSquareFill } from "react-icons/bs";
 import { AiOutlineFundView } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
 import { BsFillChatSquareDotsFill } from "react-icons/bs";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import "../../../node_modules/@hawk-ui/file-upload/dist/index.min.css";
 import FileUpload from "@hawk-ui/file-upload";
 import { Link } from "react-router-dom";
@@ -619,7 +620,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-success"
                                 >
-                                  <BsFillChatSquareDotsFill />
+                                  <BsFillCheckCircleFill />
                                 </button>
                               </center>
                             ) : (
