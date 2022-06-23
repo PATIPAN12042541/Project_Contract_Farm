@@ -564,6 +564,63 @@ const Edit_data = (props) => {
                                   <BsFillChatSquareDotsFill />
                                 </button>
                               </center>
+                            ) : data.status_plant == "4" ? (
+                              <center>
+                                <Link
+                                  to={{
+                                    pathname: `/Manage_plant/${data.id_plant}`,
+                                    state: {
+                                      id: data.id_plant,
+                                    },
+                                  }}
+                                >
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    style={{ color: "#FFFFFF" }}
+                                  >
+                                    <BsPlusLg />
+                                  </button>
+                                </Link>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_status();
+                                    setGetIdplant(data.plant_id);
+                                    setGetIDStatus(data.status_plant);
+                                  }}
+                                  // onClick={
+                                  //   (Show_status, setGetIdplant(data.id_plant))
+                                  // }
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                              </center>
                             ) : (
                               <center>
                                 <button
