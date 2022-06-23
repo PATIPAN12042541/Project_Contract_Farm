@@ -66,6 +66,7 @@ const Edit_data = (props) => {
 
   /****** status Plant ******/
   const [getIDStatus, setGetIDStatus] = useState([]);
+  const [CicleStatus, setCicleStatus] = useState([]);
   const [StatusPlant, setStatusPlant] = useState([]);
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
@@ -141,7 +142,7 @@ const Edit_data = (props) => {
     });
   };
 
-  const postStatusPlant = async (id, status) => {
+  const postStatusPlant = async (id, status, circle) => {
     Swal.fire({
       title: "Confirm Update Status?",
       text: "Yes or No",
@@ -157,6 +158,7 @@ const Edit_data = (props) => {
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
             {
               status_plant: status,
+              status_circle: circle,
             }
           )
           .then(function (response) {
@@ -560,6 +562,7 @@ const Edit_data = (props) => {
                                   style={{ color: "#fff" }}
                                   onClick={() => {
                                     Show_status();
+                                    setCicleStatus(data.status_circle);
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
@@ -632,7 +635,11 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-success"
                                   onClick={() => {
-                                    postStatusPlant(data.plant_id, 1);
+                                    postStatusPlant(
+                                      data.plant_id,
+                                      1,
+                                      data.status_circle + 1
+                                    );
                                   }}
                                 >
                                   <BsFillCheckCircleFill />
@@ -665,6 +672,7 @@ const Edit_data = (props) => {
                                   style={{ color: "#fff" }}
                                   onClick={() => {
                                     Show_status();
+                                    setCicleStatus(data.status_circle);
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
@@ -826,7 +834,7 @@ const Edit_data = (props) => {
           <button
             className="btn btn-success"
             onClick={() => {
-              postStatusPlant(getIdplant, getStatus);
+              postStatusPlant(getIdplant, getStatus, CicleStatus);
             }}
           >
             SAVE
