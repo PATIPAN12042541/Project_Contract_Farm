@@ -546,6 +546,7 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-warning"
+                                  style={{ color: "#fff" }}
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.plant_id);
@@ -647,6 +648,7 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-warning"
+                                  style={{ color: "#fff" }}
                                   onClick={() => {
                                     Show_status();
                                     setGetIdplant(data.plant_id);
