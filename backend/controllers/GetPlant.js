@@ -28,6 +28,7 @@ export const getPlant = async (req, res) => {
         "plant.plant_image as plant_image, " +
         "plant.status_plant, " +
         "Status_plant.status_name, " +
+        "plant.status_circle, " +
         "plant_detail.id as plant_detail_id, " +
         "plant_detail.id_name_plant as plant_detail_id_name_plant " +
         "from plant " +
@@ -46,7 +47,6 @@ export const getPlant = async (req, res) => {
   }
 };
 
-
 export const getStatusPlants = async (req, res) => {
   try {
     const statusPlant = await db.query("SELECT * FROM Status_plant", {
@@ -57,7 +57,6 @@ export const getStatusPlants = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const getManagePlantEdit = async (req, res) => {
   try {
@@ -123,6 +122,7 @@ export const postDetailPlant = async (req, res) => {
         end_date_plant: end_date_plant,
         plant_image: "../dist/img/" + image_url,
         status_plant: 1,
+        status_circle: 1,
       });
     } catch (error) {
       res.json({ message: error.message });
