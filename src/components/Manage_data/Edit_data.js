@@ -791,7 +791,7 @@ const Edit_data = (props) => {
                         key={status.id}
                         value={status.id}
                         style={{
-                          display: getIDStatus >= status.id ? "none" : "block",
+                          display: getIDStatus >= status.id ? "none" : "",
                         }}
                       >
                         {status.status_name}
