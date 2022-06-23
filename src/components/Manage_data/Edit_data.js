@@ -143,8 +143,8 @@ const Edit_data = (props) => {
 
   const postStatusPlant = async (id, status) => {
     Swal.fire({
-      title: "Are you sure delete?",
-      text: "You want delete data !",
+      title: "Confirm Update Status?",
+      text: "Yes or No",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
