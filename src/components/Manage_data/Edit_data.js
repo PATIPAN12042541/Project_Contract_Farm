@@ -155,7 +155,6 @@ const Edit_data = (props) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         History_plant(id, status);
-
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
@@ -349,6 +348,7 @@ const Edit_data = (props) => {
 
   const History_plant = (id, status) => {
     if (status == 4) {
+      console.log("id : " + id + "status : " + status);
       getDataPlant(id);
     } else {
       let status2 = status - 1;
