@@ -260,16 +260,15 @@ const Edit_data = (props) => {
     }
   };
 
-  /****** History Plant ******/
-  const [HistoryPlantData, setHistoryPlantData] = useState();
-  /*************************/
+
 
   const getDataPlant = async (id) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    setHistoryPlantData(getData.data);
-    console.log(getData.data[0].zone_id);
+
+    console.log(getData.data);
+
     // try {
     //   axios
     //     .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
