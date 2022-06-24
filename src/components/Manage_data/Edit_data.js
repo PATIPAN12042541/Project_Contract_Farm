@@ -281,6 +281,13 @@ const Edit_data = (props) => {
           plant_date_start: getData.data[0].start_date_plant,
           plant_date_end: getData.data[0].end_date_plant,
           plant_img: getData.data[0].plant_image,
+          chemical_id: "",
+          residual_period_id: "",
+          chemical_cc: "",
+          chemical_liter: "",
+          chemical_note: "",
+          chemical_date_start: "0000-00-00",
+          chemical_date_end: "0000-00-00",
           plant_status: getData.data[0].plant.status_plan,
           plant_circle: getData.data[0].plant.status_circle,
         })
