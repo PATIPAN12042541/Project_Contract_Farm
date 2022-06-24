@@ -18,6 +18,7 @@ import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import form from "react-bootstrap/Form";
+import moment from "moment";
 
 const Edit_data = (props) => {
   /******************** Modal Status *************/
@@ -295,8 +296,8 @@ const Edit_data = (props) => {
           chemical_cc: "",
           chemical_liter: "",
           chemical_note: "",
-          chemical_date_start: "0000-00-00",
-          chemical_date_end: "2022-01-01",
+          chemical_date_start: moment(new Date()).format("YYYY-MM-DD"),
+          chemical_date_end: moment(new Date()).format("YYYY-MM-DD"),
           plant_status: getData.data[0].status_plant,
           plant_circle: getData.data[0].status_circle,
         })
