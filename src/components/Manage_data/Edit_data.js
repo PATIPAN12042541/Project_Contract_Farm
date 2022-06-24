@@ -309,9 +309,8 @@ const Edit_data = (props) => {
     const result = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataChemical/${id}`
     );
-    console.log(result.data);
+    // console.log(result.data);
     const detail_array = [];
-
     try {
       for (let i = 0; i < result.data.length; i++) {
         detail_array.push(
