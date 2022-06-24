@@ -130,7 +130,6 @@ const Edit_data = (props) => {
     );
     setHistoryPlantData(getData.data);
     // console.log(getData.data);
-     console.log(HistoryPlantData);
   };
 
   const deletePlants = async (id) => {
@@ -172,7 +171,6 @@ const Edit_data = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        getDataPlant(id);
         History_plant(id, status);
         await axios
           .patch(
@@ -284,7 +282,8 @@ const Edit_data = (props) => {
 
     if (status2 == "1") {
       getDataPlant(id);
-      console.log("status : " + HistoryPlantData);
+      const new_data = HistoryPlantData;
+      console.log(new_data);
 
       // try {
       //   axios
