@@ -129,7 +129,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
     setHistoryPlantData(getData.data);
-    console.log(getData.data);
+    console.log(getData.data[0].end_date_plant);
   };
 
   const deletePlants = async (id) => {
@@ -284,7 +284,7 @@ const Edit_data = (props) => {
 
     if (status2 == "1") {
       getDataPlant(id);
-      console.log(HistoryPlantData);
+      console.log(HistoryPlantData[0]);
 
       // try {
       //   axios
