@@ -347,8 +347,8 @@ const Edit_data = (props) => {
   };
 
   const History_plant = (id, status) => {
+    console.log("id : " + id + "status : " + status);
     if (status == 4) {
-      console.log("id : " + id + "status : " + status);
       getDataPlant(id);
     } else {
       let status2 = status - 1;
