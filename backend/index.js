@@ -13,7 +13,7 @@ import Zoneplant from "./routes/ZonePlantRoute.js";
 import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
-import History from "./routes/HistoryPlantRoute";
+import History from "./routes/HistoryPlantRoute.js";
 
 dotenv.config();
 const app = express();

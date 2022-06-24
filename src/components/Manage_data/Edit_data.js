@@ -71,6 +71,11 @@ const Edit_data = (props) => {
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
+  useEffect(() => {
+    getPlant();
+    getPlantUser();
+    getStatusPlant();
+  }, []);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -260,25 +265,41 @@ const Edit_data = (props) => {
 
   const History_plant = (status) => {
     if (status == "1") {
-
+      try {
+        axios
+          .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+            zone_id: "",
+            zone_name: "",
+            zone_image: "",
+            plant_id: "",
+            plant_id_name: "",
+            plant_name: "",
+            user_id: "",
+            plant_date_start: "",
+            plant_date_end: "",
+            plant_img: "",
+            plant_status: "",
+            plant_circle: "",
+          })
+          .then(function (response) {})
+          .catch(function (error) {});
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
     } else if (status == "2") {
-
     } else if (status == "3") {
-
     } else if (status == "4") {
-      
     } else {
       console.log("eror status");
     }
   };
 
 
-  useEffect(() => {
-    getPlant();
-    getPlantUser();
-    getStatusPlant();
-  }, []);
-
+  
   return (
     <div className="content-wrapper">
       <section className="content-header">

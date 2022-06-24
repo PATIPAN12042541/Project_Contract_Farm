@@ -1,6 +1,7 @@
 import db from "../config/Database.js";
 import HistoryPlant from "../models/HistoryPlantModel.js";
 
+
 export const getHistoryPlant = async (req, res) => {
   const {
     zone_id,
