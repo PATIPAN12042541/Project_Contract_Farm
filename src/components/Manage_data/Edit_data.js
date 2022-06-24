@@ -260,23 +260,11 @@ const Edit_data = (props) => {
     }
   };
 
+  // status 1
   const getDataPlant = async (id) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-
-    // console.log(" zone_id : " + getData.data[0].zone_id);
-    // console.log(" zone_name : " + getData.data[0].zone_name);
-    // console.log(" plant_image : " + getData.data[0].plant_image);
-    // console.log(" plant_id : " + getData.data[0].plant_id);
-    // console.log(" plant_id_name : " + getData.data[0].plant_id_name);
-    // console.log(" name_plant : " + getData.data[0].name_plant);
-    // console.log(" id_user : " + getData.data[0].id_user);
-    // console.log(" start_date_plant : " + getData.data[0].start_date_plant);
-    // console.log(" end_date_plant : " + getData.data[0].end_date_plant);
-    // console.log(" plant_image : " + getData.data[0].plant_image);
-    // console.log(" status_plant : " + getData.data[0].status_plant);
-    // console.log(" status_circle : " + getData.data[0].status_circle);
 
     try {
       axios
@@ -312,13 +300,24 @@ const Edit_data = (props) => {
     }
   };
 
+  // status 2
+  const getDataPlant2 = async (id) => {
+    console.log(id);
+  };
+
+  const getDataPlant3 = async (id) => {
+    console.log(id);
+  };
+
   const History_plant = (id, status) => {
     let status2 = status - 1;
 
     if (status2 == "1") {
       getDataPlant(id); // get & post history data
     } else if (status2 == "2") {
+      getDataPlant2(id);
     } else if (status2 == "3") {
+      getDataPlant3(id);
     } else {
       console.log("eror status");
     }
