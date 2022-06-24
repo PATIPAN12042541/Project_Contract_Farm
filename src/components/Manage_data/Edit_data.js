@@ -351,13 +351,13 @@ const Edit_data = (props) => {
     console.log("id : " + id + " status : " + status);
 
     let status2 = status - 1;
-    if (status2 == "0") {
+    if (status2 == "1") {
       getDataPlant(id); // get & post history data
-    } else if (status2 == "1") {
-      getDataPlant2(id); // get & post ปุ๋ย
     } else if (status2 == "2") {
-      getDataPlant3(id); // get & post สารเคมี
+      getDataPlant2(id); // get & post ปุ๋ย
     } else if (status2 == "3") {
+      getDataPlant3(id); // get & post สารเคมี
+    } else if (status2 == "0") {
       getDataPlant(id);
     }
     
