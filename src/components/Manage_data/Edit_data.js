@@ -80,7 +80,6 @@ const Edit_data = (props) => {
     getPlant();
     getPlantUser();
     getStatusPlant();
-    getDataPlant();
   }, []);
 
   const uploadImg = async () => {
@@ -130,6 +129,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
     setHistoryPlantData(getData.data);
+    console.log(getData.data);
   };
 
   const deletePlants = async (id) => {
