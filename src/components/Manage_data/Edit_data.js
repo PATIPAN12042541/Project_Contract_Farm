@@ -71,6 +71,11 @@ const Edit_data = (props) => {
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
+
+  /****** History Plant ******/
+  const [HistoryPlantData, setHistoryPlantData] = useState([]);
+  /*************************/
+
   useEffect(() => {
     getPlant();
     getPlantUser();
@@ -117,6 +122,13 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/user/getUsersByRole`
     );
     setPlantUser(response.data);
+  };
+
+  const getDataPlant = async (id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
+    );
+    setHistoryPlantData(response.data);
   };
 
   const deletePlants = async (id) => {
@@ -263,43 +275,44 @@ const Edit_data = (props) => {
     }
   };
 
-  const History_plant = (status) => {
-    if (status == "1") {
-      try {
-        axios
-          .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
-            zone_id: "",
-            zone_name: "",
-            zone_image: "",
-            plant_id: "",
-            plant_id_name: "",
-            plant_name: "",
-            user_id: "",
-            plant_date_start: "",
-            plant_date_end: "",
-            plant_img: "",
-            plant_status: "",
-            plant_circle: "",
-          })
-          .then(function (response) {})
-          .catch(function (error) {});
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
-        });
-      }
-    } else if (status == "2") {
-    } else if (status == "3") {
-    } else if (status == "4") {
+  const History_plant = (id, status) => {
+    let status2 = status - 1;
+    if (status2 == "1") {
+      getDataPlant(id);
+      console.log(HistoryPlantData);
+
+      // try {
+      //   axios
+      //     .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+      //       zone_id: "",
+      //       zone_name: "",
+      //       zone_image: "",
+      //       plant_id: "",
+      //       plant_id_name: "",
+      //       plant_name: "",
+      //       user_id: "",
+      //       plant_date_start: "",
+      //       plant_date_end: "",
+      //       plant_img: "",
+      //       plant_status: "",
+      //       plant_circle: "",
+      //     })
+      //     .then(function (response) {})
+      //     .catch(function (error) {});
+      // } catch (error) {
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: error.response.data.msg,
+      //     text: "Save Error!",
+      //   });
+      // }
+    } else if (status2 == "2") {
+    } else if (status2 == "3") {
     } else {
       console.log("eror status");
     }
   };
 
-
-  
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -871,6 +884,7 @@ const Edit_data = (props) => {
             className="btn btn-success"
             onClick={() => {
               postStatusPlant(getIdplant, getStatus, CicleStatus);
+              History_plant(getIdplant, getStatus);
             }}
           >
             SAVE

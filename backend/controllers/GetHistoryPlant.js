@@ -2,7 +2,37 @@ import db from "../config/Database.js";
 import HistoryPlant from "../models/HistoryPlantModel.js";
 
 
-export const getHistoryPlant = async (req, res) => {
+export const getDataPlant = async (req, res) => {
+  try {
+    const getDataPlant = await db.query(
+      "SELECT zone_plant.id AS zone_id," +
+        "        zone_plant.zone_name," +
+        "        zone_plant.image_zone as zone_name," +
+        "        plant_detail.id_name_plant	as plant_id_name," +
+        "        plant.id_user," +
+        "        plant.name_plant," +
+        "        plant.start_date_plant," +
+        "        plant.end_date_plant," +
+        "        plant.plant_image," +
+        "        plant.status_plant," +
+        "        plant.status_circle " +
+        "FROM plant " +
+        "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
+        "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
+        "where plant.id_plant = :id_plant ",
+      {
+        replacements: { id_plant: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+
+    res.json(getDataPlant);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+export const PostHistoryPlant = async (req, res) => {
   const {
     zone_id,
     zone_name,
@@ -46,3 +76,6 @@ export const getHistoryPlant = async (req, res) => {
 
   res.json({ msg: "Successful" });
 };
+
+
+
