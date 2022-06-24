@@ -268,32 +268,31 @@ const Edit_data = (props) => {
     );
 
     console.log(getData.data);
-
-    // try {
-    //   axios
-    //     .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
-    //       zone_id: getData.data[0].zone_id,
-    //       zone_name: "",
-    //       zone_image: "",
-    //       plant_id: "",
-    //       plant_id_name: "",
-    //       plant_name: "",
-    //       user_id: "",
-    //       plant_date_start: "",
-    //       plant_date_end: "",
-    //       plant_img: "",
-    //       plant_status: "",
-    //       plant_circle: "",
-    //     })
-    //     .then(function (response) {})
-    //     .catch(function (error) {});
-    // } catch (error) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: error.response.data.msg,
-    //     text: "Save Error!",
-    //   });
-    // }
+    try {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+          zone_id: getData.data[0].zone_id,
+          zone_name: getData.data[0].zone_name,
+          zone_image: getData.data[0].plant_image,
+          plant_id: getData.data[0].plant_id,
+          plant_id_name: getData.data[0].plant_id_name,
+          plant_name: getData.data[0].name_plant,
+          user_id: getData.data[0].id_user,
+          plant_date_start: getData.data[0].start_date_plant,
+          plant_date_end: getData.data[0].end_date_plant,
+          plant_img: getData.data[0].plant_image,
+          plant_status: getData.data[0].plant.status_plan,
+          plant_circle: getData.data[0].plant.status_circle,
+        })
+        .then(function (response) {})
+        .catch(function (error) {});
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const History_plant = (id, status) => {

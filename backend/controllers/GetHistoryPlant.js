@@ -9,6 +9,7 @@ export const getDataPlant = async (req, res) => {
         "        zone_plant.zone_name," +
         "        zone_plant.image_zone," +
         "        plant_detail.id_name_plant	as plant_id_name," +
+        "        plant.id as plant_id,"+
         "        plant.id_user," +
         "        plant.name_plant," +
         "        plant.start_date_plant," +
