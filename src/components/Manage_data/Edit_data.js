@@ -128,10 +128,10 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    setHistoryPlantData(getData.data[0].end_date_plant);
+    setHistoryPlantData(getData.data);
     // console.log(getData.data);
     // console.log();
-  };;
+  };
 
   const deletePlants = async (id) => {
     Swal.fire({
@@ -172,6 +172,7 @@ const Edit_data = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        getDataPlant(id);
         History_plant(id, status);
         await axios
           .patch(
@@ -280,8 +281,6 @@ const Edit_data = (props) => {
 
   const History_plant = (id, status) => {
     let status2 = status - 1;
-
-    console.log(id + " " + status2);
 
     if (status2 == "1") {
       getDataPlant(id);
