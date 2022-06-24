@@ -295,8 +295,8 @@ const Edit_data = (props) => {
           chemical_cc: "",
           chemical_liter: "",
           chemical_note: "",
-          chemical_date_start: "2022-06-17",
-          chemical_date_end: "2022-06-17",
+          chemical_date_start: "",
+          chemical_date_end: "",
           plant_status: getData.data[0].status_plant,
           plant_circle: getData.data[0].status_circle,
         })
