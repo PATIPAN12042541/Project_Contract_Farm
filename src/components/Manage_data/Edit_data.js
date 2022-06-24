@@ -155,6 +155,7 @@ const Edit_data = (props) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         History_plant(id, status);
+
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
@@ -347,16 +348,19 @@ const Edit_data = (props) => {
   };
 
   const History_plant = (id, status) => {
-    let status2 = status - 1;
-
-    if (status2 == "1") {
-      getDataPlant(id); // get & post history data
-    } else if (status2 == "2") {
-      getDataPlant2(id); // get & post ปุ๋ย
-    } else if (status2 == "3") {
-      getDataPlant3(id); // get & post สารเคมี
+    if (status == 4) {
+      getDataPlant(id);
     } else {
-      console.log("eror status");
+      let status2 = status - 1;
+      if (status2 == "1") {
+        getDataPlant(id); // get & post history data
+      } else if (status2 == "2") {
+        getDataPlant2(id); // get & post ปุ๋ย
+      } else if (status2 == "3") {
+        getDataPlant3(id); // get & post สารเคมี
+      } else {
+        console.log("eror status");
+      }
     }
   };
 
