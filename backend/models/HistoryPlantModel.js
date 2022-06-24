@@ -18,7 +18,7 @@ const HistoryPlant = db.define(
       type: DataTypes.INTEGER,
     },
     plant_id_name: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     plant_name: {
       type: DataTypes.STRING,
