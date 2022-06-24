@@ -310,6 +310,41 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataChemical/${id}`
     );
     console.log(result.data);
+    const detail_array = [];
+
+    try {
+      for (let i = 0; i < result.data.length; i++) {
+        detail_array.push(
+          await axios.post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+            zone_id: result.data[i].zone_id,
+            zone_name: result.data[i].zone_name,
+            zone_image: result.data[i].plant_image,
+            plant_id: result.data[i].plant_id,
+            plant_id_name: result.data[i].plant_id_name,
+            plant_name: result.data[i].name_plant,
+            user_id: result.data[i].id_user,
+            plant_date_start: result.data[i].start_date_plant,
+            plant_date_end: result.data[i].end_date_plant,
+            plant_img: result.data[i].plant_image,
+            chemical_id: result.data[i].id_name_chemical,
+            residual_period_id: result.data[i].id_residual_period,
+            chemical_cc: result.data[i].cc,
+            chemical_liter: result.data[i].liter,
+            chemical_note: result.data[i].note,
+            chemical_date_start: result.data[i].date_start,
+            chemical_date_end: result.data[i].date_end,
+            plant_status: result.data[i].status_plant,
+            plant_circle: result.data[i].status_circle,
+          })
+        );
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "error",
+        text: error,
+      });
+    }
   };
 
   const History_plant = (id, status) => {
