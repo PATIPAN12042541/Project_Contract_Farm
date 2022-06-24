@@ -347,21 +347,20 @@ const Edit_data = (props) => {
   };
 
   const History_plant = (id, status) => {
-    console.log("id : " + id + "status : " + status);
-    if (status == 4) {
+   
+    console.log("id : " + id + " status : " + status);
+
+    let status2 = status - 1;
+    if (status2 == "0") {
+      getDataPlant(id); // get & post history data
+    } else if (status2 == "1") {
+      getDataPlant2(id); // get & post ปุ๋ย
+    } else if (status2 == "2") {
+      getDataPlant3(id); // get & post สารเคมี
+    } else if (status2 == "3") {
       getDataPlant(id);
-    } else {
-      let status2 = status - 1;
-      if (status2 == "1") {
-        getDataPlant(id); // get & post history data
-      } else if (status2 == "2") {
-        getDataPlant2(id); // get & post ปุ๋ย
-      } else if (status2 == "3") {
-        getDataPlant3(id); // get & post สารเคมี
-      } else {
-        console.log("eror status");
-      }
     }
+    
   };
 
   useEffect(() => {
