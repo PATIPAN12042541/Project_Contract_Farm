@@ -289,7 +289,6 @@ const Edit_data = (props) => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: error.response.data.msg,
         text: "Save Error!",
       });
     }
