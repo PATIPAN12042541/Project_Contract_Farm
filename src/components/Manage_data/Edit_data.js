@@ -128,10 +128,10 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    setHistoryPlantData(getData.data);
-    console.log(getData.data);
-    console.log(getData.data[0].end_date_plant);
-  };
+    setHistoryPlantData(getData.data[0].end_date_plant);
+    // console.log(getData.data);
+    // console.log();
+  };;
 
   const deletePlants = async (id) => {
     Swal.fire({
