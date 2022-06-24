@@ -72,15 +72,6 @@ const Edit_data = (props) => {
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
 
-  /****** History Plant ******/
-  const [HistoryPlantData, setHistoryPlantData] = useState();
-  /*************************/
-
-  useEffect(() => {
-    getPlant();
-    getPlantUser();
-    getStatusPlant();
-  }, []);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -122,14 +113,6 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/user/getUsersByRole`
     );
     setPlantUser(response.data);
-  };
-
-  const getDataPlant = async (id) => {
-    const getData = await axios.get(
-      `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
-    );
-    setHistoryPlantData(getData.data);
-    // console.log(getData.data);
   };
 
   const deletePlants = async (id) => {
@@ -277,13 +260,24 @@ const Edit_data = (props) => {
     }
   };
 
+  /****** History Plant ******/
+  const [HistoryPlantData, setHistoryPlantData] = useState();
+  /*************************/
+
+  const getDataPlant = async (id) => {
+    const getData = await axios.get(
+      `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
+    );
+    setHistoryPlantData(getData.data);
+    console.log(getData.data);
+  };
+
   const History_plant = (id, status) => {
     let status2 = status - 1;
 
     if (status2 == "1") {
       getDataPlant(id);
-      const new_data = HistoryPlantData.map(({ zone_id }) => zone_id);
-      console.log(new_data);
+      console.log("data : " + HistoryPlantData);
 
       // try {
       //   axios
@@ -316,6 +310,12 @@ const Edit_data = (props) => {
       console.log("eror status");
     }
   };
+
+  useEffect(() => {
+    getPlant();
+    getPlantUser();
+    getStatusPlant();
+  }, []);
 
   return (
     <div className="content-wrapper">
