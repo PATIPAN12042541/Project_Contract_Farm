@@ -170,6 +170,7 @@ const Edit_data = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        History_plant(id, status);
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
@@ -886,7 +887,6 @@ const Edit_data = (props) => {
             className="btn btn-success"
             onClick={() => {
               postStatusPlant(getIdplant, getStatus, CicleStatus);
-              History_plant(getIdplant, getStatus);
             }}
           >
             SAVE
