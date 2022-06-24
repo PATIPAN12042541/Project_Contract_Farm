@@ -295,7 +295,7 @@ const Edit_data = (props) => {
           chemical_cc: "",
           chemical_liter: "",
           chemical_note: "",
-          chemical_date_start: "2022-01-01",
+          chemical_date_start: "0000-00-00",
           chemical_date_end: "2022-01-01",
           plant_status: getData.data[0].status_plant,
           plant_circle: getData.data[0].status_circle,
@@ -367,7 +367,7 @@ const Edit_data = (props) => {
                                   <label>รหัส</label>
                                 </center>
                                 <input
-                                  type="text"
+                                  type="number"
                                   className="form-control form-control-border"
                                   id="exampleInputBorder"
                                   defaultValue={idplant}
