@@ -284,7 +284,7 @@ const Edit_data = (props) => {
 
     if (status2 == "1") {
       getDataPlant(id);
-      console.log(HistoryPlantData.zone_name);
+      console.log(HistoryPlantData);
 
       // try {
       //   axios
