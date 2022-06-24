@@ -107,7 +107,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const getStatusPlant = async () => {
