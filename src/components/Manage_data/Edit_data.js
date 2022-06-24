@@ -130,7 +130,7 @@ const Edit_data = (props) => {
     );
     setHistoryPlantData(getData.data);
     // console.log(getData.data);
-    // console.log();
+     console.log(HistoryPlantData);
   };
 
   const deletePlants = async (id) => {
