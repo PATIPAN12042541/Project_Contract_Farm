@@ -7,7 +7,7 @@ export const getDataPlant = async (req, res) => {
     const getDataPlant = await db.query(
       "SELECT zone_plant.id AS zone_id," +
         "        zone_plant.zone_name," +
-        "        zone_plant.image_zone as zone_name," +
+        "        zone_plant.image_zone," +
         "        plant_detail.id_name_plant	as plant_id_name," +
         "        plant.id_user," +
         "        plant.name_plant," +
