@@ -73,7 +73,7 @@ const Edit_data = (props) => {
   /*************************/
 
   /****** History Plant ******/
-  const [HistoryPlantData, setHistoryPlantData] = useState([]);
+  const [HistoryPlantData, setHistoryPlantData] = useState();
   /*************************/
 
   useEffect(() => {
