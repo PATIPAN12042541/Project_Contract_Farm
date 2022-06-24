@@ -80,6 +80,7 @@ const Edit_data = (props) => {
     getPlant();
     getPlantUser();
     getStatusPlant();
+    getDataPlant();
   }, []);
 
   const uploadImg = async () => {
