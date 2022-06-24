@@ -306,7 +306,10 @@ const Edit_data = (props) => {
   };
 
   const getDataPlant3 = async (id) => {
-    console.log(id);
+    const result = await axios.get(
+      `${process.env.REACT_APP_API_URL}/History/getDataChemical/${id}`
+    );
+    console.log(result.data);
   };
 
   const History_plant = (id, status) => {
@@ -315,9 +318,9 @@ const Edit_data = (props) => {
     if (status2 == "1") {
       getDataPlant(id); // get & post history data
     } else if (status2 == "2") {
-      getDataPlant2(id);
+      getDataPlant2(id); // get & post ปุ๋ย
     } else if (status2 == "3") {
-      getDataPlant3(id);
+      getDataPlant3(id); // get & post สารเคมี
     } else {
       console.log("eror status");
     }
