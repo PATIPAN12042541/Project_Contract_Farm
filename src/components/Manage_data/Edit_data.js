@@ -267,7 +267,6 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
 
-    console.log(getData.data);
     try {
       axios
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
@@ -294,6 +293,7 @@ const Edit_data = (props) => {
         .then(function (response) {})
         .catch(function (error) {});
     } catch (error) {
+      console.log(error);
       Swal.fire({
         icon: "error",
         text: "Save Error!",
