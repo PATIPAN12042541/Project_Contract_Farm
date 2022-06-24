@@ -282,7 +282,7 @@ const Edit_data = (props) => {
 
     if (status2 == "1") {
       getDataPlant(id);
-      const new_data = HistoryPlantData;
+      const new_data = HistoryPlantData.map(({ zone_id }) => zone_id);
       console.log(new_data);
 
       // try {
