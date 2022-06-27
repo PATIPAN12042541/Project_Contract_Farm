@@ -180,7 +180,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setImage(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -192,7 +192,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setImage(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -204,7 +204,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setImage(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -463,6 +463,7 @@ const Plant_master = () => {
                 <div className="col-sm-7 col-form-label">
                   <input
                     type="checkbox"
+                    defaultValue={checked}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
