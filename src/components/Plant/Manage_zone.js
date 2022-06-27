@@ -130,7 +130,6 @@ const Manage_zone = () => {
           `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
           {
             zone_name: idzone,
-            image_zone: "../dist/img/" + image_name,
           }
         );
       } else {
