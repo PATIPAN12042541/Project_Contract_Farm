@@ -176,19 +176,31 @@ const Plant_master = () => {
                           <tr key={index}>
                             <td
                               style={{ cursor: "pointer" }}
-                              onClick={ShowMaster_Edit}
+                              onClick={() => {
+                                ShowMaster_Edit();
+                                setNameThai(data.plant_name);
+                                setNameEng(data.plant_name_eng);
+                              }}
                             >
                               {index + 1}
                             </td>
                             <td
                               style={{ cursor: "pointer" }}
-                              onClick={ShowMaster_Edit}
+                              onClick={() => {
+                                ShowMaster_Edit();
+                                setNameThai(data.plant_name);
+                                setNameEng(data.plant_name_eng);
+                              }}
                             >
                               {data.plant_name}
                             </td>
                             <td
                               style={{ cursor: "pointer" }}
-                              onClick={ShowMaster_Edit}
+                              onClick={() => {
+                                ShowMaster_Edit();
+                                setNameThai(data.plant_name);
+                                setNameEng(data.plant_name_eng);
+                              }}
                             >
                               {data.plant_name_eng}
                             </td>
@@ -384,6 +396,7 @@ const Plant_master = () => {
                     type="text"
                     className="form-control"
                     placeholder=" ชื่อพืช (ภาษาไทย)"
+                    defaultValue={nameThai}
                     onChange={(e) => setNameThai(e.target.value)}
                   />
                 </div>
@@ -397,6 +410,7 @@ const Plant_master = () => {
                     type="text"
                     className="form-control"
                     placeholder=" ชื่อพืช (ภาษาอังกฤษ)"
+                    defaultValue={nameEng}
                     onChange={(e) => setNameEng(e.target.value)}
                   />
                 </div>
