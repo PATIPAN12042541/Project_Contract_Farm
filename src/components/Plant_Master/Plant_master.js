@@ -469,13 +469,8 @@ const Plant_master = () => {
                 <div className="col-sm-8">
                   <Zoom>
                     <img
-                      src={
-                        image.preview
-                          ? image.preview
-                          : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                      }
+                      src={image.preview ? image.preview : image_name}
                       className="img-fluid mb-2"
-                      thumbnail="true"
                       width="100"
                       height="100"
                     />
@@ -508,6 +503,7 @@ const Plant_master = () => {
                   <input
                     type="checkbox"
                     checked={checked}
+                    name={checked ? 1 : 0}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
