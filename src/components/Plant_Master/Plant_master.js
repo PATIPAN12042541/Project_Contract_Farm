@@ -120,9 +120,8 @@ const Plant_master = () => {
 
   /// Update Edit Plant
   const updatePlant = async (id) => {
-    console.log(image);
     try {
-      if (image_name === undefined) {
+      if (image === undefined) {
         await axios.patch(
           `${process.env.REACT_APP_API_URL}/getplant/plant/UpdatePlantMaster/${id}`,
           {
