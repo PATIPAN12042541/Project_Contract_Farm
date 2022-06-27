@@ -14,6 +14,7 @@ const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
+  const [pathimage, setPathImage] = useState([]);
 
   /*********** Model เพิ่ม  ***************/
   const [show, setShow] = useState(false);
@@ -121,13 +122,13 @@ const Plant_master = () => {
   /// Update Edit Plant
   const updatePlant = async (id) => {
     try {
-      if (image === undefined) {
+      if (image_name === undefined) {
         await axios.patch(
           `${process.env.REACT_APP_API_URL}/getplant/plant/UpdatePlantMaster/${id}`,
           {
             plant_name: nameThai,
             plant_name_eng: nameEng,
-            plant_img: image_name,
+            plant_img: "../dist/img/" + image_name,
             status_show: checked,
           }
         );
@@ -220,7 +221,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                               }}
@@ -233,7 +234,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                               }}
@@ -246,7 +247,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImageName(data.plant_img);
+                                setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                               }}
@@ -469,7 +470,7 @@ const Plant_master = () => {
                 <div className="col-sm-8">
                   <Zoom>
                     <img
-                      src={image.preview ? image.preview : image_name}
+                      src={image.preview ? image.preview : pathimage}
                       className="img-fluid mb-2"
                       width="100"
                       height="100"
