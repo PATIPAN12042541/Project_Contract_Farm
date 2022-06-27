@@ -45,7 +45,7 @@ const Plant_master = () => {
         plant_img:
           image_name === undefined
             ? "../dist/img/No_Image_Available.jpg"
-            : "../dist/img/insecticide/" + image_name,
+            : "../dist/img/" + image_name,
         status_show: checked,
       })
       .then(function (response) {
