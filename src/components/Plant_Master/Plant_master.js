@@ -71,7 +71,16 @@ const Plant_master = () => {
                             <td>{index + 1}</td>
                             <td>{data.plant_name}</td>
                             <td>{data.plant_name_eng}</td>
-                            <td>{data.plant_img}</td>
+                            <td>
+                              <Image
+                                src={data.plant_img}
+                                className="img-fluid mb-2"
+                                alt="white sample"
+                                width="100"
+                                height="100"
+                                thumbnail
+                              />
+                            </td>
                             <td>
                               <center>
                                 {data.status_show === 1 ? (
