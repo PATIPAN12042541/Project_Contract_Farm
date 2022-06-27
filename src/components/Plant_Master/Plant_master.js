@@ -252,17 +252,7 @@ const Plant_master = () => {
                             >
                               {data.plant_name_eng}
                             </td>
-                            <td
-                              style={{ cursor: "pointer" }}
-                              onClick={() => {
-                                ShowMaster_Edit();
-                                setNameThai(data.plant_name);
-                                setNameEng(data.plant_name_eng);
-                                setPathImage(data.plant_img);
-                                setChecked(data.status_show);
-                                setPlantMasterid(data.id);
-                              }}
-                            >
+                            <td>
                               <center>
                                 <Zoom>
                                   <img
@@ -275,7 +265,17 @@ const Plant_master = () => {
                                 </Zoom>
                               </center>
                             </td>
-                            <td>
+                            <td
+                              style={{ cursor: "pointer" }}
+                              onClick={() => {
+                                ShowMaster_Edit();
+                                setNameThai(data.plant_name);
+                                setNameEng(data.plant_name_eng);
+                                setPathImage(data.plant_img);
+                                setChecked(data.status_show);
+                                setPlantMasterid(data.id);
+                              }}
+                            >
                               <center>
                                 {data.status_show === 1 ? (
                                   <img
