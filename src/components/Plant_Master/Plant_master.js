@@ -235,12 +235,17 @@ const Plant_master = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={CloseMaster}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={CloseMaster}>
-            Save Changes
-          </Button>
+          <button
+            onClick={CloseMaster}
+            className="btn btn-default"
+            style={{ float: "left" }}
+          >
+            ย้อนกลับ
+          </button>
+          &nbsp;
+          <button type="button" className="btn btn-success">
+            บันทึก
+          </button>
         </Modal.Footer>
       </Modal>
     </div>
