@@ -2,10 +2,18 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Zoom from "react-medium-image-zoom";
 import Image from "react-bootstrap/Image";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
+
+  const [show, setShow] = useState(false);
+
+  const CloseMaster = () => setShow(false);
+  const ShowMaster = () => setShow(true);
 
   const getPlantMasterDetail = async () => {
     const response = await axios.get(
@@ -44,7 +52,9 @@ const Plant_master = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <button className="btn btn-success">เพิ่มข้อมูลพืช</button>
+                    <button className="btn btn-success" onClick={ShowMaster}>
+                      เพิ่มข้อมูลพืช
+                    </button>
                   </div>
                   <hr />
                   <div className="row">
@@ -133,6 +143,21 @@ const Plant_master = () => {
           </div>
         </div>
       </section>
+      {/*เพิ่มข้อมูลพืช Master*/}
+      <Modal show={show} onHide={CloseMaster}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={CloseMaster}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={CloseMaster}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
