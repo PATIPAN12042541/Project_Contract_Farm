@@ -66,6 +66,7 @@ const Plant_master = () => {
       });
   };
 
+  // post image
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", image.data);
@@ -74,6 +75,37 @@ const Plant_master = () => {
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
+  };
+
+  ///////////////////////////////////////////////////////////
+
+  // Delte Data Plant
+  const deletePlants = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/getplant/plant/deleteMasterPlant/${id}`
+          );
+          getPlantMasterDetail();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -180,7 +212,12 @@ const Plant_master = () => {
                             </td>
                             <td>
                               <center>
-                                <button className="btn btn-danger">
+                                <button
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id);
+                                  }}
+                                >
                                   ลบข้อมูล
                                 </button>
                               </center>

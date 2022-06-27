@@ -282,6 +282,9 @@ export const UpdateStatusPlant = async (req, res) => {
   }
 };
 
+
+/***********  Plant Master Detail ************/
+
 export const getPlantMaster = async (req, res) => {
   try {
     const plantMaster = await db.query("SELECT * FROM plant_master_detail", {
@@ -307,3 +310,23 @@ export const postPlantMaster = async (req, res) => {
     res.json(error);
   }
 };
+
+
+export const DeletePlantMaster = async (req, res) => {
+  try {
+    await PlantMasterDetail.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Plant Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
+
+/***************************************************************/
