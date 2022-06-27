@@ -41,7 +41,6 @@ const Plant_master = () => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
     );
     setPlantMaster(response.data);
-    console.log(response.data);
   };
 
   // Post Data Plant
@@ -253,7 +252,17 @@ const Plant_master = () => {
                             >
                               {data.plant_name_eng}
                             </td>
-                            <td>
+                            <td
+                              style={{ cursor: "pointer" }}
+                              onClick={() => {
+                                ShowMaster_Edit();
+                                setNameThai(data.plant_name);
+                                setNameEng(data.plant_name_eng);
+                                setPathImage(data.plant_img);
+                                setChecked(data.status_show);
+                                setPlantMasterid(data.id);
+                              }}
+                            >
                               <center>
                                 <Zoom>
                                   <img
