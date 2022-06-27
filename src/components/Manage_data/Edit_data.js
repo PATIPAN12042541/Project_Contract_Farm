@@ -72,6 +72,7 @@ const Edit_data = (props) => {
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
+  const [plantMaster, setPlantMaster] = useState([]);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -113,6 +114,14 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/user/getUsersByRole`
     );
     setPlantUser(response.data);
+  };
+
+  const getPlantMasterDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
+    );
+    setPlantMaster(response.data);
+    console.log(response.data);
   };
 
   const deletePlants = async (id) => {
@@ -365,6 +374,7 @@ const Edit_data = (props) => {
     getPlant();
     getPlantUser();
     getStatusPlant();
+    getPlantMasterDetail();
   }, []);
 
   return (
