@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import Image from "react-bootstrap/Image";
 import axios from "axios";
 
 const Plant_master = () => {
@@ -64,6 +65,44 @@ const Plant_master = () => {
                           </th>
                         </tr>
                       </thead>
+                      <tbody>
+                        {plantMaster.map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.plant_name}</td>
+                            <td>{data.plant_name_eng}</td>
+                            <td>{data.plant_img}</td>
+                            <td>
+                              <center>
+                                {data.status_show === 1 ? (
+                                  <Image
+                                    src="../dist/img/symbol_true.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                ) : (
+                                  <Image
+                                    src="../dist/img/symbol_false.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                )}
+                              </center>
+                            </td>
+                            <td>
+                              <button className="btn btn-danger">
+                                ลบข้อมูล
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
                     </Table>
                   </div>
                 </div>
