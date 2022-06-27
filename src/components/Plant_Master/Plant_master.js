@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import Zoom from "react-medium-image-zoom";
 import Image from "react-bootstrap/Image";
 import axios from "axios";
 
@@ -75,14 +76,16 @@ const Plant_master = () => {
                             <td>{data.plant_name_eng}</td>
                             <td>
                               <center>
-                                <Image
-                                  src={data.plant_img}
-                                  className="img-fluid mb-2"
-                                  alt="white sample"
-                                  width="100"
-                                  height="100"
-                                  thumbnail
-                                />
+                                <Zoom>
+                                  <Image
+                                    src={data.plant_img}
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                </Zoom>
                               </center>
                             </td>
                             <td>
