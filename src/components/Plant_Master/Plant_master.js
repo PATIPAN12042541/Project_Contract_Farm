@@ -15,9 +15,17 @@ const Plant_master = () => {
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
 
+  /*********** Model เพิ่ม  ***************/
   const [show, setShow] = useState(false);
   const CloseMaster = () => setShow(false);
   const ShowMaster = () => setShow(true);
+  /*************************************/
+
+  /*********** Model แก้ไข  ***************/
+  const [showEdit, setShowEdit] = useState(false);
+  const CloseMaster_Edit = () => setShowEdit(false);
+  const ShowMaster_Edit = () => setShowEdit(true);
+  /*************************************/
 
   /*****  Insert Plant *****/
   const [nameThai, setNameThai] = useState([]);
@@ -166,11 +174,22 @@ const Plant_master = () => {
                       <tbody>
                         {plantMaster.map((data, index) => (
                           <tr key={index}>
-                            <td style={{ cursor: "pointer" }}>{index + 1}</td>
-                            <td style={{ cursor: "pointer" }}>
+                            <td
+                              style={{ cursor: "pointer" }}
+                              onClick={ShowMaster_Edit}
+                            >
+                              {index + 1}
+                            </td>
+                            <td
+                              style={{ cursor: "pointer" }}
+                              onClick={ShowMaster_Edit}
+                            >
                               {data.plant_name}
                             </td>
-                            <td style={{ cursor: "pointer" }}>
+                            <td
+                              style={{ cursor: "pointer" }}
+                              onClick={ShowMaster_Edit}
+                            >
                               {data.plant_name_eng}
                             </td>
                             <td>
@@ -327,6 +346,115 @@ const Plant_master = () => {
         <Modal.Footer>
           <button
             onClick={CloseMaster}
+            className="btn btn-default"
+            style={{ float: "left" }}
+          >
+            ย้อนกลับ
+          </button>
+          &nbsp;
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={PostPlantMaster}
+          >
+            บันทึก
+          </button>
+        </Modal.Footer>
+      </Modal>
+      {/* แก้ไขข้อมูลพืช Master*/}
+      <Modal show={showEdit} onHide={CloseMaster_Edit}>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+          }}
+        >
+          <Modal.Title>ข้อมูลพืช Master</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อพืช :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=" ชื่อพืช (ภาษาไทย)"
+                    onChange={(e) => setNameThai(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Plant Name :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=" ชื่อพืช (ภาษาอังกฤษ)"
+                    onChange={(e) => setNameEng(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">รูป</Form.Label>
+                <div className="col-sm-8">
+                  <Zoom>
+                    <Image
+                      src={
+                        image.preview
+                          ? image.preview
+                          : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      }
+                      className="img-fluid mb-2"
+                      width="100"
+                      height="100"
+                    />
+                  </Zoom>
+
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                    onUpload={(file) => {
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setImageName(e.name);
+                      });
+
+                      const img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setImage(img);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-7 col-form-label">
+                  <input
+                    type="checkbox"
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            onClick={CloseMaster_Edit}
             className="btn btn-default"
             style={{ float: "left" }}
           >
