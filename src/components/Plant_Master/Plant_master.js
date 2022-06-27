@@ -469,7 +469,11 @@ const Plant_master = () => {
                 <div className="col-sm-8">
                   <Zoom>
                     <img
-                      src={image.preview ? image.preview : image_name}
+                      src={
+                        image.preview
+                          ? image.preview
+                          : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      }
                       className="img-fluid mb-2"
                       width="100"
                       height="100"
