@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Zoom from "react-medium-image-zoom";
-import Image from "react-bootstrap/Image";
+// import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
@@ -213,7 +213,7 @@ const Plant_master = () => {
                             <td>
                               <center>
                                 <Zoom>
-                                  <Image
+                                  <img
                                     src={data.plant_img}
                                     className="img-fluid mb-2"
                                     alt="white sample"
@@ -227,7 +227,7 @@ const Plant_master = () => {
                             <td>
                               <center>
                                 {data.status_show === 1 ? (
-                                  <Image
+                                  <img
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
@@ -236,7 +236,7 @@ const Plant_master = () => {
                                     thumbnail
                                   />
                                 ) : (
-                                  <Image
+                                  <img
                                     src="../dist/img/symbol_false.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
@@ -314,7 +314,7 @@ const Plant_master = () => {
                 <Form.Label className="col-sm-4 col-form-label">รูป</Form.Label>
                 <div className="col-sm-8">
                   <Zoom>
-                    <Image
+                    <img
                       src={
                         image.preview
                           ? image.preview
@@ -425,7 +425,7 @@ const Plant_master = () => {
                 <Form.Label className="col-sm-4 col-form-label">รูป</Form.Label>
                 <div className="col-sm-8">
                   <Zoom>
-                    <Image
+                    <img
                       src={image.preview ? image.preview : image_name}
                       className="img-fluid mb-2"
                       width="100"
