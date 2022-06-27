@@ -56,7 +56,9 @@ const Plant_master = () => {
                           <th>ลำดับ</th>
                           <th>ชื่อพืช (ไทย)</th>
                           <th>ชื่อพืช (Eng)</th>
-                          <th>รูปภาพ</th>
+                          <th>
+                            <center>รูปภาพ</center>
+                          </th>
                           <th>
                             <center>สถานะ</center>
                           </th>
@@ -72,14 +74,16 @@ const Plant_master = () => {
                             <td>{data.plant_name}</td>
                             <td>{data.plant_name_eng}</td>
                             <td>
-                              <Image
-                                src={data.plant_img}
-                                className="img-fluid mb-2"
-                                alt="white sample"
-                                width="100"
-                                height="100"
-                                thumbnail
-                              />
+                              <center>
+                                <Image
+                                  src={data.plant_img}
+                                  className="img-fluid mb-2"
+                                  alt="white sample"
+                                  width="100"
+                                  height="100"
+                                  thumbnail
+                                />
+                              </center>
                             </td>
                             <td>
                               <center>
@@ -105,9 +109,11 @@ const Plant_master = () => {
                               </center>
                             </td>
                             <td>
-                              <button className="btn btn-danger">
-                                ลบข้อมูล
-                              </button>
+                              <center>
+                                <button className="btn btn-danger">
+                                  ลบข้อมูล
+                                </button>
+                              </center>
                             </td>
                           </tr>
                         ))}
