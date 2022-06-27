@@ -128,7 +128,6 @@ const Plant_master = () => {
           {
             plant_name: nameThai,
             plant_name_eng: nameEng,
-            plant_img: "../dist/img/" + image_name,
             status_show: checked,
           }
         );
