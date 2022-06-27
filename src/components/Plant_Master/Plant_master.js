@@ -180,7 +180,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImage(data.plant_img);
+                                setImageName(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -192,7 +192,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImage(data.plant_img);
+                                setImageName(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -204,7 +204,7 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
-                                setImage(data.plant_img);
+                                setImageName(data.plant_img);
                                 setChecked(data.status_show);
                               }}
                             >
@@ -426,11 +426,7 @@ const Plant_master = () => {
                 <div className="col-sm-8">
                   <Zoom>
                     <Image
-                      src={
-                        image.preview
-                          ? image.preview
-                          : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                      }
+                      src={image.preview ? image.preview : image_name}
                       className="img-fluid mb-2"
                       width="100"
                       height="100"
@@ -463,7 +459,7 @@ const Plant_master = () => {
                 <div className="col-sm-7 col-form-label">
                   <input
                     type="checkbox"
-                    defaultValue={checked}
+                    checked={checked}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
