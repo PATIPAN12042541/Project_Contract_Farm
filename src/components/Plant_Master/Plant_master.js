@@ -11,6 +11,7 @@ import FileUpload from "@hawk-ui/file-upload";
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
+  const [image_name, setImageName] = useState();
 
   const [show, setShow] = useState(false);
   const CloseMaster = () => setShow(false);
@@ -202,18 +203,18 @@ const Plant_master = () => {
                     btnIcon="fas fa-upload"
                     multiple
                     accept="image/*"
-                    // onUpload={(file) => {
-                    //   const filesArray = [].slice.call(file);
-                    //   filesArray.forEach((e) => {
-                    //     setImageName(e.name);
-                    //   });
+                    onUpload={(file) => {
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setImageName(e.name);
+                      });
 
-                    //   const img = {
-                    //     preview: URL.createObjectURL(file[0]),
-                    //     data: file[0],
-                    //   };
-                    //   setImage(img);
-                    // }}
+                      const img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setImage(img);
+                    }}
                   />
                 </div>
               </div>
