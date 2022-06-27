@@ -28,6 +28,7 @@ const Plant_master = () => {
   /*************************************/
 
   /*****  Insert Plant *****/
+  const [plantMasterid, setPlantMasterid] = useState([]);
   const [nameThai, setNameThai] = useState([]);
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
@@ -59,6 +60,7 @@ const Plant_master = () => {
       .then(function (response) {
         uploadImg();
         getPlantMasterDetail();
+        CloseMaster();
         Swal.fire({
           icon: "success",
           title: "Success",
@@ -114,6 +116,44 @@ const Plant_master = () => {
         }
       }
     });
+  };
+
+  /// Update Edit Plant
+  const updatePlant = async (id) => {
+    try {
+      if (image_name === undefined) {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/plant/UpdatePlantMaster/${id}`,
+          {
+            plant_name: nameThai,
+            plant_name_eng: nameEng,
+            plant_img: image_name,
+            status_show: checked,
+          }
+        );
+      } else {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/plant/UpdatePlantMaster/${id}`,
+          {
+            plant_name: nameThai,
+            plant_name_eng: nameEng,
+            plant_img: "../dist/img/" + image_name,
+            status_show: checked,
+          }
+        );
+
+        uploadImg();
+      }
+      getPlantMasterDetail();
+      CloseMaster_Edit();
+      Swal.fire("Succes !", "Your file has been Update.", "success");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.message,
+        text: "Update Error!",
+      });
+    }
   };
 
   useEffect(() => {
@@ -182,6 +222,7 @@ const Plant_master = () => {
                                 setNameEng(data.plant_name_eng);
                                 setImageName(data.plant_img);
                                 setChecked(data.status_show);
+                                setPlantMasterid(data.id);
                               }}
                             >
                               {index + 1}
@@ -194,6 +235,7 @@ const Plant_master = () => {
                                 setNameEng(data.plant_name_eng);
                                 setImageName(data.plant_img);
                                 setChecked(data.status_show);
+                                setPlantMasterid(data.id);
                               }}
                             >
                               {data.plant_name}
@@ -206,6 +248,7 @@ const Plant_master = () => {
                                 setNameEng(data.plant_name_eng);
                                 setImageName(data.plant_img);
                                 setChecked(data.status_show);
+                                setPlantMasterid(data.id);
                               }}
                             >
                               {data.plant_name_eng}
@@ -481,7 +524,9 @@ const Plant_master = () => {
           <button
             type="button"
             className="btn btn-success"
-            onClick={PostPlantMaster}
+            onClick={() => {
+              updatePlant(plantMasterid);
+            }}
           >
             บันทึก
           </button>
