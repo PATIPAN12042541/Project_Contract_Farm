@@ -6,12 +6,13 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import FileUpload from "@hawk-ui/file-upload";
 
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
+  const [image, setImage] = useState({ preview: "", data: "" });
 
   const [show, setShow] = useState(false);
-
   const CloseMaster = () => setShow(false);
   const ShowMaster = () => setShow(true);
 
@@ -145,10 +146,93 @@ const Plant_master = () => {
       </section>
       {/*เพิ่มข้อมูลพืช Master*/}
       <Modal show={show} onHide={CloseMaster}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+          }}
+        >
+          <Modal.Title>ข้อมูลพืช Master</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อพืช :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=" ชื่อพืช (ภาษาไทย)"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Plant Name :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=" ชื่อพืช (ภาษาอังกฤษ)"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">รูป</Form.Label>
+                <div className="col-sm-8">
+                  <Zoom>
+                    <Image
+                      src={
+                        image.preview
+                          ? image.preview
+                          : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      }
+                      className="img-fluid mb-2"
+                      width="100"
+                      height="100"
+                    />
+                  </Zoom>
+
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                    // onUpload={(file) => {
+                    //   const filesArray = [].slice.call(file);
+                    //   filesArray.forEach((e) => {
+                    //     setImageName(e.name);
+                    //   });
+
+                    //   const img = {
+                    //     preview: URL.createObjectURL(file[0]),
+                    //     data: file[0],
+                    //   };
+                    //   setImage(img);
+                    // }}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-7 col-form-label">
+                  <input
+                    type="checkbox"
+                    // onChange={(e) => {
+                    //   setChecked(!checked);
+                    // }}
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={CloseMaster}>
             Close
