@@ -180,6 +180,8 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
+                                setImageName(data.plant_img);
+                                setChecked(data.status_show);
                               }}
                             >
                               {index + 1}
@@ -190,6 +192,8 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
+                                setImageName(data.plant_img);
+                                setChecked(data.status_show);
                               }}
                             >
                               {data.plant_name}
@@ -200,6 +204,8 @@ const Plant_master = () => {
                                 ShowMaster_Edit();
                                 setNameThai(data.plant_name);
                                 setNameEng(data.plant_name_eng);
+                                setImageName(data.plant_img);
+                                setChecked(data.status_show);
                               }}
                             >
                               {data.plant_name_eng}
