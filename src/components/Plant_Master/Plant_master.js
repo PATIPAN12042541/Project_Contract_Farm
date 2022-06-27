@@ -4,6 +4,8 @@ import Zoom from "react-medium-image-zoom";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import FileUpload from "@hawk-ui/file-upload";
@@ -17,12 +19,61 @@ const Plant_master = () => {
   const CloseMaster = () => setShow(false);
   const ShowMaster = () => setShow(true);
 
+  /*****  Insert Plant *****/
+  const [nameThai, setNameThai] = useState([]);
+  const [nameEng, setNameEng] = useState([]);
+  const [checked, setChecked] = useState(false);
+  /************************/
+
+  // Get Data in Table
   const getPlantMasterDetail = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
     );
     setPlantMaster(response.data);
     console.log(response.data);
+  };
+
+  // Post Data Plant
+  const PostPlantMaster = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/getplant/plant/postMasterPlant`, {
+        plant_name: nameThai,
+        plant_name_eng: nameEng,
+        plant_img:
+          image_name === undefined
+            ? "../dist/img/No_Image_Available.jpg"
+            : "../dist/img/insecticide/" + image_name,
+        status_show: checked,
+      })
+      .then(function (response) {
+        uploadImg();
+        getPlantMasterDetail();
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Save OK !",
+        });
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          text: "Save Error!",
+        });
+      });
+  };
+
+  const uploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", image.data);
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -168,6 +219,7 @@ const Plant_master = () => {
                     type="text"
                     className="form-control"
                     placeholder=" ชื่อพืช (ภาษาไทย)"
+                    onChange={(e) => setNameThai(e.target.value)}
                   />
                 </div>
               </div>
@@ -180,6 +232,7 @@ const Plant_master = () => {
                     type="text"
                     className="form-control"
                     placeholder=" ชื่อพืช (ภาษาอังกฤษ)"
+                    onChange={(e) => setNameEng(e.target.value)}
                   />
                 </div>
               </div>
@@ -225,9 +278,9 @@ const Plant_master = () => {
                 <div className="col-sm-7 col-form-label">
                   <input
                     type="checkbox"
-                    // onChange={(e) => {
-                    //   setChecked(!checked);
-                    // }}
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
                   />
                 </div>
               </div>
@@ -243,7 +296,11 @@ const Plant_master = () => {
             ย้อนกลับ
           </button>
           &nbsp;
-          <button type="button" className="btn btn-success">
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={PostPlantMaster}
+          >
             บันทึก
           </button>
         </Modal.Footer>
