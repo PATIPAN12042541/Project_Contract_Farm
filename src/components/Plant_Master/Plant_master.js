@@ -123,7 +123,7 @@ const Plant_master = () => {
     try {
       if (image_name === undefined) {
         await axios.patch(
-          `${process.env.REACT_APP_API_URL}/plant/UpdatePlantMaster/${id}`,
+          `${process.env.REACT_APP_API_URL}/getplant/plant/UpdatePlantMaster/${id}`,
           {
             plant_name: nameThai,
             plant_name_eng: nameEng,
@@ -133,7 +133,7 @@ const Plant_master = () => {
         );
       } else {
         await axios.patch(
-          `${process.env.REACT_APP_API_URL}/plant/UpdatePlantMaster/${id}`,
+          `${process.env.REACT_APP_API_URL}/getplant/plant/UpdatePlantMaster/${id}`,
           {
             plant_name: nameThai,
             plant_name_eng: nameEng,
