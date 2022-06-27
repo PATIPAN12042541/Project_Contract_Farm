@@ -95,8 +95,8 @@ const Plant_master = () => {
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
-                                    width="100"
-                                    height="100"
+                                    width="50"
+                                    height="50"
                                     thumbnail
                                   />
                                 ) : (
@@ -104,8 +104,8 @@ const Plant_master = () => {
                                     src="../dist/img/symbol_false.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
-                                    width="100"
-                                    height="100"
+                                    width="50"
+                                    height="50"
                                     thumbnail
                                   />
                                 )}
