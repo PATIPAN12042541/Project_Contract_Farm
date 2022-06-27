@@ -276,7 +276,6 @@ const Plant_master = () => {
                                     alt="white sample"
                                     width="50"
                                     height="50"
-                                    thumbnail
                                   />
                                 ) : (
                                   <img
@@ -285,7 +284,6 @@ const Plant_master = () => {
                                     alt="white sample"
                                     width="50"
                                     height="50"
-                                    thumbnail
                                   />
                                 )}
                               </center>
