@@ -27,6 +27,7 @@ import UpdateTypeUser from "./components/TypeUser/UpdateTypeUser.js";
 import Content from "./components/Content";
 import "./App.css";
 import Page_Plant_detail from "./Page_1/Page_Plant_detail";
+import Plant_master from "./components/Plant_Master/Plant_master";
 
 function App() {
   return (
@@ -196,6 +197,18 @@ function App() {
             exact
             path="/Plant_detail/:id"
             element={<Page_Plant_detail />}
+          />
+          <Route
+            exact
+            path="/PlantMaster"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Plant_master />
+                <Footer />
+              </>
+            }
           />
         </Routes>
       </BrowserRouter>
