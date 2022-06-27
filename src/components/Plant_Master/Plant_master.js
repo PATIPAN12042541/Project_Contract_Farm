@@ -71,9 +71,13 @@ const Plant_master = () => {
                       <tbody>
                         {plantMaster.map((data, index) => (
                           <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{data.plant_name}</td>
-                            <td>{data.plant_name_eng}</td>
+                            <td style={{ cursor: "pointer" }}>{index + 1}</td>
+                            <td style={{ cursor: "pointer" }}>
+                              {data.plant_name}
+                            </td>
+                            <td style={{ cursor: "pointer" }}>
+                              {data.plant_name_eng}
+                            </td>
                             <td>
                               <center>
                                 <Zoom>
