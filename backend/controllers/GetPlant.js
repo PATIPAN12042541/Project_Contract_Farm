@@ -3,7 +3,7 @@ import Plant from "../models/Plant_M.js";
 import PlantDetail from "../models/PlantDetail_M.js";
 import PlantDataDetail from "../models/PlantDataDetail_M.js";
 import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
-
+import PlantMasterDetail from "../models/PlantMasterDetail_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -149,7 +149,6 @@ export const DeletePlant = async (req, res) => {
   }
 };
 
-
 export const getDataImagePlant = async (req, res) => {
   try {
     const imageplants = await db.query(
@@ -236,7 +235,6 @@ export const postManagePlant = async (req, res) => {
   }
 };
 
-
 export const DeleteManagePlant = async (req, res) => {
   try {
     await PlantDataDetail.destroy({
@@ -251,7 +249,6 @@ export const DeleteManagePlant = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const UpdateManagePlant = async (req, res) => {
   try {
@@ -269,7 +266,6 @@ export const UpdateManagePlant = async (req, res) => {
   }
 };
 
-
 export const UpdateStatusPlant = async (req, res) => {
   try {
     await Plant.update(req.body, {
@@ -286,5 +282,14 @@ export const UpdateStatusPlant = async (req, res) => {
   }
 };
 
-
+export const getPlantMaster = async (req, res) => {
+  try {
+    const plantMaster = await db.query("SELECT * FROM plant_master_detail", {
+      type: db.QueryTypes.SELECT,
+    });
+    res.json(plantMaster);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
 

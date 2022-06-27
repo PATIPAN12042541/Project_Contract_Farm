@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import axios from "axios";
 
 const Plant_master = () => {
+  const [plantMaster, setPlantMaster] = useState([]);
+
+  const getPlantMasterDetail = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
+    );
+    setPlantMaster(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getPlantMasterDetail();
+  }, []);
+
   return (
     <div className="content-wrapper">
       {" "}
