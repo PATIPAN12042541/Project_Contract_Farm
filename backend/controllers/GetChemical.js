@@ -2,6 +2,7 @@ import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
 import PlantDataDetail_M from "../models/PlantDataDetails_M.js";
 
+
 export const getChemical = async (req, res) => {
   try {
     const chemical = await db.query(
@@ -27,6 +28,30 @@ export const getChemical = async (req, res) => {
   }
 };
 
+export const getFertilizer = async (req, res) => {
+  try {
+    const chemical = await db.query(
+      "SELECT name_chemical.id," +
+        "name_chemical.name_chemical," +
+        "name_chemical.name_chemical_eng," +
+        "name_chemical.eu_mrl," +
+        "name_chemical.path_img," +
+        "name_chemical.type_chemical_id," +
+        "type_chemical.type_chemical," +
+        "name_chemical.status " +
+        "FROM name_chemical " +
+        "LEFT JOIN type_chemical " +
+        "on name_chemical.type_chemical_id = type_chemical.id " +
+        "Where name_chemical.status = 1 AND name_chemical.type_chemical_id = 5 ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(chemical);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
 
 export const getChemicalMaster = async (req, res) => {
   try {
@@ -77,12 +102,6 @@ export const getChemicalMaster2 = async (req, res) => {
   }
 };
 
-
-
-
-
-
-
 export const getExpired = async (req, res) => {
   try {
     const expired = await db.query("SELECT * FROM residual_period_chemical", {
@@ -106,9 +125,6 @@ export const getChemicalByID = async (req, res) => {
     res.json(error);
   }
 };
-
-
-
 
 export const getSelect = async (req, res) => {
   try {
@@ -194,10 +210,6 @@ export const deleteChemical2 = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
-
-
-
 
 
 export const ManageChemical = async (req, res) => {
