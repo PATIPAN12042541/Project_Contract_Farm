@@ -335,40 +335,40 @@ const Edit_data = (props) => {
     );
 
     console.log(fertilizer);
-    // const detail_array = [];
-    // try {
-    //   for (let i = 0; i < fertilizer.data.length; i++) {
-    //     detail_array.push(
-    //       await axios.post(`${process.env.REACT_APP_API_URL}/History/plant`, {
-    //         zone_id: fertilizer.data[i].zone_id,
-    //         zone_name: fertilizer.data[i].zone_name,
-    //         zone_image: fertilizer.data[i].plant_image,
-    //         plant_id: fertilizer.data[i].plant_id,
-    //         plant_id_name: fertilizer.data[i].plant_id_name,
-    //         plant_name: fertilizer.data[i].name_plant,
-    //         user_id: fertilizer.data[i].id_user,
-    //         plant_date_start: fertilizer.data[i].start_date_plant,
-    //         plant_date_end: fertilizer.data[i].end_date_plant,
-    //         plant_img: fertilizer.data[i].plant_image,
-    //         chemical_id: fertilizer.data[i].id_name_chemical,
-    //         residual_period_id: fertilizer.data[i].id_residual_period,
-    //         chemical_cc: fertilizer.data[i].cc,
-    //         chemical_liter: fertilizer.data[i].liter,
-    //         chemical_note: fertilizer.data[i].note,
-    //         chemical_date_start: fertilizer.data[i].date_start,
-    //         chemical_date_end: fertilizer.data[i].date_end,
-    //         plant_status: fertilizer.data[i].status_plant,
-    //         plant_circle: fertilizer.data[i].status_circle,
-    //       })
-    //     );
-    //   }
-    // } catch (error) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "error",
-    //     text: error,
-    //   });
-    // }
+    const detail_array = [];
+    try {
+      for (let i = 0; i < fertilizer.data.length; i++) {
+        detail_array.push(
+          await axios.post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+            zone_id: fertilizer.data[i].zone_id,
+            zone_name: fertilizer.data[i].zone_name,
+            zone_image: fertilizer.data[i].plant_image,
+            plant_id: fertilizer.data[i].plant_id,
+            plant_id_name: fertilizer.data[i].plant_id_name,
+            plant_name: fertilizer.data[i].name_plant,
+            user_id: fertilizer.data[i].id_user,
+            plant_date_start: fertilizer.data[i].start_date_plant,
+            plant_date_end: fertilizer.data[i].end_date_plant,
+            plant_img: fertilizer.data[i].plant_image,
+            chemical_id: fertilizer.data[i].id_name_chemical,
+            residual_period_id: "",
+            chemical_cc: "",
+            chemical_liter: "",
+            chemical_note: fertilizer.data[i].note,
+            chemical_date_start: fertilizer.data[i].date_start,
+            chemical_date_end: fertilizer.data[i].date_end,
+            plant_status: fertilizer.data[i].status_plant,
+            plant_circle: fertilizer.data[i].status_circle,
+          })
+        );
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "error",
+        text: error,
+      });
+    }
   };
 
   const getDataPlant3 = async (id) => {

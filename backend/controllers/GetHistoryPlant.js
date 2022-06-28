@@ -141,9 +141,7 @@ export const getDataFertilizer = async (req, res) => {
         "     plant.end_date_plant," +
         "     plant.plant_image," +
         "     plant_data_detail_fertilizer.id_name_chemical," +
-        "     plant_data_detail_fertilizer.quantity," +
-        "     plant_data_detail_fertilizer.unit," +
-        "     plant_data_detail_fertilizer.note," +
+        "     CONCAT(plant_data_detail_fertilizer.quantity,' ',fertilizer_unit.unit,' : ',plant_data_detail_fertilizer.note) as note," +
         "     plant_data_detail_fertilizer.date_start," +
         "     plant_data_detail_fertilizer.date_end," +
         "     plant.status_plant, " +
