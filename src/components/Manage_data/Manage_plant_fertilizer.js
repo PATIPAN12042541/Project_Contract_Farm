@@ -5,7 +5,21 @@ import moment from "moment";
 import Swal from "sweetalert2";
 
 const Manage_plant_fertilizer = (props) => {
-  console.log(props.id);
+
+  const [ftilizer, setFtilizer] = useState([]);
+
+  const getFtilizer = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer`
+    );
+    setFtilizer(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getFtilizer();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
