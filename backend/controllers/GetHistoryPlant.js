@@ -126,3 +126,42 @@ export const getDataChemical = async (req, res) => {
   }
 };
 
+export const getDataFertilizer = async (req, res) => {
+  try {
+    const getDataFertilizer = await db.query(
+      "SELECT zone_plant.id AS zone_id," +
+        "     zone_plant.zone_name," +
+        "     zone_plant.image_zone," +
+        "     plant_detail.id_name_plant	as plant_id_name," +
+        "     plant.id as plant_id," +
+        "     plant.id_plant as plant_id_chemical," +
+        "     plant.id_user," +
+        "     plant.name_plant," +
+        "     plant.start_date_plant," +
+        "     plant.end_date_plant," +
+        "     plant.plant_image," +
+        "     plant_data_detail_fertilizer.id_name_chemical," +
+        "     plant_data_detail_fertilizer.quantity," +
+        "     plant_data_detail_fertilizer.unit," +
+        "     plant_data_detail_fertilizer.note," +
+        "     plant_data_detail_fertilizer.date_start," +
+        "     plant_data_detail_fertilizer.date_end," +
+        "     plant.status_plant, " +
+        "     plant.status_circle " +
+        "FROM plant " +
+        "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
+        "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
+        "LEFT JOIN plant_data_detail_fertilizer ON plant.id_plant = plant_data_detail_fertilizer.id_plant " +
+        "where plant.id = :id_plant ",
+      {
+        replacements: { id_plant: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+
+    res.json(getDataFertilizer);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
