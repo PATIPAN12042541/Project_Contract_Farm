@@ -102,6 +102,38 @@ const Manage_plant_fertilizer = (props) => {
                         />
                       </div>
                     </div>
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">ปริมาณ</label>
+                      <div className="col-sm-4">
+                        <input
+                          type="number"
+                          className="form-control form-control-border"
+                          defaultValue="ปริมาณที่ใช้"
+                        />
+                      </div>
+                      <label className="col-sm-1 col-form-label">หน่วย</label>
+                      <div className="col-sm-2">
+                        <input
+                          type="number"
+                          className="form-control form-control-border"
+                          defaultValue="หน่วย"
+                        />
+                      </div>
+                      <label className="col-sm-1 col-form-label">รูปภาพ</label>
+                      <div className="col-sm-3">
+                        <Zoom>
+                          <img
+                            src={
+                              dataSelect.path_img
+                                ? dataSelect.path_img
+                                : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                            }
+                            width="100"
+                            height="100"
+                          />
+                        </Zoom>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
