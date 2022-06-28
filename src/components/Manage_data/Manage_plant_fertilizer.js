@@ -209,6 +209,7 @@ const Manage_plant_fertilizer = (props) => {
                           onChange={(e) => setUnit(e.target.value)}
                         >
                           {ftilizerUnit.map((data_unit, index) => {
+                            <option>--เลือกหน่วย--</option>;
                             return (
                               <option key={index} value={data_unit.id}>
                                 {data_unit.unit}
