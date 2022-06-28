@@ -26,7 +26,7 @@ const Fertilizer = db.define(
     date_end: {
       type: DataTypes.DATE,
     },
-    status: {
+    status_check: {
       type: DataTypes.INTEGER,
     },
   },
