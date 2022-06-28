@@ -103,8 +103,34 @@ const Manage_plant_fertilizer = (props) => {
                       </div>
                     </div>
                     <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">
+                        วันที่เริ่มต้น
+                      </label>
+                      <div
+                        className="col-sm-3 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          className="form-control form-control-border"
+                          placeholder="วันที่เริ่มต้น"
+                        />
+                      </div>
+                      <label className="col-sm-1 col-form-label">
+                        วันที่สิ้นสุด
+                      </label>
+                      <div
+                        className="col-sm-3 input-group date"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          className="form-control form-control-border"
+                          placeholder="วันที่สิ้นสุด"
+                        />
+                      </div>
                       <label className="col-sm-1 col-form-label">ปริมาณ</label>
-                      <div className="col-sm-4">
+                      <div className="col-sm-1">
                         <input
                           type="number"
                           className="form-control form-control-border"
@@ -112,15 +138,25 @@ const Manage_plant_fertilizer = (props) => {
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">หน่วย</label>
-                      <div className="col-sm-2">
+                      <div className="col-sm-1">
                         <input
                           type="number"
                           className="form-control form-control-border"
                           defaultValue="หน่วย"
                         />
                       </div>
+                    </div>
+                    <div className="form-group row">
+                      <label className="col-sm-1 col-form-label">Note</label>
+                      <div className="col-sm-8">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          placeholder="-"
+                        />
+                      </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>
-                      <div className="col-sm-3">
+                      <div className="col-sm-2">
                         <Zoom>
                           <img
                             src={
@@ -137,6 +173,18 @@ const Manage_plant_fertilizer = (props) => {
                   </div>
                 );
               })}
+              <div className="card-footer">
+                <button
+                  type="submit"
+                  className="btn btn-default float-right"
+                  style={{
+                    backgroundColor: "#8CC152",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  ยืนยัน
+                </button>
+              </div>
             </form>
           </div>
         </div>
