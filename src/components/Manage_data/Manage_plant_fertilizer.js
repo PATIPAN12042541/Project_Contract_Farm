@@ -29,7 +29,7 @@ const Manage_plant_fertilizer = (props) => {
     console.log(data);
     if (data !== "------กรุณาเลือกชนิดปุ๋ย------") {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer/${data}`
+        `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
       );
       setFtilizerQuery(response.data);
       console.log("select : " + response.data);

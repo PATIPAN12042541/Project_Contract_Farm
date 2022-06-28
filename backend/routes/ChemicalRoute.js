@@ -20,7 +20,7 @@ const router = express.Router();
 
 router.get("/", getChemical);
 router.get("/Fertilizer", getFertilizer);
-router.get("/Fertilizer/:id", getFertilizerSelect);
+router.get("/Fertilizer2/:id", getFertilizerSelect);
 router.get("/master", getChemicalMaster);
 router.get("/master2", getChemicalMaster2);
 router.get("/Select/:id", getSelect);
