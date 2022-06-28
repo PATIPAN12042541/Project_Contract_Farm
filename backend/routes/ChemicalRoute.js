@@ -14,6 +14,7 @@ import {
   getChemicalMaster2,
   getFertilizer,
   getFertilizerSelect,
+  getFertilizerUnit,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -21,6 +22,7 @@ const router = express.Router();
 router.get("/", getChemical);
 router.get("/Fertilizer", getFertilizer);
 router.get("/Fertilizer2/:id", getFertilizerSelect);
+router.get("/FertilizerUnit", getFertilizerUnit);
 router.get("/master", getChemicalMaster);
 router.get("/master2", getChemicalMaster2);
 router.get("/Select/:id", getSelect);

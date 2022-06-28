@@ -50,6 +50,7 @@ export const getFertilizer = async (req, res) => {
   }
 };
 
+
 export const getFertilizerSelect = async (req, res) => {
   try {
     const fertilizerSelect = await db.query(
@@ -72,6 +73,22 @@ export const getFertilizerSelect = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const getFertilizerUnit = async (req, res) => {
+  try {
+    const fertilizerUnit = await db.query(
+      "SELECT id,unit	 FROM fertilizer_unit ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(fertilizerUnit);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
 
 export const getChemicalMaster = async (req, res) => {
   try {

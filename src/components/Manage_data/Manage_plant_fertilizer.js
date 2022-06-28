@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Manage_plant_fertilizer = (props) => {
 
   const [ftilizer, setFtilizer] = useState([]);
+  const [ftilizerUnit, setFtilizerUnit] = useState([]);
   const [ftilizer_query, setFtilizerQuery] = useState([
     {
       id: "",
@@ -22,7 +23,13 @@ const Manage_plant_fertilizer = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer`
     );
     setFtilizer(response.data);
-    console.log(response.data);
+  };
+
+  const getFtilizerUnit = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/FertilizerUnit`
+    );
+    setFtilizerUnit(response.data);
   };
 
   const getSelect = async (data) => {
@@ -31,7 +38,6 @@ const Manage_plant_fertilizer = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
       );
       setFtilizerQuery(res.data);
-      console.log(res.data);
     } else {
       setFtilizerQuery([
         {
@@ -47,6 +53,7 @@ const Manage_plant_fertilizer = (props) => {
 
   useEffect(() => {
     getFtilizer();
+    getFtilizerUnit();
   }, []);
 
   return (
@@ -139,11 +146,16 @@ const Manage_plant_fertilizer = (props) => {
                       </div>
                       <label className="col-sm-1 col-form-label">หน่วย</label>
                       <div className="col-sm-1">
-                        <input
-                          type="number"
-                          className="form-control form-control-border"
-                          defaultValue="หน่วย"
-                        />
+                        <select className="custom-select form-control-border">
+                          <option>------หน่วย------</option>
+                          {ftilizerUnit.map((data_unit, index) => {
+                            return (
+                              <option key={index} value={data_unit.id}>
+                                {data_unit.unit}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </div>
                     </div>
                     <div className="form-group row">
