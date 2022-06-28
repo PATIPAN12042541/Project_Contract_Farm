@@ -147,7 +147,6 @@ const Manage_plant_fertilizer = (props) => {
                       <label className="col-sm-1 col-form-label">หน่วย</label>
                       <div className="col-sm-1">
                         <select className="custom-select form-control-border">
-                          <option>------หน่วย------</option>
                           {ftilizerUnit.map((data_unit, index) => {
                             return (
                               <option key={index} value={data_unit.id}>
