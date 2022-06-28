@@ -747,23 +747,23 @@ const Edit_data = (props) => {
                               </center>
                             ) : data.status_plant == "4" ? (
                               <center>
-                                <Link
+                                {/* <Link
                                   to={{
                                     pathname: `/Manage_plant/${data.id_plant}`,
                                     state: {
                                       id: data.id_plant,
                                     },
                                   }}
+                                > */}
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  style={{ color: "#FFFFFF" }}
+                                  disabled
                                 >
-                                  <button
-                                    type="submit"
-                                    className="btn btn-success"
-                                    style={{ color: "#FFFFFF" }}
-                                    disabled
-                                  >
-                                    <BsPlusLg />
-                                  </button>
-                                </Link>
+                                  <BsPlusLg />
+                                </button>
+                                {/* </Link> */}
                                 <> </>
                                 <button
                                   type="submit"
