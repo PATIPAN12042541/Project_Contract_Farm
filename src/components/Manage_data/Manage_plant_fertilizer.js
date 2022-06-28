@@ -74,7 +74,7 @@ const Manage_plant_fertilizer = (props) => {
                       <label className="col-sm-1 col-form-label">
                         ชื่อปุ๋ย
                       </label>
-                      <div className="col-sm-4">
+                      <div className="col-sm-6">
                         <select
                           className="custom-select form-control-border"
                           onChange={(e) => getSelect(e.target.value)}
@@ -88,6 +88,18 @@ const Manage_plant_fertilizer = (props) => {
                             );
                           })}
                         </select>
+                      </div>
+                      <label className="col-sm-1 col-form-label">
+                        ชื่อภาษาอังกฤษ
+                      </label>
+                      <div className="col-sm-6">
+                        <input
+                          type="text"
+                          className="form-control form-control-border"
+                          placeholder={dataSelect.name_chemical_eng}
+                          defaultValue={dataSelect.name_chemical_eng}
+                          readOnly
+                        />
                       </div>
                     </div>
                   </div>
