@@ -7,7 +7,15 @@ import Swal from "sweetalert2";
 const Manage_plant_fertilizer = (props) => {
 
   const [ftilizer, setFtilizer] = useState([]);
-  const [ftilizer_query, setFtilizerQuery] = useState([]);
+  const [ftilizer_query, setFtilizerQuery] = useState([
+    {
+      id: "",
+      name_chemical: "",
+      name_chemical_eng: "",
+      eu_mrl: "",
+      path_img: "",
+    },
+  ]);
 
   const getFtilizer = async () => {
     const response = await axios.get(
