@@ -192,6 +192,10 @@ const Edit_data = (props) => {
     });
   };
 
+  const lastStatusPlant = async (id) => {
+    console.log(id);
+  };
+
   const postPlant = async (e) => {
     e.preventDefault();
     const autoid = uuidv4();
@@ -560,7 +564,7 @@ const Edit_data = (props) => {
                       </tr>
                     </thead>
                     {plantdata.map((data, index) => (
-                      <tbody key={data.id_plant}>
+                      <tbody key={index}>
                         <tr
                           data-widget="expandable-table"
                           aria-expanded="false"
@@ -791,6 +795,7 @@ const Edit_data = (props) => {
                                       1,
                                       data.status_circle + 1
                                     );
+                                    lastStatusPlant(data.id_plant);
                                   }}
                                 >
                                   <BsFillCheckCircleFill />
