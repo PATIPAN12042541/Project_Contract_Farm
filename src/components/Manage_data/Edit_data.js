@@ -73,6 +73,7 @@ const Edit_data = (props) => {
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
   const [plantMaster, setPlantMaster] = useState([]);
+  
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -463,6 +464,7 @@ const Edit_data = (props) => {
                       >
                         <h3 className="card-title">เพิ่มข้อมูลแปลงเพาะปลูก</h3>
                       </div>
+
                       <form onSubmit={postPlant}>
                         <div className="card-body">
                           <div className="form-group">
@@ -481,7 +483,20 @@ const Edit_data = (props) => {
                                 ></input>
                               </div>
                               <div className="col-3">
-                                <center>
+                                <select
+                                  className="custom-select form-control-border"
+                                  // onChange={(e) => getSelect(e.target.value)}
+                                >
+                                  <option>------กรุณาเลือกชนิดพืช------</option>
+                                  {plantMaster.map((data, index) => {
+                                    return (
+                                      <option key={index} value={data.id}>
+                                        {data.plant_name}
+                                      </option>
+                                    );
+                                  })}
+                                </select>
+                                {/* <center>
                                   <label>ชื่อแปลงเพาะปลูก</label>
                                 </center>
                                 <input
@@ -491,7 +506,7 @@ const Edit_data = (props) => {
                                   placeholder="ชื่อแปลงเพาะปลูก"
                                   defaultValue={nameplant}
                                   onChange={(e) => setNamePlant(e.target.value)}
-                                ></input>
+                                ></input> */}
                               </div>
                               <div className="col-2">
                                 <center>
