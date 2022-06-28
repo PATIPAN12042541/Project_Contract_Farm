@@ -5,20 +5,26 @@ const { DataTypes } = Sequelize;
 const Fertilizer = db.define(
   "plant_data_detail_fertilizer",
   {
-    name_chemical: {
-      type: DataTypes.STRING,
-    },
-    name_chemical_eng: {
-      type: DataTypes.STRING,
-    },
-    eu_mrl: {
-      type: DataTypes.STRING,
-    },
-    path_img: {
-      type: DataTypes.STRING,
-    },
-    type_chemical_id: {
+    id_plant: {
       type: DataTypes.INTEGER,
+    },
+    id_name_chemical: {
+      type: DataTypes.INTEGER,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+    },
+    unit: {
+      type: DataTypes.INTEGER,
+    },
+    note: {
+      type: DataTypes.STRING,
+    },
+    date_start: {
+      type: DataTypes.DATE,
+    },
+    date_end: {
+      type: DataTypes.DATE,
     },
     status: {
       type: DataTypes.INTEGER,

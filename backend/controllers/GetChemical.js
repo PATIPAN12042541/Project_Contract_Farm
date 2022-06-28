@@ -1,7 +1,7 @@
 import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
 import PlantDataDetail_M from "../models/PlantDataDetails_M.js";
-
+import Fertilizer from "../models/FertilizerModel.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -50,7 +50,6 @@ export const getFertilizer = async (req, res) => {
   }
 };
 
-
 export const getFertilizerSelect = async (req, res) => {
   try {
     const fertilizerSelect = await db.query(
@@ -87,8 +86,6 @@ export const getFertilizerUnit = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
-
 
 export const getChemicalMaster = async (req, res) => {
   try {
@@ -177,6 +174,28 @@ export const getSelect = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const postFertilizer = async (req, res) => {
+  const { id_name_chemical, quantity, unit, date_start, date_end, note } =
+    req.body;
+  try {
+    await Fertilizer.create({
+      id_plant: req.params.id,
+      id_name_chemical: id_name_chemical,
+      quantity: quantity,
+      unit: unit,
+      note: note,
+      date_start: date_start,
+      date_end: date_end,
+      status: 0,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    //console.log(error);
+    res.json(error);
+  }
+};
+
 
 export const createChemical = async (req, res) => {
   const {

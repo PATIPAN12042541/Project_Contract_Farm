@@ -5,7 +5,6 @@ import moment from "moment";
 import Swal from "sweetalert2";
 
 const Manage_plant_fertilizer = (props) => {
-
   const [ftilizer, setFtilizer] = useState([]);
   const [ftilizerUnit, setFtilizerUnit] = useState([]);
   const [ftilizer_query, setFtilizerQuery] = useState([
@@ -17,6 +16,14 @@ const Manage_plant_fertilizer = (props) => {
       path_img: "",
     },
   ]);
+
+  /************* Post Data **************/
+  const [quantity, setQuantity] = useState([]);
+  const [unit, setUnit] = useState([]);
+  const [note, setNote] = useState([]);
+  const [dateStart, setdateStart] = useState([]);
+  const [dateEnd, setdateEnd] = useState([]);
+  /*************************************/
 
   const getFtilizer = async () => {
     const response = await axios.get(
@@ -51,6 +58,51 @@ const Manage_plant_fertilizer = (props) => {
     }
   };
 
+  const PostFertilizer = async () => {
+    if (quantity == "" || unit == "" || dateStart == "" || dateEnd == "") {
+      Swal.fire({
+        icon: "error",
+        title: "กรุณากรอกข้อมูลให้ครบถ้วน",
+        text: "Save Error!",
+      });
+    } else {
+      try {
+        await axios
+          .post(
+            `${process.env.REACT_APP_API_URL}/getChemical/PostFertilizer/${props.id}`,
+            {
+              id_name_chemical: ftilizer_query[0].id,
+              quantity: quantity,
+              unit: unit,
+              date_start: dateStart,
+              date_end: dateEnd,
+              note: note,
+            }
+          )
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
+    }
+  };
+
   useEffect(() => {
     getFtilizer();
     getFtilizerUnit();
@@ -73,7 +125,7 @@ const Manage_plant_fertilizer = (props) => {
             >
               <h3 className="card-title">จัดการข้อมูลปุ๋ย</h3>
             </div>
-            <form className="form-horizontal">
+            <form className="form-horizontal" onSubmit={PostFertilizer}>
               {ftilizer_query.map((dataSelect, index) => {
                 return (
                   <div className="card-body" key={index}>
@@ -121,6 +173,8 @@ const Manage_plant_fertilizer = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
+                          defaultValue={dateStart}
+                          onChange={(e) => setdateStart(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
@@ -134,6 +188,8 @@ const Manage_plant_fertilizer = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
+                          defaultValue={dateEnd}
+                          onChange={(e) => setdateEnd(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">ปริมาณ</label>
@@ -141,12 +197,17 @@ const Manage_plant_fertilizer = (props) => {
                         <input
                           type="number"
                           className="form-control form-control-border"
-                          defaultValue="ปริมาณที่ใช้"
+                          placeholder="ปริมาณที่ใช้"
+                          defaultValue={quantity}
+                          onChange={(e) => setQuantity(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">หน่วย</label>
                       <div className="col-sm-1">
-                        <select className="custom-select form-control-border">
+                        <select
+                          className="custom-select form-control-border"
+                          onChange={(e) => setUnit(e.target.value)}
+                        >
                           {ftilizerUnit.map((data_unit, index) => {
                             return (
                               <option key={index} value={data_unit.id}>
@@ -164,6 +225,8 @@ const Manage_plant_fertilizer = (props) => {
                           type="text"
                           className="form-control form-control-border"
                           placeholder="-"
+                          defaultValue={note}
+                          onChange={(e) => setNote(e.target.value)}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">รูปภาพ</label>
