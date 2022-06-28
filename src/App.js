@@ -28,6 +28,7 @@ import Content from "./components/Content";
 import "./App.css";
 import Page_Plant_detail from "./Page_1/Page_Plant_detail";
 import Plant_master from "./components/Plant_Master/Plant_master";
+import Page_fertilizer from "./Page_2/Page_fertilizer";
 
 function App() {
   return (
@@ -209,6 +210,11 @@ function App() {
                 <Footer />
               </>
             }
+          />
+          <Route
+            exact
+            path="/Manage_fertilizer/:id"
+            element={<Page_fertilizer />}
           />
         </Routes>
       </BrowserRouter>

@@ -639,8 +639,60 @@ const Edit_data = (props) => {
                             <center>{data.status_name}</center>
                           </td>
                           <td>
-                            {data.status_plant == "2" ||
-                            data.status_plant == "3" ? (
+                            {data.status_plant == "2" ? (
+                              <center>
+                                <Link
+                                  to={{
+                                    pathname: `/Manage_fertilizer/${data.id_plant}`,
+                                    state: {
+                                      id: data.id_plant,
+                                    },
+                                  }}
+                                >
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    style={{ color: "#FFFFFF" }}
+                                  >
+                                    <BsPlusLg />
+                                  </button>
+                                </Link>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                  onClick={() => {
+                                    Show_status();
+                                    setCicleStatus(data.status_circle);
+                                    setGetIdplant(data.plant_id);
+                                    setGetIDStatus(data.status_plant);
+                                  }}
+                                  // onClick={
+                                  //   (Show_status, setGetIdplant(data.id_plant))
+                                  // }
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                              </center>
+                            ) : data.status_plant == "3" ? (
                               <center>
                                 <Link
                                   to={{
@@ -721,21 +773,6 @@ const Edit_data = (props) => {
                                 >
                                   <BsFillTrashFill />
                                 </button>
-                                {/* <> </>
-                                <button
-                                  type="submit"
-                                  className="btn btn-primary"
-                                  onClick={() => {
-                                    Show_status();
-                                    setGetIdplant(data.plant_id);
-                                    setGetIDStatus(data.status_plant);
-                                  }}
-                                  // onClick={
-                                  //   (Show_status, setGetIdplant(data.id_plant))
-                                  // }
-                                >
-                                  <AiOutlineFundView />
-                                </button> */}
                                 <> </>
                                 <button
                                   type="submit"
