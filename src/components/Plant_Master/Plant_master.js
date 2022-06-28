@@ -196,7 +196,7 @@ const Plant_master = () => {
                     >
                       <thead>
                         <tr>
-                          <th>ลำดับ</th>
+                          <th><center>ลำดับ</center></th>
                           <th>ชื่อพืช (ไทย)</th>
                           <th>ชื่อพืช (Eng)</th>
                           <th>
@@ -224,7 +224,7 @@ const Plant_master = () => {
                                 setPlantMasterid(data.id);
                               }}
                             >
-                              {index + 1}
+                              <center>{index + 1}</center>
                             </td>
                             <td
                               style={{ cursor: "pointer" }}
