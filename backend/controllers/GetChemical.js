@@ -30,15 +30,12 @@ export const getChemical = async (req, res) => {
 
 export const getFertilizer = async (req, res) => {
   try {
-    const chemical = await db.query(
+    const fertilizer = await db.query(
       "SELECT name_chemical.id," +
         "name_chemical.name_chemical," +
         "name_chemical.name_chemical_eng," +
         "name_chemical.eu_mrl," +
-        "name_chemical.path_img," +
-        "name_chemical.type_chemical_id," +
-        "type_chemical.type_chemical," +
-        "name_chemical.status " +
+        "name_chemical.path_img " +
         "FROM name_chemical " +
         "LEFT JOIN type_chemical " +
         "on name_chemical.type_chemical_id = type_chemical.id " +
@@ -47,7 +44,30 @@ export const getFertilizer = async (req, res) => {
         type: db.QueryTypes.SELECT,
       }
     );
-    res.json(chemical);
+    res.json(fertilizer);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+export const getFertilizerSelect = async (req, res) => {
+  try {
+    const fertilizerSelect = await db.query(
+      "SELECT name_chemical.id," +
+        "name_chemical.name_chemical," +
+        "name_chemical.name_chemical_eng," +
+        "name_chemical.eu_mrl," +
+        "name_chemical.path_img " +
+        "FROM name_chemical " +
+        "LEFT JOIN type_chemical " +
+        "on name_chemical.type_chemical_id = type_chemical.id " +
+        "Where name_chemical.status = 1 AND name_chemical.type_chemical_id = 5 AND name_chemical.id = :id ",
+      {
+        replacements: { id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(fertilizerSelect);
   } catch (error) {
     res.json({ message: error.message });
   }
