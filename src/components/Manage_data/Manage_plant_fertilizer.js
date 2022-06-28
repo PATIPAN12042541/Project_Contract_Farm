@@ -208,8 +208,8 @@ const Manage_plant_fertilizer = (props) => {
                           className="custom-select form-control-border"
                           onChange={(e) => setUnit(e.target.value)}
                         >
+                          <option>--เลือกหน่วย--</option>
                           {ftilizerUnit.map((data_unit, index) => {
-                            <option>--เลือกหน่วย--</option>;
                             return (
                               <option key={index} value={data_unit.id}>
                                 {data_unit.unit}
