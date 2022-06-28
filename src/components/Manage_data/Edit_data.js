@@ -163,6 +163,7 @@ const Edit_data = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        console.log("id : " + id + "status : " + status + "circle : " + circle);
         History_plant(id, status);
         await axios
           .patch(
@@ -190,10 +191,6 @@ const Edit_data = (props) => {
           });
       }
     });
-  };
-
-  const lastStatusPlant = async (id) => {
-    console.log(id);
   };
 
   const postPlant = async (e) => {
@@ -795,7 +792,6 @@ const Edit_data = (props) => {
                                       1,
                                       data.status_circle + 1
                                     );
-                                    lastStatusPlant(data.id_plant);
                                   }}
                                 >
                                   <BsFillCheckCircleFill />
