@@ -15,6 +15,7 @@ import {
   postPlantMaster,
   DeletePlantMaster,
   UpdatePlantMaster,
+  DeletePlantData,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
@@ -34,5 +35,6 @@ router.get("/plant/getMasterPlant", getPlantMaster);
 router.post("/plant/postMasterPlant", postPlantMaster);
 router.delete("/plant/deleteMasterPlant/:id", DeletePlantMaster);
 router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
+router.delete("/plant/DeleteData/:id", DeletePlantData);
 
 export default router;

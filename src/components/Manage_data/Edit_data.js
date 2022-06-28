@@ -166,12 +166,6 @@ const Edit_data = (props) => {
   
         History_plant(id, status);
 
-        if (status == 1) {
-          console.log(
-            "id : " + id + " status : " + status + " circle : " + circle
-          );
-        }
-        
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
@@ -198,6 +192,24 @@ const Edit_data = (props) => {
           });
       }
     });
+  };
+
+  const lastStatus = async (id_delete, Idplant, datastatus, circle) => {
+    try {
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/getplant/plant/DeleteData/${id_delete}`
+      );
+      getPlant();
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "error.response.data.msg !",
+      });
+    }
+
+    postStatusPlant(Idplant, datastatus, circle);
   };
 
   const postPlant = async (e) => {
@@ -794,7 +806,8 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-success"
                                   onClick={() => {
-                                    postStatusPlant(
+                                    lastStatus(
+                                      data.id_plant,
                                       data.plant_id,
                                       1,
                                       data.status_circle + 1

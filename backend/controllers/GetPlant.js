@@ -4,6 +4,7 @@ import PlantDetail from "../models/PlantDetail_M.js";
 import PlantDataDetail from "../models/PlantDataDetail_M.js";
 import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 import PlantMasterDetail from "../models/PlantMasterDetail_M.js";
+import Fertilizer from "../models/FertilizerModel.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -282,7 +283,6 @@ export const UpdateStatusPlant = async (req, res) => {
   }
 };
 
-
 /***********  Plant Master Detail ************/
 
 export const getPlantMaster = async (req, res) => {
@@ -310,7 +310,6 @@ export const postPlantMaster = async (req, res) => {
     res.json(error);
   }
 };
-
 
 export const DeletePlantMaster = async (req, res) => {
   try {
@@ -344,3 +343,23 @@ export const UpdatePlantMaster = async (req, res) => {
 };
 
 /***************************************************************/
+
+export const DeletePlantData = async (req, res) => {
+  try {
+    await PlantDataDetail.destroy({
+      where: {
+        id_plant: req.params.id,
+      },
+    });
+    await Fertilizer.destroy({
+      where: {
+        id_plant: req.params.id,
+      },
+    });
+    res.json({
+      message: "Plant Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
