@@ -141,7 +141,7 @@ export const getDataFertilizer = async (req, res) => {
         "     plant.end_date_plant," +
         "     plant.plant_image," +
         "     plant_data_detail_fertilizer.id_name_chemical," +
-        "     CONCAT(plant_data_detail_fertilizer.quantity,' ',fertilizer_unit.unit,' : ',plant_data_detail_fertilizer.note) as note," +
+        "     CONCAT(plant_data_detail_fertilizer.quantity,' ', fertilizer_unit.unit,' : ',plant_data_detail_fertilizer.note) as note," +
         "     plant_data_detail_fertilizer.date_start," +
         "     plant_data_detail_fertilizer.date_end," +
         "     plant.status_plant, " +
@@ -150,6 +150,7 @@ export const getDataFertilizer = async (req, res) => {
         "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
         "LEFT JOIN plant_data_detail_fertilizer ON plant.id_plant = plant_data_detail_fertilizer.id_plant " +
+        "LEFT JOIN fertilizer_unit ON plant_data_detail_fertilizer.unit = fertilizer_unit.id " +
         "where plant.id = :id_plant ",
       {
         replacements: { id_plant: req.params.id },
