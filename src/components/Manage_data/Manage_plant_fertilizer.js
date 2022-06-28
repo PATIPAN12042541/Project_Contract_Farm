@@ -112,6 +112,34 @@ const Manage_plant_fertilizer = (props) => {
     }
   };
 
+  const deleteFertilizer = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/getChemical/DeleteFertilizer/${id}`
+          );
+          getFtilizerData();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
+  };
+
   useEffect(() => {
     getFtilizer();
     getFtilizerUnit();
@@ -345,7 +373,13 @@ const Manage_plant_fertilizer = (props) => {
                       </td>
                       <td>
                         <center>
-                          <button type="submit" className="btn btn-danger">
+                          <button
+                            type="submit"
+                            className="btn btn-danger"
+                            onClick={() => {
+                              deleteFertilizer(data.id);
+                            }}
+                          >
                             <BsFillTrashFill />
                           </button>
                         </center>

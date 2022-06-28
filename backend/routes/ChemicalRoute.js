@@ -17,6 +17,7 @@ import {
   getFertilizerUnit,
   postFertilizer,
   getFertilizerData,
+  deleteFertilizer,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -26,6 +27,7 @@ router.get("/Fertilizer", getFertilizer);
 router.get("/Fertilizer2/:id", getFertilizerSelect);
 router.get("/FertilizerUnit", getFertilizerUnit);
 router.post("/PostFertilizer/:id", postFertilizer);
+router.delete("/DeleteFertilizer/:id", deleteFertilizer);
 router.get("/FertilizerData/:id", getFertilizerData);
 router.get("/master", getChemicalMaster);
 router.get("/master2", getChemicalMaster2);

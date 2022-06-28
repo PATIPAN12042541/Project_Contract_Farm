@@ -118,9 +118,20 @@ export const getFertilizerData = async (req, res) => {
 };
 
 
-
-
-
+export const deleteFertilizer = async (req, res) => {
+  try {
+    await Fertilizer.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Chemical Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
 
 export const getChemicalMaster = async (req, res) => {
   try {
