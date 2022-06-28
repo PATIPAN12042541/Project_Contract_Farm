@@ -187,7 +187,7 @@ export const postFertilizer = async (req, res) => {
       note: note,
       date_start: date_start,
       date_end: date_end,
-      status: 0,
+      status: "1",
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {
