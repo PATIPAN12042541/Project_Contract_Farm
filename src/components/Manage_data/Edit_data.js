@@ -163,8 +163,15 @@ const Edit_data = (props) => {
       confirmButtonText: "OK",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        console.log("id : " + id + "status : " + status + "circle : " + circle);
+  
         History_plant(id, status);
+
+        if (status == 1) {
+          console.log(
+            "id : " + id + " status : " + status + " circle : " + circle
+          );
+        }
+        
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/UpdateStatusPlant/${id}`,
