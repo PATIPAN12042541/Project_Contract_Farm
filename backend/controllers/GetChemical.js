@@ -87,6 +87,41 @@ export const getFertilizerUnit = async (req, res) => {
   }
 };
 
+
+
+export const getFertilizerData = async (req, res) => {
+  try {
+    const data = await db.query(
+      "SELECT plant_data_detail_fertilizer.id," +
+        "plant_data_detail_fertilizer.id_plant," +
+        "name_chemical.name_chemical," +
+        "name_chemical.name_chemical_eng," +
+        "plant_data_detail_fertilizer.quantity," +
+        "fertilizer_unit.unit," +
+        "plant_data_detail_fertilizer.date_start," +
+        "plant_data_detail_fertilizer.date_end," +
+        "name_chemical.path_img," +
+        "plant_data_detail_fertilizer.status_check " +
+        "FROM plant_data_detail_fertilizer " +
+        "LEFT JOIN name_chemical on plant_data_detail_fertilizer.id_name_chemical = name_chemical.id " +
+        "LEFT JOIN fertilizer_unit on plant_data_detail_fertilizer.unit = fertilizer_unit.id " +
+        "where id_plant = :id ",
+      {
+        replacements: { id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(data);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
+
+
+
+
 export const getChemicalMaster = async (req, res) => {
   try {
     const chemical = await db.query(

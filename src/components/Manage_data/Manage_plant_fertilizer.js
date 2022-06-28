@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import moment from "moment";
+import { BsFillTrashFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 const Manage_plant_fertilizer = (props) => {
   const [ftilizer, setFtilizer] = useState([]);
   const [ftilizerUnit, setFtilizerUnit] = useState([]);
+  const [ftilizerData, setFtilizerData] = useState([]);
   const [ftilizer_query, setFtilizerQuery] = useState([
     {
       id: "",
@@ -37,6 +39,13 @@ const Manage_plant_fertilizer = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerUnit`
     );
     setFtilizerUnit(response.data);
+  };
+
+  const getFtilizerData = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${props.id}`
+    );
+    setFtilizerData(response.data);
   };
 
   const getSelect = async (data) => {
@@ -106,6 +115,7 @@ const Manage_plant_fertilizer = (props) => {
   useEffect(() => {
     getFtilizer();
     getFtilizerUnit();
+    getFtilizerData();
   }, []);
 
   return (
@@ -261,6 +271,90 @@ const Manage_plant_fertilizer = (props) => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </section>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="card card-info">
+            <div
+              className="card-header"
+              style={{
+                backgroundColor: "#8CC152",
+                color: "#FFFFFF",
+              }}
+            >
+              <h3 className="card-title">ตารางข้อมูล</h3>
+            </div>
+            <div className="card-body">
+              <table className="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>
+                      <center>#</center>
+                    </th>
+                    <th>ชื่อปุ๋ย (ชื่อภาษาอังกฤษ)</th>
+                    <th>
+                      <center>วันที่เริ่มต้น</center>
+                    </th>
+                    <th>
+                      <center>วันที่สิ้นสุด</center>
+                    </th>
+                    <th>
+                      <center>ปริมาณ</center>
+                    </th>
+                    <th>
+                      <center>รูปภาพ</center>
+                    </th>
+                    <th>
+                      <center>ลบ</center>
+                    </th>
+                  </tr>
+                </thead>
+                {ftilizerData.map((data, index) => (
+                  <tbody key={index}>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td>{index + 1}</td>
+                      <td>
+                        {data.name_chemical +
+                          " ( " +
+                          data.name_chemical_eng +
+                          " )"}
+                      </td>
+                      <td>
+                        <center>{data.date_start}</center>
+                      </td>
+                      <td>
+                        <center>{data.date_end}</center>
+                      </td>
+                      <td>
+                        <center>{data.quantity + " " + data.unit}</center>
+                      </td>
+                      <td>
+                        <center>
+                          <Zoom>
+                            <img
+                              src={data.path_img}
+                              className="img-fluid mb-2"
+                              alt="white sample"
+                              width="99"
+                              height="99"
+                            />
+                          </Zoom>
+                        </center>
+                      </td>
+                      <td>
+                        <center>
+                          <button type="submit" className="btn btn-danger">
+                            <BsFillTrashFill />
+                          </button>
+                        </center>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
+              </table>
+            </div>
           </div>
         </div>
       </section>
