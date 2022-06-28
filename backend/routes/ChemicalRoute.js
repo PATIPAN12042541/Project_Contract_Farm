@@ -24,7 +24,7 @@ router.get("/", getChemical);
 router.get("/Fertilizer", getFertilizer);
 router.get("/Fertilizer2/:id", getFertilizerSelect);
 router.get("/FertilizerUnit", getFertilizerUnit);
-router.post("/PostFertilizer/id", postFertilizer);
+router.post("/PostFertilizer/:id", postFertilizer);
 router.get("/master", getChemicalMaster);
 router.get("/master2", getChemicalMaster2);
 router.get("/Select/:id", getSelect);
