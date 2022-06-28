@@ -483,6 +483,9 @@ const Edit_data = (props) => {
                                 ></input>
                               </div>
                               <div className="col-3">
+                                <center>
+                                  <label>ชื่อแปลงเพาะปลูก</label>
+                                </center>
                                 <select
                                   className="custom-select form-control-border"
                                   // onChange={(e) => getSelect(e.target.value)}
