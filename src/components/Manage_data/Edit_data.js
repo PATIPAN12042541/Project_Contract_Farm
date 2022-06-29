@@ -294,7 +294,16 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    console.log(getData.data);
+    console.log("zone_id: " + getData.data[0].zone_id);
+    console.log("zone_name: " + getData.data[0].zone_name);
+    console.log("zone_image: " + getData.data[0].plant_image);
+    console.log("plant_id: " + getData.data[0].plant_id);
+    console.log("plant_id_name: " + getData.data[0].plant_id_name);
+    console.log("user_id: " + getData.data[0].id_user);
+    console.log("plant_date_start: " + getData.data[0].start_date_plant);
+    console.log("plant_status: " + getData.data[0].status_plant);
+    console.log("plant_circle: " + getData.data[0].status_circle);
+
     try {
       axios
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
