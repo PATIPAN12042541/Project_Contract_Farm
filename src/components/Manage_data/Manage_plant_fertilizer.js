@@ -36,6 +36,17 @@ const Manage_plant_fertilizer = (props) => {
   const handleShow = () => setShow(true);
   /*************************************/
 
+  /************* Edit Ftilizer **************/
+
+  const [nameChemicalE, setNameChemicalE] = useState([]);
+  const [startdateE, setStartDateE] = useState([]);
+  const [enddateE, setEndDateE] = useState([]);
+  const [quantityE, setQuantityE] = useState([]);
+  const [unitE, setUnitE] = useState([]);
+  const [imageE, setimageE] = useState([]);
+
+  /*************************************/
+
   const getFtilizer = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer`
