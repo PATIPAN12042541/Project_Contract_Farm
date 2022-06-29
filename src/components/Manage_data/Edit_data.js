@@ -310,7 +310,7 @@ const Edit_data = (props) => {
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
           zone_id: getData.data[0].zone_id,
           zone_name: getData.data[0].zone_name,
-          zone_image: getData.data[0].plant_image,
+          zone_image: getData.data[0].image_zone,
           plant_id: getData.data[0].plant_id,
           plant_id_name: getData.data[0].plant_id_name,
           plant_name: getData.data[0].name_plant,
