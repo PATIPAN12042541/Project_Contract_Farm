@@ -608,7 +608,7 @@ const Edit_data = (props) => {
                                       }
                                     ></input>
                                   </div>
-                                  <div className="col-1">
+                                  {/* <div className="col-1">
                                     <label>Upload</label>
                                     <FileUpload
                                       btnIcon="fas fa-upload"
@@ -627,8 +627,9 @@ const Edit_data = (props) => {
                                         setImage(img);
                                       }}
                                     />
-                                  </div>
-                                  <div className="col-1">
+                                  </div> */}
+                                  <div className="col-2">
+                                    <label>รูปภาพ</label>
                                     <Zoom>
                                       <img
                                         src={
