@@ -311,9 +311,12 @@ export const UpdateStatusPlant = async (req, res) => {
 
 export const getPlantMaster = async (req, res) => {
   try {
-    const plantMaster = await db.query("SELECT * FROM plant_master_detail", {
-      type: db.QueryTypes.SELECT,
-    });
+    const plantMaster = await db.query(
+      "SELECT * FROM plant_master_detail where status_show = 1",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
     res.json(plantMaster);
   } catch (error) {
     res.json({ message: error.message });
