@@ -10,7 +10,7 @@ const Plant_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
     );
     setPlantDetail(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Plant_detail = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              {/* {plantdetail.map((data, index) => (
+              {plantdetail.map((data, index) => (
                 <div className="card card-success" key={index}>
                   <div
                     className="card-header"
@@ -70,7 +70,7 @@ const Plant_detail = (props) => {
                     </button>
                   </div>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
