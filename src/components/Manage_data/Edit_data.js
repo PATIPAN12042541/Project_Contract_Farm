@@ -296,7 +296,7 @@ const Edit_data = (props) => {
     );
     console.log("zone_id: " + getData.data[0].zone_id);
     console.log("zone_name: " + getData.data[0].zone_name);
-    console.log("zone_image: " + getData.data[0].plant_image);
+    console.log("zone_image: " + getData.data[0].image_zone);
     console.log("plant_id: " + getData.data[0].plant_id);
     console.log("plant_id_name: " + getData.data[0].plant_id_name);
     console.log("user_id: " + getData.data[0].id_user);
@@ -352,7 +352,7 @@ const Edit_data = (props) => {
           await axios.post(`${process.env.REACT_APP_API_URL}/History/plant`, {
             zone_id: fertilizer.data[i].zone_id,
             zone_name: fertilizer.data[i].zone_name,
-            zone_image: fertilizer.data[i].plant_image,
+            zone_image: fertilizer.data[i].image_zone,
             plant_id: fertilizer.data[i].plant_id,
             plant_id_name: fertilizer.data[i].plant_id_name,
             plant_name: fertilizer.data[i].name_plant,
@@ -392,7 +392,7 @@ const Edit_data = (props) => {
           await axios.post(`${process.env.REACT_APP_API_URL}/History/plant`, {
             zone_id: result.data[i].zone_id,
             zone_name: result.data[i].zone_name,
-            zone_image: result.data[i].plant_image,
+            zone_image: result.data[i].image_zone,
             plant_id: result.data[i].plant_id,
             plant_id_name: result.data[i].plant_id_name,
             plant_name: result.data[i].name_plant,
