@@ -323,6 +323,20 @@ export const getPlantMaster = async (req, res) => {
   }
 };
 
+export const getPlantMasterSetup = async (req, res) => {
+  try {
+    const plantMaster = await db.query("SELECT * FROM plant_master_detail", {
+      type: db.QueryTypes.SELECT,
+    });
+    res.json(plantMaster);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
+
+
 export const postPlantMaster = async (req, res) => {
   const { plant_name, plant_name_eng, plant_img, status_show } = req.body;
   try {

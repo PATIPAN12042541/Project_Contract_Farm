@@ -38,7 +38,7 @@ const Plant_master = () => {
   // Get Data in Table
   const getPlantMasterDetail = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
+      `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterSetup`
     );
     setPlantMaster(response.data);
   };
