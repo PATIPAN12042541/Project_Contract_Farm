@@ -294,48 +294,48 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    console.log("zone_id: " + getData.data[0].zone_id);
-    console.log("zone_name: " + getData.data[0].zone_name);
-    console.log("zone_image: " + getData.data[0].image_zone);
-    console.log("plant_id: " + getData.data[0].plant_id);
-    console.log("plant_id_name: " + getData.data[0].plant_id_name);
-    console.log("user_id: " + getData.data[0].id_user);
-    console.log("plant_date_start: " + getData.data[0].start_date_plant);
-    console.log("plant_date_end: " + getData.data[0].end_date_plant);
-    console.log("plant_status: " + getData.data[0].status_plant);
-    console.log("plant_circle: " + getData.data[0].status_circle);
+    // console.log("zone_id: " + getData.data[0].zone_id);
+    // console.log("zone_name: " + getData.data[0].zone_name);
+    // console.log("zone_image: " + getData.data[0].image_zone);
+    // console.log("plant_id: " + getData.data[0].plant_id);
+    // console.log("plant_id_name: " + getData.data[0].plant_id_name);
+    // console.log("user_id: " + getData.data[0].id_user);
+    // console.log("plant_date_start: " + getData.data[0].start_date_plant);
+    // console.log("plant_date_end: " + getData.data[0].end_date_plant);
+    // console.log("plant_status: " + getData.data[0].status_plant);
+    // console.log("plant_circle: " + getData.data[0].status_circle);
 
-    // try {
-    //   axios
-    //     .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
-    //       zone_id: getData.data[0].zone_id,
-    //       zone_name: getData.data[0].zone_name,
-    //       zone_image: getData.data[0].plant_image,
-    //       plant_id: getData.data[0].plant_id,
-    //       plant_id_name: getData.data[0].plant_id_name,
-    //       plant_name: getData.data[0].name_plant,
-    //       user_id: getData.data[0].id_user,
-    //       plant_date_start: getData.data[0].start_date_plant,
-    //       plant_date_end: getData.data[0].end_date_plant,
-    //       chemical_id: "",
-    //       residual_period_id: "",
-    //       chemical_cc: "",
-    //       chemical_liter: "",
-    //       chemical_note: "",
-    //       chemical_date_start: moment(new Date()).format("YYYY-MM-DD"),
-    //       chemical_date_end: moment(new Date()).format("YYYY-MM-DD"),
-    //       plant_status: getData.data[0].status_plant,
-    //       plant_circle: getData.data[0].status_circle,
-    //     })
-    //     .then(function (response) {})
-    //     .catch(function (error) {});
-    // } catch (error) {
-    //   console.log(error);
-    //   Swal.fire({
-    //     icon: "error",
-    //     text: "Save Error!",
-    //   });
-    // }
+    try {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
+          zone_id: getData.data[0].zone_id,
+          zone_name: getData.data[0].zone_name,
+          zone_image: getData.data[0].plant_image,
+          plant_id: getData.data[0].plant_id,
+          plant_id_name: getData.data[0].plant_id_name,
+          plant_name: getData.data[0].name_plant,
+          user_id: getData.data[0].id_user,
+          plant_date_start: getData.data[0].start_date_plant,
+          plant_date_end: getData.data[0].end_date_plant,
+          chemical_id: "",
+          residual_period_id: "",
+          chemical_cc: "",
+          chemical_liter: "",
+          chemical_note: "",
+          chemical_date_start: moment(new Date()).format("YYYY-MM-DD"),
+          chemical_date_end: moment(new Date()).format("YYYY-MM-DD"),
+          plant_status: getData.data[0].status_plant,
+          plant_circle: getData.data[0].status_circle,
+        })
+        .then(function (response) {})
+        .catch(function (error) {});
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        text: "Save Error!",
+      });
+    }
   };
 
   // status 2
