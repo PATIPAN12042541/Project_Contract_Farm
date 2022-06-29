@@ -645,7 +645,6 @@ const Edit_data = (props) => {
                           </button>
                         </div>
                       </form>
-                      ;
                     </div>
                   </div>
 
