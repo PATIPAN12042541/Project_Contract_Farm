@@ -5,9 +5,7 @@ import moment from "moment";
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 import Modal from "react-bootstrap/Modal";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form";
 
 const Manage_plant_fertilizer = (props) => {
   const [ftilizer, setFtilizer] = useState([]);
@@ -433,16 +431,49 @@ const Manage_plant_fertilizer = (props) => {
 
       {/* Edit fertilizer*/}
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+          }}
+        >
+          <Modal.Title>แก้ไขรายการปุ๋ย</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อปุ๋ย :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <select className="custom-select form-control-border">
+                    <option>------กรุณาเลือกชนิดปุ๋ย------</option>
+                    {ftilizer.map((data, index) => {
+                      return (
+                        <option key={index} value={data.id}>
+                          {data.name_chemical}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={handleClose}>
-            Close
+          <button
+            onClick={handleClose}
+            className="btn btn-default"
+            style={{ float: "left" }}
+          >
+            ย้อนกลับ
           </button>
-          <button className="btn btn-success" onClick={handleClose}>
-            Save Changes
+          &nbsp;
+          <button type="button" className="btn btn-success">
+            บันทึก
           </button>
         </Modal.Footer>
       </Modal>
