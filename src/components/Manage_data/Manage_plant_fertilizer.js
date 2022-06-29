@@ -361,19 +361,39 @@ const Manage_plant_fertilizer = (props) => {
                       >
                         {index + 1}
                       </td>
-                      <td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         {data.name_chemical +
                           " ( " +
                           data.name_chemical_eng +
                           " )"}
                       </td>
-                      <td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.date_start}</center>
                       </td>
-                      <td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.date_end}</center>
                       </td>
-                      <td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.quantity + " " + data.unit}</center>
                       </td>
                       <td>
