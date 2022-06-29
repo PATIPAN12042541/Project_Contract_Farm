@@ -90,6 +90,24 @@ export const getManagePlantEdit = async (req, res) => {
   }
 };
 
+
+export const getDataSelect = async (req, res) => {
+  try {
+    const getSelect = await db.query(
+      "SELECT * FROM plant_master_detail " +
+        "WHERE status_show = 1  " +
+        "AND id = :id ",
+      {
+        replacements: { id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(getSelect);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};
+
 export const postDetailPlant = async (req, res) => {
   const {
     id_name_plant,

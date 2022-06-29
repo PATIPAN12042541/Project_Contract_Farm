@@ -16,12 +16,14 @@ import {
   DeletePlantMaster,
   UpdatePlantMaster,
   DeletePlantData,
+  getDataSelect,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
 
 router.get("/:id", getPlant);
 router.get("/Data_detail/:id", getDataImagePlant);
+router.get("/getDataSelect/:id", getDataSelect);
 router.post("/DetailPlant", postDetailPlant);
 router.patch("/UpdatePlant/:id", updatePlant);
 router.delete("/DeletePlant/:id", DeletePlant);

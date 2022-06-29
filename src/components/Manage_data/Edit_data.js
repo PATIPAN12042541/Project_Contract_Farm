@@ -73,7 +73,7 @@ const Edit_data = (props) => {
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
   const [plantMaster, setPlantMaster] = useState([]);
-  
+  const [getSelect, setGetSelect] = useState([]);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -435,6 +435,14 @@ const Edit_data = (props) => {
     }
   };
 
+  const getDataSelect = async (id) => {
+    const result = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
+    );
+    setGetSelect(result.data);
+    console.log(result.data);
+  };
+
   useEffect(() => {
     getPlant();
     getPlantUser();
@@ -495,7 +503,9 @@ const Edit_data = (props) => {
                                 </center>
                                 <select
                                   className="custom-select form-control-border"
-                                  // onChange={(e) => getSelect(e.target.value)}
+                                  onChange={(e) =>
+                                    getDataSelect(e.target.value)
+                                  }
                                 >
                                   <option>------กรุณาเลือกชนิดพืช------</option>
                                   {plantMaster.map((data, index) => {
