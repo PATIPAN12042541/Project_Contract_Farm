@@ -492,7 +492,7 @@ const Edit_data = (props) => {
                       <form onSubmit={postPlant}>
                         {getSelect.map((dataImg, index) => {
                           return (
-                            <div className="card-body">
+                            <div className="card-body" key={index}>
                               <div className="form-group">
                                 <div className="row">
                                   <div className="col-1">
