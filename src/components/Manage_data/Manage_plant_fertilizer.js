@@ -460,6 +460,14 @@ const Manage_plant_fertilizer = (props) => {
                   </select>
                 </div>
               </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  วันที่เริ่มต้น :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input type="date" className="form-control" />
+                </div>
+              </div>
             </div>
           </Form>
         </Modal.Body>
