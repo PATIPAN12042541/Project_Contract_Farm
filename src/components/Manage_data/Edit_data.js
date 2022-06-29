@@ -629,7 +629,6 @@ const Edit_data = (props) => {
                                     />
                                   </div> */}
                                   <div className="col-2">
-                                    <label>รูปภาพ</label>
                                     <Zoom>
                                       <img
                                         src={
