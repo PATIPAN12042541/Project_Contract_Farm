@@ -100,7 +100,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const getStatusPlant = async () => {
@@ -122,7 +122,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getMasterPlant`
     );
     setPlantMaster(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const deletePlants = async (id) => {
@@ -294,6 +294,7 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
+    console.log(getData.data);
     try {
       axios
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
@@ -373,7 +374,7 @@ const Edit_data = (props) => {
     const result = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataChemical/${id}`
     );
-    // console.log(result.data);
+    console.log(result.data);
     const detail_array = [];
     try {
       for (let i = 0; i < result.data.length; i++) {
