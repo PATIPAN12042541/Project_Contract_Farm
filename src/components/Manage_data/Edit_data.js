@@ -232,7 +232,7 @@ const Edit_data = (props) => {
           id_zone: props.id,
           id_user: userid,
           autoid_check: autoid,
-          name_plant: getSelect.data[0].id,
+          name_plant: getSelect[0].id,
           start_date_plant: startdate,
           end_date_plant: enddate,
           //image_url: image_name,
