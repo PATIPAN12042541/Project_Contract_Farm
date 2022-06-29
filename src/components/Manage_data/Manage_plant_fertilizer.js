@@ -468,6 +468,39 @@ const Manage_plant_fertilizer = (props) => {
                   <input type="date" className="form-control" />
                 </div>
               </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  วันที่สิ้นสุด :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input type="date" className="form-control" />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">ปริมาณที่ใช้</label>
+                <div className="col-sm-8">
+                  <input
+                    type="number"
+                    className="form-control form-control-border"
+                    placeholder="ปริมาณที่ใช้"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">หน่วย</label>
+                <div className="col-sm-8">
+                  <select className="custom-select form-control-border">
+                    <option>--เลือกหน่วย--</option>
+                    {ftilizerUnit.map((data_unit, index) => {
+                      return (
+                        <option key={index} value={data_unit.id}>
+                          {data_unit.unit}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
             </div>
           </Form>
         </Modal.Body>
