@@ -225,6 +225,8 @@ const Edit_data = (props) => {
   const postPlant = async (e) => {
     e.preventDefault();
     const autoid = uuidv4();
+
+    console.log(getSelect[0].id);
     try {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
