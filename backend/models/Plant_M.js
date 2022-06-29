@@ -20,9 +20,9 @@ const Plant = db.define(
     end_date_plant: {
       type: DataTypes.DATE,
     },
-    plant_image: {
-      type: DataTypes.STRING,
-    },
+    // plant_image: {
+    //   type: DataTypes.STRING,
+    // },
     status_plant: {
       type: DataTypes.INTEGER,
     },

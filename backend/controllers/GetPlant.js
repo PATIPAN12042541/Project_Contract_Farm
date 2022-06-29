@@ -117,7 +117,7 @@ export const postDetailPlant = async (req, res) => {
     name_plant,
     start_date_plant,
     end_date_plant,
-    image_url,
+    // image_url,
   } = req.body;
 
   try {
@@ -145,7 +145,7 @@ export const postDetailPlant = async (req, res) => {
         name_plant: name_plant,
         start_date_plant: start_date_plant,
         end_date_plant: end_date_plant,
-        plant_image: "../dist/img/" + image_url,
+        // plant_image: "../dist/img/" + image_url,
         status_plant: 1,
         status_circle: 1,
       });

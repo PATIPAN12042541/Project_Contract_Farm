@@ -85,15 +85,15 @@ const Edit_data = (props) => {
     },
   ]);
 
-  const uploadImg = async () => {
-    let formData = new FormData();
-    formData.append("file", image.data);
+  // const uploadImg = async () => {
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
 
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.error(err));
-  };
+  //   await axios
+  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.error(err));
+  // };
 
   const editUploadImg = async () => {
     let formData = new FormData();
@@ -232,10 +232,10 @@ const Edit_data = (props) => {
           id_zone: props.id,
           id_user: userid,
           autoid_check: autoid,
-          name_plant: nameplant,
+          name_plant: getSelect.data[0].id,
           start_date_plant: startdate,
           end_date_plant: enddate,
-          image_url: image_name,
+          //image_url: image_name,
         })
         .then(function (response) {
           Swal.fire({
@@ -253,7 +253,7 @@ const Edit_data = (props) => {
           });
         });
 
-      uploadImg();
+      //uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
