@@ -99,7 +99,7 @@ export const getDataChemical = async (req, res) => {
         "        plant_data_detail.id_residual_period, " +
         "        plant_data_detail.cc, " +
         "        plant_data_detail.liter, " +
-        "         plant_data_detail.note, " +
+        "        plant_data_detail.note, " +
         "        plant_data_detail.date_start, " +
         "        plant_data_detail.date_end, " +
         "        plant.status_plant, " +

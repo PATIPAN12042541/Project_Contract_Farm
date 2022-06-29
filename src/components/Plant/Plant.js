@@ -80,7 +80,7 @@ const Plant = (props) => {
                                     {data.zone_name + "-" + data.id_name_plant}
                                   </div>
                                   <div className="text-block-Plant">
-                                    {data.name_plant}
+                                    แปลง{data.name_plant}
                                   </div>
                                   <div className="text-block-PlantStatus">
                                     สถานะ : {data.status_name}
@@ -143,7 +143,7 @@ const Plant = (props) => {
                                     {data.zone_name + "-" + data.id_name_plant}
                                   </div>
                                   <div className="text-block-Plant">
-                                    {data.name_plant}
+                                    แปลง{data.name_plant}
                                   </div>
                                   <div className="text-block-PlantStatus">
                                     สถานะ : {data.status_name}

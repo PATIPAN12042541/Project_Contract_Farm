@@ -294,7 +294,6 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-
     try {
       axios
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
