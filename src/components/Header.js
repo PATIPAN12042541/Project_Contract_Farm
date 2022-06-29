@@ -119,6 +119,7 @@ const Header = () => {
                     "-" +
                     data.id_name_plant +
                     " " +
+                    "แปลง" +
                     data.name_plant}
                   <span
                     // className="float-right text-muted text-sm"
