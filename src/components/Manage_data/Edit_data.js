@@ -73,7 +73,17 @@ const Edit_data = (props) => {
   const [getIdplant, setGetIdplant] = useState([]);
   /*************************/
   const [plantMaster, setPlantMaster] = useState([]);
-  const [getSelect, setGetSelect] = useState([]);
+  const [getSelect, setGetSelect] = useState([
+    {
+      id: "",
+      plant_name: "",
+      plant_name_eng: "",
+      plant_img: "",
+      status_show: "",
+      createdAt: "",
+      updatedAt: "",
+    },
+  ]);
 
   const uploadImg = async () => {
     let formData = new FormData();
@@ -479,44 +489,49 @@ const Edit_data = (props) => {
                       >
                         <h3 className="card-title">เพิ่มข้อมูลแปลงเพาะปลูก</h3>
                       </div>
-
                       <form onSubmit={postPlant}>
-                        <div className="card-body">
-                          <div className="form-group">
-                            <div className="row">
-                              <div className="col-1">
-                                <center>
-                                  <label>รหัส</label>
-                                </center>
-                                <input
-                                  type="number"
-                                  className="form-control form-control-border"
-                                  id="exampleInputBorder"
-                                  defaultValue={idplant}
-                                  placeholder="รหัส"
-                                  onChange={(e) => setIdPlant(e.target.value)}
-                                ></input>
-                              </div>
-                              <div className="col-3">
-                                <center>
-                                  <label>ชื่อแปลงเพาะปลูก</label>
-                                </center>
-                                <select
-                                  className="custom-select form-control-border"
-                                  onChange={(e) =>
-                                    getDataSelect(e.target.value)
-                                  }
-                                >
-                                  <option>------กรุณาเลือกชนิดพืช------</option>
-                                  {plantMaster.map((data, index) => {
-                                    return (
-                                      <option key={index} value={data.id}>
-                                        {data.plant_name}
+                        {getSelect.map((dataImg, index) => {
+                          return (
+                            <div className="card-body">
+                              <div className="form-group">
+                                <div className="row">
+                                  <div className="col-1">
+                                    <center>
+                                      <label>รหัส</label>
+                                    </center>
+                                    <input
+                                      type="number"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      defaultValue={idplant}
+                                      placeholder="รหัส"
+                                      onChange={(e) =>
+                                        setIdPlant(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
+                                  <div className="col-3">
+                                    <center>
+                                      <label>ชื่อแปลงเพาะปลูก</label>
+                                    </center>
+                                    <select
+                                      className="custom-select form-control-border"
+                                      onChange={(e) =>
+                                        getDataSelect(e.target.value)
+                                      }
+                                    >
+                                      <option>
+                                        ------กรุณาเลือกชนิดพืช------
                                       </option>
-                                    );
-                                  })}
-                                </select>
-                                {/* <center>
+                                      {plantMaster.map((data, index) => {
+                                        return (
+                                          <option key={index} value={data.id}>
+                                            {data.plant_name}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
+                                    {/* <center>
                                   <label>ชื่อแปลงเพาะปลูก</label>
                                 </center>
                                 <input
@@ -527,88 +542,96 @@ const Edit_data = (props) => {
                                   defaultValue={nameplant}
                                   onChange={(e) => setNamePlant(e.target.value)}
                                 ></input> */}
-                              </div>
-                              <div className="col-2">
-                                <center>
-                                  <label>ชื่อผู้รับผิดชอบ</label>
-                                </center>
-                                <select
-                                  className="custom-select form-control-border"
-                                  onChange={(e) => setUserId(e.target.value)}
-                                >
-                                  <option>------ผู้รับผิดชอบ------</option>
-                                  {plantUser.map((user, index) => {
-                                    return (
-                                      <option key={index} value={user.id}>
-                                        {user.name + " " + user.last_name}
-                                      </option>
-                                    );
-                                  })}
-                                </select>
-                              </div>
-                              <div className="col-2">
-                                <center>
-                                  <label>วันที่เริ่มต้น</label>
-                                </center>
-                                <input
-                                  type="date"
-                                  className="form-control form-control-border"
-                                  id="exampleInputBorder"
-                                  placeholder="วันที่เริ่มต้น"
-                                  defaultValue={startdate}
-                                  onChange={(e) => setStartDate(e.target.value)}
-                                ></input>
-                              </div>
-                              <div className="col-2">
-                                <center>
-                                  <label>วันที่สิ้นสุด</label>
-                                </center>
-                                <input
-                                  type="date"
-                                  className="form-control form-control-border"
-                                  id="exampleInputBorder"
-                                  placeholder="วันที่สิ้นสุด"
-                                  defaultValue={enddate}
-                                  onChange={(e) => setEndDate(e.target.value)}
-                                ></input>
-                              </div>
-                              <div className="col-1">
-                                <label>Upload</label>
-                                <FileUpload
-                                  btnIcon="fas fa-upload"
-                                  multiple
-                                  accept="image/*"
-                                  onUpload={(file) => {
-                                    const filesArray = [].slice.call(file);
-                                    filesArray.forEach((e) => {
-                                      setImageName(e.name);
-                                    });
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>ชื่อผู้รับผิดชอบ</label>
+                                    </center>
+                                    <select
+                                      className="custom-select form-control-border"
+                                      onChange={(e) =>
+                                        setUserId(e.target.value)
+                                      }
+                                    >
+                                      <option>------ผู้รับผิดชอบ------</option>
+                                      {plantUser.map((user, index) => {
+                                        return (
+                                          <option key={index} value={user.id}>
+                                            {user.name + " " + user.last_name}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>วันที่เริ่มต้น</label>
+                                    </center>
+                                    <input
+                                      type="date"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      placeholder="วันที่เริ่มต้น"
+                                      defaultValue={startdate}
+                                      onChange={(e) =>
+                                        setStartDate(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>วันที่สิ้นสุด</label>
+                                    </center>
+                                    <input
+                                      type="date"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      placeholder="วันที่สิ้นสุด"
+                                      defaultValue={enddate}
+                                      onChange={(e) =>
+                                        setEndDate(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
+                                  <div className="col-1">
+                                    <label>Upload</label>
+                                    <FileUpload
+                                      btnIcon="fas fa-upload"
+                                      multiple
+                                      accept="image/*"
+                                      onUpload={(file) => {
+                                        const filesArray = [].slice.call(file);
+                                        filesArray.forEach((e) => {
+                                          setImageName(e.name);
+                                        });
 
-                                    const img = {
-                                      preview: URL.createObjectURL(file[0]),
-                                      data: file[0],
-                                    };
-                                    setImage(img);
-                                  }}
-                                />
-                              </div>
-                              <div className="col-1">
-                                <Zoom>
-                                  <img
-                                    src={
-                                      image.preview
-                                        ? image.preview
-                                        : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                    }
-                                    className="img-fluid mb-2"
-                                    width="100"
-                                    height="100"
-                                  />
-                                </Zoom>
+                                        const img = {
+                                          preview: URL.createObjectURL(file[0]),
+                                          data: file[0],
+                                        };
+                                        setImage(img);
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="col-1">
+                                    <Zoom>
+                                      <img
+                                        src={
+                                          dataImg.plant_img
+                                            ? dataImg.plant_img
+                                            : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                        }
+                                        className="img-fluid mb-2"
+                                        width="100"
+                                        height="100"
+                                      />
+                                    </Zoom>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
+                          );
+                        })}
                         <div className="card-footer text-right">
                           <button
                             type="submit"
@@ -622,6 +645,7 @@ const Edit_data = (props) => {
                           </button>
                         </div>
                       </form>
+                      ;
                     </div>
                   </div>
 
