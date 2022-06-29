@@ -658,7 +658,7 @@ const Edit_data = (props) => {
                               setEditPathImg(data.plant_image);
                             }}
                           >
-                            {data.name_plant}
+                            แปลง{data.name_plant}
                           </td>
                           <td
                             onClick={() => {
