@@ -301,6 +301,7 @@ const Edit_data = (props) => {
     console.log("plant_id_name: " + getData.data[0].plant_id_name);
     console.log("user_id: " + getData.data[0].id_user);
     console.log("plant_date_start: " + getData.data[0].start_date_plant);
+    console.log("plant_date_end: " + getData.data[0].end_date_plant);
     console.log("plant_status: " + getData.data[0].status_plant);
     console.log("plant_circle: " + getData.data[0].status_circle);
 
