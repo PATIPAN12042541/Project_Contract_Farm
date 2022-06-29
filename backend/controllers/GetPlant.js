@@ -9,34 +9,40 @@ import Fertilizer from "../models/FertilizerModel.js";
 export const getPlant = async (req, res) => {
   try {
     const plants = await db.query(
-      // "select plant.id as plant_id," +
-      //   "  plant.id_plant as id_plant," +
-      //   "  plant.name_plant as name_plant," +
-      //   "  plant.start_date_plant as start_date_plant," +
-      //   "  plant.end_date_plant as end_date_plant," +
-      //   "  plant.plant_image as plant_image," +
-      //   "  plant_detail.id as plant_detail_id," +
-      //   "  plant_detail.id_name_plant as plant_detail_id_name_plant " +
-      //   "from plant " +
-      //   "left join plant_detail on plant.id_plant = plant_detail.id " +
-      //   "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
-      //   "where zone_plant.id = :zone_plant_id ",
-      "select plant.id as plant_id, " +
-        "plant.id_plant as id_plant, " +
-        "plant.name_plant as name_plant, " +
-        "plant.start_date_plant as start_date_plant, " +
-        "plant.end_date_plant as end_date_plant, " +
-        "plant.plant_image as plant_image, " +
-        "plant.status_plant, " +
-        "Status_plant.status_name, " +
-        "plant.status_circle, " +
-        "plant_detail.id as plant_detail_id, " +
+      "select plant.id as plant_id," +
+        "plant.id_plant as id_plant," +
+        "plant_master_detail.plant_name as name_plant," +
+        "plant.start_date_plant as start_date_plant," +
+        "plant.end_date_plant as end_date_plant," +
+        "plant_master_detail.plant_img as plant_image," +
+        "plant.status_plant," +
+        "Status_plant.status_name," +
+        "plant.status_circle," +
+        "plant_detail.id as plant_detail_id," +
         "plant_detail.id_name_plant as plant_detail_id_name_plant " +
         "from plant " +
         "left join plant_detail on plant.id_plant = plant_detail.id " +
         "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
         "left join Status_plant on plant.status_plant = Status_plant.id " +
-        "where zone_plant.id = :zone_plant_id ",
+        "left join plant_master_detail on plant.name_plant = plant_master_detail.id " +
+        "where zone_plant.id = :zone_plant_id",
+
+      // "select plant.id as plant_id, " +
+      //   "plant.id_plant as id_plant, " +
+      //   "plant.name_plant as name_plant, " +
+      //   "plant.start_date_plant as start_date_plant, " +
+      //   "plant.end_date_plant as end_date_plant, " +
+      //   "plant.plant_image as plant_image, " +
+      //   "plant.status_plant, " +
+      //   "Status_plant.status_name, " +
+      //   "plant.status_circle, " +
+      //   "plant_detail.id as plant_detail_id, " +
+      //   "plant_detail.id_name_plant as plant_detail_id_name_plant " +
+      //   "from plant " +
+      //   "left join plant_detail on plant.id_plant = plant_detail.id " +
+      //   "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
+      //   "left join Status_plant on plant.status_plant = Status_plant.id " +
+      //   "where zone_plant.id = :zone_plant_id ",
       {
         replacements: { zone_plant_id: req.params.id },
         type: db.QueryTypes.SELECT,
