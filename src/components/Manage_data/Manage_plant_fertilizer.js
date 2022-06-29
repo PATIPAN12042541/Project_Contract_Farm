@@ -501,6 +501,23 @@ const Manage_plant_fertilizer = (props) => {
                   </select>
                 </div>
               </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">รูปภาพ</label>
+                <div className="col-sm-8">
+                  <Zoom>
+                    <img
+                      // src={
+                      //   dataSelect.path_img
+                      //     ? dataSelect.path_img
+                      //     : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      // }
+                      src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      width="100"
+                      height="100"
+                    />
+                  </Zoom>
+                </div>
+              </div>
             </div>
           </Form>
         </Modal.Body>
