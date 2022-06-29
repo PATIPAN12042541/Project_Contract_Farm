@@ -4,6 +4,10 @@ import Zoom from "react-medium-image-zoom";
 import moment from "moment";
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from "sweetalert2";
+import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import form from "react-bootstrap/Form";
 
 const Manage_plant_fertilizer = (props) => {
   const [ftilizer, setFtilizer] = useState([]);
@@ -25,6 +29,13 @@ const Manage_plant_fertilizer = (props) => {
   const [note, setNote] = useState([]);
   const [dateStart, setdateStart] = useState([]);
   const [dateEnd, setdateEnd] = useState([]);
+  /*************************************/
+
+  /************* Show Modal **************/
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   /*************************************/
 
   const getFtilizer = async () => {
@@ -342,7 +353,14 @@ const Manage_plant_fertilizer = (props) => {
                 {ftilizerData.map((data, index) => (
                   <tbody key={index}>
                     <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>{index + 1}</td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
+                        {index + 1}
+                      </td>
                       <td>
                         {data.name_chemical +
                           " ( " +
@@ -392,6 +410,22 @@ const Manage_plant_fertilizer = (props) => {
           </div>
         </div>
       </section>
+
+      {/* Edit fertilizer*/}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={handleClose}>
+            Close
+          </button>
+          <button className="btn btn-success" onClick={handleClose}>
+            Save Changes
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
