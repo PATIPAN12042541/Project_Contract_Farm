@@ -446,11 +446,24 @@ const Edit_data = (props) => {
   };
 
   const getDataSelect = async (id) => {
-    const result = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
-    );
-    setGetSelect(result.data);
-    console.log(result.data);
+    if (id !== "------กรุณาเลือกชนิดพืช------") {
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
+      );
+      setGetSelect(result.data);
+    } else {
+      setGetSelect([
+        {
+          id: "",
+          plant_name: "",
+          plant_name_eng: "",
+          plant_img: "",
+          status_show: "",
+          createdAt: "",
+          updatedAt: "",
+        },
+      ]);
+    }
   };
 
   useEffect(() => {
