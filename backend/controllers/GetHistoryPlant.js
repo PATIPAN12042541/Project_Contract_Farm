@@ -9,12 +9,11 @@ export const getDataPlant = async (req, res) => {
         "        zone_plant.zone_name," +
         "        zone_plant.image_zone," +
         "        plant_detail.id_name_plant	as plant_id_name," +
-        "        plant.id as plant_id,"+
+        "        plant.id as plant_id," +
         "        plant.id_user," +
         "        plant.name_plant," +
         "        plant.start_date_plant," +
         "        plant.end_date_plant," +
-        "        plant.plant_image," +
         "        plant.status_plant," +
         "        plant.status_circle " +
         "FROM plant " +
@@ -44,7 +43,6 @@ export const PostHistoryPlant = async (req, res) => {
     user_id,
     plant_date_start,
     plant_date_end,
-    plant_img,
     chemical_id,
     residual_period_id,
     chemical_cc,
@@ -67,7 +65,6 @@ export const PostHistoryPlant = async (req, res) => {
       user_id: user_id,
       plant_date_start: plant_date_start,
       plant_date_end: plant_date_end,
-      plant_img: plant_img,
       chemical_id: chemical_id,
       residual_period_id: residual_period_id,
       chemical_cc: chemical_cc,
@@ -85,7 +82,6 @@ export const PostHistoryPlant = async (req, res) => {
   res.json({ msg: "Successful" });
 };
 
-
 export const getDataChemical = async (req, res) => {
   try {
     const getDataChemical = await db.query(
@@ -99,7 +95,6 @@ export const getDataChemical = async (req, res) => {
         "        plant.name_plant, " +
         "        plant.start_date_plant, " +
         "        plant.end_date_plant, " +
-        "        plant.plant_image, " +
         "        plant_data_detail.id_name_chemical, " +
         "        plant_data_detail.id_residual_period, " +
         "        plant_data_detail.cc, " +
@@ -139,7 +134,6 @@ export const getDataFertilizer = async (req, res) => {
         "     plant.name_plant," +
         "     plant.start_date_plant," +
         "     plant.end_date_plant," +
-        "     plant.plant_image," +
         "     plant_data_detail_fertilizer.id_name_chemical," +
         "     CONCAT(plant_data_detail_fertilizer.quantity,' ', fertilizer_unit.unit,' : ',plant_data_detail_fertilizer.note) as note," +
         "     plant_data_detail_fertilizer.date_start," +

@@ -21,7 +21,7 @@ const HistoryPlant = db.define(
       type: DataTypes.STRING,
     },
     plant_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -31,9 +31,6 @@ const HistoryPlant = db.define(
     },
     plant_date_end: {
       type: DataTypes.DATE,
-    },
-    plant_img: {
-      type: DataTypes.STRING,
     },
     chemical_id: {
       type: DataTypes.INTEGER,
