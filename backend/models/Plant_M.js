@@ -12,7 +12,7 @@ const Plant = db.define(
       type: DataTypes.INTEGER,
     },
     name_plant: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     start_date_plant: {
       type: DataTypes.DATE,
