@@ -226,44 +226,50 @@ const Edit_data = (props) => {
     e.preventDefault();
     const autoid = uuidv4();
 
-    console.log(getSelect[0].id);
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
-          id_name_plant: idplant,
-          id_zone: props.id,
-          id_user: userid,
-          autoid_check: autoid,
-          name_plant: getSelect[0].id,
-          start_date_plant: startdate,
-          end_date_plant: enddate,
-          //image_url: image_name,
-        })
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
-          });
-          getPlant();
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
-        });
+    console.log("id_name_plant: " + idplant);
+    console.log("id_zone: " + props.id);
+    console.log("id_user: " + userid);
+    console.log("autoid_check: " + autoid);
+    console.log("name_plant: " + getSelect[0].id);
+    console.log("start_date_plant: " + startdate);
+    console.log("end_date_plant: " + enddate);
+    // try {
+    //   await axios
+    //     .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
+    //       id_name_plant: idplant,
+    //       id_zone: props.id,
+    //       id_user: userid,
+    //       autoid_check: autoid,
+    //       name_plant: getSelect[0].id,
+    //       start_date_plant: startdate,
+    //       end_date_plant: enddate,
+    //       //image_url: image_name,
+    //     })
+    //     .then(function (response) {
+    //       Swal.fire({
+    //         icon: "success",
+    //         title: "Success",
+    //         text: "Save OK !",
+    //       });
+    //       getPlant();
+    //     })
+    //     .catch(function (error) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: error.response.data.msg,
+    //         text: "Save Error!",
+    //       });
+    //     });
 
-      //uploadImg();
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
-    }
-  };
+    //   //uploadImg();
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: error.response.data.msg,
+    //     text: "Save Error!",
+    //   });
+    // }
+  };;
 
   const updatePlant = async (id) => {
     try {
