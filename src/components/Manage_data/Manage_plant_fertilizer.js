@@ -75,7 +75,7 @@ const Manage_plant_fertilizer = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${props.id}`
     );
     setFtilizerData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const getSelect = async (data) => {
@@ -103,6 +103,7 @@ const Manage_plant_fertilizer = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
       );
       setFtilizerQueryEdit(res.data);
+      console.log(res.data);
     } else {
       setFtilizerQueryEdit([
         {
@@ -160,6 +161,43 @@ const Manage_plant_fertilizer = (props) => {
       }
     }
   };
+
+  // const PostFertilizerEdit = async () => {
+  //   try {
+  //     await axios
+  //       .post(
+  //         `${process.env.REACT_APP_API_URL}/getChemical/PostFertilizer/${props.id}`,
+  //         {
+  //           id_name_chemical: ftilizer_query[0].id,
+  //           quantity: quantity,
+  //           unit: unit,
+  //           date_start: dateStart,
+  //           date_end: dateEnd,
+  //           note: note,
+  //         }
+  //       )
+  //       .then(function (response) {
+  //         Swal.fire({
+  //           icon: "success",
+  //           title: "Success",
+  //           text: "Save OK !",
+  //         });
+  //       })
+  //       .catch(function (error) {
+  //         Swal.fire({
+  //           icon: "error",
+  //           title: error.response.data.msg,
+  //           text: "Save Error!",
+  //         });
+  //       });
+  //   } catch (error) {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: error.response.data.msg,
+  //       text: "Save Error!",
+  //     });
+  //   }
+  // };
 
   const deleteFertilizer = async (id) => {
     Swal.fire({
@@ -517,7 +555,7 @@ const Manage_plant_fertilizer = (props) => {
                       <select
                         className="custom-select form-control-border"
                         defaultValue={nameChemicalE}
-                        onChange={(e) => getSelectEdit(e.target.value)}
+                        onChange={(e) => setNameChemicalE(e.target.value)}
                       >
                         <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                         {ftilizer.map((data, index) => {
@@ -539,6 +577,7 @@ const Manage_plant_fertilizer = (props) => {
                         type="date"
                         className="form-control"
                         defaultValue={startdateE}
+                        onChange={(e) => setStartDateE(e.target.value)}
                       />
                     </div>
                   </div>
@@ -551,6 +590,7 @@ const Manage_plant_fertilizer = (props) => {
                         type="date"
                         className="form-control"
                         defaultValue={enddateE}
+                        onChange={(e) => setEndDateE(e.target.value)}
                       />
                     </div>
                   </div>
@@ -564,6 +604,7 @@ const Manage_plant_fertilizer = (props) => {
                         className="form-control form-control-border"
                         placeholder="ปริมาณที่ใช้"
                         defaultValue={quantityE}
+                        onChange={(e) => setQuantityE(e.target.value)}
                       />
                     </div>
                   </div>
@@ -573,6 +614,7 @@ const Manage_plant_fertilizer = (props) => {
                       <select
                         className="custom-select form-control-border"
                         defaultValue={unitE}
+                        onChange={(e) => setUnitE(e.target.value)}
                       >
                         {ftilizerUnit.map((data_unit, index) => {
                           return (
@@ -611,7 +653,11 @@ const Manage_plant_fertilizer = (props) => {
             ย้อนกลับ
           </button>
           &nbsp;
-          <button type="button" className="btn btn-success">
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={PostFertilizerEdit}
+          >
             บันทึก
           </button>
         </Modal.Footer>
