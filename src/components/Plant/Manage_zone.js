@@ -28,6 +28,8 @@ const Manage_zone = () => {
   const [id, setID] = useState([]);
   const [idzone, setIdZone] = useState([]);
   const [pathimage, setPathImage] = useState([]);
+  const [lat, setLat] = useState([]);
+  const [lon, setLon] = useState([]);
 
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
@@ -47,7 +49,6 @@ const Manage_zone = () => {
   };
 
   const uploadImg = async () => {
-    
     let formData = new FormData();
     formData.append("file", image.data);
     console.log(formData);
@@ -67,6 +68,8 @@ const Manage_zone = () => {
           zone_name: idzone,
           image_zone: image_name,
           auto_id_zone: autoid,
+          lat: lat,
+          lon: lon,
         })
         .then(function (response) {
           getPlant();
@@ -130,6 +133,8 @@ const Manage_zone = () => {
           `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
           {
             zone_name: idzone,
+            lat: lat,
+            lon: lon,
           }
         );
       } else {
@@ -138,6 +143,8 @@ const Manage_zone = () => {
           {
             zone_name: idzone,
             image_zone: "../dist/img/" + image_name,
+            lat: lat,
+            lon: lon,
           }
         );
 
@@ -320,6 +327,25 @@ const Manage_zone = () => {
                 defaultValue={idzone}
                 autoFocus
                 onChange={(e) => setIdZone(e.target.value)}
+              />
+              <hr></hr>
+            </form.Group>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>ละติจูด</form.Label>
+              <form.Control
+                type="text"
+                placeholder="ละติจูด"
+                defaultValue={lat}
+                onChange={(e) => setLat(e.target.value)}
+              />
+            </form.Group>
+            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <form.Label>ลองติจูด</form.Label>
+              <form.Control
+                type="text"
+                placeholder="ลองติจูด"
+                defaultValue={lon}
+                onChange={(e) => setLon(e.target.value)}
               />
             </form.Group>
             <form.Group
