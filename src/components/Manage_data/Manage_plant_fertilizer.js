@@ -590,7 +590,8 @@ const Manage_plant_fertilizer = (props) => {
                     <div className="col-sm-8">
                       <Zoom>
                         <img
-                          src={dataEdit ? dataEdit : imageE}
+                          src={dataEdit.path_img ? dataEdit.path_img : imageE}
+                          // src={imageE}
                           width="100"
                           height="100"
                         />
