@@ -163,46 +163,46 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const PostFertilizerEdit = async () => {
-    console.log("ftilizerID : " + ftilizerID);
-    console.log("id_name_chemical : " + nameChemicalE);
-    console.log("quantity : " + quantityE);
-    console.log("unit : " + unitE);
-    console.log("date_start : " + startdateE);
-    console.log("date_end : " + enddateE);
-    // try {
-    //   await axios
-    //     .post(
-    //       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${ftilizerID}`,
-    //       {
-    //         id_name_chemical: nameChemicalE,
-    //         quantity: quantityE,
-    //         unit: unitE,
-    //         date_start: startdateE,
-    //         date_end: enddateE,
-    //       }
-    //     )
-    //     .then(function (response) {
-    //       Swal.fire({
-    //         icon: "success",
-    //         title: "Success",
-    //         text: "Save OK !",
-    //       });
-    //     })
-    //     .catch(function (error) {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: error.response.data.msg,
-    //         text: "Save Error!",
-    //       });
-    //     });
-    // } catch (error) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: error.response.data.msg,
-    //     text: "Save Error!",
-    //   });
-    // }
-  };;
+    // console.log("ftilizerID : " + ftilizerID);
+    // console.log("id_name_chemical : " + nameChemicalE);
+    // console.log("quantity : " + quantityE);
+    // console.log("unit : " + unitE);
+    // console.log("date_start : " + startdateE);
+    // console.log("date_end : " + enddateE);
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/update/FertilizerData/${ftilizerID}`,
+          {
+            id_name_chemical: nameChemicalE,
+            quantity: quantityE,
+            unit: unitE,
+            date_start: startdateE,
+            date_end: enddateE,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
+  };
 
   const deleteFertilizer = async (id) => {
     Swal.fire({
