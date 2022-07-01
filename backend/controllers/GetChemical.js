@@ -98,6 +98,7 @@ export const getFertilizerData = async (req, res) => {
         "name_chemical.name_chemical," +
         "name_chemical.name_chemical_eng," +
         "plant_data_detail_fertilizer.quantity," +
+        "fertilizer_unit.id as unit_id," +
         "fertilizer_unit.unit," +
         "plant_data_detail_fertilizer.date_start," +
         "plant_data_detail_fertilizer.date_end," +
