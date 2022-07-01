@@ -11,7 +11,7 @@ const Fertilizer_detail = (props) => {
         </div>
       </section>
       <section className="content">
-        <div className="container-fluid"></div>
+        <div className="container-fluid">ทดสอบเเสดงผล</div>
       </section>
     </div>
   );
