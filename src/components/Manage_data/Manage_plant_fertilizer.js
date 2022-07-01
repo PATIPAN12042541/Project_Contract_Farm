@@ -75,7 +75,7 @@ const Manage_plant_fertilizer = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${props.id}`
     );
     setFtilizerData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const getSelect = async (data) => {
