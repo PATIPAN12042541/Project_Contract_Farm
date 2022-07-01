@@ -557,7 +557,6 @@ const Manage_plant_fertilizer = (props) => {
                         defaultValue={nameChemicalE}
                         onChange={(e) => getSelectEdit(e.target.value)}
                       >
-                        <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                         {ftilizer.map((data, index) => {
                           return (
                             <option key={index} value={data.id}>
