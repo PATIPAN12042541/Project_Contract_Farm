@@ -375,6 +375,12 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setNameChemicalE(data.id_name_chemical);
+                          setStartDateE(data.date_start);
+                          setEndDateE(data.date_end);
+                          setQuantityE(data.quantity);
+                          setUnitE(data.unit_id);
+                          setimageE(data.path_img);
                         }}
                       >
                         {data.name_chemical +
@@ -386,6 +392,12 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setNameChemicalE(data.id_name_chemical);
+                          setStartDateE(data.date_start);
+                          setEndDateE(data.date_end);
+                          setQuantityE(data.quantity);
+                          setUnitE(data.unit_id);
+                          setimageE(data.path_img);
                         }}
                       >
                         <center>{data.date_start}</center>
@@ -394,6 +406,12 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setNameChemicalE(data.id_name_chemical);
+                          setStartDateE(data.date_start);
+                          setEndDateE(data.date_end);
+                          setQuantityE(data.quantity);
+                          setUnitE(data.unit_id);
+                          setimageE(data.path_img);
                         }}
                       >
                         <center>{data.date_end}</center>
@@ -402,6 +420,12 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setNameChemicalE(data.id_name_chemical);
+                          setStartDateE(data.date_start);
+                          setEndDateE(data.date_end);
+                          setQuantityE(data.quantity);
+                          setUnitE(data.unit_id);
+                          setimageE(data.path_img);
                         }}
                       >
                         <center>{data.quantity + " " + data.unit}</center>
@@ -460,7 +484,10 @@ const Manage_plant_fertilizer = (props) => {
                   ชื่อปุ๋ย :
                 </Form.Label>
                 <div className="col-sm-8">
-                  <select className="custom-select form-control-border">
+                  <select
+                    className="custom-select form-control-border"
+                    value={nameChemicalE}
+                  >
                     <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                     {ftilizer.map((data, index) => {
                       return (
