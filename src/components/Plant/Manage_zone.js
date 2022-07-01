@@ -199,6 +199,12 @@ const Manage_zone = () => {
                           <center>preview</center>
                         </th>
                         <th>
+                          <center>Latitude</center>
+                        </th>
+                        <th>
+                          <center>Longitude</center>
+                        </th>
+                        <th>
                           <center>เเก้ไข/ลบข้อมูล</center>
                         </th>
                         <th>
@@ -224,7 +230,8 @@ const Manage_zone = () => {
                               </Zoom>
                             </center>
                           </td>
-
+                          <td>{data.lat}</td>
+                          <td>{data.lon}</td>
                           <td className="col-md-2">
                             <center>
                               <button

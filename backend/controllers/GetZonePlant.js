@@ -116,13 +116,15 @@ export const getPlantDetail = async (req, res) => {
 
 
 export const postZone = async (req, res) => {
-  const { zone_name, image_zone, auto_id_zone } = req.body;
+  const { zone_name, image_zone, auto_id_zone, lat, lon } = req.body;
 
   try {
     await ZonePlant.create({
       zone_name: zone_name,
       image_zone: "../dist/img/" + image_zone,
       auto_id_zone: auto_id_zone,
+      lat: lat,
+      lon: lon,
     });
   } catch (error) {
     res.json({ message: error.message });

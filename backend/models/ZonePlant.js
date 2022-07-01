@@ -13,6 +13,12 @@ const ZonePlant = db.define(
     auto_id_zone: {
       type: DataTypes.STRING,
     },
+    lat: {
+      type: DataTypes.DOUBLE,
+    },
+    lon: {
+      type: DataTypes.DOUBLE,
+    },
   },
   {
     freezeTableName: true,
