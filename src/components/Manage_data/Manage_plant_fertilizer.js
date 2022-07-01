@@ -171,7 +171,7 @@ const Manage_plant_fertilizer = (props) => {
     // console.log("date_end : " + enddateE);
     try {
       await axios
-        .post(
+        .patch(
           `${process.env.REACT_APP_API_URL}/getChemical/update/FertilizerData/${ftilizerID}`,
           {
             id_name_chemical: nameChemicalE,
@@ -187,6 +187,7 @@ const Manage_plant_fertilizer = (props) => {
             title: "Success",
             text: "Save OK !",
           });
+          getFtilizerData();
         })
         .catch(function (error) {
           Swal.fire({
