@@ -98,11 +98,22 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const getSelectEdit = async (data) => {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
-    );
-    setFtilizerQueryEdit(res.data);
-    console.log(ftilizer_queryEdit);
+    if (data !== "------กรุณาเลือกชนิดปุ๋ย------") {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
+      );
+      setFtilizerQueryEdit(res.data);
+    } else {
+      setFtilizerQueryEdit([
+        {
+          id: "",
+          name_chemical: "",
+          name_chemical_eng: "",
+          eu_mrl: "",
+          path_img: "",
+        },
+      ]);
+    }
   };
 
   const PostFertilizer = async () => {
@@ -150,7 +161,7 @@ const Manage_plant_fertilizer = (props) => {
     }
   };
 
-  const PostFertilizerEdit = async () => {
+  const UpdateFertilizerEdit = async () => {
     // console.log("ftilizerID : " + ftilizerID);
     // console.log("id_name_chemical : " + nameChemicalE);
     // console.log("quantity : " + quantityE);
@@ -162,7 +173,7 @@ const Manage_plant_fertilizer = (props) => {
         .patch(
           `${process.env.REACT_APP_API_URL}/getChemical/update/FertilizerData/${ftilizerID}`,
           {
-            id_name_chemical: nameChemicalE,
+            id_name_chemical: ftilizer_query[0].id,
             quantity: quantityE,
             unit: unitE,
             date_start: startdateE,
@@ -176,6 +187,7 @@ const Manage_plant_fertilizer = (props) => {
             text: "Save OK !",
           });
           getFtilizerData();
+          onClick = { handleClose };
         })
         .catch(function (error) {
           Swal.fire({
@@ -555,6 +567,7 @@ const Manage_plant_fertilizer = (props) => {
                         defaultValue={nameChemicalE}
                         onChange={(e) => getSelectEdit(e.target.value)}
                       >
+                        <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                         {ftilizer.map((data, index) => {
                           return (
                             <option key={index} value={data.id}>
@@ -613,6 +626,7 @@ const Manage_plant_fertilizer = (props) => {
                         defaultValue={unitE}
                         onChange={(e) => setUnitE(e.target.value)}
                       >
+                        <option>--เลือกหน่วย--</option>
                         {ftilizerUnit.map((data_unit, index) => {
                           return (
                             <option key={index} value={data_unit.id}>
@@ -652,7 +666,7 @@ const Manage_plant_fertilizer = (props) => {
           <button
             type="button"
             className="btn btn-success"
-            onClick={PostFertilizerEdit}
+            onClick={UpdateFertilizerEdit}
           >
             บันทึก
           </button>
