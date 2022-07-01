@@ -656,7 +656,7 @@ const Manage_plant_fertilizer = (props) => {
           <button
             type="button"
             className="btn btn-success"
-            onClick={PostFertilizerEdit}
+            // onClick={PostFertilizerEdit}
           >
             บันทึก
           </button>
