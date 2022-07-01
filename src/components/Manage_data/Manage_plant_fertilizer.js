@@ -504,7 +504,11 @@ const Manage_plant_fertilizer = (props) => {
                   วันที่เริ่มต้น :
                 </Form.Label>
                 <div className="col-sm-8">
-                  <input type="date" className="form-control" />
+                  <input
+                    type="date"
+                    className="form-control"
+                    defaultValue={startdateE}
+                  />
                 </div>
               </div>
               <div className="form-group row">
@@ -512,7 +516,11 @@ const Manage_plant_fertilizer = (props) => {
                   วันที่สิ้นสุด :
                 </Form.Label>
                 <div className="col-sm-8">
-                  <input type="date" className="form-control" />
+                  <input
+                    type="date"
+                    className="form-control"
+                    defaultValue={enddateE}
+                  />
                 </div>
               </div>
               <div className="form-group row">
@@ -522,13 +530,17 @@ const Manage_plant_fertilizer = (props) => {
                     type="number"
                     className="form-control form-control-border"
                     placeholder="ปริมาณที่ใช้"
+                    defaultValue={unitE}
                   />
                 </div>
               </div>
               <div className="form-group row">
                 <label className="col-sm-4 col-form-label">หน่วย</label>
                 <div className="col-sm-8">
-                  <select className="custom-select form-control-border">
+                  <select
+                    className="custom-select form-control-border"
+                    value={unitE}
+                  >
                     <option>--เลือกหน่วย--</option>
                     {ftilizerUnit.map((data_unit, index) => {
                       return (
@@ -550,7 +562,7 @@ const Manage_plant_fertilizer = (props) => {
                       //     ? dataSelect.path_img
                       //     : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                       // }
-                      src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                      src={imageE}
                       width="100"
                       height="100"
                     />
