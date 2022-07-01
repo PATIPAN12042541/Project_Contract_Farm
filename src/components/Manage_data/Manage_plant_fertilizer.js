@@ -98,23 +98,11 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const getSelectEdit = async (data) => {
-    if (data !== "------กรุณาเลือกชนิดปุ๋ย------") {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
-      );
-      setFtilizerQueryEdit(res.data);
-      console.log(ftilizer_queryEdit[0].id);
-    } else {
-      setFtilizerQueryEdit([
-        {
-          id: "",
-          name_chemical: "",
-          name_chemical_eng: "",
-          eu_mrl: "",
-          path_img: "",
-        },
-      ]);
-    }
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
+    );
+    setFtilizerQueryEdit(res.data);
+    console.log(ftilizer_queryEdit);
   };
 
   const PostFertilizer = async () => {
