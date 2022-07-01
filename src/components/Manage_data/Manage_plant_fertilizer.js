@@ -173,7 +173,7 @@ const Manage_plant_fertilizer = (props) => {
         .patch(
           `${process.env.REACT_APP_API_URL}/getChemical/update/FertilizerData/${ftilizerID}`,
           {
-            id_name_chemical: ftilizer_query[0].id,
+            id_name_chemical: nameChemicalE,
             quantity: quantityE,
             unit: unitE,
             date_start: startdateE,
@@ -565,7 +565,10 @@ const Manage_plant_fertilizer = (props) => {
                       <select
                         className="custom-select form-control-border"
                         defaultValue={nameChemicalE}
-                        onChange={(e) => getSelectEdit(e.target.value)}
+                        onChange={(e) => {
+                          getSelectEdit(e.target.value);
+                          setNameChemicalE(e.target.value);
+                        }}
                       >
                         <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                         {ftilizer.map((data, index) => {
