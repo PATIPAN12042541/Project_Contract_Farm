@@ -163,6 +163,7 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const PostFertilizerEdit = async () => {
+    console.log("ftilizerID : " + ftilizerID);
     console.log("id_name_chemical : " + nameChemicalE);
     console.log("quantity : " + quantityE);
     console.log("unit : " + unitE);
