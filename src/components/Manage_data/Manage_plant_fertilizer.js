@@ -555,7 +555,7 @@ const Manage_plant_fertilizer = (props) => {
                       <select
                         className="custom-select form-control-border"
                         defaultValue={nameChemicalE}
-                        onChange={(e) => setNameChemicalE(e.target.value)}
+                        onChange={(e) => getSelectEdit(e.target.value)}
                       >
                         <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                         {ftilizer.map((data, index) => {
