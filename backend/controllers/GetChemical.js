@@ -94,6 +94,7 @@ export const getFertilizerData = async (req, res) => {
     const data = await db.query(
       "SELECT plant_data_detail_fertilizer.id," +
         "plant_data_detail_fertilizer.id_plant," +
+        "plant_data_detail_fertilizer.id_name_chemical," +
         "name_chemical.name_chemical," +
         "name_chemical.name_chemical_eng," +
         "plant_data_detail_fertilizer.quantity," +
