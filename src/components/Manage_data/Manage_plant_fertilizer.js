@@ -21,6 +21,15 @@ const Manage_plant_fertilizer = (props) => {
     },
   ]);
 
+  const [ftilizer_queryEdit, setFtilizerQueryEdit] = useState([
+    {
+      id: "",
+      name_chemical: "",
+      name_chemical_eng: "",
+      eu_mrl: "",
+      path_img: "",
+    },
+  ]);
   /************* Post Data **************/
   const [quantity, setQuantity] = useState([]);
   const [unit, setUnit] = useState([]);
@@ -77,6 +86,25 @@ const Manage_plant_fertilizer = (props) => {
       setFtilizerQuery(res.data);
     } else {
       setFtilizerQuery([
+        {
+          id: "",
+          name_chemical: "",
+          name_chemical_eng: "",
+          eu_mrl: "",
+          path_img: "",
+        },
+      ]);
+    }
+  };
+
+  const getSelectEdit = async (data) => {
+    if (data !== "------กรุณาเลือกชนิดปุ๋ย------") {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
+      );
+      setFtilizerQueryEdit(res.data);
+    } else {
+      setFtilizerQueryEdit([
         {
           id: "",
           name_chemical: "",
@@ -478,98 +506,100 @@ const Manage_plant_fertilizer = (props) => {
         </Modal.Header>
         <Modal.Body>
           <Form className="form-horizontal">
-            <div className="card-body">
-              <div className="form-group row">
-                <Form.Label className="col-sm-4 col-form-label">
-                  ชื่อปุ๋ย :
-                </Form.Label>
-                <div className="col-sm-8">
-                  <select
-                    className="custom-select form-control-border"
-                    defaultValue={nameChemicalE}
-                  >
-                    <option>------กรุณาเลือกชนิดปุ๋ย------</option>
-                    {ftilizer.map((data, index) => {
-                      return (
-                        <option key={index} value={data.id}>
-                          {data.name_chemical}
-                        </option>
-                      );
-                    })}
-                  </select>
+            {ftilizer_queryEdit.map((dataEdit, index) => {
+              return (
+                <div className="card-body" key={index}>
+                  <div className="form-group row">
+                    <Form.Label className="col-sm-4 col-form-label">
+                      ชื่อปุ๋ย :
+                    </Form.Label>
+                    <div className="col-sm-8">
+                      <select
+                        className="custom-select form-control-border"
+                        defaultValue={nameChemicalE}
+                        onChange={(e) => getSelectEdit(e.target.value)}
+                      >
+                        <option>------กรุณาเลือกชนิดปุ๋ย------</option>
+                        {ftilizer.map((data, index) => {
+                          return (
+                            <option key={index} value={data.id}>
+                              {data.name_chemical}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <Form.Label className="col-sm-4 col-form-label">
+                      วันที่เริ่มต้น :
+                    </Form.Label>
+                    <div className="col-sm-8">
+                      <input
+                        type="date"
+                        className="form-control"
+                        defaultValue={startdateE}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <Form.Label className="col-sm-4 col-form-label">
+                      วันที่สิ้นสุด :
+                    </Form.Label>
+                    <div className="col-sm-8">
+                      <input
+                        type="date"
+                        className="form-control"
+                        defaultValue={enddateE}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-4 col-form-label">
+                      ปริมาณที่ใช้
+                    </label>
+                    <div className="col-sm-8">
+                      <input
+                        type="number"
+                        className="form-control form-control-border"
+                        placeholder="ปริมาณที่ใช้"
+                        defaultValue={quantityE}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-4 col-form-label">หน่วย</label>
+                    <div className="col-sm-8">
+                      <select
+                        className="custom-select form-control-border"
+                        defaultValue={unitE}
+                      >
+                        <option>--เลือกหน่วย--</option>
+                        {ftilizerUnit.map((data_unit, index) => {
+                          return (
+                            <option key={index} value={data_unit.id}>
+                              {data_unit.unit}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-4 col-form-label">รูปภาพ</label>
+                    <div className="col-sm-8">
+                      <Zoom>
+                        <img
+                          src={dataEdit ? dataEdit : imageE}
+                          width="100"
+                          height="100"
+                        />
+                      </Zoom>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group row">
-                <Form.Label className="col-sm-4 col-form-label">
-                  วันที่เริ่มต้น :
-                </Form.Label>
-                <div className="col-sm-8">
-                  <input
-                    type="date"
-                    className="form-control"
-                    defaultValue={startdateE}
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <Form.Label className="col-sm-4 col-form-label">
-                  วันที่สิ้นสุด :
-                </Form.Label>
-                <div className="col-sm-8">
-                  <input
-                    type="date"
-                    className="form-control"
-                    defaultValue={enddateE}
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label className="col-sm-4 col-form-label">ปริมาณที่ใช้</label>
-                <div className="col-sm-8">
-                  <input
-                    type="number"
-                    className="form-control form-control-border"
-                    placeholder="ปริมาณที่ใช้"
-                    defaultValue={quantityE}
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label className="col-sm-4 col-form-label">หน่วย</label>
-                <div className="col-sm-8">
-                  <select
-                    className="custom-select form-control-border"
-                    defaultValue={unitE}
-                  >
-                    <option>--เลือกหน่วย--</option>
-                    {ftilizerUnit.map((data_unit, index) => {
-                      return (
-                        <option key={index} value={data_unit.id}>
-                          {data_unit.unit}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div className="form-group row">
-                <label className="col-sm-4 col-form-label">รูปภาพ</label>
-                <div className="col-sm-8">
-                  <Zoom>
-                    <img
-                      // src={
-                      //   dataSelect.path_img
-                      //     ? dataSelect.path_img
-                      //     : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                      // }
-                      src={imageE}
-                      width="100"
-                      height="100"
-                    />
-                  </Zoom>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </Form>
         </Modal.Body>
         <Modal.Footer>
