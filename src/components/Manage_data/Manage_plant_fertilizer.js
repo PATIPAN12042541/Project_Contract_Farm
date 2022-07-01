@@ -486,7 +486,7 @@ const Manage_plant_fertilizer = (props) => {
                 <div className="col-sm-8">
                   <select
                     className="custom-select form-control-border"
-                    value={nameChemicalE}
+                    defaultValue={nameChemicalE}
                   >
                     <option>------กรุณาเลือกชนิดปุ๋ย------</option>
                     {ftilizer.map((data, index) => {
@@ -539,7 +539,7 @@ const Manage_plant_fertilizer = (props) => {
                 <div className="col-sm-8">
                   <select
                     className="custom-select form-control-border"
-                    value={unitE}
+                    defaultValue={unitE}
                   >
                     <option>--เลือกหน่วย--</option>
                     {ftilizerUnit.map((data_unit, index) => {
