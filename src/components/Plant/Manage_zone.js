@@ -249,6 +249,8 @@ const Manage_zone = () => {
                                   setIdZone(data.zone_name);
                                   setID(data.id);
                                   setPathImage(data.image_zone);
+                                  setLat(data.lat);
+                                  setLon(data.lon);
                                   handleShow2();
                                 }}
                               >
