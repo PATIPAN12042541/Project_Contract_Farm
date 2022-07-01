@@ -187,7 +187,7 @@ const Manage_plant_fertilizer = (props) => {
             text: "Save OK !",
           });
           getFtilizerData();
-          onClick = { handleClose };
+          handleClose();
         })
         .catch(function (error) {
           Swal.fire({
