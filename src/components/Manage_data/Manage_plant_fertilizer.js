@@ -46,7 +46,7 @@ const Manage_plant_fertilizer = (props) => {
   /*************************************/
 
   /************* Edit Ftilizer **************/
-
+  const [ftilizerID, setftilizerID] = useState([]);
   const [nameChemicalE, setNameChemicalE] = useState([]);
   const [startdateE, setStartDateE] = useState([]);
   const [enddateE, setEndDateE] = useState([]);
@@ -162,42 +162,41 @@ const Manage_plant_fertilizer = (props) => {
     }
   };
 
-  // const PostFertilizerEdit = async () => {
-  //   try {
-  //     await axios
-  //       .post(
-  //         `${process.env.REACT_APP_API_URL}/getChemical/PostFertilizer/${props.id}`,
-  //         {
-  //           id_name_chemical: ftilizer_query[0].id,
-  //           quantity: quantity,
-  //           unit: unit,
-  //           date_start: dateStart,
-  //           date_end: dateEnd,
-  //           note: note,
-  //         }
-  //       )
-  //       .then(function (response) {
-  //         Swal.fire({
-  //           icon: "success",
-  //           title: "Success",
-  //           text: "Save OK !",
-  //         });
-  //       })
-  //       .catch(function (error) {
-  //         Swal.fire({
-  //           icon: "error",
-  //           title: error.response.data.msg,
-  //           text: "Save Error!",
-  //         });
-  //       });
-  //   } catch (error) {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: error.response.data.msg,
-  //       text: "Save Error!",
-  //     });
-  //   }
-  // };
+  const PostFertilizerEdit = async () => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${ftilizerID}`,
+          {
+            id_name_chemical: nameChemicalE,
+            quantity: quantityE,
+            unit: unitE,
+            date_start: startdateE,
+            date_end: enddateE,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
+  };
 
   const deleteFertilizer = async (id) => {
     Swal.fire({
@@ -441,6 +440,7 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setftilizerID(data.id);
                           setNameChemicalE(data.id_name_chemical);
                           setStartDateE(data.date_start);
                           setEndDateE(data.date_end);
@@ -458,6 +458,7 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setftilizerID(data.id);
                           setNameChemicalE(data.id_name_chemical);
                           setStartDateE(data.date_start);
                           setEndDateE(data.date_end);
@@ -472,6 +473,7 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setftilizerID(data.id);
                           setNameChemicalE(data.id_name_chemical);
                           setStartDateE(data.date_start);
                           setEndDateE(data.date_end);
@@ -486,6 +488,7 @@ const Manage_plant_fertilizer = (props) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handleShow();
+                          setftilizerID(data.id);
                           setNameChemicalE(data.id_name_chemical);
                           setStartDateE(data.date_start);
                           setEndDateE(data.date_end);
@@ -631,7 +634,6 @@ const Manage_plant_fertilizer = (props) => {
                       <Zoom>
                         <img
                           src={dataEdit.path_img ? dataEdit.path_img : imageE}
-                          // src={imageE}
                           width="100"
                           height="100"
                         />
@@ -655,7 +657,7 @@ const Manage_plant_fertilizer = (props) => {
           <button
             type="button"
             className="btn btn-success"
-            // onClick={PostFertilizerEdit}
+            onClick={PostFertilizerEdit}
           >
             บันทึก
           </button>

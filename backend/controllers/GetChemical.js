@@ -358,3 +358,18 @@ export const DeleteChemical = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const updateFertilizerData = async (req, res) => {
+  try {
+    await Fertilizer.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "FertilizerData Updated",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
