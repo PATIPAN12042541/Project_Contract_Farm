@@ -530,7 +530,7 @@ const Manage_plant_fertilizer = (props) => {
                     type="number"
                     className="form-control form-control-border"
                     placeholder="ปริมาณที่ใช้"
-                    defaultValue={unitE}
+                    defaultValue={quantityE}
                   />
                 </div>
               </div>
