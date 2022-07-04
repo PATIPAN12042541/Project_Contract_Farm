@@ -103,7 +103,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
-    console.log(response.data);
+    console.log(response.data[0].comment);
   };
 
   const editUploadImg = async () => {
