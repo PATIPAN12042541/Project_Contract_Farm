@@ -449,6 +449,7 @@ const Manage_plant_fertilizer = (props) => {
                           setEndDateE(data.date_end);
                           setQuantityE(data.quantity);
                           setUnitE(data.unit_id);
+                          setNoteE(data.note);
                           setimageE(data.path_img);
                         }}
                       >
@@ -467,6 +468,7 @@ const Manage_plant_fertilizer = (props) => {
                           setEndDateE(data.date_end);
                           setQuantityE(data.quantity);
                           setUnitE(data.unit_id);
+                          setNoteE(data.note);
                           setimageE(data.path_img);
                         }}
                       >
@@ -482,6 +484,7 @@ const Manage_plant_fertilizer = (props) => {
                           setEndDateE(data.date_end);
                           setQuantityE(data.quantity);
                           setUnitE(data.unit_id);
+                          setNoteE(data.note);
                           setimageE(data.path_img);
                         }}
                       >
@@ -497,6 +500,7 @@ const Manage_plant_fertilizer = (props) => {
                           setEndDateE(data.date_end);
                           setQuantityE(data.quantity);
                           setUnitE(data.unit_id);
+                          setNoteE(data.note);
                           setimageE(data.path_img);
                         }}
                       >
@@ -535,9 +539,11 @@ const Manage_plant_fertilizer = (props) => {
             </div>
           </div>
         </div>
-      </section>
+      </section>;
 
-      {/* Edit fertilizer*/}
+      {
+        /* Edit fertilizer*/
+      }
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -643,7 +649,7 @@ const Manage_plant_fertilizer = (props) => {
                         type="text"
                         className="form-control form-control-border"
                         placeholder="Note"
-                        defaultValue={dataEdit.note}
+                        defaultValue={noteE}
                         onChange={(e) => setNoteE(e.target.value)}
                       />
                     </div>
@@ -682,7 +688,7 @@ const Manage_plant_fertilizer = (props) => {
             บันทึก
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>;
     </div>
   );
 };
