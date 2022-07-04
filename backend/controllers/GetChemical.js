@@ -373,3 +373,36 @@ export const updateFertilizerData = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const FertilizerDataDetail = async (req, res) => {
+  try {
+    const Select = await db.query(
+      "SELECT plant_data_detail_fertilizer.id as id," +
+        "plant_data_detail_fertilizer.id_plant as id_plant," +
+        "name_chemical.id as id_chemical," +
+        "name_chemical.name_chemical as name_thai," +
+        "name_chemical.name_chemical_eng as name_eng," +
+        "name_chemical.eu_mrl as eu_mrl," +
+        "name_chemical.path_img as path_img," +
+        "plant_data_detail_fertilizer.quantity as quantity," +
+        "fertilizer_unit.id as  id_unit," +
+        "fertilizer_unit.unit as unit," +
+        "plant_data_detail_fertilizer.note as note," +
+        "plant_data_detail_fertilizer.date_start as date_start," +
+        "plant_data_detail_fertilizer.date_end as date_end " +
+        "FROM plant_data_detail_fertilizer " +
+        "LEFT JOIN fertilizer_unit ON plant_data_detail_fertilizer.unit = fertilizer_unit.id " +
+        "LEFT JOIN name_chemical ON plant_data_detail_fertilizer.id_name_chemical = name_chemical.id " +
+        "where plant_data_detail_fertilizer.id_plant = :id_plant " +
+        "AND name_chemical.status = 1 " +
+        "AND name_chemical.type_chemical_id = 5 ",
+      {
+        replacements: { id_plant: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(Select);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
