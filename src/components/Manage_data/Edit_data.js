@@ -121,7 +121,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const getStatusPlant = async () => {
@@ -785,7 +785,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
-                                    getCommnent(data.id)
+                                    getCommnent(data.plant_id);
                                     Show_Comment();
                                   }}
                                 >
@@ -839,7 +839,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
-                                    getCommnent(data.id);
+                                    getCommnent(data.plant_id);
                                     Show_Comment();
                                   }}
                                 >
@@ -871,7 +871,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
-                                    getCommnent(data.id)
+                                    getCommnent(data.plant_id);
                                     Show_Comment();
                                   }}
                                 >
@@ -932,7 +932,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
-                                    getCommnent(data.id);
+                                    getCommnent(data.plant_id);
                                     Show_Comment();
                                   }}
                                 >
