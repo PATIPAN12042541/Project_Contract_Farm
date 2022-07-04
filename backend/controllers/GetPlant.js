@@ -424,7 +424,7 @@ export const getCommentData = async (req, res) => {
   }
 };
 
-/***************************************************************/
+/********************** Comment Data Update ****************************/
 
 export const getCommentDataUpdate = async (req, res) => {
   try {
@@ -441,3 +441,5 @@ export const getCommentDataUpdate = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+/***************************************************************/
