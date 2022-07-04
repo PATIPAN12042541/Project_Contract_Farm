@@ -39,17 +39,22 @@ const System_overview = () => {
 
   const headers = [
     { label: "โซนเพาะปลูก", key: "zone_id" },
-    { label: "ชื่อเเปลง", key: "name_plant" },
-    { label: "วันที่เริ่มต้น", key: "start_date_plant" },
-    { label: "วันที่สิ้นสุด", key: "end_date_plant" },
-    { label: "ผู้รับผิดชอบ", key: "name" },
+    { label: "ชื่อเเปลง", key: "plant_name" },
+    { label: "วันที่เริ่มต้น", key: "start_plant" },
+    { label: "วันที่สิ้นสุด", key: "end_plant" },
+    { label: "ผู้รับผิดชอบ", key: "username" },
     { label: "ชื่อสารเคมี/ปุ๋ย", key: "name_chemical" },
-    { label: "ระยะเวลา", key: "days" },
-    { label: "cc/L", key: "quantity" },
-    { label: "Note", key: "note" },
-    { label: "วันที่เริ่มต้นสารเคมี", key: "date_start" },
-    { label: "วันที่สิ้นสุดสารเคมี", key: "date_end" },
-    { label: "สถานะ", key: "status_check" },
+    { label: "ชื่อสารเคมี/ปุ๋ย ภาษาอังกฤษ", key: "name_chemical_eng" },
+    { label: "EU_MRL", key: "eu_mrl" },
+    { label: "ระยะเวลา : วัน", key: "time" },
+    { label: "ระยะเวลา : หน่วย", key: "unit" },
+    { label: "cc", key: "chemical_cc" },
+    { label: "Liter", key: "chemical_liter" },
+    { label: "Note", key: "chemical_note" },
+    { label: "วันที่เริ่มต้นสารเคมี", key: "chemical_date_start" },
+    { label: "วันที่สิ้นสุดสารเคมี", key: "chemical_date_end" },
+    { label: "สถานะ", key: "status_name" },
+    { label: "วงรอบ", key: "plant_circle" },
   ];
 
   //////////////////// End Search /////////////////////////////////
@@ -65,29 +70,29 @@ const System_overview = () => {
     },
     {
       name: "ชื่อเเปลง",
-      id: "name_plant",
-      selector: (row) => row.name_plant,
+      id: "plant_name",
+      selector: (row) => row.plant_name,
       sortable: true,
       grow: 4,
     },
     {
       name: "วันที่เริ่มต้น",
-      id: "start_date_plant",
-      selector: (row) => row.start_date_plant,
+      id: "start_plant",
+      selector: (row) => row.start_plant,
       sortable: true,
       grow: 3,
     },
     {
       name: "วันที่สิ้นสุด",
-      id: "end_date_plant",
-      selector: (row) => row.end_date_plant,
+      id: "end_plant",
+      selector: (row) => row.end_plant,
       sortable: true,
       grow: 3,
     },
     {
       name: "ผู้รับผิดชอบ",
-      id: "name",
-      selector: (row) => row.name,
+      id: "username",
+      selector: (row) => row.username,
       sortable: true,
       grow: 3,
     },
@@ -99,60 +104,94 @@ const System_overview = () => {
       grow: 5,
     },
     {
-      name: "ระยะเวลา",
-      id: "days",
-      selector: (row) => row.days,
+      name: "ชื่อสารเคมี/ปุ๋ย ภาษาอังกฤษ",
+      id: "name_chemical_eng",
+      selector: (row) => row.name_chemical_eng,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "EU_MRL",
+      id: "eu_mrl",
+      selector: (row) => row.eu_mrl,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "ระยะเวลา : วัน",
+      id: "time",
+      selector: (row) => row.time,
       sortable: true,
       grow: 2,
     },
     {
-      name: "CC:L",
-      id: "quantity",
-      selector: (row) => row.quantity,
+      name: "ระยะเวลา : หน่วย",
+      id: "unit",
+      selector: (row) => row.unit,
+      sortable: true,
+      grow: 2,
+    },
+    {
+      name: "CC",
+      id: "chemical_cc",
+      selector: (row) => row.chemical_cc,
+      sortable: true,
+    },
+    {
+      name: "Liter",
+      id: "chemical_liter",
+      selector: (row) => row.chemical_liter,
       sortable: true,
     },
     {
       name: "Note",
-      id: "note",
-      selector: (row) => row.note,
+      id: "chemical_note",
+      selector: (row) => row.chemical_note,
       sortable: true,
       grow: 5,
     },
     {
       name: "วันที่เริ่มต้นสารเคมี",
-      id: "date_start",
-      selector: (row) => row.date_start,
+      id: "chemical_date_start",
+      selector: (row) => row.chemical_date_start,
       sortable: true,
       grow: 5,
     },
     {
       name: "วันที่สิ้นสุดสารเคมี",
-      id: "date_end",
-      selector: (row) => row.date_end,
+      id: "chemical_date_end",
+      selector: (row) => row.chemical_date_end,
       sortable: true,
       grow: 5,
     },
     {
       name: "สถานะ",
-      id: "status_check",
-      selector: (row) => row.status_check,
+      id: "status_name",
+      selector: (row) => row.status_name,
       sortable: true,
       grow: 5,
-      cell: (row) => (
-        <div
-          data-tag="allowRowEvents"
-          variant="outlined"
-          className={
-            row.status_check === "Success"
-              ? "Success"
-              : row.status_check === "Not Found"
-              ? "NotFound"
-              : "NotSuccess"
-          }
-        >
-          {row.status_check}
-        </div>
-      ),
+      // cell: (row) => (
+      //   <div
+      //     data-tag="allowRowEvents"
+      //     variant="outlined"
+      //     className={
+      //       row.status_check === "Success"
+      //         ? "Success"
+      //         : row.status_check === "Not Found"
+      //         ? "NotFound"
+      //         : "NotSuccess"
+      //     }
+      //   >
+      //     {row.status_check}
+      //   </div>
+      // ),
+    },
+    {
+      name: "วงรอบ",
+      id: "plant_circle",
+      selector: (row) => row.plant_circle,
+      sortable: true,
+      grow: 5,
     },
   ];
 
