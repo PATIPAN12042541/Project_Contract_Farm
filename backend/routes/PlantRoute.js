@@ -41,6 +41,6 @@ router.post("/plant/postMasterPlant", postPlantMaster);
 router.delete("/plant/deleteMasterPlant/:id", DeletePlantMaster);
 router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
 router.delete("/plant/DeleteData/:id", DeletePlantData);
-router.get("/Comment/:id", getCommentDatas);
+router.get("/Comment/:id", getCommentData);
 
 export default router;
