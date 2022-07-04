@@ -784,6 +784,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
+                                    getCommnent(data.id)
                                     Show_Comment();
                                   }}
                                 >
@@ -837,6 +838,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
+                                    getCommnent(data.id);
                                     Show_Comment();
                                   }}
                                 >
@@ -868,6 +870,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
+                                    getCommnent(data.id)
                                     Show_Comment();
                                   }}
                                 >
@@ -928,6 +931,7 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-primary"
                                   onClick={() => {
+                                    getCommnent(data.id);
                                     Show_Comment();
                                   }}
                                 >
