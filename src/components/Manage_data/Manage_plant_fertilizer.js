@@ -76,7 +76,7 @@ const Manage_plant_fertilizer = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/${props.id}`
     );
     setFtilizerData(response.data);
-    //console.log(response.data);
+    console.log(response.data);
   };
 
   const getSelect = async (data) => {
@@ -104,7 +104,6 @@ const Manage_plant_fertilizer = (props) => {
         `${process.env.REACT_APP_API_URL}/getChemical/Fertilizer2/${data}`
       );
       setFtilizerQueryEdit(res.data);
-      console.log(res.data);
     } else {
       setFtilizerQueryEdit([
         {
@@ -164,12 +163,6 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const UpdateFertilizerEdit = async () => {
-    // console.log("ftilizerID : " + ftilizerID);
-    // console.log("id_name_chemical : " + nameChemicalE);
-    // console.log("quantity : " + quantityE);
-    // console.log("unit : " + unitE);
-    // console.log("date_start : " + startdateE);
-    // console.log("date_end : " + enddateE);
     try {
       await axios
         .patch(
