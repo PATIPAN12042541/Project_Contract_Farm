@@ -1083,7 +1083,7 @@ const Edit_data = (props) => {
 
       {/* Comment */}
       <Modal show={showComment} onHide={Close_Comment}>
-        <Modal.Header>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
