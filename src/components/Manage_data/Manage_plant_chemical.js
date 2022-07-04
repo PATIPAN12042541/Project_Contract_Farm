@@ -426,23 +426,49 @@ const Manage_plant_chemical = (props) => {
                 {datadetail.map((data, index) => (
                   <tbody key={index}>
                     <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>{index + 1}</td>
-                      <td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
+                        {index + 1}
+                      </td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         {data.name_chemical +
                           " ( " +
                           data.name_chemical_eng +
                           " )"}
                       </td>
-                      <td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.time + " " + data.unit}</center>
                       </td>
-                      <td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.cc + " CC " + data.liter + " L"}</center>
                       </td>
-                      <td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.date_start}</center>
                       </td>
-                      <td>
+                      <td
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
                         <center>{data.date_end}</center>
                       </td>
                       <td>
