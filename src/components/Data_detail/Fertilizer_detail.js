@@ -21,9 +21,21 @@ const Fertilizer_detail = (props) => {
     <div className="content-wrapper">
       <section className="content-header">
         <div className="container-fluid">
-          <div className="row mb-2">
-            <div className="col-sm-12" />
-          </div>
+          {FertilizerData.map((data, index) => (
+            <div className="row mb-2" key={index}>
+              <div className="col-sm-12" />
+              <div className="card card-info">
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152" }}
+                >
+                  <h1 className="card-title">
+                    รายละเอียดปุ๋ย {data.name_thai}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       <section className="content">
