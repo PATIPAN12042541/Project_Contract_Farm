@@ -74,7 +74,7 @@ const Fertilizer_detail = (props) => {
                                 <div className="info-box-content">
                                   <span className="info-box-text text-left text-black">
                                     <b className="font-size2">
-                                      วัน/เดือน/ปี :{" "}
+                                      วันที่เริ่มต้น :{" "}
                                     </b>
                                     <span className="font-size-data">
                                       {data.date_start}
@@ -127,6 +127,14 @@ const Fertilizer_detail = (props) => {
                             </div> */}
                           </div>
                           <div className="row">
+                            <div className="col-12 col-sm-12">
+                              <h4>Note.</h4>
+                              <div className="post">
+                                <p>{data.note}</p>
+                              </div>
+                            </div>
+                          </div>
+                          {/* <div className="row">
                             <div className="col-12 col-sm-6">
                               <div className="info-box bg-light">
                                 <div className="info-box-content">
@@ -141,37 +149,6 @@ const Fertilizer_detail = (props) => {
                               type="date"
                             >
                               {data.date_end}
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-12 col-sm-12">
-                              <h4>Note.</h4>
-                              <div className="post">
-                                <p>{data.note}</p>
-                              </div>
-                            </div>
-                          </div>
-                          {/* <div className="row">
-                            <div className="col-12 col-sm-12">
-                              {data.status_check == "1" ? (
-                                <button
-                                  className="btn btn-success float-right"
-                                  //   onClick={() => {
-                                  //     changeStatus(data.id, "0");
-                                  //   }}
-                                >
-                                  เสร็จสิ้น
-                                </button>
-                              ) : (
-                                <button
-                                  className="btn btn-default float-right"
-                                  //   onClick={() => {
-                                  //     changeStatus(data.id, "1");
-                                  //   }}
-                                >
-                                  ยกเลิก
-                                </button>
-                              )}
                             </div>
                           </div> */}
                         </div>
