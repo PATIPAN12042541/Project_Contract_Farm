@@ -1095,13 +1095,19 @@ const Edit_data = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <form.Label>ระบุความคิดเห็น : </form.Label>
-              <form.Control as="textarea" rows={3} defaultValue={CommentData} />
-            </form.Group>
+            {CommentData.map((data, index) => (
+              <form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <form.Label>ระบุความคิดเห็น : </form.Label>
+                <form.Control
+                  as="textarea"
+                  rows={3}
+                  defaultValue={data.comment}
+                />
+              </form.Group>
+            ))}
           </form>
         </Modal.Body>
         <Modal.Footer>
