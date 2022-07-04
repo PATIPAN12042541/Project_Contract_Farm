@@ -122,7 +122,7 @@ const Plant = (props) => {
                             <div className="card mb-12 bg-gradient-white">
                               <div className="container">
                                 <div className="position-relative">
-                                  {data.status_check == "0" ? (
+                                  {data.status_chemical == "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-success text-lg">
                                         เสร็จสิ้น
@@ -130,7 +130,7 @@ const Plant = (props) => {
                                     </div>
                                   ) : moment(new Date()).format("YYYY-MM-DD") >
                                       data.end_date_plant &&
-                                    data.status_check !== "0" ? (
+                                    data.status_chemical !== "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-danger text-lg">
                                         หมดเวลา
@@ -185,7 +185,7 @@ const Plant = (props) => {
                             <div className="card mb-12 bg-gradient-white">
                               <div className="container">
                                 <div className="position-relative">
-                                  {data.status_check == "0" ? (
+                                  {data.status_Fertilizer == "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-success text-lg">
                                         เสร็จสิ้น
@@ -193,7 +193,7 @@ const Plant = (props) => {
                                     </div>
                                   ) : moment(new Date()).format("YYYY-MM-DD") >
                                       data.end_date_plant &&
-                                    data.status_check !== "0" ? (
+                                    data.status_Fertilizer !== "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-danger text-lg">
                                         หมดเวลา
