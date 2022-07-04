@@ -38,31 +38,31 @@
 }
 
 
-[data-column-id="zone_id"].rdt_TableCol {
+[data-column-id="zone_name"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="name_plant"].rdt_TableCol {
+[data-column-id="plant_name"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="start_date_plant"].rdt_TableCol {
+[data-column-id="start_plant"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="end_date_plant"].rdt_TableCol {
+[data-column-id="end_plant"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="name"].rdt_TableCol {
+[data-column-id="username"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
@@ -74,41 +74,72 @@
     font-size: 14px;
 }
 
-[data-column-id="days"].rdt_TableCol {
+[data-column-id="name_chemical_eng"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="quantity"].rdt_TableCol {
+[data-column-id="eu_mrl"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="note"].rdt_TableCol {
+[data-column-id="time"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="date_start"].rdt_TableCol {
+[data-column-id="unit"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="date_end"].rdt_TableCol {
+[data-column-id="chemical_cc"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-[data-column-id="status_check"].rdt_TableCol {
+[data-column-id="chemical_liter"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
+
+[data-column-id="chemical_note"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="chemical_date_start"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="chemical_date_end"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="status_name"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="plant_circle"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
 
 
 .input-css {
