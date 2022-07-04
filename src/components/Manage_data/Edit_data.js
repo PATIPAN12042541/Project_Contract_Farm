@@ -109,40 +109,37 @@ const Edit_data = (props) => {
 
   const UpdateCommnent = async () => {
     console.log(CommentUpdate + " " + CommentId);
-    // try {
-    //   await axios
-    //     .patch(
-    //       `${process.env.REACT_APP_API_URL}/getplant/UpdateManagePlant/${id}`,
-    //       {
-    //         id_plant: props.id,
-    //         name_chemical: namechemical,
-    //         quantity_chemical: quantitychemical,
-    //         unit: unit,
-    //         note: note,
-    //       }
-    //     )
-    //     .then(function (response) {
-    //       getManageDetail();
-    //       Swal.fire({
-    //         icon: "success",
-    //         title: "Success",
-    //         text: "Save OK !",
-    //       });
-    //     })
-    //     .catch(function (error) {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: error.response.data.msg,
-    //         text: "Save Error!",
-    //       });
-    //     });
-    // } catch (error) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: error.response.data.msg,
-    //     text: "Save Error!",
-    //   });
-    // }
+    try {
+      await axios
+        .patch(
+          `${process.env.REACT_APP_API_URL}/getplant/Comment/update/${CommentId}`,
+          {
+            comment: CommentUpdate,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          Close_Comment();
+          getCommnent();
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const editUploadImg = async () => {
