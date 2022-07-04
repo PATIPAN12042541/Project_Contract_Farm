@@ -52,6 +52,7 @@ const Manage_plant_fertilizer = (props) => {
   const [enddateE, setEndDateE] = useState([]);
   const [quantityE, setQuantityE] = useState([]);
   const [unitE, setUnitE] = useState([]);
+  const [noteE, setNoteE] = useState([]);
   const [imageE, setimageE] = useState([]);
 
   /*************************************/
@@ -178,6 +179,7 @@ const Manage_plant_fertilizer = (props) => {
             unit: unitE,
             date_start: startdateE,
             date_end: enddateE,
+            note: noteE,
           }
         )
         .then(function (response) {
@@ -638,6 +640,18 @@ const Manage_plant_fertilizer = (props) => {
                           );
                         })}
                       </select>
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-4 col-form-label">Note</label>
+                    <div className="col-sm-8">
+                      <input
+                        type="number"
+                        className="form-control form-control-border"
+                        placeholder="ปริมาณที่ใช้"
+                        defaultValue={dataEdit.note}
+                        onChange={(e) => setNoteE(e.target.value)}
+                      />
                     </div>
                   </div>
                   <div className="form-group row">
