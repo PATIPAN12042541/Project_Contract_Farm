@@ -404,3 +404,26 @@ export const DeletePlantData = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+
+/********************** Comment Data ****************************/
+
+
+export const getCommentData = async (req, res) => {
+  try {
+    const comment = await db.query(
+       "SELECT * FROM plant WHERE id = :id ",
+      {
+        replacements: { id : req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(comment);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+/***************************************************************/
+
+

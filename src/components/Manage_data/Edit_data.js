@@ -48,6 +48,10 @@ const Edit_data = (props) => {
   // const [editPathImg, setEditPathImg] = useState([]);
   /*********************************************/
 
+  /************** Comment Data ********************/
+  const [CommentData, setCommentData] = useState([]);
+  /*********************************************/
+
   const [plantdata, setPlantData] = useState([]);
   const [plantUser, setPlantUser] = useState([]);
   const [idplant, setIdPlant] = useState();
@@ -93,15 +97,13 @@ const Edit_data = (props) => {
     },
   ]);
 
-  // const uploadImg = async () => {
-  //   let formData = new FormData();
-  //   formData.append("file", image.data);
-
-  //   await axios
-  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-  //     .then((res) => console.log(res.data))
-  //     .catch((err) => console.error(err));
-  // };
+  const getCommnent = async (id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
+    );
+    setCommentData(response.data);
+    console.log(response.data);
+  };
 
   const editUploadImg = async () => {
     let formData = new FormData();

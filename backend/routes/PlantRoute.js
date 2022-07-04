@@ -18,6 +18,7 @@ import {
   DeletePlantData,
   getDataSelect,
   getPlantMasterSetup,
+  getCommentData,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
@@ -40,5 +41,6 @@ router.post("/plant/postMasterPlant", postPlantMaster);
 router.delete("/plant/deleteMasterPlant/:id", DeletePlantMaster);
 router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
 router.delete("/plant/DeleteData/:id", DeletePlantData);
+router.get("/Comment/:id", getCommentDatas);
 
 export default router;
