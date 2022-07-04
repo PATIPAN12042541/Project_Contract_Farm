@@ -29,34 +29,145 @@ const Fertilizer_detail = (props) => {
       </section>
       <section className="content">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12" />
-            {FertilizerData.map((data, index) => (
-              <div className="card card-success" key={index}>
-                <div
-                  className="card-header"
-                  style={{ backgroundColor: "#8CC152" }}
-                >
-                  <h1 className="card-title">รายละเอียด{data.name_thai}</h1>
-                </div>
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-12 col-sm-4">
-                      <div className="col-12">
-                        <Zoom>
-                          <img
-                            className="img-fluid"
-                            src={data.path_img}
-                            loading="lazy"
-                          />
-                        </Zoom>
+          {FertilizerData.map((data, index) => (
+            <div className="row" key={index}>
+              <div className="col-md-12">
+                <div className="card card-info">
+                  <div
+                    className="card-header"
+                    style={{ backgroundColor: "#8CC152" }}
+                  >
+                    <h1 className="card-title">
+                      รายละเอียดปุ๋ย {data.name_thai}
+                    </h1>
+                  </div>
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-12 col-sm-4">
+                        <div className="col-12">
+                          <Zoom>
+                            <img
+                              className="img-fluid"
+                              src={data.path_img}
+                              loading="lazy"
+                            />
+                          </Zoom>
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-8">
+                        <div className="col-12 col-md-12 col-lg-12 order-2 order-md-1">
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">ชื่อสามัญ : </b>
+                                    <span className="font-size-data">
+                                      {data.name_eng}
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      วัน/เดือน/ปี :{" "}
+                                    </b>
+                                    <span className="font-size-data">
+                                      {data.date_start}
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">จำนวน : </b>
+                                    <span className="font-size-data">
+                                      {data.quantity} {data.unit}
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            {/* <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      ระยะเวลาตกค้าง :{" "}
+                                    </b>
+                                    <span className="font-size-data">
+                                      {data.time + " " + data.unit}
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div> */}
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-number text-center text-black mb-0 font-size2">
+                                    วันที่เก็บเกี่ยวผลผลิตได้
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              className="col-12 col-sm-6 font-size"
+                              type="date"
+                            >
+                              {data.date_end}
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-12">
+                              <h4>Note.</h4>
+                              <div className="post">
+                                <p>{data.note}</p>
+                              </div>
+                            </div>
+                          </div>
+                          {/* <div className="row">
+                            <div className="col-12 col-sm-12">
+                              {data.status_check == "1" ? (
+                                <button
+                                  className="btn btn-success float-right"
+                                  //   onClick={() => {
+                                  //     changeStatus(data.id, "0");
+                                  //   }}
+                                >
+                                  เสร็จสิ้น
+                                </button>
+                              ) : (
+                                <button
+                                  className="btn btn-default float-right"
+                                  //   onClick={() => {
+                                  //     changeStatus(data.id, "1");
+                                  //   }}
+                                >
+                                  ยกเลิก
+                                </button>
+                              )}
+                            </div>
+                          </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
