@@ -646,9 +646,9 @@ const Manage_plant_fertilizer = (props) => {
                     <label className="col-sm-4 col-form-label">Note</label>
                     <div className="col-sm-8">
                       <input
-                        type="number"
+                        type="text"
                         className="form-control form-control-border"
-                        placeholder="ปริมาณที่ใช้"
+                        placeholder="Note"
                         defaultValue={dataEdit.note}
                         onChange={(e) => setNoteE(e.target.value)}
                       />
