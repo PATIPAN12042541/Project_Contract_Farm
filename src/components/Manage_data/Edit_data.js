@@ -103,7 +103,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
-    console.log(response.data[0].comment);
+    //console.log(response.data[0].comment);
   };
 
   const editUploadImg = async () => {
@@ -1100,7 +1100,11 @@ const Edit_data = (props) => {
               controlId="exampleForm.ControlTextarea1"
             >
               <form.Label>ระบุความคิดเห็น : </form.Label>
-              <form.Control as="textarea" rows={3} />
+              <form.Control
+                as="textarea"
+                rows={3}
+                defaultValue={CommentData[0].comment}
+              />
             </form.Group>
           </form>
         </Modal.Body>
