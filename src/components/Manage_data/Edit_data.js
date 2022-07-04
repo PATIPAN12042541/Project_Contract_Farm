@@ -1145,8 +1145,8 @@ const Edit_data = (props) => {
                   as="textarea"
                   rows={3}
                   defaultValue={data.comment}
-                  onChange={() => {
-                    setCommentUpdate(data.comment);
+                  onChange={(e) => {
+                    setCommentUpdate(e.target.value);
                     setCommentId(data.id);
                   }}
                 />
