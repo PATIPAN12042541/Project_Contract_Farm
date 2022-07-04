@@ -1083,8 +1083,8 @@ const Edit_data = (props) => {
 
       {/* Comment */}
       <Modal show={showComment} onHide={Close_Comment}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header>
+          <Modal.Title>Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
@@ -1092,7 +1092,7 @@ const Edit_data = (props) => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <form.Label>Example textarea</form.Label>
+              <form.Label>ระบุความคิดเห็น : </form.Label>
               <form.Control as="textarea" rows={3} />
             </form.Group>
           </form>
