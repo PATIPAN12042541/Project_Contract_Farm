@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { BsCheckCircleFill } from "react-icons/bs";
 import Zoom from "react-medium-image-zoom";
 
 const Fertilizer_detail = (props) => {
@@ -39,6 +40,10 @@ const Fertilizer_detail = (props) => {
                   >
                     <h1 className="card-title">
                       รายละเอียดปุ๋ย {data.name_thai}
+                      {"  "}
+                      {data.status_check == "0" && (
+                        <BsCheckCircleFill style={{ color: "#FFFFF" }} />
+                      )}
                     </h1>
                   </div>
                   <div className="card-body">
