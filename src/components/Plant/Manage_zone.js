@@ -335,7 +335,7 @@ const Manage_zone = () => {
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ละติจูด</form.Label>
               <form.Control
-                type="text"
+                type="number"
                 placeholder="ละติจูด"
                 defaultValue={lat}
                 onChange={(e) => setLat(e.target.value)}
@@ -344,7 +344,7 @@ const Manage_zone = () => {
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ลองติจูด</form.Label>
               <form.Control
-                type="text"
+                type="number"
                 placeholder="ลองติจูด"
                 defaultValue={lon}
                 onChange={(e) => setLon(e.target.value)}
@@ -437,7 +437,7 @@ const Manage_zone = () => {
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ละติจูด</form.Label>
               <form.Control
-                type="text"
+                type="number"
                 placeholder="ละติจูด"
                 defaultValue={lat}
                 onChange={(e) => setLat(e.target.value)}
@@ -446,7 +446,7 @@ const Manage_zone = () => {
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ลองติจูด</form.Label>
               <form.Control
-                type="text"
+                type="number"
                 placeholder="ลองติจูด"
                 defaultValue={lon}
                 onChange={(e) => setLon(e.target.value)}
