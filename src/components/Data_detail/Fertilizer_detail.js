@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { BsCheckCircleFill } from "react-icons/bs";
 import Zoom from "react-medium-image-zoom";
+import "../CSS/Data_detail.css";
 
 const Fertilizer_detail = (props) => {
   const [FertilizerData, setFertilizerData] = useState([]);
@@ -13,6 +14,28 @@ const Fertilizer_detail = (props) => {
     );
     setFertilizerData(response.data);
     console.log(response.data);
+  };
+
+  const changeStatus = async (id, status) => {
+    Swal.fire({
+      title: "Are you sure complate?",
+      text: "Okay Are you Ready ? ",
+      icon: "success",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/getChemical/updateChangeStatus/Fertilizer/${id}`,
+          {
+            status_check: status,
+          }
+        );
+        getFertilizerData();
+      }
+    });
   };
 
   useEffect(() => {
@@ -130,18 +153,18 @@ const Fertilizer_detail = (props) => {
                               {data.status_check == "1" ? (
                                 <button
                                   className="btn btn-success float-right"
-                                  // onClick={() => {
-                                  //   changeStatus(data.id, "0");
-                                  // }}
+                                  onClick={() => {
+                                    changeStatus(data.id, "0");
+                                  }}
                                 >
                                   เสร็จสิ้น
                                 </button>
                               ) : (
                                 <button
                                   className="btn btn-default float-right"
-                                  // onClick={() => {
-                                  //   changeStatus(data.id, "1");
-                                  // }}
+                                  onClick={() => {
+                                    changeStatus(data.id, "1");
+                                  }}
                                 >
                                   ยกเลิก
                                 </button>

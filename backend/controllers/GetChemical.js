@@ -408,3 +408,19 @@ export const FertilizerDataDetail = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+
+export const updateFertilizerStauts = async (req, res) => {
+  try {
+    await Fertilizer.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "FertilizerData Updated",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
