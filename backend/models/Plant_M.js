@@ -29,6 +29,9 @@ const Plant = db.define(
     status_circle: {
       type: DataTypes.INTEGER,
     },
+    comment: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,

@@ -33,6 +33,14 @@ const Edit_data = (props) => {
   const Show_Edit = () => setshowEdit(true);
   /**********************************************/
 
+  /************** Modal Status *******************/
+  const [showComment, setShowComment] = useState(false);
+
+  const Close_Comment = () => setShowComment(false);
+  const Show_Comment = () => setShowComment(true);
+
+  /**********************************************/
+
   /************** Edit Data ********************/
   // const [editName, setEditName] = useState([]);
   // const [editStDate, setEditStDate] = useState([]);
@@ -225,14 +233,6 @@ const Edit_data = (props) => {
   const postPlant = async (e) => {
     e.preventDefault();
     const autoid = uuidv4();
-
-    // console.log("id_name_plant: " + idplant);
-    // console.log("id_zone: " + props.id);
-    // console.log("id_user: " + userid);
-    // console.log("autoid_check: " + autoid);
-    // console.log("name_plant: " + getSelect[0].id);
-    // console.log("start_date_plant: " + startdate);
-    // console.log("end_date_plant: " + enddate);
     try {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
@@ -312,16 +312,6 @@ const Edit_data = (props) => {
     const getData = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
-    // console.log("zone_id: " + getData.data[0].zone_id);
-    // console.log("zone_name: " + getData.data[0].zone_name);
-    // console.log("zone_image: " + getData.data[0].image_zone);
-    // console.log("plant_id: " + getData.data[0].plant_id);
-    // console.log("plant_id_name: " + getData.data[0].plant_id_name);
-    // console.log("user_id: " + getData.data[0].id_user);
-    // console.log("plant_date_start: " + getData.data[0].start_date_plant);
-    // console.log("plant_date_end: " + getData.data[0].end_date_plant);
-    // console.log("plant_status: " + getData.data[0].status_plant);
-    // console.log("plant_circle: " + getData.data[0].status_circle);
 
     try {
       axios
@@ -552,17 +542,6 @@ const Edit_data = (props) => {
                                         );
                                       })}
                                     </select>
-                                    {/* <center>
-                                  <label>ชื่อแปลงเพาะปลูก</label>
-                                </center>
-                                <input
-                                  type="text"
-                                  className="form-control form-control-border"
-                                  id="exampleInputBorder"
-                                  placeholder="ชื่อแปลงเพาะปลูก"
-                                  defaultValue={nameplant}
-                                  onChange={(e) => setNamePlant(e.target.value)}
-                                ></input> */}
                                   </div>
                                   <div className="col-2">
                                     <center>
@@ -614,26 +593,7 @@ const Edit_data = (props) => {
                                       }
                                     ></input>
                                   </div>
-                                  {/* <div className="col-1">
-                                    <label>Upload</label>
-                                    <FileUpload
-                                      btnIcon="fas fa-upload"
-                                      multiple
-                                      accept="image/*"
-                                      onUpload={(file) => {
-                                        const filesArray = [].slice.call(file);
-                                        filesArray.forEach((e) => {
-                                          setImageName(e.name);
-                                        });
 
-                                        const img = {
-                                          preview: URL.createObjectURL(file[0]),
-                                          data: file[0],
-                                        };
-                                        setImage(img);
-                                      }}
-                                    />
-                                  </div> */}
                                   <div className="col-2">
                                     <Zoom>
                                       <img
@@ -814,9 +774,6 @@ const Edit_data = (props) => {
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
-                                  // onClick={
-                                  //   (Show_status, setGetIdplant(data.id_plant))
-                                  // }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -867,9 +824,6 @@ const Edit_data = (props) => {
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
-                                  // onClick={
-                                  //   (Show_status, setGetIdplant(data.id_plant))
-                                  // }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -883,14 +837,6 @@ const Edit_data = (props) => {
                               </center>
                             ) : data.status_plant == "4" ? (
                               <center>
-                                {/* <Link
-                                  to={{
-                                    pathname: `/Manage_plant/${data.id_plant}`,
-                                    state: {
-                                      id: data.id_plant,
-                                    },
-                                  }}
-                                > */}
                                 <button
                                   type="submit"
                                   className="btn btn-success"
@@ -899,7 +845,6 @@ const Edit_data = (props) => {
                                 >
                                   <BsPlusLg />
                                 </button>
-                                {/* </Link> */}
                                 <> </>
                                 <button
                                   type="submit"
@@ -964,9 +909,6 @@ const Edit_data = (props) => {
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
                                   }}
-                                  // onClick={
-                                  //   (Show_status, setGetIdplant(data.id_plant))
-                                  // }
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -981,98 +923,6 @@ const Edit_data = (props) => {
                             )}
                           </td>
                         </tr>
-                        {/* <tr className="expandable-body d-none">
-                          <td colSpan={7}>
-                            <div className="row">
-                              <div className="col-2">
-                                <input
-                                  type="text"
-                                  className="form-control"
-                                  disabled
-                                  placeholder="# หมายเลข "
-                                  defaultValue={data.plant_detail_id_name_plant}
-                                />
-                              </div>
-                              <div className="col-3">
-                                <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="ชื่อแปลงผัก"
-                                  defaultValue={data.name_plant}
-                                  onChange={(e) =>
-                                    setEditNamePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-2">
-                                <input
-                                  type="date"
-                                  className="form-control"
-                                  placeholder="วันที่เริ่มต้น"
-                                  defaultValue={data.start_date_plant}
-                                  onChange={(e) =>
-                                    setEditStartDatePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-2">
-                                <input
-                                  type="date"
-                                  className="form-control"
-                                  placeholder="วันที่สิ้นสุด"
-                                  defaultValue={data.end_date_plant}
-                                  onChange={(e) =>
-                                    setEditEndDatePlant(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <div className="col-1">
-                                <FileUpload
-                                  btnIcon="fas fa-upload"
-                                  multiple
-                                  accept="image/*"
-                                  onUpload={(file) => {
-                                    const filesArray = [].slice.call(file);
-                                    filesArray.forEach((e) => {
-                                      setEditImageName(e.name);
-                                    });
-
-                                    const edit_img = {
-                                      preview: URL.createObjectURL(file[0]),
-                                      data: file[0],
-                                    };
-                                    setEditImage(edit_img);
-                                  }}
-                                />
-                              </div>
-                              <div className="col-1">
-                                <Zoom>
-                                  <img
-                                    src={
-                                      editimage.preview
-                                        ? editimage.preview
-                                        : data.plant_image
-                                    }
-                                    className="img-fluid mb-2"
-                                    width="100"
-                                    height="100"
-                                  />
-                                </Zoom>
-                              </div>
-                              <div className="col-1">
-                                <button
-                                  type="submit"
-                                  className="btn btn-success"
-                                  onClick={() => {
-                                    updatePlant(data.plant_id);
-                                  }}
-                                >
-                                  <BsCheckSquareFill /> ยืนยัน
-                                </button>
-                              </div>
-                            </div>
-                          </td>
-                        </tr> */}
                       </tbody>
                     ))}
                   </table>
@@ -1218,8 +1068,34 @@ const Edit_data = (props) => {
           </button>
         </Modal.Footer>
       </Modal>
+
+      {/* Comment */}
+      <Modal show={showComment} onHide={Close_Comment}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            <form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <form.Label>Example textarea</form.Label>
+              <form.Control as="textarea" rows={3} />
+            </form.Group>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={Close_Comment}>
+            Close
+          </button>
+          <button className="btn btn-success" onClick={Close_Comment}>
+            Save Changes
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
-};;;
+};
 
 export default Edit_data;
