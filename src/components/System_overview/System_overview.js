@@ -38,7 +38,7 @@ const System_overview = () => {
   };
 
   const headers = [
-    { label: "โซนเพาะปลูก", key: "zone_id" },
+    { label: "โซนเพาะปลูก", key: "zone_name" },
     { label: "ชื่อเเปลง", key: "plant_name" },
     { label: "วันที่เริ่มต้น", key: "start_plant" },
     { label: "วันที่สิ้นสุด", key: "end_plant" },
@@ -63,8 +63,8 @@ const System_overview = () => {
   const columns = [
     {
       name: "โซนเพาะปลูก",
-      id: "zone_id",
-      selector: (row) => row.zone_id,
+      id: "zone_name",
+      selector: (row) => row.zone_name,
       sortable: true,
       grow: 4,
     },
