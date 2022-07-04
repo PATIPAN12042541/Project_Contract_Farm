@@ -49,7 +49,7 @@ const Edit_data = (props) => {
   /*********************************************/
 
   /************** Comment Data ********************/
-  const [CommentData, setCommentData] = useState([]);
+  const [CommentData, setCommentData] = useState({ comment: "" });
   const [CommentUpdate, setCommentUpdate] = useState([]);
   const [CommentId, setCommentId] = useState([]);
   /*********************************************/
