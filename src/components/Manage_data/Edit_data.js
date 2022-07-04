@@ -100,7 +100,7 @@ const Edit_data = (props) => {
   ]);
 
   const getCommnent = async (id) => {
-    console.log(id);
+    //console.log(id);
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
