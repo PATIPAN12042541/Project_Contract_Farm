@@ -1103,7 +1103,7 @@ const Edit_data = (props) => {
               <form.Control
                 as="textarea"
                 rows={3}
-                defaultValue={CommentData[0].comment}
+                defaultValue={CommentData.data[0].comment}
               />
             </form.Group>
           </form>
