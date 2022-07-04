@@ -781,6 +781,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_Comment();
+                                  }}
                                 >
                                   <BsFillChatSquareDotsFill />
                                 </button>
@@ -831,6 +834,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_Comment();
+                                  }}
                                 >
                                   <BsFillChatSquareDotsFill />
                                 </button>
@@ -859,6 +865,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_Comment();
+                                  }}
                                 >
                                   <BsFillChatSquareDotsFill />
                                 </button>
@@ -916,6 +925,9 @@ const Edit_data = (props) => {
                                 <button
                                   type="submit"
                                   className="btn btn-primary"
+                                  onClick={() => {
+                                    Show_Comment();
+                                  }}
                                 >
                                   <BsFillChatSquareDotsFill />
                                 </button>
