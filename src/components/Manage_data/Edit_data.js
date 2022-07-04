@@ -1100,11 +1100,7 @@ const Edit_data = (props) => {
               controlId="exampleForm.ControlTextarea1"
             >
               <form.Label>ระบุความคิดเห็น : </form.Label>
-              <form.Control
-                as="textarea"
-                rows={3}
-                defaultValue={CommentData.data[0].comment}
-              />
+              <form.Control as="textarea" rows={3} defaultValue={CommentData} />
             </form.Group>
           </form>
         </Modal.Body>
