@@ -120,6 +120,29 @@ const Fertilizer_detail = (props) => {
                               </div>
                             </div>
                           </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-12">
+                              {data.status_check == "1" ? (
+                                <button
+                                  className="btn btn-success float-right"
+                                  // onClick={() => {
+                                  //   changeStatus(data.id, "0");
+                                  // }}
+                                >
+                                  เสร็จสิ้น
+                                </button>
+                              ) : (
+                                <button
+                                  className="btn btn-default float-right"
+                                  // onClick={() => {
+                                  //   changeStatus(data.id, "1");
+                                  // }}
+                                >
+                                  ยกเลิก
+                                </button>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
