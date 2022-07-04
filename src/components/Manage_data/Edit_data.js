@@ -50,6 +50,8 @@ const Edit_data = (props) => {
 
   /************** Comment Data ********************/
   const [CommentData, setCommentData] = useState([]);
+  const [CommentUpdate, setCommentUpdate] = useState([]);
+  const [CommentId, setCommentId] = useState([]);
   /*********************************************/
 
   const [plantdata, setPlantData] = useState([]);
@@ -103,7 +105,44 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
-    //console.log(response.data[0].comment);
+  };
+
+  const UpdateCommnent = async () => {
+    console.log(CommentUpdate + " " + CommentId);
+    // try {
+    //   await axios
+    //     .patch(
+    //       `${process.env.REACT_APP_API_URL}/getplant/UpdateManagePlant/${id}`,
+    //       {
+    //         id_plant: props.id,
+    //         name_chemical: namechemical,
+    //         quantity_chemical: quantitychemical,
+    //         unit: unit,
+    //         note: note,
+    //       }
+    //     )
+    //     .then(function (response) {
+    //       getManageDetail();
+    //       Swal.fire({
+    //         icon: "success",
+    //         title: "Success",
+    //         text: "Save OK !",
+    //       });
+    //     })
+    //     .catch(function (error) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: error.response.data.msg,
+    //         text: "Save Error!",
+    //       });
+    //     });
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: error.response.data.msg,
+    //     text: "Save Error!",
+    //   });
+    // }
   };
 
   const editUploadImg = async () => {
@@ -1094,7 +1133,7 @@ const Edit_data = (props) => {
           <Modal.Title>Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={Close_Comment}>
+          <form onSubmit={UpdateCommnent}>
             {CommentData.map((data, index) => (
               <form.Group
                 className="mb-3"
@@ -1106,6 +1145,10 @@ const Edit_data = (props) => {
                   as="textarea"
                   rows={3}
                   defaultValue={data.comment}
+                  onChange={() => {
+                    setCommentUpdate(data.comment);
+                    setCommentId(data.id);
+                  }}
                 />
               </form.Group>
             ))}
