@@ -13,7 +13,7 @@ const Fertilizer_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerData/Detail/${props.id}`
     );
     setFertilizerData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const changeStatus = async (id, status) => {
