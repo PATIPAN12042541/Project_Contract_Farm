@@ -105,6 +105,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
+    Show_Comment();
   };
 
   const UpdateCommnent = async () => {
@@ -822,7 +823,6 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     getCommnent(data.plant_id);
-                                    Show_Comment();
                                   }}
                                 >
                                   <BsFillChatSquareDotsFill />
@@ -876,7 +876,6 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     getCommnent(data.plant_id);
-                                    Show_Comment();
                                   }}
                                 >
                                   <BsFillChatSquareDotsFill />
@@ -908,7 +907,6 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     getCommnent(data.plant_id);
-                                    Show_Comment();
                                   }}
                                 >
                                   <BsFillChatSquareDotsFill />
@@ -969,7 +967,6 @@ const Edit_data = (props) => {
                                   className="btn btn-primary"
                                   onClick={() => {
                                     getCommnent(data.plant_id);
-                                    Show_Comment();
                                   }}
                                 >
                                   <BsFillChatSquareDotsFill />
