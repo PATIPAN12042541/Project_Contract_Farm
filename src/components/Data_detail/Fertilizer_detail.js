@@ -97,22 +97,50 @@ const Fertilizer_detail = (props) => {
                                 </div>
                               </div>
                             </div>
-                            <div className="row">
-                              <div className="col-12 col-sm-6">
-                                <div className="info-box bg-light">
-                                  <div className="info-box-content">
-                                    <span className="info-box-number text-center text-black mb-0 font-size2">
-                                      วันที่เก็บเกี่ยวผลผลิตได้
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      วันที่สิ้นสุด :{" "}
+                                    </b>
+                                    <span className="font-size-data">
+                                      {data.date_end}
                                     </span>
-                                  </div>
+                                  </span>
                                 </div>
                               </div>
-                              <div
-                                className="col-12 col-sm-6 font-size"
-                                type="date"
-                              >
-                                {data.date_end}
+                            </div>
+                            {/* <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-left text-black">
+                                    <b className="font-size2">
+                                      ระยะเวลาตกค้าง :{" "}
+                                    </b>
+                                    <span className="font-size-data">
+                                      {data.time + " " + data.unit}
+                                    </span>
+                                  </span>
+                                </div>
                               </div>
+                            </div> */}
+                          </div>
+                          <div className="row">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-number text-center text-black mb-0 font-size2">
+                                    วันที่เก็บเกี่ยวผลผลิตได้
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              className="col-12 col-sm-6 font-size"
+                              type="date"
+                            >
+                              {data.date_end}
                             </div>
                           </div>
                           <div className="row">
