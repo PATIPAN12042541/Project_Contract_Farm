@@ -1099,6 +1099,7 @@ const Edit_data = (props) => {
               <form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
+                key={index}
               >
                 <form.Label>ระบุความคิดเห็น : </form.Label>
                 <form.Control
