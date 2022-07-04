@@ -5,18 +5,8 @@ import Zoom from "react-medium-image-zoom";
 import Swal from "sweetalert2";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
 
 const Manage_plant_chemical = (props) => {
-  ////////////////// Modal //////////////////////
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  ///////////////////////////////////////////////
   const [getChemical, setGetChemical] = useState([]);
   const [endDate, setEndDate] = useState([""]);
   const [startDate, setStartDate] = useState([""]);
@@ -426,49 +416,23 @@ const Manage_plant_chemical = (props) => {
                 {datadetail.map((data, index) => (
                   <tbody key={index}>
                     <tr data-widget="expandable-table" aria-expanded="false">
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
-                        {index + 1}
-                      </td>
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
+                      <td>{index + 1}</td>
+                      <td>
                         {data.name_chemical +
                           " ( " +
                           data.name_chemical_eng +
                           " )"}
                       </td>
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
+                      <td>
                         <center>{data.time + " " + data.unit}</center>
                       </td>
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
+                      <td>
                         <center>{data.cc + " CC " + data.liter + " L"}</center>
                       </td>
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
+                      <td>
                         <center>{data.date_start}</center>
                       </td>
-                      <td
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
+                      <td>
                         <center>{data.date_end}</center>
                       </td>
                       <td>
@@ -498,11 +462,11 @@ const Manage_plant_chemical = (props) => {
                         </center>
                       </td>
                     </tr>
-                    {/* <tr className="expandable-body d-none">
+                    <tr className="expandable-body d-none">
                       <td colSpan={8}>
                         <p style={{ display: "none" }}>Note : {data.note}</p>
                       </td>
-                    </tr> */}
+                    </tr>
                   </tbody>
                 ))}
               </table>
@@ -510,21 +474,6 @@ const Manage_plant_chemical = (props) => {
           </div>
         </div>
       </section>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-default" onClick={handleClose}>
-            Close
-          </button>
-          <button className="btn btn-success" onClick={handleClose}>
-            Save Changes
-          </button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 };
