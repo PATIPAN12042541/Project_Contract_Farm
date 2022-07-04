@@ -1133,7 +1133,7 @@ const Edit_data = (props) => {
           <Modal.Title>Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={UpdateCommnent}>
+          <form>
             {CommentData.map((data, index) => (
               <form.Group
                 className="mb-3"
@@ -1158,7 +1158,11 @@ const Edit_data = (props) => {
           <button className="btn btn-secondary" onClick={Close_Comment}>
             Close
           </button>
-          <button type="submit" className="btn btn-success">
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={UpdateCommnent}
+          >
             Save Changes
           </button>
         </Modal.Footer>
