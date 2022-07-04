@@ -103,7 +103,7 @@ export const getFertilizerData = async (req, res) => {
         "plant_data_detail_fertilizer.date_start," +
         "plant_data_detail_fertilizer.date_end," +
         "name_chemical.path_img," +
-        "fertilizer_unit.note as note," +
+        "plant_data_detail_fertilizer.note as note," +
         "plant_data_detail_fertilizer.status_check " +
         "FROM plant_data_detail_fertilizer " +
         "LEFT JOIN name_chemical on plant_data_detail_fertilizer.id_name_chemical = name_chemical.id " +
