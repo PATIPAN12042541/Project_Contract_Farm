@@ -1124,7 +1124,7 @@ const Edit_data = (props) => {
                     controlId="exampleForm.ControlTextarea1"
                   >
                     <hr></hr>
-                    <form.Label>อัพโหลด</form.Label>
+                    {/* <form.Label>อัพโหลด</form.Label>
                     <Zoom>
                       <img
                         src={
@@ -1133,40 +1133,18 @@ const Edit_data = (props) => {
                         width="100"
                         height="100"
                       />
-                    </Zoom>
-                    {/* <Row>
-                      <Col md>
-                        <form.Label>อัพโหลด</form.Label>
-                        <FileUpload
-                          btnIcon="fas fa-upload"
-                          multiple
-                          accept="image/*"
-                          onUpload={(file) => {
-                            const filesArray = [].slice.call(file);
-                            filesArray.forEach((e) => {
-                              setEditImageName(e.name);
-                            });
-
-                            const edit_img = {
-                              preview: URL.createObjectURL(file[0]),
-                              data: file[0],
-                            };
-                            setEditImage(edit_img);
-                          }}
-                        />
-                      </Col>
+                    </Zoom> */}
+                    <Row>
                       <Col md>
                         <form.Label>Preview</form.Label>
                         <img
                           src={
-                            editimage.preview
-                              ? editimage.preview
-                              : edit_path_img
+                            data.plant_image ? data.plant_image : edit_path_img
                           }
                           className="img-fluid"
                         />
                       </Col>
-                    </Row> */}
+                    </Row>
                   </form.Group>
                 </>
               );
