@@ -154,7 +154,7 @@ const Edit_data = (props) => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/  /${props.id}`
+      `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
     console.log(response.data);
@@ -1043,7 +1043,6 @@ const Edit_data = (props) => {
                 <select
                   className="custom-select form-control-border"
                   defaultValue={edit_name_plant}
-                  // onChange={(e) => getDataSelect(e.target.value)}
                 >
                   <option>------กรุณาเลือกชนิดพืช------</option>
                   {plantMaster.map((data, index) => {
