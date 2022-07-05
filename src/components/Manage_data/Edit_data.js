@@ -1072,7 +1072,7 @@ const Edit_data = (props) => {
           <form>
             {getSelect2.map((data, index) => {
               return (
-                <>
+                <div key={index}>
                   <form.Group
                     className="mb-3"
                     controlId="exampleForm.ControlInput1"
@@ -1124,16 +1124,6 @@ const Edit_data = (props) => {
                     controlId="exampleForm.ControlTextarea1"
                   >
                     <hr></hr>
-                    {/* <form.Label>อัพโหลด</form.Label>
-                    <Zoom>
-                      <img
-                        src={
-                          data.plant_image ? data.plant_image : edit_path_img
-                        }
-                        width="100"
-                        height="100"
-                      />
-                    </Zoom> */}
                     <Row>
                       <Col md>
                         <form.Label>Preview</form.Label>
@@ -1146,7 +1136,7 @@ const Edit_data = (props) => {
                       </Col>
                     </Row>
                   </form.Group>
-                </>
+                </div>
               );
             })}
           </form>
