@@ -14,7 +14,7 @@ const System_overview = () => {
       `${process.env.REACT_APP_API_URL}/OverView`
     );
     setOverview(overview.data);
-    console.log(overview.data);
+    // console.log(overview.data);
   };
 
   useEffect(() => {
