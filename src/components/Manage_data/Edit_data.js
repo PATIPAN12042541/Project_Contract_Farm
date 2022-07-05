@@ -119,7 +119,6 @@ const Edit_data = (props) => {
           }
         )
         .then(function (response) {
-          getCommnent();
           Close_Comment();
           Swal.fire({
             icon: "success",
