@@ -105,6 +105,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
+    Show_Comment();
   };
 
   const UpdateCommnent = async () => {
@@ -118,8 +119,8 @@ const Edit_data = (props) => {
           }
         )
         .then(function (response) {
-          Close_Comment();
           getCommnent();
+          Close_Comment();
           Swal.fire({
             icon: "success",
             title: "Success",
