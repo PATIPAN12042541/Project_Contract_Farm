@@ -124,8 +124,8 @@ const Edit_data = (props) => {
             title: "Success",
             text: "Save OK !",
           });
-          Close_Comment();
           getCommnent();
+          Close_Comment();
         })
         .catch(function (error) {
           Swal.fire({
