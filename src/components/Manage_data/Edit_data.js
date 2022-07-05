@@ -169,7 +169,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   const getStatusPlant = async () => {
@@ -521,6 +521,7 @@ const Edit_data = (props) => {
         `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
       );
       setGetSelect2(result.data);
+      console.log(result.data);
     } else {
       setGetSelect2([
         {
