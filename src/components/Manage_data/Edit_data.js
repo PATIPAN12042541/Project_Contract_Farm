@@ -154,7 +154,7 @@ const Edit_data = (props) => {
 
   const getPlant = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
+      `${process.env.REACT_APP_API_URL}/  /${props.id}`
     );
     setPlantData(response.data);
     console.log(response.data);
@@ -704,7 +704,7 @@ const Edit_data = (props) => {
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
-                              setEditNamePlant(data.name_plant);
+                              setEditNamePlant(data.name_plant_id);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
@@ -716,7 +716,7 @@ const Edit_data = (props) => {
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
-                              setEditNamePlant(data.name_plant);
+                              setEditNamePlant(data.name_plant_id);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
@@ -728,7 +728,7 @@ const Edit_data = (props) => {
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
-                              setEditNamePlant(data.name_plant);
+                              setEditNamePlant(data.name_plant_id);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
@@ -740,7 +740,7 @@ const Edit_data = (props) => {
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
-                              setEditNamePlant(data.name_plant);
+                              setEditNamePlant(data.name_plant_id);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
@@ -765,7 +765,7 @@ const Edit_data = (props) => {
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
-                              setEditNamePlant(data.name_plant);
+                              setEditNamePlant(data.name_plant_id);
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
@@ -1039,13 +1039,22 @@ const Edit_data = (props) => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ชื่อแปลงผัก</form.Label>
-              <form.Control
-                type="text"
-                placeholder="ชื่อแปลงผัก"
-                defaultValue={edit_name_plant}
-                autoFocus
-                onChange={(e) => setEditNamePlant(e.target.value)}
-              />
+              <div className="col-sm-8">
+                <select
+                  className="custom-select form-control-border"
+                  defaultValue={edit_name_plant}
+                  // onChange={(e) => getDataSelect(e.target.value)}
+                >
+                  <option>------กรุณาเลือกชนิดพืช------</option>
+                  {plantMaster.map((data, index) => {
+                    return (
+                      <option key={index} value={data.id}>
+                        {data.plant_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
             </form.Group>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>วันที่เริ่มต้น</form.Label>
