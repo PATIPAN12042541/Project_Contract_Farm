@@ -1039,21 +1039,19 @@ const Edit_data = (props) => {
           <form>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>ชื่อแปลงผัก</form.Label>
-              <div className="col-sm-8">
-                <select
-                  className="custom-select form-control-border"
-                  defaultValue={edit_name_plant}
-                >
-                  <option>------กรุณาเลือกชนิดพืช------</option>
-                  {plantMaster.map((data, index) => {
-                    return (
-                      <option key={index} value={data.id}>
-                        {data.plant_name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
+              <select
+                className="custom-select form-control-border"
+                defaultValue={edit_name_plant}
+              >
+                <option>------กรุณาเลือกชนิดพืช------</option>
+                {plantMaster.map((data, index) => {
+                  return (
+                    <option key={index} value={data.id}>
+                      {data.plant_name}
+                    </option>
+                  );
+                })}
+              </select>
             </form.Group>
             <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <form.Label>วันที่เริ่มต้น</form.Label>
