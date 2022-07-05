@@ -222,15 +222,27 @@ const System_overview = () => {
                       type="submit"
                       className="btn btn-secondary set-position"
                     >
-                      <CSVLink
-                        data={Overview}
-                        headers={headers}
-                        filename="Contract_Farmming.csv"
-                        target="_blank"
-                        style={{ color: "#ffffff" }}
-                      >
-                        Export CSV
-                      </CSVLink>
+                      {searchInput.length > 1 ? (
+                        <CSVLink
+                          data={filteredResults}
+                          headers={headers}
+                          filename="Contract_Farmming.csv"
+                          target="_blank"
+                          style={{ color: "#ffffff" }}
+                        >
+                          Export CSV
+                        </CSVLink>
+                      ) : (
+                        <CSVLink
+                          data={Overview}
+                          headers={headers}
+                          filename="Contract_Farmming.csv"
+                          target="_blank"
+                          style={{ color: "#ffffff" }}
+                        >
+                          Export CSV
+                        </CSVLink>
+                      )}
                     </button>
                   </div>
                   {searchInput.length > 1 ? (
