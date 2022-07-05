@@ -99,6 +99,18 @@ const Edit_data = (props) => {
     },
   ]);
 
+  const [getSelect2, setGetSelect2] = useState([
+    {
+      id: "",
+      plant_name: "",
+      plant_name_eng: "",
+      plant_img: "",
+      status_show: "",
+      createdAt: "",
+      updatedAt: "",
+    },
+  ]);
+
   const getCommnent = async (id) => {
     //console.log(id);
     const response = await axios.get(
@@ -490,6 +502,27 @@ const Edit_data = (props) => {
       setGetSelect(result.data);
     } else {
       setGetSelect([
+        {
+          id: "",
+          plant_name: "",
+          plant_name_eng: "",
+          plant_img: "",
+          status_show: "",
+          createdAt: "",
+          updatedAt: "",
+        },
+      ]);
+    }
+  };
+
+  const getDataSelect2 = async (id) => {
+    if (id !== "------กรุณาเลือกชนิดพืช------") {
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
+      );
+      setGetSelect2(result.data);
+    } else {
+      setGetSelect2([
         {
           id: "",
           plant_name: "",
@@ -1037,77 +1070,107 @@ const Edit_data = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <form.Label>ชื่อแปลงผัก</form.Label>
-              <select
-                className="custom-select form-control-border"
-                defaultValue={edit_name_plant}
-              >
-                <option>------กรุณาเลือกชนิดพืช------</option>
-                {plantMaster.map((data, index) => {
-                  return (
-                    <option key={index} value={data.id}>
-                      {data.plant_name}
-                    </option>
-                  );
-                })}
-              </select>
-            </form.Group>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <form.Label>วันที่เริ่มต้น</form.Label>
-              <form.Control
-                type="date"
-                placeholder="วันที่เริ่มต้น"
-                defaultValue={edit_start_date_plant}
-                autoFocus
-                onChange={(e) => setEditStartDatePlant(e.target.value)}
-              />
-            </form.Group>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <form.Label>วันที่สิ้นสุด</form.Label>
-              <form.Control
-                type="date"
-                placeholder="วันที่สิ้นสุด"
-                defaultValue={edit_end_date_plant}
-                autoFocus
-                onChange={(e) => setEditEndDatePlant(e.target.value)}
-              />
-            </form.Group>
-            <form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <hr></hr>
-              <Row>
-                <Col md>
-                  <form.Label>อัพโหลด</form.Label>
-                  <FileUpload
-                    btnIcon="fas fa-upload"
-                    multiple
-                    accept="image/*"
-                    onUpload={(file) => {
-                      const filesArray = [].slice.call(file);
-                      filesArray.forEach((e) => {
-                        setEditImageName(e.name);
-                      });
+            {getSelect2.map((data, index) => {
+              return (
+                <>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>ชื่อแปลงผัก</form.Label>
+                    <select
+                      className="custom-select form-control-border"
+                      defaultValue={edit_name_plant}
+                      onChange={(e) => getDataSelect2(e.target.value)}
+                    >
+                      <option>------กรุณาเลือกชนิดพืช------</option>
+                      {plantMaster.map((data, index) => {
+                        return (
+                          <option key={index} value={data.id}>
+                            {data.plant_name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>วันที่เริ่มต้น</form.Label>
+                    <form.Control
+                      type="date"
+                      placeholder="วันที่เริ่มต้น"
+                      defaultValue={edit_start_date_plant}
+                      autoFocus
+                      onChange={(e) => setEditStartDatePlant(e.target.value)}
+                    />
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>วันที่สิ้นสุด</form.Label>
+                    <form.Control
+                      type="date"
+                      placeholder="วันที่สิ้นสุด"
+                      defaultValue={edit_end_date_plant}
+                      autoFocus
+                      onChange={(e) => setEditEndDatePlant(e.target.value)}
+                    />
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlTextarea1"
+                  >
+                    <hr></hr>
+                    <form.Label>อัพโหลด</form.Label>
+                    <Zoom>
+                      <img
+                        src={
+                          data.plant_image ? data.plant_image : edit_path_img
+                        }
+                        width="100"
+                        height="100"
+                      />
+                    </Zoom>
+                    {/* <Row>
+                      <Col md>
+                        <form.Label>อัพโหลด</form.Label>
+                        <FileUpload
+                          btnIcon="fas fa-upload"
+                          multiple
+                          accept="image/*"
+                          onUpload={(file) => {
+                            const filesArray = [].slice.call(file);
+                            filesArray.forEach((e) => {
+                              setEditImageName(e.name);
+                            });
 
-                      const edit_img = {
-                        preview: URL.createObjectURL(file[0]),
-                        data: file[0],
-                      };
-                      setEditImage(edit_img);
-                    }}
-                  />
-                </Col>
-                <Col md>
-                  <form.Label>Preview</form.Label>
-                  <img
-                    src={editimage.preview ? editimage.preview : edit_path_img}
-                    className="img-fluid"
-                  />
-                </Col>
-              </Row>
-            </form.Group>
+                            const edit_img = {
+                              preview: URL.createObjectURL(file[0]),
+                              data: file[0],
+                            };
+                            setEditImage(edit_img);
+                          }}
+                        />
+                      </Col>
+                      <Col md>
+                        <form.Label>Preview</form.Label>
+                        <img
+                          src={
+                            editimage.preview
+                              ? editimage.preview
+                              : edit_path_img
+                          }
+                          className="img-fluid"
+                        />
+                      </Col>
+                    </Row> */}
+                  </form.Group>
+                </>
+              );
+            })}
           </form>
         </Modal.Body>
         <Modal.Footer>
