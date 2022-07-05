@@ -1129,9 +1129,7 @@ const Edit_data = (props) => {
                       <Col md>
                         <form.Label>Preview</form.Label>
                         <img
-                          src={
-                            data.plant_image ? data.plant_image : edit_path_img
-                          }
+                          src={data.plant_img ? data.plant_img : edit_path_img}
                           className="img-fluid"
                         />
                       </Col>
