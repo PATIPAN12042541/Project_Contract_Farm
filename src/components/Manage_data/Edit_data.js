@@ -1079,7 +1079,10 @@ const Edit_data = (props) => {
                     <select
                       className="custom-select form-control-border"
                       defaultValue={edit_name_plant}
-                      onChange={(e) => getDataSelect2(e.target.value)}
+                      onChange={(e) => {
+                        getDataSelect2(e.target.value);
+                        setEditNamePlant(e.target.value);
+                      }}
                     >
                       <option>------กรุณาเลือกชนิดพืช------</option>
                       {plantMaster.map((data, index) => {
