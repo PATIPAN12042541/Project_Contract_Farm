@@ -105,11 +105,10 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
     setCommentData(response.data);
-    Show_Comment();
   };
 
   const UpdateCommnent = async () => {
-    console.log(CommentUpdate + " " + CommentId);
+    //console.log(CommentUpdate + " " + CommentId);
     try {
       await axios
         .patch(
