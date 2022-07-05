@@ -10,7 +10,6 @@ const Plant_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
     );
     setPlantDetail(response.data);
-    // console.log(response.data);
   };
 
   useEffect(() => {

@@ -5,7 +5,7 @@ export const getSystemOverview = async (req, res) => {
     const Overview = await db.query(
       "SELECT history_contract_farming.id as history_id," +
         "history_contract_farming.zone_id," +
-        "history_contract_farming.zone_name," +
+        "CONCAT(history_contract_farming.zone_name,'-',history_contract_farming.plant_id_name) as zone_name," +
         "plant_master_detail.plant_name," +
         "CONCAT(user.name,' ',user.last_name) as username," +
         "history_contract_farming.plant_date_start as start_plant," +
