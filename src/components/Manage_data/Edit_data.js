@@ -324,36 +324,33 @@ const Edit_data = (props) => {
 
   const updatePlant = async (id) => {
     try {
-      if (edit_image_name === undefined) {
-        await axios.patch(
-          `${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,
-          {
-            name_plant: edit_name_plant,
-            start_date_plant: edit_start_date_plant,
-            end_date_plant: edit_end_date_plant,
-          }
-        );
-      } else {
-        await axios.patch(
-          `${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`,
-          {
-            name_plant: edit_name_plant,
-            start_date_plant: edit_start_date_plant,
-            end_date_plant: edit_end_date_plant,
-            plant_image: "../dist/img/" + edit_image_name,
-          }
-        );
-
-        editUploadImg();
-      }
-      getPlant();
-      Close_Edit();
-      Swal.fire("Succes !", "Your file has been Update.", "success");
+      await axios
+        .patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
+          name_plant: edit_name_plant,
+          start_date_plant: edit_start_date_plant,
+          end_date_plant: edit_end_date_plant,
+        })
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          getPlant();
+          Close_Edit();
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: error.response.data.message,
-        text: "Update Error!",
+        title: error.response.data.msg,
+        text: "Save Error!",
       });
     }
   };
@@ -1198,6 +1195,6 @@ const Edit_data = (props) => {
       </Modal>
     </div>
   );
-};
+};;
 
 export default Edit_data;
