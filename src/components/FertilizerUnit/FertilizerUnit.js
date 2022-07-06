@@ -48,8 +48,15 @@ const FertilizerUnit = () => {
         </div>
       </section>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            borderLine: "none",
+          }}
+        >
+          <Modal.Title>เพิ่มประเภทหน่วยนับ</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
         <Modal.Footer>
