@@ -30,6 +30,7 @@ import Page_Plant_detail from "./Page_1/Page_Plant_detail";
 import Plant_master from "./components/Plant_Master/Plant_master";
 import Page_fertilizer from "./Page_2/Page_fertilizer";
 import Page_Plant_fertilizer from "./Page_1/Page_Plant_fertilizer";
+import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 
 function App() {
   return (
@@ -221,6 +222,18 @@ function App() {
             exact
             path="/Page_Plant_fertilizer/:id"
             element={<Page_Plant_fertilizer />}
+          />
+          <Route
+            exact
+            path="/fertilizerUnit"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <FertilizerUnit />
+                <Footer />
+              </>
+            }
           />
         </Routes>
       </BrowserRouter>
