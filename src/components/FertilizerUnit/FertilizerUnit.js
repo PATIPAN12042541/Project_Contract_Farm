@@ -91,7 +91,9 @@ const FertilizerUnit = () => {
                         <tr>
                           <th>ลำดับ</th>
                           <th>ประเภทหน่วย</th>
-                          <th>ลบข้อมูล</th>
+                          <th>
+                            <center>ลบข้อมูล</center>
+                          </th>
                         </tr>
                       </thead>
                     </Table>
