@@ -1,4 +1,11 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
+import axios from "axios";
+import Swal from "sweetalert2";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { Link, useNavigate } from "react-router-dom";
 
 const FertilizerUnit = () => {
   return (
@@ -22,6 +29,11 @@ const FertilizerUnit = () => {
                   <center>
                     <h3 className="card-title">หน่วยนับของปุ๋ย</h3>
                   </center>
+                </div>
+                <div className="card-body">
+                  <div className="row">
+                    <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                  </div>
                 </div>
               </div>
             </div>
