@@ -268,6 +268,13 @@ const Edit_data = (props) => {
       await axios.delete(
         `${process.env.REACT_APP_API_URL}/getplant/plant/DeleteData/${id_delete}`
       );
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${id_delete}`,
+        {
+          plant_status: 1,
+          harvest_status: 1,
+        }
+      );
       getPlant();
       Swal.fire("Deleted!", "Your file has been deleted.", "success");
     } catch (error) {
