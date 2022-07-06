@@ -51,6 +51,7 @@ const FertilizerUnit = () => {
             text: "Save OK !",
           });
           handleClose();
+          getUnitData();
         })
         .catch(function (error) {
           Swal.fire({
