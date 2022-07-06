@@ -477,8 +477,7 @@ const Edit_data = (props) => {
   };
 
   const History_plant = (id, status) => {
-    // console.log("id : " + id + " status : " + status);
-
+    console.log("id : " + id + " status : " + status);
     let status2 = status - 1;
     if (status2 == "1") {
       getDataPlant(id); // get & post history data
