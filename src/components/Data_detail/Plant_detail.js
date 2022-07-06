@@ -50,10 +50,17 @@ const Plant_detail = (props) => {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-md-12">
-                        <img
-                          className="ima-size card-img-top"
-                          src={data.plant_image}
-                        />
+                        {data.status_plant == "1" ? (
+                          <img
+                            className="ima-size card-img-top"
+                            src="../dist/img/plant-garden.jpg"
+                          />
+                        ) : (
+                          <img
+                            className="ima-size card-img-top"
+                            src="../dist/img/harvest-veggies.jpg"
+                          />
+                        )}
                         <div id="text-word">
                           <center>กำลังดำเนินการ...</center>
                         </div>
