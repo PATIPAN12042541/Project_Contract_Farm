@@ -29,9 +29,12 @@ const FertilizerUnit = () => {
       });
     } else {
       await axios
-        .post(`${process.env.REACT_APP_API_URL}/chemical/PostFertilizerUnit`, {
-          unit: unitText,
-        })
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/PostFertilizerUnit`,
+          {
+            unit: unitText,
+          }
+        )
         .then(function (response) {
           Swal.fire({
             icon: "success",
