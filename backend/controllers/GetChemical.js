@@ -435,3 +435,21 @@ export const PostFertilizerUnit = async (req, res) => {
   }
 };
 //*/*/*/*/**//*/*/*/*//*/**/*/*//*/*//*/*/*/*/* */ */*/
+
+
+/************************Delete Unit ************************/
+export const DeleteFertilizerUnit = async (req, res) => {
+  try {
+    await FertilizerUnit_M.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Fertilizer Unit Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+/**************************************************************/

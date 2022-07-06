@@ -22,6 +22,7 @@ import {
   FertilizerDataDetail,
   updateFertilizerStauts,
   PostFertilizerUnit,
+  DeleteFertilizerUnit,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -48,6 +49,7 @@ router.patch("/updateChangeStatus/:id", UpdateChangeStatus);
 router.get("/FertilizerData/Detail/:id", FertilizerDataDetail);
 router.patch("/updateChangeStatus/Fertilizer/:id", updateFertilizerStauts);
 router.post("/PostFertilizerUnit", PostFertilizerUnit);
+router.delete("/DeleteFertilizerUnit/:id", DeleteFertilizerUnit);
 
 
 export default router;
