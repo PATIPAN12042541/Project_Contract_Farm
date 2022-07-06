@@ -58,7 +58,24 @@ const FertilizerUnit = () => {
         >
           <Modal.Title>เพิ่มประเภทหน่วยนับ</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ประเภทหน่วยนับ
+                </Form.Label>
+                <div className="col-sm-8">
+                  <Form.Control
+                    type="text"
+                    className="form-control"
+                    // onChange={(e) => setTypeChemical(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
