@@ -8,11 +8,49 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 
 const FertilizerUnit = () => {
+
+  const [unitText, setUnitText] = useState([]);
+
+  /*************** Modal *******************/
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  /******************************************/
+
+  const PostUnitData = async(e) => {
+    e.preventDefault();
+    if (unitText == "") {
+      Swal.fire({
+        icon: "error",
+        title: "กรุณากรอกข้อมูล",
+        text: "Save Error!",
+      });
+    } else {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
+            unit: unitText,
+        })
+        .then(function (response) {
+          
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          handleClose();  
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error,
+            text: "Save Error!",
+          });
+        });
+    }
+  }
+ 
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -69,7 +107,7 @@ const FertilizerUnit = () => {
                   <Form.Control
                     type="text"
                     className="form-control"
-                    // onChange={(e) => setTypeChemical(e.target.value)}
+                    onChange={(e) => setUnitText(e.target.value)}
                   />
                 </div>
               </div>
@@ -81,13 +119,13 @@ const FertilizerUnit = () => {
             ย้อนกลับ
           </Button>
           &nbsp;
-          <Button className="btn btn-success" onClick={handleClose}>
+          <Button className="btn btn-success" onClick={PostUnitData}>
             บันทึก
           </Button>
         </Modal.Footer>
       </Modal>
     </div>
   );
-};
+};;
 
 export default FertilizerUnit;

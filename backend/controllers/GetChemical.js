@@ -2,6 +2,7 @@ import db from "../config/Database.js";
 import NameChemical from "../models/ChemicalModel.js";
 import PlantDataDetail_M from "../models/PlantDataDetails_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
+import FertilizerUnit_M from "../models/FertilizerUnit_M.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -87,8 +88,6 @@ export const getFertilizerUnit = async (req, res) => {
   }
 };
 
-
-
 export const getFertilizerData = async (req, res) => {
   try {
     const data = await db.query(
@@ -119,7 +118,6 @@ export const getFertilizerData = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const deleteFertilizer = async (req, res) => {
   try {
@@ -245,7 +243,6 @@ export const postFertilizer = async (req, res) => {
   }
 };
 
-
 export const createChemical = async (req, res) => {
   const {
     name_chemical,
@@ -315,7 +312,6 @@ export const deleteChemical2 = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 export const ManageChemical = async (req, res) => {
   const {
@@ -409,7 +405,6 @@ export const FertilizerDataDetail = async (req, res) => {
   }
 };
 
-
 export const updateFertilizerStauts = async (req, res) => {
   try {
     await Fertilizer.update(req.body, {
@@ -422,5 +417,17 @@ export const updateFertilizerStauts = async (req, res) => {
     });
   } catch (error) {
     res.json({ message: error.message });
+  }
+};
+
+export const PostFertilizerUnit = async (req, res) => {
+  const { unit } = req.body;
+  try {
+    await FertilizerUnit_M.create({
+      unit: unit,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    res.json(error);
   }
 };
