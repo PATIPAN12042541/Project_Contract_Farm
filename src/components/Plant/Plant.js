@@ -60,12 +60,25 @@ const Plant = (props) => {
                             <div className="card mb-12 bg-gradient-white">
                               <div className="container">
                                 <div className="position-relative">
-                                  <div className="ribbon-wrapper ribbon-lg">
-                                    <div className="ribbon bg-success text-lg">
-                                      เสร็จสิ้น
+                                  {data.status_plant == "1" ? (
+                                    data.plant_status == "0" ? (
+                                      <div className="ribbon-wrapper ribbon-lg">
+                                        <div className="ribbon bg-success text-lg">
+                                          เสร็จสิ้น
+                                        </div>
+                                      </div>
+                                    ) : (
+                                      ""
+                                    )
+                                  ) : data.harvest_status == "0" ? (
+                                    <div className="ribbon-wrapper ribbon-lg">
+                                      <div className="ribbon bg-danger text-lg">
+                                        เสร็จสิ้น
+                                      </div>
                                     </div>
-                                  </div>
-
+                                  ) : (
+                                    ""
+                                  )}
                                   <div className="text-block-code">
                                     {data.zone_name + "-" + data.id_name_plant}
                                   </div>
