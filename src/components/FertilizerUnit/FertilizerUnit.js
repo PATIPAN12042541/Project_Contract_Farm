@@ -113,6 +113,21 @@ const FertilizerUnit = () => {
                   />
                 </div>
               </div>
+              <hr />
+              <div className="row">
+                <Table
+                  className="table table-bordered table-hover dataTable dtr-inline"
+                  responsive
+                >
+                  <thead>
+                    <tr>
+                      <th>ลำดับ</th>
+                      <th>ประเภทหน่วย</th>
+                      <th>ลบข้อมูล</th>
+                    </tr>
+                  </thead>
+                </Table>
+              </div>
             </div>
           </Form>
         </Modal.Body>
