@@ -77,11 +77,12 @@ const FertilizerUnit = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button className="btn btn-default" onClick={handleClose}>
+            ย้อนกลับ
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          &nbsp;
+          <Button className="btn btn-success" onClick={handleClose}>
+            บันทึก
           </Button>
         </Modal.Footer>
       </Modal>
