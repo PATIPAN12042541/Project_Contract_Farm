@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../CSS/Plant_detail.css";
+import Swal from "sweetalert2";
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
@@ -10,6 +11,40 @@ const Plant_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
     );
     setPlantDetail(response.data);
+    console.log(response.data);
+  };
+
+  const changeStatusPlant = async () => {
+    try {
+      await axios
+        .patch(
+          `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
+          {
+            plant_status: 0,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          getPlantData();
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   useEffect(() => {
@@ -71,6 +106,7 @@ const Plant_detail = (props) => {
                     <button
                       type="submit"
                       className="btn btn-success float-right"
+                      onClick={changeStatusPlant}
                     >
                       ยืนยัน
                     </button>
