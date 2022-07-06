@@ -32,7 +32,7 @@ const FertilizerUnit = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <Button variant="success">เพิ่มประเภทสารเคมี</Button>
+                    <Button variant="success">เพิ่มประเภทหน่วนับ</Button>
                   </div>
                 </div>
               </div>
