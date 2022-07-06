@@ -10,6 +10,24 @@ const FertilizerUnit = () => {
           </div>
         </div>
       </section>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="card card-success">
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152" }}
+                >
+                  <center>
+                    <h3 className="card-title">หน่วยนับของปุ๋ย</h3>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
