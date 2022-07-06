@@ -5,7 +5,7 @@ const { DataTypes } = Sequelize;
 const PlantHarvestStatus_M = db.define(
   "plant_harvest_status",
   {
-    id_plant: {
+    plant_id_data: {
       type: DataTypes.INTEGER,
     },
     plant_status: {
