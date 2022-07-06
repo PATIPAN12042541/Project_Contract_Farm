@@ -5,6 +5,7 @@ import PlantDataDetail from "../models/PlantDataDetail_M.js";
 import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 import PlantMasterDetail from "../models/PlantMasterDetail_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
+import PlantHarvestStatus_M from "../models/PlantHarvestStatus_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -73,7 +74,6 @@ export const getManagePlantEdit = async (req, res) => {
     res.json({ message: eror.message });
   }
 };
-
 
 export const getDataSelect = async (req, res) => {
   try {
@@ -318,9 +318,6 @@ export const getPlantMasterSetup = async (req, res) => {
   }
 };
 
-
-
-
 export const postPlantMaster = async (req, res) => {
   const { plant_name, plant_name_eng, plant_img, status_show } = req.body;
   try {
@@ -389,19 +386,14 @@ export const DeletePlantData = async (req, res) => {
   }
 };
 
-
 /********************** Comment Data ****************************/
-
 
 export const getCommentData = async (req, res) => {
   try {
-    const comment = await db.query(
-       "SELECT * FROM plant WHERE id = :id ",
-      {
-        replacements: { id : req.params.id },
-        type: db.QueryTypes.SELECT,
-      }
-    );
+    const comment = await db.query("SELECT * FROM plant WHERE id = :id ", {
+      replacements: { id: req.params.id },
+      type: db.QueryTypes.SELECT,
+    });
     res.json(comment);
   } catch (error) {
     res.json({ message: error.message });
@@ -427,3 +419,14 @@ export const getCommentDataUpdate = async (req, res) => {
 };
 
 /***************************************************************/
+export const PostPlantStatus = async (req, res) => {
+  const { plant_id_data } = req.body;
+  try {
+    await PlantHarvestStatus_M.create({
+      plant_id_data: plant_id_data,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    res.json(error);
+  }
+};

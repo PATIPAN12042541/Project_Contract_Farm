@@ -85,6 +85,7 @@ const Edit_data = (props) => {
   const [StatusPlant, setStatusPlant] = useState([]);
   const [getStatus, setGetStatus] = useState([]);
   const [getIdplant, setGetIdplant] = useState([]);
+  const [getPlantDataId, setPlantDataId] = useState([]);
   /*************************/
   const [plantMaster, setPlantMaster] = useState([]);
   const [getSelect, setGetSelect] = useState([
@@ -383,6 +384,27 @@ const Edit_data = (props) => {
           plant_status: getData.data[0].status_plant,
           plant_circle: getData.data[0].status_circle,
         })
+        .then(function (response) {})
+        .catch(function (error) {});
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        text: "Save Error!",
+      });
+    }
+    addStatusPlant();
+  };
+
+  const addStatusPlant = async () => {
+    try {
+      axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getplant/status/UpdatePlantStatus`,
+          {
+            plant_id_data: getPlantDataId,
+          }
+        )
         .then(function (response) {})
         .catch(function (error) {});
     } catch (error) {
@@ -892,6 +914,7 @@ const Edit_data = (props) => {
                                   style={{ color: "#fff" }}
                                   onClick={() => {
                                     Show_status();
+                                    setPlantDataId(data.id_plant);
                                     setCicleStatus(data.status_circle);
                                     setGetIdplant(data.plant_id);
                                     setGetIDStatus(data.status_plant);
