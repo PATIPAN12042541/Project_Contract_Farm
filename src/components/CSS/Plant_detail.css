@@ -2,6 +2,7 @@ div #text-word {
     position: absolute;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5);
+        border-inline-color: #ffff;
     color: #f1f1f1;
     /* padding-left: 50%;
             padding-right: 50%; */
