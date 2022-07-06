@@ -420,6 +420,9 @@ export const updateFertilizerStauts = async (req, res) => {
   }
 };
 
+
+
+/************************Post Unit ************************/
 export const PostFertilizerUnit = async (req, res) => {
   const { unit } = req.body;
   try {
@@ -431,3 +434,4 @@ export const PostFertilizerUnit = async (req, res) => {
     res.json(error);
   }
 };
+//*/*/*/*/**//*/*/*/*//*/**/*/*//*/*//*/*/*/*/* */ */*/

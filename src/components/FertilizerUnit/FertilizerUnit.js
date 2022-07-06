@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const FertilizerUnit = () => {
 
+  const [getUnit, setGetUnit] = useState([]);
   const [unitText, setUnitText] = useState([]);
 
   /*************** Modal *******************/
@@ -19,7 +20,15 @@ const FertilizerUnit = () => {
 
   /******************************************/
 
-  const PostUnitData = async(e) => {
+  const getUnitData = async (id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/FertilizerUnit`
+    );
+    setGetUnit(response.data);
+    console.log(response.data);
+  };
+
+  const PostUnitData = async (e) => {
     e.preventDefault();
     if (unitText == "") {
       Swal.fire({
@@ -51,8 +60,12 @@ const FertilizerUnit = () => {
           });
         });
     }
-  }
- 
+  };
+
+  useEffect(() => {
+    getUnitData();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -94,6 +107,24 @@ const FertilizerUnit = () => {
                           <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
+                      <tbody>
+                        {getUnit.map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.unit}</td>
+                            <td>
+                              <Button
+                                variant="danger"
+                                // onClick={(e) =>
+                                //   deleteTypeChemical(listChemical.id)
+                                // }
+                              >
+                                ลบข้อมูล
+                              </Button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
                     </Table>
                   </div>
                 </div>
