@@ -25,7 +25,7 @@ const FertilizerUnit = () => {
       `${process.env.REACT_APP_API_URL}/getChemical/FertilizerUnit`
     );
     setGetUnit(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const PostUnitData = async (e) => {
