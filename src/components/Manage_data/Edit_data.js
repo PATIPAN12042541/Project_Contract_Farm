@@ -396,6 +396,7 @@ const Edit_data = (props) => {
   };
 
   const addStatusPlant = async (id) => {
+    console.log(id);
     try {
       axios
         .post(
