@@ -420,10 +420,12 @@ export const getCommentDataUpdate = async (req, res) => {
 
 /***************************************************************/
 export const PostPlantStatus = async (req, res) => {
-  const { plant_id_data } = req.body;
+  const { plant_id_data, plant_status, harvest_status } = req.body;
   try {
     await PlantHarvestStatus_M.create({
       plant_id_data: plant_id_data,
+      plant_status: plant_status,
+      harvest_status: harvest_status,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {

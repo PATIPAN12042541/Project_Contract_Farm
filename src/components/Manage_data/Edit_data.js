@@ -402,6 +402,8 @@ const Edit_data = (props) => {
           `${process.env.REACT_APP_API_URL}/getplant/status/UpdatePlantStatus`,
           {
             plant_id_data: id,
+            plant_status: 1,
+            harvest_status: 1,
           }
         )
         .then(function (response) {})
