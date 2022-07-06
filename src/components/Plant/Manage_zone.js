@@ -150,6 +150,7 @@ const Manage_zone = () => {
 
         uploadImg();
       }
+      handleClose2();
       getPlant();
       Swal.fire("Succes !", "Your file has been Update.", "success");
     } catch (error) {
