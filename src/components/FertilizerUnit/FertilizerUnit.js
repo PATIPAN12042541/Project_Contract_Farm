@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
@@ -8,6 +8,11 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 
 const FertilizerUnit = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -32,7 +37,9 @@ const FertilizerUnit = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <Button variant="success">เพิ่มประเภทหน่วยนับ</Button>
+                    <Button variant="success" onClick={handleShow}>
+                      เพิ่มประเภทหน่วยนับ
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -40,6 +47,20 @@ const FertilizerUnit = () => {
           </div>
         </div>
       </section>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
