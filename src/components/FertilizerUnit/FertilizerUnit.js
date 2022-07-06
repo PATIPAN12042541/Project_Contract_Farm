@@ -29,17 +29,16 @@ const FertilizerUnit = () => {
       });
     } else {
       await axios
-        .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
-            unit: unitText,
+        .post(`${process.env.REACT_APP_API_URL}/chemical/PostFertilizerUnit`, {
+          unit: unitText,
         })
         .then(function (response) {
-          
           Swal.fire({
             icon: "success",
             title: "Success",
             text: "Save OK !",
           });
-          handleClose();  
+          handleClose();
         })
         .catch(function (error) {
           Swal.fire({
