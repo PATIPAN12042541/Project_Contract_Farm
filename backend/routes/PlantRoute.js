@@ -20,6 +20,7 @@ import {
   getPlantMasterSetup,
   getCommentData,
   getCommentDataUpdate,
+  UpdatePlantStatus,
   // PostPlantStatus,
 } from "../controllers/GetPlant.js";
 
@@ -45,6 +46,7 @@ router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
 router.delete("/plant/DeleteData/:id", DeletePlantData);
 router.get("/Comment/:id", getCommentData);
 router.patch("/Comment/update/:id", getCommentDataUpdate);
+router.patch("/update/PlantStatusUpdate/:id", UpdatePlantStatus);
 // router.post("/status/UpdatePlantStatus", PostPlantStatus);
 
 export default router;

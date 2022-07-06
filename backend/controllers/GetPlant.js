@@ -429,3 +429,19 @@ export const getCommentDataUpdate = async (req, res) => {
 };
 
 /***************************************************************/
+
+export const UpdatePlantStatus = async (req, res) => {
+  try {
+    await PlantHarvestStatus_M.update(req.body, {
+      where: {
+        plant_id_data: req.params.id,
+      },
+    });
+
+    res.json({
+      message: "Updated Saccess",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};

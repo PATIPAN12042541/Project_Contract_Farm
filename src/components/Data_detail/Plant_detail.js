@@ -14,13 +14,46 @@ const Plant_detail = (props) => {
     console.log(response.data);
   };
 
-  const changeStatusPlant = async () => {
+  const changeStatusPlant = async (status) => {
     try {
       await axios
         .patch(
           `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
           {
-            plant_status: 0,
+            plant_status: status,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          getPlantData();
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
+  };
+
+  const changeStatusHavest = async (status) => {
+    try {
+      await axios
+        .patch(
+          `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
+          {
+            harvest_status: status,
           }
         )
         .then(function (response) {
@@ -82,35 +115,78 @@ const Plant_detail = (props) => {
                       )}
                     </center>
                   </div>
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col-md-12">
-                        {data.status_plant == "1" ? (
+                  {data.status_plant == "1" ? (
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col-md-12">
                           <img
                             className="ima-size card-img-top"
                             src="../dist/img/plant-garden.jpg"
                           />
-                        ) : (
+                          <div id="text-word">
+                            <center>กำลังดำเนินการ...</center>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col-md-12">
                           <img
                             className="ima-size card-img-top"
                             src="../dist/img/harvest-veggies.jpg"
                           />
-                        )}
-                        <div id="text-word">
-                          <center>กำลังดำเนินการ...</center>
+                          <div id="text-word">
+                            <center>กำลังดำเนินการ...</center>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="card-footer">
-                    <button
-                      type="submit"
-                      className="btn btn-success float-right"
-                      onClick={changeStatusPlant}
-                    >
-                      ยืนยัน
-                    </button>
-                  </div>
+                  )}
+                  {data.status_plant == "1" ? (
+                    data.plant_status == "1" ? (
+                      <div className="card-footer">
+                        <button
+                          type="submit"
+                          className="btn btn-success float-right"
+                          onClick={() => changeStatusPlant(0)}
+                        >
+                          ยืนยัน
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="card-footer">
+                        <button
+                          type="submit"
+                          className="btn btn-default float-right"
+                          onClick={() => changeStatusPlant(1)}
+                        >
+                          ยกเลิก
+                        </button>
+                      </div>
+                    )
+                  ) : data.harvest_status == "1" ? (
+                    <div className="card-footer">
+                      <button
+                        type="submit"
+                        className="btn btn-success float-right"
+                        onClick={() => changeStatusHavest(0)}
+                      >
+                        ยืนยัน
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="card-footer">
+                      <button
+                        type="submit"
+                        className="btn btn-default float-right"
+                        onClick={() => changeStatusHavest(1)}
+                      >
+                        ยกเลิก
+                      </button>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
