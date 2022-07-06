@@ -71,7 +71,7 @@ const Plant = (props) => {
                                     )
                                   ) : data.harvest_status == "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
-                                      <div className="ribbon bg-danger text-lg">
+                                      <div className="ribbon bg-success text-lg">
                                         เสร็จสิ้น
                                       </div>
                                     </div>
