@@ -302,7 +302,6 @@ const Edit_data = (props) => {
             title: "Success",
             text: "Save OK !",
           });
-          addStatusPlant(idplant);
           getPlant();
         })
         .catch(function (error) {
@@ -395,28 +394,28 @@ const Edit_data = (props) => {
     }
   };
 
-  const addStatusPlant = async (id) => {
-    console.log(id);
-    try {
-      axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/getplant/status/UpdatePlantStatus`,
-          {
-            plant_id_data: id,
-            plant_status: 1,
-            harvest_status: 1,
-          }
-        )
-        .then(function (response) {})
-        .catch(function (error) {});
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        icon: "error",
-        text: "Save Error!",
-      });
-    }
-  };
+  // const addStatusPlant = async (id) => {
+  //   console.log(id);
+  //   try {
+  //     axios
+  //       .post(
+  //         `${process.env.REACT_APP_API_URL}/getplant/status/UpdatePlantStatus`,
+  //         {
+  //           plant_id_data: id,
+  //           plant_status: 1,
+  //           harvest_status: 1,
+  //         }
+  //       )
+  //       .then(function (response) {})
+  //       .catch(function (error) {});
+  //   } catch (error) {
+  //     console.log(error);
+  //     Swal.fire({
+  //       icon: "error",
+  //       text: "Save Error!",
+  //     });
+  //   }
+  // };
 
   // status 2
   const getDataPlant2 = async (id) => {
@@ -1221,6 +1220,6 @@ const Edit_data = (props) => {
       </Modal>
     </div>
   );
-};;
+};;;
 
 export default Edit_data;

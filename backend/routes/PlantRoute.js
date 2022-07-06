@@ -20,7 +20,7 @@ import {
   getPlantMasterSetup,
   getCommentData,
   getCommentDataUpdate,
-  PostPlantStatus,
+  // PostPlantStatus,
 } from "../controllers/GetPlant.js";
 
 const router = express.Router();
@@ -45,6 +45,6 @@ router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
 router.delete("/plant/DeleteData/:id", DeletePlantData);
 router.get("/Comment/:id", getCommentData);
 router.patch("/Comment/update/:id", getCommentDataUpdate);
-router.post("/status/UpdatePlantStatus", PostPlantStatus);
+// router.post("/status/UpdatePlantStatus", PostPlantStatus);
 
 export default router;

@@ -137,6 +137,16 @@ export const postDetailPlant = async (req, res) => {
       res.json({ message: error.message });
     }
 
+    try {
+      await PlantHarvestStatus_M.create({
+        plant_id_data: IdPlant[0].id,
+        plant_status: 1,
+        harvest_status: 1,
+      });
+    } catch (error) {
+      res.json({ message: error.message });
+    }
+
     res.json({ msg: "Registration Successful" });
   } catch (error) {
     res.json({ message: error.message });
@@ -419,16 +429,3 @@ export const getCommentDataUpdate = async (req, res) => {
 };
 
 /***************************************************************/
-export const PostPlantStatus = async (req, res) => {
-  const { plant_id_data, plant_status, harvest_status } = req.body;
-  try {
-    await PlantHarvestStatus_M.create({
-      plant_id_data: plant_id_data,
-      plant_status: plant_status,
-      harvest_status: harvest_status,
-    });
-    res.json({ msg: "Create Successful" });
-  } catch (error) {
-    res.json(error);
-  }
-};
