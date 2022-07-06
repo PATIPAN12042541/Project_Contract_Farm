@@ -81,6 +81,21 @@ const FertilizerUnit = () => {
                       เพิ่มประเภทหน่วยนับ
                     </Button>
                   </div>
+                  <hr />
+                  <div className="row">
+                    <Table
+                      className="table table-bordered table-hover dataTable dtr-inline"
+                      responsive
+                    >
+                      <thead>
+                        <tr>
+                          <th>ลำดับ</th>
+                          <th>ประเภทหน่วย</th>
+                          <th>ลบข้อมูล</th>
+                        </tr>
+                      </thead>
+                    </Table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,21 +127,6 @@ const FertilizerUnit = () => {
                     onChange={(e) => setUnitText(e.target.value)}
                   />
                 </div>
-              </div>
-              <hr />
-              <div className="row">
-                <Table
-                  className="table table-bordered table-hover dataTable dtr-inline"
-                  responsive
-                >
-                  <thead>
-                    <tr>
-                      <th>ลำดับ</th>
-                      <th>ประเภทหน่วย</th>
-                      <th>ลบข้อมูล</th>
-                    </tr>
-                  </thead>
-                </Table>
               </div>
             </div>
           </Form>
