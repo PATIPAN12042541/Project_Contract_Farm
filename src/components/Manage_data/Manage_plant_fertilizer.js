@@ -539,11 +539,8 @@ const Manage_plant_fertilizer = (props) => {
             </div>
           </div>
         </div>
-      </section>;
-
-      {
-        /* Edit fertilizer*/
-      }
+      </section>
+      {/* Edit fertilizer*/}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -688,7 +685,7 @@ const Manage_plant_fertilizer = (props) => {
             บันทึก
           </button>
         </Modal.Footer>
-      </Modal>;
+      </Modal>
     </div>
   );
 };
