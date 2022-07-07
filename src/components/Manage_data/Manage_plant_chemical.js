@@ -288,13 +288,11 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue=""
+                          defaultValue={defaultValue}
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
-                          <option id="0" value={defaultValue}>
-                            ----ระยะเวลาตกค้าง----
-                          </option>
+                          <option value={0}>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
                             return (
                               <option
