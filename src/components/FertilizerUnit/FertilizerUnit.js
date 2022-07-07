@@ -6,9 +6,9 @@ import Swal from "sweetalert2";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
+import { BsTrashFill } from "react-icons/bs";
 
 const FertilizerUnit = () => {
-
   const [getUnit, setGetUnit] = useState([]);
   const [unitText, setUnitText] = useState([]);
 
@@ -153,7 +153,7 @@ const FertilizerUnit = () => {
                                 variant="danger"
                                 onClick={(e) => deleteUnitData(data.id)}
                               >
-                                ลบข้อมูล
+                                <BsTrashFill /> ลบข้อมูล
                               </Button>
                             </td>
                           </tr>
