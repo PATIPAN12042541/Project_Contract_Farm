@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import FileUpload from "@hawk-ui/file-upload";
 import Form from "react-bootstrap/Form";
 import "../CSS/List_chemical.css";
+import { BsTrashFill } from "react-icons/bs";
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
@@ -77,7 +78,6 @@ const List_Chemical = () => {
         text: "Save Error!",
       });
     } else {
-
       await axios
         .post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`, {
           name_chemical: nameChemicalThai,
@@ -138,7 +138,6 @@ const List_Chemical = () => {
   };
 
   const deleteChemical = async (id) => {
-
     console.log(id);
     Swal.fire({
       title: "Are you sure?",
@@ -279,7 +278,7 @@ const List_Chemical = () => {
                                 variant="danger"
                                 onClick={(e) => deleteChemical(listChemical.id)}
                               >
-                                ลบข้อมูล
+                                <BsTrashFill /> ลบข้อมูล
                               </Button>
                             </td>
                           </tr>
