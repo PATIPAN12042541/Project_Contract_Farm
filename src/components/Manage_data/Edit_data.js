@@ -289,43 +289,52 @@ const Edit_data = (props) => {
   };
 
   const postPlant = async (e) => {
-    e.preventDefault();
-    const autoid = uuidv4();
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
-          id_name_plant: idplant,
-          id_zone: props.id,
-          id_user: userid,
-          autoid_check: autoid,
-          name_plant: getSelect[0].id,
-          start_date_plant: startdate,
-          end_date_plant: enddate,
-          //image_url: image_name,
-        })
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
-          });
-          getPlant();
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
-        });
-
-      //uploadImg();
-    } catch (error) {
+    
+    if (idplant == "" || userid == "" || startdate == "" || enddate == "") {
       Swal.fire({
         icon: "error",
-        title: error.response.data.msg,
+        title: "กรุณาใส่ข้อมูลให้ครบถ้วน",
         text: "Save Error!",
       });
+    } else {
+      e.preventDefault();
+      const autoid = uuidv4();
+      try {
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/getplant/DetailPlant`, {
+            id_name_plant: idplant,
+            id_zone: props.id,
+            id_user: userid,
+            autoid_check: autoid,
+            name_plant: getSelect[0].id,
+            start_date_plant: startdate,
+            end_date_plant: enddate,
+            //image_url: image_name,
+          })
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            getPlant();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+
+        //uploadImg();
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
     }
   };
 
