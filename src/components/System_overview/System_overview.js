@@ -3,6 +3,7 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import "../CSS/System_overview.css";
 import { CSVLink } from "react-csv";
+import { BsFillPrinterFill } from "react-icons/bs";
 
 const System_overview = () => {
   const [Overview, setOverview] = useState([]);
@@ -230,6 +231,7 @@ const System_overview = () => {
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
+                          <BsFillPrinterFill />
                           Export CSV
                         </CSVLink>
                       ) : (
@@ -240,6 +242,7 @@ const System_overview = () => {
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
+                          <BsFillPrinterFill />
                           Export CSV
                         </CSVLink>
                       )}
