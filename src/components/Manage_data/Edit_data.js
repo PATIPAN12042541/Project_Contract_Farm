@@ -679,7 +679,7 @@ const Edit_data = (props) => {
                                         id="exampleInputBorder"
                                         placeholder="วันที่เริ่มต้น"
                                         defaultValue={startdate}
-                                        min={enddate}
+                                        max={enddate}
                                         onChange={(e) =>
                                           setStartDate(e.target.value)
                                         }
@@ -695,7 +695,7 @@ const Edit_data = (props) => {
                                         id="exampleInputBorder"
                                         placeholder="วันที่สิ้นสุด"
                                         defaultValue={enddate}
-                                        max={startdate}
+                                        min={startdate}
                                         onChange={(e) =>
                                           setEndDate(e.target.value)
                                         }
