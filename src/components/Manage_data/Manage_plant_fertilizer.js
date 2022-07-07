@@ -591,6 +591,7 @@ const Manage_plant_fertilizer = (props) => {
                         type="date"
                         className="form-control"
                         defaultValue={startdateE}
+                        max={enddateE}
                         onChange={(e) => setStartDateE(e.target.value)}
                       />
                     </div>
@@ -603,6 +604,7 @@ const Manage_plant_fertilizer = (props) => {
                       <input
                         type="date"
                         className="form-control"
+                        min={startdateE}
                         defaultValue={enddateE}
                         onChange={(e) => setEndDateE(e.target.value)}
                       />
