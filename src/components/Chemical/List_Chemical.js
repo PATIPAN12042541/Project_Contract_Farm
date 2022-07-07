@@ -278,7 +278,7 @@ const List_Chemical = () => {
                                 variant="danger"
                                 onClick={(e) => deleteChemical(listChemical.id)}
                               >
-                                <BsTrashFill /> ลบข้อมูล
+                                <BsTrashFill />
                               </Button>
                             </td>
                           </tr>
