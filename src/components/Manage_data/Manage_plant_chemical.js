@@ -310,7 +310,7 @@ const Manage_plant_chemical = (props) => {
                       </label>
                       <div className="col-sm-1">
                         <input
-                          type="text"
+                          type="number"
                           className="form-control form-control-border"
                           placeholder="CC"
                           defaultValue={ratiocc}
@@ -319,7 +319,7 @@ const Manage_plant_chemical = (props) => {
                       </div>
                       <div className="col-sm-1">
                         <input
-                          type="text"
+                          type="number"
                           className="form-control form-control-border"
                           placeholder="L"
                           defaultValue={ratioL}
