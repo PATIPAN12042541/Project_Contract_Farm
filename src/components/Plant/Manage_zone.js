@@ -64,9 +64,9 @@ const Manage_zone = () => {
     
     if (idzone == "" || image_name == "" || lat == "" || lon == "") {
       Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: "Save OK !",
+        icon: "error",
+        title: "โปรดใส่ข้อมูลให้ครบถ้วน",
+        text: "Save Error!",
       });
     } else {
       const autoid = uuidv4();
