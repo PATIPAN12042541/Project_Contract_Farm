@@ -288,7 +288,6 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue={defaultValueData}
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
