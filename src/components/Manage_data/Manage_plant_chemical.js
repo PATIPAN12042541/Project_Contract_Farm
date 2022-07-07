@@ -94,8 +94,8 @@ const Manage_plant_chemical = (props) => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
-    setExpired("");
     setExpired(response.data);
+    console.log(response.data);
   };;
 
   const getChemicals = async () => {
