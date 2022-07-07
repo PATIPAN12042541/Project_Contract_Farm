@@ -54,7 +54,7 @@ const Manage_zone = () => {
     console.log(formData);
 
     await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/Zone`, formData)
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/Zone/`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
   };
@@ -150,7 +150,7 @@ const Manage_zone = () => {
           `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
           {
             zone_name: idzone,
-            image_zone: "../dist/img/Zone" + image_name,
+            image_zone: "../dist/img/Zone/" + image_name,
             lat: lat,
             lon: lon,
           }
