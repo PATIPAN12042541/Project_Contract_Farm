@@ -6,6 +6,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { BsTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 
 const ListTypeUser = () => {
   const [listTypeUser, setListTypeUser] = useState([]);
@@ -152,7 +154,12 @@ const ListTypeUser = () => {
                             <td>{listTypeUser.role_group_name}</td>
                             <td>
                               <Link to={`/UpdateTypeUser/${listTypeUser.id}`}>
-                                <Button variant="info">แก้ไขข้อมูล</Button>
+                                <Button
+                                  variant="warning"
+                                  style={{ color: "#ffff" }}
+                                >
+                                  <AiFillEdit /> แก้ไขข้อมูล
+                                </Button>
                               </Link>
                             </td>
                             <td>
@@ -160,7 +167,7 @@ const ListTypeUser = () => {
                                 variant="danger"
                                 onClick={(e) => deleteTypeUser(listTypeUser.id)}
                               >
-                                ลบข้อมูล
+                                <BsTrashFill /> ลบข้อมูล
                               </Button>
                             </td>
                           </tr>
