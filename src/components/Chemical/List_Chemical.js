@@ -270,7 +270,7 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <Link to={`/UpdateChemical/${listChemical.id}`}>
-                                <Button variant="warningv">แก้ไขข้อมูล</Button>
+                                <Button variant="warning">แก้ไขข้อมูล</Button>
                               </Link>
                             </td>
                             <td>
