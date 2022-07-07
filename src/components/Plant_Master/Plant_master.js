@@ -46,35 +46,45 @@ const Plant_master = () => {
 
   // Post Data Plant
   const PostPlantMaster = async (e) => {
-    e.preventDefault();
-
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/getplant/plant/postMasterPlant`, {
-        plant_name: nameThai,
-        plant_name_eng: nameEng,
-        plant_img:
-          image_name === undefined
-            ? "../dist/img/No_Image_Available.jpg"
-            : "../dist/img/" + image_name,
-        status_show: checked,
-      })
-      .then(function (response) {
-        uploadImg();
-        getPlantMasterDetail();
-        CloseMaster();
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Save OK !",
-        });
-      })
-      .catch(function (error) {
-        Swal.fire({
-          icon: "error",
-          title: error,
-          text: "Save Error!",
-        });
+    if (nameThai == "" || nameEng == "") {
+      Swal.fire({
+        icon: "error",
+        title: "กรุณากรอกข้อมูล",
+        text: "Save Error!",
       });
+    } else {
+      e.preventDefault();
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getplant/plant/postMasterPlant`,
+          {
+            plant_name: nameThai,
+            plant_name_eng: nameEng,
+            plant_img:
+              image_name === undefined
+                ? "../dist/img/No_Image_Available.jpg"
+                : "../dist/img/" + image_name,
+            status_show: checked,
+          }
+        )
+        .then(function (response) {
+          uploadImg();
+          getPlantMasterDetail();
+          CloseMaster();
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error,
+            text: "Save Error!",
+          });
+        });
+    }
   };
 
   // post image
