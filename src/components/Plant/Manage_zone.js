@@ -61,40 +61,42 @@ const Manage_zone = () => {
 
   // Post Data
   const postZone = async () => {
-    const autoid = uuidv4();
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/zoneplant/postZone`, {
-          zone_name: idzone,
-          image_zone: image_name,
-          auto_id_zone: autoid,
-          lat: lat,
-          lon: lon,
-        })
-        .then(function (response) {
-          getPlant();
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
-          });
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
-        });
+    
 
-      uploadImg();
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
-    }
+      const autoid = uuidv4();
+      try {
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/zoneplant/postZone`, {
+            zone_name: idzone,
+            image_zone: image_name,
+            auto_id_zone: autoid,
+            lat: lat,
+            lon: lon,
+          })
+          .then(function (response) {
+            getPlant();
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+
+        uploadImg();
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
   };
 
   // delete data
@@ -121,7 +123,7 @@ const Manage_zone = () => {
             title: error.response.data.msg,
             text: "error.response.data.msg !",
           });
-        }
+        } 
       }
     });
   };
