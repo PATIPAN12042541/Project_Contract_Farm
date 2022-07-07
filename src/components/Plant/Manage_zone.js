@@ -62,7 +62,13 @@ const Manage_zone = () => {
   // Post Data
   const postZone = async () => {
     
-
+    if (idzone == "" || image_name == "" || lat == "" || lon == "") {
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Save OK !",
+      });
+    } else {
       const autoid = uuidv4();
       try {
         await axios
@@ -97,6 +103,7 @@ const Manage_zone = () => {
           text: "Save Error!",
         });
       }
+    }
   };
 
   // delete data
