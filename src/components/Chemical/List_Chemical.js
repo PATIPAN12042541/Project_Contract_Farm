@@ -11,6 +11,7 @@ import FileUpload from "@hawk-ui/file-upload";
 import Form from "react-bootstrap/Form";
 import "../CSS/List_chemical.css";
 import { BsTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
@@ -270,7 +271,9 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <Link to={`/UpdateChemical/${listChemical.id}`}>
-                                <Button variant="warning">แก้ไขข้อมูล</Button>
+                                <Button variant="warning">
+                                  <AiFillEdit />
+                                </Button>
                               </Link>
                             </td>
                             <td>
