@@ -1147,6 +1147,7 @@ const Edit_data = (props) => {
                         placeholder="วันที่เริ่มต้น"
                         defaultValue={edit_start_date_plant}
                         autoFocus
+                        max={edit_end_date_plant}
                         onChange={(e) => setEditStartDatePlant(e.target.value)}
                       />
                     </form.Group>
@@ -1159,6 +1160,7 @@ const Edit_data = (props) => {
                         type="date"
                         placeholder="วันที่สิ้นสุด"
                         defaultValue={edit_end_date_plant}
+                        min={edit_start_date_plant}
                         autoFocus
                         onChange={(e) => setEditEndDatePlant(e.target.value)}
                       />
