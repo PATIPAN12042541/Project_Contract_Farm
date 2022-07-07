@@ -95,7 +95,6 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
     setExpired(response.data);
-    setDefaultValue(3);
   };
 
   const getChemicals = async () => {
@@ -263,6 +262,7 @@ const Manage_plant_chemical = (props) => {
                           onChange={(e) => {
                             setEnddate(e.target.value);
                             setStartDate(e.target.value);
+                            setDefaultValue(3);
                             getExpired();
                           }}
                         />
@@ -292,7 +292,7 @@ const Manage_plant_chemical = (props) => {
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
-                          <option value={0}>----ระยะเวลาตกค้าง----</option>
+                          <option value="0">----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
                             return (
                               <option
