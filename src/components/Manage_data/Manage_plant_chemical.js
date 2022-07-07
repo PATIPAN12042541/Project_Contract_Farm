@@ -292,7 +292,7 @@ const Manage_plant_chemical = (props) => {
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
-                          <option value="0">----ระยะเวลาตกค้าง----</option>
+                          <option value={0}>----ระยะเวลาตกค้าง----</option>
                           {expired.map((expired, index2) => {
                             return (
                               <option
