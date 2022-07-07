@@ -271,8 +271,13 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <Link to={`/UpdateChemical/${listChemical.id}`}>
-                                <Button variant="warning">
-                                  <AiFillEdit />
+                                <Button
+                                  variant="warning"
+                                  style={{ color: "#ffff" }}
+                                >
+                                  <center>
+                                    <AiFillEdit />
+                                  </center>
                                 </Button>
                               </Link>
                             </td>
@@ -281,7 +286,9 @@ const List_Chemical = () => {
                                 variant="danger"
                                 onClick={(e) => deleteChemical(listChemical.id)}
                               >
-                                <BsTrashFill />
+                                <center>
+                                  <BsTrashFill />
+                                </center>
                               </Button>
                             </td>
                           </tr>
