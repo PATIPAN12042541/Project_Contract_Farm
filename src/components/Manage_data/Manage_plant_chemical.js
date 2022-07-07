@@ -96,7 +96,7 @@ const Manage_plant_chemical = (props) => {
     );
     setExpired(response.data);
     setdefaultValueData(0);
-    console.log(response.data);
+    console.log(defaultValueData);
   };
 
   const getChemicals = async () => {
