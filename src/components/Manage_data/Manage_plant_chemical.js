@@ -94,6 +94,7 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
     setExpired(response.data);
+    console.log(response.data);
   };
 
   const getChemicals = async () => {
@@ -180,7 +181,6 @@ const Manage_plant_chemical = (props) => {
   useEffect(() => {
     getChemicals();
     getDatadetail();
-    getExpired();
   }, []);
 
   return (
@@ -259,10 +259,11 @@ const Manage_plant_chemical = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue=""
-                          onChange={(e) => (
-                            setEnddate(e.target.value),
-                            setStartDate(e.target.value)
-                          )}
+                          onChange={(e) => {
+                            setEnddate(e.target.value);
+                            setStartDate(e.target.value);
+                            getExpired();
+                          }}
                         />
                       </div>
                       <label className="col-sm-1 col-form-label">
