@@ -21,6 +21,7 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
+  const [defaultValue, setDefaultValue] = useState([0]);
   const [IdExpired, setIDExpired] = useState([]);
   const [ratiocc, setRatiocc] = useState([]);
   const [ratioL, setratioL] = useState([]);
@@ -90,13 +91,7 @@ const Manage_plant_chemical = (props) => {
   };
 
   const getExpired = async () => {
-    setExpired([
-      {
-        id: "",
-        time: "",
-        unit: "",
-      },
-    ]);
+    setDefaultValue(0);
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
@@ -298,7 +293,7 @@ const Manage_plant_chemical = (props) => {
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
-                          <option id="0" value="0">
+                          <option id="0" value={defaultValue}>
                             ----ระยะเวลาตกค้าง----
                           </option>
                           {expired.map((expired, index2) => {
