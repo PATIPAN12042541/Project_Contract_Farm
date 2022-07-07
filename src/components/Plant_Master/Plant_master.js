@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import FileUpload from "@hawk-ui/file-upload";
+import { BsTrashFill } from "react-icons/bs";
 
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
@@ -196,7 +197,9 @@ const Plant_master = () => {
                     >
                       <thead>
                         <tr>
-                          <th><center>ลำดับ</center></th>
+                          <th>
+                            <center>ลำดับ</center>
+                          </th>
                           <th>ชื่อพืช (ไทย)</th>
                           <th>ชื่อพืช (Eng)</th>
                           <th>
@@ -304,7 +307,7 @@ const Plant_master = () => {
                                     deletePlants(data.id);
                                   }}
                                 >
-                                  ลบข้อมูล
+                                  <BsTrashFill /> ลบข้อมูล
                                 </button>
                               </center>
                             </td>
