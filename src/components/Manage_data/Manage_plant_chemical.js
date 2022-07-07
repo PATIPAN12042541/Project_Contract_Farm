@@ -95,7 +95,7 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
     setExpired(response.data);
-    setDefaultValue(0);
+    setDefaultValue(3);
   };
 
   const getChemicals = async () => {
