@@ -21,7 +21,7 @@ const Manage_plant_chemical = (props) => {
       eu_mrl: "",
     },
   ]);
-  const [defaultValue, setDefaultValue] = useState([0]);
+  const [defaultValueData, setdefaultValueData] = useState([0]);
   const [IdExpired, setIDExpired] = useState([]);
   const [ratiocc, setRatiocc] = useState([]);
   const [ratioL, setratioL] = useState([]);
@@ -95,8 +95,9 @@ const Manage_plant_chemical = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getExpired`
     );
     setExpired(response.data);
+    setdefaultValueData(0);
     console.log(response.data);
-  };;
+  };
 
   const getChemicals = async () => {
     const response = await axios.get(
@@ -289,7 +290,7 @@ const Manage_plant_chemical = (props) => {
                       <div className="col-sm-2 input-group date">
                         <select
                           className="custom-select form-control-border"
-                          defaultValue={defaultValue}
+                          defaultValue={defaultValueData}
                           disabled={checkinput}
                           onChange={setEnddate2}
                         >
