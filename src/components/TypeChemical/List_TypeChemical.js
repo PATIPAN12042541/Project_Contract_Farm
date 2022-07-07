@@ -6,6 +6,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { BsTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
@@ -17,38 +19,37 @@ const List_Chemical = () => {
   const navigate = useNavigate();
 
   const AddTypeChemical = async (e) => {
-        e.preventDefault();
-        if (typeChemical == "") {
+    e.preventDefault();
+    if (typeChemical == "") {
+      Swal.fire({
+        icon: "error",
+        title: "กรุณากรอกข้อมูล",
+        text: "Save Error!",
+      });
+    } else {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
+          type_chemical: typeChemical,
+          status: checked,
+        })
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          navigate("/TypeChemical");
+          handleClose();
+          getListChemical();
+        })
+        .catch(function (error) {
           Swal.fire({
             icon: "error",
-            title: "กรุณากรอกข้อมูล",
+            title: error,
             text: "Save Error!",
           });
-        } else {
-          await axios
-            .post(`${process.env.REACT_APP_API_URL}/chemical/addTypeChemical`, {
-              type_chemical: typeChemical,
-              status: checked,
-            })
-            .then(function (response) {
-              
-              Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              navigate("/TypeChemical");
-              handleClose();
-              getListChemical();      
-            })
-            .catch(function (error) {
-              Swal.fire({
-                icon: "error",
-                title: error,
-                text: "Save Error!",
-              });
-            });
-        }
+        });
+    }
   };
 
   useEffect(() => {
@@ -149,7 +150,9 @@ const List_Chemical = () => {
                             <td>{listChemical.type_chemical}</td>
                             <td>
                               <Link to={`/editTypeChemical/${listChemical.id}`}>
-                                <Button variant="info">แก้ไขข้อมูล</Button>
+                                <Button variant="warning">
+                                  <AiFillEdit /> แก้ไขข้อมูล
+                                </Button>
                               </Link>
                             </td>
                             <td>
@@ -159,7 +162,7 @@ const List_Chemical = () => {
                                   deleteTypeChemical(listChemical.id)
                                 }
                               >
-                                ลบข้อมูล
+                                <BsTrashFill /> ลบข้อมูล
                               </Button>
                             </td>
                           </tr>
