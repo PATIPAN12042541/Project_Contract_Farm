@@ -231,8 +231,7 @@ const System_overview = () => {
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
-                          <BsFillPrinterFill />
-                          Export CSV
+                          <BsFillPrinterFill /> Export CSV
                         </CSVLink>
                       ) : (
                         <CSVLink
@@ -242,8 +241,7 @@ const System_overview = () => {
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
-                          <BsFillPrinterFill />
-                          Export CSV
+                          <BsFillPrinterFill /> Export CSV
                         </CSVLink>
                       )}
                     </button>
