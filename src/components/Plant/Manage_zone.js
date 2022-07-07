@@ -54,14 +54,13 @@ const Manage_zone = () => {
     console.log(formData);
 
     await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/Zone`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
   };
 
   // Post Data
   const postZone = async () => {
-    
     if (idzone == "" || image_name == "" || lat == "" || lon == "") {
       Swal.fire({
         icon: "error",
@@ -130,7 +129,7 @@ const Manage_zone = () => {
             title: error.response.data.msg,
             text: "error.response.data.msg !",
           });
-        } 
+        }
       }
     });
   };
@@ -151,7 +150,7 @@ const Manage_zone = () => {
           `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
           {
             zone_name: idzone,
-            image_zone: "../dist/img/" + image_name,
+            image_zone: "../dist/img/Zone" + image_name,
             lat: lat,
             lon: lon,
           }

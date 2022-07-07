@@ -74,6 +74,29 @@ try {
   res.json(console.log("Upload 2 Fail"));
 }
 /****************************************************************************/
+/******** Upload File To Folder public/dist/img/ to frontend **************/
+const storage_3 = diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../public/dist/img/Zone");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload_3 = multer({ storage: storage_3 });
+try {
+  app.post(
+    "/public/dist/img/Zone",
+    upload_3.single("file"),
+    function (req, res) {
+      res.json({});
+    }
+  );
+} catch (error) {
+  res.json(console.log("Upload 3 Fail"));
+}
+/****************************************************************************/
 
 app.use(cookieParser());
 app.use(express.json());
@@ -89,6 +112,4 @@ app.use("/header", Header);
 app.use("/OverView", OverView);
 app.use("/History", History);
 
-
- 
 app.listen(4000, () => console.log("Server running at port 4000"));

@@ -92,7 +92,7 @@ export const postZone = async (req, res) => {
   try {
     await ZonePlant.create({
       zone_name: zone_name,
-      image_zone: "../dist/img/" + image_zone,
+      image_zone: "../dist/img/Zone" + image_zone,
       auto_id_zone: auto_id_zone,
       lat: lat,
       lon: lon,
