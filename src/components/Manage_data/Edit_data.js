@@ -290,7 +290,7 @@ const Edit_data = (props) => {
 
   const postPlant = async (e) => {
     
-    if (idplant == "" || userid == "" || startdate == "" || enddate == "") {
+    if (idplant == "" || startdate == "" || enddate == "") {
       Swal.fire({
         icon: "error",
         title: "กรุณาใส่ข้อมูลให้ครบถ้วน",
