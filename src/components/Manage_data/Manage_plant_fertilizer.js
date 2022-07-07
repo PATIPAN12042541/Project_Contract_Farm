@@ -301,6 +301,7 @@ const Manage_plant_fertilizer = (props) => {
                           className="form-control form-control-border"
                           placeholder="วันที่เริ่มต้น"
                           defaultValue={dateStart}
+                          max={dateEnd}
                           onChange={(e) => setdateStart(e.target.value)}
                         />
                       </div>
@@ -315,6 +316,7 @@ const Manage_plant_fertilizer = (props) => {
                           type="date"
                           className="form-control form-control-border"
                           placeholder="วันที่สิ้นสุด"
+                          min={dateStart}
                           defaultValue={dateEnd}
                           onChange={(e) => setdateEnd(e.target.value)}
                         />
