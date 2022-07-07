@@ -112,7 +112,6 @@ const Edit_data = (props) => {
   ]);
 
   const getCommnent = async (id) => {
-    //console.log(id);
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getplant/Comment/${id}`
     );
@@ -121,7 +120,6 @@ const Edit_data = (props) => {
   };
 
   const UpdateCommnent = async () => {
-    //console.log(CommentUpdate + " " + CommentId);
     try {
       await axios
         .patch(
@@ -154,15 +152,15 @@ const Edit_data = (props) => {
     }
   };
 
-  const editUploadImg = async () => {
-    let formData = new FormData();
-    formData.append("file", editimage.data);
+  // const editUploadImg = async () => {
+  //   let formData = new FormData();
+  //   formData.append("file", editimage.data);
 
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.error(err));
-  };
+  //   await axios
+  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.error(err));
+  // };
 
   const getPlant = async () => {
     const response = await axios.get(
@@ -289,7 +287,6 @@ const Edit_data = (props) => {
   };
 
   const postPlant = async (e) => {
-    
     if (idplant == "" || startdate == "" || enddate == "") {
       Swal.fire({
         icon: "error",
@@ -572,690 +569,677 @@ const Edit_data = (props) => {
     }
   };
 
-    useEffect(() => {
-      getPlant();
-      getPlantUser();
-      getStatusPlant();
-      getPlantMasterDetail();
-    }, []);
+  useEffect(() => {
+    getPlant();
+    getPlantUser();
+    getStatusPlant();
+    getPlantMasterDetail();
+  }, []);
 
-    return (
-      <div className="content-wrapper">
-        <section className="content-header">
-          <div className="container-fluid">
-            <div className="row mb-2">
-              <div className="col-sm-12"></div>
-            </div>
+  return (
+    <div className="content-wrapper">
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-12"></div>
           </div>
-        </section>
-        <section className="content">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-12">
-                <div className="card">
-                  <div
-                    className="card-header"
-                    style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
-                  >
-                    <h3 className="card-title">จัดการข้อมูลแปลงเพาะปลูก</h3>
-                  </div>
-                  <div className="card-body">
-                    <div className="col-12">
-                      <div className="card card-primary">
-                        <div
-                          className="card-header"
-                          style={{
-                            backgroundColor: "#8CC152",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          <h3 className="card-title">
-                            เพิ่มข้อมูลแปลงเพาะปลูก
-                          </h3>
-                        </div>
-                        <form onSubmit={postPlant}>
-                          {getSelect.map((dataImg, index) => {
-                            return (
-                              <div className="card-body" key={index}>
-                                <div className="form-group">
-                                  <div className="row">
-                                    <div className="col-1">
-                                      <center>
-                                        <label>รหัส</label>
-                                      </center>
-                                      <input
-                                        type="number"
-                                        className="form-control form-control-border"
-                                        id="exampleInputBorder"
-                                        defaultValue={idplant}
-                                        placeholder="รหัส"
-                                        onChange={(e) =>
-                                          setIdPlant(e.target.value)
-                                        }
-                                      ></input>
-                                    </div>
-                                    <div className="col-3">
-                                      <center>
-                                        <label>ชื่อแปลงเพาะปลูก</label>
-                                      </center>
-                                      <select
-                                        className="custom-select form-control-border"
-                                        onChange={(e) =>
-                                          getDataSelect(e.target.value)
-                                        }
-                                      >
-                                        <option>
-                                          ------กรุณาเลือกชนิดพืช------
-                                        </option>
-                                        {plantMaster.map((data, index) => {
-                                          return (
-                                            <option key={index} value={data.id}>
-                                              {data.plant_name}
-                                            </option>
-                                          );
-                                        })}
-                                      </select>
-                                    </div>
-                                    <div className="col-2">
-                                      <center>
-                                        <label>ชื่อผู้รับผิดชอบ</label>
-                                      </center>
-                                      <select
-                                        className="custom-select form-control-border"
-                                        onChange={(e) =>
-                                          setUserId(e.target.value)
-                                        }
-                                      >
-                                        <option>
-                                          ------ผู้รับผิดชอบ------
-                                        </option>
-                                        {plantUser.map((user, index) => {
-                                          return (
-                                            <option key={index} value={user.id}>
-                                              {user.name + " " + user.last_name}
-                                            </option>
-                                          );
-                                        })}
-                                      </select>
-                                    </div>
-                                    <div className="col-2">
-                                      <center>
-                                        <label>วันที่เริ่มต้น</label>
-                                      </center>
-                                      <input
-                                        type="date"
-                                        className="form-control form-control-border"
-                                        id="exampleInputBorder"
-                                        placeholder="วันที่เริ่มต้น"
-                                        defaultValue={startdate}
-                                        max={enddate}
-                                        onChange={(e) =>
-                                          setStartDate(e.target.value)
-                                        }
-                                      ></input>
-                                    </div>
-                                    <div className="col-2">
-                                      <center>
-                                        <label>วันที่สิ้นสุด</label>
-                                      </center>
-                                      <input
-                                        type="date"
-                                        className="form-control form-control-border"
-                                        id="exampleInputBorder"
-                                        placeholder="วันที่สิ้นสุด"
-                                        defaultValue={enddate}
-                                        min={startdate}
-                                        onChange={(e) =>
-                                          setEndDate(e.target.value)
-                                        }
-                                      ></input>
-                                    </div>
+        </div>
+      </section>
+      <section className="content">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12">
+              <div className="card">
+                <div
+                  className="card-header"
+                  style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                >
+                  <h3 className="card-title">จัดการข้อมูลแปลงเพาะปลูก</h3>
+                </div>
+                <div className="card-body">
+                  <div className="col-12">
+                    <div className="card card-primary">
+                      <div
+                        className="card-header"
+                        style={{
+                          backgroundColor: "#8CC152",
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        <h3 className="card-title">เพิ่มข้อมูลแปลงเพาะปลูก</h3>
+                      </div>
+                      <form onSubmit={postPlant}>
+                        {getSelect.map((dataImg, index) => {
+                          return (
+                            <div className="card-body" key={index}>
+                              <div className="form-group">
+                                <div className="row">
+                                  <div className="col-1">
+                                    <center>
+                                      <label>รหัส</label>
+                                    </center>
+                                    <input
+                                      type="number"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      defaultValue={idplant}
+                                      placeholder="รหัส"
+                                      onChange={(e) =>
+                                        setIdPlant(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
+                                  <div className="col-3">
+                                    <center>
+                                      <label>ชื่อแปลงเพาะปลูก</label>
+                                    </center>
+                                    <select
+                                      className="custom-select form-control-border"
+                                      onChange={(e) =>
+                                        getDataSelect(e.target.value)
+                                      }
+                                    >
+                                      <option>
+                                        ------กรุณาเลือกชนิดพืช------
+                                      </option>
+                                      {plantMaster.map((data, index) => {
+                                        return (
+                                          <option key={index} value={data.id}>
+                                            {data.plant_name}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>ชื่อผู้รับผิดชอบ</label>
+                                    </center>
+                                    <select
+                                      className="custom-select form-control-border"
+                                      onChange={(e) =>
+                                        setUserId(e.target.value)
+                                      }
+                                    >
+                                      <option>------ผู้รับผิดชอบ------</option>
+                                      {plantUser.map((user, index) => {
+                                        return (
+                                          <option key={index} value={user.id}>
+                                            {user.name + " " + user.last_name}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>วันที่เริ่มต้น</label>
+                                    </center>
+                                    <input
+                                      type="date"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      placeholder="วันที่เริ่มต้น"
+                                      defaultValue={startdate}
+                                      max={enddate}
+                                      onChange={(e) =>
+                                        setStartDate(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
+                                  <div className="col-2">
+                                    <center>
+                                      <label>วันที่สิ้นสุด</label>
+                                    </center>
+                                    <input
+                                      type="date"
+                                      className="form-control form-control-border"
+                                      id="exampleInputBorder"
+                                      placeholder="วันที่สิ้นสุด"
+                                      defaultValue={enddate}
+                                      min={startdate}
+                                      onChange={(e) =>
+                                        setEndDate(e.target.value)
+                                      }
+                                    ></input>
+                                  </div>
 
-                                    <div className="col-2">
-                                      <Zoom>
-                                        <img
-                                          src={
-                                            dataImg.plant_img
-                                              ? dataImg.plant_img
-                                              : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                                          }
-                                          className="img-fluid mb-2"
-                                          width="100"
-                                          height="100"
-                                        />
-                                      </Zoom>
-                                    </div>
+                                  <div className="col-2">
+                                    <Zoom>
+                                      <img
+                                        src={
+                                          dataImg.plant_img
+                                            ? dataImg.plant_img
+                                            : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                        }
+                                        className="img-fluid mb-2"
+                                        width="100"
+                                        height="100"
+                                      />
+                                    </Zoom>
                                   </div>
                                 </div>
                               </div>
-                            );
-                          })}
-                          <div className="card-footer text-right">
-                            <button
-                              type="submit"
-                              className="btn"
-                              style={{
-                                backgroundColor: "#8CC152",
-                                color: "#FFFFFF",
-                              }}
-                            >
-                              ยืนยัน
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-
-                    <table className="table table-bordered table-hover">
-                      <thead
-                        style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
-                      >
-                        <tr>
-                          <th>#</th>
-                          <th>
-                            <center>ชื่อแปลงเพาะปลูก</center>
-                          </th>
-                          <th>
-                            <center>วันที่เริ่มต้น</center>
-                          </th>
-                          <th>
-                            <center>วันที่สิ้นสุด</center>
-                          </th>
-                          <th>
-                            <center>รูปภาพ</center>
-                          </th>
-                          <th>
-                            <center>สถานะ</center>
-                          </th>
-                          <th>
-                            <center>เพิ่ม/แก้ไข/ลบข้อมูล</center>
-                          </th>
-                        </tr>
-                      </thead>
-                      {plantdata.map((data, index) => (
-                        <tbody key={index}>
-                          <tr
-                            data-widget="expandable-table"
-                            aria-expanded="false"
+                            </div>
+                          );
+                        })}
+                        <div className="card-footer text-right">
+                          <button
+                            type="submit"
+                            className="btn"
+                            style={{
+                              backgroundColor: "#8CC152",
+                              color: "#FFFFFF",
+                            }}
                           >
-                            <td
-                              onClick={() => {
-                                Show_Edit();
-                                setPlantId(data.plant_id);
-                                setEditNamePlant(data.name_plant_id);
-                                setEditStartDatePlant(data.start_date_plant);
-                                setEditEndDatePlant(data.end_date_plant);
-                                setEditPathImg(data.plant_image);
-                              }}
-                            >
-                              {data.plant_detail_id_name_plant}
-                            </td>
-                            <td
-                              onClick={() => {
-                                Show_Edit();
-                                setPlantId(data.plant_id);
-                                setEditNamePlant(data.name_plant_id);
-                                setEditStartDatePlant(data.start_date_plant);
-                                setEditEndDatePlant(data.end_date_plant);
-                                setEditPathImg(data.plant_image);
-                              }}
-                            >
-                              แปลง{data.name_plant}
-                            </td>
-                            <td
-                              onClick={() => {
-                                Show_Edit();
-                                setPlantId(data.plant_id);
-                                setEditNamePlant(data.name_plant_id);
-                                setEditStartDatePlant(data.start_date_plant);
-                                setEditEndDatePlant(data.end_date_plant);
-                                setEditPathImg(data.plant_image);
-                              }}
-                            >
-                              {data.start_date_plant}
-                            </td>
-                            <td
-                              onClick={() => {
-                                Show_Edit();
-                                setPlantId(data.plant_id);
-                                setEditNamePlant(data.name_plant_id);
-                                setEditStartDatePlant(data.start_date_plant);
-                                setEditEndDatePlant(data.end_date_plant);
-                                setEditPathImg(data.plant_image);
-                              }}
-                            >
-                              {data.end_date_plant}
-                            </td>
-                            <td>
+                            ยืนยัน
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <table className="table table-bordered table-hover">
+                    <thead
+                      style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                    >
+                      <tr>
+                        <th>#</th>
+                        <th>
+                          <center>ชื่อแปลงเพาะปลูก</center>
+                        </th>
+                        <th>
+                          <center>วันที่เริ่มต้น</center>
+                        </th>
+                        <th>
+                          <center>วันที่สิ้นสุด</center>
+                        </th>
+                        <th>
+                          <center>รูปภาพ</center>
+                        </th>
+                        <th>
+                          <center>สถานะ</center>
+                        </th>
+                        <th>
+                          <center>เพิ่ม/แก้ไข/ลบข้อมูล</center>
+                        </th>
+                      </tr>
+                    </thead>
+                    {plantdata.map((data, index) => (
+                      <tbody key={index}>
+                        <tr
+                          data-widget="expandable-table"
+                          aria-expanded="false"
+                        >
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.plant_id);
+                              setEditNamePlant(data.name_plant_id);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.plant_detail_id_name_plant}
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.plant_id);
+                              setEditNamePlant(data.name_plant_id);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            แปลง{data.name_plant}
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.plant_id);
+                              setEditNamePlant(data.name_plant_id);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.start_date_plant}
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.plant_id);
+                              setEditNamePlant(data.name_plant_id);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            {data.end_date_plant}
+                          </td>
+                          <td>
+                            <center>
+                              <Zoom>
+                                <img
+                                  src={data.plant_image}
+                                  className="img-fluid mb-2"
+                                  alt="white sample"
+                                  width="100"
+                                  height="100"
+                                />
+                              </Zoom>
+                            </center>
+                          </td>
+                          <td
+                            onClick={() => {
+                              Show_Edit();
+                              setPlantId(data.plant_id);
+                              setEditNamePlant(data.name_plant_id);
+                              setEditStartDatePlant(data.start_date_plant);
+                              setEditEndDatePlant(data.end_date_plant);
+                              setEditPathImg(data.plant_image);
+                            }}
+                          >
+                            <center>{data.status_name}</center>
+                          </td>
+                          <td>
+                            {data.status_plant == "2" ? (
                               <center>
-                                <Zoom>
-                                  <img
-                                    src={data.plant_image}
-                                    className="img-fluid mb-2"
-                                    alt="white sample"
-                                    width="100"
-                                    height="100"
-                                  />
-                                </Zoom>
-                              </center>
-                            </td>
-                            <td
-                              onClick={() => {
-                                Show_Edit();
-                                setPlantId(data.plant_id);
-                                setEditNamePlant(data.name_plant_id);
-                                setEditStartDatePlant(data.start_date_plant);
-                                setEditEndDatePlant(data.end_date_plant);
-                                setEditPathImg(data.plant_image);
-                              }}
-                            >
-                              <center>{data.status_name}</center>
-                            </td>
-                            <td>
-                              {data.status_plant == "2" ? (
-                                <center>
-                                  <Link
-                                    to={{
-                                      pathname: `/Manage_fertilizer/${data.id_plant}`,
-                                      state: {
-                                        id: data.id_plant,
-                                      },
-                                    }}
-                                  >
-                                    <button
-                                      type="submit"
-                                      className="btn btn-success"
-                                      style={{ color: "#FFFFFF" }}
-                                    >
-                                      <BsPlusLg />
-                                    </button>
-                                  </Link>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-danger"
-                                    onClick={() => {
-                                      deletePlants(data.id_plant);
-                                    }}
-                                  >
-                                    <BsFillTrashFill />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-warning"
-                                    style={{ color: "#fff" }}
-                                    onClick={() => {
-                                      Show_status();
-                                      setCicleStatus(data.status_circle);
-                                      setGetIdplant(data.plant_id);
-                                      setGetIDStatus(data.status_plant);
-                                    }}
-                                  >
-                                    <AiOutlineFundView />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    onClick={() => {
-                                      getCommnent(data.plant_id);
-                                    }}
-                                  >
-                                    <BsFillChatSquareDotsFill />
-                                  </button>
-                                </center>
-                              ) : data.status_plant == "3" ? (
-                                <center>
-                                  <Link
-                                    to={{
-                                      pathname: `/Manage_plant/${data.id_plant}`,
-                                      state: {
-                                        id: data.id_plant,
-                                      },
-                                    }}
-                                  >
-                                    <button
-                                      type="submit"
-                                      className="btn btn-success"
-                                      style={{ color: "#FFFFFF" }}
-                                    >
-                                      <BsPlusLg />
-                                    </button>
-                                  </Link>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-danger"
-                                    onClick={() => {
-                                      deletePlants(data.id_plant);
-                                    }}
-                                  >
-                                    <BsFillTrashFill />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-warning"
-                                    style={{ color: "#fff" }}
-                                    onClick={() => {
-                                      Show_status();
-                                      setCicleStatus(data.status_circle);
-                                      setGetIdplant(data.plant_id);
-                                      setGetIDStatus(data.status_plant);
-                                    }}
-                                  >
-                                    <AiOutlineFundView />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    onClick={() => {
-                                      getCommnent(data.plant_id);
-                                    }}
-                                  >
-                                    <BsFillChatSquareDotsFill />
-                                  </button>
-                                </center>
-                              ) : data.status_plant == "4" ? (
-                                <center>
+                                <Link
+                                  to={{
+                                    pathname: `/Manage_fertilizer/${data.id_plant}`,
+                                    state: {
+                                      id: data.id_plant,
+                                    },
+                                  }}
+                                >
                                   <button
                                     type="submit"
                                     className="btn btn-success"
                                     style={{ color: "#FFFFFF" }}
-                                    disabled
                                   >
                                     <BsPlusLg />
                                   </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-danger"
-                                    onClick={() => {
-                                      deletePlants(data.id_plant);
-                                    }}
-                                  >
-                                    <BsFillTrashFill />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    onClick={() => {
-                                      getCommnent(data.plant_id);
-                                    }}
-                                  >
-                                    <BsFillChatSquareDotsFill />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-success"
-                                    onClick={() => {
-                                      lastStatus(
-                                        data.id_plant,
-                                        data.plant_id,
-                                        1,
-                                        data.status_circle + 1
-                                      );
-                                    }}
-                                  >
-                                    <BsFillCheckCircleFill />
-                                  </button>
-                                </center>
-                              ) : (
-                                <center>
+                                </Link>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                  onClick={() => {
+                                    Show_status();
+                                    setCicleStatus(data.status_circle);
+                                    setGetIdplant(data.plant_id);
+                                    setGetIDStatus(data.status_plant);
+                                  }}
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    getCommnent(data.plant_id);
+                                  }}
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                              </center>
+                            ) : data.status_plant == "3" ? (
+                              <center>
+                                <Link
+                                  to={{
+                                    pathname: `/Manage_plant/${data.id_plant}`,
+                                    state: {
+                                      id: data.id_plant,
+                                    },
+                                  }}
+                                >
                                   <button
                                     type="submit"
                                     className="btn btn-success"
                                     style={{ color: "#FFFFFF" }}
-                                    disabled
                                   >
-                                    <BsPlusLg disabled />
+                                    <BsPlusLg />
                                   </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-danger"
-                                    onClick={() => {
-                                      deletePlants(data.id_plant);
-                                    }}
-                                  >
-                                    <BsFillTrashFill />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-warning"
-                                    style={{ color: "#fff" }}
-                                    onClick={() => {
-                                      Show_status();
-                                      setCicleStatus(data.status_circle);
-                                      setGetIdplant(data.plant_id);
-                                      setGetIDStatus(data.status_plant);
-                                    }}
-                                  >
-                                    <AiOutlineFundView />
-                                  </button>
-                                  <> </>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    onClick={() => {
-                                      getCommnent(data.plant_id);
-                                    }}
-                                  >
-                                    <BsFillChatSquareDotsFill />
-                                  </button>
-                                </center>
-                              )}
-                            </td>
-                          </tr>
-                        </tbody>
-                      ))}
-                    </table>
-                  </div>
+                                </Link>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                  onClick={() => {
+                                    Show_status();
+                                    setCicleStatus(data.status_circle);
+                                    setGetIdplant(data.plant_id);
+                                    setGetIDStatus(data.status_plant);
+                                  }}
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    getCommnent(data.plant_id);
+                                  }}
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                              </center>
+                            ) : data.status_plant == "4" ? (
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  style={{ color: "#FFFFFF" }}
+                                  disabled
+                                >
+                                  <BsPlusLg />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    getCommnent(data.plant_id);
+                                  }}
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  onClick={() => {
+                                    lastStatus(
+                                      data.id_plant,
+                                      data.plant_id,
+                                      1,
+                                      data.status_circle + 1
+                                    );
+                                  }}
+                                >
+                                  <BsFillCheckCircleFill />
+                                </button>
+                              </center>
+                            ) : (
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  style={{ color: "#FFFFFF" }}
+                                  disabled
+                                >
+                                  <BsPlusLg disabled />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    deletePlants(data.id_plant);
+                                  }}
+                                >
+                                  <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                  onClick={() => {
+                                    Show_status();
+                                    setCicleStatus(data.status_circle);
+                                    setGetIdplant(data.plant_id);
+                                    setGetIDStatus(data.status_plant);
+                                  }}
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    getCommnent(data.plant_id);
+                                  }}
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
+                              </center>
+                            )}
+                          </td>
+                        </tr>
+                      </tbody>
+                    ))}
+                  </table>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Modal show={show_status} onHide={Close_status}>
-          <Modal.Header
-            style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
-          >
-            <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {" "}
-            <div className="form-group">
-              <div className="row">
-                <div className="col-sm-12">
-                  <select
-                    className="custom-select form-control-border"
-                    onChange={(e) => setGetStatus(e.target.value)}
-                    defaultValue={getIDStatus}
-                  >
-                    {StatusPlant.map((status) => {
-                      return (
-                        <option
-                          key={status.id}
-                          value={status.id}
-                          style={{
-                            display:
-                              getIDStatus >= status.id ? "none" : "block",
-                          }}
-                        >
-                          {status.status_name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <button className="btn btn-secondary" onClick={Close_status}>
-              Close
-            </button>
-            <button
-              className="btn btn-success"
-              onClick={() => {
-                postStatusPlant(getIdplant, getStatus, CicleStatus);
-              }}
-            >
-              SAVE
-            </button>
-          </Modal.Footer>
-        </Modal>
-
-        <Modal show={showEdit} onHide={Close_Edit}>
-          <Modal.Header
-            style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
-          >
-            <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form>
-              {getSelect2.map((data, index) => {
-                return (
-                  <div key={index}>
-                    <form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <form.Label>ชื่อแปลงผัก</form.Label>
-                      <select
-                        className="custom-select form-control-border"
-                        defaultValue={edit_name_plant}
-                        onChange={(e) => {
-                          getDataSelect2(e.target.value);
-                          setEditNamePlant(e.target.value);
+      <Modal show={show_status} onHide={Close_status}>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {" "}
+          <div className="form-group">
+            <div className="row">
+              <div className="col-sm-12">
+                <select
+                  className="custom-select form-control-border"
+                  onChange={(e) => setGetStatus(e.target.value)}
+                  defaultValue={getIDStatus}
+                >
+                  {StatusPlant.map((status) => {
+                    return (
+                      <option
+                        key={status.id}
+                        value={status.id}
+                        style={{
+                          display: getIDStatus >= status.id ? "none" : "block",
                         }}
                       >
-                        <option>------กรุณาเลือกชนิดพืช------</option>
-                        {plantMaster.map((data, index) => {
-                          return (
-                            <option key={index} value={data.id}>
-                              {data.plant_name}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </form.Group>
-                    <form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <form.Label>วันที่เริ่มต้น</form.Label>
-                      <form.Control
-                        type="date"
-                        placeholder="วันที่เริ่มต้น"
-                        defaultValue={edit_start_date_plant}
-                        autoFocus
-                        max={edit_end_date_plant}
-                        onChange={(e) => setEditStartDatePlant(e.target.value)}
-                      />
-                    </form.Group>
-                    <form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <form.Label>วันที่สิ้นสุด</form.Label>
-                      <form.Control
-                        type="date"
-                        placeholder="วันที่สิ้นสุด"
-                        defaultValue={edit_end_date_plant}
-                        min={edit_start_date_plant}
-                        autoFocus
-                        onChange={(e) => setEditEndDatePlant(e.target.value)}
-                      />
-                    </form.Group>
-                    <form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlTextarea1"
-                    >
-                      <hr></hr>
-                      <Row>
-                        <Col md>
-                          <form.Label>Preview</form.Label>
-                          <img
-                            src={
-                              data.plant_img ? data.plant_img : edit_path_img
-                            }
-                            className="img-fluid"
-                          />
-                        </Col>
-                      </Row>
-                    </form.Group>
-                  </div>
-                );
-              })}
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <button className="btn btn-secondary" onClick={Close_Edit}>
-              Close
-            </button>
-            <button
-              className="btn btn-success"
-              type="submit"
-              onClick={() => {
-                updatePlant(edit_plant_id);
-              }}
-            >
-              <BsCheckSquareFill /> ยืนยัน
-            </button>
-          </Modal.Footer>
-        </Modal>
-
-        {/* Comment */}
-        <Modal show={showComment} onHide={Close_Comment}>
-          <Modal.Header
-            style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                        {status.status_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={Close_status}>
+            Close
+          </button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              postStatusPlant(getIdplant, getStatus, CicleStatus);
+            }}
           >
-            <Modal.Title>Comment</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form>
-              {CommentData.map((data, index) => (
-                <form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlTextarea1"
-                  key={index}
-                >
-                  <form.Label>ระบุความคิดเห็น : </form.Label>
-                  <form.Control
-                    as="textarea"
-                    rows={3}
-                    defaultValue={data.comment}
-                    onChange={(e) => {
-                      setCommentUpdate(e.target.value);
-                      setCommentId(data.id);
-                    }}
-                  />
-                </form.Group>
-              ))}
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <button className="btn btn-secondary" onClick={Close_Comment}>
-              Close
-            </button>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={UpdateCommnent}
-            >
-              Save Changes
-            </button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-    );
-};;;
+            SAVE
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showEdit} onHide={Close_Edit}>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            {getSelect2.map((data, index) => {
+              return (
+                <div key={index}>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>ชื่อแปลงผัก</form.Label>
+                    <select
+                      className="custom-select form-control-border"
+                      defaultValue={edit_name_plant}
+                      onChange={(e) => {
+                        getDataSelect2(e.target.value);
+                        setEditNamePlant(e.target.value);
+                      }}
+                    >
+                      <option>------กรุณาเลือกชนิดพืช------</option>
+                      {plantMaster.map((data, index) => {
+                        return (
+                          <option key={index} value={data.id}>
+                            {data.plant_name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>วันที่เริ่มต้น</form.Label>
+                    <form.Control
+                      type="date"
+                      placeholder="วันที่เริ่มต้น"
+                      defaultValue={edit_start_date_plant}
+                      autoFocus
+                      max={edit_end_date_plant}
+                      onChange={(e) => setEditStartDatePlant(e.target.value)}
+                    />
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <form.Label>วันที่สิ้นสุด</form.Label>
+                    <form.Control
+                      type="date"
+                      placeholder="วันที่สิ้นสุด"
+                      defaultValue={edit_end_date_plant}
+                      min={edit_start_date_plant}
+                      autoFocus
+                      onChange={(e) => setEditEndDatePlant(e.target.value)}
+                    />
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlTextarea1"
+                  >
+                    <hr></hr>
+                    <Row>
+                      <Col md>
+                        <form.Label>Preview</form.Label>
+                        <img
+                          src={data.plant_img ? data.plant_img : edit_path_img}
+                          className="img-fluid"
+                        />
+                      </Col>
+                    </Row>
+                  </form.Group>
+                </div>
+              );
+            })}
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={Close_Edit}>
+            Close
+          </button>
+          <button
+            className="btn btn-success"
+            type="submit"
+            onClick={() => {
+              updatePlant(edit_plant_id);
+            }}
+          >
+            <BsCheckSquareFill /> ยืนยัน
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Comment */}
+      <Modal show={showComment} onHide={Close_Comment}>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>Comment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            {CommentData.map((data, index) => (
+              <form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                key={index}
+              >
+                <form.Label>ระบุความคิดเห็น : </form.Label>
+                <form.Control
+                  as="textarea"
+                  rows={3}
+                  defaultValue={data.comment}
+                  onChange={(e) => {
+                    setCommentUpdate(e.target.value);
+                    setCommentId(data.id);
+                  }}
+                />
+              </form.Group>
+            ))}
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={Close_Comment}>
+            Close
+          </button>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={UpdateCommnent}
+          >
+            Save Changes
+          </button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};;;;
 
 export default Edit_data;
