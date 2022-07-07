@@ -41,7 +41,6 @@ const Manage_plant_chemical = (props) => {
     if (
       IdExpired == "" ||
       ratiocc == "" ||
-      note == "" ||
       ratioL == "" ||
       startDate == "" ||
       endDate == ""
@@ -61,7 +60,7 @@ const Manage_plant_chemical = (props) => {
               id_residual_period: IdExpired,
               cc: ratiocc,
               liter: ratioL,
-              note: note,
+              note: note == "" ? "-" : note,
               date_start: startDate,
               date_end: endDate,
             }
