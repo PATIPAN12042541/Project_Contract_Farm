@@ -264,7 +264,6 @@ const Manage_plant_chemical = (props) => {
                           onChange={(e) => {
                             setEnddate(e.target.value);
                             setStartDate(e.target.value);
-                            setDefaultValue(3);
                             getExpired();
                           }}
                         />
