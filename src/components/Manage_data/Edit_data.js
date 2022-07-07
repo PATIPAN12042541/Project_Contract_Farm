@@ -127,7 +127,7 @@ const Edit_data = (props) => {
         .patch(
           `${process.env.REACT_APP_API_URL}/getplant/Comment/update/${CommentId}`,
           {
-            comment: CommentUpdate,
+            comment: CommentUpdate == "" ? "-" : CommentUpdate,
           }
         )
         .then(function (response) {
