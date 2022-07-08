@@ -27,6 +27,27 @@ const TimeChemical = () => {
                   <div className="row">
                     <button className="btn btn-success">เพิ่มข้อมูล</button>
                   </div>
+                  <hr />
+                  <div className="row">
+                    <table
+                      className="table table-bordered table-hover dataTable dtr-inline"
+                      responsive
+                    >
+                      <thead>
+                        <tr>
+                          <th>ลำดับ</th>
+                          <th>ประเภทสารเคมี</th>
+                          <th>ชื่อสารเคมี (ไทย)</th>
+                          <th>ชื่อสารเคมี (Eng)</th>
+                          <th>ER MUL</th>
+                          <th>รูปภาพ</th>
+                          <th>Active</th>
+                          <th>แก้ไขข้อมูล</th>
+                          <th>ลบข้อมูล</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
