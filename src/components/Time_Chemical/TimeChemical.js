@@ -78,7 +78,7 @@ const TimeChemical = () => {
                                   onChange={(e) => {
                                     setTime(data.time);
                                   }}
-                                  disabled={1}
+                                  disabled={0}
                                 />
                                 &nbsp;
                                 {open == true ? (
