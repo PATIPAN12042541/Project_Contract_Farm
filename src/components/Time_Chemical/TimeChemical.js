@@ -223,7 +223,7 @@ const TimeChemical = () => {
           <button className="btn btn-secondary" onClick={handleClose}>
             Close
           </button>
-          <button className="btn btn-success" onClick={getTimeChemical}>
+          <button className="btn btn-success" onClick={PostTimeChemical}>
             Save
           </button>
         </Modal.Footer>
