@@ -69,7 +69,7 @@ const TimeChemical = () => {
                             <td>
                               <div className="form-group row">
                                 <input
-                                  className="form-control col-sm-11 col-form-label"
+                                  className="form-control col-sm-10 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
                                   disabled={open}
@@ -78,6 +78,7 @@ const TimeChemical = () => {
                                 {open == true ? (
                                   <button
                                     className="btn btn-warning"
+                                    style={{ color: "#fff" }}
                                     onClick={changeStatusOpen}
                                   >
                                     <BiCheck />
