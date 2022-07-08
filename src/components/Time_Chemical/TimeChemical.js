@@ -12,7 +12,6 @@ const TimeChemical = () => {
   const [time, setTime] = useState([]);
 
   const ChangeOpen = (e, id) => {
-    // console.log(time);
     console.log(e + " " + id);
     setopen(e);
   };
@@ -77,7 +76,7 @@ const TimeChemical = () => {
                                   type="number"
                                   defaultValue={data.time}
                                   onChange={(e) => {
-                                    setTime(e.target.value);
+                                    setTime(data.time);
                                   }}
                                   disabled={open}
                                 />
