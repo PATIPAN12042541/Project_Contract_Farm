@@ -46,8 +46,7 @@ const TimeChemical = () => {
                   </div>
                   <hr />
                   <div className="row">
-                    {/* <table className="table table-bordered table-hover dataTable dtr-inline"> */}
-                    <table>
+                    <table className="table table-bordered table-hover dataTable dtr-inline">
                       <thead>
                         <tr>
                           <th>ลำดับ</th>
@@ -56,7 +55,7 @@ const TimeChemical = () => {
                           <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
-                      <tboby>
+                      <tbody>
                         {TimeChemical.map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
@@ -74,7 +73,7 @@ const TimeChemical = () => {
                             </td>
                           </tr>
                         ))}
-                      </tboby>
+                      </tbody>
                     </table>
                   </div>
                 </div>
