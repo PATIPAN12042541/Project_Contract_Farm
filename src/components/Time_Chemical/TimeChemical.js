@@ -36,13 +36,8 @@ const TimeChemical = () => {
                       <thead>
                         <tr>
                           <th>ลำดับ</th>
-                          <th>ประเภทสารเคมี</th>
-                          <th>ชื่อสารเคมี (ไทย)</th>
-                          <th>ชื่อสารเคมี (Eng)</th>
-                          <th>ER MUL</th>
-                          <th>รูปภาพ</th>
-                          <th>Active</th>
-                          <th>แก้ไขข้อมูล</th>
+                          <th>เวลา</th>
+                          <th>หน่วย</th>
                           <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
