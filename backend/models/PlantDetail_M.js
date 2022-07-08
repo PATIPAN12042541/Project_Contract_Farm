@@ -2,17 +2,26 @@ import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
-const ResidualPeriodChemical_M = db.define(
-  "residual_period_chemical",
+const PlantDetail = db.define(
+  "plant_detail",
   {
-    time: {
+    id_name_plant: {
+      type: DataTypes.STRING,
+    },
+    id_zone: {
       type: DataTypes.INTEGER,
+    },
+    autoid_check: {
+      type: DataTypes.STRING,
     },
     unit: {
       type: DataTypes.STRING,
     },
-    status: {
-      type: DataTypes.INTEGER,
+    note: {
+      type: DataTypes.STRING,
+    },
+    last_update: {
+      type: DataTypes.DATE,
     },
   },
   {
@@ -24,4 +33,4 @@ const ResidualPeriodChemical_M = db.define(
   await db.sync();
 })();
 
-export default ResidualPeriodChemical_M;
+export default PlantDetail;

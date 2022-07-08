@@ -3,25 +3,16 @@ import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
 const PlantDetail = db.define(
-  "plant_detail",
+  "residual_period_chemical",
   {
-    id_name_plant: {
-      type: DataTypes.STRING,
-    },
-    id_zone: {
+    time: {
       type: DataTypes.INTEGER,
-    },
-    autoid_check: {
-      type: DataTypes.STRING,
     },
     unit: {
       type: DataTypes.STRING,
     },
-    note: {
-      type: DataTypes.STRING,
-    },
-    last_update: {
-      type: DataTypes.DATE,
+    status: {
+      type: DataTypes.INTEGER,
     },
   },
   {
