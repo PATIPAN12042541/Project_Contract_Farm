@@ -65,7 +65,7 @@ const TimeChemical = () => {
                                   className="form-control col-sm-11 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
-                                  // style={{ display: "none" }}
+                                  disabled={true}
                                 />
                                 &nbsp;
                                 <button className="btn btn-success">+</button>
