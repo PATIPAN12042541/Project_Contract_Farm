@@ -18,6 +18,7 @@ const TimeChemical = () => {
         status: e,
       }
     );
+    alert("Your file is being uploaded!");
     getTimeChemical();
   };
   /*---------------------------------------------------------**/
