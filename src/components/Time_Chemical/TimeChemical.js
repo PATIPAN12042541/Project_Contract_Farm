@@ -11,7 +11,7 @@ const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
   const [time, setTime] = useState([]);
-
+  const [newtime, setNewtime] = useState([]);
   /*-------------------------- Modal ---------------------------*/
 
   const [show, setShow] = useState(false);
@@ -56,6 +56,33 @@ const TimeChemical = () => {
       `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical`
     );
     setTimeChemical(response.data);
+  };
+
+  const PostTimeChemical = async (e) => {
+    await axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/insertTimeChemical`,
+        {
+          time: newtime,
+          unit: "วัน",
+        }
+      )
+      .then(function (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Save OK !",
+        });
+        handleClose();
+        getTimeChemical();
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          text: "Save Error!",
+        });
+      });
   };
 
   useEffect(() => {
@@ -171,6 +198,8 @@ const TimeChemical = () => {
                     type="number"
                     className="form-control"
                     placeholder="เวลา"
+                    defaultValue={newtime}
+                    onChange={(e) => setNewtime(e.target.value)}
                   />
                 </div>
               </div>
@@ -194,7 +223,7 @@ const TimeChemical = () => {
           <button className="btn btn-secondary" onClick={handleClose}>
             Close
           </button>
-          <button className="btn btn-success" onClick={handleClose}>
+          <button className="btn btn-success" onClick={getTimeChemical}>
             Save
           </button>
         </Modal.Footer>
