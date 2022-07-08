@@ -9,10 +9,11 @@ const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
   const [open, setopen] = useState("");
+  const [time, setTime] = useState([]);
 
   const ChangeOpen = (e) => {
+    console.log(time);
     console.log(e);
-    setopen(e);
   };
   /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
@@ -74,7 +75,7 @@ const TimeChemical = () => {
                                   className="form-control col-sm-10 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
-                                  id={index}
+                                  onChange={(e) => setTime(e.target.value)}
                                   disabled={!open}
                                 />
                                 &nbsp;
@@ -82,14 +83,14 @@ const TimeChemical = () => {
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
-                                    onClick={(e) => ChangeOpen(1)}
+                                    onClick={() => ChangeOpen(1)}
                                   >
                                     <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={(e) => ChangeOpen(0)}
+                                    onClick={() => ChangeOpen(0)}
                                   >
                                     <BiCheck />
                                   </button>
