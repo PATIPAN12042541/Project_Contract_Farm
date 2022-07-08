@@ -164,7 +164,7 @@ const TimeChemical = () => {
             <div className="card-body">
               <div className="form-group row">
                 <form.Label className="col-sm-4 col-form-label">
-                  เวลา
+                  เวลา :
                 </form.Label>
                 <div className="col-sm-8">
                   <input
@@ -176,7 +176,7 @@ const TimeChemical = () => {
               </div>
               <div className="form-group row">
                 <form.Label className="col-sm-4 col-form-label">
-                  หน่วย
+                  หน่วย :
                 </form.Label>
                 <div className="col-sm-8">
                   <input
