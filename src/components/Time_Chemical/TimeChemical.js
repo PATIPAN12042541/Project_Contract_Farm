@@ -11,8 +11,8 @@ const TimeChemical = () => {
   const [open, setopen] = useState(true);
   const [time, setTime] = useState([]);
 
-  const ChangeOpen = (e, id) => {
-    axios.patch(
+  const ChangeOpen = async (e, id) => {
+    await axios.patch(
       `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/updateStatus/${id}`,
       {
         status: e,
