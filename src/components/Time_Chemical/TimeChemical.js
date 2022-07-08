@@ -12,12 +12,24 @@ const TimeChemical = () => {
   const [time, setTime] = useState([]);
 
   const ChangeOpen = async (e, id) => {
-    await axios.patch(
-      `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/updateStatus/${id}`,
-      {
-        status: e,
-      }
-    );
+
+    if (e == 1) {
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/updateStatus/${id}`,
+        {
+          status: e,
+        }
+      );
+    } else {
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/updateStatus/${id}`,
+        {
+          status: e,
+          time : time,
+        }
+      );
+      Swal.fire("Completed!", "บันทึกสำเร็จ", "success");
+    }
     getTimeChemical();
   };
   /*---------------------------------------------------------**/
