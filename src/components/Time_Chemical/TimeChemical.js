@@ -59,7 +59,14 @@ const TimeChemical = () => {
                         {TimeChemical.map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{data.time}</td>
+                            <td>
+                              <input
+                                className="form-control"
+                                type="text"
+                                defaultValue={data.time}
+                                style={{ display: "none" }}
+                              />
+                            </td>
                             <td>{data.unit}</td>
                             <td>
                               <button
