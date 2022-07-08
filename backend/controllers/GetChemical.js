@@ -3,6 +3,7 @@ import NameChemical from "../models/ChemicalModel.js";
 import PlantDataDetail_M from "../models/PlantDataDetails_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
 import FertilizerUnit_M from "../models/FertilizerUnit_M.js";
+import ResidualPeriodChemical_M from "../models/ResidualPeriodChemical_M.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -420,8 +421,6 @@ export const updateFertilizerStauts = async (req, res) => {
   }
 };
 
-
-
 /************************Post Unit ************************/
 export const PostFertilizerUnit = async (req, res) => {
   const { unit } = req.body;
@@ -435,7 +434,6 @@ export const PostFertilizerUnit = async (req, res) => {
   }
 };
 /**************************************************************/
-
 
 /************************Delete Unit ************************/
 export const DeleteFertilizerUnit = async (req, res) => {
@@ -463,3 +461,19 @@ export const TimeChemical = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const updateStatusTime = async (req, res) => {
+  try {
+    await ResidualPeriodChemical_M.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "FertilizerData Updated",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+

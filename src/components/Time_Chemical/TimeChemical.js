@@ -12,8 +12,13 @@ const TimeChemical = () => {
   const [time, setTime] = useState([]);
 
   const ChangeOpen = (e, id) => {
-    console.log(e + " " + id);
-    setopen(e);
+    axios.patch(
+      `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/updateStatus/${id}`,
+      {
+        status: e,
+      }
+    );
+    getTimeChemical();
   };
   /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
@@ -78,21 +83,21 @@ const TimeChemical = () => {
                                   onChange={(e) => {
                                     setTime(data.time);
                                   }}
-                                  disabled={0}
+                                  disabled={data.status}
                                 />
                                 &nbsp;
-                                {open == true ? (
+                                {data.status == 1 ? (
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
-                                    onClick={() => ChangeOpen(false, data.id)}
+                                    onClick={() => ChangeOpen(0, data.id)}
                                   >
                                     <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={() => ChangeOpen(true, data.id)}
+                                    onClick={() => ChangeOpen(1, data.id)}
                                   >
                                     <BiCheck />
                                   </button>
@@ -101,10 +106,7 @@ const TimeChemical = () => {
                             </td>
                             <td>{data.unit}</td>
                             <td>
-                              <button
-                                className="btn btn-danger"
-                                // onClick={(e) => deleteChemical(listChemical.id)}
-                              >
+                              <button className="btn btn-danger">
                                 <center>
                                   <BsTrashFill />
                                 </center>
