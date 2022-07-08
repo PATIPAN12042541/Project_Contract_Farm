@@ -60,13 +60,15 @@ const TimeChemical = () => {
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
-                              <input
-                                className="form-control"
-                                type="text"
-                                defaultValue={data.time}
-                                // style={{ display: "none" }}
-                              />{" "}
-                              <button className="btn btn-success">+</button>
+                              <div className="form-group">
+                                <input
+                                  className="form-control"
+                                  type="text"
+                                  defaultValue={data.time}
+                                  // style={{ display: "none" }}
+                                />{" "}
+                                <button className="btn btn-success">+</button>
+                              </div>
                             </td>
                             <td>{data.unit}</td>
                             <td>
