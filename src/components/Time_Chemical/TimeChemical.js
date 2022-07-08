@@ -160,15 +160,35 @@ const TimeChemical = () => {
           <Modal.Title>ระยะเวลาสารเคมี</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {" "}
-          <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <form.Label>เวลา</form.Label>
-            <form.Control type="number" placeholder="เวลา" />
-          </form.Group>
-          <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <form.Label>หน่วย</form.Label>
-            <form.Control type="text" placeholder="วัน" disabled />
-          </form.Group>
+          <form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <form.Label className="col-sm-4 col-form-label">
+                  เวลา
+                </form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="number"
+                    className="form-control"
+                    placeholder="เวลา"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <form.Label className="col-sm-4 col-form-label">
+                  หน่วย
+                </form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="วัน"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={handleClose}>
