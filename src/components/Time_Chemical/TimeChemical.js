@@ -84,6 +84,34 @@ const TimeChemical = () => {
       });
   };
 
+  const deleteTimeChemical = async (id) => {
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You want delete data !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical/deleteTimeChemical/${id}`
+          );
+          getTimeChemical();
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "error.response.data.msg !",
+          });
+        }
+      }
+    });
+  };
+
   useEffect(() => {
     getTimeChemical();
   }, []);
@@ -163,7 +191,10 @@ const TimeChemical = () => {
                             </td>
                             <td>{data.unit}</td>
                             <td>
-                              <button className="btn btn-danger">
+                              <button
+                                className="btn btn-danger"
+                                onClick={() => deleteTimeChemical(data.id)}
+                              >
                                 <center>
                                   <BsTrashFill />
                                 </center>

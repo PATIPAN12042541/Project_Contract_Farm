@@ -490,3 +490,19 @@ export const insertTimeChemical = async (req, res) => {
     res.json(error);
   }
 };
+
+
+export const deleteTimeChemical = async (req, res) => {
+  try {
+    await ResidualPeriodChemical_M.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Residual Period Chemical Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
