@@ -31,6 +31,7 @@ import Plant_master from "./components/Plant_Master/Plant_master";
 import Page_fertilizer from "./Page_2/Page_fertilizer";
 import Page_Plant_fertilizer from "./Page_1/Page_Plant_fertilizer";
 import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
+import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 
 function App() {
   return (
@@ -231,6 +232,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <FertilizerUnit />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/TimeChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <TimeChemical />
                 <Footer />
               </>
             }
