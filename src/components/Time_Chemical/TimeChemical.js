@@ -62,7 +62,7 @@ const TimeChemical = () => {
                             <td>
                               <div className="form-group row">
                                 <input
-                                  className="form-control"
+                                  className="form-control col-sm-10 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
                                   // style={{ display: "none" }}
