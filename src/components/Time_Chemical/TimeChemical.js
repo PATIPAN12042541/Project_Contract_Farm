@@ -46,10 +46,7 @@ const TimeChemical = () => {
                   </div>
                   <hr />
                   <div className="row">
-                    <table
-                      className="table table-bordered table-hover dataTable dtr-inline"
-                      responsive
-                    >
+                    <table className="table table-bordered table-hover dataTable dtr-inline">
                       <thead>
                         <tr>
                           <th>ลำดับ</th>
