@@ -477,3 +477,16 @@ export const updateStatusTime = async (req, res) => {
   }
 };
 
+export const insertTimeChemical = async (req, res) => {
+  const { time, unit } = req.body;
+  try {
+    await ResidualPeriodChemical_M.create({
+      time: time,
+      unit: unit,
+      status: 1,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    res.json(error);
+  }
+};
