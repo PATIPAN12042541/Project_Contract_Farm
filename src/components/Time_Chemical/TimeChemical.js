@@ -81,14 +81,14 @@ const TimeChemical = () => {
                                     style={{ color: "#fff" }}
                                     onClick={changeStatusOpen}
                                   >
-                                    <BiCheck />
+                                    <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
                                     onClick={changeStatusClose}
                                   >
-                                    <BiEditAlt />
+                                    <BiCheck />
                                   </button>
                                 )}
                               </div>
