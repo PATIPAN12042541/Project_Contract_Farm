@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BsTrashFill } from "react-icons/bs";
+import { BiCheck } from "react-icons/bi";
+import { BiEditAlt } from "react-icons/bi";
 
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
@@ -78,14 +80,14 @@ const TimeChemical = () => {
                                     className="btn btn-warning"
                                     onClick={changeStatusOpen}
                                   >
-                                    /
+                                    <BiCheck />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
                                     onClick={changeStatusClose}
                                   >
-                                    +
+                                    <BiEditAlt />
                                   </button>
                                 )}
                               </div>
