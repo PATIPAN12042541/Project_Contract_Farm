@@ -8,7 +8,7 @@ import { BiEditAlt } from "react-icons/bi";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
-  const [open, setopen] = useState(false);
+  const [open, setopen] = useState(true);
   const [time, setTime] = useState([]);
 
   const ChangeOpen = (e) => {
