@@ -8,10 +8,11 @@ import { BiEditAlt } from "react-icons/bi";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
-  const [open, setopen] = useState(true);
+  const [open, setopen] = useState("");
 
-  const changeStatusOpen = () => setopen(false);
-  const changeStatusClose = () => setopen(true);
+  const ChangeOpen = (e) => {
+    setopen(e.target.value);
+  };
   /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
     const response = await axios.get(
@@ -73,21 +74,21 @@ const TimeChemical = () => {
                                   type="text"
                                   defaultValue={data.time}
                                   id={index}
-                                  disabled={open}
+                                  disabled={!open}
                                 />
                                 &nbsp;
-                                {open == true ? (
+                                {!open ? (
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
-                                    onClick={changeStatusOpen}
+                                    onClick={ChangeOpen}
                                   >
                                     <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={changeStatusClose}
+                                    onClick={ChangeOpen}
                                   >
                                     <BiCheck />
                                   </button>
