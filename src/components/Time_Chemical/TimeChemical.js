@@ -6,7 +6,7 @@ import { BsTrashFill } from "react-icons/bs";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
-  const [open, setopen] = useState(false);
+  const [open, setopen] = useState(true);
 
   const changeStatusOpen = () => setopen(false);
   const changeStatusClose = () => setopen(true);
@@ -18,9 +18,6 @@ const TimeChemical = () => {
     setTimeChemical(response.data);
     console.log(response.data);
   };
-
-  
-
 
   useEffect(() => {
     getTimeChemical();
@@ -79,14 +76,14 @@ const TimeChemical = () => {
                                 {open == true ? (
                                   <button
                                     className="btn btn-warning"
-                                    onClick={changeStatusClose}
+                                    onClick={changeStatusOpen}
                                   >
                                     /
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={changeStatusOpen}
+                                    onClick={changeStatusClose}
                                   >
                                     +
                                   </button>
