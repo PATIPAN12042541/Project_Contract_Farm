@@ -91,7 +91,7 @@ const TimeChemical = () => {
                                   type="number"
                                   defaultValue={data.time}
                                   onChange={(e) => {
-                                    setTime(data.time);
+                                    setTime(e.target.value);
                                   }}
                                   disabled={data.status}
                                 />
