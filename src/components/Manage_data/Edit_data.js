@@ -344,11 +344,28 @@ const Edit_data = (props) => {
           end_date_plant: edit_end_date_plant,
         })
         .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
+          // Swal.fire({
+          //   icon: "success",
+          //   title: "Success",
+          //   text: "Save OK !",
+          // });
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
           });
+
+          Toast.fire({
+            icon: "success",
+            title: "บันทึกสำเร็จ",
+          });
+
           getPlant();
           Close_Edit();
         })
