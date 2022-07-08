@@ -5,6 +5,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { BiCheck } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
 import Modal from "react-bootstrap/Modal";
+import form from "react-bootstrap/Form";
 
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
@@ -158,7 +159,13 @@ const TimeChemical = () => {
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>ระยะเวลาสารเคมี</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          {" "}
+          <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Label>วันที่สิ้นสุด</form.Label>
+            <form.Control type="number" placeholder="เวลา" />
+          </form.Group>
+        </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={handleClose}>
             Close
