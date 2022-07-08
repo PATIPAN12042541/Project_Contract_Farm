@@ -19,20 +19,9 @@ const TimeChemical = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152" }}
                 >
-                  <div className="row">
-                    <div className="col-md-11">
-                      <h1 className="card-title">จัดการโซนเพาะปลูก</h1>
-                    </div>
-                    <div className="col-md-1">
-                      <button
-                        type="submit"
-                        className="btn btn-success"
-                        // onClick={handleShow}
-                      >
-                        เพิ่มข้อมูล
-                      </button>
-                    </div>
-                  </div>
+                  <center>
+                    <h3 className="card-title">จัดการระยะเวลาตกค้าง</h3>
+                  </center>
                 </div>
               </div>
             </div>
