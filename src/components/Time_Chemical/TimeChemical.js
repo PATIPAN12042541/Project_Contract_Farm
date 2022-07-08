@@ -82,14 +82,14 @@ const TimeChemical = () => {
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
-                                    onClick={(e) => ChangeOpen(e.target.value)}
+                                    onClick={(e) => ChangeOpen(1)}
                                   >
                                     <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={(e) => ChangeOpen(e.target.value)}
+                                    onClick={(e) => ChangeOpen(0)}
                                   >
                                     <BiCheck />
                                   </button>
