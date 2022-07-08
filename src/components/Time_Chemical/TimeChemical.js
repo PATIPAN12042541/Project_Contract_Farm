@@ -8,12 +8,13 @@ import { BiEditAlt } from "react-icons/bi";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
-  const [open, setopen] = useState("");
+  const [open, setopen] = useState(false);
   const [time, setTime] = useState([]);
 
   const ChangeOpen = (e) => {
     console.log(time);
     console.log(e);
+    setopen(true);
   };
   /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
@@ -75,7 +76,9 @@ const TimeChemical = () => {
                                   className="form-control col-sm-10 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
-                                  onChange={(e) => setTime(e.target.value)}
+                                  onChange={(e) => {
+                                    setTime(e.target.value);
+                                  }}
                                   disabled={!open}
                                 />
                                 &nbsp;
