@@ -55,6 +55,25 @@ const TimeChemical = () => {
                           <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
+                      <tboby>
+                        {TimeChemical.map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.time}</td>
+                            <td>{data.unit}</td>
+                            <td>
+                              <button
+                                className="btn btn-danger"
+                                // onClick={(e) => deleteChemical(listChemical.id)}
+                              >
+                                <center>
+                                  <BsTrashFill />
+                                </center>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tboby>
                     </table>
                   </div>
                 </div>
