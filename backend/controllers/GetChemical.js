@@ -470,7 +470,7 @@ export const updateStatusTime = async (req, res) => {
       },
     });
     res.json({
-      message: "FertilizerData Updated",
+      message: "status Updated",
     });
   } catch (error) {
     res.json({ message: error.message });

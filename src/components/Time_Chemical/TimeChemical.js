@@ -26,7 +26,6 @@ const TimeChemical = () => {
       `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical`
     );
     setTimeChemical(response.data);
-    console.log(response.data);
   };
 
   useEffect(() => {
