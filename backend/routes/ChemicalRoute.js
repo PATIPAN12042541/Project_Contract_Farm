@@ -23,6 +23,7 @@ import {
   updateFertilizerStauts,
   PostFertilizerUnit,
   DeleteFertilizerUnit,
+  TimeChemical,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -50,6 +51,6 @@ router.get("/FertilizerData/Detail/:id", FertilizerDataDetail);
 router.patch("/updateChangeStatus/Fertilizer/:id", updateFertilizerStauts);
 router.post("/PostFertilizerUnit", PostFertilizerUnit);
 router.delete("/DeleteFertilizerUnit/:id", DeleteFertilizerUnit);
-
+router.get("/TimeChemical", TimeChemical);
 
 export default router;

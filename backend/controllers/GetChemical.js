@@ -453,3 +453,13 @@ export const DeleteFertilizerUnit = async (req, res) => {
   }
 };
 /**************************************************************/
+export const TimeChemical = async (req, res) => {
+  try {
+    const Time = await db.query("SELECT * FROM residual_period_chemical ", {
+      type: db.QueryTypes.SELECT,
+    });
+    res.json(Time);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};

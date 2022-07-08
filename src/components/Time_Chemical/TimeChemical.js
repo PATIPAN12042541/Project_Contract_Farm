@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { BsTrashFill } from "react-icons/bs";
 
 const TimeChemical = () => {
+  const [TimeChemical, setTimeChemical] = useState([]);
+  /* ---------------------------------------------------------*/
+  const getTimeChemical = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical`
+    );
+    setTimeChemical(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getTimeChemical();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
