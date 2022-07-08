@@ -88,7 +88,7 @@ const TimeChemical = () => {
                                 &nbsp;
                                 {data.status == 1 ? (
                                   <button
-                                    className="btn btn-warning"
+                                    className="btn btn-warning toastrDefaultWarning"
                                     style={{ color: "#fff" }}
                                     onClick={() => ChangeOpen(0, data.id)}
                                   >
@@ -96,7 +96,7 @@ const TimeChemical = () => {
                                   </button>
                                 ) : (
                                   <button
-                                    className="btn btn-success"
+                                    className="btn btn-success toastrDefaultSuccess"
                                     onClick={() => ChangeOpen(1, data.id)}
                                   >
                                     <BiCheck />
