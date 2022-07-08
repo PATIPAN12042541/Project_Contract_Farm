@@ -6,6 +6,11 @@ import { BsTrashFill } from "react-icons/bs";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
+  const [ open, setopen] = useState(true);
+
+  const changeStatusOpen = () => setopen(false);
+  const changeStatusClose = () => setopen(true);
+  /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/TimeChemical`
@@ -13,6 +18,9 @@ const TimeChemical = () => {
     setTimeChemical(response.data);
     console.log(response.data);
   };
+
+  
+
 
   useEffect(() => {
     getTimeChemical();
@@ -65,10 +73,14 @@ const TimeChemical = () => {
                                   className="form-control col-sm-11 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
-                                  disabled={true}
+                                  disabled={open}
                                 />
                                 &nbsp;
-                                <button className="btn btn-warning">+</button>
+                                { open == "true" ?
+                                <button className="btn btn-warning" onClick={changeStatusOpen}>/</button>
+                                : 
+                                <button className="btn btn-success" onClick={changeStatusClose}>+</button>
+                                }
                               </div>
                             </td>
                             <td>{data.unit}</td>
@@ -95,6 +107,6 @@ const TimeChemical = () => {
       </section>
     </div>
   );
-};
+};;
 
 export default TimeChemical;
