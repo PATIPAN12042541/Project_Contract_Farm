@@ -82,7 +82,7 @@ const TimeChemical = () => {
                                   disabled={open}
                                 />
                                 &nbsp;
-                                {!open ? (
+                                {open == true ? (
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
