@@ -23,6 +23,11 @@ const TimeChemical = () => {
                     <h3 className="card-title">จัดการระยะเวลาตกค้าง</h3>
                   </center>
                 </div>
+                <div className="card-body">
+                  <div className="row">
+                    <button className="btn btn-success">เพิ่มข้อมูล</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
