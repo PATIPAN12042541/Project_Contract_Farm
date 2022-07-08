@@ -68,7 +68,7 @@ const TimeChemical = () => {
                                   disabled={true}
                                 />
                                 &nbsp;
-                                <button className="btn btn-success">+</button>
+                                <button className="btn btn-warning">+</button>
                               </div>
                             </td>
                             <td>{data.unit}</td>
