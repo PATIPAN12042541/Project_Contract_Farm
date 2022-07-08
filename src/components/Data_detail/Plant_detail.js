@@ -73,11 +73,6 @@ const Plant_detail = (props) => {
           }
         )
         .then(function (response) {
-          // Swal.fire({
-          //   icon: "success",
-          //   title: "Success",
-          //   text: "Save OK !",
-          // });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
