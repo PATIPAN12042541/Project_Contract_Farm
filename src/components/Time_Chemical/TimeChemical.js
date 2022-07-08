@@ -165,6 +165,10 @@ const TimeChemical = () => {
             <form.Label>วันที่สิ้นสุด</form.Label>
             <form.Control type="number" placeholder="เวลา" />
           </form.Group>
+          <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Label>วันที่สิ้นสุด</form.Label>
+            <form.Control type="text" placeholder="วัน" disabled />
+          </form.Group>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={handleClose}>
