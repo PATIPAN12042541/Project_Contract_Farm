@@ -65,7 +65,8 @@ const TimeChemical = () => {
                                 type="text"
                                 defaultValue={data.time}
                                 // style={{ display: "none" }}
-                              />
+                              />{" "}
+                              <button className="btn btn-success">+</button>
                             </td>
                             <td>{data.unit}</td>
                             <td>
