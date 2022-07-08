@@ -14,7 +14,7 @@ const TimeChemical = () => {
   const ChangeOpen = (e) => {
     console.log(time);
     console.log(e);
-    setopen(true);
+    setopen(e);
   };
   /*---------------------------------------------------------**/
   const getTimeChemical = async () => {
@@ -86,14 +86,14 @@ const TimeChemical = () => {
                                   <button
                                     className="btn btn-warning"
                                     style={{ color: "#fff" }}
-                                    onClick={() => ChangeOpen(1)}
+                                    onClick={() => ChangeOpen(false)}
                                   >
                                     <BiEditAlt />
                                   </button>
                                 ) : (
                                   <button
                                     className="btn btn-success"
-                                    onClick={() => ChangeOpen(0)}
+                                    onClick={() => ChangeOpen(true)}
                                   >
                                     <BiCheck />
                                   </button>
