@@ -37,7 +37,14 @@ const TimeChemical = () => {
             time: time,
           }
         );
-        Swal.fire("Completed!", "บันทึกสำเร็จ", "success");
+        // Swal.fire("Completed!", "บันทึกสำเร็จ", "success");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "บันทึกสำเร็จ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     } else {
       await axios.patch(
