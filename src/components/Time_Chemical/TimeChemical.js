@@ -76,7 +76,7 @@ const TimeChemical = () => {
                                   disabled={open}
                                 />
                                 &nbsp;
-                                {open == "true" ? (
+                                {open == true ? (
                                   <button
                                     className="btn btn-warning"
                                     onClick={changeStatusClose}
