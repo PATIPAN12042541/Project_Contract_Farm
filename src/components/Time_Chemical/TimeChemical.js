@@ -4,12 +4,21 @@ import Swal from "sweetalert2";
 import { BsTrashFill } from "react-icons/bs";
 import { BiCheck } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
+import Modal from "react-bootstrap/Modal";
 
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
   const [time, setTime] = useState([]);
 
+  /*-------------------------- Modal ---------------------------*/
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  /*-------------------------------------------------------------*/
   const ChangeOpen = async (e, id) => {
     console.log(time);
     if (e == 1) {
@@ -76,7 +85,9 @@ const TimeChemical = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <button className="btn btn-success">เพิ่มข้อมูล</button>
+                    <button className="btn btn-success" onClick={handleShow}>
+                      เพิ่มข้อมูล
+                    </button>
                   </div>
                   <hr />
                   <div className="row">
@@ -142,6 +153,21 @@ const TimeChemical = () => {
           </div>
         </div>
       </section>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={handleClose}>
+            Close
+          </button>
+          <button className="btn btn-success" onClick={handleClose}>
+            Save
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };;
