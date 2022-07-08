@@ -155,8 +155,8 @@ const TimeChemical = () => {
       </section>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>ระยะเวลาสารเคมี</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
         <Modal.Footer>
