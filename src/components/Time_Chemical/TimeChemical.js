@@ -74,7 +74,7 @@ const TimeChemical = () => {
                               <div className="form-group row">
                                 <input
                                   className="form-control col-sm-10 col-form-label"
-                                  type="numbers"
+                                  type="number"
                                   defaultValue={data.time}
                                   onChange={(e) => {
                                     setTime(e.target.value);
