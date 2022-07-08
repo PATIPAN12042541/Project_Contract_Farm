@@ -64,7 +64,7 @@ const TimeChemical = () => {
                                 className="form-control"
                                 type="text"
                                 defaultValue={data.time}
-                                style={{ display: "none" }}
+                                // style={{ display: "none" }}
                               />
                             </td>
                             <td>{data.unit}</td>
