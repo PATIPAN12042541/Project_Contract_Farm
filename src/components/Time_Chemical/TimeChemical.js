@@ -6,7 +6,7 @@ import { BsTrashFill } from "react-icons/bs";
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
   /* ---------------------------------------------------------*/
-  const [ open, setopen] = useState(true);
+  const [open, setopen] = useState(false);
 
   const changeStatusOpen = () => setopen(false);
   const changeStatusClose = () => setopen(true);
