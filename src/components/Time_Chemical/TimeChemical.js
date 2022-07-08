@@ -76,11 +76,21 @@ const TimeChemical = () => {
                                   disabled={open}
                                 />
                                 &nbsp;
-                                { open == "true" ?
-                                <button className="btn btn-warning" onClick={changeStatusOpen}>/</button>
-                                : 
-                                <button className="btn btn-success" onClick={changeStatusClose}>+</button>
-                                }
+                                {open == "true" ? (
+                                  <button
+                                    className="btn btn-warning"
+                                    onClick={changeStatusClose}
+                                  >
+                                    /
+                                  </button>
+                                ) : (
+                                  <button
+                                    className="btn btn-success"
+                                    onClick={changeStatusOpen}
+                                  >
+                                    +
+                                  </button>
+                                )}
                               </div>
                             </td>
                             <td>{data.unit}</td>
