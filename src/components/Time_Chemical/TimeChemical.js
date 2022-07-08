@@ -21,7 +21,6 @@ const TimeChemical = () => {
 
   /*-------------------------------------------------------------*/
   const ChangeOpen = async (e, id) => {
-    console.log(time);
     if (e == 1) {
       if (time == "") {
         await axios.patch(
