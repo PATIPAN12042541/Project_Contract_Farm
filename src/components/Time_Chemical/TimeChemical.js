@@ -162,11 +162,11 @@ const TimeChemical = () => {
         <Modal.Body>
           {" "}
           <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <form.Label>วันที่สิ้นสุด</form.Label>
+            <form.Label>เวลา</form.Label>
             <form.Control type="number" placeholder="เวลา" />
           </form.Group>
           <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <form.Label>วันที่สิ้นสุด</form.Label>
+            <form.Label>หน่วย</form.Label>
             <form.Control type="text" placeholder="วัน" disabled />
           </form.Group>
         </Modal.Body>
