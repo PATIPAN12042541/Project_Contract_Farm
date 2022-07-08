@@ -13,10 +13,10 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
-  const [show, setShow] = useState(false);
-  const [checkpass, setCheckPass] = useState(false);
+  // const [show, setShow] = useState(false);
+  // const [checkpass, setCheckPass] = useState(false);
 
-  const [wordingPass, setwordingPass] = useState("");
+  // const [wordingPass, setwordingPass] = useState("");
 
   useEffect(() => {
     getRole();
@@ -30,104 +30,91 @@ const Register = () => {
     setRoleGroup(response.data);
   };
 
-  const ShowandHide = (data) => {
-    if (data.length < 8) {
-      setShow(true);
-      setUserName(data);
-    } else {
-      setShow(false);
-      setUserName(data);
-    }
-  };
+  // const ShowandHide = (data) => {
+  //   if (data.length < 8) {
+  //     setShow(true);
+  //     setUserName(data);
+  //   } else {
+  //     setShow(false);
+  //     setUserName(data);
+  //   }
+  // };
 
-  const CheckPassworld = (data) => {
-    let smallCount, numberCount, symbolCount;
+  // const CheckPassworld = (data) => {
+  //   let smallCount, numberCount, symbolCount;
 
-    smallCount = (data.match(/[a-z]/g) || []).length;
-    numberCount = (data.match(/[0-9]/g) || []).length;
-    symbolCount = (data.match(/\W/g) || []).length;
+  //   smallCount = (data.match(/[a-z]/g) || []).length;
+  //   numberCount = (data.match(/[0-9]/g) || []).length;
+  //   symbolCount = (data.match(/\W/g) || []).length;
 
-    if (data.length < 8) {
-      setCheckPass(true);
-      setwordingPass("กรุณาตั้ง Passworld อย่างน้อย 8 ตัว");
-    } else {
-      setCheckPass(false);
-      setwordingPass("");
+  //   if (data.length < 8) {
+  //     setCheckPass(true);
+  //     setwordingPass("กรุณาตั้ง Passworld อย่างน้อย 8 ตัว");
+  //   } else {
+  //     setCheckPass(false);
+  //     setwordingPass("");
 
-      if (smallCount < 1) {
-        setCheckPass(true);
-        setwordingPass("กรุณาตั้งตัวหนังสือพิมพ์เล็ก อย่างน้อย 1 ตัว");
-      } else {
-        setCheckPass(false);
-        setwordingPass("");
+  //     if (smallCount < 1) {
+  //       setCheckPass(true);
+  //       setwordingPass("กรุณาตั้งตัวหนังสือพิมพ์เล็ก อย่างน้อย 1 ตัว");
+  //     } else {
+  //       setCheckPass(false);
+  //       setwordingPass("");
 
-        if (numberCount < 1) {
-          setCheckPass(true);
-          setwordingPass("กรุณาตั้งตัวตัวเลข อย่างน้อย 1 ตัว");
-        } else {
-          setCheckPass(false);
-          setwordingPass("");
-          if (symbolCount < 1) {
-            setCheckPass(true);
-            setwordingPass("กรุณาตั้งอักษรพิเศษ อย่างน้อย 1 ตัว");
-          } else {
-            setCheckPass(false);
-            setwordingPass("");
-          }
-        }
-      }
-    }
-    setPassword(data);
-  };
+  //       if (numberCount < 1) {
+  //         setCheckPass(true);
+  //         setwordingPass("กรุณาตั้งตัวตัวเลข อย่างน้อย 1 ตัว");
+  //       } else {
+  //         setCheckPass(false);
+  //         setwordingPass("");
+  //         if (symbolCount < 1) {
+  //           setCheckPass(true);
+  //           setwordingPass("กรุณาตั้งอักษรพิเศษ อย่างน้อย 1 ตัว");
+  //         } else {
+  //           setCheckPass(false);
+  //           setwordingPass("");
+  //         }
+  //       }
+  //     }
+  //   }
+  //   setPassword(data);
+  // };
 
   const Register = async (e) => {
     e.preventDefault();
-    if (
-      checkpass > 0 ||
-      show > 0 ||
-      password !== confirmPassword ||
-      name == "" ||
-      lastName == ""
-    ) {
+
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/user/register`, {
+          //await axios.post("http://localhost:4000/user/register",{
+          username: username,
+          password: password,
+          confirmPassword: confirmPassword,
+          name: name,
+          last_name: lastName,
+          role_id: roleID,
+        })
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          Nav("/");
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+    } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "กรุณากรอกข้อมูลให้ครบถ้วน",
+        title: error.response.data.msg,
         text: "Save Error!",
       });
-    } else {
-      try {
-        await axios
-          .post(`${process.env.REACT_APP_API_URL}/user/register`, {
-            //await axios.post("http://localhost:4000/user/register",{
-            username: username,
-            password: password,
-            confirmPassword: confirmPassword,
-            name: name,
-            last_name: lastName,
-            role_id: roleID,
-          })
-          .then(function (response) {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Save OK !",
-            });
-            Nav("/");
-          })
-          .catch(function (error) {
-            Swal.fire({
-              icon: "error",
-              title: error.response.data.msg,
-              text: "Save Error!",
-            });
-          });
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
-        });
-      }
     }
   };
 
@@ -146,7 +133,7 @@ const Register = () => {
                   className="form-control"
                   placeholder="Username"
                   value={username}
-                  onChange={(e) => ShowandHide(e.target.value)}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -154,20 +141,13 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              {show > 0 && username !== "" ? (
-                <div className="input-group check-username">
-                  กรุณาตั้ง Username อย่างน้อย 8 ตัว
-                </div>
-              ) : (
-                ""
-              )}
               <div className="input-group mb-3">
                 <input
                   type="password"
                   className="form-control"
                   placeholder="Password"
                   value={password}
-                  onChange={(e) => CheckPassworld(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -175,51 +155,19 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              {checkpass > 0 && password !== "" ? (
-                <div className="input-group check-passworld-lenght">
-                  {wordingPass}
-                </div>
-              ) : (
-                ""
-              )}
               <div className="input-group mb-3 ">
                 <input
                   type="password"
-                  className={
-                    confirmPassword !== ""
-                      ? password !== confirmPassword
-                        ? "form-control check-red"
-                        : "form-control check-green"
-                      : "form-control"
-                  }
+                  className="form-control"
                   placeholder="Confirm password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <div className="input-group-append">
-                  <div
-                    className={
-                      confirmPassword !== ""
-                        ? password !== confirmPassword
-                          ? "input-group-text check-red"
-                          : "input-group-text check-green"
-                        : "input-group-text"
-                    }
-                  >
+                  <div className="input-group-text">
                     <span className="fas fa-lock" />
                   </div>
                 </div>
-                {confirmPassword !== "" ? (
-                  password !== confirmPassword ? (
-                    <div className="input-group check-passworld">
-                      Passworld ไม่ตรงกัน
-                    </div>
-                  ) : (
-                    ""
-                  )
-                ) : (
-                  ""
-                )}
               </div>
               <div className="input-group mb-3">
                 <input
