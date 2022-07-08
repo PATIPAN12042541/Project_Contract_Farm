@@ -72,6 +72,7 @@ const TimeChemical = () => {
                                   className="form-control col-sm-10 col-form-label"
                                   type="text"
                                   defaultValue={data.time}
+                                  id={index}
                                   disabled={open}
                                 />
                                 &nbsp;
