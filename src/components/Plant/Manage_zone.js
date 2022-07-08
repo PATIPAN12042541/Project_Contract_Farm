@@ -13,6 +13,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
+import { BsFillPlusSquareFill } from "react-icons/bs";
 
 const Manage_zone = () => {
   const [show, setShow] = useState(false);
@@ -199,7 +200,7 @@ const Manage_zone = () => {
                         onClick={handleShow}
                         // style={({ width: "100%" }, { display: "block" })}
                       >
-                        เพิ่มข้อมูล
+                        <BsFillPlusSquareFill />
                       </button>
                     </div>
                   </div>
