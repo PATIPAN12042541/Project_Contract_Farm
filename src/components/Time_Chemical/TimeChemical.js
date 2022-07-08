@@ -60,7 +60,7 @@ const TimeChemical = () => {
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
-                              <div className="form-group">
+                              <div className="form-group row">
                                 <input
                                   className="form-control"
                                   type="text"
