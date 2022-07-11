@@ -12,21 +12,21 @@
 */
 
 .waviy {
-    position: relative;
+    position: relative !important;
 }
   .waviy span {
-    position: relative;
-    display: inline-block;
-    font-size: 40px;
-    color: #fff;
-    text-transform: uppercase;
-    animation: flip 2s infinite;
-        animation-delay: calc(.2s * var(--i))
+    position: relative !important;
+        display: inline-block !important;
+        font-size: 40px !important;
+        color: #fff !important;
+        text-transform: uppercase !important;
+        animation: flip 2s infinite !important;
+        animation-delay: calc(.2s * var(--i)) !important
     }
   @keyframes flip {
 
     0%,
     80% {
-            transform: rotateY(360deg)
+            transform: rotateY(360deg) !important
     }
   }
