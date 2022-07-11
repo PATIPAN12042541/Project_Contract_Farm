@@ -66,7 +66,7 @@ const Plant = (props) => {
                   <div className="row">
                     {datadetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
-                        {roleid === data.UserID ? (
+                        {roleid == data.UserID ? (
                           data.status_plant == "1" ||
                           data.status_plant == "4" ? (
                             <Link
