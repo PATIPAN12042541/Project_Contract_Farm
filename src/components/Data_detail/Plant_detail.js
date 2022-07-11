@@ -161,6 +161,9 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "8" }}>ก</span>
                             <span style={{ "--i": "9" }}>า</span>
                             <span style={{ "--i": "10" }}>ร</span>
+                            <span style={{ "--i": "11" }}>.</span>
+                            <span style={{ "--i": "12" }}>.</span>
+                            <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
                       </div>
