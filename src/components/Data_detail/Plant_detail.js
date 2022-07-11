@@ -151,16 +151,16 @@ const Plant_detail = (props) => {
                             src="../dist/img/plant-garden.jpg"
                           />
                           <div className="waviy">
-                            <span style={"--i:1"}>กำ</span>
-                            <span style={"--i:2"}>ลั</span>
-                            <span style={"--i:3"}>ง</span>
-                            <span style={{"--i":"4"}}>ดำ</span>
-                            <span style={{"--i":"5"}}>เ</span>
-                            <span style={{"--i":"6"}}>นิ</span>
-                            <span style={{"--i":"7"}}>น</span>
-                            <span style={{ "--i": "8" }}>ก</span>
-                            <span style={{ "--i": "9" }}>า</span>
-                            <span style={{"--i":"10"}}>ร</span>
+                            <div style={"--i:1"}>กำ</div>
+                            <div style={"--i:2"}>ลั</div>
+                            <div style={"--i:3"}>ง</div>
+                            <div style={{ "--i": "4" }}>ดำ</div>
+                            <div style={{ "--i": "5" }}>เ</div>
+                            <div style={{ "--i": "6" }}>นิ</div>
+                            <div style={{ "--i": "7" }}>น</div>
+                            <div style={{ "--i": "8" }}>ก</div>
+                            <div style={{ "--i": "9" }}>า</div>
+                            <div style={{ "--i": "10" }}>ร</div>
                           </div>
                           {/* <div id="text-word">
                             <center>กำลังดำเนินการ...</center>
