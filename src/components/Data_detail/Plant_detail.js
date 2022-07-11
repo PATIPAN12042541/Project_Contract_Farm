@@ -146,10 +146,10 @@ const Plant_detail = (props) => {
                     <div className="card-body">
                       <div className="row">
                         <div className="col-md-12">
-                          {/* <img
+                          <img
                             className="ima-size card-img-top"
                             src="../dist/img/plant-garden.jpg"
-                          /> */}
+                          />
                           <div className="waviy">
                             <span style={{ "--i": "1" }}>กำ</span>
                             <span style={{ "--i": "2" }}>ลั</span>
