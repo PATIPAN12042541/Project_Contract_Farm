@@ -32,19 +32,18 @@
     }
 
   @keyframes flip {
-    0% {
-            transform: rotateY(360deg)
+        0% {
+                transform: translateY(0)
         }
+                  40% {
+                      transform: translateY(0)
+                  }
+        
+                  100% {
+                      transform: translateY(0)
+                  }
     
-        80% {
-            transform: rotateY(360deg)
-        }
-    
-        /* from {
-            transform: rotateY(0deg);
-        }
-    
-        to {
-            transform: rotateY(360deg);
-        */
+                  20% {
+                      transform: translateY(-20px)
+                  }
   }
