@@ -10,6 +10,7 @@ const Plant = (props) => {
   const [datadetail, setDatadetail] = useState([]);
   const [roleid, setRoleID] = useState("");
   const [token, setToken] = useState("");
+  const [expire, setExpire] = useState("");
   const history = useNavigate();
 
   const getPlantData = async () => {
@@ -34,6 +35,28 @@ const Plant = (props) => {
       }
     }
   };
+
+  const axiosJWT = axios.create();
+
+  axiosJWT.interceptors.request.use(
+    async (config) => {
+      const currentDate = new Date();
+      if (expire * 1000 < currentDate.getTime()) {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/user/token`
+        );
+        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+
+        setRoleID(decoded.role_id);
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
   useEffect(() => {
     CheckIdLogin();
