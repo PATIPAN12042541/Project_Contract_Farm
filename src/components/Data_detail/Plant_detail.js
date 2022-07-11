@@ -150,9 +150,21 @@ const Plant_detail = (props) => {
                             className="ima-size card-img-top"
                             src="../dist/img/plant-garden.jpg"
                           />
-                          <div id="text-word">
-                            <center>กำลังดำเนินการ...</center>
+                          <div class="waviy">
+                            <span style="--i:1">กำ</span>
+                            <span style="--i:2">ลั</span>
+                            <span style="--i:3">ง</span>
+                            <span style="--i:4">ดำ</span>
+                            <span style="--i:5">เ</span>
+                            <span style="--i:6">นิ</span>
+                            <span style="--i:7">น</span>
+                            <span style="--i:8">ก</span>
+                            <span style="--i:9">า</span>
+                            <span style="--i:10">ร</span>
                           </div>
+                          {/* <div id="text-word">
+                            <center>กำลังดำเนินการ...</center>
+                          </div> */}
                         </div>
                       </div>
                     </div>
