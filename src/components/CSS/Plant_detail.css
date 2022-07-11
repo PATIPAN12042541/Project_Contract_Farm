@@ -12,13 +12,20 @@
 */
 
 .waviy {
-    position: relative !important;
+    position: absolute;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5);
+        border-inline-color: #ffff;
+        color: #f1f1f1;
+        top: 50px;
+        right: 50px;
+        font-size: 36px;
 }
   .waviy span {
     position: relative !important;
         display: inline-block !important;
         font-size: 40px !important;
-        color: black !important;
+        /* color: black !important; */
         text-transform: uppercase !important;
         animation: flip 2s infinite !important;
         animation-delay: calc(.2s * var(--i)) !important
