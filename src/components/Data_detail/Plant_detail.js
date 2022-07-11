@@ -145,7 +145,7 @@ const Plant_detail = (props) => {
                   {data.status_plant == "1" ? (
                     <div className="card-body">
                       <div className="row">
-                        <div className="col-md-12 textdata">
+                        <div className="col-md-12">
                           {/* <img
                             className="ima-size card-img-top"
                             src="../dist/img/plant-garden.jpg"
