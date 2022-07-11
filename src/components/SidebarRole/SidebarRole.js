@@ -73,10 +73,10 @@ const SidebarRole = () => {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/user/token`
         );
-        //const response = await axios.get('http://localhost:4000/user/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
+        console.log(decoded);
         setName(decoded.name);
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
