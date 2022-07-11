@@ -14,7 +14,7 @@ const Plant = (props) => {
 
   const getPlantData = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
+      `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}/${roleid}`
     );
     setDatadetail(response.data);
     console.log(response.data);

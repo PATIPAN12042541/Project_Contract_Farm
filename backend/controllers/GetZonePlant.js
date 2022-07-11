@@ -39,9 +39,9 @@ export const getDataPlant = async (req, res) => {
         "LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
         "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
         "LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data " +
-        "WHERE id_zone = :id_plant",
+        "WHERE id_zone = :id_plant AND user.id = :user ",
       {
-        replacements: { id_plant: req.params.id },
+        replacements: { id_plant: req.params.id, user: req.params.user },
         type: db.QueryTypes.SELECT,
       }
     );
