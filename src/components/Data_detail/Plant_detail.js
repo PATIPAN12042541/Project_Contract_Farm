@@ -145,7 +145,7 @@ const Plant_detail = (props) => {
                   {data.status_plant == "1" ? (
                     <div className="card-body">
                       <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-12 textdata">
                           <img
                             className="ima-size card-img-top"
                             src="../dist/img/plant-garden.jpg"
@@ -162,9 +162,6 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "9" }}>า</span>
                             <span style={{ "--i": "10" }}>ร</span>
                           </div>
-                          {/* <div id="text-word">
-                            <center>กำลังดำเนินการ...</center>
-                          </div> */}
                         </div>
                       </div>
                     </div>

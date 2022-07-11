@@ -11,6 +11,13 @@
 }
 */
 
+.textdata {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 .waviy {
     position: relative !important;
 }
@@ -23,8 +30,8 @@
         animation: flip 2s infinite !important;
         animation-delay: calc(.2s * var(--i)) !important
     }
-  @keyframes flip {
 
+  @keyframes flip {
     0%,
     80% {
             transform: rotateY(360deg) !important
