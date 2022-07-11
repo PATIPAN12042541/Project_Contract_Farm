@@ -81,6 +81,7 @@ const SidebarRole = () => {
         setRoleID(decoded.role_id);
         setExpire(decoded.exp);
       }
+      console.log(config);
       return config;
     },
     (error) => {
@@ -88,7 +89,7 @@ const SidebarRole = () => {
     }
   );
 
-  console.log(axiosJWT);
+ 
 
 
   return (
