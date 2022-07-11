@@ -18,7 +18,7 @@
     position: relative !important;
         display: inline-block !important;
         font-size: 40px !important;
-        color: #fff !important;
+        color: #0000 !important;
         text-transform: uppercase !important;
         animation: flip 2s infinite !important;
         animation-delay: calc(.2s * var(--i)) !important
