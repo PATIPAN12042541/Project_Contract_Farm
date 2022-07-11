@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 import { BsFillPlusSquareFill } from "react-icons/bs";
-import { BsArrowRightCircle } from "react-icons/bs";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const Manage_zone = () => {
   const [show, setShow] = useState(false);
@@ -297,7 +297,7 @@ const Manage_zone = () => {
                                   className="btn btn-primary"
                                   style={{ color: "#FFFFFF" }}
                                 >
-                                  <BsArrowRightCircle />
+                                  <BsFillArrowRightCircleFill />
                                 </button>
                               </Link>
                             </center>
