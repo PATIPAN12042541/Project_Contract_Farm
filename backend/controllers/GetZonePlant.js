@@ -23,6 +23,7 @@ export const getDataPlant = async (req, res) => {
         "start_date_plant," +
         "end_date_plant," +
         "plant_master_detail.plant_img as plant_image," +
+        "user.id," +
         "user.name," +
         "plant.status_plant," +
         "Status_plant.status_name," +
