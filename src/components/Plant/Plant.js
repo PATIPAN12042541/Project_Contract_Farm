@@ -3,20 +3,40 @@ import axios from "axios";
 import "../CSS/Plant.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Plant = (props) => {
   const [datadetail, setDatadetail] = useState([]);
-  
+  const [roleid, setRoleID] = useState("");
+  const [token, setToken] = useState("");
+  const history = useNavigate();
 
   const getPlantData = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}`
     );
     setDatadetail(response.data);
-    // console.log(response.data);
+    console.log(response.data);
+  };
+
+  const CheckIdLogin = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      setRoleID(decoded.role_id);
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
   };
 
   useEffect(() => {
+    CheckIdLogin();
     getPlantData();
   }, []);
 
