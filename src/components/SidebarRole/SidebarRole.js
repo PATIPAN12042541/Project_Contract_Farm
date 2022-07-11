@@ -76,7 +76,6 @@ const SidebarRole = () => {
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
-        console.log(decoded);
         setName(decoded.name);
         setLastName(decoded.last_name);
         setRoleID(decoded.role_id);
@@ -88,6 +87,9 @@ const SidebarRole = () => {
       return Promise.reject(error);
     }
   );
+
+  console.log(axiosJWT);
+
 
   return (
     <aside className="main-sidebar sidebar-light-primary elevation-4">
