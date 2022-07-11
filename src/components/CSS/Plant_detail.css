@@ -10,45 +10,23 @@
         font-size: 36px;
 }
 */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-body {
-    background-color: #151719;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
 .waviy {
     position: relative;
-    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
-    font-size: 60px;
 }
-
-.waviy span {
-    font-family: 'Alfa Slab One', cursive;
+  .waviy span {
     position: relative;
     display: inline-block;
+    font-size: 40px;
     color: #fff;
     text-transform: uppercase;
-    animation: waviy 1s infinite;
-    animation-delay: calc(.1s * var(--i));
-
-}
-
-@keyframes waviy {
+    animation: flip 2s infinite;
+        animation-delay: calc(.2s * var(--i))
+    }
+  @keyframes flip {
 
     0%,
-    40%,
-    100% {
-        transform: translateY(0)
+    80% {
+            transform: rotateY(360deg)
     }
-
-    20% {
-        transform: translateY(-20px)
-    }
-}
+  }
