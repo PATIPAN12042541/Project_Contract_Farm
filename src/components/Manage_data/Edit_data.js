@@ -991,16 +991,6 @@ const Edit_data = (props) => {
                                 <> </>
                                 <button
                                   type="submit"
-                                  className="btn btn-primary"
-                                  onClick={() => {
-                                    getCommnent(data.plant_id);
-                                  }}
-                                >
-                                  <BsFillChatSquareDotsFill />
-                                </button>
-                                <> </>
-                                <button
-                                  type="submit"
                                   className="btn btn-success"
                                   onClick={() => {
                                     lastStatus(
@@ -1012,6 +1002,16 @@ const Edit_data = (props) => {
                                   }}
                                 >
                                   <BsFillCheckCircleFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    getCommnent(data.plant_id);
+                                  }}
+                                >
+                                  <BsFillChatSquareDotsFill />
                                 </button>
                               </center>
                             ) : (
