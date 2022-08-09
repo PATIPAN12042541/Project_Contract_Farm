@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useTime } from "react-timer-hook";
 import { Link } from "react-router-dom";
 import "./CSS/Header.css";
+import jwt_decode from "jwt-decode";
 
 const Header = () => {
   const locale = "en";
   const [today, setDate] = React.useState(new Date());
+  const [token, setToken] = useState("");
 
   const history = useNavigate();
   const [checktime, setCheckTime] = useState([]);
@@ -33,7 +35,37 @@ const Header = () => {
     }
   };
 
-  const getCheckTime = async () => {
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+
+      //console.log(decoded);
+
+      if (decoded.role_id == "3") {
+        getCheckTimeUser(decoded.userId);
+      } else {
+        getCheckTime();
+      }
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
+  };
+
+  const getCheckTimeUser = async (user_id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/header/user/${user_id}`
+    );
+    setCheckTime(response.data);
+  };
+
+  const getCheckTime = async (user_id) => {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/header`);
     setCheckTime(response.data);
   };
@@ -49,7 +81,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    getCheckTime();
+    refreshToken();
+    //getCheckTime();
     get_api_weather2();
   }, []);
 
