@@ -10,7 +10,7 @@ import {
 
 const router = express.Router();
 
-router.get("/", GetZonePlant);
+router.get("/user/:id", GetZonePlant);
 router.get("/plant/:id", getDataPlant);
 router.get("/plant_detail/:id", getPlantDetail);
 router.post("/postZone", postZone);

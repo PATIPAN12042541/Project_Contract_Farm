@@ -3,9 +3,23 @@ import ZonePlant from "../models/ZonePlant.js";
 
 export const GetZonePlant = async (req, res) => {
   try {
-    const zoneplant = await db.query("SELECT * FROM zone_plant", {
-      type: db.QueryTypes.SELECT,
-    });
+    const zoneplant = await db.query(
+      "SELECT DISTINCT " +
+        "zone_plant.id," +
+        "zone_plant.zone_name," +
+        "zone_plant.image_zone," +
+        "zone_plant.lat," +
+        "zone_plant.lon," +
+        "plant.id_user " +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN plant ON plant_detail.id = plant.id_plant " +
+        "where plant.id_user = :User_id",
+      {
+        replacements: { User_id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
     res.json(zoneplant);
   } catch (error) {
     res.json({ message: error.message });

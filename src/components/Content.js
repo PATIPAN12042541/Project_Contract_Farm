@@ -20,20 +20,14 @@ const Content = () => {
     refreshToken();
   }, []);
 
-  const getPlant = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant`
-    );
-
-    setPlant(response.data);
-  };
+ 
 
   const refreshToken = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/user/token`
       );
-      
+
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
 
@@ -49,6 +43,17 @@ const Content = () => {
   };
 
   console.log("Role ID : " + roleid + " User ID : " + Userid);
+
+  const getPlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/User/${Userid}`
+    );
+
+    setPlant(response.data);
+  };
+
+
+ 
 
   return (
     <div className="content-wrapper">
