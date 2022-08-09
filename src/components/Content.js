@@ -31,8 +31,12 @@ const Content = () => {
       console.log(decoded);
 
       //setUserID(decoded.userId);
-      setRoleID(decoded.role_id);
-      getPlant(decoded.userId);
+      //setRoleID(decoded.role_id);
+      if (decoded.role_id == "3") {
+        getPlantUser(decoded.userId);
+      } else {
+        getPlant();
+      }
     } catch (error) {
       if (error.response) {
         history("/");
@@ -40,14 +44,23 @@ const Content = () => {
     }
   };
 
-  const getPlant = async (user_id) => {
+  const getPlantUser = async (user_id) => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/User/${user_id}`
     );
 
     setPlant(response.data);
-    console.log(response.data);
   };
+
+  const getPlant = async (user_id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant`
+    );
+
+    setPlant(response.data);
+  };
+
+
 
   return (
     <div className="content-wrapper">
