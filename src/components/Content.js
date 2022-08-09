@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 const Content = () => {
   const [plant, setPlant] = useState([]);
   const [roleid, setRoleID] = useState("");
+  const [Userid, setUserID] = useState("");
   const [token, setToken] = useState("");
   const history = useNavigate();
 
@@ -35,6 +36,7 @@ const Content = () => {
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
 
+      setUserID(decoded.id);
       setRoleID(decoded.role_id);
     } catch (error) {
       if (error.response) {
@@ -43,7 +45,7 @@ const Content = () => {
     }
   };
 
-  console.log("Role ID : " + roleid);
+  console.log("Role ID : " + roleid + " User ID : " + Userid);
 
   return (
     <div className="content-wrapper">
