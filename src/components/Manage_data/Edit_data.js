@@ -1155,6 +1155,29 @@ const Edit_data = (props) => {
                     className="mb-3"
                     controlId="exampleForm.ControlInput1"
                   >
+                    <form.Label>ชื่อผู้รับผิดชอบ</form.Label>
+                    <select
+                      className="custom-select form-control-border"
+                      //defaultValue={edit_name_plant}
+                      // onChange={(e) => {
+                      //   getDataSelect2(e.target.value);
+                      //   setEditNamePlant(e.target.value);
+                      // }}
+                    >
+                      <option>------ผู้รับผิดชอบ------</option>
+                      {plantUser.map((user, index) => {
+                        return (
+                          <option key={index} value={user.id}>
+                            {user.name + " " + user.last_name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </form.Group>
+                  <form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
                     <form.Label>วันที่เริ่มต้น</form.Label>
                     <form.Control
                       type="date"
