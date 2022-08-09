@@ -11,16 +11,13 @@ import { useNavigate } from "react-router-dom";
 const Content = () => {
   const [plant, setPlant] = useState([]);
   const [roleid, setRoleID] = useState("");
-  const [Userid, setUserID] = useState("");
+  // const [Userid, setUserID] = useState("");
   const [token, setToken] = useState("");
   const history = useNavigate();
 
   useEffect(() => {
-    getPlant();
     refreshToken();
   }, []);
-
- 
 
   const refreshToken = async () => {
     try {
@@ -33,8 +30,9 @@ const Content = () => {
 
       console.log(decoded);
 
-      setUserID(decoded.userId);
+      //setUserID(decoded.userId);
       setRoleID(decoded.role_id);
+      getPlant(decoded.userId);
     } catch (error) {
       if (error.response) {
         history("/");
@@ -42,18 +40,14 @@ const Content = () => {
     }
   };
 
-  console.log("Role ID : " + roleid + " User ID : " + Userid);
-
-  const getPlant = async () => {
+  const getPlant = async (user_id) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant/User/${Userid}`
+      `${process.env.REACT_APP_API_URL}/zoneplant/User/${user_id}`
     );
 
     setPlant(response.data);
+    console.log(response.data);
   };
-
-
- 
 
   return (
     <div className="content-wrapper">
