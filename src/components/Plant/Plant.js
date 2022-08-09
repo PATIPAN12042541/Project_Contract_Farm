@@ -4,9 +4,40 @@ import "../CSS/Plant.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const Plant = (props) => {
   const [datadetail, setDatadetail] = useState([]);
+  const [token, setToken] = useState("");
+  const history = useNavigate();
+
+  useEffect(() => {
+    refreshToken();
+    //getPlantData();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+
+      //console.log(decoded);
+
+      if (decoded.role_id == "3") {
+        getPlantDataUser(decoded.userId);
+      } else {
+        getPlantData();
+      }
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
+  };
 
   const getPlantData = async () => {
     const response = await axios.get(
@@ -15,9 +46,12 @@ const Plant = (props) => {
     setDatadetail(response.data);
   };
 
-  useEffect(() => {
-    getPlantData();
-  }, []);
+  const getPlantDataUser = async (user_id) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/plant/${props.id}/${user_id}`
+    );
+    setDatadetail(response.data);
+  };
 
   return (
     <div className="content-wrapper">

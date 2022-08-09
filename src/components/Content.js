@@ -28,7 +28,7 @@ const Content = () => {
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
 
-      console.log(decoded);
+     //console.log(decoded);
 
       //setUserID(decoded.userId);
       //setRoleID(decoded.role_id);

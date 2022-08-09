@@ -77,6 +77,53 @@ export const getDataPlant = async (req, res) => {
   }
 };
 
+export const getDataPlantUser = async (req, res) => {
+  try {
+    const getPlantDetailEdit = await db.query(
+      "SELECT plant_detail.id as id_plants," +
+        "id_zone," +
+        "id_name_plant," +
+        "zone_name," +
+        "plant_master_detail.plant_name as name_plant," +
+        "start_date_plant," +
+        "end_date_plant," +
+        "plant_master_detail.plant_img as plant_image," +
+        "user.id as UserID," +
+        "user.name," +
+        "plant.status_plant," +
+        "Status_plant.status_name," +
+        "user.last_name ," +
+        "(SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_chemical," +
+        "(SELECT sum(plant_data_detail_fertilizer.status_check) from plant_data_detail_fertilizer LEFT JOIN plant_detail ON plant_data_detail_fertilizer.id_plant  = plant_detail.id where plant_detail.id = id_plants) AS status_Fertilizer, " +
+        "plant_harvest_status.plant_status," +
+        "plant_harvest_status.harvest_status " +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
+        "LEFT JOIN user ON  plant.id_user =  user.id " +
+        "LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
+        "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        "LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data " +
+        "WHERE id_zone = :id_plant AND user.id = :user ",
+      {
+        replacements: { id_plant: req.params.id, user: req.params.user },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(getPlantDetailEdit);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};
+
+
+
+
+
+
+
+
+
 export const getPlantDetail = async (req, res) => {
   try {
     const Plant_Detail = await db.query(
