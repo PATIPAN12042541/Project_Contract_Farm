@@ -5,11 +5,18 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { AiOutlineEdit } from "react-icons/ai";
 import "./CSS/Zone_plant.css";
 
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+
 const Content = () => {
   const [plant, setPlant] = useState([]);
+  const [roleid, setRoleID] = useState("");
+  const [token, setToken] = useState("");
+  const history = useNavigate();
 
   useEffect(() => {
     getPlant();
+    refreshToken();
   }, []);
 
   const getPlant = async () => {
@@ -19,6 +26,24 @@ const Content = () => {
 
     setPlant(response.data);
   };
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+
+      setRoleID(decoded.role_id);
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
+  };
+
+  console.log(roleid);
 
   return (
     <div className="content-wrapper">
