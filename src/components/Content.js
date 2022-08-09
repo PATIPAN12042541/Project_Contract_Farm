@@ -33,9 +33,11 @@ const Content = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/user/token`
       );
-      console.log(response);
+      
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
+      
+      console.log(decoded);
 
       setUserID(decoded.id);
       setRoleID(decoded.role_id);
