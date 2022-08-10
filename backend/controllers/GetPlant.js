@@ -13,6 +13,7 @@ export const getPlant = async (req, res) => {
       "select plant.id as plant_id," +
         "plant.id_plant as id_plant," +
         "plant_master_detail.id as name_plant_id," +
+        "plant.id_user," +
         "plant_master_detail.plant_name as name_plant," +
         "plant.start_date_plant as start_date_plant," +
         "plant.end_date_plant as end_date_plant," +

@@ -53,7 +53,7 @@ const Manage_zone = () => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", image.data);
-    console.log(formData);
+    //console.log(formData);
 
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img/Zone/`, formData)
