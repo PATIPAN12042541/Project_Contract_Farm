@@ -341,6 +341,7 @@ const Edit_data = (props) => {
       await axios
         .patch(`${process.env.REACT_APP_API_URL}/getplant/UpdatePlant/${id}`, {
           name_plant: edit_name_plant,
+          id_user: edit_name_user,
           start_date_plant: edit_start_date_plant,
           end_date_plant: edit_end_date_plant,
         })
@@ -1165,10 +1166,10 @@ const Edit_data = (props) => {
                     <select
                       className="custom-select form-control-border"
                       defaultValue={edit_name_user}
-                      // onChange={(e) => {
-                      //   getDataSelect2(e.target.value);
-                      //   setEditNamePlant(e.target.value);
-                      // }}
+                      onChange={(e) => {
+                        //getDataSelect2(e.target.value);
+                        setEditNameUser(e.target.value);
+                      }}
                     >
                       <option>------ผู้รับผิดชอบ------</option>
                       {plantUser.map((user, index) => {
