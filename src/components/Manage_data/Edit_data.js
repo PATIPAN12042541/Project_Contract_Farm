@@ -797,6 +797,7 @@ const Edit_data = (props) => {
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
+                              setEditNameUser(data.id_user);
                             }}
                           >
                             {data.plant_detail_id_name_plant}
@@ -809,6 +810,7 @@ const Edit_data = (props) => {
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
+                              setEditNameUser(data.id_user);
                             }}
                           >
                             แปลง{data.name_plant}
@@ -821,6 +823,7 @@ const Edit_data = (props) => {
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
+                              setEditNameUser(data.id_user);
                             }}
                           >
                             {data.start_date_plant}
@@ -833,6 +836,7 @@ const Edit_data = (props) => {
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
+                              setEditNameUser(data.id_user);
                             }}
                           >
                             {data.end_date_plant}
@@ -858,6 +862,7 @@ const Edit_data = (props) => {
                               setEditStartDatePlant(data.start_date_plant);
                               setEditEndDatePlant(data.end_date_plant);
                               setEditPathImg(data.plant_image);
+                              setEditNameUser(data.id_user);
                             }}
                           >
                             <center>{data.status_name}</center>
@@ -1159,7 +1164,7 @@ const Edit_data = (props) => {
                     <form.Label>ชื่อผู้รับผิดชอบ</form.Label>
                     <select
                       className="custom-select form-control-border"
-                      //defaultValue={edit_name_plant}
+                      defaultValue={edit_name_user}
                       // onChange={(e) => {
                       //   getDataSelect2(e.target.value);
                       //   setEditNamePlant(e.target.value);

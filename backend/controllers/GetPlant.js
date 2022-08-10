@@ -14,6 +14,7 @@ export const getPlant = async (req, res) => {
         "plant.id_plant as id_plant," +
         "plant_master_detail.id as name_plant_id," +
         "plant.id_user," +
+        "CONCAT(user.name,'  ',user.last_name)  as user_name ," +
         "plant_master_detail.plant_name as name_plant," +
         "plant.start_date_plant as start_date_plant," +
         "plant.end_date_plant as end_date_plant," +
@@ -28,6 +29,7 @@ export const getPlant = async (req, res) => {
         "left join zone_plant  on plant_detail.id_zone = zone_plant.id " +
         "left join Status_plant on plant.status_plant = Status_plant.id " +
         "left join plant_master_detail on plant.name_plant = plant_master_detail.id " +
+        "left join user on plant.id_user = user.id " +
         "where zone_plant.id = :zone_plant_id",
       {
         replacements: { zone_plant_id: req.params.id },
