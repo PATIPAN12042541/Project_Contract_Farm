@@ -142,8 +142,8 @@ const List_Chemical = () => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return image.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage,image]); // eslint-disable-line react-hooks/exhaustive-deps
+    return listChemicals.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getListChemical();
