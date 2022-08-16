@@ -12,7 +12,6 @@ import Form from "react-bootstrap/Form";
 import "../CSS/List_chemical.css";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
-import ReactPaginate from 'react-paginate';
 
 const List_Chemical = ({ itemsPerPage }) => {
   const [listChemicals, setListChemicals] = useState([]);
@@ -28,14 +27,6 @@ const List_Chemical = ({ itemsPerPage }) => {
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
   const navigate = useNavigate();
-
-  <PaginatedItems itemsPerPage={4} />
-
-  const [currentItems, setCurrentItems] = useState(null);
-  const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
-  const [itemOffset, setItemOffset] = useState(0);
 
   const getListTypeChemicals = async () => {
     const response = await axios.get(
@@ -138,22 +129,7 @@ const List_Chemical = ({ itemsPerPage }) => {
   useEffect(() => {
     getListChemical();
     getListTypeChemicals();
-
-    // Fetch items from another resources.
-    const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
-
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
-  };
+  },[]);
 
   const getListChemical = async () => {
     const response = await axios.get(
@@ -483,16 +459,6 @@ const List_Chemical = ({ itemsPerPage }) => {
                 </div>
               </div>
             </div>
-
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCount}
-              previousLabel="< previous"
-              renderOnZeroPageCount={null}
-            />
           </Form>
         </Modal.Body>
 
