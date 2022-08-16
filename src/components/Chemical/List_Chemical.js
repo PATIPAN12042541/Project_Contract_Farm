@@ -237,7 +237,7 @@ const List_Chemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {listChemicals.map((listChemical, index) => (
+                        {currentTableData.map((listChemical, index) => (
                           <tr key={listChemical.id}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
