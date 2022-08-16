@@ -29,6 +29,8 @@ const List_Chemical = () => {
   const [image_name, setImageName] = useState();
   const navigate = useNavigate();
 
+  <PaginatedItems itemsPerPage={4} />
+
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
