@@ -139,10 +139,11 @@ const List_Chemical = () => {
         const filteredData = listChemicals.filter((item) => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
-        setFilteredResults(filteredData)
+        setFilteredResults(filteredData);
+        currentTableData();
     }
     else{
-        setFilteredResults(listChemicals)
+        setFilteredResults(listChemicals);
         currentTableData();
     }
 }
