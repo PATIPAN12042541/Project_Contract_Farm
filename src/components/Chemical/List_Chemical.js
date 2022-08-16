@@ -211,17 +211,19 @@ const List_Chemical = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-6">
-                    <Button variant="success" onClick={handleShow}>
-                      เพิ่มข้อมูลสารเคมี
-                    </Button>
-                    {/* <Link to={"/AddChemical"}>
+                      <Button variant="success" onClick={handleShow}>
+                        เพิ่มข้อมูลสารเคมี
+                      </Button>
+                      {/* <Link to={"/AddChemical"}>
                       <Button variant="success">เพิ่มข้อมูลสารเคมี</Button>
                     </Link> */}
                     </div>
                     <div className="col-md-6">
-                    <Button variant="success" onClick={handleShow}>
-                      เพิ่มข้อมูลสารเคมี
-                    </Button>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="ค้นหา"
+                      />
                     </div>
                     
                   </div>
