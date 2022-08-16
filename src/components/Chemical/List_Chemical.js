@@ -130,14 +130,6 @@ const List_Chemical = () => {
       .catch((err) => console.error(err));
   };
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
-  };
-
   const currentTableData = useMemo(() => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
