@@ -8,9 +8,14 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
+
+let PageSize = 5;
 
 const ListTypeUser = () => {
   const [listTypeUser, setListTypeUser] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,6 +24,13 @@ const ListTypeUser = () => {
   const [typeUser, setTypeUser] = useState("");
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
+
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return listTypeUser.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,listTypeUser]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const AddTypeUser = async (e) => {
     e.preventDefault();
@@ -148,7 +160,7 @@ const ListTypeUser = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {listTypeUser.map((listTypeUser, index) => (
+                        {currentTableData.map((listTypeUser, index) => (
                           <tr key={listTypeUser.id}>
                             <td>{index + 1}</td>
                             <td>{listTypeUser.role_group_name}</td>
@@ -174,6 +186,13 @@ const ListTypeUser = () => {
                         ))}
                       </tbody>
                     </Table>
+                    <Pagination
+                      className="pagination-bar"
+                      currentPage={currentPage}
+                      totalCount={listTypeUser.length}
+                      pageSize={PageSize}
+                      onPageChange={page => setCurrentPage(page)}
+                    />
                   </div>
                 </div>
               </div>
