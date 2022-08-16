@@ -145,7 +145,7 @@ const List_Chemical = () => {
     }
     else{
         //setFilteredResults(listChemicals);
-        setListChemicals(listChemicals);
+        getListTypeChemicals();
         currentTableData();
     }
 }
