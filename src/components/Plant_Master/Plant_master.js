@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useMemo } from "react";
 import Table from "react-bootstrap/Table";
 import Zoom from "react-medium-image-zoom";
 // import Image from "react-bootstrap/Image";
@@ -10,9 +10,14 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import FileUpload from "@hawk-ui/file-upload";
 import { BsTrashFill } from "react-icons/bs";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
+
+let PageSize = 5;
 
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
   const [pathimage, setPathImage] = useState([]);
@@ -35,6 +40,13 @@ const Plant_master = () => {
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
   /************************/
+
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return plantMaster.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Get Data in Table
   const getPlantMasterDetail = async () => {
@@ -224,7 +236,7 @@ const Plant_master = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {plantMaster.map((data, index) => (
+                        {currentTableData.map((data, index) => (
                           <tr key={index}>
                             <td
                               style={{ cursor: "pointer" }}
@@ -325,6 +337,13 @@ const Plant_master = () => {
                         ))}
                       </tbody>
                     </Table>
+                    <Pagination
+                      className="pagination-bar"
+                      currentPage={currentPage}
+                      totalCount={plantMaster.length}
+                      pageSize={PageSize}
+                      onPageChange={page => setCurrentPage(page)}
+                    />
                   </div>
                 </div>
               </div>
