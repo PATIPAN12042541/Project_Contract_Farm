@@ -10,6 +10,8 @@ import { BsTrashFill } from "react-icons/bs";
 import Pagination from "../Pagination/Pagination.js";
 import '../Pagination/style.scss';
 
+let PageSize = 5;
+
 const FertilizerUnit = () => {
   const [getUnit, setGetUnit] = useState([]);
   const [unitText, setUnitText] = useState([]);
