@@ -19,6 +19,7 @@ let PageSize = 10;
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
