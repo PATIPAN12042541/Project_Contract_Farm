@@ -246,7 +246,6 @@ const List_Chemical = () => {
                         className="form-control"
                         placeholder="ค้นหา"
                         onChange={(e) => searchItems(e.target.value)}
-                        onKeyPress={(e) => searchItems(e.target.value)}
                       />
                     </div>
                     
