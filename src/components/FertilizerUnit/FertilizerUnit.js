@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
@@ -7,10 +7,13 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { BsTrashFill } from "react-icons/bs";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
 
 const FertilizerUnit = () => {
   const [getUnit, setGetUnit] = useState([]);
   const [unitText, setUnitText] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   /*************** Modal *******************/
   const [show, setShow] = useState(false);
@@ -19,6 +22,13 @@ const FertilizerUnit = () => {
   const handleShow = () => setShow(true);
 
   /******************************************/
+
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return getUnit.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,getUnit]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getUnitData = async (id) => {
     const response = await axios.get(
@@ -144,7 +154,7 @@ const FertilizerUnit = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {getUnit.map((data, index) => (
+                        {currentTableData.map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{data.unit}</td>
@@ -160,6 +170,13 @@ const FertilizerUnit = () => {
                         ))}
                       </tbody>
                     </Table>
+                    <Pagination
+                      className="pagination-bar"
+                      currentPage={currentPage}
+                      totalCount={getUnit.length}
+                      pageSize={PageSize}
+                      onPageChange={page => setCurrentPage(page)}
+                    />
                   </div>
                 </div>
               </div>
