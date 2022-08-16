@@ -20,6 +20,8 @@ let PageSize = 5;
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredResults, setFilteredResults] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -131,6 +133,19 @@ const List_Chemical = () => {
       .catch((err) => console.error(err));
   };
 
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+        const filteredData = listChemicals.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setFilteredResults(filteredData)
+    }
+    else{
+        setFilteredResults(listChemicals)
+    }
+}
+
   const currentTableData = useMemo(() => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -223,6 +238,7 @@ const List_Chemical = () => {
                         type="text"
                         className="form-control"
                         placeholder="ค้นหา"
+                        onChange={(e) => searchItems(e.target.value)}
                       />
                     </div>
                     
