@@ -15,7 +15,7 @@ import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import '../Pagination/style.scss';
 
-let PageSize = 10;
+let PageSize = 5;
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
