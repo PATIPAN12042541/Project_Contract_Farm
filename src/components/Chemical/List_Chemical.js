@@ -14,7 +14,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import ReactPaginate from 'react-paginate';
 
-const List_Chemical = () => {
+const List_Chemical = ({ itemsPerPage }) => {
   const [listChemicals, setListChemicals] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
