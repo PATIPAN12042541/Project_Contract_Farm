@@ -8,6 +8,10 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
+
+let PageSize = 5;
 
 const List_Chemical = () => {
   const [listChemicals, setListChemicals] = useState([]);
@@ -98,6 +102,13 @@ const List_Chemical = () => {
     });
   };
 
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return listChemicals.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -144,7 +155,7 @@ const List_Chemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {listChemicals.map((listChemical, index) => (
+                        {currentTableData.map((listChemical, index) => (
                           <tr key={listChemical.id}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
@@ -172,6 +183,13 @@ const List_Chemical = () => {
                         ))}
                       </tbody>
                     </Table>
+                    <Pagination
+                      className="pagination-bar"
+                      currentPage={currentPage}
+                      totalCount={listChemicals.length}
+                      pageSize={PageSize}
+                      onPageChange={page => setCurrentPage(page)}
+                    />
                   </div>
                 </div>
               </div>
