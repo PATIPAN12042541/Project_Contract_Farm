@@ -135,7 +135,8 @@ const List_Chemical = () => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return listChemicals.slice(firstPageIndex, lastPageIndex);
+    //return listChemicals.slice(firstPageIndex, lastPageIndex);
+    setListChemicals(listChemicals.slice(firstPageIndex, lastPageIndex));
   }, [currentPage,listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -237,7 +238,7 @@ const List_Chemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {currentTableData.map((listChemical, index) => (
+                        {listChemicals.map((listChemical, index) => (
                           <tr key={listChemical.id}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
