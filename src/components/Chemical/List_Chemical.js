@@ -209,13 +209,19 @@ const List_Chemical = () => {
                   </center>
                 </div>
                 <div className="card-body">
-                  <div className="row">
+                  <div className="row col-md-6">
                     <Button variant="success" onClick={handleShow}>
                       เพิ่มข้อมูลสารเคมี
                     </Button>
                     {/* <Link to={"/AddChemical"}>
                       <Button variant="success">เพิ่มข้อมูลสารเคมี</Button>
                     </Link> */}
+                  </div>
+                  <div className="row col-md-6">
+                    <input
+                      type="text"
+                      placeholder="ค้นหา"
+                    />
                   </div>
                   <hr />
                   <div className="row">
