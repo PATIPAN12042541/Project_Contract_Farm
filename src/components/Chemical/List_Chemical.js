@@ -310,7 +310,7 @@ const List_Chemical = () => {
                     <Pagination
                       className="pagination-bar"
                       currentPage={currentPage}
-                      totalCount={listChemical.length}
+                      totalCount={listChemicals.length}
                       pageSize={PageSize}
                       onPageChange={page => setCurrentPage(page)}
                     />
