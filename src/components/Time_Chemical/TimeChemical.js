@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useMemo} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BsTrashFill } from "react-icons/bs";
@@ -6,9 +6,14 @@ import { BiCheck } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
 import Modal from "react-bootstrap/Modal";
 import form from "react-bootstrap/Form";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
+
+let PageSize = 5;
 
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   /* ---------------------------------------------------------*/
   const [time, setTime] = useState([]);
   const [newtime, setNewtime] = useState([]);
@@ -18,6 +23,13 @@ const TimeChemical = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return TimeChemical.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,TimeChemical]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /*-------------------------------------------------------------*/
   const ChangeOpen = async (e, id) => {
@@ -172,7 +184,7 @@ const TimeChemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {TimeChemical.map((data, index) => (
+                        {currentTableData.map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
@@ -220,6 +232,13 @@ const TimeChemical = () => {
                         ))}
                       </tbody>
                     </table>
+                    <Pagination
+                      className="pagination-bar"
+                      currentPage={currentPage}
+                      totalCount={TimeChemical.length}
+                      pageSize={PageSize}
+                      onPageChange={page => setCurrentPage(page)}
+                    />
                   </div>
                 </div>
               </div>
