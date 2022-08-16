@@ -140,11 +140,9 @@ const List_Chemical = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
-        currentTableData();
     }
     else{
         setFilteredResults(listChemicals);
-        currentTableData();
     }
 }
 
@@ -152,7 +150,14 @@ const List_Chemical = () => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return listChemicals.slice(firstPageIndex, lastPageIndex);
+
+    if (searchInput.length > 1){
+      return filteredResults.slice(firstPageIndex, lastPageIndex);
+    }
+    else
+    {
+      return listChemicals.slice(firstPageIndex, lastPageIndex);
+    }
   }, [currentPage,listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -265,75 +270,7 @@ const List_Chemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {searchInput.length > 1 ? filteredResults.map((listChemical, index) => (
-                          <tr key={listChemical.id}>
-                            <td>{index + 1}</td>
-                            <td>{listChemical.type_chemical}</td>
-                            <td>{listChemical.name_chemical}</td>
-                            <td>{listChemical.name_chemical_eng}</td>
-                            <td>{listChemical.eu_mrl}</td>
-                            <td>
-                              <center>
-                                <Zoom>
-                                  <Image
-                                    src={listChemical.path_img}
-                                    className="img-fluid mb-2"
-                                    alt="white sample"
-                                    width="100"
-                                    height="100"
-                                    thumbnail
-                                  />
-                                </Zoom>
-                              </center>
-                            </td>
-                            <td>
-                              <center>
-                                {listChemical.status === 1 ? (
-                                  <Image
-                                    src="../dist/img/symbol_true.png"
-                                    className="img-fluid mb-2"
-                                    alt="white sample"
-                                    width="100"
-                                    height="100"
-                                    thumbnail
-                                  />
-                                ) : (
-                                  <Image
-                                    src="../dist/img/symbol_false.png"
-                                    className="img-fluid mb-2"
-                                    alt="white sample"
-                                    width="100"
-                                    height="100"
-                                    thumbnail
-                                  />
-                                )}
-                              </center>
-                            </td>
-                            <td>
-                              <Link to={`/UpdateChemical/${listChemical.id}`}>
-                                <Button
-                                  variant="warning"
-                                  style={{ color: "#ffff" }}
-                                >
-                                  <center>
-                                    <AiFillEdit />
-                                  </center>
-                                </Button>
-                              </Link>
-                            </td>
-                            <td>
-                              <Button
-                                variant="danger"
-                                onClick={(e) => deleteChemical(listChemical.id)}
-                              >
-                                <center>
-                                  <BsTrashFill />
-                                </center>
-                              </Button>
-                            </td>
-                          </tr>
-                        )):
-                          currentTableData.map((listChemical, index) => (
+                        { currentTableData.map((listChemical, index) => (
                           <tr key={listChemical.id}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
