@@ -18,6 +18,8 @@ let PageSize = 5;
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredResults, setFilteredResults] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
   const [pathimage, setPathImage] = useState([]);
@@ -40,13 +42,28 @@ const Plant_master = () => {
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
   /************************/
-
+  
+  // Pageing
   const currentTableData = useMemo(() => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return plantMaster.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage,plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentPage,searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Search Item
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+        const filteredData = plantMaster.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setFilteredResults(filteredData);
+    }
+    else{
+        setFilteredResults(plantMaster);
+    }
+}
 
   // Get Data in Table
   const getPlantMasterDetail = async () => {
@@ -207,9 +224,21 @@ const Plant_master = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <button className="btn btn-success" onClick={ShowMaster}>
-                      เพิ่มข้อมูลพืช
-                    </button>
+                    <div className="col-md-6">
+                      <button className="btn btn-success" onClick={ShowMaster}>
+                        เพิ่มข้อมูลพืช
+                      </button>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="ค้นหา"
+                        onChange={(e) => searchItems(e.target.value)}
+                        onKeyDown={(e) => searchItems(e.target.value)}
+                        onKeyUp={(e) => searchItems(e.target.value)}
+                      />
+                    </div>
                   </div>
                   <hr />
                   <div className="row">

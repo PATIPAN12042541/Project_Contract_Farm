@@ -133,6 +133,7 @@ const List_Chemical = () => {
       .catch((err) => console.error(err));
   };
 
+  // Search Item
   const searchItems = (searchValue) => {
     setSearchInput(searchValue)
     if (searchInput !== '') {
@@ -145,7 +146,8 @@ const List_Chemical = () => {
         setFilteredResults(listChemicals);
     }
 }
-
+  
+  // Pageing
   const currentTableData = useMemo(() => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -249,8 +251,7 @@ const List_Chemical = () => {
                         onKeyDown={(e) => searchItems(e.target.value)}
                         onKeyUp={(e) => searchItems(e.target.value)}
                       />
-                    </div>
-                    
+                    </div>                  
                   </div>
                   <hr />
                   <div className="row">

@@ -23,7 +23,8 @@ const TimeChemical = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+   
+  // Pageing
   const currentTableData = useMemo(() => {
     console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
