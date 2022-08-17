@@ -62,7 +62,14 @@ const Plant_master = () => {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return plantMaster.slice(firstPageIndex, lastPageIndex);
+
+    if (searchInput.length > 1){
+      return filteredResults.slice(firstPageIndex, lastPageIndex);
+    }
+    else
+    {
+      return plantMaster.slice(firstPageIndex, lastPageIndex);
+    }
   }, [currentPage,searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Get Data in Table
