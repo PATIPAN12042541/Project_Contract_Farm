@@ -51,6 +51,7 @@ const Plant_master = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
+        console.log(filteredData);
     }
     else{
         setFilteredResults(plantMaster);
@@ -59,7 +60,6 @@ const Plant_master = () => {
   
   // Pageing
   const currentTableData = useMemo(() => {
-    console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return plantMaster.slice(firstPageIndex, lastPageIndex);
