@@ -369,7 +369,7 @@ const Plant_master = () => {
                     <Pagination
                       className="pagination-bar"
                       currentPage={currentPage}
-                      totalCount={plantMaster.length}
+                      totalCount={searchInput.length > 1 ? filteredResults.length : plantMaster.length}
                       pageSize={PageSize}
                       onPageChange={page => setCurrentPage(page)}
                     />
