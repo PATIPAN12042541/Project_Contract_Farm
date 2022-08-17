@@ -42,14 +42,6 @@ const Plant_master = () => {
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
   /************************/
-  
-  // Pageing
-  const currentTableData = useMemo(() => {
-    console.log(currentPage);
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return plantMaster.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage,searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Search Item
   const searchItems = (searchValue) => {
@@ -64,6 +56,14 @@ const Plant_master = () => {
         setFilteredResults(plantMaster);
     }
 }
+  
+  // Pageing
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return plantMaster.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage,searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Get Data in Table
   const getPlantMasterDetail = async () => {
