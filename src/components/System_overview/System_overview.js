@@ -227,7 +227,7 @@ const System_overview = () => {
                         <CSVLink
                           data={filteredResults}
                           headers={headers}
-                          filename="Contract_Farmming.csv"
+                          filename="Contract_Farming.csv"
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
@@ -237,7 +237,7 @@ const System_overview = () => {
                         <CSVLink
                           data={Overview}
                           headers={headers}
-                          filename="Contract_Farmming.csv"
+                          filename="Contract_Farming.csv"
                           target="_blank"
                           style={{ color: "#ffffff" }}
                         >
