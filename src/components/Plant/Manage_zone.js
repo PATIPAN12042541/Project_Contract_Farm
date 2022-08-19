@@ -192,7 +192,7 @@ const Manage_zone = () => {
                 >
                   <div className="row">
                     <div className="col-md-11">
-                      <h1 className="card-title">จัดการโซนเพาะปลูก</h1>
+                      <h3 className="card-title">จัดการโซนเพาะปลูก</h3>
                     </div>
                     <div className="col-md-1">
                       <button
