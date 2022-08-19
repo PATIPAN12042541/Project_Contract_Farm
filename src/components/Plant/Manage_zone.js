@@ -213,7 +213,7 @@ const Manage_zone = () => {
                 <div className="card-body">
                   <table className="table table-bordered table-hover">
                     <thead
-                      style={{ backgroundColor: "#8CC152 !important", color: "#FFFFFF" }}
+                    // style={{ backgroundColor: "#8CC152 !important", color: "#FFFFFF" }}
                     >
                       <tr>
                         <th>#</th>
