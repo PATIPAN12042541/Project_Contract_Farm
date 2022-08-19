@@ -8,6 +8,7 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
+import "../../App.css";
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
