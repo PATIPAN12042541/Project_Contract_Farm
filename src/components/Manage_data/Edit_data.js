@@ -760,7 +760,7 @@ const Edit_data = (props) => {
 
                   <table className="table table-bordered table-hover">
                     <thead
-                      style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                    // style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
                         <th>#</th>
