@@ -611,7 +611,7 @@ const Edit_data = (props) => {
               <div className="card">
                 <div
                   className="card-header"
-                  // style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                 >
                   <h3 className="card-title">จัดการข้อมูลแปลงเพาะปลูก</h3>
                 </div>
@@ -760,7 +760,7 @@ const Edit_data = (props) => {
 
                   <table className="table table-bordered table-hover">
                     <thead
-                      style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                    // style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                     >
                       <tr>
                         <th>#</th>
