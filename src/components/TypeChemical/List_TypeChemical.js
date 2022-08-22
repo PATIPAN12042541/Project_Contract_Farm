@@ -151,7 +151,9 @@ const List_Chemical = () => {
                         <tr>
                           <th>ลำดับ</th>
                           <th>ประเภทสารเคมี</th>
-                          <th>แก้ไขข้อมูล</th>
+                          <th>
+                            <center>แก้ไขข้อมูล</center>
+                          </th>
                           {/* <th>ลบข้อมูล</th> */}
                         </tr>
                       </thead>
