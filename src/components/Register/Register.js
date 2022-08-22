@@ -82,7 +82,7 @@ const Register = () => {
   // };
 
   const Register = async (e) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/user/check_same_id/${username}`
