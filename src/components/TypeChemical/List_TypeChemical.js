@@ -161,14 +161,18 @@ const List_Chemical = () => {
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
                             <td>
-                              <Link to={`/editTypeChemical/${listChemical.id}`}>
-                                <Button
-                                  variant="warning"
-                                  style={{ color: "#ffff" }}
+                              <center>
+                                <Link
+                                  to={`/editTypeChemical/${listChemical.id}`}
                                 >
-                                  <AiFillEdit /> แก้ไขข้อมูล
-                                </Button>
-                              </Link>
+                                  <Button
+                                    variant="warning"
+                                    style={{ color: "#ffff" }}
+                                  >
+                                    <AiFillEdit /> แก้ไขข้อมูล
+                                  </Button>
+                                </Link>
+                              </center>
                             </td>
                             {/* <td>
                               <Button
