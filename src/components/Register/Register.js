@@ -86,7 +86,7 @@ const Register = () => {
     e.preventDefault();
 
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/user/check_same_id/${username}`
+      `${process.env.REACT_APP_API_URL}/user/check_same_id`
     );
 
     console.log(response.data);

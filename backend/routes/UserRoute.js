@@ -15,7 +15,7 @@ const router = express.Router();
 router.get("/check_users", verifyToken, getUsers);
 router.get("/token", refreshToken);
 router.get("/getUsersByRole", getUsersByRole);
-router.get("/check_same_id/:id", getCheckId);
+router.get("/check_same_id", getCheckId);
 router.post('/register', Register);
 router.post('/login', Login);
 router.delete('/logout', Logout);

@@ -32,9 +32,9 @@ export const getUsersByRole = async(req, res) => {
 export const getCheckId = async (req, res) => {
   try {
     const checkUser = await db.query(
-      "SELECT count(*) AS COUNT_ FROM user where username = :user",
+      "SELECT count(*) AS COUNT_ FROM user ", //where username = :user",
       {
-        replacements: { user: req.params.id },
+        //replacements: { user: req.params.id },
         type: db.QueryTypes.SELECT,
       }
     );
