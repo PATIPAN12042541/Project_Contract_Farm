@@ -12,6 +12,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
+  const [checkId, setCheckID] = useState([]);
   const Nav = useNavigate();
   // const [show, setShow] = useState(false);
   // const [checkpass, setCheckPass] = useState(false);
@@ -83,38 +84,50 @@ const Register = () => {
   const Register = async (e) => {
     e.preventDefault();
 
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/user/register`, {
-          //await axios.post("http://localhost:4000/user/register",{
-          username: username,
-          password: password,
-          confirmPassword: confirmPassword,
-          name: name,
-          last_name: lastName,
-          role_id: roleID,
-        })
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
-          });
-          Nav("/");
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
-        });
-    } catch (error) {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/user/check_same_id/${username}`
+    );
+
+    if (response.data.COUNT_ > 0) {
       Swal.fire({
         icon: "error",
-        title: error.response.data.msg,
+        title: "Username Is Same",
         text: "Save Error!",
       });
+    } else {
+      try {
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/user/register`, {
+            //await axios.post("http://localhost:4000/user/register",{
+            username: username,
+            password: password,
+            confirmPassword: confirmPassword,
+            name: name,
+            last_name: lastName,
+            role_id: roleID,
+          })
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            Nav("/");
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
     }
   };
 
@@ -228,6 +241,6 @@ const Register = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Register
