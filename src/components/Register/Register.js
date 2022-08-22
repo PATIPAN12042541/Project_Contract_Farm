@@ -2,8 +2,7 @@ import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
 import "../CSS/Content.css"
 import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
-import { shouldForwardProp } from "@mui/styled-engine";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [rolegroup, setRoleGroup] = useState([]);
@@ -13,7 +12,6 @@ const Register = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
-  const [checkId, setCheckID] = useState([]);
   const Nav = useNavigate();
   // const [show, setShow] = useState(false);
   // const [checkpass, setCheckPass] = useState(false);
@@ -85,18 +83,6 @@ const Register = () => {
   const Register = async (e) => {
     e.preventDefault();
 
-    // const response = await axios.get(
-    //   `${process.env.REACT_APP_API_URL}/user/check_same_id`
-    // );
-    // setCheckID(response.data);
-
-    // if (response.data.COUNT_ > 0) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Username Is Same",
-    //     text: "Save Error!",
-    //   });
-    // } else {
     try {
       await axios
         .post(`${process.env.REACT_APP_API_URL}/user/register`, {
@@ -114,7 +100,7 @@ const Register = () => {
             title: "Success",
             text: "Save OK !",
           });
-          /*   Nav("/");*/
+          Nav("/");
         })
         .catch(function (error) {
           Swal.fire({
@@ -130,7 +116,6 @@ const Register = () => {
         text: "Save Error!",
       });
     }
-    //   }
   };
 
   return (
