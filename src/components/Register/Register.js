@@ -88,9 +88,9 @@ const Register = () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/user/check_same_id`
     );
-
-    console.log(response.data);
-    alert(response.data.COUNT_);
+    setCheckID(response.data);
+    console.log(checkId);
+    alert(response.data);
     // if (response.data.COUNT_ > 0) {
     //   Swal.fire({
     //     icon: "error",
