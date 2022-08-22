@@ -153,7 +153,9 @@ const FertilizerUnit = () => {
                         <tr>
                           <th>ลำดับ</th>
                           <th>ประเภทหน่วย</th>
-                          <th>ลบข้อมูล</th>
+                          <th>
+                            <center>ลบข้อมูล</center>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -162,12 +164,14 @@ const FertilizerUnit = () => {
                             <td>{index + 1}</td>
                             <td>{data.unit}</td>
                             <td>
-                              <Button
-                                variant="danger"
-                                onClick={(e) => deleteUnitData(data.id)}
-                              >
-                                <BsTrashFill /> ลบข้อมูล
-                              </Button>
+                              <center>
+                                <Button
+                                  variant="danger"
+                                  onClick={(e) => deleteUnitData(data.id)}
+                                >
+                                  <BsTrashFill /> ลบข้อมูล
+                                </Button>
+                              </center>
                             </td>
                           </tr>
                         ))}
@@ -178,7 +182,7 @@ const FertilizerUnit = () => {
                       currentPage={currentPage}
                       totalCount={getUnit.length}
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>
