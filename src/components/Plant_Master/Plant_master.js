@@ -77,6 +77,7 @@ const Plant_master = () => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterSetup`
     );
     setPlantMaster(response.data);
+    console.log(response.data);
   };
 
   // Post Data Plant
@@ -203,7 +204,6 @@ const Plant_master = () => {
 
   useEffect(() => {
     getPlantMasterDetail();
-    console.log("response.data");
   }, []);
 
   return (
