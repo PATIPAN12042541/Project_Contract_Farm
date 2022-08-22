@@ -90,7 +90,7 @@ const Register = () => {
     );
 
     console.log(response.data);
-    alert(response.data);
+    alert(response.data.COUNT_);
     // if (response.data.COUNT_ > 0) {
     //   Swal.fire({
     //     icon: "error",
