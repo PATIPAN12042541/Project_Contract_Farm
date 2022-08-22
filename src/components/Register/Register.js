@@ -3,6 +3,7 @@ import axios from 'axios'
 import "../CSS/Content.css"
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { shouldForwardProp } from "@mui/styled-engine";
 
 const Register = () => {
   const [rolegroup, setRoleGroup] = useState([]);
@@ -82,14 +83,14 @@ const Register = () => {
   // };
 
   const Register = async (e) => {
-    //e.preventDefault();
+    e.preventDefault();
 
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/user/check_same_id/${username}`
     );
 
     console.log(response.data);
-
+    alert(response.data);
     // if (response.data.COUNT_ > 0) {
     //   Swal.fire({
     //     icon: "error",
