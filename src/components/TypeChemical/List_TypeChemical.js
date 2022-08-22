@@ -152,7 +152,7 @@ const List_Chemical = () => {
                           <th>ลำดับ</th>
                           <th>ประเภทสารเคมี</th>
                           <th>แก้ไขข้อมูล</th>
-                          <th>ลบข้อมูล</th>
+                          {/* <th>ลบข้อมูล</th> */}
                         </tr>
                       </thead>
                       <tbody>
@@ -170,7 +170,7 @@ const List_Chemical = () => {
                                 </Button>
                               </Link>
                             </td>
-                            <td>
+                            {/* <td>
                               <Button
                                 variant="danger"
                                 onClick={(e) =>
@@ -179,7 +179,7 @@ const List_Chemical = () => {
                               >
                                 <BsTrashFill /> ลบข้อมูล
                               </Button>
-                            </td>
+                            </td> */}
                           </tr>
                         ))}
                       </tbody>
@@ -189,7 +189,7 @@ const List_Chemical = () => {
                       currentPage={currentPage}
                       totalCount={listChemicals.length}
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>
