@@ -88,6 +88,8 @@ const Register = () => {
       `${process.env.REACT_APP_API_URL}/user/check_same_id/${username}`
     );
 
+    console.log(response.data);
+    
     if (response.data.COUNT_ > 0) {
       Swal.fire({
         icon: "error",
