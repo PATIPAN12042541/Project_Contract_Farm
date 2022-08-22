@@ -89,7 +89,7 @@ const Register = () => {
     );
 
     console.log(response.data);
-    
+
     if (response.data.COUNT_ > 0) {
       Swal.fire({
         icon: "error",
@@ -114,7 +114,7 @@ const Register = () => {
               title: "Success",
               text: "Save OK !",
             });
-            Nav("/");
+            /*   Nav("/");*/
           })
           .catch(function (error) {
             Swal.fire({
