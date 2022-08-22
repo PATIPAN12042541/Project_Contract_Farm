@@ -181,7 +181,9 @@ const TimeChemical = () => {
                           <th>ลำดับ</th>
                           <th>เวลา</th>
                           <th>หน่วย</th>
-                          <th>ลบข้อมูล</th>
+                          <th>
+                            <center>ลบข้อมูล</center>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -220,14 +222,16 @@ const TimeChemical = () => {
                             </td>
                             <td>{data.unit}</td>
                             <td>
-                              <button
-                                className="btn btn-danger"
-                                onClick={() => deleteTimeChemical(data.id)}
-                              >
-                                <center>
-                                  <BsTrashFill />
-                                </center>
-                              </button>
+                              <center>
+                                <button
+                                  className="btn btn-danger"
+                                  onClick={() => deleteTimeChemical(data.id)}
+                                >
+                                  <center>
+                                    <BsTrashFill />
+                                  </center>
+                                </button>
+                              </center>
                             </td>
                           </tr>
                         ))}
@@ -238,7 +242,7 @@ const TimeChemical = () => {
                       currentPage={currentPage}
                       totalCount={TimeChemical.length}
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>
