@@ -251,7 +251,7 @@ const List_Chemical = () => {
                         onKeyDown={(e) => searchItems(e.target.value)}
                         onKeyUp={(e) => searchItems(e.target.value)}
                       />
-                    </div>                  
+                    </div>
                   </div>
                   <hr />
                   <div className="row">
@@ -273,7 +273,7 @@ const List_Chemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        { currentTableData.map((listChemical, index) => (
+                        {currentTableData.map((listChemical, index) => (
                           <tr key={listChemical.id}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
@@ -318,26 +318,28 @@ const List_Chemical = () => {
                               </center>
                             </td>
                             <td>
-                              <Link to={`/UpdateChemical/${listChemical.id}`}>
-                                <Button
-                                  variant="warning"
-                                  style={{ color: "#ffff" }}
-                                >
-                                  <center>
+                              <center>
+                                <Link to={`/UpdateChemical/${listChemical.id}`}>
+                                  <Button
+                                    variant="warning"
+                                    style={{ color: "#ffff" }}
+                                  >
                                     <AiFillEdit />
-                                  </center>
-                                </Button>
-                              </Link>
+                                  </Button>
+                                </Link>
+                              </center>
                             </td>
                             <td>
-                              <Button
-                                variant="danger"
-                                onClick={(e) => deleteChemical(listChemical.id)}
-                              >
-                                <center>
+                              <center>
+                                <Button
+                                  variant="danger"
+                                  onClick={(e) =>
+                                    deleteChemical(listChemical.id)
+                                  }
+                                >
                                   <BsTrashFill />
-                                </center>
-                              </Button>
+                                </Button>
+                              </center>
                             </td>
                           </tr>
                         ))}
@@ -346,9 +348,13 @@ const List_Chemical = () => {
                     <Pagination
                       className="pagination-bar"
                       currentPage={currentPage}
-                      totalCount={searchInput.length > 1 ? filteredResults.length : listChemicals.length}
+                      totalCount={
+                        searchInput.length > 1
+                          ? filteredResults.length
+                          : listChemicals.length
+                      }
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>
