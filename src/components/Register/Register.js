@@ -90,47 +90,47 @@ const Register = () => {
 
     console.log(response.data);
 
-    if (response.data.COUNT_ > 0) {
-      Swal.fire({
-        icon: "error",
-        title: "Username Is Same",
-        text: "Save Error!",
-      });
-    } else {
-      try {
-        await axios
-          .post(`${process.env.REACT_APP_API_URL}/user/register`, {
-            //await axios.post("http://localhost:4000/user/register",{
-            username: username,
-            password: password,
-            confirmPassword: confirmPassword,
-            name: name,
-            last_name: lastName,
-            role_id: roleID,
-          })
-          .then(function (response) {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Save OK !",
-            });
-            /*   Nav("/");*/
-          })
-          .catch(function (error) {
-            Swal.fire({
-              icon: "error",
-              title: error.response.data.msg,
-              text: "Save Error!",
-            });
-          });
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: error.response.data.msg,
-          text: "Save Error!",
-        });
-      }
-    }
+    // if (response.data.COUNT_ > 0) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Username Is Same",
+    //     text: "Save Error!",
+    //   });
+    // } else {
+    //   try {
+    //     await axios
+    //       .post(`${process.env.REACT_APP_API_URL}/user/register`, {
+    //         //await axios.post("http://localhost:4000/user/register",{
+    //         username: username,
+    //         password: password,
+    //         confirmPassword: confirmPassword,
+    //         name: name,
+    //         last_name: lastName,
+    //         role_id: roleID,
+    //       })
+    //       .then(function (response) {
+    //         Swal.fire({
+    //           icon: "success",
+    //           title: "Success",
+    //           text: "Save OK !",
+    //         });
+    //         /*   Nav("/");*/
+    //       })
+    //       .catch(function (error) {
+    //         Swal.fire({
+    //           icon: "error",
+    //           title: error.response.data.msg,
+    //           text: "Save Error!",
+    //         });
+    //       });
+    //   } catch (error) {
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: error.response.data.msg,
+    //       text: "Save Error!",
+    //     });
+    //   }
+    // }
   };
 
   return (
