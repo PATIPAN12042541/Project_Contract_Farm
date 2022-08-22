@@ -180,7 +180,9 @@ const TimeChemical = () => {
                         <tr>
                           <th>ลำดับ</th>
                           <th>เวลา</th>
-                          <th>หน่วย</th>
+                          <th>
+                            <center>หน่วย</center>
+                          </th>
                           <th>
                             <center>ลบข้อมูล</center>
                           </th>
@@ -220,7 +222,9 @@ const TimeChemical = () => {
                                 )}
                               </div>
                             </td>
-                            <td>{data.unit}</td>
+                            <td>
+                              <center>{data.unit}</center>
+                            </td>
                             <td>
                               <center>
                                 <button
