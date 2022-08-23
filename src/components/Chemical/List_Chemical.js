@@ -137,7 +137,6 @@ const List_Chemical = () => {
   const searchItems = (searchValue) => {
     setSearchInput(searchValue)
     if (searchInput !== '') {
-        getListChemical();
         const filteredData = listChemicals.filter((item) => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
