@@ -156,6 +156,7 @@ const List_Chemical = () => {
     const lastPageIndex = firstPageIndex + PageSize;
 
     if (searchInput.length > 1){
+      firstPageIndex = 0
       return filteredResults.slice(firstPageIndex, lastPageIndex);
     }
     else
