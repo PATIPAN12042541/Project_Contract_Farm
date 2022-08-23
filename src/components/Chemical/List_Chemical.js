@@ -152,19 +152,14 @@ const List_Chemical = () => {
   // Pageing
   const currentTableData = useMemo(() => {
     console.log(currentPage);
-    /*const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;*/
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
 
     if (searchInput.length > 1){
-      currentPage = 1;
-      const firstPageIndex = (currentPage - 1) * PageSize;
-      const lastPageIndex = firstPageIndex + PageSize;
       return filteredResults.slice(firstPageIndex, lastPageIndex);
     }
     else
     {
-      const firstPageIndex = (currentPage - 1) * PageSize;
-      const lastPageIndex = firstPageIndex + PageSize;
       return listChemicals.slice(firstPageIndex, lastPageIndex);
     }
   }, [currentPage,searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
