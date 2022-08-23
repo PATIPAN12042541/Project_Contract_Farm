@@ -151,12 +151,7 @@ const List_Chemical = () => {
   
   // Pageing
   const currentTableData = useMemo(() => {
-    if (searchInput.length > 1){
-      setCurrentPage(1);
-      console.log(currentPage);
-    }else{
-      console.log(currentPage);
-    }
+    console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
 
