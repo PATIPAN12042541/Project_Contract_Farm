@@ -141,9 +141,11 @@ const List_Chemical = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
+        console.log(filteredData);
     }
     else{
         setFilteredResults(listChemicals);
+        console.log(listChemicals);
     }
 }
   
