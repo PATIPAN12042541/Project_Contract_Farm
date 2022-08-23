@@ -156,7 +156,6 @@ const List_Chemical = () => {
     const lastPageIndex = firstPageIndex + PageSize;
 
     if (searchInput.length > 1){
-      firstPageIndex = 1
       return filteredResults.slice(firstPageIndex, lastPageIndex);
     }
     else
@@ -348,7 +347,9 @@ const List_Chemical = () => {
                     </Table>
                     <Pagination
                       className="pagination-bar"
-                      currentPage={currentPage}
+                      currentPage={searchInput.length > 1 
+                                   ? 1
+                                  : currentPage}
                       totalCount={
                         searchInput.length > 1
                           ? filteredResults.length
