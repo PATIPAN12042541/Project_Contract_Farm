@@ -347,9 +347,7 @@ const List_Chemical = () => {
                     </Table>
                     <Pagination
                       className="pagination-bar"
-                      currentPage={searchInput.length > 1 
-                                   ? 1
-                                  : currentPage}
+                      currentPage={currentPage}
                       totalCount={
                         searchInput.length > 1
                           ? filteredResults.length
