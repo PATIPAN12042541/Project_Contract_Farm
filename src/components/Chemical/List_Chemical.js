@@ -141,6 +141,7 @@ const List_Chemical = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
+        setCurrentPage(1);
         console.log(filteredData);
     }
     else{
