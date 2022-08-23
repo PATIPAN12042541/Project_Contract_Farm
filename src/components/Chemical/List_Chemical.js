@@ -160,7 +160,7 @@ const List_Chemical = () => {
     {
       return listChemicals.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage,searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [searchInput.length > 1? 1:currentPage,searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getListChemical();
