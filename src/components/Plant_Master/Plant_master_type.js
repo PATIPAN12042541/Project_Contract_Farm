@@ -22,7 +22,9 @@ const Plant_master_type = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
+
   /* Post data */
+  const [editPlantMasterID, setEditPlantMasterID] = useState([]);
   const [checked, setChecked] = useState(false);
   const [NameTypePlant, setNameTypePlant] = useState([]);
 
@@ -68,6 +70,34 @@ const Plant_master_type = () => {
           });
         });
     }
+  };
+
+  const updatePlantMaster = async (id) => {
+    console.log("ID : " + id);
+    console.log("checked : " + checked);
+    console.log("NameTypePlant : " + NameTypePlant);
+    // try {
+    //   await axios.patch(
+    //     `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,
+    //     {
+    //       type_plant_name: typeChemical,
+    //       status_: checked,
+    //     }
+    //   );
+    //   Swal.fire({
+    //     icon: "success",
+    //     title: "Success",
+    //     text: "Update Success!",
+    //   });
+    //   handleClose2();
+    //   getTypeMasterPlant();
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Update Fail!",
+    //     text: error,
+    //   });
+    // }
   };
 
   useEffect(() => {
@@ -124,13 +154,19 @@ const Plant_master_type = () => {
                             <td>{data.type_plant_name}</td>
                             <td>
                               <center>
-                                <Button
-                                  variant="warning"
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
                                   style={{ color: "#ffff" }}
-                                  onClick={handleShow2}
+                                  onClick={() => {
+                                    setNameTypePlant(data.type_plant_name);
+                                    setChecked(data.status_);
+                                    setEditPlantMasterID(data.id);
+                                    handleShow2();
+                                  }}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
-                                </Button>
+                                </button>
                               </center>
                             </td>
                           </tr>
@@ -206,17 +242,15 @@ const Plant_master_type = () => {
 
       {/*  Edit Plant Master */}
       <Modal show={show2} onHide={handleClose2}>
-        <Modal.Header>
-          <Modal.Title
-            style={{
-              backgroundColor: "rgb(140, 193, 82)",
-              color: "#FFFFFF",
-              fontSize: "24px",
-              borderLine: "none",
-            }}
-          >
-            แก้ไขประเภทพืช Master
-          </Modal.Title>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            borderLine: "none",
+          }}
+        >
+          <Modal.Title>แก้ไขประเภทพืช Master</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form className="form-horizontal">
@@ -230,7 +264,7 @@ const Plant_master_type = () => {
                     type="text"
                     className="form-control"
                     defaultValue={NameTypePlant}
-                    // onChange={(e) => setNameTypePlant(e.target.value)}
+                    onChange={(e) => setNameTypePlant(e.target.value)}
                   />
                 </div>
               </div>
@@ -242,10 +276,11 @@ const Plant_master_type = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    defaultValue={checked}
-                    // onChange={(e) => {
-                    //   setChecked(!checked);
-                    // }}
+                    checked={checked}
+                    name={checked ? 1 : 0}
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
                   />
                 </div>
               </div>
@@ -253,10 +288,13 @@ const Plant_master_type = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose2}>
+          <Button variant="default" onClick={handleClose2}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose2}>
+          <Button
+            variant="success"
+            onClick={updatePlantMaster(editPlantMasterID)}
+          >
             Save Changes
           </Button>
         </Modal.Footer>
