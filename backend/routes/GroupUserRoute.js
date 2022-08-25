@@ -5,6 +5,6 @@ import {
 
 const router = express.Router();
 
-router.get("/getViewUsersByDev", getViewUsersByDev);
+router.get("/", getViewUsersByDev);
 
 export default router;
