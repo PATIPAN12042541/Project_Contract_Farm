@@ -27,28 +27,6 @@ export const getUsersByRole = async(req, res) => {
     }
 }
 
-export const getViewUsersByDev = async(req, res) => {
-    try {
-        const view_users = await db.query(
-            "SELECT ID,"+
-            "NAME,"+
-            "LAST_NAME,"+
-            "GROUP_ID,"+
-            "GROUP_NAME "+
-            "FROMGROUP_USER_V "+
-            "ORDER BY ID ASC",
-            {
-                type: db.QueryTypes.SELECT,
-            }
-        );
-        res.json(view_users);
-    } catch (error) {
-        res.json({ message: error.message });
-    }
-}
-
-
-
 // export const getCheckId = async (req, res) => {
 //   try {
 //     const checkUser = await db.query(
