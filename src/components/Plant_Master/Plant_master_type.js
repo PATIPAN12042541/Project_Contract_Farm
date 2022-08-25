@@ -22,11 +22,14 @@ const Plant_master_type = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
-
   /* Post data */
-  const [editPlantMasterID, setEditPlantMasterID] = useState([]);
   const [checked, setChecked] = useState(false);
   const [NameTypePlant, setNameTypePlant] = useState([]);
+
+  /* patch data */
+  const [editPlantMasterID, setEditPlantMasterID] = useState([]);
+  const [checked2, setChecked2] = useState(false);
+  const [NameTypePlant2, setNameTypePlant2] = useState([]);
 
   const getTypeMasterPlant = async () => {
     const response = await axios.get(
@@ -159,8 +162,8 @@ const Plant_master_type = () => {
                                   className="btn btn-warning"
                                   style={{ color: "#ffff" }}
                                   onClick={() => {
-                                    setNameTypePlant(data.type_plant_name);
-                                    setChecked(data.status_);
+                                    setNameTypePlant2(data.type_plant_name);
+                                    setChecked2(data.status_);
                                     setEditPlantMasterID(data.id);
                                     handleShow2();
                                   }}
@@ -263,8 +266,8 @@ const Plant_master_type = () => {
                   <Form.Control
                     type="text"
                     className="form-control"
-                    defaultValue={NameTypePlant}
-                    onChange={(e) => setNameTypePlant(e.target.value)}
+                    defaultValue={NameTypePlant2}
+                    onChange={(e) => setNameTypePlant2(e.target.value)}
                   />
                 </div>
               </div>
@@ -276,10 +279,10 @@ const Plant_master_type = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    checked={checked}
-                    name={checked ? 1 : 0}
+                    checked={checked2}
+                    name={checked2 ? 1 : 0}
                     onChange={(e) => {
-                      setChecked(!checked);
+                      setChecked2(!checked2);
                     }}
                   />
                 </div>
