@@ -12,6 +12,8 @@ export const List_User = () => {
       `${process.env.REACT_APP_API_URL}/getViewUsersByDev`
     );
     setListUsers(response.data);
+
+    console.log(listUsers)
   };
 
   useEffect(() => {
