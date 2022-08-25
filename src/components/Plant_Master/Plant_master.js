@@ -51,6 +51,7 @@ const Plant_master = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
+        setCurrentPage(1);
     }
     else{
         setFilteredResults(plantMaster);

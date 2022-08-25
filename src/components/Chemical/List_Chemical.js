@@ -141,9 +141,12 @@ const List_Chemical = () => {
             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
         setFilteredResults(filteredData);
+        setCurrentPage(1);
+        console.log(filteredData);
     }
     else{
         setFilteredResults(listChemicals);
+        console.log(listChemicals);
     }
 }
   
@@ -248,8 +251,6 @@ const List_Chemical = () => {
                         className="form-control"
                         placeholder="ค้นหา"
                         onChange={(e) => searchItems(e.target.value)}
-                        onKeyDown={(e) => searchItems(e.target.value)}
-                        onKeyUp={(e) => searchItems(e.target.value)}
                       />
                     </div>
                   </div>

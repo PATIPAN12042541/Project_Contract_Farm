@@ -32,6 +32,7 @@ import Page_fertilizer from "./Page_2/Page_fertilizer";
 import Page_Plant_fertilizer from "./Page_1/Page_Plant_fertilizer";
 import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
+import { List_User } from "./components/User/List_User.js";
 
 function App() {
   return (
@@ -244,6 +245,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <TimeChemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/ListUser"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <List_User />
                 <Footer />
               </>
             }
