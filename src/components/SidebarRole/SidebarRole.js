@@ -40,9 +40,6 @@ const SidebarRole = () => {
       setExpire(decoded.exp);
 
       roleMenu(decoded.role_id);
-
-      setRoleIDContext(decoded.role_id);
-
       subMenu1(decoded.role_id);
     } catch (error) {
       if (error.response) {
