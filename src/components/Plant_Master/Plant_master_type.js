@@ -127,7 +127,11 @@ const Plant_master_type = () => {
                                 <Button
                                   variant="warning"
                                   style={{ color: "#ffff" }}
-                                  onClick={handleShow2}
+                                  onClick={() => {
+                                    handleShow2();
+                                    setNameTypePlant(data.type_plant_name);
+                                    setChecked(data.status_);
+                                  }}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
                                 </Button>
@@ -241,9 +245,6 @@ const Plant_master_type = () => {
                     type="checkbox"
                     id="custom-switch"
                     defaultValue={checked}
-                    // onChange={(e) => {
-                    //   setChecked(!checked);
-                    // }}
                   />
                 </div>
               </div>
