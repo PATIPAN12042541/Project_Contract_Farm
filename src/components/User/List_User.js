@@ -3,6 +3,14 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 
 export const List_User = () => {
+  const [listUsers, setListUsers] = useState([]);
+
+  const getListUserDev = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getViewUsersByDev`
+    );
+    setListUsers(response.data);
+  };
   return (
       <div className="content-wrapper">
           <section className="content">
@@ -50,7 +58,33 @@ export const List_User = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              
+                                              {listUsers.map((listUsers, index) => (
+                                                  <tr key={listUsers.id}>
+                                                      <td>{index + 1}</td>
+                                                      <td>{listUsers.GROUP_NAME}</td>
+                                                      <td>{listUsers.NAME}</td>
+                                                      <td>{listUsers.LAST_NAME}</td>
+                                                      <td>
+                                                          <center>
+                                                              <Link to={``}>
+                                                                  <Button
+                                                                      variant="warning"
+                                                                      style={{ color: "#ffff" }}
+                                                                  >
+                                                                  </Button>
+                                                              </Link>
+                                                          </center>
+                                                      </td>
+                                                      <td>
+                                                          <center>
+                                                              <Button
+                                                                  variant="danger"
+                                                              >
+                                                              </Button>
+                                                          </center>
+                                                      </td>
+                                                  </tr>
+                                              ))}
                                           </tbody>
                                       </Table>
                                   </div>
