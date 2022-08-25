@@ -251,10 +251,10 @@ const Plant_master_type = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose2}>
+          <Button variant="default" onClick={handleClose2}>
             Close
           </Button>
-          <Button variant="default" onClick={handleClose2}>
+          <Button variant="success" onClick={handleClose2}>
             Save Changes
           </Button>
         </Modal.Footer>
