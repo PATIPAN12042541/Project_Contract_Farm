@@ -206,10 +206,41 @@ const Plant_master_type = () => {
 
       {/*  Edit Plant Master */}
       <Modal show={show2} onHide={handleClose2}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header>
+          <Modal.Title>แก้ไขประเภทพืช Master</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อประเภทพืข Master
+                </Form.Label>
+                <div className="col-sm-8">
+                  <Form.Control
+                    type="text"
+                    className="form-control"
+                    // onChange={(e) => setNameTypePlant(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-8 col-form-label">
+                  <input
+                    type="checkbox"
+                    id="custom-switch"
+                    // onChange={(e) => {
+                    //   setChecked(!checked);
+                    // }}
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose2}>
             Close
