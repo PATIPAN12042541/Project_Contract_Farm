@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const List_User = () => {
   const [listUsers, setListUsers] = useState([]);
+  const navigate = useNavigate();
 
   const getListUserDev = async () => {
     const response = await axios.get(
