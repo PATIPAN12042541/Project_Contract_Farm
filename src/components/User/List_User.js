@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
 
 export const List_User = () => {
   return (
