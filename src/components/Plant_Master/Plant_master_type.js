@@ -296,7 +296,9 @@ const Plant_master_type = () => {
           </Button>
           <Button
             variant="success"
-            onClick={updatePlantMaster(editPlantMasterID)}
+            onClick={() => {
+              updatePlantMaster(editPlantMasterID);
+            }}
           >
             Save Changes
           </Button>
