@@ -120,7 +120,7 @@ export const List_User = () => {
                                           <tbody>
                                               {currentTableData.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
-                                                      <td>{searchInput.length > 1?index + 1:listUsers.row_num}</td>
+                                                      <td>{index + 1}</td>
                                                       <td>{listUsers.group_name}</td>
                                                       <td>{listUsers.name}</td>
                                                       <td>{listUsers.last_name}</td>
