@@ -22,7 +22,9 @@ const Plant_master_type = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
+
   /* Post data */
+  const [editPlantMasterID, setEditPlantMasterID] = useState([]);
   const [checked, setChecked] = useState(false);
   const [NameTypePlant, setNameTypePlant] = useState([]);
 
@@ -68,6 +70,34 @@ const Plant_master_type = () => {
           });
         });
     }
+  };
+
+  const updatePlantMaster = async (id) => {
+    console.log("ID : " + id);
+    console.log("checked : " + checked);
+    console.log("NameTypePlant : " + NameTypePlant);
+    // try {
+    //   await axios.patch(
+    //     `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,
+    //     {
+    //       type_plant_name: typeChemical,
+    //       status_: checked,
+    //     }
+    //   );
+    //   Swal.fire({
+    //     icon: "success",
+    //     title: "Success",
+    //     text: "Update Success!",
+    //   });
+    //   handleClose2();
+    //   getTypeMasterPlant();
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Update Fail!",
+    //     text: error,
+    //   });
+    // }
   };
 
   useEffect(() => {
@@ -131,6 +161,7 @@ const Plant_master_type = () => {
                                     handleShow2();
                                     setNameTypePlant(data.type_plant_name);
                                     setChecked(data.status_);
+                                    setEditPlantMasterID(data.id);
                                   }}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
@@ -232,7 +263,7 @@ const Plant_master_type = () => {
                     type="text"
                     className="form-control"
                     defaultValue={NameTypePlant}
-                    // onChange={(e) => setNameTypePlant(e.target.value)}
+                    onChange={(e) => setNameTypePlant(e.target.value)}
                   />
                 </div>
               </div>
@@ -246,6 +277,9 @@ const Plant_master_type = () => {
                     id="custom-switch"
                     checked={checked}
                     name={checked ? 1 : 0}
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
                   />
                 </div>
               </div>
@@ -256,7 +290,10 @@ const Plant_master_type = () => {
           <Button variant="default" onClick={handleClose2}>
             Close
           </Button>
-          <Button variant="success" onClick={handleClose2}>
+          <Button
+            variant="success"
+            onClick={updatePlantMaster(editPlantMasterID)}
+          >
             Save Changes
           </Button>
         </Modal.Footer>
