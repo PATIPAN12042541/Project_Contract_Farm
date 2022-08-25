@@ -21,6 +21,7 @@ import {
   getCommentData,
   getCommentDataUpdate,
   UpdatePlantStatus,
+  getPlantMasterType,
   // PostPlantStatus,
 } from "../controllers/GetPlant.js";
 
@@ -47,6 +48,7 @@ router.delete("/plant/DeleteData/:id", DeletePlantData);
 router.get("/Comment/:id", getCommentData);
 router.patch("/Comment/update/:id", getCommentDataUpdate);
 router.patch("/update/PlantStatusUpdate/:id", UpdatePlantStatus);
+router.get("/plant/getPlantMasterType", getPlantMasterType);
 // router.post("/status/UpdatePlantStatus", PostPlantStatus);
 
 export default router;

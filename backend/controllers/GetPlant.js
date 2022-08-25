@@ -304,6 +304,25 @@ export const UpdateStatusPlant = async (req, res) => {
   }
 };
 
+/***********  Plant Type Master Detail ************/
+
+
+export const getPlantMasterType = async (req, res) => {
+  try {
+    const plantMaster = await db.query(
+      "SELECT * FROM type_plant_master where 	status_ = 1",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(plantMaster);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
+
 /***********  Plant Master Detail ************/
 
 export const getPlantMaster = async (req, res) => {
