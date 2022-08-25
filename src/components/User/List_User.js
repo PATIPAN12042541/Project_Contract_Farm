@@ -7,6 +7,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
