@@ -70,9 +70,9 @@ export const List_User = () => {
                                               {listUsers.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
                                                       <td>{index + 1}</td>
-                                                      <td>{listUsers.GROUP_NAME}</td>
-                                                      <td>{listUsers.NAME}</td>
-                                                      <td>{listUsers.LAST_NAME}</td>
+                                                      <td>{listUsers.group_name}</td>
+                                                      <td>{listUsers.name}</td>
+                                                      <td>{listUsers.last_name}</td>
                                                       <td>
                                                           <center>
                                                               <Link to={``}>
