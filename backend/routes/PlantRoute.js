@@ -22,6 +22,7 @@ import {
   getCommentDataUpdate,
   UpdatePlantStatus,
   getPlantMasterType,
+  postPlantMasterType,
   // PostPlantStatus,
 } from "../controllers/GetPlant.js";
 
@@ -49,6 +50,7 @@ router.get("/Comment/:id", getCommentData);
 router.patch("/Comment/update/:id", getCommentDataUpdate);
 router.patch("/update/PlantStatusUpdate/:id", UpdatePlantStatus);
 router.get("/plant/getPlantMasterType", getPlantMasterType);
+router.post("/plant/PostPlantMasterType", postPlantMasterType);
 // router.post("/status/UpdatePlantStatus", PostPlantStatus);
 
 export default router;
