@@ -1,13 +1,23 @@
+import db from "../config/Database.js";
 import GroupUser from "../models/GroupUserViewModel";
 
 export const getUsersByDev = async(req, res) => {
     try {
-        const groupUser = await GroupUser.findAll({
-            attributes:[`id`, `name`, `last_name`, `group_id`, `group_name`],
-            order:[`id`,'asc']
-        });
-        res.json(groupUser);
+        const GroupUser = await db.query(
+            "SELECT user.id,"+
+	        "user.name,"+
+            "user.last_name,"+
+            "role_group.id as group_id,"+
+            "role_group.role_group_name as group_name "+
+            "FROM user "+
+            "LEFT JOIN role_group "+
+            "on user.role_id = role_group.id",
+            {
+                type: db.QueryTypes.SELECT,
+            }
+        );
+        res.json(GroupUser);
     } catch (error) {
-        console.log(error);
+        res.json({ message: error.message });
     }
 }
