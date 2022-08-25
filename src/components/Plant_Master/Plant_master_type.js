@@ -220,6 +220,7 @@ const Plant_master_type = () => {
                   <Form.Control
                     type="text"
                     className="form-control"
+                    defaultValue={NameTypePlant}
                     // onChange={(e) => setNameTypePlant(e.target.value)}
                   />
                 </div>
@@ -232,6 +233,7 @@ const Plant_master_type = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
+                    defaultValue={checked}
                     // onChange={(e) => {
                     //   setChecked(!checked);
                     // }}
