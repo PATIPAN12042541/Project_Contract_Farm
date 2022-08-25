@@ -209,7 +209,6 @@ const Plant_master = () => {
 
   return (
     <div className="content-wrapper">
-      {" "}
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
