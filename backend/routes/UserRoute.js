@@ -4,8 +4,7 @@ import {
   Login,
   getUsers,
   Logout,
-  getUsersByRole,
-  getViewUsersByDev
+  getUsersByRole
   //getCheckId,
 } from "../controllers/Users.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
