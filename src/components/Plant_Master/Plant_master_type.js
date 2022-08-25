@@ -154,18 +154,19 @@ const Plant_master_type = () => {
                             <td>{data.type_plant_name}</td>
                             <td>
                               <center>
-                                <Button
-                                  variant="warning"
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
                                   style={{ color: "#ffff" }}
                                   onClick={() => {
-                                    handleShow2();
                                     setNameTypePlant(data.type_plant_name);
                                     setChecked(data.status_);
                                     setEditPlantMasterID(data.id);
+                                    handleShow2();
                                   }}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
-                                </Button>
+                                </button>
                               </center>
                             </td>
                           </tr>
