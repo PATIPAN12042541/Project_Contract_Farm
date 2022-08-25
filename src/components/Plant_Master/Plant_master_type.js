@@ -279,7 +279,7 @@ const Plant_master_type = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    checked={checked2}
+                    //checked={checked2}
                     name={checked2 ? 1 : 0}
                     // onChange={(e) => {
                     //   setChecked2(!checked2);
