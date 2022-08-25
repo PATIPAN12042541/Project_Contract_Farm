@@ -9,12 +9,18 @@ import Modal from "react-bootstrap/Modal";
 import { AiFillEdit } from "react-icons/ai";
 
 const Plant_master_type = () => {
+  /* Query Data */
   const [TypeMasterPlant, setTypeMasterPlant] = useState([]);
 
-  /* Modal */
+  /* Modal Add */
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  /* Modal Edit */
+  const [show2, setShow2] = useState(false);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
 
   /* Post data */
   const [checked, setChecked] = useState(false);
@@ -194,6 +200,22 @@ const Plant_master_type = () => {
           >
             บันทึก
           </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/*  Edit Plant Master */}
+      <Modal show={show2} onHide={handleClose2}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose2}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose2}>
+            Save Changes
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
