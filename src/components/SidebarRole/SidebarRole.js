@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect,useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -8,8 +8,6 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
-
-const AuthContext = React.createContext();
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -89,8 +87,7 @@ const SidebarRole = () => {
     }
   );
 
-  return (
-    <AuthContext.Provider value={{roleid,setRoleID}}>
+  return (  
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
         to="/contract_farm"
@@ -169,7 +166,6 @@ const SidebarRole = () => {
         </nav>
       </div>
     </aside>
-    </AuthContext.Provider>
   );
 };
 
