@@ -207,7 +207,16 @@ const Plant_master_type = () => {
       {/*  Edit Plant Master */}
       <Modal show={show2} onHide={handleClose2}>
         <Modal.Header>
-          <Modal.Title>แก้ไขประเภทพืช Master</Modal.Title>
+          <Modal.Title
+            style={{
+              backgroundColor: "rgb(140, 193, 82)",
+              color: "#FFFFFF",
+              fontSize: "24px",
+              borderLine: "none",
+            }}
+          >
+            แก้ไขประเภทพืช Master
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form className="form-horizontal">
