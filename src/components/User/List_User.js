@@ -31,6 +31,8 @@ export const List_User = () => {
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
 
+  const [RoleIDContext, setRoleIDContext] = useState("");
+
     const getListUser = async () => {
         /*if (roleid == 1) {
             const response = await axios.get(
@@ -85,7 +87,9 @@ export const List_User = () => {
     getListUser();
   },[]);
   return (
+    <AppContext.Provider value={{ RoleIDContext, setRoleIDContext }}>
       <div className="content-wrapper">
+        {RoleIDContext}
           <section className="content">
               <div className="container-fluid">
                   <div className="row">
@@ -292,5 +296,6 @@ export const List_User = () => {
               </Modal.Footer>
           </Modal>
       </div>
+    </AppContext.Provider>
   )
 }
