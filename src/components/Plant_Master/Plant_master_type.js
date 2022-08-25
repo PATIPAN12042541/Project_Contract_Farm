@@ -244,7 +244,7 @@ const Plant_master_type = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    defaultValue={checked}
+                    checked={checked}
                     name={checked ? 1 : 0}
                   />
                 </div>
