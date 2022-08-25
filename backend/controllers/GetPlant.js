@@ -6,6 +6,7 @@ import ImagePlantDetail from "../models/ImagePlantDetail_M.js";
 import PlantMasterDetail from "../models/PlantMasterDetail_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
 import PlantHarvestStatus_M from "../models/PlantHarvestStatus_M.js";
+import Type_Plant_Master from "../models/TypePlantMasterModel.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -306,7 +307,6 @@ export const UpdateStatusPlant = async (req, res) => {
 
 /***********  Plant Type Master Detail ************/
 
-
 export const getPlantMasterType = async (req, res) => {
   try {
     const plantMaster = await db.query(
@@ -321,6 +321,18 @@ export const getPlantMasterType = async (req, res) => {
   }
 };
 
+export const postPlantMasterType = async (req, res) => {
+  const { type_plant_name, status_ } = req.body;
+  try {
+    await Type_Plant_Master.create({
+      type_plant_name: type_plant_name,
+      status_: status_,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    res.json(error);
+  }
+};
 
 
 /***********  Plant Master Detail ************/
