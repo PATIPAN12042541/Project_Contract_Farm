@@ -15,8 +15,6 @@ export const List_User = () => {
       `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
     );
     setListUsers(response.data);
-
-    console.log(listUsers)
   };
 
   useEffect(() => {
@@ -82,6 +80,7 @@ export const List_User = () => {
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
                                                                   >
+                                                                    <AiFillEdit />
                                                                   </Button>
                                                               </Link>
                                                           </center>
@@ -91,6 +90,7 @@ export const List_User = () => {
                                                               <Button
                                                                   variant="danger"
                                                               >
+                                                                <BsTrashFill />
                                                               </Button>
                                                           </center>
                                                       </td>
