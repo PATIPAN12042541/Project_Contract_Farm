@@ -17,12 +17,19 @@ export const List_User = () => {
   const [filteredResults, setFilteredResults] = useState([]);
   const navigate = useNavigate();
 
-  const getListUserDev = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
-    );
-    setListUsers(response.data);
-  };
+    const getListUser = async () => {
+        if (roleid == 1) {
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
+            );
+            setListUsers(response.data);
+        } else {
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
+            );
+            setListUsers(response.data);
+        }
+    };
 
   // Search Item
   const searchItems = (searchValue) => {
@@ -57,7 +64,7 @@ export const List_User = () => {
   }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    getListUserDev();
+    getListUser();
   },[]);
   return (
       <div className="content-wrapper">
