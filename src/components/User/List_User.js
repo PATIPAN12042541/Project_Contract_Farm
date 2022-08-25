@@ -42,12 +42,9 @@ export const List_User = () => {
                                           <thead>
                                               <tr>
                                                   <th>ลำดับ</th>
-                                                  <th>ประเภทสารเคมี</th>
-                                                  <th>ชื่อสารเคมี (ไทย)</th>
-                                                  <th>ชื่อสารเคมี (Eng)</th>
-                                                  <th>ER MUL</th>
-                                                  <th>รูปภาพ</th>
-                                                  <th>Active</th>
+                                                  <th>ประเภท User</th>
+                                                  <th>ชื่อ</th>
+                                                  <th>นามสกุล</th>
                                                   <th>แก้ไขข้อมูล</th>
                                                   <th>ลบข้อมูล</th>
                                               </tr>
