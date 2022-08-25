@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import { BsTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 
 const Plant_master_type = () => {
   const [TypeMasterPlant, setTypeMasterPlant] = useState([]);
@@ -118,8 +118,11 @@ const Plant_master_type = () => {
                             <td>{data.type_plant_name}</td>
                             <td>
                               <center>
-                                <Button variant="danger">
-                                  <BsTrashFill />
+                                <Button
+                                  variant="warning"
+                                  style={{ color: "#ffff" }}
+                                >
+                                  <AiFillEdit /> แก้ไขข้อมูล
                                 </Button>
                               </center>
                             </td>
