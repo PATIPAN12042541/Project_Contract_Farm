@@ -19,7 +19,7 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-  
+
   const UserContext = createContext();
   
   useEffect(() => {
@@ -91,6 +91,7 @@ const SidebarRole = () => {
   );
 
   return (  
+    <UserContext.Provider value={roleid}>
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
         to="/contract_farm"
@@ -169,6 +170,7 @@ const SidebarRole = () => {
         </nav>
       </div>
     </aside>
+    </UserContext.Provider>
   );
 };
 
