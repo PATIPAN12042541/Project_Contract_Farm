@@ -15,6 +15,8 @@ export const List_User = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
     const getListUser = async () => {
@@ -88,7 +90,7 @@ export const List_User = () => {
                               <div className="card-body">
                                   <div className="row">
                                       <div className="col-md-6">
-                                          <Button variant="success">
+                                          <Button variant="success" onClick={handleShow}>
                                               เพิ่มข้อมูลผู้ใช้งานระบบ
                                           </Button>
                                       </div>
@@ -167,6 +169,42 @@ export const List_User = () => {
                   </div>
               </div>
           </section>
+          <Modal show={show} onHide={handleClose}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เพิ่มข้อมูลผู้ใช้งานระบบ</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleClose}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
       </div>
   )
 }
