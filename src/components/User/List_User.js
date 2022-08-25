@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
+import Modal from "react-bootstrap/Modal";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
