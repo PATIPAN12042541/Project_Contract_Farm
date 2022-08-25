@@ -245,9 +245,6 @@ export const List_User = () => {
                                   value={name}
                                   onChange={(e) => setName(e.target.value)}
                               />
-                              <div className="input-group-append">
-                                  <div className="input-group-text"></div>
-                              </div>
                           </div>
                           <div className="input-group mb-3">
                               <input
@@ -257,9 +254,6 @@ export const List_User = () => {
                                   value={lastName}
                                   onChange={(e) => setLastName(e.target.value)}
                               />
-                              <div className="input-group-append">
-                                  <div className="input-group-text"></div>
-                              </div>
                           </div>
                           <div className="form-group mb-3">
                               <select
