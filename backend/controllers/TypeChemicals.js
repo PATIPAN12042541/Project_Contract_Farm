@@ -17,7 +17,11 @@ export const createTypeChemical = async(req, res) => {
 
 export const getAllTypeChemical = async (req, res) => {
     try {
-        const typeChemicals = await TypeChemical.findAll();
+        const typeChemicals = await TypeChemical.findAll({
+          where: {
+            status: 1,
+          },
+        });
         res.json(typeChemicals);
     } catch (error) {
         res.json(error);
