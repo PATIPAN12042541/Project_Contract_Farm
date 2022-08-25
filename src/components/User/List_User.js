@@ -10,7 +10,7 @@ export const List_User = () => {
 
   const getListUserDev = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getViewUsersByDev`
+      `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
     );
     setListUsers(response.data);
 
