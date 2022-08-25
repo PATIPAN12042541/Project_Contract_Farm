@@ -37,7 +37,7 @@ const List_Chemical = () => {
 
   const getListTypeChemicals = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`
+      `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical2`
     );
     setListTypeChemical(response.data);
   };

@@ -1,19 +1,18 @@
 import TypeChemical from "../models/TypeChemicalModel.js";
 
-export const createTypeChemical = async(req, res) => {
-    const { type_chemical,status } = req.body;
-    try {
-        await TypeChemical.create({
-
-            type_chemical: type_chemical,
-            status: status,
-        });
-        res.json({msg: "Create Successful"});
-    } catch (error) {
-        //console.log(error);
-        res.json(error)
-    }
-}
+export const createTypeChemical = async (req, res) => {
+  const { type_chemical, status } = req.body;
+  try {
+    await TypeChemical.create({
+      type_chemical: type_chemical,
+      status: status,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    //console.log(error);
+    res.json(error);
+  }
+};
 
 export const getAllTypeChemical = async (req, res) => {
   try {
