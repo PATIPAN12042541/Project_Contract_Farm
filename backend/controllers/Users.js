@@ -1,3 +1,4 @@
+import db from "../config/Database.js";
 import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -27,26 +28,26 @@ export const getUsersByRole = async(req, res) => {
     }
 }
 
-export const getUsersByDev = async (req, res) => {
+export const getUsersByDev = async(req, res) => {
     try {
-      const users = await db.query(
-          "SELECT user.id,"+
-          "user.name,"+
-          "user.last_name,"+
-          "role_group.id as group_id," +
-          "role_group.role_group_name as group_name "+
-          "FROM user "+
-          "LEFT JOIN role_group "+
-          "ON user.role_id = role_group.id",
-        {
-          type: db.QueryTypes.SELECT,
-        }
-      );
-      res.json(users);
+        const GroupUser = await db.query(
+            "SELECT user.id,"+
+	        "user.name,"+
+            "user.last_name,"+
+            "role_group.id as group_id,"+
+            "role_group.role_group_name as group_name "+
+            "FROM user "+
+            "LEFT JOIN role_group "+
+            "on user.role_id = role_group.id",
+            {
+                type: db.QueryTypes.SELECT,
+            }
+        );
+        res.json(GroupUser);
     } catch (error) {
-      res.json({ message: error.message });
+        res.json({ message: error.message });
     }
-  };
+}
 
 // export const getCheckId = async (req, res) => {
 //   try {
