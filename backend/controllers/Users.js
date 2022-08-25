@@ -38,7 +38,30 @@ export const getUsersByDev = async(req, res) => {
             "role_group.role_group_name as group_name "+
             "FROM user "+
             "LEFT JOIN role_group "+
-            "on user.role_id = role_group.id",
+            "ON user.role_id = role_group.id "+
+            "ORDER BY user.id ASC",
+            {
+                type: db.QueryTypes.SELECT,
+            }
+        );
+        res.json(GroupUser);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+}
+
+export const getUsersByAdmin = async(req, res) => {
+    try {
+        const GroupUser = await db.query(
+            "SELECT user.id,"+
+	        "user.name,"+
+            "user.last_name,"+
+            "role_group.id as group_id,"+
+            "role_group.role_group_name as group_name "+
+            "FROM user "+
+            "LEFT JOIN role_group "+
+            "ON user.role_id = role_group.id "+
+            "WHERE role_group.id <> 1",
             {
                 type: db.QueryTypes.SELECT,
             }
