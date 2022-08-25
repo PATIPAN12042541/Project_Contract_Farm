@@ -127,6 +127,7 @@ const Plant_master_type = () => {
                                 <Button
                                   variant="warning"
                                   style={{ color: "#ffff" }}
+                                  onClick={handleShow2}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
                                 </Button>
