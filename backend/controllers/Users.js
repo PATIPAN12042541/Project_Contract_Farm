@@ -27,6 +27,27 @@ export const getUsersByRole = async(req, res) => {
     }
 }
 
+export const getUsersByDev = async (req, res) => {
+    try {
+      const users = await db.query(
+          "SELECT user.id,"+
+          "user.name,"+
+          "user.last_name,"+
+          "role_group.id as group_id," +
+          "role_group.role_group_name as group_name "+
+          "FROM user "+
+          "LEFT JOIN role_group "+
+          "ON user.role_id = role_group.id",
+        {
+          type: db.QueryTypes.SELECT,
+        }
+      );
+      res.json(users);
+    } catch (error) {
+      res.json({ message: error.message });
+    }
+  };
+
 // export const getCheckId = async (req, res) => {
 //   try {
 //     const checkUser = await db.query(
