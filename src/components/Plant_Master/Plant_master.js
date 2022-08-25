@@ -374,9 +374,13 @@ const Plant_master = () => {
                     <Pagination
                       className="pagination-bar"
                       currentPage={currentPage}
-                      totalCount={searchInput.length > 1 ? filteredResults.length : plantMaster.length}
+                      totalCount={
+                        searchInput.length > 1
+                          ? filteredResults.length
+                          : plantMaster.length
+                      }
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>
@@ -399,6 +403,18 @@ const Plant_master = () => {
         <Modal.Body>
           <Form className="form-horizontal">
             <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชนิดพืช :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <select className="form-control">
+                    <option value={0}>--เลือกชนิดพืช--</option>
+                    <option value={1}>พืชหัว</option>
+                    <option value={2}>พืชผักใบ</option>
+                  </select>
+                </div>
+              </div>
               <div className="form-group row">
                 <Form.Label className="col-sm-4 col-form-label">
                   ชื่อพืช :
