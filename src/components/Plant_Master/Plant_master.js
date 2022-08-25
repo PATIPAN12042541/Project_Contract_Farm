@@ -413,6 +413,7 @@ const Plant_master = () => {
                     <option value={0}>--เลือกชนิดพืช--</option>
                     <option value={1}>พืชหัว</option>
                     <option value={2}>พืชผักใบ</option>
+                    {/* /// */}
                   </select>
                 </div>
               </div>
