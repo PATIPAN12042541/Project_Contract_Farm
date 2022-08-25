@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect ,UserContext,createContext} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -19,8 +19,6 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-
-  const UserContext = createContext();
   
   useEffect(() => {
     refreshToken();
@@ -91,7 +89,6 @@ const SidebarRole = () => {
   );
 
   return (  
-    <UserContext.Provider value={"ddd"}>
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
         to="/contract_farm"
@@ -170,7 +167,6 @@ const SidebarRole = () => {
         </nav>
       </div>
     </aside>
-    </UserContext.Provider>
   );
 };
 
