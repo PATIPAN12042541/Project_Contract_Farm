@@ -5,9 +5,16 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
+import Pagination from "../Pagination/Pagination.js";
+import '../Pagination/style.scss';
+
+let PageSize = 5;
 
 export const List_User = () => {
   const [listUsers, setListUsers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredResults, setFilteredResults] = useState([]);
   const navigate = useNavigate();
 
   const getListUserDev = async () => {
@@ -16,6 +23,38 @@ export const List_User = () => {
     );
     setListUsers(response.data);
   };
+
+  // Search Item
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+        const filteredData = listUsers.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setFilteredResults(filteredData);
+        setCurrentPage(1);
+        console.log(filteredData);
+    }
+    else{
+        setListUsers(listUsers);
+        console.log(listUsers);
+    }
+}
+  
+  // Pageing
+  const currentTableData = useMemo(() => {
+    console.log(currentPage);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+
+    if (searchInput.length > 1){
+      return filteredResults.slice(firstPageIndex, lastPageIndex);
+    }
+    else
+    {
+      return listUsers.slice(firstPageIndex, lastPageIndex);
+    }
+  }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getListUserDev();
@@ -47,6 +86,7 @@ export const List_User = () => {
                                               type="text"
                                               className="form-control"
                                               placeholder="ค้นหา"
+                                              onChange={(e) => searchItems(e.target.value)}
                                           />
                                       </div>
                                   </div>
@@ -67,7 +107,7 @@ export const List_User = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {listUsers.map((listUsers, index) => (
+                                              {currentTableData.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{listUsers.group_name}</td>
@@ -98,6 +138,17 @@ export const List_User = () => {
                                               ))}
                                           </tbody>
                                       </Table>
+                                      <Pagination
+                                          className="pagination-bar"
+                                          currentPage={currentPage}
+                                          totalCount={
+                                              searchInput.length > 1
+                                                  ? filteredResults.length
+                                                  : listUsers.length
+                                          }
+                                          pageSize={PageSize}
+                                          onPageChange={(page) => setCurrentPage(page)}
+                                      />
                                   </div>
                               </div>
                           </div>
