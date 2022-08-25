@@ -1,4 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 const Plant_master_type = () => {
   return (
@@ -22,6 +29,12 @@ const Plant_master_type = () => {
                   <center>
                     <h3 className="card-title">ประเภทพืช Master</h3>
                   </center>
+                </div>
+                <div className="card-body">
+                  <div className="row">
+                    <Button variant="success">เพิ่มประเภทพืช</Button>
+                  </div>
+                  <hr />
                 </div>
               </div>
             </div>
