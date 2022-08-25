@@ -1,5 +1,4 @@
 import db from "../config/Database.js";
-import GroupUser from "../models/GroupUserViewModel";
 
 export const getUsersByDev = async(req, res) => {
     try {
