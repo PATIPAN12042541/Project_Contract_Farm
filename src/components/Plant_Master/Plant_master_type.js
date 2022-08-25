@@ -158,7 +158,7 @@ const Plant_master_type = () => {
                                   variant="warning"
                                   style={{ color: "#ffff" }}
                                   onClick={() => {
-                                    handleShow2;
+                                    handleShow2();
                                     setNameTypePlant(data.type_plant_name);
                                     setChecked(data.status_);
                                     setEditPlantMasterID(data.id);
