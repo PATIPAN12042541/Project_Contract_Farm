@@ -169,5 +169,4 @@ const SidebarRole = () => {
   );
 };
 
-export {AuthContext}
 export default SidebarRole;
