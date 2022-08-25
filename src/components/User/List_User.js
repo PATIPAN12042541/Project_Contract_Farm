@@ -20,7 +20,16 @@ export const List_User = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const navigate = useNavigate();
+
+  /* VAR MODAL */
+  const [rolegroup, setRoleGroup] = useState([]);
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [roleID, setRoleID] = useState("");
+  const Nav = useNavigate();
 
     const getListUser = async () => {
         /*if (roleid == 1) {
@@ -186,7 +195,20 @@ export const List_User = () => {
               <Modal.Body>
                   <Form className="form-horizontal">
                       <div className="card-body">
-                          
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Username"
+                                  value={username}
+                                  onChange={(e) => setUserName(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-user" />
+                                  </div>
+                              </div>
+                          </div>
                       </div>
                   </Form>
               </Modal.Body>
