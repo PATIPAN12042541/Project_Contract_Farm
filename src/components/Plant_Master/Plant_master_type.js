@@ -267,7 +267,7 @@ const Plant_master_type = () => {
                     type="text"
                     className="form-control"
                     defaultValue={NameTypePlant2}
-                    onChange={(e) => setNameTypePlant2(e.target.value)}
+                    // onChange={(e) => setNameTypePlant2(e.target.value)}
                   />
                 </div>
               </div>
@@ -281,9 +281,9 @@ const Plant_master_type = () => {
                     id="custom-switch"
                     checked={checked2}
                     name={checked2 ? 1 : 0}
-                    onChange={(e) => {
-                      setChecked2(!checked2);
-                    }}
+                    // onChange={(e) => {
+                    //   setChecked2(!checked2);
+                    // }}
                   />
                 </div>
               </div>
@@ -296,7 +296,7 @@ const Plant_master_type = () => {
           </Button>
           <Button
             variant="success"
-            onClick={updatePlantMaster(editPlantMasterID)}
+            // onClick={updatePlantMaster(editPlantMasterID)}
           >
             Save Changes
           </Button>
