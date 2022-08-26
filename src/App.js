@@ -36,11 +36,12 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React from "react";
 
+const user = {role_id_context:null,name_context:null,last_name_context:null};
 const userLogin = React.createContext();
 
 function App() {
   return (
-    <userLogin.Provider value={null}>
+    <userLogin.Provider value={user}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -260,7 +261,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SidebarRole value={userLogin}/>
+                <SidebarRole />
                 <List_User />
                 <Footer />
               </>
