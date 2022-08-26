@@ -44,7 +44,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      setUsernameContext('test');
+      setUsernameContext({ username: 'nice789', fullname: 'เต้า หมิงซื่อ' });
 
       console.log("User Menu : "+{usernameContext})
 
