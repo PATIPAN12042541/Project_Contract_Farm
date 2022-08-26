@@ -44,7 +44,13 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      console.log("USER : "+user.role_id_context);
+      user.role_id_context = decoded.role_id;
+      user.name_context = decoded.role_id;
+      user.last_name_context = decoded.role_id;
+
+      console.log("Role : "+user.role_id_context);
+      console.log("Name : "+user.name_context);
+      console.log("Last Name : "+user.last_name_context);
     } catch (error) {
       if (error.response) {
         history("/");
