@@ -40,8 +40,8 @@ const AuthContext = React.createContext();
 
 function userLogin(state,action){
     if(action.type === 'login'){
-      const {name_reducer,last_name_reducer} = action.payload;
-      return {name_reducer,last_name_reducer}
+      const {username,fullname } = action.payload;
+      return {username,fullname }
     }
     if(action.type === 'logout'){
       return null;

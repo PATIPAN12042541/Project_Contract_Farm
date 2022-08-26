@@ -10,6 +10,8 @@ import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { AuthContext } from '../../App';
 
+const fakeUser = { username: 'nice789', fullname: 'เต้า หมิงซื่อ' };
+
 const SidebarRole = () => {
   const [name, setName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -44,7 +46,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      authDispatch({type:'login',payload:{name_reducer:decoded.name,last_name_reducer:decoded.last_name}})
+      authDispatch({type:'login',payload:fakeUser})
     } catch (error) {
       if (error.response) {
         history("/");
