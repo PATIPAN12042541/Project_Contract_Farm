@@ -34,24 +34,12 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
-import React,{useState,createContext,useEffect } from "react";
 import MonitorStatus from "./components/System_overview/MonitorStatus";
 
-const AuthContext = React.createContext();
 
 function App() {
-  const [auth, setAuth] = useState(null);
-
-  const test = () => {
-    setAuth('test 5555');
-  }
-
-  useEffect(() => {
-    test();
-  }, []);
 
   return (
-    <AuthContext.Provider value={{auth}}>
       <div className="wrapper">
         <BrowserRouter>
           <Routes>
@@ -324,8 +312,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-    </AuthContext.Provider>
   );
 }
-export { AuthContext };
 export default App;

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect ,useMemo ,useContext} from 'react'
+import React,{ useState, useEffect ,useMemo} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
@@ -9,7 +9,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
-import { AuthContext } from '../../App.js';
+import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
@@ -21,6 +21,9 @@ export const List_User = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [roleIDLogin, setRoleIDLogin] = useState("");
+  const [token, setToken] = useState("");
+  const history = useNavigate();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
@@ -31,7 +34,21 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
 
-  const {auth} = useContext(AuthContext);
+  const refreshToken = async () => {
+    try {
+
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      setRoleIDLogin(decoded.role_id);
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
+  };
 
     const getListUser = async () => {
         /*if (roleidToken == 1) {
@@ -49,7 +66,7 @@ export const List_User = () => {
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
-        console.log("auth : "+{auth})
+        console.log("RoleID : "+roleIDLogin);
     };
 
   // Search Item
@@ -85,6 +102,7 @@ export const List_User = () => {
   }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    refreshToken();
     getListUser();
   },[]);
   return (
