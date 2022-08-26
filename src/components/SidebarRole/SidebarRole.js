@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -8,6 +8,7 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
+import { userLoginContext } from '../../App';
 
 
 const SidebarRole = () => {
@@ -19,6 +20,8 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
+
+  const user = useContext(userLoginContext);
   
   useEffect(() => {
     refreshToken();
@@ -41,6 +44,8 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
+
+      user = {role_id_context : setRoleID(decoded.role_id),name_context:setName(decoded.name),last_name_context:setLastName(decoded.last_name)}
     } catch (error) {
       if (error.response) {
         history("/");
