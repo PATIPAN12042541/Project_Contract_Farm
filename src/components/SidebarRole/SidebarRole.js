@@ -9,6 +9,7 @@ import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 
+const userLoginContext = useContext();
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -89,6 +90,7 @@ const SidebarRole = () => {
   );
 
   return (  
+    <userLoginContext.Provider value={'test 6565'}>
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
         to="/contract_farm"
@@ -167,6 +169,7 @@ const SidebarRole = () => {
         </nav>
       </div>
     </aside>
+    </userLoginContext.Provider>
   );
 };
 
