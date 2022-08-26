@@ -24,6 +24,7 @@ export const List_User = () => {
   const [roleidToken, setRoleIDToken] = useState("");
   const [token, setToken] = useState("");
   const [expire, setExpire] = useState("");
+  const history = useNavigate();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
@@ -33,7 +34,6 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
-  const Nav = useNavigate();
 
 
   const refreshToken = async () => {
