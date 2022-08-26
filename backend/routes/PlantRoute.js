@@ -23,6 +23,7 @@ import {
   UpdatePlantStatus,
   getPlantMasterType,
   postPlantMasterType,
+  updatePlantMasterType,
   // PostPlantStatus,
 } from "../controllers/GetPlant.js";
 
@@ -51,6 +52,7 @@ router.patch("/Comment/update/:id", getCommentDataUpdate);
 router.patch("/update/PlantStatusUpdate/:id", UpdatePlantStatus);
 router.get("/plant/getPlantMasterType", getPlantMasterType);
 router.post("/plant/PostPlantMasterType", postPlantMasterType);
+router.patch("/plant/patchPlantMasterType/:id", updatePlantMasterType);
 // router.post("/status/UpdatePlantStatus", PostPlantStatus);
 
 export default router;
