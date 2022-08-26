@@ -36,7 +36,6 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React,{useState} from "react";
 
-
 function App() {
   return (
     <div className="wrapper">
@@ -251,7 +250,7 @@ function App() {
                 <Footer />
               </>
             }
-          />
+          />       
           <Route
             exact
             path="/ListUser"
