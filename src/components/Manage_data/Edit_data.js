@@ -791,6 +791,11 @@ const Edit_data = (props) => {
                           aria-expanded="false"
                         >
                           <td
+                            style={
+                              data.plant_condition == 1
+                                ? "color : red "
+                                : "color : green "
+                            }
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
@@ -884,6 +889,21 @@ const Edit_data = (props) => {
                                   className="btn btn-danger"
                                 >
                                   <BsFillTrashFill />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                >
+                                  <BsFillChatSquareDotsFill />
                                 </button>
                               </center>
                             </td>
