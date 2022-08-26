@@ -250,6 +250,7 @@ const Edit_data = (props) => {
           )
           .then(function (response) {
             Close_status();
+            CloseStatusType();
             Swal.fire({
               icon: "success",
               title: "Success",
