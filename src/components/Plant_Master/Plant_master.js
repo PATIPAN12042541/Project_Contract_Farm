@@ -118,7 +118,7 @@ const Plant_master = () => {
                 : "../dist/img/" + image_name,
             status_show: checked,
             type_plant: typePlant,
-            plant_condition: 0,
+            plant_condition: plantCondition,
           }
         )
         .then(function (response) {
@@ -194,7 +194,7 @@ const Plant_master = () => {
             plant_name_eng: nameEng,
             status_show: checked,
             type_plant: typePlant,
-            plant_condition: 0,
+            plant_condition: plantCondition,
           }
         );
       } else {
@@ -206,7 +206,7 @@ const Plant_master = () => {
             plant_img: "../dist/img/" + image_name,
             status_show: checked,
             type_plant: typePlant,
-            plant_condition: 0,
+            plant_condition: plantCondition,
           }
         );
 
@@ -529,8 +529,13 @@ const Plant_master = () => {
                   เงื่อนไข :
                 </Form.Label>
                 <div className="col-sm-8">
-                  <select className="form-control">
-                    <option value={0}>------เงื่อนไข-------</option>
+                  <select
+                    className="form-control"
+                    onChange={(e) => {
+                      setPlantCondition(e.target.value);
+                    }}
+                  >
+                    <option>------เงื่อนไข-------</option>
                     <option value={1}>รูปแบบที่ 1 : วน Circle</option>
                     <option value={2}>รูปแบบที่ 1 : ไม่วน Circle</option>
                   </select>
@@ -665,6 +670,24 @@ const Plant_master = () => {
                       setChecked(!checked);
                     }}
                   />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  เงื่อนไข :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <select
+                    className="form-control"
+                    defaultValue={plantCondition}
+                    onChange={(e) => {
+                      setPlantCondition(e.target.value);
+                    }}
+                  >
+                    <option>------เงื่อนไข-------</option>
+                    <option value={1}>รูปแบบที่ 1 : วน Circle</option>
+                    <option value={2}>รูปแบบที่ 1 : ไม่วน Circle</option>
+                  </select>
                 </div>
               </div>
             </div>
