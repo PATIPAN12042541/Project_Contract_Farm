@@ -184,7 +184,7 @@ export const List_User = () => {
                   </div>
               </div>
           </section>
-          <Modal show={show} onHide={handleCloseInsert}>
+          <Modal show={showInsert} onHide={handleCloseInsert}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
@@ -295,7 +295,7 @@ export const List_User = () => {
               </Modal.Footer>
           </Modal>
 
-          <Modal show={show} onHide={handleCloseUpdate}>
+          <Modal show={showUpdate} onHide={handleCloseUpdate}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
