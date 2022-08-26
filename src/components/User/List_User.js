@@ -55,6 +55,7 @@ export const List_User = () => {
   };
 
     const getListUser = async () => {
+        console.log(roleidToken);
         if (roleidToken == 1) {
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
