@@ -43,6 +43,8 @@ export const List_User = () => {
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setRoleIDLogin(decoded.role_id);
+
+      console.log("RoleID Token : "+roleIDLogin);
     } catch (error) {
       if (error.response) {
         history("/");
@@ -66,7 +68,7 @@ export const List_User = () => {
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
-        console.log("RoleID : "+roleIDLogin);
+        console.log("RoleID List : "+roleIDLogin);
     };
 
   // Search Item
