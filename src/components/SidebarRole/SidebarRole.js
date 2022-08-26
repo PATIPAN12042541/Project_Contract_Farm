@@ -88,7 +88,6 @@ const SidebarRole = () => {
   );
 
   return (  
-    <userLoginContext.Provider value={'test 6565'}>
     <aside className="main-sidebar sidebar-light-primary elevation-4">
       <Link
         to="/contract_farm"
@@ -167,7 +166,6 @@ const SidebarRole = () => {
         </nav>
       </div>
     </aside>
-    </userLoginContext.Provider>
   );
 };
 
