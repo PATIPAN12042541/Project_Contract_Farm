@@ -36,12 +36,9 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React,{useState} from "react";
 
-const userLogin = React.createContext();
 
 function App() {
-  const [login,setLogin] = useState(null)
   return (
-    <userLogin.Provider value={{login,setLogin}}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -282,9 +279,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    </userLogin.Provider>
   );
 }
 
-export {userLogin}
 export default App;

@@ -8,7 +8,6 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
-import { userLogin } from '../../App';
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -19,8 +18,6 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-
-  const {login,setLogin} = useContext(userLogin);
   
   useEffect(() => {
     refreshToken();
@@ -43,8 +40,6 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
-
-      setLogin(decoded.name);
     } catch (error) {
       if (error.response) {
         history("/");
