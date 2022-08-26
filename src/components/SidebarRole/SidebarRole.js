@@ -47,10 +47,6 @@ const SidebarRole = () => {
       user.role_id_context = decoded.role_id;
       user.name_context = decoded.name;
       user.last_name_context = decoded.last_name;
-
-      console.log("Role : "+user.role_id_context);
-      console.log("Name : "+user.name_context);
-      console.log("Last Name : "+user.last_name_context);
     } catch (error) {
       if (error.response) {
         history("/");
