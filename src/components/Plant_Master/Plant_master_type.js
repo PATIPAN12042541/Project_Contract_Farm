@@ -76,31 +76,28 @@ const Plant_master_type = () => {
   };
 
   const updatePlantMaster = async (id) => {
-    console.log("ID : " + id);
-    console.log("checked2 : " + checked2);
-    console.log("NameTypePlant2 : " + NameTypePlant2);
-    // try {
-    //   await axios.patch(
-    //     `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,
-    //     {
-    //       type_plant_name: typeChemical,
-    //       status_: checked,
-    //     }
-    //   );
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Success",
-    //     text: "Update Success!",
-    //   });
-    //   handleClose2();
-    //   getTypeMasterPlant();
-    // } catch (error) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Update Fail!",
-    //     text: error,
-    //   });
-    // }
+      try {
+        await axios.patch(
+          `${process.env.REACT_APP_API_URL}/getplant/plant/patchPlantMasterType/${id}`,
+          {
+            type_plant_name: NameTypePlant2,
+            status_: checked2,
+          }
+        );
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Update Success!",
+        });
+        handleClose2();
+        getTypeMasterPlant();
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Update Fail!",
+          text: error,
+        });
+      }
   };
 
   useEffect(() => {

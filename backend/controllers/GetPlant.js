@@ -332,6 +332,23 @@ export const postPlantMasterType = async (req, res) => {
 };
 
 
+export const updatePlantMasterType = async (req, res) => {
+  try {
+    await Type_Plant_Master.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    res.json({
+      message: "Updated Saccess",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+
 /***********  Plant Master Detail ************/
 
 export const getPlantMaster = async (req, res) => {
