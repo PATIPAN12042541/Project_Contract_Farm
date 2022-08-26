@@ -9,7 +9,6 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
-import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
@@ -401,7 +400,7 @@ export const List_User = () => {
                   <button
                       onClick={handleCloseUpdate}
                       className="btn btn-default"
-                      style={{ float: "left" }}
+                      style={{ float: "left"}}
                   >
                       ย้อนกลับ
                   </button>
