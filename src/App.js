@@ -38,21 +38,9 @@ import React, { useReducer } from 'react';
 
 const AuthContext = React.createContext();
 
-function userLogin(state,action){
-    if(action.type === 'login'){
-      const {username,fullname } = action.payload;
-      return {username,fullname }
-    }
-    if(action.type === 'logout'){
-      return null;
-    }
-    return state
-}
-
 function App() {
-  const [authState,authDispatch] = useReducer(userLogin,null)
   return (
-    <AuthContext.Provider value={{authState,authDispatch}}>
+    <AuthContext.Provider value={'test'}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
