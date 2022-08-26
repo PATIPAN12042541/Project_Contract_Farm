@@ -885,6 +885,21 @@ const Edit_data = (props) => {
                                 >
                                   <BsFillTrashFill />
                                 </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-warning"
+                                  style={{ color: "#fff" }}
+                                >
+                                  <AiOutlineFundView />
+                                </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary"
+                                >
+                                  <BsFillChatSquareDotsFill />
+                                </button>
                               </center>
                             </td>
                           ) : (
