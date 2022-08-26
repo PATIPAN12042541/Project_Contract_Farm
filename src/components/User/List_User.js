@@ -52,6 +52,14 @@ export const List_User = () => {
         setListUsers(response.data);
     };
 
+    const getRole = async () => {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/role_group/getRole`
+        );
+        //const response = await axios.get("http://localhost:4000/role_group");
+        setRoleGroup(response.data);
+      };
+
   // Search Item
   const searchItems = (searchValue) => {
     setSearchInput(searchValue)
@@ -86,6 +94,7 @@ export const List_User = () => {
 
   useEffect(() => {
     getListUser();
+    getRole();
   },[]);
   return (
       <div className="content-wrapper">
