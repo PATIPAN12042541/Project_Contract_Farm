@@ -34,13 +34,15 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
-import React,{useState} from "react";
+import React,{useState,createContext } from "react";
 
+export const AppContext = createContext(null);
 
 function App() {
-  const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
+    <AppContext.Provider value={{ username, setUsername }}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -281,6 +283,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </AppContext.Provider>
   );
 }
 export default App;
