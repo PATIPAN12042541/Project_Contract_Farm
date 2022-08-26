@@ -23,7 +23,7 @@ const MonitorStatus = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-md-3 col-sm-6 col-12">
+                    <div className="col-md-4 col-sm-6 col-12">
                       <div className="info-box bg-success">
                         <span className="info-box-icon">
                           <i className="far fa-thumbs-up"></i>
@@ -43,7 +43,7 @@ const MonitorStatus = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-3 col-sm-6 col-12">
+                    <div className="col-md-4 col-sm-6 col-12">
                       <div className="info-box bg-warning">
                         <span className="info-box-icon">
                           <i className="far fa-calendar-alt"></i>
@@ -63,7 +63,7 @@ const MonitorStatus = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-3 col-sm-6 col-12">
+                    <div className="col-md-4 col-sm-6 col-12">
                       <div className="info-box bg-danger">
                         <span className="info-box-icon">
                           <i className="fas fa-comments"></i>
@@ -144,7 +144,7 @@ const MonitorStatus = () => {
                           <td>4.</td>
                           <td>Fix and squish bugs</td>
                           <td>
-                            <div claclassNamess="progress progress-xs progress-striped active">
+                            <div className="progress progress-xs progress-striped active">
                               <div
                                 className="progress-bar bg-success"
                                 style={{ width: "90%" }}
