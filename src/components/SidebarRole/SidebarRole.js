@@ -44,7 +44,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      authDispatch({type:'login',payload:decoded.last_name})
+      authDispatch({type:'login',payload:{name_reducer:decoded.name,last_name_reducer:decoded.last_name}})
     } catch (error) {
       if (error.response) {
         history("/");
