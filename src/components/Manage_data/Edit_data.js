@@ -1128,7 +1128,7 @@ const Edit_data = (props) => {
           </div>
         </div>
       </section>
-      // เงื่อนไขสถานะที่ 2
+      {/* // เงื่อนไขสถานะที่ 2 */}
       <Modal show={show_status} onHide={Close_status}>
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
@@ -1174,7 +1174,7 @@ const Edit_data = (props) => {
           </button>
         </Modal.Footer>
       </Modal>
-      // เงื่อนไขสถานะที่ 1
+      {/* // เงื่อนไขสถานะที่ 1 */}
       <Modal show={statusType} onHide={CloseStatusType}>
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
@@ -1193,9 +1193,7 @@ const Edit_data = (props) => {
                       <option
                         key={status.id}
                         value={status.id}
-                        style={{
-                          display: getIDStatus >= status.id ? "none" : "block",
-                        }}
+                        // c
                       >
                         {status.status_name}
                       </option>
