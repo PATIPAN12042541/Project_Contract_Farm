@@ -35,13 +35,9 @@ import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 
-import React from "react";
-
-const TestContext = React.createContext();
 
 function App() {
   return (
-    <TestContext.Provider value={42}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -282,7 +278,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    </TestContext.Provider>
   );
 }
 
