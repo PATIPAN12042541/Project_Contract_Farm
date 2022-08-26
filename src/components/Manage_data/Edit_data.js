@@ -869,7 +869,17 @@ const Edit_data = (props) => {
                             <center>{data.status_name}</center>
                           </td>
                           {data.plant_condition == 1 ? (
-                            <td>ทดสอบ</td>
+                            <td>
+                              <center>
+                                <button
+                                  type="submit"
+                                  className="btn btn-success"
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  <BsPlusLg />
+                                </button>
+                              </center>
+                            </td>
                           ) : (
                             <td>
                               {data.status_plant == "2" ? (
