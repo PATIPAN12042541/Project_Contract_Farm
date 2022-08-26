@@ -279,6 +279,4 @@ function App() {
     </div>
   );
 }
-
-export {Login}
 export default App;
