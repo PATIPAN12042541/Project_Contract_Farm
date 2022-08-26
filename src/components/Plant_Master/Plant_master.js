@@ -18,7 +18,7 @@ let PageSize = 5;
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
@@ -43,34 +43,38 @@ const Plant_master = () => {
   const [checked, setChecked] = useState(false);
   /************************/
 
+  /********* Dropdown Type **********/
+  const [masterDropType, setmasterDropType] = useState([]);
+  /***********************************/
+
   // Search Item
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-    if (searchInput !== '') {
-        const filteredData = plantMaster.filter((item) => {
-            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-        })
-        setFilteredResults(filteredData);
-        setCurrentPage(1);
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = plantMaster.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+      setCurrentPage(1);
+    } else {
+      setFilteredResults(plantMaster);
     }
-    else{
-        setFilteredResults(plantMaster);
-    }
-}
-  
+  };
+
   // Pageing
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
 
-    if (searchInput.length > 1){
+    if (searchInput.length > 1) {
       return filteredResults.slice(firstPageIndex, lastPageIndex);
-    }
-    else
-    {
+    } else {
       return plantMaster.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage,searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentPage, searchInput.length > 1 ? filteredResults : plantMaster]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Get Data in Table
   const getPlantMasterDetail = async () => {
@@ -78,6 +82,15 @@ const Plant_master = () => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterSetup`
     );
     setPlantMaster(response.data);
+    // console.log(response.data);
+  };
+
+  // Get Data in Table Drop Type Plant
+  const getMasterDropType = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterTypeUsed`
+    );
+    setmasterDropType(response.data);
     console.log(response.data);
   };
 
@@ -205,6 +218,7 @@ const Plant_master = () => {
 
   useEffect(() => {
     getPlantMasterDetail();
+    getMasterDropType();
   }, []);
 
   return (
@@ -407,12 +421,20 @@ const Plant_master = () => {
                 <Form.Label className="col-sm-4 col-form-label">
                   ชนิดพืช :
                 </Form.Label>
+
                 <div className="col-sm-8">
-                  <select className="form-control">
-                    <option value={0}>--เลือกชนิดพืช--</option>
-                    <option value={1}>พืชหัว</option>
-                    <option value={2}>พืชผักใบ</option>
-                    {/* /// */}
+                  <select
+                    className="form-control"
+                    // onChange={(e) => {
+                    //   setTypeChemicalID(e.target.value);
+                    // }}
+                  >
+                    <option>--เลือกประเภทพืช--</option>
+                    {masterDropType.map((data, index) => (
+                      <option key={index} value={data.id}>
+                        {data.type_plant_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
