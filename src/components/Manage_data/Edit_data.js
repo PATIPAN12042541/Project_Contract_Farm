@@ -791,7 +791,11 @@ const Edit_data = (props) => {
                           aria-expanded="false"
                         >
                           <td
-                            style={{ color: "red" }}
+                            style={
+                              data.plant_condition == 1
+                                ? { color: "red" }
+                                : { color: "green" }
+                            }
                             // style={
                             //   data.plant_condition == 1
                             //     ? "color : 'red' "
