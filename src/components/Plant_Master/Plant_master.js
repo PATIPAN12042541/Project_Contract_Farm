@@ -218,6 +218,7 @@ const Plant_master = () => {
 
   useEffect(() => {
     getPlantMasterDetail();
+    getMasterDropType();
   }, []);
 
   return (
