@@ -31,7 +31,6 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
 
-  const { usernameContext } = useContext(AppContext);
 
     const getListUser = async () => {
         /*if (roleidToken == 1) {
