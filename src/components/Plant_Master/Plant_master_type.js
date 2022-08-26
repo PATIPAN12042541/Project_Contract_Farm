@@ -77,8 +77,8 @@ const Plant_master_type = () => {
 
   const updatePlantMaster = async (id) => {
     console.log("ID : " + id);
-    console.log("checked : " + checked);
-    console.log("NameTypePlant : " + NameTypePlant);
+    console.log("checked2 : " + checked2);
+    console.log("NameTypePlant2 : " + NameTypePlant2);
     // try {
     //   await axios.patch(
     //     `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,
