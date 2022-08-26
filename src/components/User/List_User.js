@@ -42,6 +42,9 @@ export const List_User = () => {
       );
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
+
+      console.log("token : "+token);
+
       setRoleIDLogin(decoded.role_id);
 
       console.log("RoleID Token : "+roleIDLogin);
