@@ -46,6 +46,8 @@ const SidebarRole = () => {
 
       setUsernameContext(name);
 
+      console.log("User Menu : "+{usernameContext})
+
     } catch (error) {
       if (error.response) {
         history("/");
