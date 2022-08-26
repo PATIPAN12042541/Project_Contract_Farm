@@ -9,6 +9,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
+import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
@@ -20,6 +21,8 @@ export const List_User = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [roleIDLogin, setRoleIDLogin] = useState("");
+  const [token, setToken] = useState("");
   const history = useNavigate();
 
   /* VAR MODAL */
@@ -30,7 +33,6 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
-  const [roleIDLogin, setRoleIDLogin] = useState("");
 
   const refreshToken = async () => {
     try {
