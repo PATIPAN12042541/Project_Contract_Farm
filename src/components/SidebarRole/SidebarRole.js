@@ -19,10 +19,6 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
-
-  const fakeUser = { username: 'nice789', fullname: 'เต้า หมิงซื่อ' };
-
-  const { auth, setAuth } = useContext(AuthContext);
   
   useEffect(() => {
     refreshToken();
@@ -45,10 +41,6 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
-
-      setAuth(fakeUser);
-
-
     } catch (error) {
       if (error.response) {
         history("/");
@@ -110,7 +102,7 @@ const SidebarRole = () => {
           style={{ opacity: ".8" }}
         />
         <span className="brand-text font-weight-light text-white">
-          Contract Farming {auth.username}
+          Contract Farming
         </span>
       </Link>
       <div className="sidebar">
