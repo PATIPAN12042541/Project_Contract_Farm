@@ -878,6 +878,13 @@ const Edit_data = (props) => {
                                 >
                                   <BsPlusLg />
                                 </button>
+                                <> </>
+                                <button
+                                  type="submit"
+                                  className="btn btn-danger"
+                                >
+                                  <BsFillTrashFill />
+                                </button>
                               </center>
                             </td>
                           ) : (
