@@ -9,8 +9,6 @@ import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 
-const useLogin = {roleID:null,name:null,lastName:null}
-
 const SidebarRole = () => {
   const [name, setName] = useState("");
   const [last_name, setLastName] = useState("");
