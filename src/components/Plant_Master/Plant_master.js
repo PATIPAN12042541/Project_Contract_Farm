@@ -690,7 +690,7 @@ const Plant_master = () => {
                   >
                     <option>------เงื่อนไข-------</option>
                     <option value={1}>รูปแบบที่ 1 : วน Circle</option>
-                    <option value={2}>รูปแบบที่ 1 : ไม่วน Circle</option>
+                    <option value={2}>รูปแบบที่ 2 : ไม่วน Circle</option>
                   </select>
                 </div>
               </div>
