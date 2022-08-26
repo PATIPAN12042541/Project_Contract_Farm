@@ -18,9 +18,12 @@ export const List_User = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showInsert, setShowInsert] = useState(false);
+  const [showUpdate, setShowUpdate] = useState(false);
+  const handleCloseInsert = () => setShow(false);
+  const handleShowInsert = () => setShow(true);
+  const handleCloseUpdate = () => setShow(false);
+  const handleShowUpdate = () => setShow(true);
   const [roleIDLogin, setRoleIDLogin] = useState("");
   const [token, setToken] = useState("");
   const history = useNavigate();
@@ -33,27 +36,6 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
-
-  const refreshToken = async () => {
-    try {
-
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/user/token`
-      );
-      setToken(response.data.accessToken);
-      const decoded = jwt_decode(response.data.accessToken);
-
-      console.log("token : "+token);
-
-      setRoleIDLogin(decoded.role_id);
-
-      console.log("RoleID Token : "+roleIDLogin);
-    } catch (error) {
-      if (error.response) {
-        history("/");
-      }
-    }
-  };
 
     const getListUser = async () => {
         /*if (roleidToken == 1) {
@@ -71,7 +53,6 @@ export const List_User = () => {
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
-        console.log("RoleID List : "+roleIDLogin);
     };
 
   // Search Item
@@ -107,7 +88,6 @@ export const List_User = () => {
   }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    refreshToken();
     getListUser();
   },[]);
   return (
@@ -128,7 +108,7 @@ export const List_User = () => {
                               <div className="card-body">
                                   <div className="row">
                                       <div className="col-md-6">
-                                          <Button variant="success" onClick={handleShow}>
+                                          <Button variant="success" onClick={handleShowInsert}>
                                               เพิ่มข้อมูลผู้ใช้งานระบบ
                                           </Button>
                                       </div>
@@ -207,7 +187,7 @@ export const List_User = () => {
                   </div>
               </div>
           </section>
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={show} onHide={handleCloseInsert}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
@@ -303,6 +283,117 @@ export const List_User = () => {
               <Modal.Footer>
                   <button
                       onClick={handleClose}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          <Modal show={show} onHide={handleCloseUpdate}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>แก้ไขข้อมูลผู้ใช้งานระบบ</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Username"
+                                  value={username}
+                                  onChange={(e) => setUserName(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-user" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Password"
+                                  value={password}
+                                  onChange={(e) => setPassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3 ">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Confirm password"
+                                  value={confirmPassword}
+                                  onChange={(e) => setConfirmPassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Name"
+                                  value={name}
+                                  onChange={(e) => setName(e.target.value)}
+                              />
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Last Name"
+                                  value={lastName}
+                                  onChange={(e) => setLastName(e.target.value)}
+                              />
+                          </div>
+                          <div className="form-group mb-3">
+                              <select
+                                  className="form-control"
+                                  onChange={(e) => {
+                                      setRoleID(e.target.value);
+                                  }}
+                              >
+                                  <option>--เลือก Role--</option>
+                                  {rolegroup.map((item) => (
+                                      <option key={item.id} value={item.id}>
+                                          {item.role_group_name}
+                                      </option>
+                                  ))}
+                              </select>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseUpdate}
                       className="btn btn-default"
                       style={{ float: "left" }}
                   >
