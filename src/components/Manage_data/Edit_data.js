@@ -901,7 +901,6 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-warning"
                                   style={{ color: "#fff" }}
-                                  onClick = { () => {ShowStatusType();}}
                                 >
                                   <AiOutlineFundView />
                                 </button>
@@ -1126,55 +1125,8 @@ const Edit_data = (props) => {
           </div>
         </div>
       </section>
-      {/* // เงื่อนไขสถานะที่ 2 */}
-      <Modal show={show_status} onHide={CloseStatusType}>
-        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
-          <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="form-group">
-            <div className="row">
-              <div className="col-sm-12">
-                <select
-                  className="custom-select form-control-border"
-                  // onChange={(e) => setGetStatus(e.target.value)}
-                  defaultValue={getIDStatus}
-                >
-                  {StatusPlant.map((status) => {
-                    return (
-                      <option
-                        key={status.id}
-                        value={status.id}
-                        // style={{
-                        //   display: getIDStatus >= status.id ? "none" : "block",
-                        // }}
-                      >
-                        {status.status_name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-secondary" onClick={CloseStatusType}>
-            Close
-          </button>
-          <button
-            className="btn btn-success"
-            // onClick={() => {
-            //   postStatusPlant(getIdplant, getStatus, CicleStatus);
-            // }}
-          >
-            SAVE
-          </button>
-        </Modal.Footer>
-      </Modal>
-
-      {/* // เงื่อนไขสถานะที่ 1 */}
-      <Modal show={statusType} onHide={Close_status}>
+      // เงื่อนไขสถานะที่ 2
+      <Modal show={show_status} onHide={Close_status}>
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
@@ -1207,6 +1159,52 @@ const Edit_data = (props) => {
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={Close_status}>
+            Close
+          </button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              postStatusPlant(getIdplant, getStatus, CicleStatus);
+            }}
+          >
+            SAVE
+          </button>
+        </Modal.Footer>
+      </Modal>
+      // เงื่อนไขสถานะที่ 1
+      <Modal show={statusType} onHide={CloseStatusType}>
+        <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
+          <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="form-group">
+            <div className="row">
+              <div className="col-sm-12">
+                <select
+                  className="custom-select form-control-border"
+                  onChange={(e) => setGetStatus(e.target.value)}
+                  defaultValue={getIDStatus}
+                >
+                  {StatusPlant.map((status) => {
+                    return (
+                      <option
+                        key={status.id}
+                        value={status.id}
+                        style={{
+                          display: getIDStatus >= status.id ? "none" : "block",
+                        }}
+                      >
+                        {status.status_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={CloseStatusType}>
             Close
           </button>
           <button
