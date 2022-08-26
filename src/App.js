@@ -34,9 +34,13 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
+import { createContext } from "react";
+
+const Login = createContext()
 
 function App() {
   return (
+    <Login.Provider>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -277,7 +281,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </Login.Provider>
   );
 }
 
+export {Login}
 export default App;
