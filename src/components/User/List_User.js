@@ -36,24 +36,8 @@ export const List_User = () => {
   const [roleID, setRoleID] = useState("");
 
 
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/user/token`
-      );
-      setToken(response.data.accessToken);
-      const decoded = jwt_decode(response.data.accessToken);
-      setRoleIDToken(decoded.role_id);
-      setExpire(decoded.exp);
-    } catch (error) {
-      if (error.response) {
-        history("/");
-      }
-    }
-  };
-
     const getListUser = async () => {
-        if (roleidToken == 1) {
+        /*if (roleidToken == 1) {
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
             );
@@ -63,7 +47,10 @@ export const List_User = () => {
                 `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
             );
             setListUsers(response.data);
-        }
+        }*/
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
+        );
     };
 
   // Search Item
