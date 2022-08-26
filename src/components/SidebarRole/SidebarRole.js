@@ -45,9 +45,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      /*setUsernameContext({ username: 'nice789', fullname: 'เต้า หมิงซื่อ' });
-
-      console.log("User Menu : "+{usernameContext.username})*/
+      setUsernameContext(fakeUser);
 
     } catch (error) {
       if (error.response) {
