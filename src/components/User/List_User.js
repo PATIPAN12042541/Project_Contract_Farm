@@ -99,7 +99,6 @@ export const List_User = () => {
   }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    refreshToken();
     getListUser();
   },[]);
   return (
