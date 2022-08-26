@@ -279,7 +279,7 @@ export const List_User = () => {
 
               <Modal.Footer>
                   <button
-                      onClick={handleClose}
+                      onClick={handleCloseUpdate}
                       className="btn btn-default"
                       style={{ float: "left" }}
                   >
