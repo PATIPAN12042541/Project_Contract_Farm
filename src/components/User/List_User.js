@@ -41,7 +41,6 @@ export const List_User = () => {
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setRoleIDLogin(decoded.role_id);
-      setExpire(decoded.exp);
     } catch (error) {
       if (error.response) {
         history("/");
