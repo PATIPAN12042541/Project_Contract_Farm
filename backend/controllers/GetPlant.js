@@ -17,6 +17,8 @@ export const getPlant = async (req, res) => {
         "plant.id_user," +
         "CONCAT(user.name,'  ',user.last_name)  as user_name ," +
         "plant_master_detail.plant_name as name_plant," +
+        "plant_master_detail.type_plant, " +
+        "plant_master_detail.plant_condition, " +
         "plant.start_date_plant as start_date_plant," +
         "plant.end_date_plant as end_date_plant," +
         "plant_master_detail.plant_img as plant_image," +
