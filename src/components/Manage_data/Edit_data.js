@@ -791,6 +791,11 @@ const Edit_data = (props) => {
                           aria-expanded="false"
                         >
                           <td
+                            style={
+                              data.plant_condition == 1
+                                ? "color : red "
+                                : "color : green "
+                            }
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
