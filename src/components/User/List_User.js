@@ -20,10 +20,10 @@ export const List_User = () => {
   const [filteredResults, setFilteredResults] = useState([]);
   const [showInsert, setShowInsert] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
-  const handleCloseInsert = () => setShow(false);
-  const handleShowInsert = () => setShow(true);
-  const handleCloseUpdate = () => setShow(false);
-  const handleShowUpdate = () => setShow(true);
+  const handleCloseInsert = () => setShowInsert(false);
+  const handleShowInsert = () => setShowInsert(true);
+  const handleCloseUpdate = () => setShowUpdate(false);
+  const handleShowUpdate = () => setShowUpdate(true);
   const [roleIDLogin, setRoleIDLogin] = useState("");
   const [token, setToken] = useState("");
   const history = useNavigate();
