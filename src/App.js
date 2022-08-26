@@ -36,13 +36,13 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React,{useState,createContext } from "react";
 
-export const AppContext = createContext(null);
+const AuthContext = React.createContext();
 
 function App() {
-  const [usernameContext, setUsernameContext] = useState("");
+  const [auth, setAuth] = useState(null);
 
   return (
-    <AppContext.Provider value={{ usernameContext, setUsernameContext }}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -283,7 +283,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    </AppContext.Provider>
+    </AuthContext.Provider>
   );
 }
+export { AuthContext };
 export default App;
