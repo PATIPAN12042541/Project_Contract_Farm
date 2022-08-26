@@ -9,7 +9,6 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
-import { userLoginContext } from '../SidebarRole/SidebarRole.js';
 
 let PageSize = 5;
 
@@ -31,8 +30,6 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
-
-  const user = useContext(userLoginContext);
 
 
     const getListUser = async () => {
@@ -138,7 +135,7 @@ export const List_User = () => {
                                           <tbody>
                                               {currentTableData.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
-                                                      <td>{index + 1}{user}</td>
+                                                      <td>{index + 1}</td>
                                                       <td>{listUsers.group_name}</td>
                                                       <td>{listUsers.name}</td>
                                                       <td>{listUsers.last_name}</td>
