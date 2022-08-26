@@ -880,20 +880,121 @@ const Edit_data = (props) => {
                             <center>{data.status_name}</center>
                           </td>
                           {data.plant_condition == 1 ? (
+                            // <td>
+                            //   {data.status_plant == "4" ? (
+                            //     <center>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-success"
+                            //         style={{ color: "#FFFFFF" }}
+                            //       >
+                            //         <BsPlusLg />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-danger"
+                            //       >
+                            //         <BsFillTrashFill />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-warning"
+                            //         style={{ color: "#fff" }}
+                            //         onClick={() => {
+                            //           ShowStatusType();
+                            //         }}
+                            //       >
+                            //         <AiOutlineFundView />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-primary"
+                            //       >
+                            //         <BsFillChatSquareDotsFill />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-success"
+                            //         onClick={() => {
+                            //           lastStatus(
+                            //             data.id_plant,
+                            //             data.plant_id,
+                            //             1,
+                            //             data.status_circle + 1
+                            //           );
+                            //         }}
+                            //       >
+                            //         <BsFillCheckCircleFill />
+                            //       </button>
+                            //     </center>
+                            //   ) : (
+                            //     <center>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-success"
+                            //         style={{ color: "#FFFFFF" }}
+                            //       >
+                            //         <BsPlusLg />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-danger"
+                            //       >
+                            //         <BsFillTrashFill />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-warning"
+                            //         style={{ color: "#fff" }}
+                            //         onClick={() => {
+                            //           ShowStatusType();
+                            //         }}
+                            //       >
+                            //         <AiOutlineFundView />
+                            //       </button>
+                            //       <> </>
+                            //       <button
+                            //         type="submit"
+                            //         className="btn btn-primary"
+                            //       >
+                            //         <BsFillChatSquareDotsFill />
+                            //       </button>
+                            //     </center>
+                            //   )}
+                            // </td>
+
                             <td>
-                              {data.status_plant == "4" ? (
+                              {data.status_plant == "2" ? (
                                 <center>
-                                  <button
-                                    type="submit"
-                                    className="btn btn-success"
-                                    style={{ color: "#FFFFFF" }}
+                                  <Link
+                                    to={{
+                                      pathname: `/Manage_fertilizer/${data.id_plant}`,
+                                      state: {
+                                        id: data.id_plant,
+                                      },
+                                    }}
                                   >
-                                    <BsPlusLg />
-                                  </button>
+                                    <button
+                                      type="submit"
+                                      className="btn btn-success"
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      <BsPlusLg />
+                                    </button>
+                                  </Link>
                                   <> </>
                                   <button
                                     type="submit"
                                     className="btn btn-danger"
+                                    onClick={() => {
+                                      deletePlants(data.id_plant);
+                                    }}
                                   >
                                     <BsFillTrashFill />
                                   </button>
@@ -904,6 +1005,9 @@ const Edit_data = (props) => {
                                     style={{ color: "#fff" }}
                                     onClick={() => {
                                       ShowStatusType();
+                                      setCicleStatus(data.status_circle);
+                                      setGetIdplant(data.plant_id);
+                                      setGetIDStatus(data.status_plant);
                                     }}
                                   >
                                     <AiOutlineFundView />
@@ -912,6 +1016,107 @@ const Edit_data = (props) => {
                                   <button
                                     type="submit"
                                     className="btn btn-primary"
+                                    onClick={() => {
+                                      getCommnent(data.plant_id);
+                                    }}
+                                  >
+                                    <BsFillChatSquareDotsFill />
+                                  </button>
+                                </center>
+                              ) : data.status_plant == "3" ? (
+                                <center>
+                                  <Link
+                                    to={{
+                                      pathname: `/Manage_plant/${data.id_plant}`,
+                                      state: {
+                                        id: data.id_plant,
+                                      },
+                                    }}
+                                  >
+                                    <button
+                                      type="submit"
+                                      className="btn btn-success"
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      <BsPlusLg />
+                                    </button>
+                                  </Link>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-danger"
+                                    onClick={() => {
+                                      deletePlants(data.id_plant);
+                                    }}
+                                  >
+                                    <BsFillTrashFill />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-warning"
+                                    style={{ color: "#fff" }}
+                                    onClick={() => {
+                                      ShowStatusType();
+                                      setCicleStatus(data.status_circle);
+                                      setGetIdplant(data.plant_id);
+                                      setGetIDStatus(data.status_plant);
+                                    }}
+                                  >
+                                    <AiOutlineFundView />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    onClick={() => {
+                                      getCommnent(data.plant_id);
+                                    }}
+                                  >
+                                    <BsFillChatSquareDotsFill />
+                                  </button>
+                                </center>
+                              ) : data.status_plant == "4" ? (
+                                <center>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    style={{ color: "#FFFFFF" }}
+                                    disabled
+                                  >
+                                    <BsPlusLg />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-danger"
+                                    onClick={() => {
+                                      deletePlants(data.id_plant);
+                                    }}
+                                  >
+                                    <BsFillTrashFill />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-warning"
+                                    style={{ color: "#fff" }}
+                                    onClick={() => {
+                                      ShowStatusType();
+                                      setCicleStatus(data.status_circle);
+                                      setGetIdplant(data.plant_id);
+                                      setGetIDStatus(data.status_plant);
+                                    }}
+                                  >
+                                    <AiOutlineFundView />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    onClick={() => {
+                                      getCommnent(data.plant_id);
+                                    }}
                                   >
                                     <BsFillChatSquareDotsFill />
                                   </button>
@@ -937,13 +1142,17 @@ const Edit_data = (props) => {
                                     type="submit"
                                     className="btn btn-success"
                                     style={{ color: "#FFFFFF" }}
+                                    disabled
                                   >
-                                    <BsPlusLg />
+                                    <BsPlusLg disabled />
                                   </button>
                                   <> </>
                                   <button
                                     type="submit"
                                     className="btn btn-danger"
+                                    onClick={() => {
+                                      deletePlants(data.id_plant);
+                                    }}
                                   >
                                     <BsFillTrashFill />
                                   </button>
@@ -954,6 +1163,9 @@ const Edit_data = (props) => {
                                     style={{ color: "#fff" }}
                                     onClick={() => {
                                       ShowStatusType();
+                                      setCicleStatus(data.status_circle);
+                                      setGetIdplant(data.plant_id);
+                                      setGetIDStatus(data.status_plant);
                                     }}
                                   >
                                     <AiOutlineFundView />
@@ -962,6 +1174,9 @@ const Edit_data = (props) => {
                                   <button
                                     type="submit"
                                     className="btn btn-primary"
+                                    onClick={() => {
+                                      getCommnent(data.plant_id);
+                                    }}
                                   >
                                     <BsFillChatSquareDotsFill />
                                   </button>
@@ -969,6 +1184,7 @@ const Edit_data = (props) => {
                               )}
                             </td>
                           ) : (
+                            ///////////////////////////////////////////////////////////////////////
                             <td>
                               {data.status_plant == "2" ? (
                                 <center>
@@ -1272,6 +1488,8 @@ const Edit_data = (props) => {
           </button>
         </Modal.Footer>
       </Modal>
+
+      {/* //แก้ไข */}
       <Modal show={showEdit} onHide={Close_Edit}>
         <Modal.Header style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}>
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
