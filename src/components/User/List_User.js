@@ -66,6 +66,7 @@ export const List_User = () => {
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
+        console.log("RoleID : "+roleIDLogin);
     };
 
   // Search Item
@@ -101,6 +102,7 @@ export const List_User = () => {
   }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    refreshToken();
     getListUser();
   },[]);
   return (
