@@ -41,6 +41,8 @@ const Plant_master = () => {
   const [nameThai, setNameThai] = useState([]);
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [typePlant, setTypePlant] = useState([]);
+  const [plantCondition, setPlantCondition] = useState([]);
   /************************/
 
   /********* Dropdown Type **********/
@@ -115,6 +117,8 @@ const Plant_master = () => {
                 ? "../dist/img/No_Image_Available.jpg"
                 : "../dist/img/" + image_name,
             status_show: checked,
+            type_plant: typePlant,
+            plant_condition: 0,
           }
         )
         .then(function (response) {
@@ -189,6 +193,8 @@ const Plant_master = () => {
             plant_name: nameThai,
             plant_name_eng: nameEng,
             status_show: checked,
+            type_plant: typePlant,
+            plant_condition: 0,
           }
         );
       } else {
@@ -199,6 +205,8 @@ const Plant_master = () => {
             plant_name_eng: nameEng,
             plant_img: "../dist/img/" + image_name,
             status_show: checked,
+            type_plant: typePlant,
+            plant_condition: 0,
           }
         );
 
@@ -425,9 +433,9 @@ const Plant_master = () => {
                 <div className="col-sm-8">
                   <select
                     className="form-control"
-                    // onChange={(e) => {
-                    //   setTypeChemicalID(e.target.value);
-                    // }}
+                    onChange={(e) => {
+                      setTypePlant(e.target.value);
+                    }}
                   >
                     <option>--เลือกประเภทพืช--</option>
                     {masterDropType.map((data, index) => (
