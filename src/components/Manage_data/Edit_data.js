@@ -353,11 +353,6 @@ const Edit_data = (props) => {
           end_date_plant: edit_end_date_plant,
         })
         .then(function (response) {
-          // Swal.fire({
-          //   icon: "success",
-          //   title: "Success",
-          //   text: "Save OK !",
-          // });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
