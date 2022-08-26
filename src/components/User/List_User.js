@@ -32,7 +32,7 @@ export const List_User = () => {
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
 
-  const user = useContext(userLogin);
+  const {login,setLogin} = useContext(userLogin);
 
 
     const getListUser = async () => {
@@ -52,7 +52,7 @@ export const List_User = () => {
         );
         setListUsers(response.data);
 
-        console.log("Name : "+user.name_context);
+        console.log("Name : "+{login});
     };
 
   // Search Item

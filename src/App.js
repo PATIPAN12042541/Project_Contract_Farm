@@ -36,12 +36,12 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React from "react";
 
-const user = {role_id_context:null,name_context:null,last_name_context:null};
 const userLogin = React.createContext();
 
 function App() {
+  const [login,setLogin] = useState(null)
   return (
-    <userLogin.Provider value={user}>
+    <userLogin.Provider value={{login,setLogin}}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
