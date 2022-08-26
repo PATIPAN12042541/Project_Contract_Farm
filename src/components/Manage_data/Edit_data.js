@@ -21,10 +21,16 @@ import form from "react-bootstrap/Form";
 import moment from "moment";
 
 const Edit_data = (props) => {
-  /******************** Modal Status *************/
+  /******************** Modal Status 2 *************/
   const [show_status, setShow_status] = useState(false);
   const Close_status = () => setShow_status(false);
   const Show_status = () => setShow_status(true);
+  /***********************************************/
+
+  /******************** Modal Status 1 *************/
+  const [statusType, setStatusType] = useState(false);
+  const CloseStatusType = () => setStatusType(false);
+  const ShowStatusType = () => setStatusType(true);
   /***********************************************/
 
   /************** Modal Status *******************/
@@ -796,11 +802,6 @@ const Edit_data = (props) => {
                                 ? { color: "red" }
                                 : { color: "green" }
                             }
-                            // style={
-                            //   data.plant_condition == 1
-                            //     ? "color : 'red' "
-                            //     : "color : 'green'"
-                            // }
                             onClick={() => {
                               Show_Edit();
                               setPlantId(data.plant_id);
@@ -1130,7 +1131,6 @@ const Edit_data = (props) => {
           <Modal.Title>เลือกสถานะแปลงปลูกผัก</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {" "}
           <div className="form-group">
             <div className="row">
               <div className="col-sm-12">
