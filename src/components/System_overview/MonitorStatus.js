@@ -16,7 +16,12 @@ const MonitorStatus = () => {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">DashBoard</h3>
+                  <h3
+                    className="card-title"
+                    style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                  >
+                    DashBoard
+                  </h3>
                 </div>
                 <div className="card-body">
                   <table className="table table-bordered">
