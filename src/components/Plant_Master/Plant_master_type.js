@@ -267,7 +267,7 @@ const Plant_master_type = () => {
                     type="text"
                     className="form-control"
                     defaultValue={NameTypePlant2}
-                    // onChange={(e) => setNameTypePlant2(e.target.value)}
+                    onChange={(e) => setNameTypePlant2(e.target.value)}
                   />
                 </div>
               </div>
