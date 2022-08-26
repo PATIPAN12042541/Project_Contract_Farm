@@ -42,8 +42,16 @@ const AuthContext = React.createContext();
 function App() {
   const [auth, setAuth] = useState(null);
 
+  const test = () => {
+    setAuth('test 5555');
+  }
+
+  useEffect(() => {
+    test();
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthContext.Provider value={{auth}}>
       <div className="wrapper">
         <BrowserRouter>
           <Routes>
