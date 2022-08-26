@@ -526,7 +526,7 @@ const Plant_master = () => {
               </div>
               <div className="form-group row">
                 <Form.Label className="col-sm-4 col-form-label">
-                  เงื่อนไขการทำงาน :
+                  เงื่อนไข :
                 </Form.Label>
                 <div className="col-sm-8">
                   <input
