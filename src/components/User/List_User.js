@@ -20,6 +20,7 @@ export const List_User = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const history = useNavigate();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
@@ -29,6 +30,24 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
+  const [roleIDLogin, setRoleIDLogin] = useState("");
+
+  const refreshToken = async () => {
+    try {
+
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/token`
+      );
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      setRoleIDLogin(decoded.role_id);
+      setExpire(decoded.exp);
+    } catch (error) {
+      if (error.response) {
+        history("/");
+      }
+    }
+  };
 
     const getListUser = async () => {
         /*if (roleidToken == 1) {
