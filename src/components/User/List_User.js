@@ -2,7 +2,7 @@ import React,{ useState, useEffect ,useMemo} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
@@ -23,6 +23,7 @@ export const List_User = () => {
   const handleShowInsert = () => setShowInsert(true);
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
+  const {id} = useParams();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
@@ -58,6 +59,13 @@ export const List_User = () => {
         //const response = await axios.get("http://localhost:4000/role_group");
         setRoleGroup(response.data);
       };
+
+      const getUserById = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/getUsers/${id}`);
+        setName(response.data.name)
+        setLastName(response.data.last_name)
+        setRoleID(response.data.group_id)
+    }
 
   // Search Item
   const searchItems = (searchValue) => {
