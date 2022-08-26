@@ -144,7 +144,7 @@ export const List_User = () => {
                                                       <td>
                                                           <center>
                                                               <Link to={``}>
-                                                                  <Button
+                                                                  <Button onClick={handleShowUpdate}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
                                                                   >
