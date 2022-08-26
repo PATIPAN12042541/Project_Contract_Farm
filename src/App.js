@@ -41,7 +41,7 @@ const Login = createContext()
 
 function App() {
   return (
-    <Login.Provider value={'test 8585'}>
+    <Login.Provider value={{test:'test 8585'}}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
