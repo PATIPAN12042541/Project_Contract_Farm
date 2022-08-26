@@ -34,9 +34,25 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
+import React, { useReducer } from 'react';
+
+const AuthContext = React.createContext();
+
+function userLogin(state,action){
+    if(action.type === 'login'){
+      const {name_reducer,last_name_reducer} = action.payload;
+      return {name_reducer,last_name_reducer}
+    }
+    if(action.type === 'logout'){
+      return null;
+    }
+    return state
+}
 
 function App() {
+  const [authState,authDispatch] = useReducer(userLogin,null)
   return (
+    <AuthContext.Provider value={{authState,authDispatch}}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -277,6 +293,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </AuthContext.Provider>
   );
 }
+export {AuthContext}
 export default App;
