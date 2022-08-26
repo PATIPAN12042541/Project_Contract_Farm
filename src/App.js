@@ -34,13 +34,10 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
-import React from "react";
 
-const userLoginContext = React.createContext();
 
 function App() {
   return (
-    <userLoginContext.Provider value={'test 555'}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -261,7 +258,7 @@ function App() {
               <>
                 <Header />
                 <SidebarRole />
-                <List_User value={userLoginContext} />
+                <List_User />
                 <Footer />
               </>
             }
@@ -281,9 +278,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    </userLoginContext.Provider>
   );
 }
 
-export {userLoginContext}
 export default App;
