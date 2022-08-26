@@ -21,6 +21,7 @@ const SidebarRole = () => {
   const history = useNavigate();
 
   const { usernameContext, setUsernameContext } = useContext(AppContext);
+  const fakeUser = { username: 'nice789', fullname: 'เต้า หมิงซื่อ' };
   
   useEffect(() => {
     refreshToken();
@@ -44,9 +45,9 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      setUsernameContext({ username: 'nice789', fullname: 'เต้า หมิงซื่อ' });
+      /*setUsernameContext({ username: 'nice789', fullname: 'เต้า หมิงซื่อ' });
 
-      console.log("User Menu : "+{usernameContext})
+      console.log("User Menu : "+{usernameContext.username})*/
 
     } catch (error) {
       if (error.response) {
