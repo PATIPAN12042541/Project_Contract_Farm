@@ -24,9 +24,6 @@ export const List_User = () => {
   const handleShowInsert = () => setShowInsert(true);
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
-  const [roleIDLogin, setRoleIDLogin] = useState("");
-  const [token, setToken] = useState("");
-  const history = useNavigate();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
