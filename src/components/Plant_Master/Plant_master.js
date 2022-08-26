@@ -524,6 +524,19 @@ const Plant_master = () => {
                   />
                 </div>
               </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  เงื่อนไขการทำงาน :
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=" ชื่อพืช (ภาษาไทย)"
+                    onChange={(e) => setNameThai(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
           </Form>
         </Modal.Body>
