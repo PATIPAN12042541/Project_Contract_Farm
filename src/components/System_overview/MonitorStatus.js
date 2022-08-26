@@ -43,6 +43,26 @@ const MonitorStatus = () => {
                         </div>
                       </div>
                     </div>
+                    <div className="col-md-3 col-sm-6 col-12">
+                      <div className="info-box bg-warning">
+                        <span className="info-box-icon">
+                          <i className="far fa-calendar-alt"></i>
+                        </span>
+                        <div className="info-box-content">
+                          <span className="info-box-text">Events</span>
+                          <span className="info-box-number">41,410</span>
+                          <div className="progress">
+                            <div
+                              className="progress-bar"
+                              style={{ width: "70%" }}
+                            ></div>
+                          </div>
+                          <span className="progress-description">
+                            70% Increase in 30 Days
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="row">
                     <table className="table table-bordered">
