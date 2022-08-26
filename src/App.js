@@ -37,16 +37,16 @@ import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React,{useState} from "react";
 import axios from 'axios';
 
-const [token, setToken] = useState("");
-
-const response = await axios.get(
-  `${process.env.REACT_APP_API_URL}/user/token`
-);
-setToken(response.data.accessToken);
-
-console.log('token : '+{token})
 
 function App() {
+  const [token, setToken] = useState("");
+
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}/user/token`
+  );
+  setToken(response.data.accessToken);
+
+  console.log('token : '+{token})
   return (
     <div className="wrapper">
       <BrowserRouter>
