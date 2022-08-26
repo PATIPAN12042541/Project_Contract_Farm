@@ -9,8 +9,6 @@ import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 
-const userLoginContext = useContext();
-
 const SidebarRole = () => {
   const [name, setName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -173,5 +171,4 @@ const SidebarRole = () => {
   );
 };
 
-export {userLoginContext};
 export default SidebarRole;
