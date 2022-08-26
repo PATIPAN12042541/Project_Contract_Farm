@@ -529,12 +529,11 @@ const Plant_master = () => {
                   เงื่อนไข :
                 </Form.Label>
                 <div className="col-sm-8">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder=" ชื่อพืช (ภาษาไทย)"
-                    onChange={(e) => setNameThai(e.target.value)}
-                  />
+                  <select className="custom-select form-control-border">
+                    <option value={0}>------เงื่อนไข-------</option>
+                    <option value={1}>รูปแบบที่ 1 : วน Circle</option>
+                    <option value={2}>รูปแบบที่ 1 : ไม่วน Circle</option>
+                  </select>
                 </div>
               </div>
             </div>
