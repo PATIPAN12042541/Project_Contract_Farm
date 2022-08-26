@@ -44,7 +44,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      setUsernameContext(name);
+      setUsernameContext({name_text:name});
 
     } catch (error) {
       if (error.response) {
