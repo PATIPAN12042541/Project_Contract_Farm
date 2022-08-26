@@ -392,13 +392,22 @@ export const getPlantMasterSetup = async (req, res) => {
 };
 
 export const postPlantMaster = async (req, res) => {
-  const { plant_name, plant_name_eng, plant_img, status_show } = req.body;
+  const {
+    plant_name,
+    plant_name_eng,
+    plant_img,
+    status_show,
+    type_plant,
+    plant_condition,
+  } = req.body;
   try {
     await PlantMasterDetail.create({
       plant_name: plant_name,
       plant_name_eng: plant_name_eng,
       plant_img: plant_img,
       status_show: status_show,
+      type_plant: type_plant,
+      plant_condition: plant_condition,
     });
     res.json({ msg: "Create Successful" });
   } catch (error) {

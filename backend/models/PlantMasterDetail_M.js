@@ -17,6 +17,12 @@ const PlantMasterDetail = db.define(
     status_show: {
       type: DataTypes.INTEGER,
     },
+    type_plant: {
+      type: DataTypes.INTEGER,
+    },
+    plant_condition: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     freezeTableName: true,
