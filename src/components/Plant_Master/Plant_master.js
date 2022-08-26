@@ -530,7 +530,7 @@ const Plant_master = () => {
                 </Form.Label>
                 <div className="col-sm-8">
                   <select className="custom-select form-control-border">
-                    <option value={0}>------เงื่อนไข------</option>
+                    <option value={0}>------เงื่อนไข-------</option>
                     <option value={1}>รูปแบบที่ 1 : วน Circle</option>
                     <option value={2}>รูปแบบที่ 1 : ไม่วน Circle</option>
                   </select>
