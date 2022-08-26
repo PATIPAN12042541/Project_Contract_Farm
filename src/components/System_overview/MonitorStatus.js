@@ -144,7 +144,7 @@ const MonitorStatus = () => {
                           <td>4.</td>
                           <td>Fix and squish bugs</td>
                           <td>
-                            <div claclassNamess="progress progress-xs progress-striped active">
+                            <div className="progress progress-xs progress-striped active">
                               <div
                                 className="progress-bar bg-success"
                                 style={{ width: "90%" }}
