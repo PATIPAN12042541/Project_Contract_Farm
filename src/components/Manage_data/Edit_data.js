@@ -793,8 +793,8 @@ const Edit_data = (props) => {
                           <td
                             style={
                               data.plant_condition == 1
-                                ? "color : red "
-                                : "color : green "
+                                ? "color : 'red' "
+                                : "color : 'green'"
                             }
                             onClick={() => {
                               Show_Edit();
