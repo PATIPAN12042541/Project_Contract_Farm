@@ -108,7 +108,7 @@ const SidebarRole = () => {
           style={{ opacity: ".8" }}
         />
         <span className="brand-text font-weight-light text-white">
-          Contract Farming
+          Contract Farming {authState.username}
         </span>
       </Link>
       <div className="sidebar">
