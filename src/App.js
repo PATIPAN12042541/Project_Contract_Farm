@@ -37,10 +37,11 @@ import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import React,{ createContext } from "react";
 
 
+const Login = createContext()
 
 function App() {
   return (
-    <Login.Provider value={'5555'}>
+    <Login.Provider value={'test 8585'}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
