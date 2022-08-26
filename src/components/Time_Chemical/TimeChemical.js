@@ -23,14 +23,14 @@ const TimeChemical = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-   
+
   // Pageing
-  const currentTableData = useMemo(() => {
-    console.log(currentPage);
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return TimeChemical.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage,TimeChemical]); // eslint-disable-line react-hooks/exhaustive-deps
+  // const currentTableData = useMemo(() => {
+  //   console.log(currentPage);
+  //   const firstPageIndex = (currentPage - 1) * PageSize;
+  //   const lastPageIndex = firstPageIndex + PageSize;
+  //   return TimeChemical.slice(firstPageIndex, lastPageIndex);
+  // }, [currentPage,TimeChemical]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /*-------------------------------------------------------------*/
   const ChangeOpen = async (e, id) => {
@@ -189,7 +189,7 @@ const TimeChemical = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {currentTableData.map((data, index) => (
+                        {TimeChemical.map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
@@ -241,13 +241,13 @@ const TimeChemical = () => {
                         ))}
                       </tbody>
                     </table>
-                    <Pagination
+                    {/* <Pagination
                       className="pagination-bar"
                       currentPage={currentPage}
                       totalCount={TimeChemical.length}
                       pageSize={PageSize}
                       onPageChange={(page) => setCurrentPage(page)}
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>
