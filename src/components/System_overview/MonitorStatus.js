@@ -46,7 +46,7 @@ const MonitorStatus = () => {
                     <div className="col-md-4 col-sm-6 col-12">
                       <div
                         className="info-box bg-warning"
-                        style={{ color: "#fffff" }}
+                        style={{ color: "#fffff !important" }}
                       >
                         <span className="info-box-icon">
                           <i className="far fa-calendar-alt"></i>
