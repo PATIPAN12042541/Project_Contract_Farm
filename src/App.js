@@ -34,10 +34,13 @@ import FertilizerUnit from "./components/FertilizerUnit/FertilizerUnit.js";
 import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
+import { createContext } from "react";
 
+const userLogin = createContext
 
 function App() {
   return (
+    <userLogin.Provider value={null}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
@@ -257,7 +260,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SidebarRole />
+                <SidebarRole value={userLogin}/>
                 <List_User />
                 <Footer />
               </>
@@ -278,7 +281,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </userLogin.Provider>
   );
 }
 
+export {userLogin}
 export default App;
