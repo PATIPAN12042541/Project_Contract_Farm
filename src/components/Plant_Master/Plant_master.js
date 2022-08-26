@@ -304,6 +304,7 @@ const Plant_master = () => {
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                                 setTypePlant(data.type_plant);
+                                setPlantCondition(data.plant_condition);
                               }}
                             >
                               <center>{index + 1}</center>
@@ -318,6 +319,7 @@ const Plant_master = () => {
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                                 setTypePlant(data.type_plant);
+                                setPlantCondition(data.plant_condition);
                               }}
                             >
                               {data.plant_name}
@@ -332,6 +334,7 @@ const Plant_master = () => {
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                                 setTypePlant(data.type_plant);
+                                setPlantCondition(data.plant_condition);
                               }}
                             >
                               {data.plant_name_eng}
@@ -359,6 +362,7 @@ const Plant_master = () => {
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
                                 setTypePlant(data.type_plant);
+                                setPlantCondition(data.plant_condition);
                               }}
                             >
                               <center>
