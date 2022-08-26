@@ -303,6 +303,7 @@ const Plant_master = () => {
                                 setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
+                                setTypePlant(data.type_plant);
                               }}
                             >
                               <center>{index + 1}</center>
@@ -316,6 +317,7 @@ const Plant_master = () => {
                                 setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
+                                setTypePlant(data.type_plant);
                               }}
                             >
                               {data.plant_name}
@@ -329,6 +331,7 @@ const Plant_master = () => {
                                 setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
+                                setTypePlant(data.type_plant);
                               }}
                             >
                               {data.plant_name_eng}
@@ -355,6 +358,7 @@ const Plant_master = () => {
                                 setPathImage(data.plant_img);
                                 setChecked(data.status_show);
                                 setPlantMasterid(data.id);
+                                setTypePlant(data.type_plant);
                               }}
                             >
                               <center>
@@ -555,6 +559,28 @@ const Plant_master = () => {
         <Modal.Body>
           <Form className="form-horizontal">
             <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชนิดพืช :
+                </Form.Label>
+
+                <div className="col-sm-8">
+                  <select
+                    className="form-control"
+                    defaultValue={typePlant}
+                    onChange={(e) => {
+                      setTypePlant(e.target.value);
+                    }}
+                  >
+                    <option>--เลือกประเภทพืช--</option>
+                    {masterDropType.map((data, index) => (
+                      <option key={index} value={data.id}>
+                        {data.type_plant_name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
               <div className="form-group row">
                 <Form.Label className="col-sm-4 col-form-label">
                   ชื่อพืช :
