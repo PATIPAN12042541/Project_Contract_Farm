@@ -134,7 +134,7 @@ export const List_User = () => {
                                           <tbody>
                                               {currentTableData.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
-                                                      <td>{index + 1}{auth}</td>
+                                                      <td>{index + 1}</td>
                                                       <td>{listUsers.group_name}</td>
                                                       <td>{listUsers.name}</td>
                                                       <td>{listUsers.last_name}</td>
