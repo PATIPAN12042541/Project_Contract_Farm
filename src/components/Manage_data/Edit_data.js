@@ -881,40 +881,92 @@ const Edit_data = (props) => {
                           </td>
                           {data.plant_condition == 1 ? (
                             <td>
-                              <center>
-                                <button
-                                  type="submit"
-                                  className="btn btn-success"
-                                  style={{ color: "#FFFFFF" }}
-                                >
-                                  <BsPlusLg />
-                                </button>
-                                <> </>
-                                <button
-                                  type="submit"
-                                  className="btn btn-danger"
-                                >
-                                  <BsFillTrashFill />
-                                </button>
-                                <> </>
-                                <button
-                                  type="submit"
-                                  className="btn btn-warning"
-                                  style={{ color: "#fff" }}
-                                  onClick={() => {
-                                    ShowStatusType();
-                                  }}
-                                >
-                                  <AiOutlineFundView />
-                                </button>
-                                <> </>
-                                <button
-                                  type="submit"
-                                  className="btn btn-primary"
-                                >
-                                  <BsFillChatSquareDotsFill />
-                                </button>
-                              </center>
+                              {data.status_plant == "4" ? (
+                                <center>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    style={{ color: "#FFFFFF" }}
+                                  >
+                                    <BsPlusLg />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-danger"
+                                  >
+                                    <BsFillTrashFill />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-warning"
+                                    style={{ color: "#fff" }}
+                                    onClick={() => {
+                                      ShowStatusType();
+                                    }}
+                                  >
+                                    <AiOutlineFundView />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                  >
+                                    <BsFillChatSquareDotsFill />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    onClick={() => {
+                                      lastStatus(
+                                        data.id_plant,
+                                        data.plant_id,
+                                        1,
+                                        data.status_circle + 1
+                                      );
+                                    }}
+                                  >
+                                    <BsFillCheckCircleFill />
+                                  </button>
+                                </center>
+                              ) : (
+                                <center>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-success"
+                                    style={{ color: "#FFFFFF" }}
+                                  >
+                                    <BsPlusLg />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-danger"
+                                  >
+                                    <BsFillTrashFill />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-warning"
+                                    style={{ color: "#fff" }}
+                                    onClick={() => {
+                                      ShowStatusType();
+                                    }}
+                                  >
+                                    <AiOutlineFundView />
+                                  </button>
+                                  <> </>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                  >
+                                    <BsFillChatSquareDotsFill />
+                                  </button>
+                                </center>
+                              )}
                             </td>
                           ) : (
                             <td>
@@ -1193,7 +1245,9 @@ const Edit_data = (props) => {
                       <option
                         key={status.id}
                         value={status.id}
-                        // c
+                        // style={{
+                        //   display: getIDStatus >= status.id ? "none" : "block",
+                        // }}
                       >
                         {status.status_name}
                       </option>
