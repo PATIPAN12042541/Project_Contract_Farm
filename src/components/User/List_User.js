@@ -9,7 +9,6 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
-import { AuthContext } from '../../App.js';
 
 let PageSize = 5;
 
@@ -31,8 +30,6 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
-
-  const auth = useContext(AuthContext);
 
     const getListUser = async () => {
         /*if (roleid == 1) {
