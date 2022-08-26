@@ -50,9 +50,8 @@ export const List_User = () => {
         );
         setListUsers(response.data);
 
-        console.log("test");
 
-        console.log("authState : "+authState.name_reducer);
+        console.log("authState : "+authState.username);
     };
 
   // Search Item
