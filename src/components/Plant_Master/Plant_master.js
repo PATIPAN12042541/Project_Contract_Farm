@@ -421,13 +421,21 @@ const Plant_master = () => {
                 <Form.Label className="col-sm-4 col-form-label">
                   ชนิดพืช :
                 </Form.Label>
+
                 <div className="col-sm-8">
-                  <option>--เลือกประเภทพืช--</option>
-                  {masterDropType.map((data, index) => (
-                    <option key={index} value={data.id}>
-                      {data.type_plant_name}
-                    </option>
-                  ))}
+                  <select
+                    className="form-control"
+                    // onChange={(e) => {
+                    //   setTypeChemicalID(e.target.value);
+                    // }}
+                  >
+                    <option>--เลือกประเภทพืช--</option>
+                    {masterDropType.map((data, index) => (
+                      <option key={index} value={data.id}>
+                        {data.type_plant_name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="form-group row">
