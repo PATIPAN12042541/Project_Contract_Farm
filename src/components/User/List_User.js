@@ -9,7 +9,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
-import Login from '../Login/Login.js';
+import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
@@ -51,7 +51,7 @@ export const List_User = () => {
       }
     }
   };
-  
+
     const getListUser = async () => {
         if (roleidToken == 1) {
             const response = await axios.get(
