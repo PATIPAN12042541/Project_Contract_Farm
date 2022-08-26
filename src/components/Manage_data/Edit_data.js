@@ -901,6 +901,9 @@ const Edit_data = (props) => {
                                   type="submit"
                                   className="btn btn-warning"
                                   style={{ color: "#fff" }}
+                                  onClick={() => {
+                                    ShowStatusType();
+                                  }}
                                 >
                                   <AiOutlineFundView />
                                 </button>
