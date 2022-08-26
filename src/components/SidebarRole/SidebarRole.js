@@ -20,7 +20,7 @@ const SidebarRole = () => {
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
 
-  const { setUsernameContext } = useContext(AppContext);
+  const { usernameContext, setUsernameContext } = useContext(AppContext);
   
   useEffect(() => {
     refreshToken();
@@ -44,7 +44,7 @@ const SidebarRole = () => {
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
 
-      setUsernameContext({name_text:name});
+      setUsernameContext(name);
 
     } catch (error) {
       if (error.response) {
