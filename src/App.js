@@ -42,7 +42,7 @@ function App() {
   const [usernameContext, setUsernameContext] = useState("");
 
   return (
-    <AppContext.Provider value={{ username, setUsername }}>
+    <AppContext.Provider value={{ usernameContext, setUsernameContext }}>
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
