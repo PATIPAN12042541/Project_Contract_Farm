@@ -9,6 +9,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import '../Pagination/style.scss';
+import { AppContext } from '../../App.js';
 
 let PageSize = 5;
 
@@ -30,6 +31,8 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
 
+  const { usernameContext } = useContext(AppContext);
+
     const getListUser = async () => {
         /*if (roleidToken == 1) {
             const response = await axios.get(
@@ -46,6 +49,7 @@ export const List_User = () => {
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
+        console.log("User : "+{usernameContext})
     };
 
   // Search Item
