@@ -191,12 +191,15 @@ const MonitorStatus = () => {
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
-                                  <div className="progress progress-xs">
-                                    <div
-                                      className="progress-bar bg-danger"
-                                      style={{ width: "0%" }}
-                                    ></div>
-                                  </div>
+                                  data.status_Fertilizer == "0" ? (
+                                    <div>เสร็จสิ้น</div>
+                                  ) : moment(new Date()).format("YYYY-MM-DD") >
+                                      data.end_date_plant &&
+                                    data.status_Fertilizer !== "0" ? (
+                                    <div>หมดเวลา</div>
+                                  ) : (
+                                    <div>กำลังดำเนินการ</div>
+                                  )
                                 ) : data.status_plant == "3" ? (
                                   <div className="progress progress-xs">
                                     <div
@@ -218,7 +221,7 @@ const MonitorStatus = () => {
                                           className="progress-bar bg-success"
                                           style={{ width: "100%" }}
                                         >
-                                          <span class="badge bg-success">
+                                          <span className="badge bg-success">
                                             100%
                                           </span>
                                         </div>
@@ -230,7 +233,7 @@ const MonitorStatus = () => {
                                             color: "white !important",
                                           }}
                                         >
-                                          <span class="badge bg-warning">
+                                          <span className="badge bg-warning">
                                             50%
                                           </span>
                                         </div>
@@ -240,7 +243,7 @@ const MonitorStatus = () => {
                                         className="progress-bar bg-success"
                                         style={{ width: "100%" }}
                                       >
-                                        <span class="badge bg-success">
+                                        <span className="badge bg-success">
                                           100%
                                         </span>
                                       </div>
@@ -252,19 +255,43 @@ const MonitorStatus = () => {
                                           color: "white !important",
                                         }}
                                       >
-                                        <span class="badge bg-warning">
+                                        <span className="badge bg-warning">
                                           50%
                                         </span>
                                       </div>
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
-                                  <div className="progress progress-xs">
+                                  data.status_Fertilizer == "0" ? (
+                                    <div
+                                      className="progress-bar bg-success"
+                                      style={{ width: "100%" }}
+                                    >
+                                      <span className="badge bg-success">
+                                        100%
+                                      </span>
+                                    </div>
+                                  ) : moment(new Date()).format("YYYY-MM-DD") >
+                                      data.end_date_plant &&
+                                    data.status_Fertilizer !== "0" ? (
                                     <div
                                       className="progress-bar bg-danger"
                                       style={{ width: "0%" }}
-                                    ></div>
-                                  </div>
+                                    >
+                                      <span className="badge bg-danger">
+                                        0%
+                                      </span>
+                                    </div>
+                                  ) : (
+                                    <div
+                                      className="progress-bar bg-warning"
+                                      style={{ width: "0%" }}
+                                    >
+                                      <span className="badge bg-warning">
+                                        0%
+                                      </span>
+                                    </div>
+                                  )
                                 ) : data.status_plant == "3" ? (
                                   <div className="progress progress-xs">
                                     <div
