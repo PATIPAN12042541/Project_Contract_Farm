@@ -89,9 +89,12 @@ const MonitorStatus = () => {
                       <thead>
                         <tr>
                           <th style={{ width: "10px" }}>#</th>
-                          <th>Task</th>
-                          <th>Progress</th>
-                          <th style={{ width: "40px" }}>Label</th>
+                          <th>รหัสโซน</th>
+                          <th>รหัสเเปลง</th>
+                          <th>แปลงเพาะปลูก</th>
+                          <th>ผู้ดูเเล</th>
+                          <th>สถานะ</th>
+                          <th style={{ width: "40px" }}>ความสำเร็จ</th>
                         </tr>
                       </thead>
                       <tbody>
