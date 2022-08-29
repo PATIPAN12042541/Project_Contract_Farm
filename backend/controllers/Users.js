@@ -127,14 +127,23 @@ export const Register = async(req, res) => {
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
     try {
-        await Users.create({
-            username: username,
-            password: hashPassword,
-            name : name,
-            last_name : last_name,
-            role_id : role_id
-        });
-        res.json({msg: "Registration Successful"});
+        const count = await Users.count({
+            where: { username: username,
+                     password : hashPassword },
+          });
+
+          if (count = 0){
+            await Users.create({
+                username: username,
+                password: hashPassword,
+                name : name,
+                last_name : last_name,
+                role_id : role_id
+            });
+            res.json({msg: "Registration Successful"});
+          }else{
+            return res.status(400).json({msg: "Username Or Password Duplicate Data"});
+          }
     } catch (error) {
         console.log(error);
     }
