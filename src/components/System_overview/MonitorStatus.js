@@ -271,7 +271,7 @@ const MonitorStatus = () => {
                                     </div>
                                   ) : moment(new Date()).format("YYYY-MM-DD") >
                                       data.end_date_plant &&
-                                    data.status_Fertilizer !== "0"("") ? (
+                                    data.status_Fertilizer !== "0" ? (
                                     <div
                                       className="progress-bar bg-danger"
                                       style={{ width: "0%" }}
