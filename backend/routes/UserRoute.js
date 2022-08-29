@@ -7,7 +7,8 @@ import {
   getUsersByRole,
   getUsersByDev,
   getUsersByAdmin,
-  getUsersByID
+  getUsersByID,
+  updateUser
   //getCheckId,
 } from "../controllers/Users.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
@@ -21,6 +22,7 @@ router.get("/getUsersByRole", getUsersByRole);
 router.get("/getUsersByDev", getUsersByDev);
 router.get("/getUsersByAdmin", getUsersByAdmin);
 router.get("/getUsers/:id", getUsersByID);
+router.patch("/getUsers/:id", updateUser);
 //router.get("/check_same_id", getCheckId);
 router.post('/register', Register);
 router.post('/login', Login);
