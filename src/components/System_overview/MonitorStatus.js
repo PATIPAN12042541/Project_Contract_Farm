@@ -100,7 +100,10 @@ const MonitorStatus = () => {
                       <tbody>
                         <tr>
                           <td>1.</td>
-                          <td>Update software</td>
+                          <td>A1</td>
+                          <td>1</td>
+                          <td>แปลงมะเขือ</td>
+                          <td>นายปฏิภาณ ศรีทองคำ</td>
                           <td>
                             <div className="progress progress-xs">
                               <div
