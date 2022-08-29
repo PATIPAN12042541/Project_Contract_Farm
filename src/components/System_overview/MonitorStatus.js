@@ -89,15 +89,21 @@ const MonitorStatus = () => {
                       <thead>
                         <tr>
                           <th style={{ width: "10px" }}>#</th>
-                          <th>Task</th>
-                          <th>Progress</th>
-                          <th style={{ width: "40px" }}>Label</th>
+                          <th>รหัสโซน</th>
+                          <th>รหัสเเปลง</th>
+                          <th>แปลงเพาะปลูก</th>
+                          <th>ผู้ดูเเล</th>
+                          <th>สถานะ</th>
+                          <th style={{ width: "40px" }}>ความสำเร็จ</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>1.</td>
-                          <td>Update software</td>
+                          <td>A1</td>
+                          <td>1</td>
+                          <td>แปลงมะเขือ</td>
+                          <td>นายปฏิภาณ ศรีทองคำ</td>
                           <td>
                             <div className="progress progress-xs">
                               <div
