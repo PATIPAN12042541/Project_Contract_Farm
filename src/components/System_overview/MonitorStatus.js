@@ -168,7 +168,7 @@ const MonitorStatus = () => {
                               <td>{index + 1}</td>
                               <td>{data.zone_name}</td>
                               <td>{data.id_name_plant}</td>
-                              <td>{data.name_plant}</td>
+                              <td>แปลง{data.name_plant}</td>
                               <td>
                                 {data.name} {data.last_name}
                               </td>
