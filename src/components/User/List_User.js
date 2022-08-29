@@ -103,13 +103,15 @@ export const List_User = () => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
-                await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
+                console.log("name : "+updateName)
+                console.log("lastName : "+updateLastName)
+                /*await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
                     name: updateName,
                     lastName: updateLastName,
                     roleID: updateRoleID,
                     status: updateChecked,
-                })
+                })*/
                 Swal.fire({
                     icon: "success",
                     title: "Success",
