@@ -58,7 +58,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "70%" }}
+                              style={{ width: "29%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
@@ -80,7 +80,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "70%" }}
+                              style={{ width: "1%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
