@@ -164,9 +164,9 @@ const MonitorStatus = () => {
                       <center>สถานะ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
-                        <option>หมดเวลา</option>
-                        <option>กำลังดำเนินการ</option>
-                        <option>เสร็จสิ้น</option>
+                        <option value={1}>หมดเวลา</option>
+                        <option value={2}>กำลังดำเนินการ</option>
+                        <option value={3}>เสร็จสิ้น</option>
                       </select>
                     </div>
                   </div>
