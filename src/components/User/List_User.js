@@ -36,7 +36,7 @@ export const List_User = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [roleID, setRoleID] = useState("");
+  const [roleID, setRoleID] = useState();
 
     //List User
     const getListUser = async () => {
@@ -408,7 +408,7 @@ export const List_User = () => {
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultChecked={roleID}
+                                  defaultValue={roleID}
                                   onChange={(e) => {
                                       setRoleID(e.target.value);
                                   }}
