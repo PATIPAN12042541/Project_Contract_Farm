@@ -244,7 +244,7 @@ export const List_User = () => {
               </Modal.Header>
 
               <Modal.Body>
-                  <Form className="form-horizontal" onSubmit={Register}>
+                  <Form className="form-horizontal">
                       <div className="card-body">
                           <div className="input-group mb-3">
                               <input
@@ -337,6 +337,7 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={Register}
                   >
                       บันทึก
                   </button>
