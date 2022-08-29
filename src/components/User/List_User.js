@@ -458,7 +458,7 @@ export const List_User = () => {
                                       id="custom-switch"
                                       checked={updateChecked}
                                       onChange={(e) => {
-                                          setUpdateChecked(!checked);
+                                          setUpdateChecked(!updateChecked);
                                       }}
                                   />
                               </div>
