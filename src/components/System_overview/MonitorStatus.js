@@ -219,44 +219,48 @@ const MonitorStatus = () => {
                               </td>
                               <td>{data.status_name}</td>
                               <td>
-                                {data.status_plant == "1" ||
-                                data.status_plant == "4" ? (
-                                  <div>
-                                    {data.status_plant == "1" ? (
-                                      data.plant_status == "0" ? (
+                                <center>
+                                  {data.status_plant == "1" ||
+                                  data.status_plant == "4" ? (
+                                    <div>
+                                      {data.status_plant == "1" ? (
+                                        data.plant_status == "0" ? (
+                                          <div>เสร็จสิ้น</div>
+                                        ) : (
+                                          <div>กำลังดำเนินการ</div>
+                                        )
+                                      ) : data.harvest_status == "0" ? (
                                         <div>เสร็จสิ้น</div>
                                       ) : (
                                         <div>กำลังดำเนินการ</div>
-                                      )
-                                    ) : data.harvest_status == "0" ? (
+                                      )}
+                                    </div>
+                                  ) : data.status_plant == "2" ? (
+                                    data.status_Fertilizer == "0" ? (
                                       <div>เสร็จสิ้น</div>
+                                    ) : moment(new Date()).format(
+                                        "YYYY-MM-DD"
+                                      ) > data.end_date_plant &&
+                                      data.status_Fertilizer !== "0" ? (
+                                      <div>หมดเวลา</div>
                                     ) : (
                                       <div>กำลังดำเนินการ</div>
-                                    )}
-                                  </div>
-                                ) : data.status_plant == "2" ? (
-                                  data.status_Fertilizer == "0" ? (
-                                    <div>เสร็จสิ้น</div>
-                                  ) : moment(new Date()).format("YYYY-MM-DD") >
-                                      data.end_date_plant &&
-                                    data.status_Fertilizer !== "0" ? (
-                                    <div>หมดเวลา</div>
+                                    )
+                                  ) : data.status_plant == "3" ? (
+                                    data.status_chemical == "0" ? (
+                                      <div>เสร็จสิ้น</div>
+                                    ) : moment(new Date()).format(
+                                        "YYYY-MM-DD"
+                                      ) > data.end_date_plant &&
+                                      data.status_chemical !== "0" ? (
+                                      <div>หมดเวลา</div>
+                                    ) : (
+                                      <div>กำลังดำเนินการ</div>
+                                    )
                                   ) : (
-                                    <div>กำลังดำเนินการ</div>
-                                  )
-                                ) : data.status_plant == "3" ? (
-                                  data.status_chemical == "0" ? (
-                                    <div>เสร็จสิ้น</div>
-                                  ) : moment(new Date()).format("YYYY-MM-DD") >
-                                      data.end_date_plant &&
-                                    data.status_chemical !== "0" ? (
-                                    <div>หมดเวลา</div>
-                                  ) : (
-                                    <div>กำลังดำเนินการ</div>
-                                  )
-                                ) : (
-                                  ""
-                                )}
+                                    ""
+                                  )}
+                                </center>
                               </td>
                               <td>
                                 {data.status_plant == "1" ||
