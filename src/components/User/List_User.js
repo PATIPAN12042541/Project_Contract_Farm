@@ -413,7 +413,7 @@ export const List_User = () => {
                                       setRoleID(e.target.value);
                                   }}
                               >
-                                  <option onSelect={2}>--เลือก Role--</option>
+                                  <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
                                       <option key={item.id} >
                                               {item.role_group_name}
