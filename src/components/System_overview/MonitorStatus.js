@@ -262,12 +262,30 @@ const MonitorStatus = () => {
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
-                                  <div className="progress progress-xs">
+                                  data.status_Fertilizer == "0" ? (
+                                    <div
+                                      className="progress-bar bg-success"
+                                      style={{ width: "100%" }}
+                                    >
+                                      <span class="badge bg-success">100%</span>
+                                    </div>
+                                  ) : moment(new Date()).format("YYYY-MM-DD") >
+                                      data.end_date_plant &&
+                                    data.status_Fertilizer !== "0"("") ? (
                                     <div
                                       className="progress-bar bg-danger"
                                       style={{ width: "0%" }}
-                                    ></div>
-                                  </div>
+                                    >
+                                      <span class="badge bg-danger">0%</span>
+                                    </div>
+                                  ) : (
+                                    <div
+                                      className="progress-bar bg-warning"
+                                      style={{ width: "0%" }}
+                                    >
+                                      <span class="badge bg-warning">0%</span>
+                                    </div>
+                                  )
                                 ) : data.status_plant == "3" ? (
                                   <div className="progress progress-xs">
                                     <div
