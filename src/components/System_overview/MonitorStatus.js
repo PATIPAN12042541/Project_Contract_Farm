@@ -13,6 +13,14 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
+
+    if ((response.data.Status_plant = "1")) {
+      if ((response.data.plant_status = 0)) {
+        let count = 0;
+        count = count + 1;
+        console.log(count);
+      }
+    }
   };
 
   const getDataNamePlant = async () => {
@@ -35,6 +43,7 @@ const MonitorStatus = () => {
     );
     setDataZonePlant(response.data);
   };
+
 
   useEffect(() => {
     getPlantStatus();
