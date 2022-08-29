@@ -66,6 +66,7 @@ export const List_User = () => {
                 text: "Save OK !",
               });
               Nav("/ListUser");
+              getListUser();
             })
             .catch(function (error) {
               Swal.fire({
