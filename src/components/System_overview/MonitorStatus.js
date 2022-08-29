@@ -179,26 +179,14 @@ const MonitorStatus = () => {
                                   <div className="progress progress-xs">
                                     {data.status_plant == "1" ? (
                                       data.plant_status == "0" ? (
-                                        <div
-                                          className="progress-bar bg-success"
-                                          style={{ width: "100%" }}
-                                        ></div>
-                                      ) : data.harvest_status == "0" ? (
-                                        <div
-                                          className="progress-bar bg-success"
-                                          style={{ width: "100%" }}
-                                        ></div>
+                                        <div>เสร็จสิ้น</div>
                                       ) : (
-                                        <div
-                                          className="progress-bar bg-warning"
-                                          style={{ width: "50%" }}
-                                        ></div>
+                                        <div>กำลังดำเนินการ</div>
                                       )
+                                    ) : data.harvest_status == "0" ? (
+                                      <div>เสร็จสิ้น</div>
                                     ) : (
-                                      <div
-                                        className="progress-bar bg-danger"
-                                        style={{ width: "0%" }}
-                                      ></div>
+                                      <div>กำลังดำเนินการ</div>
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
