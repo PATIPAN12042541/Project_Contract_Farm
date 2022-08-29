@@ -470,7 +470,7 @@ export const List_User = () => {
                       type="button"
                       className="btn btn-success"
                       onClick={()=>{
-                        updateUser(userID)
+                        updateUser(userID,name,lastName,roleID,checked)
                       }}
                   >
                       บันทึก
