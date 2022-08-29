@@ -24,13 +24,13 @@ export const List_User = () => {
   const handleShowInsert = () => setShowInsert(true);
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
-  const [checked, setChecked] = useState(false);
+
   const {id} = useParams();
   const Nav = useNavigate();
 
   /* VAR MODAL */
+  /********** insert data ***************/
   const [rolegroup, setRoleGroup] = useState([]);
-  const [userID, setUserID] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -38,6 +38,16 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState();
   const [roleName, setRoleName] = useState();
+  /*************************************/
+
+  /********** update data **********/
+  const [updateuserID, setUpdateUserID] = useState("");
+  const [updateName, setUpdateName] = useState("");
+  const [updateLastName, setUpdateLastName] = useState("");
+  const [updateRoleID, setUpdateRoleID] = useState();
+  const [updateRoleName, setUpdateRoleName] = useState();
+  const [updateChecked, setUpdateChecked] = useState(false);
+  /*********************************/
 
     //List User
     const getListUser = async () => {
@@ -89,16 +99,16 @@ export const List_User = () => {
     };
 
     // Update User
-    const updateUser = async () => {
+    const updateUser = async (id) => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
-                    name: name,
-                    lastName: lastName,
-                    roleID: roleID,
-                    status: checked,
+                    name: updateName,
+                    lastName: updateLastName,
+                    roleID: updateRoleID,
+                    status: updateChecked,
                 })
                 Swal.fire({
                     icon: "success",
@@ -220,12 +230,12 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
-                                                                    setUserID(listUsers.id)
-                                                                    setName(listUsers.name)
-                                                                    setLastName(listUsers.last_name)
-                                                                    setRoleID(listUsers.group_id)
-                                                                    setRoleName(listUsers.group_name)
-                                                                    setChecked(listUsers.status)
+                                                                    setUpdateUserID(listUsers.id)
+                                                                    setUpdateName(listUsers.name)
+                                                                    setUpdateLastName(listUsers.last_name)
+                                                                    setUpdateRoleID(listUsers.group_id)
+                                                                    setUpdateRoleName(listUsers.group_name)
+                                                                    setUpdateChecked(listUsers.status)
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
@@ -411,7 +421,7 @@ export const List_User = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="Name"
-                                  Value={name}
+                                  Value={updateName}
                                   onChange={(e) => setName(e.target.value)}
                               />
                           </div>
@@ -420,16 +430,16 @@ export const List_User = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="Last Name"
-                                  Value={lastName}
+                                  Value={updateLastName}
                                   onChange={(e) => setLastName(e.target.value)}
                               />
                           </div>
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultValue={roleName}
+                                  defaultValue={updateRoleName}
                                   onChange={(e) => {
-                                      setRoleID(e.target.value);
+                                      setUpdateRoleID(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
@@ -446,9 +456,9 @@ export const List_User = () => {
                                   <input
                                       type="checkbox"
                                       id="custom-switch"
-                                      checked={checked}
+                                      checked={updateChecked}
                                       onChange={(e) => {
-                                          setChecked(!checked);
+                                          setUpdateChecked(!checked);
                                       }}
                                   />
                               </div>
@@ -469,7 +479,9 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      onSubmit={updateUser}
+                      onClick={()=>{
+                        updateUser(updateuserID)
+                      }}
                   >
                       บันทึก
                   </button>
