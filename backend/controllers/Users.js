@@ -84,7 +84,8 @@ export const getUsersByID = async(req, res) => {
 	        "user.name,"+
             "user.last_name,"+
             "role_group.id as group_id,"+
-            "role_group.role_group_name as group_name "+
+            "role_group.role_group_name as group_name,"+
+            "user.status "+
             "FROM user "+
             "LEFT JOIN role_group "+
             "ON user.role_id = role_group.id "+
