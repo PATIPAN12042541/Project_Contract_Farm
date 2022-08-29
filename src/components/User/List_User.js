@@ -205,6 +205,7 @@ export const List_User = () => {
                                                                     setRoleID(listUsers.group_id)
                                                                     setChecked(listUsers.status)
 
+                                                                    console.log("Name : "+name);
                                                                     console.log("Role : "+roleID);
                                                                   }}
                                                                       variant="warning"
