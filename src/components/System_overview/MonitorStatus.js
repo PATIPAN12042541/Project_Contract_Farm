@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const MonitorStatus = () => {
+  const [statusDetail, setStatusDetail] = useState([]);
+
+  const getPlantStatus = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
+    );
+    setStatusDetail(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getPlantStatus();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
