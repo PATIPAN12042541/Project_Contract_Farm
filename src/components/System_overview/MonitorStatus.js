@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const MonitorStatus = () => {
-  const [statusDetail, setStatusDetail] = useState([]);
+  const [getstatusDetail, setStatusDetail] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -161,30 +161,32 @@ const MonitorStatus = () => {
                           <th>เปอร์เซ็น</th>
                         </tr>
                       </thead>
-                      {statusDetail.map((data, index) => {
-                        <tbody>
-                          <tr>
-                            <td>{index + 1}</td>
-                            <td>{data.zone_name}</td>
-                            <td>{data.id_name_plant}</td>
-                            <td>{data.name_plant}</td>
-                            <td>
-                              {data.name} {data.last_name}
-                            </td>
-                            <td>{data.status_name}</td>
-                            <td>
-                              <div className="progress progress-xs">
-                                <div
-                                  className="progress-bar bg-danger"
-                                  style={{ width: "0%" }}
-                                ></div>
-                              </div>
-                            </td>
-                            <td>
-                              <span className="badge bg-danger">0%</span>
-                            </td>
-                          </tr>
-                        </tbody>;
+                      {getstatusDetail.map((data, index) => {
+                        return (
+                          <tbody key={index}>
+                            <tr>
+                              <td>{index + 1}</td>
+                              <td>{data.zone_name}</td>
+                              <td>{data.id_name_plant}</td>
+                              <td>แปลง{data.name_plant}</td>
+                              <td>
+                                {data.name} {data.last_name}
+                              </td>
+                              <td>{data.status_name}</td>
+                              <td>
+                                <div className="progress progress-xs">
+                                  <div
+                                    className="progress-bar bg-danger"
+                                    style={{ width: "0%" }}
+                                  ></div>
+                                </div>
+                              </td>
+                              <td>
+                                <span className="badge bg-danger">0%</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        );
                       })}
                     </table>
                   </div>
