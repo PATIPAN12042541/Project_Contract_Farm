@@ -37,6 +37,7 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState();
+  const [roleName, setRoleName] = useState();
 
     //List User
     const getListUser = async () => {
@@ -203,10 +204,8 @@ export const List_User = () => {
                                                                     setName(listUsers.name)
                                                                     setLastName(listUsers.last_name)
                                                                     setRoleID(listUsers.group_id)
+                                                                    setRoleName(listUsers.group_name)
                                                                     setChecked(listUsers.status)
-
-                                                                    console.log("Name : "+name);
-                                                                    console.log("Role : "+roleID);
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
@@ -408,15 +407,14 @@ export const List_User = () => {
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultValue={roleID}
+                                  defaultValue={roleName}
                                   onChange={(e) => {
                                       setRoleID(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id}
-                                      onSelect={2}>
+                                      <option key={item.id}>
                                               {item.role_group_name}
                                       </option>
                                   ))}
