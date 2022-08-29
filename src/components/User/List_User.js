@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import { Link, useNavigate,useParams } from "react-router-dom";
-import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
