@@ -30,6 +30,7 @@ export const List_User = () => {
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
+  const [userID, setUserID] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -196,7 +197,7 @@ export const List_User = () => {
                                                       <td>{listUsers.last_name}</td>
                                                       <td>
                                                           <center>
-                                                              <Link to={``} onClick={getUserById(listUsers.id)}>
+                                                              <Link to={``}>
                                                                   <Button onClick={handleShowUpdate}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
@@ -363,7 +364,7 @@ export const List_User = () => {
               </Modal.Footer>
           </Modal>
 
-          <Modal show={showUpdate} onHide={handleCloseUpdate}>
+          <Modal show={showUpdate} onHide={handleCloseUpdate} onShow={getUserById(listUsers.id)}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
