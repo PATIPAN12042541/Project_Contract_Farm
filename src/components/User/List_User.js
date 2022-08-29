@@ -30,6 +30,7 @@ export const List_User = () => {
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
+  const [userID, setUserID] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -196,8 +197,11 @@ export const List_User = () => {
                                                       <td>{listUsers.last_name}</td>
                                                       <td>
                                                           <center>
-                                                              <Link to={``} onClick={getUserById(listUsers.id)}>
-                                                                  <Button onClick={handleShowUpdate}
+                                                              <Link to={``}>
+                                                                  <Button onClick={()=>{
+                                                                    handleShowUpdate()
+                                                                    getUserById(listUsers.id)
+                                                                  }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
                                                                   >
@@ -363,7 +367,7 @@ export const List_User = () => {
               </Modal.Footer>
           </Modal>
 
-          <Modal show={showUpdate} onHide={handleCloseUpdate}>
+          <Modal show={showUpdate} onHide={handleCloseUpdate} >
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
@@ -382,7 +386,7 @@ export const List_User = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="Username"
-                                  value={username}
+                                  Value={username}
                                   onChange={(e) => setUserName(e.target.value)}
                               />
                               <div className="input-group-append">
@@ -390,41 +394,13 @@ export const List_User = () => {
                                       <span className="fas fa-user" />
                                   </div>
                               </div>
-                          </div>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Password"
-                                  value={password}
-                                  onChange={(e) => setPassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="input-group mb-3 ">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Confirm password"
-                                  value={confirmPassword}
-                                  onChange={(e) => setConfirmPassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
-                              </div>
-                          </div>
+                          </div>                        
                           <div className="input-group mb-3">
                               <input
                                   type="text"
                                   className="form-control"
                                   placeholder="Name"
-                                  value={name}
+                                  Value={name}
                                   onChange={(e) => setName(e.target.value)}
                               />
                           </div>
@@ -433,7 +409,7 @@ export const List_User = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="Last Name"
-                                  value={lastName}
+                                  Value={lastName}
                                   onChange={(e) => setLastName(e.target.value)}
                               />
                           </div>
@@ -446,7 +422,7 @@ export const List_User = () => {
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id} value={item.id}>
+                                      <option key={item.id} value={roleID}>
                                           {item.role_group_name}
                                       </option>
                                   ))}
@@ -458,6 +434,7 @@ export const List_User = () => {
                                   <input
                                       type="checkbox"
                                       id="custom-switch"
+                                      checked={checked}
                                       onChange={(e) => {
                                           setChecked(!checked);
                                       }}
