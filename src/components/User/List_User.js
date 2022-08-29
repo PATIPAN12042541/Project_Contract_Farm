@@ -200,7 +200,10 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
-                                                                    getUserById(listUsers.id)
+                                                                    setName(listUsers.name)
+                                                                    setLastName(listUsers.last_name)
+                                                                    setRoleID(listUsers.group_id)
+                                                                    setChecked(listUsers.status)
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
