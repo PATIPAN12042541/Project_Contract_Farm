@@ -191,12 +191,15 @@ const MonitorStatus = () => {
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
-                                  <div className="progress progress-xs">
-                                    <div
-                                      className="progress-bar bg-danger"
-                                      style={{ width: "0%" }}
-                                    ></div>
-                                  </div>
+                                  data.status_Fertilizer == "0" ? (
+                                    <div>เสร็จสิ้น</div>
+                                  ) : moment(new Date()).format("YYYY-MM-DD") >
+                                      data.end_date_plant &&
+                                    data.status_Fertilizer !== "0" ? (
+                                    <div>หมดเวลา</div>
+                                  ) : (
+                                    <div>กำลังดำเนินการ</div>
+                                  )
                                 ) : data.status_plant == "3" ? (
                                   <div className="progress progress-xs">
                                     <div
