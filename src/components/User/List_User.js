@@ -91,7 +91,7 @@ export const List_User = () => {
     // Update User
     const updateUser = async (id) => {
         try {
-            await axios.patch(`${process.env.REACT_APP_API_URL}/getUsers/${id}`, {
+            await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
                 id:id,
                 name: name,
                 lastName: lastName,
