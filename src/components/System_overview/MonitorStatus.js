@@ -4,7 +4,7 @@ import axios from "axios";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
-  const [DataNamePlant, setDataNamePlant] = useState([]);
+  const [dataNamePlant, setDataNamePlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -130,10 +130,13 @@ const MonitorStatus = () => {
                       <center>ชนิดเเปลงเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
-                        <option>แปลงมะเขือ</option>
-                        <option>แปลงแตงกวา</option>
-                        <option>แปลงคะน้า</option>
-                        <option>แปลงมะม่วง</option>
+                        {dataNamePlant.map((dataPlant, index) => {
+                          return (
+                            <option key={index} value={dataPlant.name_plant}>
+                              {dataPlant.name_plant}
+                            </option>
+                          );
+                        })}
                       </select>
                     </div>
                     <div className="col-3">
