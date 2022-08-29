@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import { Link, useNavigate,useParams } from "react-router-dom";
-import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
+import Image from "react-bootstrap/Image";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -180,7 +180,7 @@ export const List_User = () => {
                                                   <th>ชื่อ</th>
                                                   <th>นามสกุล</th>
                                                   <th>แก้ไขข้อมูล</th>
-                                                  <th>ลบข้อมูล</th>
+                                                  <th>Active</th>
                                               </tr>
                                           </thead>
                                           <tbody>
@@ -204,11 +204,25 @@ export const List_User = () => {
                                                       </td>
                                                       <td>
                                                           <center>
-                                                              <Button
-                                                                  variant="danger"
-                                                              >
-                                                                <BsTrashFill />
-                                                              </Button>
+                                                              {listUsers.status === 1 ? (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_true.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              ) : (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_false.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              )}
                                                           </center>
                                                       </td>
                                                   </tr>

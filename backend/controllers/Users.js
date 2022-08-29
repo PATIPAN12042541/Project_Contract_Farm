@@ -36,7 +36,8 @@ export const getUsersByDev = async(req, res) => {
 	        "user.name,"+
             "user.last_name,"+
             "role_group.id as group_id,"+
-            "role_group.role_group_name as group_name "+
+            "role_group.role_group_name as group_name,"+
+            "user.status "+
             "FROM user "+
             "LEFT JOIN role_group "+
             "ON user.role_id = role_group.id "+
@@ -59,7 +60,8 @@ export const getUsersByAdmin = async(req, res) => {
 	        "user.name,"+
             "user.last_name,"+
             "role_group.id as group_id,"+
-            "role_group.role_group_name as group_name "+
+            "role_group.role_group_name as group_name,"+
+            "user.status "+
             "FROM user "+
             "LEFT JOIN role_group "+
             "ON user.role_id = role_group.id "+
@@ -137,7 +139,8 @@ export const Register = async(req, res) => {
                 password: hashPassword,
                 name : name,
                 last_name : last_name,
-                role_id : role_id
+                role_id : role_id,
+                status : 1
             });
             res.json({msg: "Registration Successful"});
           }else{
