@@ -18,7 +18,7 @@ const Users = db.define('user',{
         type: DataTypes.STRING
     },
     status:{
-        type: DataTypes.STRING
+        type: DataTypes.INT
     },
     refresh_token:{
         type: DataTypes.TEXT
