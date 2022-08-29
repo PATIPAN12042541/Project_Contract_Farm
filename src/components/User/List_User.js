@@ -37,6 +37,7 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState();
+  const [roleName, setRoleName] = useState();
 
     //List User
     const getListUser = async () => {
@@ -203,10 +204,8 @@ export const List_User = () => {
                                                                     setName(listUsers.name)
                                                                     setLastName(listUsers.last_name)
                                                                     setRoleID(listUsers.group_id)
+                                                                    setRoleName(listUsers.group_name)
                                                                     setChecked(listUsers.status)
-
-                                                                    console.log("Name : "+name);
-                                                                    console.log("Role : "+roleID);
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
