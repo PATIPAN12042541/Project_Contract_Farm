@@ -250,3 +250,27 @@ export const CheckStatusPlant = async (req, res) => {
     res.json({ message: eror.message });
   }
 };
+
+
+export const DataNamePlant = async (req, res) => {
+  try {
+    const NamePlant = await db.query(
+      "SELECT  DISTINCT " +
+        "        plant_master_detail.id, " +
+        "        plant_master_detail.plant_name as name_plant " +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant  " +
+        "LEFT JOIN user ON  plant.id_user =  user.id " +
+        "LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
+        "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        "LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(NamePlant);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};

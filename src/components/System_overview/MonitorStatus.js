@@ -4,17 +4,26 @@ import axios from "axios";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
+  const [DataNamePlant, setDataNamePlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
+  };
+
+  const getDataNamePlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
+    );
+    setDataNamePlant(response.data);
     console.log(response.data);
   };
 
   useEffect(() => {
     getPlantStatus();
+    getDataNamePlant();
   }, []);
 
   return (
