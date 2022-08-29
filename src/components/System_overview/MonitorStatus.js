@@ -221,7 +221,7 @@ const MonitorStatus = () => {
                                           className="progress-bar bg-success"
                                           style={{ width: "100%" }}
                                         >
-                                          <span class="badge bg-success">
+                                          <span className="badge bg-success">
                                             100%
                                           </span>
                                         </div>
@@ -233,7 +233,7 @@ const MonitorStatus = () => {
                                             color: "white !important",
                                           }}
                                         >
-                                          <span class="badge bg-warning">
+                                          <span className="badge bg-warning">
                                             50%
                                           </span>
                                         </div>
@@ -243,7 +243,7 @@ const MonitorStatus = () => {
                                         className="progress-bar bg-success"
                                         style={{ width: "100%" }}
                                       >
-                                        <span class="badge bg-success">
+                                        <span className="badge bg-success">
                                           100%
                                         </span>
                                       </div>
@@ -255,7 +255,7 @@ const MonitorStatus = () => {
                                           color: "white !important",
                                         }}
                                       >
-                                        <span class="badge bg-warning">
+                                        <span className="badge bg-warning">
                                           50%
                                         </span>
                                       </div>
@@ -267,7 +267,9 @@ const MonitorStatus = () => {
                                       className="progress-bar bg-success"
                                       style={{ width: "100%" }}
                                     >
-                                      <span class="badge bg-success">100%</span>
+                                      <span className="badge bg-success">
+                                        100%
+                                      </span>
                                     </div>
                                   ) : moment(new Date()).format("YYYY-MM-DD") >
                                       data.end_date_plant &&
@@ -276,14 +278,18 @@ const MonitorStatus = () => {
                                       className="progress-bar bg-danger"
                                       style={{ width: "0%" }}
                                     >
-                                      <span class="badge bg-danger">0%</span>
+                                      <span className="badge bg-danger">
+                                        0%
+                                      </span>
                                     </div>
                                   ) : (
                                     <div
                                       className="progress-bar bg-warning"
                                       style={{ width: "0%" }}
                                     >
-                                      <span class="badge bg-warning">0%</span>
+                                      <span className="badge bg-warning">
+                                        0%
+                                      </span>
                                     </div>
                                   )
                                 ) : data.status_plant == "3" ? (
