@@ -9,6 +9,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
+import Image from "react-bootstrap/Image";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
