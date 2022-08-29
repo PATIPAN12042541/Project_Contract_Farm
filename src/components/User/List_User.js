@@ -24,6 +24,7 @@ export const List_User = () => {
   const handleShowInsert = () => setShowInsert(true);
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
+  const [checked, setChecked] = useState(false);
   const {id} = useParams();
   const Nav = useNavigate();
 
@@ -448,6 +449,18 @@ export const List_User = () => {
                                       </option>
                                   ))}
                               </select>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
+                              <div className="col-sm-8 col-form-label">
+                                  <input
+                                      type="checkbox"
+                                      id="custom-switch"
+                                      onChange={(e) => {
+                                          setChecked(!checked);
+                                      }}
+                                  />
+                              </div>
                           </div>
                       </div>
                   </Form>
