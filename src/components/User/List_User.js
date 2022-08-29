@@ -93,28 +93,28 @@ export const List_User = () => {
         console.log("id : "+id);
         if(id != ''){
             console.log("id 2: "+id);
-            /*try {
-            await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
-                id:id,
-                name: name,
-                lastName: lastName,
-                roleID: roleID,
-                status: checked,
-            })
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Update Success!",
-            });
-            Nav("/ListUser");
-            getListUser();
-        } catch (error) {
-            Swal.fire({
-                icon: "error",
-                title: "Update Fail!",
-                text: error,
-            });
-        }*/
+            try {
+                await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
+                    id: id,
+                    name: name,
+                    lastName: lastName,
+                    roleID: roleID,
+                    status: checked,
+                })
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Update Success!",
+                });
+                Nav("/ListUser");
+                getListUser();
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Update Fail!",
+                    text: error,
+                });
+            }
         }
     }
 
