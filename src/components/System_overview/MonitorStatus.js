@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const MonitorStatus = () => {
+  const [statusDetail, setStatusDetail] = useState([]);
+
+  const getPlantStatus = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
+    );
+    setStatusDetail(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getPlantStatus();
+  }, []);
+
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -92,7 +107,7 @@ const MonitorStatus = () => {
                   </div>
                   <div className="row">
                     <div className="col-3">
-                      รหัสโซนเพาะปลูก
+                      <center>รหัสโซนเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>A1</option>
@@ -102,7 +117,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      ชนิดเเปลงเพาะปลูก
+                      <center>ชนิดเเปลงเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>แปลงมะเขือ</option>
@@ -112,7 +127,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      ชื่อผู้รับผิดชอบ
+                      <center>ชื่อผู้รับผิดชอบ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>นายปฏิภาณ ศรีทองคำ</option>
@@ -122,7 +137,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      สถานะ
+                      <center>สถานะ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>หมดเวลา</option>
@@ -146,65 +161,29 @@ const MonitorStatus = () => {
                           <th>เปอร์เซ็น</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td>A1</td>
-                          <td>1</td>
-                          <td>แปลงมะเขือ</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>หมดเวลา</td>
-                          <td>
-                            <div className="progress progress-xs">
-                              <div
-                                className="progress-bar bg-danger"
-                                style={{ width: "0%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-danger">0%</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>A2</td>
-                          <td>2</td>
-                          <td>แปลงแตงกวา</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>กำลังดำเนินการ</td>
-                          <td>
-                            <div className="progress progress-xs">
-                              <div
-                                className="progress-bar bg-warning"
-                                style={{ width: "50%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-warning">50%</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>A4</td>
-                          <td>1</td>
-                          <td>แปลงมะม่วง</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>เสร็จสิ้น</td>
-                          <td>
-                            <div className="progress progress-xs progress-striped active">
-                              <div
-                                className="progress-bar bg-success"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-success">100%</span>
-                          </td>
-                        </tr>
-                      </tbody>
+                      {statusDetail.map((data, index) => {
+                        <tbody>
+                          <tr>
+                            <td>{index + 1}</td>
+                            <td>{data.zone_name}</td>
+                            <td>{data.id_name_plant}</td>
+                            <td>{data.name_plant}</td>
+                            <td>{data.name + " " + data.last_name}</td>
+                            <td>{data.status_name}</td>
+                            <td>
+                              <div className="progress progress-xs">
+                                <div
+                                  className="progress-bar bg-danger"
+                                  style={{ width: "0%" }}
+                                ></div>
+                              </div>
+                            </td>
+                            <td>
+                              <span className="badge bg-danger">0%</span>
+                            </td>
+                          </tr>
+                        </tbody>;
+                      })}
                     </table>
                   </div>
                 </div>
