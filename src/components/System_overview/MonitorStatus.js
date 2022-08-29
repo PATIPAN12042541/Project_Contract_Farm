@@ -6,6 +6,7 @@ const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
   const [dataNamePlant, setDataNamePlant] = useState([]);
   const [dataUserPlant, setDataUserPlant] = useState([]);
+  const [dataZonePlant, setDataZonePlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -28,10 +29,18 @@ const MonitorStatus = () => {
     setDataUserPlant(response.data);
   };
 
+  const getDataZonePlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/DataZonePlant`
+    );
+    setDataZonePlant(response.data);
+  };
+
   useEffect(() => {
     getPlantStatus();
     getDataNamePlant();
     getDataUserPlant();
+    getDataZonePlant();
   }, []);
 
   return (
@@ -128,10 +137,13 @@ const MonitorStatus = () => {
                       <center>รหัสโซนเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
-                        <option>A1</option>
-                        <option>A2</option>
-                        <option>A3</option>
-                        <option>A4</option>
+                        {dataZonePlant.map((dataZone, index) => {
+                          return (
+                            <option key={index} value={dataZone.zone_name}>
+                              {dataZone.zone_name}
+                            </option>
+                          );
+                        })}
                       </select>
                     </div>
                     <div className="col-3">
