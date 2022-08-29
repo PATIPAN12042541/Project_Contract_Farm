@@ -274,3 +274,28 @@ export const DataNamePlant = async (req, res) => {
     res.json({ message: eror.message });
   }
 };
+
+
+
+export const DataUserPlant = async (req, res) => {
+  try {
+    const UserPlant = await db.query(
+      "SELECT  DISTINCT " +
+        "user.id, " +
+        "user.name " +
+        "FROM zone_plant " +
+        "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
+        "LEFT JOIN user ON  plant.id_user =  user.id " +
+        "LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
+        "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        "LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(UserPlant);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};

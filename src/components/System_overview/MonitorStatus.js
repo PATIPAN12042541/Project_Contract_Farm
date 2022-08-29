@@ -5,6 +5,7 @@ import axios from "axios";
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
   const [dataNamePlant, setDataNamePlant] = useState([]);
+  const [dataUserPlant, setDataUserPlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -18,12 +19,19 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
     );
     setDataNamePlant(response.data);
-    console.log(response.data);
+  };
+
+  const getDataUserPlant = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/DataUserPlant`
+    );
+    setDataUserPlant(response.data);
   };
 
   useEffect(() => {
     getPlantStatus();
     getDataNamePlant();
+    getDataUserPlant();
   }, []);
 
   return (
@@ -143,10 +151,13 @@ const MonitorStatus = () => {
                       <center>ชื่อผู้รับผิดชอบ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
-                        <option>นายปฏิภาณ ศรีทองคำ</option>
-                        <option>นายปฏิภาณ ศรีทองคำ</option>
-                        <option>นายปฏิภาณ ศรีทองคำ</option>
-                        <option>นายปฏิภาณ ศรีทองคำ</option>
+                        {dataUserPlant.map((dataUser, index) => {
+                          return (
+                            <option key={index} value={dataUser.name}>
+                              {dataUser.name}
+                            </option>
+                          );
+                        })}
                       </select>
                     </div>
                     <div className="col-3">
