@@ -22,7 +22,7 @@ router.get("/getUsersByRole", getUsersByRole);
 router.get("/getUsersByDev", getUsersByDev);
 router.get("/getUsersByAdmin", getUsersByAdmin);
 router.get("/getUsers/:id", getUsersByID);
-router.patch("/getUsers/:id", updateUser);
+router.patch("/updateUsers/:id", updateUser);
 //router.get("/check_same_id", getCheckId);
 router.post('/register', Register);
 router.post('/login', Login);

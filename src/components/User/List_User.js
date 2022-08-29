@@ -93,7 +93,7 @@ export const List_User = () => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
-                await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
+                await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
                     name: name,
                     lastName: lastName,
