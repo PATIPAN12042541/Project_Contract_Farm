@@ -204,6 +204,8 @@ export const List_User = () => {
                                                                     setLastName(listUsers.last_name)
                                                                     setRoleID(listUsers.group_id)
                                                                     setChecked(listUsers.status)
+
+                                                                    console.log("Role : "+roleID);
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
