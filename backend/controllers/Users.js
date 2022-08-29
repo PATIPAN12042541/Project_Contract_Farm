@@ -137,7 +137,8 @@ export const Register = async(req, res) => {
                 password: hashPassword,
                 name : name,
                 last_name : last_name,
-                role_id : role_id
+                role_id : role_id,
+                active : 1
             });
             res.json({msg: "Registration Successful"});
           }else{
