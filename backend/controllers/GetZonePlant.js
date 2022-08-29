@@ -239,7 +239,8 @@ export const CheckStatusPlant = async (req, res) => {
         "  LEFT JOIN user ON  plant.id_user =  user.id " +
         "  LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
         "  LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
-        "  LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data ",
+        "  LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data " +
+        "  ORDER BY id_zone ASC ",
       {
         type: db.QueryTypes.SELECT,
       }
