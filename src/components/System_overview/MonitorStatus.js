@@ -92,7 +92,7 @@ const MonitorStatus = () => {
                   </div>
                   <div className="row">
                     <div className="col-3">
-                      รหัสโซนเพาะปลูก
+                      <center>รหัสโซนเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>A1</option>
@@ -102,7 +102,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      ชนิดเเปลงเพาะปลูก
+                      <center>ชนิดเเปลงเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>แปลงมะเขือ</option>
@@ -112,7 +112,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      ชื่อผู้รับผิดชอบ
+                      <center>ชื่อผู้รับผิดชอบ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>นายปฏิภาณ ศรีทองคำ</option>
@@ -122,7 +122,7 @@ const MonitorStatus = () => {
                       </select>
                     </div>
                     <div className="col-3">
-                      สถานะ
+                      <center>สถานะ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option>หมดเวลา</option>
