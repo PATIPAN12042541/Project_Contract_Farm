@@ -50,43 +50,70 @@ export const List_User = () => {
     // Register User
     const Register = async (e) => {
         e.preventDefault();
-    
+
         try {
-          await axios
-            .post(`${process.env.REACT_APP_API_URL}/user/register`, {
-              //await axios.post("http://localhost:4000/user/register",{
-              username: username,
-              password: password,
-              confirmPassword: confirmPassword,
-              name: name,
-              last_name: lastName,
-              role_id: roleID,
-              status : 1
-            })
-            .then(function (response) {
-              Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              Nav("/ListUser");
-              getListUser();
-            })
-            .catch(function (error) {
-              Swal.fire({
+            await axios
+                .post(`${process.env.REACT_APP_API_URL}/user/register`, {
+                    //await axios.post("http://localhost:4000/user/register",{
+                    username: username,
+                    password: password,
+                    confirmPassword: confirmPassword,
+                    name: name,
+                    last_name: lastName,
+                    role_id: roleID,
+                    status: 1
+                })
+                .then(function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Save OK !",
+                    });
+                    Nav("/ListUser");
+                    getListUser();
+                })
+                .catch(function (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: error.response.data.msg,
+                        text: "Save Error!",
+                    });
+                });
+        } catch (error) {
+            Swal.fire({
                 icon: "error",
                 title: error.response.data.msg,
                 text: "Save Error!",
-              });
             });
-        } catch (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
         }
-      };
+    };
+
+    // Update User
+    const updateUser = async (e,id) => {
+        e.preventDefault();
+        try {
+            await axios.patch(`${process.env.REACT_APP_API_URL}/getUsers/${id}`, {
+                id:id,
+                name: name,
+                lastName: lastName,
+                roleID: roleID,
+                status: checked,
+            })
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+            });
+            Nav("/ListUser");
+            getListUser();
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+            });
+        }
+    }
 
     //Drop Down Role
     const getRole = async () => {
@@ -97,46 +124,36 @@ export const List_User = () => {
         setRoleGroup(response.data);
       };
 
-      const getUserById = async (id) => {
-        //const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/getUsers/${id}`);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/getUsers/${id}`);
-        setName(response.data.name)
-        setLastName(response.data.last_name)
-        setRoleID(response.data.group_id)
-        setChecked(response.data.status)
-    }
-
-  // Search Item
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-    if (searchInput !== '') {
-        const filteredData = listUsers.filter((item) => {
-            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-        })
-        setFilteredResults(filteredData);
-        setCurrentPage(1);
-        console.log(filteredData);
-    }
-    else{
-        setListUsers(listUsers);
-        console.log(listUsers);
-    }
+    // Search Item
+    const searchItems = (searchValue) => {
+        setSearchInput(searchValue)
+        if (searchInput !== '') {
+            const filteredData = listUsers.filter((item) => {
+                return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+            })
+            setFilteredResults(filteredData);
+            setCurrentPage(1);
+            console.log(filteredData);
+        }
+        else {
+            setListUsers(listUsers);
+            console.log(listUsers);
+        }
 }
   
   // Pageing
-  const currentTableData = useMemo(() => {
-    console.log(currentPage);
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
+    const currentTableData = useMemo(() => {
+        console.log(currentPage);
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
 
-    if (searchInput.length > 1){
-      return filteredResults.slice(firstPageIndex, lastPageIndex);
-    }
-    else
-    {
-      return listUsers.slice(firstPageIndex, lastPageIndex);
-    }
-  }, [currentPage,searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
+        if (searchInput.length > 1) {
+            return filteredResults.slice(firstPageIndex, lastPageIndex);
+        }
+        else {
+            return listUsers.slice(firstPageIndex, lastPageIndex);
+        }
+    }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getListUser();
@@ -449,6 +466,7 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={updateUser(listUsers.id)}
                   >
                       บันทึก
                   </button>
