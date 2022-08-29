@@ -176,7 +176,7 @@ const MonitorStatus = () => {
                               <td>
                                 {data.status_plant == "1" ||
                                 data.status_plant == "4" ? (
-                                  <div className="progress progress-xs">
+                                  <div>
                                     {data.status_plant == "1" ? (
                                       data.plant_status == "0" ? (
                                         <div>เสร็จสิ้น</div>
