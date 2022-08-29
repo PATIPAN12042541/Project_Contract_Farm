@@ -95,7 +95,8 @@ export const List_User = () => {
         setRoleGroup(response.data);
       };
 
-      const getUserById = async () => {
+      const getUserById = async (id) => {
+        //const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/getUsers/${id}`);
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/getUsers/${id}`);
         setName(response.data.name)
         setLastName(response.data.last_name)
@@ -195,7 +196,7 @@ export const List_User = () => {
                                                       <td>{listUsers.last_name}</td>
                                                       <td>
                                                           <center>
-                                                              <Link to={`/ListUser/:id`} onClick={getUserById}>
+                                                              <Link to={``} onClick={getUserById(listUsers.id)}>
                                                                   <Button onClick={handleShowUpdate}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
