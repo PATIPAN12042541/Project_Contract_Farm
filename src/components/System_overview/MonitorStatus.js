@@ -201,12 +201,15 @@ const MonitorStatus = () => {
                                     <div>กำลังดำเนินการ</div>
                                   )
                                 ) : data.status_plant == "3" ? (
-                                  <div className="progress progress-xs">
-                                    <div
-                                      className="progress-bar bg-danger"
-                                      style={{ width: "0%" }}
-                                    ></div>
-                                  </div>
+                                  data.status_chemical == "0" ? (
+                                    <div>เสร็จสิ้น</div>
+                                  ) : moment(new Date()).format("YYYY-MM-DD") >
+                                      data.end_date_plant &&
+                                    data.status_chemical !== "0" ? (
+                                    <div>หมดเวลา</div>
+                                  ) : (
+                                    <div>กำลังดำเนินการ</div>
+                                  )
                                 ) : (
                                   ""
                                 )}
@@ -228,10 +231,7 @@ const MonitorStatus = () => {
                                       ) : (
                                         <div
                                           className="progress-bar bg-warning"
-                                          style={{
-                                            width: "50%",
-                                            color: "white !important",
-                                          }}
+                                          style={{ width: "50%" }}
                                         >
                                           <span className="badge bg-warning">
                                             50%
@@ -250,10 +250,7 @@ const MonitorStatus = () => {
                                     ) : (
                                       <div
                                         className="progress-bar bg-warning"
-                                        style={{
-                                          width: "50%",
-                                          color: "white !important",
-                                        }}
+                                        style={{ width: "50%" }}
                                       >
                                         <span className="badge bg-warning">
                                           50%
@@ -262,42 +259,72 @@ const MonitorStatus = () => {
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
-                                  data.status_Fertilizer == "0" ? (
-                                    <div
-                                      className="progress-bar bg-success"
-                                      style={{ width: "100%" }}
-                                    >
-                                      <span className="badge bg-success">
-                                        100%
-                                      </span>
-                                    </div>
-                                  ) : moment(new Date()).format("YYYY-MM-DD") >
-                                      data.end_date_plant &&
-                                    data.status_Fertilizer !== "0" ? (
-                                    <div
-                                      className="progress-bar bg-danger"
-                                      style={{ width: "0%" }}
-                                    >
-                                      <span className="badge bg-danger">
-                                        0%
-                                      </span>
-                                    </div>
-                                  ) : (
-                                    <div
-                                      className="progress-bar bg-warning"
-                                      style={{ width: "0%" }}
-                                    >
-                                      <span className="badge bg-warning">
-                                        0%
-                                      </span>
-                                    </div>
-                                  )
+                                  <div className="progress progress-xs">
+                                    {data.status_Fertilizer == "0" ? (
+                                      <div
+                                        className="progress-bar bg-success"
+                                        style={{ width: "100%" }}
+                                      >
+                                        <span className="badge bg-success">
+                                          100%
+                                        </span>
+                                      </div>
+                                    ) : moment(new Date()).format(
+                                        "YYYY-MM-DD"
+                                      ) > data.end_date_plant &&
+                                      data.status_Fertilizer !== "0" ? (
+                                      <div
+                                        className="progress-bar bg-danger"
+                                        style={{ width: "1%" }}
+                                      >
+                                        <span className="badge bg-danger">
+                                          1%
+                                        </span>
+                                      </div>
+                                    ) : (
+                                      <div
+                                        className="progress-bar bg-warning"
+                                        style={{ width: "50%" }}
+                                      >
+                                        <span className="badge bg-warning">
+                                          50%
+                                        </span>
+                                      </div>
+                                    )}
+                                  </div>
                                 ) : data.status_plant == "3" ? (
                                   <div className="progress progress-xs">
-                                    <div
-                                      className="progress-bar bg-danger"
-                                      style={{ width: "0%" }}
-                                    ></div>
+                                    {data.status_chemical == "0" ? (
+                                      <div
+                                        className="progress-bar bg-success"
+                                        style={{ width: "100%" }}
+                                      >
+                                        <span className="badge bg-success">
+                                          100%
+                                        </span>
+                                      </div>
+                                    ) : moment(new Date()).format(
+                                        "YYYY-MM-DD"
+                                      ) > data.end_date_plant &&
+                                      data.status_chemical !== "0" ? (
+                                      <div
+                                        className="progress-bar bg-danger"
+                                        style={{ width: "1%" }}
+                                      >
+                                        <span className="badge bg-danger">
+                                          1%
+                                        </span>
+                                      </div>
+                                    ) : (
+                                      <div
+                                        className="progress-bar bg-warning"
+                                        style={{ width: "50%" }}
+                                      >
+                                        <span className="badge bg-warning">
+                                          50%
+                                        </span>
+                                      </div>
+                                    )}
                                   </div>
                                 ) : (
                                   ""
