@@ -272,10 +272,10 @@ const MonitorStatus = () => {
                                       data.status_Fertilizer !== "0" ? (
                                       <div
                                         className="progress-bar bg-danger"
-                                        style={{ width: "100%" }}
+                                        style={{ width: "1%" }}
                                       >
                                         <span className="badge bg-danger">
-                                          0%
+                                          1%
                                         </span>
                                       </div>
                                     ) : (
