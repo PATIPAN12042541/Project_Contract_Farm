@@ -217,6 +217,7 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
+                                                                    setUserID(listUsers.id)
                                                                     setName(listUsers.name)
                                                                     setLastName(listUsers.last_name)
                                                                     setRoleID(listUsers.group_id)
@@ -465,7 +466,7 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      
+                      onClick={updateUser(userID)}
                   >
                       บันทึก
                   </button>
