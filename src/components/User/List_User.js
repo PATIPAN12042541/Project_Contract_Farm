@@ -407,7 +407,7 @@ export const List_User = () => {
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultValue={roleID}
+                                  defaultValue={roleName}
                                   onChange={(e) => {
                                       setRoleID(e.target.value);
                                   }}
