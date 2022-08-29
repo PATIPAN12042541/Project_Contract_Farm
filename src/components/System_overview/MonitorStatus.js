@@ -229,7 +229,7 @@ const MonitorStatus = () => {
                                             color: "white !important",
                                           }}
                                         >
-                                          <span class="badge bg-warning">
+                                          <span style={{ color: "white" }}>
                                             50%
                                           </span>
                                         </div>
@@ -251,7 +251,7 @@ const MonitorStatus = () => {
                                           color: "white !important",
                                         }}
                                       >
-                                        <span class="badge bg-warning">
+                                        <span style={{ color: "white" }}>
                                           50%
                                         </span>
                                       </div>
