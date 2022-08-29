@@ -89,7 +89,7 @@ export const List_User = () => {
     };
 
     // Update User
-    const updateUser = async (id) => {
+    const updateUser = async (id,name,lastName,roleID,checked) => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
