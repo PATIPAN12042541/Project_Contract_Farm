@@ -90,7 +90,8 @@ export const List_User = () => {
 
     // Update User
     const updateUser = async (id) => {
-        try {
+        console.log("id : "+id);
+        /*try {
             await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
                 id:id,
                 name: name,
@@ -111,7 +112,7 @@ export const List_User = () => {
                 title: "Update Fail!",
                 text: error,
             });
-        }
+        }*/
     }
 
     //Drop Down Role
@@ -466,6 +467,7 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={updateUser(userID)}
                   >
                       บันทึก
                   </button>

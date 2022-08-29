@@ -103,7 +103,13 @@ export const getUsersByID = async(req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        await Users.update(req.body, {
+        await Users.update({
+            name: req.params.name,
+            last_name: req.params.last_name,
+            role_id: req.params.role_id,
+            status: req.params.status,
+          }, 
+          {
             where: {
                 id: req.params.id
             }
