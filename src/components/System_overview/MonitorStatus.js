@@ -216,23 +216,39 @@ const MonitorStatus = () => {
                                         <div
                                           className="progress-bar bg-success"
                                           style={{ width: "100%" }}
-                                        ></div>
+                                        >
+                                          <span class="badge bg-success">
+                                            100%
+                                          </span>
+                                        </div>
                                       ) : (
                                         <div
                                           className="progress-bar bg-warning"
                                           style={{ width: "50%" }}
-                                        ></div>
+                                        >
+                                          <span class="badge bg-warning">
+                                            50%
+                                          </span>
+                                        </div>
                                       )
                                     ) : data.harvest_status == "0" ? (
                                       <div
                                         className="progress-bar bg-success"
                                         style={{ width: "100%" }}
-                                      ></div>
+                                      >
+                                        <span class="badge bg-success">
+                                          100%
+                                        </span>
+                                      </div>
                                     ) : (
                                       <div
                                         className="progress-bar bg-warning"
                                         style={{ width: "50%" }}
-                                      ></div>
+                                      >
+                                        <span class="badge bg-warning">
+                                          50%
+                                        </span>
+                                      </div>
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
