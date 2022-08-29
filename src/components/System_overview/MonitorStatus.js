@@ -14,6 +14,7 @@ const MonitorStatus = () => {
     );
     setStatusDetail(response.data);
 
+    console.log(response.data.Status_plant);
     if ((response.data.Status_plant = "1")) {
       if ((response.data.plant_status = 0)) {
         let count = 0;
