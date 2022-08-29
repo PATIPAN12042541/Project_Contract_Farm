@@ -161,65 +161,29 @@ const MonitorStatus = () => {
                           <th>เปอร์เซ็น</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td>A1</td>
-                          <td>1</td>
-                          <td>แปลงมะเขือ</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>หมดเวลา</td>
-                          <td>
-                            <div className="progress progress-xs">
-                              <div
-                                className="progress-bar bg-danger"
-                                style={{ width: "0%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-danger">0%</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>A2</td>
-                          <td>2</td>
-                          <td>แปลงแตงกวา</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>กำลังดำเนินการ</td>
-                          <td>
-                            <div className="progress progress-xs">
-                              <div
-                                className="progress-bar bg-warning"
-                                style={{ width: "50%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-warning">50%</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>A4</td>
-                          <td>1</td>
-                          <td>แปลงมะม่วง</td>
-                          <td>นายปฏิภาณ ศรีทองคำ</td>
-                          <td>เสร็จสิ้น</td>
-                          <td>
-                            <div className="progress progress-xs progress-striped active">
-                              <div
-                                className="progress-bar bg-success"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </td>
-                          <td>
-                            <span className="badge bg-success">100%</span>
-                          </td>
-                        </tr>
-                      </tbody>
+                      {statusDetail.map((data, index) => {
+                        <tbody>
+                          <tr>
+                            <td>{index + 1}</td>
+                            <td>{data.zone_name}</td>
+                            <td>{data.id_name_plant}</td>
+                            <td>แปลง{data.name_plant}</td>
+                            <td>{data.name + " " + data.last_name}</td>
+                            <td>{data.status_name}</td>
+                            <td>
+                              <div className="progress progress-xs">
+                                <div
+                                  className="progress-bar bg-danger"
+                                  style={{ width: "0%" }}
+                                ></div>
+                              </div>
+                            </td>
+                            <td>
+                              <span className="badge bg-danger">0%</span>
+                            </td>
+                          </tr>
+                        </tbody>;
+                      })}
                     </table>
                   </div>
                 </div>
