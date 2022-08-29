@@ -204,6 +204,9 @@ export const List_User = () => {
                                                                     setLastName(listUsers.last_name)
                                                                     setRoleID(listUsers.group_id)
                                                                     setChecked(listUsers.status)
+
+                                                                    console.log("Name : "+name);
+                                                                    console.log("Role : "+roleID);
                                                                   }}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
@@ -405,14 +408,15 @@ export const List_User = () => {
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
+                                  onSelect={roleID}
                                   onChange={(e) => {
                                       setRoleID(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id} value={roleID}>
-                                          {item.role_group_name}
+                                      <option key={item.id} >
+                                              {item.role_group_name}
                                       </option>
                                   ))}
                               </select>
