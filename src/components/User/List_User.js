@@ -89,8 +89,7 @@ export const List_User = () => {
     };
 
     // Update User
-    const updateUser = async (e,id) => {
-        e.preventDefault();
+    const updateUser = async (id) => {
         try {
             await axios.patch(`${process.env.REACT_APP_API_URL}/getUsers/${id}`, {
                 id:id,
