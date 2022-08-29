@@ -8,6 +8,7 @@ import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Swal from "sweetalert2";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -24,6 +25,7 @@ export const List_User = () => {
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
   const {id} = useParams();
+  const Nav = useNavigate();
 
   /* VAR MODAL */
   const [rolegroup, setRoleGroup] = useState([]);
@@ -34,24 +36,54 @@ export const List_User = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
 
+    //List User
     const getListUser = async () => {
-        /*if (roleidToken == 1) {
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
-            );
-            setListUsers(response.data);
-        } else {
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
-            );
-            setListUsers(response.data);
-        }*/
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
         );
         setListUsers(response.data);
     };
 
+    // Register User
+    const Register = async (e) => {
+        e.preventDefault();
+    
+        try {
+          await axios
+            .post(`${process.env.REACT_APP_API_URL}/user/register`, {
+              //await axios.post("http://localhost:4000/user/register",{
+              username: username,
+              password: password,
+              confirmPassword: confirmPassword,
+              name: name,
+              last_name: lastName,
+              role_id: roleID,
+            })
+            .then(function (response) {
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Save OK !",
+              });
+              Nav("/ListUser");
+            })
+            .catch(function (error) {
+              Swal.fire({
+                icon: "error",
+                title: error.response.data.msg,
+                text: "Save Error!",
+              });
+            });
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        }
+      };
+
+    //Drop Down Role
     const getRole = async () => {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/role_group/roleAll`
@@ -212,7 +244,7 @@ export const List_User = () => {
               </Modal.Header>
 
               <Modal.Body>
-                  <Form className="form-horizontal">
+                  <Form className="form-horizontal" onSubmit={Register}>
                       <div className="card-body">
                           <div className="input-group mb-3">
                               <input
