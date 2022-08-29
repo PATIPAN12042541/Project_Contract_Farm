@@ -67,7 +67,7 @@ export const List_User = () => {
                 text: "Save OK !",
               });
               Nav("/ListUser");
-              window.location.reload();
+              getListUser();
             })
             .catch(function (error) {
               Swal.fire({
