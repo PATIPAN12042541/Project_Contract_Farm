@@ -115,7 +115,7 @@ export const updateUser = async (req, res) => {
             }
         });
         res.json({
-            "message": "User 555 Updated "+req.params.id
+            "message": "User Updated "+req.params.id+" "+req.params.name+" "+req.params.lastName+" "+req.params.roleID+" "+req.params.status
         });
     } catch (error) {
         res.json({ message: error.message });
