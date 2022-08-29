@@ -93,6 +93,7 @@ const Register = () => {
           name: name,
           last_name: lastName,
           role_id: roleID,
+          status : 1
         })
         .then(function (response) {
           Swal.fire({
