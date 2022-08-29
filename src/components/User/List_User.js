@@ -91,7 +91,9 @@ export const List_User = () => {
     // Update User
     const updateUser = async (id) => {
         console.log("id : "+id);
-        /*try {
+        if(id != ''){
+            console.log("id 2: "+id);
+            /*try {
             await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
                 id:id,
                 name: name,
@@ -113,6 +115,7 @@ export const List_User = () => {
                 text: error,
             });
         }*/
+        }
     }
 
     //Drop Down Role
