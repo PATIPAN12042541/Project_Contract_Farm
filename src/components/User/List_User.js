@@ -411,8 +411,9 @@ export const List_User = () => {
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id} value={roleID}>
-                                          {item.role_group_name}
+                                      <option key={item.id} 
+                                              defaultValue={roleID}>
+                                              {item.role_group_name}
                                       </option>
                                   ))}
                               </select>
