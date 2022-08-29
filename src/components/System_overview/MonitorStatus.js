@@ -77,7 +77,7 @@ const MonitorStatus = () => {
                             ></div>
                           </div>
                           <span className="progress-description">
-                            จากงานทั้งหมด 300 งาน
+                            จากงานทั้งหมด 300 แปลง
                           </span>
                         </div>
                       </div>
@@ -99,7 +99,7 @@ const MonitorStatus = () => {
                             ></div>
                           </div>
                           <span className="progress-description">
-                            จากงานทั้งหมด 300 งาน
+                            จากงานทั้งหมด 300 แปลง
                           </span>
                         </div>
                       </div>
