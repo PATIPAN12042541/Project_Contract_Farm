@@ -383,21 +383,7 @@ export const List_User = () => {
 
               <Modal.Body>
                   <Form className="form-horizontal">
-                      <div className="card-body">
-                          <div className="input-group mb-3">
-                              <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="Username"
-                                  Value={username}
-                                  onChange={(e) => setUserName(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-user" />
-                                  </div>
-                              </div>
-                          </div>                        
+                      <div className="card-body">             
                           <div className="input-group mb-3">
                               <input
                                   type="text"
