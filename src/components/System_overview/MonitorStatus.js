@@ -176,29 +176,17 @@ const MonitorStatus = () => {
                               <td>
                                 {data.status_plant == "1" ||
                                 data.status_plant == "4" ? (
-                                  <div className="progress progress-xs">
+                                  <div>
                                     {data.status_plant == "1" ? (
                                       data.plant_status == "0" ? (
-                                        <div
-                                          className="progress-bar bg-success"
-                                          style={{ width: "100%" }}
-                                        ></div>
-                                      ) : data.harvest_status == "0" ? (
-                                        <div
-                                          className="progress-bar bg-success"
-                                          style={{ width: "100%" }}
-                                        ></div>
+                                        <div>เสร็จสิ้น</div>
                                       ) : (
-                                        <div
-                                          className="progress-bar bg-warning"
-                                          style={{ width: "50%" }}
-                                        ></div>
+                                        <div>กำลังดำเนินการ</div>
                                       )
+                                    ) : data.harvest_status == "0" ? (
+                                      <div>เสร็จสิ้น</div>
                                     ) : (
-                                      <div
-                                        className="progress-bar bg-danger"
-                                        style={{ width: "0%" }}
-                                      ></div>
+                                      <div>กำลังดำเนินการ</div>
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
@@ -228,23 +216,45 @@ const MonitorStatus = () => {
                                         <div
                                           className="progress-bar bg-success"
                                           style={{ width: "100%" }}
-                                        ></div>
+                                        >
+                                          <span class="badge bg-success">
+                                            100%
+                                          </span>
+                                        </div>
                                       ) : (
                                         <div
                                           className="progress-bar bg-warning"
-                                          style={{ width: "50%" }}
-                                        ></div>
+                                          style={{
+                                            width: "50%",
+                                            color: "white !important",
+                                          }}
+                                        >
+                                          <span style={{ color: "white" }}>
+                                            50%
+                                          </span>
+                                        </div>
                                       )
                                     ) : data.harvest_status == "0" ? (
                                       <div
                                         className="progress-bar bg-success"
                                         style={{ width: "100%" }}
-                                      ></div>
+                                      >
+                                        <span class="badge bg-success">
+                                          100%
+                                        </span>
+                                      </div>
                                     ) : (
                                       <div
                                         className="progress-bar bg-warning"
-                                        style={{ width: "50%" }}
-                                      ></div>
+                                        style={{
+                                          width: "50%",
+                                          color: "white !important",
+                                        }}
+                                      >
+                                        <span style={{ color: "white" }}>
+                                          50%
+                                        </span>
+                                      </div>
                                     )}
                                   </div>
                                 ) : data.status_plant == "2" ? (
