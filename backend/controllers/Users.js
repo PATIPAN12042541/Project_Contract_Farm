@@ -132,7 +132,9 @@ export const Register = async(req, res) => {
                      password : hashPassword },
           });
 
-          if (count.count = 0){
+          console.log(count);
+
+          /*if (count.count = 0){
             await Users.create({
                 username: username,
                 password: hashPassword,
@@ -143,7 +145,7 @@ export const Register = async(req, res) => {
             res.json({msg: "Registration Successful"});
           }else{
             return res.status(400).json({msg: "Username Or Password Duplicate Data"});
-          }
+          }*/
     } catch (error) {
         console.log(error);
     }
