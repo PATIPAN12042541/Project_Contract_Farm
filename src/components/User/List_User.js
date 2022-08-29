@@ -180,7 +180,7 @@ export const List_User = () => {
                                                   <th>ชื่อ</th>
                                                   <th>นามสกุล</th>
                                                   <th>แก้ไขข้อมูล</th>
-                                                  <th>ลบข้อมูล</th>
+                                                  <th>Active</th>
                                               </tr>
                                           </thead>
                                           <tbody>
@@ -204,11 +204,25 @@ export const List_User = () => {
                                                       </td>
                                                       <td>
                                                           <center>
-                                                              <Button
-                                                                  variant="danger"
-                                                              >
-                                                                <BsTrashFill />
-                                                              </Button>
+                                                              {listUsers.status === 1 ? (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_true.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              ) : (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_false.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              )}
                                                           </center>
                                                       </td>
                                                   </tr>
