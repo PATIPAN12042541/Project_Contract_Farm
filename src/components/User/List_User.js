@@ -93,7 +93,7 @@ export const List_User = () => {
         console.log("id : "+id);
         if(id != ''){
             console.log("id 2: "+id);
-            try {
+            /*try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/getUsers/${id}`, {
                     id: id,
                     name: name,
@@ -114,7 +114,7 @@ export const List_User = () => {
                     title: "Update Fail!",
                     text: error,
                 });
-            }
+            }*/
         }
     }
 
