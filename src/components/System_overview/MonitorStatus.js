@@ -154,7 +154,7 @@ const MonitorStatus = () => {
                         {dataUserPlant.map((dataUser, index) => {
                           return (
                             <option key={index} value={dataUser.name}>
-                              {dataUser.name}
+                              {dataUser.name + " " + dataUser.last_name}
                             </option>
                           );
                         })}

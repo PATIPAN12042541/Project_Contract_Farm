@@ -282,7 +282,8 @@ export const DataUserPlant = async (req, res) => {
     const UserPlant = await db.query(
       "SELECT  DISTINCT " +
         "user.id, " +
-        "user.name " +
+        "user.name, " +
+        "user.last_name " +
         "FROM zone_plant " +
         "LEFT JOIN  plant_detail ON zone_plant.id =plant_detail.id_zone " +
         "LEFT JOIN  plant ON plant_detail.id = plant.id_plant " +
