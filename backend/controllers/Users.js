@@ -103,29 +103,19 @@ export const getUsersByID = async(req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const updateUser = await db.query(
-            "update user "+
-            "set name = :name,"+
-            "    last_name = :last_name,"+
-            "    role_id = :role_id,"+
-            "    status = :status "+
-            "where id = :id",
-            {
-                replacements: { name: req.params.name,
-                                last_name : req.params.last_name,
-                                role_id : req.params.role_id,
-                                status : req.params.status,
-                                id : req.params.id
-                              },
-                type: db.QueryTypes.SELECT,
+        try {
+            await Users.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
             });
-        res.json({
-            "message": "User Updated"
-        });
-    } catch (error) {
-        res.json({ message: error.message });
-    }  
-}
+            res.json({
+                "message": "User Updated"
+            });
+        } catch (error) {
+            res.json({ message: error.message });
+        }
+    }
 
 // export const getCheckId = async (req, res) => {
 //   try {
