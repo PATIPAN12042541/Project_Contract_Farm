@@ -168,7 +168,9 @@ const MonitorStatus = () => {
                             <td>{data.zone_name}</td>
                             <td>{data.id_name_plant}</td>
                             <td>{data.name_plant}</td>
-                            <td>{data.name + " " + data.last_name}</td>
+                            <td>
+                              {data.name} {data.last_name}
+                            </td>
                             <td>{data.status_name}</td>
                             <td>
                               <div className="progress progress-xs">
