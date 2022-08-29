@@ -67,7 +67,8 @@ export const List_User = () => {
                 text: "Save OK !",
               });
               Nav("/ListUser");
-              window.location.reload();
+              handleCloseInsert
+              /*window.location.reload();*/
             })
             .catch(function (error) {
               Swal.fire({
