@@ -89,16 +89,16 @@ export const List_User = () => {
     };
 
     // Update User
-    const updateUser = async (id,name,lastName,roleID,checked) => {
+    const updateUser = async (id,name_,lastName_,roleID_,checked_) => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
-                    name: name,
-                    lastName: lastName,
-                    roleID: roleID,
-                    status: checked,
+                    name: name_,
+                    lastName: lastName_,
+                    roleID: roleID_,
+                    status: checked_,
                 })
                 Swal.fire({
                     icon: "success",
