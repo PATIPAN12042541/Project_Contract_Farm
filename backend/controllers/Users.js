@@ -103,19 +103,18 @@ export const getUsersByID = async(req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        try {
-            await Users.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            });
-            res.json({
-                "message": "User Updated"
-            });
-        } catch (error) {
-            res.json({ message: error.message });
-        }
+        await Users.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "User Updated"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
     }
+}
 
 // export const getCheckId = async (req, res) => {
 //   try {
