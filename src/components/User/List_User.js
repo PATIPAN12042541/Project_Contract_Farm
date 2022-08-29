@@ -424,7 +424,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Name"
                                   Value={updateName}
-                                  onChange={(e) => setName(e.target.value)}
+                                  onChange={(e) => setUpdateName(e.target.value)}
                               />
                           </div>
                           <div className="input-group mb-3">
@@ -433,7 +433,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Last Name"
                                   Value={updateLastName}
-                                  onChange={(e) => setLastName(e.target.value)}
+                                  onChange={(e) => setUpdateLastName(e.target.value)}
                               />
                           </div>
                           <div className="form-group mb-3">
