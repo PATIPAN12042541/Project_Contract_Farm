@@ -100,6 +100,7 @@ export const List_User = () => {
         setName(response.data.name)
         setLastName(response.data.last_name)
         setRoleID(response.data.group_id)
+        setChecked(response.data.status)
     }
 
   // Search Item
@@ -194,7 +195,7 @@ export const List_User = () => {
                                                       <td>{listUsers.last_name}</td>
                                                       <td>
                                                           <center>
-                                                              <Link to={``}>
+                                                              <Link to={`/ListUser/:id`} onClick={getUserById}>
                                                                   <Button onClick={handleShowUpdate}
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}

@@ -275,6 +275,18 @@ function App() {
             />
             <Route
               exact
+              path="/ListUser/:id"
+              element={
+                <>
+                  <Header />
+                  <SidebarRole />
+                  <List_User />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              exact
               path="/PlantMasterType"
               element={
                 <>
