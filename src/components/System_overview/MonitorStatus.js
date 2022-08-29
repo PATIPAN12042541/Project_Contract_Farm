@@ -13,18 +13,7 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
-
-    // Grouping data count array
-    // const data_array = [];
-    for (let i = 0; i < response.data.length; i++) {
-      if ((response.data[i].Status_plant = "1")) {
-        if ((response.data[i].plant_status = 0)) {
-          let count = 0;
-          count = count + 1;
-          console.log(count);
-        }
-      }
-    }
+    sumDataArrayPlant(response.data);
   };
 
   const getDataNamePlant = async () => {
@@ -47,6 +36,13 @@ const MonitorStatus = () => {
     );
     setDataZonePlant(response.data);
   };
+
+  const sumDataArrayPlant = async (d) => {
+    console.log(d);
+  };
+
+
+
 
 
   useEffect(() => {
