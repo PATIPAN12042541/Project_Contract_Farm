@@ -89,16 +89,16 @@ export const List_User = () => {
     };
 
     // Update User
-    const updateUser = async (id,name_,lastName_,roleID_,checked_) => {
+    const updateUser = async () => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
-                    name: name_,
-                    lastName: lastName_,
-                    roleID: roleID_,
-                    status: checked_,
+                    name: name,
+                    lastName: lastName,
+                    roleID: roleID,
+                    status: checked,
                 })
                 Swal.fire({
                     icon: "success",
@@ -469,9 +469,7 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      onClick={()=>{
-                        updateUser(userID,name,lastName,roleID,checked)
-                      }}
+                      onSubmit={updateUser}
                   >
                       บันทึก
                   </button>
