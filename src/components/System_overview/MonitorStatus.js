@@ -85,6 +85,36 @@ const MonitorStatus = () => {
                     </div>
                   </div>
                   <div className="row">
+                    <div className="col-4">
+                      รหัสโซนเพาะปลูก
+                      <select className="custom-select form-control-border">
+                        <option>A1</option>
+                        <option>A2</option>
+                        <option>A3</option>
+                        <option>A4</option>
+                      </select>
+                    </div>
+                    <div className="col-4">
+                      ชนิดเเปลงเพาะปลูก
+                      <select className="custom-select form-control-border">
+                        <option>แปลงมะเขือ</option>
+                        <option>แปลงแตงกวา</option>
+                        <option>แปลงคะน้า</option>
+                        <option>แปลงมะม่วง</option>
+                      </select>
+                    </div>
+                    <div className="col-4">
+                      ชื่อผู้รับผิดชอบ
+                      <select className="custom-select form-control-border">
+                        <option>นายปฏิภาณ ศรีทองคำ</option>
+                        <option>นายปฏิภาณ ศรีทองคำ</option>
+                        <option>นายปฏิภาณ ศรีทองคำ</option>
+                        <option>นายปฏิภาณ ศรีทองคำ</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row">
                     <table className="table table-bordered">
                       <thead>
                         <tr>
@@ -107,7 +137,7 @@ const MonitorStatus = () => {
                           <td>
                             <div className="progress progress-xs">
                               <div
-                                className="progress-bar progress-bar-danger"
+                                className="progress-bar bg-danger"
                                 style={{ width: "55%" }}
                               ></div>
                             </div>
@@ -118,7 +148,10 @@ const MonitorStatus = () => {
                         </tr>
                         <tr>
                           <td>2.</td>
-                          <td>Clean database</td>
+                          <td>A2</td>
+                          <td>2</td>
+                          <td>แปลงแตงกวา</td>
+                          <td>นายปฏิภาณ ศรีทองคำ</td>
                           <td>
                             <div className="progress progress-xs">
                               <div
@@ -133,7 +166,10 @@ const MonitorStatus = () => {
                         </tr>
                         <tr>
                           <td>3.</td>
-                          <td>Cron job running</td>
+                          <td>A3</td>
+                          <td>3</td>
+                          <td>แปลงคะน้า</td>
+                          <td>นายปฏิภาณ ศรีทองคำ</td>
                           <td>
                             <div className="progress progress-xs progress-striped active">
                               <div
@@ -148,7 +184,10 @@ const MonitorStatus = () => {
                         </tr>
                         <tr>
                           <td>4.</td>
-                          <td>Fix and squish bugs</td>
+                          <td>A4</td>
+                          <td>1</td>
+                          <td>แปลงมะม่วง</td>
+                          <td>นายปฏิภาณ ศรีทองคำ</td>
                           <td>
                             <div className="progress progress-xs progress-striped active">
                               <div
