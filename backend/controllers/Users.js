@@ -105,8 +105,8 @@ export const updateUser = async (req, res) => {
     try {
         await Users.update({
             name: req.params.name,
-            last_name: req.params.last_name,
-            role_id: req.params.role_id,
+            last_name: req.params.lastName,
+            role_id: req.params.roleID,
             status: req.params.status,
           }, 
           {
