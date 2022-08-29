@@ -132,7 +132,7 @@ export const Register = async(req, res) => {
                      password : hashPassword },
           });
 
-          if (count = 0){
+          if (count.count = 0){
             await Users.create({
                 username: username,
                 password: hashPassword,
