@@ -224,7 +224,10 @@ const MonitorStatus = () => {
                                       ) : (
                                         <div
                                           className="progress-bar bg-warning"
-                                          style={{ width: "50%" }}
+                                          style={{
+                                            width: "50%",
+                                            color: "white !important",
+                                          }}
                                         >
                                           <span class="badge bg-warning">
                                             50%
@@ -243,7 +246,10 @@ const MonitorStatus = () => {
                                     ) : (
                                       <div
                                         className="progress-bar bg-warning"
-                                        style={{ width: "50%" }}
+                                        style={{
+                                          width: "50%",
+                                          color: "white !important",
+                                        }}
                                       >
                                         <span class="badge bg-warning">
                                           50%
