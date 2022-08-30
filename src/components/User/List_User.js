@@ -535,7 +535,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Password"
                                   value={updatePassword}
-                                  disabled={!checkedPassword}
+                                  disabled={!checkedUpdatePassword}
                                   onChange={(e) => setupdatePassword(e.target.value)}
                               />
                               <div className="input-group-append">
@@ -550,7 +550,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Confirm password"
                                   value={updateConfirmPassword}
-                                  disabled={!checkedPassword}
+                                  disabled={!checkedUpdatePassword}
                                   onChange={(e) => setupdateConfirmPassword(e.target.value)}
                               />
                               <div className="input-group-append">
