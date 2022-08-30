@@ -41,32 +41,33 @@ const MonitorStatus = () => {
   const [COMPLETION, setCOMPLETION] = useState([]);
   const [Waning, setWaning] = useState([]);
   const [Danger, setDanger] = useState([]);
+  const [count_, setCount_] = useState([]);
 
   const getDashBoardSumStatus = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/DashBoardSumStatus`
     );
 
+    const countdata = response.data.length;
+    setCount_(countdata);
+
     var COMPLETION_ = response.data
       .map((sum) => sum.COMPLETION_)
       .reduce((sum2, sum) => sum + sum2);
 
     setCOMPLETION(COMPLETION_);
-    console.log("COMPLETION_ : " + COMPLETION_);
 
     var Waning_ = response.data
       .map((sum) => sum.Waning_)
       .reduce((sum2, sum) => sum + sum2);
 
     setWaning(Waning_);
-    console.log("Waning_ : " + Waning_);
 
     var Danger_ = response.data
       .map((sum) => sum.Danger_)
       .reduce((sum2, sum) => sum + sum2);
 
     setDanger(Danger_);
-    console.log("Danger_ : " + Danger_);
   };
 
   useEffect(() => {
@@ -118,7 +119,7 @@ const MonitorStatus = () => {
                             ></div>
                           </div>
                           <span className="progress-description">
-                            จากทั้งหมด 300 แปลง
+                            จากทั้งหมด {count_} แปลง
                           </span>
                         </div>
                       </div>
@@ -140,7 +141,7 @@ const MonitorStatus = () => {
                             ></div>
                           </div>
                           <span className="progress-description">
-                            จากงานทั้งหมด 300 แปลง
+                            จากงานทั้งหมด {count_} แปลง
                           </span>
                         </div>
                       </div>
@@ -162,7 +163,7 @@ const MonitorStatus = () => {
                             ></div>
                           </div>
                           <span className="progress-description">
-                            จากงานทั้งหมด 300 แปลง
+                            จากงานทั้งหมด {count_} แปลง
                           </span>
                         </div>
                       </div>
