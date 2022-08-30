@@ -17,7 +17,9 @@ const MonitorStatus = () => {
   };
 
   const searchItems = (searchValue) => {
+    
     getPlantStatus();
+    
     if (searchValue !== "") {
       if (searchValue == 1) {
         const filteredData = getstatusDetail.filter(
