@@ -1,4 +1,4 @@
-import React,{ useState, useEffect ,useMemo, useContext} from 'react'
+import React,{ useState, useEffect ,useMemo} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
@@ -10,6 +10,7 @@ import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
+import Switch from "react-switch";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -42,14 +43,10 @@ export const List_User = () => {
 
   /********** update data **********/
   const [updateuserID, setUpdateUserID] = useState("");
-  const [updateUsername, setupdateUserName] = useState("");
-  const [updatePassword, setupdatePassword] = useState("");
-  const [updateConfirmPassword, setupdateConfirmPassword] = useState("");
   const [updateName, setUpdateName] = useState("");
   const [updateLastName, setUpdateLastName] = useState("");
   const [updateRoleID, setUpdateRoleID] = useState();
   const [updateChecked, setUpdateChecked] = useState(false);
-  const [checkedUpdatePassword, setcheckedUpdatePassword] = useState(false);
   /*********************************/
 
   /*********** refresh token ***********/
@@ -257,6 +254,7 @@ export const List_User = () => {
                                                   <th>ชื่อ</th>
                                                   <th>นามสกุล</th>
                                                   <th>แก้ไขข้อมูล</th>
+                                                  <th>เปลี่ยนรหัสผ่าน</th>
                                                   <th>Active</th>
                                               </tr>
                                           </thead>
@@ -272,7 +270,6 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
-                                                                    setupdateUserName(listUsers.username)
                                                                     setUpdateUserID(listUsers.id)
                                                                     setUpdateName(listUsers.name)
                                                                     setUpdateLastName(listUsers.last_name)
@@ -286,6 +283,11 @@ export const List_User = () => {
                                                                   </Button>
                                                               </Link>
                                                           </center>
+                                                      </td>
+                                                      <td>
+                                                          <Button className='btn btn-block btn-info'>
+                                                            เปลี่ยนรหัสผ่าน
+                                                          </Button>
                                                       </td>
                                                       <td>
                                                           <center>
@@ -494,7 +496,7 @@ export const List_User = () => {
                           </div>
                           <div className="form-group row">
                               <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
-                              <div className="col-sm-8 col-form-label">
+                              <div className="col-sm-8 col-form-label ">
                                   <input
                                       type="checkbox"
                                       id="custom-switch"
@@ -503,60 +505,11 @@ export const List_User = () => {
                                           setUpdateChecked(!updateChecked);
                                       }}
                                   />
-                              </div>
-                          </div>
-                          <hr />
-                          <div className="form-group row">
-                              <Form.Label className="col-sm-4 col-form-label">เปลี่ยนรหัสผ่าน</Form.Label>
-                              <div className="col-sm-8 col-form-label">
-                                  <input
-                                      type="checkbox"
-                                      id="custom-switch"
-                                  />
-                              </div>
-                          </div>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="Username"
-                                  value={updateUsername}
-                                  disabled
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-user" />
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Password"
-                                  value={updatePassword}
-                                  disabled={!checkedUpdatePassword}
-                                  onChange={(e) => setupdatePassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="input-group mb-3 ">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Confirm password"
-                                  value={updateConfirmPassword}
-                                  disabled={!checkedUpdatePassword}
-                                  onChange={(e) => setupdateConfirmPassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
+
+                                 <Switch onChange={() => {
+                                          setUpdateChecked(!updateChecked);
+                                      }} 
+                                      checked={updateChecked} />
                               </div>
                           </div>
                       </div>
