@@ -33,6 +33,7 @@ export const getUsersByDev = async(req, res) => {
         const GroupUser = await db.query(
             "SELECT (@row_number:=coalesce(@row_number,0) + 1) AS row_num,"+
             "user.id,"+
+            "user.username,"+
 	        "user.name,"+
             "user.last_name,"+
             "role_group.id as group_id,"+
@@ -57,6 +58,7 @@ export const getUsersByAdmin = async(req, res) => {
         const GroupUser = await db.query(
             "SELECT (@row_number:=coalesce(@row_number,0) + 1) AS row_num,"+
             "user.id,"+
+            "user.username,"+
 	        "user.name,"+
             "user.last_name,"+
             "role_group.id as group_id,"+
