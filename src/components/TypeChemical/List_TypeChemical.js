@@ -26,6 +26,7 @@ const List_Chemical = () => {
 
   const handleChange = nextChecked => {
     setChecked(nextChecked);
+    console.log("Check : "+checked)
   };
 
   const AddTypeChemical = async (e) => {
