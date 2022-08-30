@@ -500,7 +500,7 @@ export const List_User = () => {
                                   <input
                                       type="checkbox"
                                       id="custom-switch"
-                                      data-bootstrap-switch=""
+                                      data-bootstrap-switch
                                       checked={updateChecked}
                                       onChange={() => {
                                           setUpdateChecked(!updateChecked);
