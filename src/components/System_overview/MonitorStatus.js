@@ -8,7 +8,7 @@ const MonitorStatus = () => {
   const [dataNamePlant, setDataNamePlant] = useState([]);
   const [dataUserPlant, setDataUserPlant] = useState([]);
   const [dataZonePlant, setDataZonePlant] = useState([]);
-  const [dashBoardSumStatus, setDashBoardSumStatus] = useState([]);
+  
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -38,28 +38,34 @@ const MonitorStatus = () => {
     setDataZonePlant(response.data);
   };
 
+  const [COMPLETION, setCOMPLETION] = useState([]);
+  const [Waning, setWaning] = useState([]);
+  const [Danger, setDanger] = useState([]);
+
   const getDashBoardSumStatus = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/DashBoardSumStatus`
     );
-    setDashBoardSumStatus(response.data);
 
     var COMPLETION_ = response.data
       .map((sum) => sum.COMPLETION_)
       .reduce((sum2, sum) => sum + sum2);
 
+    setCOMPLETION(COMPLETION_);
     console.log("COMPLETION_ : " + COMPLETION_);
 
     var Waning_ = response.data
       .map((sum) => sum.Waning_)
       .reduce((sum2, sum) => sum + sum2);
 
+    setWaning(Waning_);
     console.log("Waning_ : " + Waning_);
 
     var Danger_ = response.data
       .map((sum) => sum.Danger_)
       .reduce((sum2, sum) => sum + sum2);
 
+    setDanger(Danger_);
     console.log("Danger_ : " + Danger_);
   };
 
@@ -102,7 +108,9 @@ const MonitorStatus = () => {
                           <span className="info-box-text">
                             สถานะที่เสร็จสิ้นเเล้ว
                           </span>
-                          <span className="info-box-number">200 แปลง</span>
+                          <span className="info-box-number">
+                            {COMPLETION} แปลง
+                          </span>
                           <div className="progress">
                             <div
                               className="progress-bar"
@@ -124,7 +132,7 @@ const MonitorStatus = () => {
                           <span className="info-box-text">
                             สถานะกำลังดำเนินการ
                           </span>
-                          <span className="info-box-number">99 แปลง</span>
+                          <span className="info-box-number">{Waning} แปลง</span>
                           <div className="progress">
                             <div
                               className="progress-bar"
@@ -146,7 +154,7 @@ const MonitorStatus = () => {
                           <span className="info-box-text">
                             สถานะเกินเวลาที่กำหนด
                           </span>
-                          <span className="info-box-number">1 แปลง</span>
+                          <span className="info-box-number">{Danger} แปลง</span>
                           <div className="progress">
                             <div
                               className="progress-bar"
