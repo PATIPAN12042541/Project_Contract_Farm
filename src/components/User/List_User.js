@@ -116,6 +116,7 @@ export const List_User = () => {
                 });
                 Nav("/ListUser");
                 getListUser();
+                handleCloseUpdate()
             } catch (error) {
                 Swal.fire({
                     icon: "error",
