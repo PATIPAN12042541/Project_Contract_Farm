@@ -493,7 +493,7 @@ export const List_User = () => {
                           </div>
                           <div className="form-group row">
                               <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
-                              <div className="col-sm-8 col-form-label">
+                              <div className="col-sm-8 col-form-label bootstrap-switch-container">
                                   <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style={{width:"42px"}}>ON</span>
                                   <span class="bootstrap-switch-label" style={{width: "42px"}}> &nbsp;</span>
                                   <span class="bootstrap-switch-handle-off bootstrap-switch-default" style={{width: "42px"}}>OFF</span>
