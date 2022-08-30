@@ -117,6 +117,7 @@ const SidebarRole = () => {
           <div className="info">
             <a href="/contract_farm" className="d-block">
               {name} {last_name}
+              <List_User />
             </a>
           </div>
         </div>
