@@ -127,7 +127,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: COMPLETION_PER+"%" }}
+                              style={{ width: COMPLETION_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
@@ -149,7 +149,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "29%" }}
+                              style={{ width: Waning_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
@@ -171,7 +171,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "1%" }}
+                              style={{ width: Danger_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
