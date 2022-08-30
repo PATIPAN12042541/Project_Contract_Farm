@@ -8,13 +8,13 @@ const MonitorStatus = () => {
   const [dataNamePlant, setDataNamePlant] = useState([]);
   const [dataUserPlant, setDataUserPlant] = useState([]);
   const [dataZonePlant, setDataZonePlant] = useState([]);
+  const [dashBoardSumStatus, setDashBoardSumStatus] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
-    sumDataArrayPlant(response.data);
   };
 
   const getDataNamePlant = async () => {
@@ -38,8 +38,12 @@ const MonitorStatus = () => {
     setDataZonePlant(response.data);
   };
 
-  const sumDataArrayPlant = async (d) => {
-    console.log(d);
+  const getDashBoardSumStatus = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/zoneplant/DashBoardSumStatus`
+    );
+    setDashBoardSumStatus(response.data);
+    console.log(response.data);
   };
 
   useEffect(() => {
@@ -47,6 +51,7 @@ const MonitorStatus = () => {
     getDataNamePlant();
     getDataUserPlant();
     getDataZonePlant();
+    getDashBoardSumStatus();
   }, []);
 
   return (
