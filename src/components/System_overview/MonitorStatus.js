@@ -244,14 +244,18 @@ const MonitorStatus = () => {
                                             เสร็จสิ้น
                                           </div>
                                         ) : (
-                                          <div>กำลังดำเนินการ</div>
+                                          <div className="waning-data">
+                                            กำลังดำเนินการ
+                                          </div>
                                         )
                                       ) : data.harvest_status == "0" ? (
                                         <div className="saccess-data">
                                           เสร็จสิ้น
                                         </div>
                                       ) : (
-                                        <div>กำลังดำเนินการ</div>
+                                        <div className="waning-data">
+                                          กำลังดำเนินการ
+                                        </div>
                                       )}
                                     </div>
                                   ) : data.status_plant == "2" ? (
@@ -263,9 +267,11 @@ const MonitorStatus = () => {
                                         "YYYY-MM-DD"
                                       ) > data.end_date_plant &&
                                       data.status_Fertilizer !== "0" ? (
-                                      <div>หมดเวลา</div>
+                                      <div className="danger-data">หมดเวลา</div>
                                     ) : (
-                                      <div>กำลังดำเนินการ</div>
+                                      <div className="waning-data">
+                                        กำลังดำเนินการ
+                                      </div>
                                     )
                                   ) : data.status_plant == "3" ? (
                                     data.status_chemical == "0" ? (
@@ -276,9 +282,11 @@ const MonitorStatus = () => {
                                         "YYYY-MM-DD"
                                       ) > data.end_date_plant &&
                                       data.status_chemical !== "0" ? (
-                                      <div>หมดเวลา</div>
+                                      <div className="danger-data">หมดเวลา</div>
                                     ) : (
-                                      <div>กำลังดำเนินการ</div>
+                                      <div className="waning-data">
+                                        กำลังดำเนินการ
+                                      </div>
                                     )
                                   ) : (
                                     ""
