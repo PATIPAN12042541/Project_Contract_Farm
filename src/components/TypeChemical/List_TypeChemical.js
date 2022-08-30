@@ -24,11 +24,6 @@ const List_Chemical = () => {
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
-  const handleChange = nextChecked => {
-    setChecked(!nextChecked);
-    console.log("Check : "+checked)
-  };
-
   const AddTypeChemical = async (e) => {
     e.preventDefault();
     if (typeChemical == "") {
@@ -243,8 +238,9 @@ const List_Chemical = () => {
                 </Form.Label>
                 <div className="col-sm-8 col-form-label">
                   <Switch
-                    onChange={handleChange}
-                    checked={checked}
+                    onChange={() => {
+                      setChecked(!checked);
+                    }}
                     className="react-switch"
                   />
                   <input
