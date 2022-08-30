@@ -43,9 +43,8 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/DashBoardSumStatus`
     );
     setDashBoardSumStatus(response.data);
-    console.log(
-      dashBoardSumStatus.reduce((sum, data) => (sum = sum + data.Waning_), 0)
-    );
+    let summarize = response.reduce((SUM, data) => SUM + data.Waning_, 0);
+    console.log(summarize);
   };
 
   useEffect(() => {
