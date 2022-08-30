@@ -183,7 +183,7 @@ const MonitorStatus = () => {
                   </div>
                   <div className="row">
                     <div className="col-3">
-                      <center>รหัสโซนเพาะปลูก</center>
+                      {/* <center>รหัสโซนเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         {dataZonePlant.map((dataZone, index) => {
@@ -193,10 +193,10 @@ const MonitorStatus = () => {
                             </option>
                           );
                         })}
-                      </select>
+                      </select> */}
                     </div>
                     <div className="col-3">
-                      <center>ชนิดเเปลงเพาะปลูก</center>
+                      {/* <center>ชนิดเเปลงเพาะปลูก</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         {dataNamePlant.map((dataPlant, index) => {
@@ -206,10 +206,10 @@ const MonitorStatus = () => {
                             </option>
                           );
                         })}
-                      </select>
+                      </select> */}
                     </div>
                     <div className="col-3">
-                      <center>ชื่อผู้รับผิดชอบ</center>
+                      {/* <center>ชื่อผู้รับผิดชอบ</center>
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         {dataUserPlant.map((dataUser, index) => {
@@ -219,7 +219,7 @@ const MonitorStatus = () => {
                             </option>
                           );
                         })}
-                      </select>
+                      </select> */}
                     </div>
                     <div className="col-3">
                       <center>สถานะ</center>
