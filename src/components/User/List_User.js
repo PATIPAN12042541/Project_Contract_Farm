@@ -70,7 +70,8 @@ export const List_User = () => {
                 Nav("/");
             }
         }
-    }; // eslint-disable-line react-hooks/exhaustive-deps
+        // eslint-disable-line react-hooks/exhaustive-deps
+    };
 
     //List User
     const getListUser = async (role_id) => {
