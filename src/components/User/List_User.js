@@ -521,6 +521,7 @@ export const List_User = () => {
                                   className="form-control disable"
                                   placeholder="Username"
                                   value={updateUsername}
+                                  disabled
                               />
                               <div className="input-group-append">
                                   <div className="input-group-text">
