@@ -196,14 +196,16 @@ const MonitorStatus = () => {
                     <table className="table table-bordered">
                       <thead>
                         <tr>
-                          <th style={{ width: "10px" }}>#</th>
-                          <th>รหัสโซน</th>
-                          <th>รหัสเเปลง</th>
-                          <th>แปลงเพาะปลูก</th>
-                          <th>ผู้ดูเเล</th>
-                          <th>สถานะ</th>
-                          <th>ความคืบหน้า</th>
-                          <th>เปอร์เซ็น</th>
+                          <center>
+                            <th style={{ width: "10px" }}>#</th>
+                            <th>รหัสโซน</th>
+                            <th>รหัสเเปลง</th>
+                            <th>แปลงเพาะปลูก</th>
+                            <th>ผู้ดูเเล</th>
+                            <th>สถานะ</th>
+                            <th>ความคืบหน้า</th>
+                            <th>เปอร์เซ็น</th>
+                          </center>
                         </tr>
                       </thead>
                       {getstatusDetail.map((data, index) => {
