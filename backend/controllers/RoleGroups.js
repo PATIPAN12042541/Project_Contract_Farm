@@ -27,14 +27,7 @@ export const getRole = async (req, res) => {
 
 export const getRoleByAdmin = async (req, res) => {
     try {
-        const rolegroups = await RoleGroup.findAll({
-            where:{
-                /*id : req.params.id*/
-                id:{
-                    [id.notIn]:[1],
-                }
-            }
-        });
+        const rolegroups = await RoleGroup.findAll();
         res.json(rolegroups);
     } catch (error) {
         res.json({ message: error.message });
