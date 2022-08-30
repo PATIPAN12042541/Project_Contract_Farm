@@ -497,19 +497,13 @@ export const List_User = () => {
                           <div className="form-group row">
                               <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
                               <div className="col-sm-8 col-form-label ">
-                                  <input
-                                      type="checkbox"
-                                      id="custom-switch"
-                                      checked={updateChecked}
+                                  <Switch
                                       onChange={() => {
-                                          setUpdateChecked(!updateChecked);
-                                      }}
+                                        setUpdateChecked(!updateChecked);
+                                    }}
+                                      checked={updateChecked}
+                                      className="react-switch"
                                   />
-
-                                 <Switch onChange={() => {
-                                          setUpdateChecked(!updateChecked);
-                                      }} 
-                                      checked={updateChecked} />
                               </div>
                           </div>
                       </div>

@@ -9,6 +9,7 @@ import Form from "react-bootstrap/Form";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
+import Switch from "react-switch";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -236,10 +237,18 @@ const List_Chemical = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-8 col-form-label">
+                  <Switch
+                    onChange={() => {
+                      setChecked(!checked);
+
+                      console.log("Check : "+checked)
+                    }}
+                    className="react-switch"
+                  />
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    onChange={(e) => {
+                    onChange={() => {
                       setChecked(!checked);
                     }}
                   />
