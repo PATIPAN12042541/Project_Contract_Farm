@@ -37,7 +37,6 @@ export const List_User = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState();
-  const [roleName, setRoleName] = useState();
   /*************************************/
 
   /********** update data **********/
@@ -45,7 +44,6 @@ export const List_User = () => {
   const [updateName, setUpdateName] = useState("");
   const [updateLastName, setUpdateLastName] = useState("");
   const [updateRoleID, setUpdateRoleID] = useState();
-  const [updateRoleName, setUpdateRoleName] = useState();
   const [updateChecked, setUpdateChecked] = useState(false);
   /*********************************/
 
@@ -81,6 +79,7 @@ export const List_User = () => {
                     });
                     Nav("/ListUser");
                     getListUser();
+                    handleCloseInsert();
                 })
                 .catch(function (error) {
                     Swal.fire({
@@ -234,7 +233,6 @@ export const List_User = () => {
                                                                     setUpdateName(listUsers.name)
                                                                     setUpdateLastName(listUsers.last_name)
                                                                     setUpdateRoleID(listUsers.group_id)
-                                                                    setUpdateRoleName(listUsers.group_name)
                                                                     setUpdateChecked(listUsers.status)
                                                                   }}
                                                                       variant="warning"
