@@ -64,7 +64,7 @@ export const List_User = () => {
             const decoded = jwt_decode(response.data.accessToken);
 
             getListUser(decoded.role_id);
-
+            getRole(decoded.role_id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -159,12 +159,20 @@ export const List_User = () => {
     }
 
     //Drop Down Role
-    const getRole = async () => {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/role_group/roleAll`
-        );
-        //const response = await axios.get("http://localhost:4000/role_group");
-        setRoleGroup(response.data);
+    const getRole = async (role_id) => {
+        if(role_id === 1){
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+              );
+              //const response = await axios.get("http://localhost:4000/role_group");
+              setRoleGroup(response.data);
+        }else{
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/role_group/roleByAdmin`
+              );
+              //const response = await axios.get("http://localhost:4000/role_group");
+              setRoleGroup(response.data);
+        }
       };
 
     // Search Item
