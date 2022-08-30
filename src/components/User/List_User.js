@@ -49,7 +49,7 @@ export const List_User = ({role_id}) => {
   /*********************************/
 
   /*************** set Role From Token **************/
-  const [roleTokenID, setRoleTokenID] = useState();
+  const [roleTokenID, setRoleTokenID] = useState("");
   const [token,setToken] = useState();
   /**************************************************/
 
@@ -66,6 +66,7 @@ export const List_User = ({role_id}) => {
             const decoded = jwt_decode(response.data.accessToken);
             setRoleTokenID(decoded.role_id);
 
+            console.log("decoded.role_id : "+decoded.role_id);
             console.log("Role : "+roleTokenID);
         } catch (error) {
             if (error.response) {
