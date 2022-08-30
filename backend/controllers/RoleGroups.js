@@ -27,9 +27,10 @@ export const getRole = async (req, res) => {
 
 export const getRoleByAdmin = async (req, res) => {
     try {
+        const { Op } = Sequelize;
         const rolegroups = await RoleGroup.findAll({
             where:{
-                id:{[DataTypes.notIn]:[1]}
+                id:{[Op.notIn]:[1]}
             }
         });
         res.json(rolegroups);
