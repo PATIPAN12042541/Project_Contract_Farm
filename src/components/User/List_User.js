@@ -208,7 +208,7 @@ export const List_User = () => {
     refreshToken();
     getListUser();
     getRole();
-    // eslint-disable-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   return (
       <div className="content-wrapper">
