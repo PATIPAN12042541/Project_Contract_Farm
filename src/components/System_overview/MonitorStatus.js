@@ -5,10 +5,9 @@ import "../CSS/MonitorStatus.css";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
-  const [dataNamePlant, setDataNamePlant] = useState([]);
-  const [dataUserPlant, setDataUserPlant] = useState([]);
-  const [dataZonePlant, setDataZonePlant] = useState([]);
-  
+  // const [dataNamePlant, setDataNamePlant] = useState([]);
+  // const [dataUserPlant, setDataUserPlant] = useState([]);
+  // const [dataZonePlant, setDataZonePlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -17,26 +16,26 @@ const MonitorStatus = () => {
     setStatusDetail(response.data);
   };
 
-  const getDataNamePlant = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
-    );
-    setDataNamePlant(response.data);
-  };
+  // const getDataNamePlant = async () => {
+  //   const response = await axios.get(
+  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
+  //   );
+  //   setDataNamePlant(response.data);
+  // };
 
-  const getDataUserPlant = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant/DataUserPlant`
-    );
-    setDataUserPlant(response.data);
-  };
+  // const getDataUserPlant = async () => {
+  //   const response = await axios.get(
+  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataUserPlant`
+  //   );
+  //   setDataUserPlant(response.data);
+  // };
 
-  const getDataZonePlant = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/zoneplant/DataZonePlant`
-    );
-    setDataZonePlant(response.data);
-  };
+  // const getDataZonePlant = async () => {
+  //   const response = await axios.get(
+  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataZonePlant`
+  //   );
+  //   setDataZonePlant(response.data);
+  // };
 
   const [COMPLETION, setCOMPLETION] = useState([]);
   const [Waning, setWaning] = useState([]);
@@ -84,9 +83,9 @@ const MonitorStatus = () => {
 
   useEffect(() => {
     getPlantStatus();
-    getDataNamePlant();
-    getDataUserPlant();
-    getDataZonePlant();
+    // getDataNamePlant();
+    // getDataUserPlant();
+    // getDataZonePlant();
     getDashBoardSumStatus();
   }, []);
 
@@ -222,7 +221,7 @@ const MonitorStatus = () => {
                       </select> */}
                     </div>
                     <div className="col-3">
-                      <center>สถานะ</center>
+                      สถานะ
                       <select className="custom-select form-control-border">
                         <option>----เลือกข้อมูล----</option>
                         <option value={1}>หมดเวลา</option>
