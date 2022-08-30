@@ -57,7 +57,7 @@ const MonitorStatus = () => {
     console.log("Waning_ : " + Waning_);
 
     var Danger_ = response.data
-      .map((sum) => sum.Waning_)
+      .map((sum) => sum.Danger_)
       .reduce((sum2, sum) => sum + sum2);
 
     console.log("Danger_ : " + Danger_);
