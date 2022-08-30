@@ -254,6 +254,9 @@ const List_Chemical = () => {
                       setChecked(!checked);
                     }}
                   />
+                  <p>
+        The switch is <span>{checked ? "on" : "off"}</span>.
+      </p>
                 </div>
               </div>
             </div>
