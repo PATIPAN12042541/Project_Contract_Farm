@@ -1,5 +1,6 @@
 import RoleGroup from "../models/RoleGroup.js"
 import db from "../config/Database.js"
+const { Op } = require("sequelize");
 
 export const createTypeRole = async(req, res) => {
     const { role_group_name,status } = req.body;
@@ -27,7 +28,6 @@ export const getRole = async (req, res) => {
 
 export const getRoleByAdmin = async (req, res) => {
     try {
-        const { Op } = require("sequelize");
         const rolegroups = await RoleGroup.findAll({
             where:{
                 /*id : req.params.id*/
