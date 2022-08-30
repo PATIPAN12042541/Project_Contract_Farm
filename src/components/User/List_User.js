@@ -444,6 +444,7 @@ export const List_User = () => {
                                   className="form-control"
                                   defaultValue={updateRoleName}
                                   onChange={(e) => {
+                                      setUpdateRoleID(e.target.id);
                                       setUpdateRoleName(e.target.value);
                                   }}
                               >
