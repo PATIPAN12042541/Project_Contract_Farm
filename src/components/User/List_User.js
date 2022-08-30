@@ -182,7 +182,7 @@ export const List_User = () => {
                                   style={{ backgroundColor: "#8CC152" }}
                               >
                                   <center>
-                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ {`Hello ${roleid} again!`}</h3>
+                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ</h3>
                                   </center>
                               </div>
                               <div className="card-body">
