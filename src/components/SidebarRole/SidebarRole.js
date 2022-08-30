@@ -164,7 +164,6 @@ const SidebarRole = () => {
             role="menu"
             data-accordion="false"
           ></ul>
-          <List_User roleid={roleid} />
         </nav>
       </div>
     </aside>
