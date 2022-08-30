@@ -449,12 +449,8 @@ export const List_User = () => {
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id}
-                                      onChange={(e)=>{
-                                        setUpdateRoleID(e.key.target.value)
-                                        console.log(item.id)
-                                      }}>
-                                              {item.role_group_name}
+                                      <option key={item.id} value={item.id}>
+                                        {item.role_group_name}
                                       </option>
                                   ))}
                               </select>
