@@ -504,8 +504,6 @@ export const List_User = () => {
                                           setUpdateChecked(!updateChecked);
                                       }}
                                   />
-
-                                    <input id="toggle-event" type="checkbox" data-toggle="toggle" />
                               </div>
                           </div>
                       </div>
