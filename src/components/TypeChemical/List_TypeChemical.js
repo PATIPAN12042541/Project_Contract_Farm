@@ -10,6 +10,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Switch from "react-switch";
+import Image from "react-bootstrap/Image";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
