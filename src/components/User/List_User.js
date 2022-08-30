@@ -444,13 +444,15 @@ export const List_User = () => {
                                   className="form-control"
                                   defaultValue={updateRoleName}
                                   onChange={(e) => {
-                                      setUpdateRoleID(e.target.id);
                                       setUpdateRoleName(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id}>
+                                      <option key={item.id}
+                                      onSelect={()=>{
+                                        setUpdateRoleID(item.id)
+                                      }}>
                                               {item.role_group_name}
                                       </option>
                                   ))}
