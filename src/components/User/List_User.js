@@ -106,7 +106,6 @@ export const List_User = () => {
                 console.log("name : "+updateName)
                 console.log("lastName : "+updateLastName)
                 console.log("roleID : "+updateRoleID)
-                console.log("roleName : "+updateRoleName)
                 console.log("status : "+updateChecked)
                 /*await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
@@ -442,9 +441,9 @@ export const List_User = () => {
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultValue={updateRoleName}
+                                  defaultValue={updateRoleID}
                                   onChange={(e) => {
-                                      setUpdateRoleName(e.target.value);
+                                      setUpdateRoleID(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
