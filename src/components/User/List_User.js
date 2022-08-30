@@ -10,6 +10,7 @@ import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
+import Switch from "react-switch";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -504,6 +505,11 @@ export const List_User = () => {
                                           setUpdateChecked(!updateChecked);
                                       }}
                                   />
+
+                                 <Switch onChange={() => {
+                                          setUpdateChecked(!updateChecked);
+                                      }} 
+                                      checked={updateChecked} />
                               </div>
                           </div>
                       </div>
