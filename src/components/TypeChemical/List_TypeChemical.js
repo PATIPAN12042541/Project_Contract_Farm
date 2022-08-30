@@ -238,7 +238,7 @@ const List_Chemical = () => {
                 </Form.Label>
                 <div className="col-sm-8 col-form-label">
                   <Switch
-                    onChange={(e) => {
+                    onChange={() => {
                       setChecked(!checked);
                     }}
                     className="react-switch"
@@ -246,7 +246,7 @@ const List_Chemical = () => {
                   <input
                     type="checkbox"
                     id="custom-switch"
-                    onChange={(e) => {
+                    onChange={() => {
                       setChecked(!checked);
                     }}
                   />
