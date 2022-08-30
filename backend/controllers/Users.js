@@ -104,10 +104,10 @@ export const getUsersByID = async(req, res) => {
 export const updateUser = async (req, res) => {
     try {
         await Users.update({
-            name: req.params.name,
-            last_name: req.params.lastName,
-            role_id: req.params.roleID,
-            status: req.params.status,
+            name: req.body.name,
+            last_name: req.body.lastName,
+            role_id: req.body.roleID,
+            status: req.body.status,
           }, 
           {
             where: {
@@ -115,7 +115,7 @@ export const updateUser = async (req, res) => {
             }
         });
         res.json({
-            "message": "User Updated "+req.params.id+" "+req.params.name+" "+req.params.lastName+" "+req.params.roleID+" "+req.params.status
+            "message": "User Updated "+req.params.id+" "+req.body.name+" "+req.body.lastName+" "+req.body.roleID+" "+req.body.status
         });
     } catch (error) {
         res.json({ message: error.message });
