@@ -42,6 +42,9 @@ export const List_User = () => {
 
   /********** update data **********/
   const [updateuserID, setUpdateUserID] = useState("");
+  const [updateUsername, setupdateUserName] = useState("");
+  const [updatePassword, setupdatePassword] = useState("");
+  const [updateConfirmPassword, setupdateConfirmPassword] = useState("");
   const [updateName, setUpdateName] = useState("");
   const [updateLastName, setUpdateLastName] = useState("");
   const [updateRoleID, setUpdateRoleID] = useState();
@@ -50,6 +53,7 @@ export const List_User = () => {
 
   /*********** refresh token ***********/
   const [token, setToken] = useState("");
+  const [usernameToken,setUserNameToken] = useState("");
   /*************************************/
 
     const refreshToken = async () => {
@@ -62,7 +66,6 @@ export const List_User = () => {
             );
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
-
             getListUser(decoded.role_id);
             getRole(decoded.role_id);
         } catch (error) {
@@ -269,6 +272,7 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
+                                                                    setupdateUserName(listUsers.username)
                                                                     setUpdateUserID(listUsers.id)
                                                                     setUpdateName(listUsers.name)
                                                                     setUpdateLastName(listUsers.last_name)
@@ -502,6 +506,56 @@ export const List_User = () => {
                               </div>
                           </div>
                           <hr />
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-4 col-form-label">เปลี่ยนรหัสผ่าน</Form.Label>
+                              <div className="col-sm-8 col-form-label">
+                                  <input
+                                      type="checkbox"
+                                      id="custom-switch"
+                                  />
+                              </div>
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control disable"
+                                  placeholder="Username"
+                                  value={updateUsername}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-user" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Password"
+                                  value={updatePassword}
+                                  onChange={(e) => setupdatePassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3 ">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Confirm password"
+                                  value={updateConfirmPassword}
+                                  onChange={(e) => setupdateConfirmPassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
                       </div>
                   </Form>
               </Modal.Body>
