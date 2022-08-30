@@ -53,11 +53,6 @@ export const List_User = () => {
   const [token, setToken] = useState("");
   /*************************************/
 
-
-  const handleChange = nextChecked => {
-    setUpdateChecked(nextChecked);
-  };
-
     const refreshToken = async () => {
         try {
             //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
@@ -502,15 +497,6 @@ export const List_User = () => {
                           <div className="form-group row">
                               <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
                               <div className="col-sm-8 col-form-label ">
-                                  <input
-                                      type="checkbox"
-                                      id="custom-switch"
-                                      checked={updateChecked}
-                                      onChange={() => {
-                                          setUpdateChecked(!updateChecked);
-                                      }}
-                                  />
-
                                   <Switch
                                       onChange={() => {
                                         setUpdateChecked(!updateChecked);
