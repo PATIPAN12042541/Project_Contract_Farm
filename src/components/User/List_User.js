@@ -284,7 +284,9 @@ export const List_User = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                      
+                                                          <Button className='btn btn-block btn-info'>
+                                                            เปลี่ยนรหัสผ่าน
+                                                          </Button>
                                                       </td>
                                                       <td>
                                                           <center>
