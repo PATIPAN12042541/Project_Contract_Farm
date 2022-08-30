@@ -16,6 +16,32 @@ const MonitorStatus = () => {
     setStatusDetail(response.data);
   };
 
+  const searchItems = (searchValue) => {
+    if (searchValue !== "") {
+      if (searchValue == 1) {
+        const filteredData = getstatusDetail.filter(
+          (data) => data.Danger_ === 1
+        );
+
+        setStatusDetail(filteredData);
+      } else if (searchValue == 2) {
+        const filteredData = getstatusDetail.filter(
+          (data) => data.Waning_ === 1
+        );
+
+        setStatusDetail(filteredData);
+      } else if (searchValue == 3) {
+        const filteredData = getstatusDetail.filter(
+          (data) => data.Danger_ === 1
+        );
+
+        setStatusDetail(filteredData);
+      }
+    } else {
+      getPlantStatus();
+    }
+  };
+
   // const getDataNamePlant = async () => {
   //   const response = await axios.get(
   //     `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
@@ -222,7 +248,10 @@ const MonitorStatus = () => {
                     </div>
                     <div className="col-3">
                       สถานะ
-                      <select className="custom-select form-control-border">
+                      <select
+                        className="custom-select form-control-border"
+                        onChange={(e) => searchItems(e.target.value)}
+                      >
                         <option>----เลือกข้อมูล----</option>
                         <option value={1}>หมดเวลา</option>
                         <option value={2}>กำลังดำเนินการ</option>
