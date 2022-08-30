@@ -67,7 +67,7 @@ const MonitorStatus = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                 >
-                  <h3 className="card-title">DashBoard</h3>
+                  <h3 className="card-title">ตรวจสอบสถานะการทำงาน</h3>
                 </div>
                 <div className="card-body">
                   <div className="row">
