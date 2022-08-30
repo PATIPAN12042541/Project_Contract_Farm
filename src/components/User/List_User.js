@@ -49,11 +49,11 @@ export const List_User = () => {
   const [updateLastName, setUpdateLastName] = useState("");
   const [updateRoleID, setUpdateRoleID] = useState();
   const [updateChecked, setUpdateChecked] = useState(false);
+  const [checkedUpdatePassword, setcheckedUpdatePassword] = useState(false);
   /*********************************/
 
   /*********** refresh token ***********/
   const [token, setToken] = useState("");
-  const [usernameToken,setUserNameToken] = useState("");
   /*************************************/
 
     const refreshToken = async () => {
@@ -518,7 +518,7 @@ export const List_User = () => {
                           <div className="input-group mb-3">
                               <input
                                   type="text"
-                                  className="form-control disable"
+                                  className="form-control"
                                   placeholder="Username"
                                   value={updateUsername}
                                   disabled
@@ -535,6 +535,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Password"
                                   value={updatePassword}
+                                  disabled={!checkedPassword}
                                   onChange={(e) => setupdatePassword(e.target.value)}
                               />
                               <div className="input-group-append">
@@ -549,6 +550,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Confirm password"
                                   value={updateConfirmPassword}
+                                  disabled={!checkedPassword}
                                   onChange={(e) => setupdateConfirmPassword(e.target.value)}
                               />
                               <div className="input-group-append">
