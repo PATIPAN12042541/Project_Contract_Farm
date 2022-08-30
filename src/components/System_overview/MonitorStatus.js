@@ -44,10 +44,7 @@ const MonitorStatus = () => {
     );
     setDashBoardSumStatus(response.data);
     console.log(
-      dashBoardSumStatus.reduce(
-        (sum, data) => (sum = sum + data.COMPLETION_),
-        0
-      )
+      dashBoardSumStatus.reduce((sum, data) => (sum = sum + data.Waning_), 0)
     );
   };
 
