@@ -25,7 +25,7 @@ const List_Chemical = () => {
   const navigate = useNavigate();
 
   const handleChange = nextChecked => {
-    setChecked(nextChecked);
+    setChecked(!nextChecked);
     console.log("Check : "+checked)
   };
 
