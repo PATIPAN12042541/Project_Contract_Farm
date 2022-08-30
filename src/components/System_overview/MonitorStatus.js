@@ -32,7 +32,7 @@ const MonitorStatus = () => {
         setStatusDetail(filteredData);
       } else if (searchValue == 3) {
         const filteredData = getstatusDetail.filter(
-          (data) => data.Danger_ === 1
+          (data) => data.COMPLETION_ === 1
         );
 
         setStatusDetail(filteredData);
