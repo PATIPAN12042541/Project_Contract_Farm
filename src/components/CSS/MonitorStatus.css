@@ -1,3 +1,11 @@
 .saccess-data {
-    color: green
+    color: #28a745 !important;
+    }
+    
+    .danger-data {
+        color: red;
+    }
+    
+    .waning-data {
+        color: #ffc107 !important
 }
