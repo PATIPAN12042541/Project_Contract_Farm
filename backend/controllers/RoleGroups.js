@@ -1,6 +1,5 @@
 import RoleGroup from "../models/RoleGroup.js"
 import db from "../config/Database.js"
-const { Op } = require("sequelize");
 
 export const createTypeRole = async(req, res) => {
     const { role_group_name,status } = req.body;
@@ -32,7 +31,7 @@ export const getRoleByAdmin = async (req, res) => {
             where:{
                 /*id : req.params.id*/
                 id:{
-                    [Op.notIn]:[1],
+                    [id.notIn]:[1],
                 }
             }
         });
