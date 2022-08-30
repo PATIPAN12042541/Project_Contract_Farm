@@ -8,8 +8,8 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
-import Switch from "react-switch";
 import Pagination from "../Pagination/Pagination.js";
+import Switch from "react-switch";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -242,6 +242,13 @@ const List_Chemical = () => {
                       setChecked(!checked);
                     }}
                     className="react-switch"
+                  />
+                  <input
+                    type="checkbox"
+                    id="custom-switch"
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
                   />
                 </div>
               </div>
