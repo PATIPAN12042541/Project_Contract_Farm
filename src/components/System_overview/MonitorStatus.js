@@ -269,7 +269,9 @@ const MonitorStatus = () => {
                                       data.status_Fertilizer !== "0" ? (
                                       <div className="danger-data">หมดเวลา</div>
                                     ) : (
-                                      <div>กำลังดำเนินการ</div>
+                                      <div className="waning-data">
+                                        กำลังดำเนินการ
+                                      </div>
                                     )
                                   ) : data.status_plant == "3" ? (
                                     data.status_chemical == "0" ? (
