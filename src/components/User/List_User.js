@@ -13,7 +13,7 @@ import '../Pagination/style.scss';
 
 let PageSize = 5;
 
-export const List_User = ({user_name}) => {
+export const List_User = ({role_id}) => {
   const [listUsers, setListUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
@@ -182,7 +182,7 @@ export const List_User = ({user_name}) => {
                                   style={{ backgroundColor: "#8CC152" }}
                               >
                                   <center>
-                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ {user_name}</h3>
+                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ {role_id}</h3>
                                   </center>
                               </div>
                               <div className="card-body">

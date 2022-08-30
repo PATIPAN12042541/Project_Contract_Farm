@@ -267,7 +267,7 @@ function App() {
                 <>
                   <Header />
                   <SidebarRole />
-                  <List_User user_name="test"/>
+                  <List_User />
                   <Footer />
                 </>
               }
