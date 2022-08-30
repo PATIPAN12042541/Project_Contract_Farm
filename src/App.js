@@ -36,7 +36,6 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import MonitorStatus from "./components/System_overview/MonitorStatus";
 
-
 function App() {
 
   return (
