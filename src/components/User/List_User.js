@@ -13,7 +13,7 @@ import '../Pagination/style.scss';
 
 let PageSize = 5;
 
-export const List_User = () => {
+export const List_User = ({user_name}) => {
   const [listUsers, setListUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
