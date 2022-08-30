@@ -105,6 +105,8 @@ export const List_User = () => {
             try {
                 console.log("name : "+updateName)
                 console.log("lastName : "+updateLastName)
+                console.log("roleID : "+updateRoleID)
+                console.log("status : "+updateChecked)
                 /*await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
                     name: updateName,
