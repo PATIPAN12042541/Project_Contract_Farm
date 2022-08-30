@@ -1,4 +1,4 @@
-import React,{ useState, useEffect ,useMemo} from 'react'
+import React,{ useState, useEffect ,useMemo, useContext} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
@@ -9,6 +9,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import Image from "react-bootstrap/Image";
+import jwt_decode from "jwt-decode";
 import '../Pagination/style.scss';
 
 let PageSize = 5;
@@ -47,12 +48,43 @@ export const List_User = () => {
   const [updateChecked, setUpdateChecked] = useState(false);
   /*********************************/
 
+  /*********** refresh token ***********/
+  const [token, setToken] = useState("");
+  /*************************************/
+
+    const refreshToken = async () => {
+        try {
+            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+
+            // const response = await axios.get("http://localhost:4000/user/token");
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/user/token`
+            );
+            setToken(response.data.accessToken);
+            const decoded = jwt_decode(response.data.accessToken);
+
+            getListUser(decoded.role_id);
+
+        } catch (error) {
+            if (error.response) {
+                Nav("/");
+            }
+        }
+    };
+
     //List User
-    const getListUser = async () => {
-        const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
-        );
-        setListUsers(response.data);
+    const getListUser = async (role_id) => {
+        if(role_id === 1){
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
+            );
+            setListUsers(response.data);
+        }else{
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
+            );
+            setListUsers(response.data);
+        }
     };
 
     // Register User
@@ -144,17 +176,14 @@ export const List_User = () => {
             })
             setFilteredResults(filteredData);
             setCurrentPage(1);
-            console.log(filteredData);
         }
         else {
             setListUsers(listUsers);
-            console.log(listUsers);
         }
 }
   
   // Pageing
     const currentTableData = useMemo(() => {
-        console.log(currentPage);
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
 
@@ -167,6 +196,7 @@ export const List_User = () => {
     }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    refreshToken();
     getListUser();
     getRole();
   },[]);

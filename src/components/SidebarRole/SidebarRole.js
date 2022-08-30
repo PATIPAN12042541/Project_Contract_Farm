@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -18,6 +18,7 @@ const SidebarRole = () => {
   const [menurole, setMenuRole] = useState([]);
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
+
   
   useEffect(() => {
     refreshToken();
@@ -59,8 +60,6 @@ const SidebarRole = () => {
       `${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}`
     );
     setSubMenusRole(sublv1.data);
-
-    //console.log(sublv1.data);
   };
 
   const axiosJWT = axios.create();
