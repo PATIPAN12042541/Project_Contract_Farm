@@ -42,6 +42,9 @@ const MonitorStatus = () => {
   const [Waning, setWaning] = useState([]);
   const [Danger, setDanger] = useState([]);
   const [count_, setCount_] = useState([]);
+  const [COMPLETION_PER, setCOMPLETIONPER] = useState([]);
+  const [Waning_PER, setWaningPer] = useState([]);
+  const [Danger_PER, setDangerPer] = useState([]);
 
   const getDashBoardSumStatus = async () => {
     const response = await axios.get(
@@ -57,17 +60,26 @@ const MonitorStatus = () => {
 
     setCOMPLETION(COMPLETION_);
 
+    let COMPLETION_percent = (COMPLETION_ / countdata) * 100;
+    setCOMPLETIONPER(COMPLETION_percent);
+
     var Waning_ = response.data
       .map((sum) => sum.Waning_)
       .reduce((sum2, sum) => sum + sum2);
 
     setWaning(Waning_);
 
+    let Waning_percent = (Waning_ / countdata) * 100;
+    setWaningPer(Waning_percent);
+
     var Danger_ = response.data
       .map((sum) => sum.Danger_)
       .reduce((sum2, sum) => sum + sum2);
 
     setDanger(Danger_);
+
+    let Danger_percent = (Danger_ / countdata) * 100;
+    setDangerPer(Danger_percent);
   };
 
   useEffect(() => {
@@ -115,7 +127,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "70%" }}
+                              style={{ width: COMPLETION_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
@@ -137,7 +149,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "29%" }}
+                              style={{ width: Waning_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
@@ -159,7 +171,7 @@ const MonitorStatus = () => {
                           <div className="progress">
                             <div
                               className="progress-bar"
-                              style={{ width: "1%" }}
+                              style={{ width: Danger_PER + "%" }}
                             ></div>
                           </div>
                           <span className="progress-description">
