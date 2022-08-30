@@ -505,60 +505,6 @@ export const List_User = () => {
                                   />
                               </div>
                           </div>
-                          <hr />
-                          <div className="form-group row">
-                              <Form.Label className="col-sm-4 col-form-label">เปลี่ยนรหัสผ่าน</Form.Label>
-                              <div className="col-sm-8 col-form-label">
-                                  <input
-                                      type="checkbox"
-                                      id="custom-switch"
-                                  />
-                              </div>
-                          </div>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="Username"
-                                  value={updateUsername}
-                                  disabled
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-user" />
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Password"
-                                  value={updatePassword}
-                                  disabled={!checkedUpdatePassword}
-                                  onChange={(e) => setupdatePassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="input-group mb-3 ">
-                              <input
-                                  type="password"
-                                  className="form-control"
-                                  placeholder="Confirm password"
-                                  value={updateConfirmPassword}
-                                  disabled={!checkedUpdatePassword}
-                                  onChange={(e) => setupdateConfirmPassword(e.target.value)}
-                              />
-                              <div className="input-group-append">
-                                  <div className="input-group-text">
-                                      <span className="fas fa-lock" />
-                                  </div>
-                              </div>
-                          </div>
                       </div>
                   </Form>
               </Modal.Body>
