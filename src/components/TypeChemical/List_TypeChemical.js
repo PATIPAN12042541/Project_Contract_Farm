@@ -240,6 +240,8 @@ const List_Chemical = () => {
                   <Switch
                     onChange={() => {
                       setChecked(!checked);
+
+                      console.log("Check : "+checked)
                     }}
                     checked={checked}
                     className="react-switch"
