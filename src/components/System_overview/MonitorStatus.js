@@ -233,7 +233,9 @@ const MonitorStatus = () => {
                               <td>
                                 {data.name} {data.last_name}
                               </td>
-                              <td>{data.status_name}</td>
+                              <td>
+                                <center>{data.status_name}</center>
+                              </td>
                               <td>
                                 <center>
                                   {data.status_plant == "1" ||
