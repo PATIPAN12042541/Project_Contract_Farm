@@ -241,6 +241,7 @@ const List_Chemical = () => {
                     onChange={() => {
                       setChecked(!checked);
                     }}
+                    checked={checked}
                     className="react-switch"
                   />
                   <input
