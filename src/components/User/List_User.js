@@ -48,33 +48,6 @@ export const List_User = ({role_id}) => {
   const [updateChecked, setUpdateChecked] = useState(false);
   /*********************************/
 
-  /*************** set Role From Token **************/
-  const [roleTokenID, setRoleTokenID] = useState("");
-  const [token,setToken] = useState();
-  /**************************************************/
-
-    // Refresh Token
-    const refreshToken = async () => {
-        try {
-            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
-
-            // const response = await axios.get("http://localhost:4000/user/token");
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/user/token`
-            );
-            setToken(response.data.accessToken);
-            const decoded = jwt_decode(response.data.accessToken);
-            setRoleTokenID(decoded.role_id);
-
-            console.log("decoded.role_id : "+decoded.role_id);
-            console.log("Role : "+roleTokenID);
-        } catch (error) {
-            if (error.response) {
-                Nav("/");
-            }
-        }
-    };
-
     //List User
     const getListUser = async () => {
         const response = await axios.get(
@@ -172,17 +145,14 @@ export const List_User = ({role_id}) => {
             })
             setFilteredResults(filteredData);
             setCurrentPage(1);
-            console.log(filteredData);
         }
         else {
             setListUsers(listUsers);
-            console.log(listUsers);
         }
 }
   
   // Pageing
     const currentTableData = useMemo(() => {
-        console.log(currentPage);
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
 
@@ -195,7 +165,6 @@ export const List_User = ({role_id}) => {
     }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    refreshToken();
     getListUser();
     getRole();
   },[]);

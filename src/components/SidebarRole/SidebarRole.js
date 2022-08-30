@@ -40,6 +40,8 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
+
+      <List_User role_id={decoded.role_id} />
     } catch (error) {
       if (error.response) {
         history("/");
@@ -59,8 +61,6 @@ const SidebarRole = () => {
       `${process.env.REACT_APP_API_URL}/menu/sublv1/${role_id}`
     );
     setSubMenusRole(sublv1.data);
-
-    //console.log(sublv1.data);
   };
 
   const axiosJWT = axios.create();
