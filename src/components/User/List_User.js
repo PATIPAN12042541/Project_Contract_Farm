@@ -53,6 +53,11 @@ export const List_User = () => {
   const [token, setToken] = useState("");
   /*************************************/
 
+
+  const handleChange = nextChecked => {
+    setUpdateChecked(nextChecked);
+  };
+
     const refreshToken = async () => {
         try {
             //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
@@ -506,10 +511,13 @@ export const List_User = () => {
                                       }}
                                   />
 
-                                 <Switch onChange={() => {
-                                          setUpdateChecked(!updateChecked);
-                                      }} 
-                                      checked={updateChecked} />
+                                  <Switch
+                                      onChange={() => {
+                                        setUpdateChecked(!updateChecked);
+                                    }}
+                                      checked={updateChecked}
+                                      className="react-switch"
+                                  />
                               </div>
                           </div>
                       </div>
