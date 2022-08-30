@@ -155,6 +155,7 @@ const List_Chemical = () => {
                           <th>
                             <center>แก้ไขข้อมูล</center>
                           </th>
+                          <th>Active</th>
                           {/* <th>ลบข้อมูล</th> */}
                         </tr>
                       </thead>
@@ -175,6 +176,29 @@ const List_Chemical = () => {
                                     <AiFillEdit /> แก้ไขข้อมูล
                                   </Button>
                                 </Link>
+                              </center>
+                            </td>
+                            <td>
+                              <center>
+                                {listChemical.status === 1 ? (
+                                  <Image
+                                    src="../dist/img/symbol_true.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                ) : (
+                                  <Image
+                                    src="../dist/img/symbol_false.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                )}
                               </center>
                             </td>
                             {/* <td>
@@ -244,16 +268,6 @@ const List_Chemical = () => {
                     checked={checked}
                     className="react-switch"
                   />
-                  <input
-                    type="checkbox"
-                    id="custom-switch"
-                    onChange={() => {
-                      setChecked(!checked);
-                    }}
-                  />
-                  <p>
-        The switch is <span>{checked ? "on" : "off"}</span>.
-      </p>
                 </div>
               </div>
             </div>
