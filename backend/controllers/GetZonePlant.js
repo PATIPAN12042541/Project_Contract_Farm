@@ -325,3 +325,42 @@ export const DataZonePlant = async (req, res) => {
     res.json({ message: eror.message });
   }
 };
+
+
+export const DashBoardSumStatus = async (req, res) => {
+  try {
+    const SumStatus = await db.query(
+      " SELECT plant_detail.id as id_plants, " +
+        "       CASE  WHEN status_plant = 1 AND plant_status = 0 THEN  1 " +
+        "             WHEN status_plant = 2 AND (SELECT sum(plant_data_detail_fertilizer.status_check) from plant_data_detail_fertilizer LEFT JOIN plant_detail ON plant_data_detail_fertilizer.id_plant  = plant_detail.id where plant_detail.id = id_plants) = 0 THEN  1 " +
+        "             WHEN status_plant = 3 AND (SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) = 0 THEN  1 " +
+        "             WHEN status_plant = 4 AND harvest_status = 0 THEN 1 " +
+        "             ELSE 0 " +
+        "       END AS COMPLETION_, " +
+        "       CASE  WHEN status_plant = 1 AND plant_status != 0  THEN 1 " +
+        "             WHEN status_plant = 2 AND (SELECT sum(plant_data_detail_fertilizer.status_check) from plant_data_detail_fertilizer LEFT JOIN plant_detail ON plant_data_detail_fertilizer.id_plant  = plant_detail.id where plant_detail.id = id_plants) IS NULL  AND  DATE_FORMAT(NOW(),'%Y-%m-%d') <  end_date_plant  THEN  1 " +
+        "             WHEN status_plant = 3 AND (SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) IS NULL  AND  DATE_FORMAT(NOW(),'%Y-%m-%d') <  end_date_plant THEN  1 " +
+        "             WHEN status_plant = 4 AND harvest_status  != 0  THEN 1 " +
+        "             ELSE 0 " +
+        "         END AS Waning_, " +
+        "         CASE " +
+        "             WHEN status_plant = 2 AND  (SELECT sum(plant_data_detail_fertilizer.status_check) from plant_data_detail_fertilizer LEFT JOIN plant_detail ON plant_data_detail_fertilizer.id_plant  = plant_detail.id where plant_detail.id = id_plants) IS NULL AND  DATE_FORMAT(NOW(),'%Y-%m-%d') >  end_date_plant  THEN  1 " +
+        "             WHEN status_plant = 3 AND  (SELECT sum(plant_data_detail.status_check) from plant_data_detail LEFT JOIN plant_detail ON plant_data_detail.id_plant  = plant_detail.id where plant_detail.id = id_plants) IS NULL  AND  DATE_FORMAT(NOW(),'%Y-%m-%d') >  end_date_plant THEN  1 " +
+        "             ELSE 0 " +
+        "        END AS Danger_ " +
+        " FROM zone_plant  " +
+        " LEFT JOIN plant_detail ON zone_plant.id =plant_detail.id_zone " +
+        " LEFT JOIN plant ON plant_detail.id = plant.id_plant " +
+        " LEFT JOIN user ON  plant.id_user =  user.id " +
+        " LEFT JOIN Status_plant ON plant.status_plant = Status_plant.id " +
+        " LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        " LEFT JOIN plant_harvest_status ON plant_detail.id = plant_harvest_status.plant_id_data ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(SumStatus);
+  } catch (eror) {
+    res.json({ message: eror.message });
+  }
+};

@@ -12,6 +12,7 @@ import {
   DataNamePlant,
   DataUserPlant,
   DataZonePlant,
+  DashBoardSumStatus,
 } from "../controllers/GetZonePlant.js";
 
 const router = express.Router();
@@ -25,6 +26,7 @@ router.get("/statusPlant", CheckStatusPlant);
 router.get("/DataNamePlant", DataNamePlant);
 router.get("/DataUserPlant", DataUserPlant);
 router.get("/DataZonePlant", DataZonePlant);
+router.get("/DashBoardSumStatus", DashBoardSumStatus);
 router.post("/postZone", postZone);
 router.delete("/DeleteZone/:id", DeleteZone);
 router.patch("/UpdateZone/:id", UpdateZone);
