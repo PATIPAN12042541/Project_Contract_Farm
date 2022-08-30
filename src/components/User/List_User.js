@@ -1,4 +1,4 @@
-import React,{ useState, useEffect ,useMemo, useContext} from 'react'
+import React,{ useState, useEffect ,useMemo} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
@@ -42,14 +42,10 @@ export const List_User = () => {
 
   /********** update data **********/
   const [updateuserID, setUpdateUserID] = useState("");
-  const [updateUsername, setupdateUserName] = useState("");
-  const [updatePassword, setupdatePassword] = useState("");
-  const [updateConfirmPassword, setupdateConfirmPassword] = useState("");
   const [updateName, setUpdateName] = useState("");
   const [updateLastName, setUpdateLastName] = useState("");
   const [updateRoleID, setUpdateRoleID] = useState();
   const [updateChecked, setUpdateChecked] = useState(false);
-  const [checkedUpdatePassword, setcheckedUpdatePassword] = useState(false);
   /*********************************/
 
   /*********** refresh token ***********/
@@ -272,7 +268,6 @@ export const List_User = () => {
                                                               <Link to={``}>
                                                                   <Button onClick={()=>{
                                                                     handleShowUpdate()
-                                                                    setupdateUserName(listUsers.username)
                                                                     setUpdateUserID(listUsers.id)
                                                                     setUpdateName(listUsers.name)
                                                                     setUpdateLastName(listUsers.last_name)
