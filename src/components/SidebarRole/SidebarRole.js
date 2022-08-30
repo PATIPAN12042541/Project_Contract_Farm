@@ -41,8 +41,6 @@ const SidebarRole = () => {
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
-
-      <List_User role_id={decoded.role_id} />
     } catch (error) {
       if (error.response) {
         history("/");
