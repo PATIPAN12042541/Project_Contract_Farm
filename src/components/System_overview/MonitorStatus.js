@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
+import "../CSS/MonitorStatus.css";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
@@ -40,10 +41,6 @@ const MonitorStatus = () => {
   const sumDataArrayPlant = async (d) => {
     console.log(d);
   };
-
-
-
-
 
   useEffect(() => {
     getPlantStatus();
@@ -243,19 +240,25 @@ const MonitorStatus = () => {
                                     <div>
                                       {data.status_plant == "1" ? (
                                         data.plant_status == "0" ? (
-                                          <div>เสร็จสิ้น</div>
+                                          <div className="saccess-data">
+                                            เสร็จสิ้น
+                                          </div>
                                         ) : (
                                           <div>กำลังดำเนินการ</div>
                                         )
                                       ) : data.harvest_status == "0" ? (
-                                        <div>เสร็จสิ้น</div>
+                                        <div className="saccess-data">
+                                          เสร็จสิ้น
+                                        </div>
                                       ) : (
                                         <div>กำลังดำเนินการ</div>
                                       )}
                                     </div>
                                   ) : data.status_plant == "2" ? (
                                     data.status_Fertilizer == "0" ? (
-                                      <div>เสร็จสิ้น</div>
+                                      <div className="saccess-data">
+                                        เสร็จสิ้น
+                                      </div>
                                     ) : moment(new Date()).format(
                                         "YYYY-MM-DD"
                                       ) > data.end_date_plant &&
@@ -266,7 +269,9 @@ const MonitorStatus = () => {
                                     )
                                   ) : data.status_plant == "3" ? (
                                     data.status_chemical == "0" ? (
-                                      <div>เสร็จสิ้น</div>
+                                      <div className="saccess-data">
+                                        เสร็จสิ้น
+                                      </div>
                                     ) : moment(new Date()).format(
                                         "YYYY-MM-DD"
                                       ) > data.end_date_plant &&
