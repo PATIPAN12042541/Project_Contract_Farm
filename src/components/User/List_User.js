@@ -67,7 +67,7 @@ export const List_User = ({role_id}) => {
             setRoleTokenID(decoded.role_id);
         } catch (error) {
             if (error.response) {
-                history("/");
+                Nav("/");
             }
         }
     };
