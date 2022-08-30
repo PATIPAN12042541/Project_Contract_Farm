@@ -103,13 +103,17 @@ export const List_User = () => {
         if(id !== ''){
             console.log("id 2: "+id);
             try {
-                await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
+                console.log("name : "+updateName)
+                console.log("lastName : "+updateLastName)
+                console.log("roleID : "+updateRoleID)
+                console.log("status : "+updateChecked)
+                /*await axios.patch(`${process.env.REACT_APP_API_URL}/User/updateUsers/${id}`, {
                     id: id,
                     name: updateName,
                     lastName: updateLastName,
                     roleID: updateRoleID,
                     status: updateChecked,
-                })
+                })*/
                 Swal.fire({
                     icon: "success",
                     title: "Success",
@@ -422,7 +426,7 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Name"
                                   Value={updateName}
-                                  onChange={(e) => setName(e.target.value)}
+                                  onChange={(e) => setUpdateName(e.target.value)}
                               />
                           </div>
                           <div className="input-group mb-3">
@@ -431,21 +435,21 @@ export const List_User = () => {
                                   className="form-control"
                                   placeholder="Last Name"
                                   Value={updateLastName}
-                                  onChange={(e) => setLastName(e.target.value)}
+                                  onChange={(e) => setUpdateLastName(e.target.value)}
                               />
                           </div>
                           <div className="form-group mb-3">
                               <select
                                   className="form-control"
-                                  defaultValue={updateRoleName}
+                                  defaultValue={updateRoleID}
                                   onChange={(e) => {
                                       setUpdateRoleID(e.target.value);
                                   }}
                               >
                                   <option>--เลือก Role--</option>
                                   {rolegroup.map((item) => (
-                                      <option key={item.id}>
-                                              {item.role_group_name}
+                                      <option key={item.id} value={item.id}>
+                                        {item.role_group_name}
                                       </option>
                                   ))}
                               </select>
