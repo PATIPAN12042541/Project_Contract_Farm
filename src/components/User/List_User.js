@@ -495,12 +495,13 @@ export const List_User = () => {
                                       type="checkbox"
                                       id="custom-switch"
                                       checked={updateChecked}
-                                      onChange={(e) => {
+                                      onChange={() => {
                                           setUpdateChecked(!updateChecked);
                                       }}
                                   />
                               </div>
                           </div>
+                          <hr />
                       </div>
                   </Form>
               </Modal.Body>
