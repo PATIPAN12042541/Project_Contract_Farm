@@ -65,6 +65,8 @@ export const List_User = ({role_id}) => {
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             setRoleTokenID(decoded.role_id);
+
+            console.log("Role : "+roleTokenID);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -192,6 +194,7 @@ export const List_User = ({role_id}) => {
     }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    refreshToken();
     getListUser();
     getRole();
   },[]);
