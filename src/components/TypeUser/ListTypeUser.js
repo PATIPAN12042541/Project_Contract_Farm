@@ -11,6 +11,7 @@ import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import '../Pagination/style.scss';
 import Switch from "react-switch";
+import Image from "react-bootstrap/Image";
 
 let PageSize = 5;
 
