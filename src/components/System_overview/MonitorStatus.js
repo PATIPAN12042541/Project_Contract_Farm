@@ -5,6 +5,7 @@ import "../CSS/MonitorStatus.css";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
+  const [getDataFilter, setDataFilter] = useState([]);
   // const [dataNamePlant, setDataNamePlant] = useState([]);
   // const [dataUserPlant, setDataUserPlant] = useState([]);
   // const [dataZonePlant, setDataZonePlant] = useState([]);
@@ -17,24 +18,20 @@ const MonitorStatus = () => {
   };
 
   const searchItems = (searchValue) => {
+    setDataFilter(getstatusDetail);
     if (searchValue !== "") {
       if (searchValue == 1) {
-        const filteredData = getstatusDetail.filter(
-          (data) => data.Danger_ === 1
-        );
+        const filteredData = getDataFilter.filter((data) => data.Danger_ === 1);
 
         setStatusDetail(filteredData);
       } else if (searchValue == 2) {
-        const filteredData = getstatusDetail.filter(
-          (data) => data.Waning_ === 1
-        );
+        const filteredData = getDataFilter.filter((data) => data.Waning_ === 1);
 
         setStatusDetail(filteredData);
       } else if (searchValue == 3) {
-        const filteredData = getstatusDetail.filter(
+        const filteredData = getDataFilter.filter(
           (data) => data.COMPLETION_ === 1
         );
-
         setStatusDetail(filteredData);
       }
     } else {
