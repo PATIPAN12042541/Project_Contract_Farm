@@ -15,11 +15,13 @@ const MonitorStatus = () => {
     setStatusDetail2(response.data);
   };
 
+ 
+  const resetData = async (data) => {
+    setStatusDetail(getstatusDetail2);
+    searchItems(data);
+  };
 
   const searchItems = async (searchValue) => {
-    setStatusDetail(getstatusDetail2);
-    console.log(getstatusDetail);
-
     if (searchValue == 1) {
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
       setStatusDetail(filteredData);
@@ -244,7 +246,7 @@ const MonitorStatus = () => {
                       สถานะ
                       <select
                         className="custom-select form-control-border"
-                        onChange={(e) => searchItems(e.target.value)}
+                        onChange={(e) => resetData(e.target.value)}
                       >
                         <option>----เลือกข้อมูล----</option>
                         <option value={1}>หมดเวลา</option>
