@@ -173,7 +173,7 @@ export const List_User = () => {
 
     // Update Password
     const changePassword = async (id) => {
-        if(id !== ''){
+        if(id !== '' && updatePassword != '' && updateconfirmPassword != ''){
             try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/updatePassword/${id}`, {
                     id: id,
@@ -195,6 +195,12 @@ export const List_User = () => {
                     text: error,
                 });
             }
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "กรุณากรอกข้อมูลให้ครบถ้วน",
+                text: "Alert !",
+              });
         }
     }
 
