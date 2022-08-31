@@ -32,6 +32,7 @@ export const List_User = () => {
 
   const {id} = useParams();
   const Nav = useNavigate();
+  const [roleIDLogin, setRoleIDLogin] = useState();
 
   /* VAR MODAL */
   /********** insert data ***************/
@@ -75,6 +76,7 @@ export const List_User = () => {
             );
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
+            setRoleIDLogin(decoded.role_id)
             getListUser(decoded.role_id);
             getRole(decoded.role_id);
         } catch (error) {
@@ -187,6 +189,7 @@ export const List_User = () => {
                 });
                 Nav("/ListUser");
                 refreshToken();
+                console.log('Role id Login '+roleIDLogin)
                 handleCloseUpdatePassword();
             } catch (error) {
                 Swal.fire({
