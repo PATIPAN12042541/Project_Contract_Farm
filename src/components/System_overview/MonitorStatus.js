@@ -5,25 +5,27 @@ import "../CSS/MonitorStatus.css";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
+  const [getstatusDetail2, setStatusDetail2] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
+    setStatusDetail2(response.data);
   };
 
   const searchItems = (searchValue) => {
     if (searchValue == 1) {
-      setStatusDetail(getstatusDetail);
+      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 2) {
-      setStatusDetail(getstatusDetail);
+      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 3) {
-      setStatusDetail(getstatusDetail);
+      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter(
         (data) => data.COMPLETION_ == 1
       );
