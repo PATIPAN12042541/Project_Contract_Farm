@@ -12,29 +12,23 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
-    setStatusDetail2(response.data);
-  };
-
- 
-  const resetData = async (data) => {
-    getPlantStatus();
-    searchItems(data);
+    getstatusDetail2(response.data);
   };
 
   const searchItems = async (searchValue) => {
     if (searchValue == 1) {
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
-      setStatusDetail(filteredData);
+      setStatusDetail2(filteredData);
     } else if (searchValue == 2) {
       const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
-      setStatusDetail(filteredData);
+      setStatusDetail2(filteredData);
     } else if (searchValue == 3) {
       const filteredData = getstatusDetail.filter(
         (data) => data.COMPLETION_ == 1
       );
-      setStatusDetail(filteredData);
+      setStatusDetail2(filteredData);
     } else {
-      getPlantStatus();
+      setStatusDetail2(getstatusDetail);
     }
   };
 
@@ -246,7 +240,7 @@ const MonitorStatus = () => {
                       สถานะ
                       <select
                         className="custom-select form-control-border"
-                        onChange={(e) => resetData(e.target.value)}
+                        onChange={(e) => searchItems(e.target.value)}
                       >
                         <option>----เลือกข้อมูล----</option>
                         <option value={1}>หมดเวลา</option>
@@ -286,7 +280,7 @@ const MonitorStatus = () => {
                           </th> */}
                         </tr>
                       </thead>
-                      {getstatusDetail.map((data, index) => {
+                      {getstatusDetail2.map((data, index) => {
                         return (
                           <tbody key={index}>
                             <tr>
