@@ -19,6 +19,8 @@ const MonitorStatus = () => {
 
   const searchItems = (searchValue) => {
     setDataFilter(getstatusDetail);
+
+    console.log(getDataFilter);
     if (searchValue !== "") {
       if (searchValue == 1) {
         const filteredData = getDataFilter.filter((data) => data.Danger_ === 1);
