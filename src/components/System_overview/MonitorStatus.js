@@ -285,9 +285,9 @@ const MonitorStatus = () => {
                           <th>
                             <center>ความคืบหน้า</center>
                           </th>
-                          <th>
+                          {/* <th>
                             <center>เปอร์เซ็น</center>
-                          </th>
+                          </th> */}
                         </tr>
                       </thead>
                       {getstatusDetail.map((data, index) => {
@@ -364,7 +364,7 @@ const MonitorStatus = () => {
                                   )}
                                 </center>
                               </td>
-                              <td>
+                              {/* <td>
                                 {data.status_plant == "1" ||
                                 data.status_plant == "4" ? (
                                   <div className="progress progress-xs">
@@ -479,7 +479,7 @@ const MonitorStatus = () => {
                                 ) : (
                                   ""
                                 )}
-                              </td>
+                              </td> */}
                             </tr>
                           </tbody>
                         );
