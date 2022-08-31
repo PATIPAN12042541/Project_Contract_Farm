@@ -19,26 +19,26 @@ const MonitorStatus = () => {
 
   const searchItems = (searchValue) => {
     setDataFilter(getstatusDetail);
-
+    console.log("searchValue : " + searchValue);
     console.log(getDataFilter);
-    if (searchValue !== "") {
-      if (searchValue == 1) {
-        const filteredData = getDataFilter.filter((data) => data.Danger_ === 1);
 
-        setStatusDetail(filteredData);
-      } else if (searchValue == 2) {
-        const filteredData = getDataFilter.filter((data) => data.Waning_ === 1);
+    if (searchValue == 1) {
+      const filteredData = getDataFilter.filter((data) => data.Danger_ == 1);
 
-        setStatusDetail(filteredData);
-      } else if (searchValue == 3) {
-        const filteredData = getDataFilter.filter(
-          (data) => data.COMPLETION_ === 1
-        );
-        setStatusDetail(filteredData);
-      }
+      setStatusDetail(filteredData);
+    } else if (searchValue == 2) {
+      const filteredData = getDataFilter.filter((data) => data.Waning_ == 1);
+
+      setStatusDetail(filteredData);
+    } else if (searchValue == 3) {
+      const filteredData = getDataFilter.filter(
+        (data) => data.COMPLETION_ == 1
+      );
+      setStatusDetail(filteredData);
     } else {
       getPlantStatus();
     }
+   
   };
 
   // const getDataNamePlant = async () => {
