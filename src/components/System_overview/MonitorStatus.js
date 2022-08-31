@@ -5,10 +5,6 @@ import "../CSS/MonitorStatus.css";
 
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
-  const [getDataFilter, setDataFilter] = useState([]);
-  // const [dataNamePlant, setDataNamePlant] = useState([]);
-  // const [dataUserPlant, setDataUserPlant] = useState([]);
-  // const [dataZonePlant, setDataZonePlant] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -18,14 +14,16 @@ const MonitorStatus = () => {
   };
 
   const searchItems = (searchValue) => {
-    getPlantStatus();
     if (searchValue == 1) {
+      setStatusDetail(getstatusDetail);
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 2) {
+      setStatusDetail(getstatusDetail);
       const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 3) {
+      setStatusDetail(getstatusDetail);
       const filteredData = getstatusDetail.filter(
         (data) => data.COMPLETION_ == 1
       );
@@ -33,7 +31,6 @@ const MonitorStatus = () => {
     } else {
       getPlantStatus();
     }
-   
   };
 
   // const getDataNamePlant = async () => {
