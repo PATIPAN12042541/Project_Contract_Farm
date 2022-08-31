@@ -159,7 +159,7 @@ export const List_User = () => {
                     text: "Update Success!",
                 });
                 Nav("/ListUser");
-                getListUser();
+                refreshToken();
                 handleCloseUpdate()
             } catch (error) {
                 Swal.fire({
@@ -186,7 +186,7 @@ export const List_User = () => {
                     text: "Update Success!",
                 });
                 Nav("/ListUser");
-                getListUser();
+                refreshToken();
                 handleCloseUpdatePassword();
             } catch (error) {
                 Swal.fire({
