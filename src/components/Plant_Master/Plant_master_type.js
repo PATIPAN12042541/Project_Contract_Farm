@@ -7,6 +7,7 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { AiFillEdit } from "react-icons/ai";
+import Switch from "react-switch";
 
 const Plant_master_type = () => {
   /* Query Data */
@@ -212,12 +213,12 @@ const Plant_master_type = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-8 col-form-label">
-                  <input
-                    type="checkbox"
-                    id="custom-switch"
+                  <Switch
+                    checked={checked}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
+                    className="react-switch"
                   />
                 </div>
               </div>
@@ -273,7 +274,7 @@ const Plant_master_type = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-8 col-form-label">
-                  <input
+                  {/* <input
                     type="checkbox"
                     id="custom-switch"
                     checked={checked2}
@@ -281,6 +282,14 @@ const Plant_master_type = () => {
                     onChange={(e) => {
                       setChecked2(!checked2);
                     }}
+                  /> */}
+                  <Switch
+                    checked={checked2}
+                    name={checked2 ? 1 : 0}
+                    onChange={(e) => {
+                      setChecked2(!checked2);
+                    }}
+                    className="react-switch"
                   />
                 </div>
               </div>
