@@ -55,6 +55,7 @@ export const List_User = () => {
 
   /* VAR MODAL */
   /********** update password **********/
+  const [updateUsername, setUpdateUsername] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
   const [updateconfirmPassword, setUpdateconfirmPassword] = useState("");
   /*************************************/
@@ -296,7 +297,14 @@ export const List_User = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                          <Button className='btn btn-block btn-info'>
+                                                          <Button 
+                                                                className='btn btn-block btn-info'
+                                                                onClick={()=>{
+                                                                    handleShowUpdatePassword()
+                                                                    setUpdateUserID(listUsers.id)
+                                                                    setUpdateUsername(listUsers.username)
+                                                                }}
+                                                          >
                                                             เปลี่ยนรหัสผ่าน
                                                           </Button>
                                                       </td>
@@ -565,7 +573,7 @@ export const List_User = () => {
                                   type="text"
                                   className="form-control"
                                   placeholder="Username"
-                                  value={username}
+                                  value={updateUsername}
                                   disabled
                               />
                               <div className="input-group-append">
