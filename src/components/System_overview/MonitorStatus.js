@@ -18,19 +18,22 @@ const MonitorStatus = () => {
   };
 
   const searchItems = (searchValue) => {
-    setDataFilter(getstatusDetail);
+    
     console.log("searchValue : " + searchValue);
     console.log(getDataFilter);
 
     if (searchValue == 1) {
+      setDataFilter(getstatusDetail);
       const filteredData = getDataFilter.filter((data) => data.Danger_ == 1);
 
       setStatusDetail(filteredData);
     } else if (searchValue == 2) {
+      setDataFilter(getstatusDetail);
       const filteredData = getDataFilter.filter((data) => data.Waning_ == 1);
 
       setStatusDetail(filteredData);
     } else if (searchValue == 3) {
+      setDataFilter(getstatusDetail);
       const filteredData = getDataFilter.filter(
         (data) => data.COMPLETION_ == 1
       );
