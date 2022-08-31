@@ -156,6 +156,7 @@ const ListTypeUser = () => {
                         <tr>
                           <th>ลำดับ</th>
                           <th>ประเภทผู้ใช้งานระบบ</th>
+                          <th>Active Status</th>
                           <th>แก้ไขข้อมูล</th>
                           <th>ลบข้อมูล</th>
                         </tr>
@@ -165,6 +166,29 @@ const ListTypeUser = () => {
                           <tr key={listTypeUser.id}>
                             <td>{index + 1}</td>
                             <td>{listTypeUser.role_group_name}</td>
+                            <td>
+                              <center>
+                                {listTypeUser.status === 1 ? (
+                                  <Image
+                                    src="../dist/img/symbol_true.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                ) : (
+                                  <Image
+                                    src="../dist/img/symbol_false.png"
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                    thumbnail
+                                  />
+                                )}
+                              </center>
+                            </td>
                             <td>
                               <Link to={`/UpdateTypeUser/${listTypeUser.id}`}>
                                 <Button
