@@ -14,6 +14,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import '../Pagination/style.scss';
+import Switch from "react-switch";
 
 let PageSize = 5;
 
@@ -517,6 +518,14 @@ const List_Chemical = () => {
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
+                  />
+
+                  <Switch
+                    onChange={(e) => {
+                      setChecked(!checked);
+                    }}
+                    checked={checked}
+                    className="react-switch"
                   />
                 </div>
               </div>
