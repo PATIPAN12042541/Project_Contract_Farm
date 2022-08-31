@@ -161,7 +161,7 @@ export const List_User = () => {
                     text: "Update Success!",
                 });
                 Nav("/ListUser");
-                refreshToken();
+                getListUser(roleIDLogin);
                 handleCloseUpdate()
             } catch (error) {
                 Swal.fire({
@@ -188,8 +188,7 @@ export const List_User = () => {
                     text: "Update Success!",
                 });
                 Nav("/ListUser");
-                refreshToken();
-                console.log('Role id Login '+roleIDLogin)
+                getListUser(roleIDLogin);
                 handleCloseUpdatePassword();
             } catch (error) {
                 Swal.fire({
