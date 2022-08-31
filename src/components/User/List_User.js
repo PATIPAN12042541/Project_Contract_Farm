@@ -333,7 +333,7 @@ export const List_User = () => {
                                                       </td>
                                                       <td>
                                                           <Button 
-                                                                className='btn btn-block btn-info'
+                                                                variant="info"
                                                                 onClick={()=>{
                                                                     handleShowUpdatePassword()
                                                                     setUpdateUserID(listUsers.id)
