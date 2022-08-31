@@ -12,7 +12,7 @@ const MonitorStatus = () => {
       `${process.env.REACT_APP_API_URL}/zoneplant/statusPlant`
     );
     setStatusDetail(response.data);
-    getstatusDetail2(response.data);
+    setStatusDetail2(response.data);
   };
 
   const searchItems = async (searchValue) => {
