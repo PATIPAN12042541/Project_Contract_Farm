@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Switch from "react-switch"
 
 const UpdateTypeUser = () => {
     const [typeUser,setTypeUser] = useState('');
@@ -80,11 +81,10 @@ const UpdateTypeUser = () => {
                                         <div className="form-group row">
                                             <Form.Label className="col-sm-4 col-form-label">Active Status</Form.Label>
                                             <div className="col-sm-8">
-                                                <input
-                                                    type="checkbox"
-                                                    id="custom-switch"
+                                                <Switch
                                                     checked={checked}
                                                     onChange={() => setChecked(!checked)}
+                                                    className="react-switch"
                                                 />
                                             </div>
                                         </div>
