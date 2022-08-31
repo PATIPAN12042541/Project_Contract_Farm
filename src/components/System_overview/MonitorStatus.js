@@ -17,7 +17,7 @@ const MonitorStatus = () => {
 
  
   const resetData = async (data) => {
-    setStatusDetail(getstatusDetail2);
+    getPlantStatus();
     searchItems(data);
   };
 
