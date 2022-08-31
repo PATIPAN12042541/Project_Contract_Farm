@@ -72,8 +72,8 @@ const Update_Chemical = () => {
                                 <Form className="form-horizontal" onSubmit={updateTypeChemical}>
                                     <div className="card-body">
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-2 col-form-label">ประเภทสารเคมี</Form.Label>
-                                            <div className="col-sm-10">
+                                            <Form.Label className="col-sm-3 col-form-label">ประเภทสารเคมี</Form.Label>
+                                            <div className="col-sm-9">
                                                 <Form.Control  type="text" 
                                                                className="form-control"
                                                                value={typeChemical}
@@ -81,14 +81,8 @@ const Update_Chemical = () => {
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                          <Form.Label className="col-sm-2 col-form-label">Active Status</Form.Label>
-                                            <div className="col-sm-10">
-                                                <input
-                                                    type="checkbox"
-                                                    id="custom-switch"
-                                                    checked={checked}
-                                                    onChange={() => setChecked(!checked)}
-                                                />
+                                          <Form.Label className="col-sm-3 col-form-label">Active Status</Form.Label>
+                                            <div className="col-sm-9">
                                                 <Switch
                                                     checked={checked}
                                                     onChange={() => setChecked(!checked)}

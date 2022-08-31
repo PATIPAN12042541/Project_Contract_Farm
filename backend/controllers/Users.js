@@ -117,10 +117,37 @@ export const updateUser = async (req, res) => {
             }
         });
         res.json({
-            "message": "User Updated "+req.params.id+" "+req.body.name+" "+req.body.last_name+" "+req.body.role_id+" "+req.body.status
+            "message": "User Updated "
         });
     } catch (error) {
         res.json({ message: error.message });
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    const { password, 
+            confirmPassword} = req.body;
+    if(password !== confirmPassword) {
+        return res.status(400).json({msg: "Password and Confirm Password do not match"});
+    }
+
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt);
+
+    try {
+        await Users.update({
+            password: hashPassword,
+          }, 
+          {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "msg": "Password Updated "
+        });
+    } catch (error) {
+        res.json({ msg: error.message });
     }
 }
 

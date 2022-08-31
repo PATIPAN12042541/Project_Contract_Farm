@@ -22,10 +22,13 @@ export const List_User = () => {
   const [filteredResults, setFilteredResults] = useState([]);
   const [showInsert, setShowInsert] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
+  const [showUpdatePassword, setShowUpdatePassword] = useState(false);
   const handleCloseInsert = () => setShowInsert(false);
   const handleShowInsert = () => setShowInsert(true);
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
+  const handleCloseUpdatePassword = () => setShowUpdatePassword(false);
+  const handleShowUpdatePassword = () => setShowUpdatePassword(true);
 
   const {id} = useParams();
   const Nav = useNavigate();
@@ -41,6 +44,7 @@ export const List_User = () => {
   const [roleID, setRoleID] = useState();
   /*************************************/
 
+  /* VAR MODAL */
   /********** update data **********/
   const [updateuserID, setUpdateUserID] = useState("");
   const [updateName, setUpdateName] = useState("");
@@ -49,10 +53,18 @@ export const List_User = () => {
   const [updateChecked, setUpdateChecked] = useState(false);
   /*********************************/
 
+  /* VAR MODAL */
+  /********** update password **********/
+  const [updateUsername, setUpdateUsername] = useState("");
+  const [updatePassword, setUpdatePassword] = useState("");
+  const [updateconfirmPassword, setUpdateconfirmPassword] = useState("");
+  /*************************************/
+
   /*********** refresh token ***********/
   const [token, setToken] = useState("");
   /*************************************/
 
+    // refresh token
     const refreshToken = async () => {
         try {
             //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
@@ -153,6 +165,33 @@ export const List_User = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Update Fail!",
+                    text: error,
+                });
+            }
+        }
+    }
+
+    // Update Password
+    const changePassword = async (id) => {
+        if(id !== ''){
+            try {
+                await axios.patch(`${process.env.REACT_APP_API_URL}/User/updatePassword/${id}`, {
+                    id: id,
+                    password: updatePassword,
+                    confirmPassword: updateconfirmPassword,
+                })
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Update Success!",
+                });
+                Nav("/ListUser");
+                getListUser();
+                handleCloseUpdatePassword();
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: error.response.data.msg,
                     text: error,
                 });
             }
@@ -285,7 +324,14 @@ export const List_User = () => {
                                                           </center>
                                                       </td>
                                                       <td>
-                                                          <Button className='btn btn-block btn-info'>
+                                                          <Button 
+                                                                className='btn btn-block btn-info'
+                                                                onClick={()=>{
+                                                                    handleShowUpdatePassword()
+                                                                    setUpdateUserID(listUsers.id)
+                                                                    setUpdateUsername(listUsers.username)
+                                                                }}
+                                                          >
                                                             เปลี่ยนรหัสผ่าน
                                                           </Button>
                                                       </td>
@@ -334,6 +380,8 @@ export const List_User = () => {
                   </div>
               </div>
           </section>
+
+          {/* Modal Insert User */}
           <Modal show={showInsert} onHide={handleCloseInsert}>
               <Modal.Header
                   style={{
@@ -446,6 +494,7 @@ export const List_User = () => {
               </Modal.Footer>
           </Modal>
 
+          {/* Modal Update User */}
           <Modal show={showUpdate} onHide={handleCloseUpdate} >
               <Modal.Header
                   style={{
@@ -454,7 +503,7 @@ export const List_User = () => {
                       fontSize: "24px",
                   }}
               >
-                  <Modal.Title>แก้ไขข้อมูลผู้ใช้งานระบบ 555</Modal.Title>
+                  <Modal.Title>แก้ไขข้อมูลผู้ใช้งานระบบ</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
@@ -524,6 +573,86 @@ export const List_User = () => {
                       className="btn btn-success"
                       onClick={()=>{
                         updateUser(updateuserID)
+                      }}
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          {/* Modal Update Password */}
+          <Modal show={showUpdatePassword} onHide={handleCloseUpdatePassword} >
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เปลี่ยน Password</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">             
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Username"
+                                  value={updateUsername}
+                                  disabled
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-user" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Password"
+                                  onChange={(e) => setUpdatePassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="input-group mb-3 ">
+                              <input
+                                  type="password"
+                                  className="form-control"
+                                  placeholder="Confirm password"
+                                  onChange={(e) => setUpdateconfirmPassword(e.target.value)}
+                              />
+                              <div className="input-group-append">
+                                  <div className="input-group-text">
+                                      <span className="fas fa-lock" />
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      className="btn btn-default"
+                      style={{ float: "left"}}
+                      onClick={handleCloseUpdatePassword}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                      onClick={(e)=>{
+                        changePassword(updateuserID)
                       }}
                   >
                       บันทึก
