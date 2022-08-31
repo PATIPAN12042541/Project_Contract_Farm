@@ -587,7 +587,6 @@ export const List_User = () => {
                                   type="password"
                                   className="form-control"
                                   placeholder="Password"
-                                  value={updatePassword}
                                   onChange={(e) => setUpdatePassword(e.target.value)}
                               />
                               <div className="input-group-append">
@@ -601,7 +600,6 @@ export const List_User = () => {
                                   type="password"
                                   className="form-control"
                                   placeholder="Confirm password"
-                                  value={updateconfirmPassword}
                                   onChange={(e) => setUpdateconfirmPassword(e.target.value)}
                               />
                               <div className="input-group-append">
