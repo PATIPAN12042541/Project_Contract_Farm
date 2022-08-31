@@ -70,7 +70,7 @@ const UpdateTypeUser = () => {
                                 <Form className="form-horizontal" onSubmit={updateTypeUsers}>
                                     <div className="card-body">
                                         <div className="form-group row">
-                                            <Form.Label className="col-sm-4 col-form-label">ประเภทสารเคมี</Form.Label>
+                                            <Form.Label className="col-sm-4 col-form-label">ประเภทผู้ใช้งานระบบ</Form.Label>
                                             <div className="col-sm-8">
                                                 <Form.Control type="text"
                                                     className="form-control"
