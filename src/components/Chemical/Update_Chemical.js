@@ -6,6 +6,7 @@ import Zoom from "react-medium-image-zoom"
 import FileUpload from "@hawk-ui/file-upload"
 import Image from 'react-bootstrap/Image'
 import Swal from 'sweetalert2'
+import Switch from "react-switch"
 
 const Update_Chemical = () => {
     const [ListTypeChemical,setListTypeChemical] = useState([])
@@ -202,12 +203,12 @@ const Update_Chemical = () => {
                                       <div className="form-group row">
                                           <Form.Label className="col-sm-3 col-form-label">Active Status</Form.Label>
                                             <div className="col-sm-9 col-form-label">
-                                                <input
-                                                    type="checkbox"
+                                                <Switch
                                                     checked={checked}
                                                     onChange={(e)=>{
                                                         setChecked(!checked);
                                                     }}
+                                                    className="react-switch"
                                                 />
                                             </div>
                                       </div>
