@@ -513,13 +513,6 @@ const List_Chemical = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-7 col-form-label">
-                  <input
-                    type="checkbox"
-                    onChange={(e) => {
-                      setChecked(!checked);
-                    }}
-                  />
-
                   <Switch
                     onChange={(e) => {
                       setChecked(!checked);
