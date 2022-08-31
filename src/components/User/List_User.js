@@ -616,6 +616,7 @@ export const List_User = () => {
                   <button
                       className="btn btn-default"
                       style={{ float: "left"}}
+                      onClick={handleCloseUpdatePassword}
                   >
                       ย้อนกลับ
                   </button>
