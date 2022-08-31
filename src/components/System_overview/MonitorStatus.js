@@ -18,6 +18,8 @@ const MonitorStatus = () => {
 
   const searchItems = async (searchValue) => {
     setStatusDetail(getstatusDetail2);
+    console.log(getstatusDetail);
+
     if (searchValue == 1) {
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
       setStatusDetail(filteredData);
