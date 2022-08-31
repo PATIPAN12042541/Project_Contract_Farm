@@ -173,7 +173,7 @@ export const List_User = () => {
 
     // Update Password
     const changePassword = async (id) => {
-        if(id !== '' && updatePassword != '' && updateconfirmPassword != ''){
+        if(id !== '' && updatePassword !== '' && updateconfirmPassword !== ''){
             try {
                 await axios.patch(`${process.env.REACT_APP_API_URL}/User/updatePassword/${id}`, {
                     id: id,
