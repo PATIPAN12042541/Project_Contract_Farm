@@ -144,10 +144,10 @@ export const updatePassword = async (req, res) => {
             }
         });
         res.json({
-            "message": "Password Updated "
+            "msg": "Password Updated "
         });
     } catch (error) {
-        res.json({ message: error.message });
+        res.json({ msg: error.message });
     }
 }
 

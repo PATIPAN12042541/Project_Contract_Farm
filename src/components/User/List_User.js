@@ -171,6 +171,33 @@ export const List_User = () => {
         }
     }
 
+    // Update Password
+    const changePassword = async (id) => {
+        if(id !== ''){
+            try {
+                await axios.patch(`${process.env.REACT_APP_API_URL}/User/updatePassword/${id}`, {
+                    id: id,
+                    password: updatePassword,
+                    confirmPassword: updateconfirmPassword,
+                })
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Update Success!",
+                });
+                Nav("/ListUser");
+                getListUser();
+                handleCloseUpdatePassword();
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: error.response.data.msg,
+                    text: error,
+                });
+            }
+        }
+    }
+
     //Drop Down Role
     const getRole = async (role_id) => {
         if(role_id === 1){
@@ -624,6 +651,9 @@ export const List_User = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={(e)=>{
+                        changePassword(updateuserID)
+                      }}
                   >
                       บันทึก
                   </button>
