@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Switch from "react-switch"
 
 const Update_Chemical = () => {
     const [typeChemical,setTypeChemical] = useState('');
@@ -87,6 +88,11 @@ const Update_Chemical = () => {
                                                     id="custom-switch"
                                                     checked={checked}
                                                     onChange={() => setChecked(!checked)}
+                                                />
+                                                <Switch
+                                                    checked={checked}
+                                                    onChange={() => setChecked(!checked)}
+                                                    className="react-switch"
                                                 />
                                             </div>
                                       </div>
