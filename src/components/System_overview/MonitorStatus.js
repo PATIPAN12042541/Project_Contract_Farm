@@ -15,17 +15,16 @@ const MonitorStatus = () => {
     setStatusDetail2(response.data);
   };
 
-  const searchItems = (searchValue) => {
+
+  const searchItems = async (searchValue) => {
+    setStatusDetail(getstatusDetail2);
     if (searchValue == 1) {
-      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 2) {
-      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
       setStatusDetail(filteredData);
     } else if (searchValue == 3) {
-      setStatusDetail(getstatusDetail2);
       const filteredData = getstatusDetail.filter(
         (data) => data.COMPLETION_ == 1
       );
