@@ -18,14 +18,12 @@ const MonitorStatus = () => {
   };
 
   const searchItems = (searchValue) => {
-
+    getPlantStatus();
     if (searchValue == 1) {
       const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
-
       setStatusDetail(filteredData);
     } else if (searchValue == 2) {
       const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
-
       setStatusDetail(filteredData);
     } else if (searchValue == 3) {
       const filteredData = getstatusDetail.filter(
