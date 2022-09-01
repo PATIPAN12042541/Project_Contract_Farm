@@ -79,6 +79,7 @@ const ChanagePassword = () => {
                     text: "Update Success!",
                 });
                 Nav("/ChangePassword");
+                console.log("loginID : "+loginID);
                 getListUser(loginID);
                 handleCloseUpdatePassword();
             } catch (error) {
