@@ -1,18 +1,12 @@
-import React,{ useState, useEffect ,useMemo} from 'react'
+import React,{ useState, useEffect} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
-import { Link, useNavigate,useParams } from "react-router-dom";
-import { AiFillEdit } from "react-icons/ai";
-import Pagination from "../Pagination/Pagination.js";
+import {useNavigate,useParams } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
-import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
-import Switch from "react-switch";
-
-let PageSize = 5;
 
 const ChanagePassword = () => {
   const [listUsers, setListUsers] = useState([]);
