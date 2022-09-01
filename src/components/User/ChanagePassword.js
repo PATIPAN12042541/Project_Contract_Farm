@@ -27,6 +27,7 @@ const ChanagePassword = () => {
 
   /* VAR MODAL */
   /********** update password **********/
+  const [updateUserID, setUpdateUserID] = useState("");
   const [updateUsername, setUpdateUsername] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
   const [updateconfirmPassword, setUpdateconfirmPassword] = useState("");
@@ -49,7 +50,6 @@ const ChanagePassword = () => {
             const decoded = jwt_decode(response.data.accessToken);
             setRoleIDLogin(decoded.role_id)
             getListUser(decoded.role_id);
-            getRole(decoded.role_id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -143,7 +143,7 @@ const ChanagePassword = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {currentTableData.map((listUsers, index) => (
+                                              {listUsers.map((listUsers, index) => (
                                                   <tr key={listUsers.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{listUsers.group_name}</td>
