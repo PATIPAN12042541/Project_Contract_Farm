@@ -79,7 +79,7 @@ const ChanagePassword = () => {
                     text: "Update Success!",
                 });
                 Nav("/ListUser");
-                getListUser(roleIDLogin);
+                getListUser(loginID);
                 handleCloseUpdatePassword();
             } catch (error) {
                 Swal.fire({
