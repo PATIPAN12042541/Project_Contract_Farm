@@ -12,6 +12,7 @@ import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
 import Switch from "react-switch";
 
+let PageSize = 5;
 
 const ChanagePassword = () => {
     const [listUsers, setListUsers] = useState([]);
