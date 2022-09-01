@@ -12,6 +12,7 @@ import FileUpload from "@hawk-ui/file-upload";
 import { BsTrashFill } from "react-icons/bs";
 import Pagination from "../Pagination/Pagination.js";
 import '../Pagination/style.scss';
+import Switch from "react-switch";
 
 let PageSize = 5;
 
@@ -520,11 +521,12 @@ const Plant_master = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-7 col-form-label">
-                  <input
-                    type="checkbox"
+                  <Switch
+                    checked={checked}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
+                    className="react-switch"
                   />
                 </div>
               </div>
@@ -666,13 +668,13 @@ const Plant_master = () => {
                   Active Status
                 </Form.Label>
                 <div className="col-sm-7 col-form-label">
-                  <input
-                    type="checkbox"
+                  <Switch
                     checked={checked}
                     name={checked ? 1 : 0}
                     onChange={(e) => {
                       setChecked(!checked);
                     }}
+                    className="react-switch"
                   />
                 </div>
               </div>
