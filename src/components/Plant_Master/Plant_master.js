@@ -393,7 +393,6 @@ const Plant_master = () => {
                                     deletePlants(data.id);
                                   }}
                                 >
-                                  ge
                                   <BsTrashFill /> ลบข้อมูล
                                 </button>
                               </center>
