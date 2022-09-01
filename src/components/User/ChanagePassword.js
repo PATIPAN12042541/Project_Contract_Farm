@@ -44,10 +44,10 @@ const ChanagePassword = () => {
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             setRoleIDLogin(decoded.role_id)
-            setLoginID(decoded.id);
-            getListUser(decoded.id);
+            setLoginID(decoded.userId);
+            getListUser(decoded.userId);
 
-            console.log("id : "+decoded.id);
+            console.log("id : "+decoded.userId);
         } catch (error) {
             if (error.response) {
                 Nav("/");
