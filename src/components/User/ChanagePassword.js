@@ -18,6 +18,7 @@ const ChanagePassword = () => {
   const {id} = useParams();
   const Nav = useNavigate();
   const [roleIDLogin, setRoleIDLogin] = useState();
+  const [loginID, setLoginID] = useState();
 
   /* VAR MODAL */
   /********** update password **********/
@@ -43,7 +44,8 @@ const ChanagePassword = () => {
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             setRoleIDLogin(decoded.role_id)
-            getListUser(decoded.role_id);
+            setLoginID(decoded.id);
+            getListUser(decoded.id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -53,18 +55,11 @@ const ChanagePassword = () => {
     };
 
     //List User
-    const getListUser = async (role_id) => {
-        if(role_id === 1){
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
-            );
-            setListUsers(response.data);
-        }else{
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
-            );
-            setListUsers(response.data);
-        }
+    const getListUser = async (id) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/User/getUsers/${id}`
+        );
+        setListUsers(response.data);
     };
 
     // Update Password
