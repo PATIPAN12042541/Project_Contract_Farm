@@ -17,7 +17,7 @@ let PageSize = 5;
 
 const Plant_master = () => {
   const [plantMaster, setPlantMaster] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(5);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
@@ -60,7 +60,7 @@ const Plant_master = () => {
           .includes(searchInput.toLowerCase());
       });
       setFilteredResults(filteredData);
-      setCurrentPage(1);
+      setCurrentPage(5);
     } else {
       setFilteredResults(plantMaster);
     }
@@ -393,6 +393,7 @@ const Plant_master = () => {
                                     deletePlants(data.id);
                                   }}
                                 >
+                                  ge
                                   <BsTrashFill /> ลบข้อมูล
                                 </button>
                               </center>
