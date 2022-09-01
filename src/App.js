@@ -35,6 +35,7 @@ import TimeChemical from "./components/Time_Chemical/TimeChemical.js";
 import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import MonitorStatus from "./components/System_overview/MonitorStatus";
+import ChanagePassword from "./components/User/ChanagePassword";
 
 function App() {
 
@@ -308,6 +309,18 @@ function App() {
                 </>
               }
             />
+          <Route
+            exact
+            path="/ChangePassword"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <ChanagePassword />
+                <Footer />
+              </>
+            }
+          />
           </Routes>
         </BrowserRouter>
       </div>
