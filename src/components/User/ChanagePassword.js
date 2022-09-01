@@ -46,8 +46,6 @@ const ChanagePassword = () => {
             setRoleIDLogin(decoded.role_id)
             setLoginID(decoded.userId);
             getListUser(decoded.userId);
-
-            console.log("id : "+decoded.userId);
         } catch (error) {
             if (error.response) {
                 Nav("/");
