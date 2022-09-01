@@ -27,7 +27,7 @@ const ChanagePassword = () => {
 
   /* VAR MODAL */
   /********** update password **********/
-  const [updateUserID, setUpdateUserID] = useState("");
+  const [updateuserID, setUpdateUserID] = useState("");
   const [updateUsername, setUpdateUsername] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
   const [updateconfirmPassword, setUpdateconfirmPassword] = useState("");
