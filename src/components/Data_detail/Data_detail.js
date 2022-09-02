@@ -226,26 +226,30 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="form-group">
-                        <label>โรค : </label>
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          onChange={(e) => setChecked(e.target.checked)}
-                        />
-                        <br></br>
-                        <label>แมลง : </label>
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          onChange={(e) => setChecked(e.target.checked)}
-                        />
-                        <br></br>
-                        <label>วัชพืช : </label>
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          onChange={(e) => setChecked(e.target.checked)}
-                        />
+                        <div className="col-md-4">
+                          <label>โรค : </label>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                          />
+                        </div>
+                        <div className="col-md-4">
+                          <label>แมลง : </label>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                          />
+                        </div>
+                        <div className="col-md-4">
+                          <label>วัชพืช : </label>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
