@@ -27,7 +27,6 @@ const SidebarRole = () => {
 
   const dispatch = useDispatch();
   const roleLogin = useSelector(loginRole);
-  const loginName = useSelector(loginName);
 
   
   useEffect(() => {
@@ -52,7 +51,6 @@ const SidebarRole = () => {
       dispatch(login(decoded.role_id,decoded.name))
 
       console.log("login Role: "+roleLogin)
-      console.log("loginName: "+loginName)
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
