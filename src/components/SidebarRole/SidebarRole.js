@@ -8,11 +8,9 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
-import { useSelector, useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux'
 import {
-  login,
-  loginRole,
-  loginName
+  roleLogin,
 } from '../../features/user/userSlice.js';
 
 const SidebarRole = () => {
@@ -26,8 +24,6 @@ const SidebarRole = () => {
   const history = useNavigate();
 
   const dispatch = useDispatch();
-  const roleLogin = useSelector(loginRole);
-
   
   useEffect(() => {
     refreshToken();
@@ -49,8 +45,6 @@ const SidebarRole = () => {
       setExpire(decoded.exp);
 
       dispatch(login(decoded.role_id))
-
-      console.log("login Role: "+roleLogin)
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
@@ -127,7 +121,7 @@ const SidebarRole = () => {
           </div>
           <div className="info">
             <a href="/contract_farm" className="d-block">
-              {name} {last_name} {roleLogin}
+              {name} {last_name}
             </a>
           </div>
         </div>
