@@ -142,6 +142,7 @@ const Manage_plant_chemical = (props) => {
     const IdExpired = el.getAttribute("id");
     setIDExpired(IdExpired);
 
+    date = date + 1;
     console.log(date);
     var new_date = moment(startDate, "YYYY-MM-DD").add("days", date);
     var day = new_date.format("DD");
