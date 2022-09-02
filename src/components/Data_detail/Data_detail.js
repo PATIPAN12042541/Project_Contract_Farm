@@ -264,3 +264,5 @@ const Data_detail = (props) => {
 };
 
 export default Data_detail;
+
+
