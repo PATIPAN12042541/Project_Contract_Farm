@@ -230,7 +230,7 @@ const Data_detail = (props) => {
                           <input
                             type="checkbox"
                             checked={checked}
-                            // onChange={(e) => setChecked(e.target.checked)}
+                            onChange={(e) => setChecked(e.target.checked)}
                           />
                         </form>
                       </div>
