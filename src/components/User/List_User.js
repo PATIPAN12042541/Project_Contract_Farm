@@ -14,7 +14,7 @@ import Switch from "react-switch";
 import '../Pagination/style.scss';
 import {useSelector } from 'react-redux'
 import {
-  loginRole,
+    roleLogin
 } from '../../features/user/userSlice.js';
 
 let PageSize = 5;
@@ -38,7 +38,7 @@ export const List_User = () => {
   const Nav = useNavigate();
   const [roleIDLogin, setRoleIDLogin] = useState();
   
-  const roleIDLogin2 = useSelector(loginRole)
+  const roleIDLogin2 = useSelector(roleLogin)
 
   /* VAR MODAL */
   /********** insert data ***************/
