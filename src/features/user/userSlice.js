@@ -20,6 +20,8 @@ export const userSlice = createSlice({
       },
     },
   })
+
+  export const loginRole = (state) => state.user.roleID
   
   // Action creators are generated for each case reducer function
   export const { login, logout } = userSlice.actions
