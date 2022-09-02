@@ -3,7 +3,6 @@ export const userSlice = createSlice({
     name: 'user',
     initialState: {
         roleID : '',
-        loginName : ''
     },
     reducers: {
       login : (state,action) => {
@@ -12,7 +11,6 @@ export const userSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         state.roleID = action.payload.roleID
-        state.loginName = action.payload.loginName
       },
       logout : (state) => {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -20,7 +18,6 @@ export const userSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         state.roleID = ''
-        state.loginName = ''
       },
     }
   })
