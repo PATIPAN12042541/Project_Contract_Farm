@@ -315,7 +315,7 @@ function App() {
           />
           <Route
             exact
-            path="/Report_Defect"
+            path="/reportDefect"
             element={
               <>
                 <Header />
