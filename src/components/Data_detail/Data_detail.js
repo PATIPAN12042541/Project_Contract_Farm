@@ -225,7 +225,7 @@ const Data_detail = (props) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
-                      <div className="form-group">
+                      <div className="row form-group">
                         <div className="col-md-4">
                           <label>โรค : </label>
                           <input
