@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
-      roleID : '',
+      roleID : 1,
     },
     reducers: {
       login : (state,action) => {

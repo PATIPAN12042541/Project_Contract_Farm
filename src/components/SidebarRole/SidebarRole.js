@@ -48,6 +48,7 @@ const SidebarRole = () => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
+      console.log("login Role: "+{roleLogin})
       dispatch(login(decoded.role_id))
 
       roleMenu(decoded.role_id);
