@@ -227,6 +227,7 @@ const Data_detail = (props) => {
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="form-group">
                         <form>
+                          <label>โรค</label>
                           <input
                             type="checkbox"
                             checked={checked}
