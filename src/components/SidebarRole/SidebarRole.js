@@ -119,7 +119,7 @@ const SidebarRole = () => {
           </div>
           <div className="info">
             <a href="/contract_farm" className="d-block">
-              {name} {last_name} {loginRole}
+              {name} {last_name}
             </a>
           </div>
         </div>
