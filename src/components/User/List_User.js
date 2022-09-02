@@ -258,7 +258,7 @@ export const List_User = () => {
     }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    refreshToken();
+    //refreshToken();
     getListUser();
     getRole();
     // eslint-disable-next-line react-hooks/exhaustive-deps
