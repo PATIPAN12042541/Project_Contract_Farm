@@ -221,6 +221,33 @@ const Data_detail = (props) => {
                 >
                   <h3 className="card-title">รายงานปัญหา</h3>
                 </div>
+                <div className="card-body">
+                  <div className="row">
+                    <div className="form-group">
+                      <div className="custom-control custom-checkbox">
+                        <input
+                          className="custom-control-input custom-control-input-danger"
+                          type="checkbox"
+                        />
+                        <label className="custom-control-label">โรค</label>
+                      </div>
+                      <div className="custom-control custom-checkbox">
+                        <input
+                          className="custom-control-input custom-control-input-danger"
+                          type="checkbox"
+                        />
+                        <label className="custom-control-label">แมลง</label>
+                      </div>
+                      <div className="custom-control custom-checkbox">
+                        <input
+                          className="custom-control-input custom-control-input-danger"
+                          type="checkbox"
+                        />
+                        <label className="custom-control-label">วัชพืช</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
