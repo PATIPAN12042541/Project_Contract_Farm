@@ -202,6 +202,9 @@ const Data_detail = (props) => {
             </div>
           ))}
         </div>
+        <div className="row">
+          <div>ทดสอบระบบ</div>
+        </div>
       </section>
     </div>
   );
