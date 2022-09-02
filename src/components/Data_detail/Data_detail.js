@@ -223,28 +223,32 @@ const Data_detail = (props) => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div className="form-group">
-                      <div className="row">
-                        <div className="custom-control custom-checkbox">
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                          />
-                          <label className="custom-control-label">โรค</label>
-                        </div>
-                        <div className="custom-control custom-checkbox">
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                          />
-                          <label className="custom-control-label">แมลง</label>
-                        </div>
-                        <div className="custom-control custom-checkbox">
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                          />
-                          <label className="custom-control-label">วัชพืช</label>
+                    <div className="col-md-4 col-sm-6 col-12">
+                      <div className="form-group">
+                        <div className="row">
+                          <div className="custom-control custom-checkbox">
+                            <input
+                              className="custom-control-input custom-control-input-danger"
+                              type="checkbox"
+                            />
+                            <label className="custom-control-label">โรค</label>
+                          </div>
+                          <div className="custom-control custom-checkbox">
+                            <input
+                              className="custom-control-input custom-control-input-danger"
+                              type="checkbox"
+                            />
+                            <label className="custom-control-label">แมลง</label>
+                          </div>
+                          <div className="custom-control custom-checkbox">
+                            <input
+                              className="custom-control-input custom-control-input-danger"
+                              type="checkbox"
+                            />
+                            <label className="custom-control-label">
+                              วัชพืช
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
