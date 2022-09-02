@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
-      roleID : 1,
+        value : 1,
     },
     reducers: {
       login : (state) => {
@@ -10,18 +10,16 @@ export const userSlice = createSlice({
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
-        state.roleID = '1'
-      },
-      logout: (state,action) => {
-        state.username = ''
-        state.roleID = ''
-      },
-    },
+        state.value += 1
+      }
+    }
   })
 
-  export const loginRole = (state) => state.user.roleID
+
   
   // Action creators are generated for each case reducer function
-  export const { login, logout } = userSlice.actions
+  export const { login } = userSlice.actions
+
+  export const loginRole = (state) => state.user.value
   
   export default userSlice.reducer

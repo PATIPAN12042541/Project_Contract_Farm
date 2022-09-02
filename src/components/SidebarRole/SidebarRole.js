@@ -11,9 +11,8 @@ import Image from "react-bootstrap/Image";
 import { useSelector, useDispatch } from 'react-redux'
 import {
   login,
-  logout,
   loginRole
-} from '../../features/user/userSlice';
+} from '../../features/user/userSlice.js';
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
