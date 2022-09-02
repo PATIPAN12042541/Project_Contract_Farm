@@ -49,7 +49,7 @@ const SidebarRole = () => {
 
       dispatch(login())
 
-      console.log("login Role: "+{roleLogin})
+      console.log("login Role: "+roleLogin)
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
