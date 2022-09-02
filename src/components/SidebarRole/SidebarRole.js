@@ -48,7 +48,7 @@ const SidebarRole = () => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
-      dispatch(login(decoded.role_id,decoded.name))
+      dispatch(login(decoded.role_id))
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);

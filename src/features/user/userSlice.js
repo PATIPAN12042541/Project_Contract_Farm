@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
-      username: '',
       roleID : '',
     },
     reducers: {
@@ -11,7 +10,6 @@ export const userSlice = createSlice({
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
-        state.username = action.payload.username
         state.roleID = action.payload.roleID
       },
       logout: (state,action) => {
