@@ -173,7 +173,7 @@ const Manage_plant_fertilizer = (props) => {
             unit: unitE,
             date_start: startdateE,
             date_end: enddateE,
-            note: noteE,
+            note: noteE == "" ? "-" : noteE,
           }
         )
         .then(function (response) {
