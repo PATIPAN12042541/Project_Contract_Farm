@@ -10,7 +10,7 @@ import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import {useDispatch } from 'react-redux'
 import {
-  roleLogin,
+  roleLogin
 } from '../../features/user/userSlice.js';
 
 const SidebarRole = () => {
