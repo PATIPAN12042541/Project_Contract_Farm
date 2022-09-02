@@ -36,279 +36,271 @@ import { List_User } from "./components/User/List_User.js";
 import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import MonitorStatus from "./components/System_overview/MonitorStatus";
 import ChanagePassword from "./components/User/ChanagePassword";
+import Report_Defect from "./components/Report_Defect/Report_Defect";
 
 function App() {
-
   return (
-      <div className="wrapper">
-        <BrowserRouter>
-          <Routes>
-            <Route
-              exact
-              path="/contract_farm"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Home />
-                  <Footer />
-                </>
-              }
-            ></Route>
-            <Route index element={<Page_Login />} />
-            <Route exact path="/Register" element={<Register />} />
-            <Route exact path="/Home" element={<Page_1_1 />} />
-            <Route
-              exact
-              path="/weather"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <First_Page />
-                  <Footer />
-                </>
-              }
-            />
-            <Route exact path="/Detail" element={<Page_1_2 />} />
-            <Route
-              exact
-              path="/Data_detail/:id"
-              element={<Page_data_detail />}
-            />
-            <Route exact path="/Edit_data/:id" element={<Page_Edit_Plant />} />
-            <Route
-              exact
-              path="/Manage_plant/:id"
-              element={<Page_manage_data />}
-            />
-            <Route
-              exact
-              path="/Manage_plant_edit/:id"
-              element={<Page_manage_data_edit />}
-            />
-            <Route
-              exact
-              path="/System_overview"
-              element={<Page_System_overview />}
-            />
-            <Route
-              exact
-              path="/TypeChemical"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <List_TypeChemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/addTypeChemical"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Add_TypeChemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/editTypeChemical/:id"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Update_TypeChemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/Page_chemical/:id"
-              element={<Page_chemical />}
-            />
-            <Route
-              exact
-              path="/Page_manage_zone"
-              element={<Page_manage_zone />}
-            />
-            <Route
-              exact
-              path="/ListChemical"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <List_Chemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/AddChemical"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Add_Chemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/UpdateChemical/:id"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Update_Chemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/ListTypeUser"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <ListTypeUser />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/AddTypeUser"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <AddTypeUser />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/UpdateTypeUser/:id"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <UpdateTypeUser />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/Plant_detail/:id"
-              element={<Page_Plant_detail />}
-            />
-            <Route
-              exact
-              path="/PlantMaster"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Plant_master />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/Manage_fertilizer/:id"
-              element={<Page_fertilizer />}
-            />
-            <Route
-              exact
-              path="/Page_Plant_fertilizer/:id"
-              element={<Page_Plant_fertilizer />}
-            />
-            <Route
-              exact
-              path="/fertilizerUnit"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <FertilizerUnit />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/TimeChemical"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <TimeChemical />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/ListUser"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <List_User />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/PlantMasterType"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Plant_master_type />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/PlantMasterType"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <Plant_master_type />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              exact
-              path="/MonitorStatus"
-              element={
-                <>
-                  <Header />
-                  <SidebarRole />
-                  <MonitorStatus />
-                  <Footer />
-                </>
-              }
-            />
+    <div className="wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/contract_farm"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Home />
+                <Footer />
+              </>
+            }
+          ></Route>
+          <Route index element={<Page_Login />} />
+          <Route exact path="/Register" element={<Register />} />
+          <Route exact path="/Home" element={<Page_1_1 />} />
+          <Route
+            exact
+            path="/weather"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <First_Page />
+                <Footer />
+              </>
+            }
+          />
+          <Route exact path="/Detail" element={<Page_1_2 />} />
+          <Route exact path="/Data_detail/:id" element={<Page_data_detail />} />
+          <Route exact path="/Edit_data/:id" element={<Page_Edit_Plant />} />
+          <Route
+            exact
+            path="/Manage_plant/:id"
+            element={<Page_manage_data />}
+          />
+          <Route
+            exact
+            path="/Manage_plant_edit/:id"
+            element={<Page_manage_data_edit />}
+          />
+          <Route
+            exact
+            path="/System_overview"
+            element={<Page_System_overview />}
+          />
+          <Route
+            exact
+            path="/TypeChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <List_TypeChemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/addTypeChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Add_TypeChemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/editTypeChemical/:id"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Update_TypeChemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route exact path="/Page_chemical/:id" element={<Page_chemical />} />
+          <Route
+            exact
+            path="/Page_manage_zone"
+            element={<Page_manage_zone />}
+          />
+          <Route
+            exact
+            path="/ListChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <List_Chemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/AddChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Add_Chemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/UpdateChemical/:id"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Update_Chemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/ListTypeUser"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <ListTypeUser />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/AddTypeUser"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <AddTypeUser />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/UpdateTypeUser/:id"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <UpdateTypeUser />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Plant_detail/:id"
+            element={<Page_Plant_detail />}
+          />
+          <Route
+            exact
+            path="/PlantMaster"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Plant_master />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Manage_fertilizer/:id"
+            element={<Page_fertilizer />}
+          />
+          <Route
+            exact
+            path="/Page_Plant_fertilizer/:id"
+            element={<Page_Plant_fertilizer />}
+          />
+          <Route
+            exact
+            path="/fertilizerUnit"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <FertilizerUnit />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/TimeChemical"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <TimeChemical />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/ListUser"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <List_User />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/PlantMasterType"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Plant_master_type />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/PlantMasterType"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Plant_master_type />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/MonitorStatus"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <MonitorStatus />
+                <Footer />
+              </>
+            }
+          />
           <Route
             exact
             path="/ChangePassword"
@@ -321,9 +313,21 @@ function App() {
               </>
             }
           />
-          </Routes>
-        </BrowserRouter>
-      </div>
+          <Route
+            exact
+            path="/Report_Defect"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Report_Defect />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 export default App;
