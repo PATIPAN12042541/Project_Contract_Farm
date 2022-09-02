@@ -217,7 +217,7 @@ const Data_detail = (props) => {
               <div className="card">
                 <div
                   className="card-header"
-                  style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "#DC143C", color: "#FFFFFF" }}
                 >
                   <h3 className="card-title">รายงานปัญหา</h3>
                 </div>
