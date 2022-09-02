@@ -135,11 +135,11 @@ const Manage_plant_chemical = (props) => {
   };
 
   const setEnddate2 = async (data) => {
-
     setEndDate("");
     const index = data.target.selectedIndex;
+    index = index + 1;
     const el = data.target.childNodes[index];
-    const date = el.getAttribute("value") + 1;
+    const date = el.getAttribute("value");
     const IdExpired = el.getAttribute("id");
     setIDExpired(IdExpired);
 
@@ -148,7 +148,6 @@ const Manage_plant_chemical = (props) => {
     var month = new_date.format("MM");
     var year = new_date.format("YYYY");
     setEndDate(year + "-" + month + "-" + day);
-
   };
 
   const deleteChemical = async (id) => {
@@ -475,6 +474,6 @@ const Manage_plant_chemical = (props) => {
       </section>
     </div>
   );
-};
+};;
 
 export default Manage_plant_chemical;
