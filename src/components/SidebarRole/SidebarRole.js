@@ -21,7 +21,7 @@ const SidebarRole = () => {
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
 
-  //const loginRole = useSelector(loginRole);
+  //const loginRole2 = useSelector(loginRole);
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -43,7 +43,7 @@ const SidebarRole = () => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
-      //dispatch(roleLogin(decoded.role_id))
+      dispatch(roleLogin(decoded.role_id))
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
