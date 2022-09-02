@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
-import { Provider } from 'react-redux'
 
 axios.defaults.withCredentials = true;
 
