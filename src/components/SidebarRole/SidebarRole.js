@@ -9,7 +9,7 @@ import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { useSelector, useDispatch } from 'react-redux'
-import {roleLogin,loginRole} from '../../features/user/userSlice'
+import {roleLogin} from '../../features/user/userSlice.js'
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -21,7 +21,7 @@ const SidebarRole = () => {
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
 
-  const loginRole = useSelector(loginRole);
+  //const loginRole = useSelector(loginRole);
   const dispatch = useDispatch();
   
   useEffect(() => {
