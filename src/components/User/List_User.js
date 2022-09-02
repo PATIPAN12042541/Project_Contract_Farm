@@ -36,9 +36,9 @@ export const List_User = () => {
 
   const {id} = useParams();
   const Nav = useNavigate();
-  //const [roleIDLogin, setRoleIDLogin] = useState();
+  const [roleIDLogin, setRoleIDLogin] = useState();
   
-  const roleIDLogin = useSelector(loginRole)
+  const roleIDLogin2 = useSelector(loginRole)
 
   /* VAR MODAL */
   /********** insert data ***************/
@@ -275,7 +275,7 @@ export const List_User = () => {
                                   style={{ backgroundColor: "#8CC152" }}
                               >
                                   <center>
-                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ Role {roleIDLogin}</h3>
+                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ Role {roleIDLogin2}</h3>
                                   </center>
                               </div>
                               <div className="card-body">
