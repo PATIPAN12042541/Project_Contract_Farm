@@ -226,31 +226,26 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="form-group">
-                        <form>
-                          <label>โรค</label>
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
-                          <label>แมลง</label>
-                          <br></br>
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
-                          <label>วัชพืช</label>
-                          <br></br>
-                          <input
-                            className="custom-control-input custom-control-input-danger"
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
-                        </form>
+                        <label>โรค : </label>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={(e) => setChecked(e.target.checked)}
+                        />
+                        <br></br>
+                        <label>แมลง : </label>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={(e) => setChecked(e.target.checked)}
+                        />
+                        <br></br>
+                        <label>วัชพืช : </label>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={(e) => setChecked(e.target.checked)}
+                        />
                       </div>
                     </div>
                   </div>
