@@ -229,18 +229,23 @@ const Data_detail = (props) => {
                         <form>
                           <label>โรค</label>
                           <input
+                            className="custom-control-input custom-control-input-danger"
                             type="checkbox"
                             checked={checked}
                             onChange={(e) => setChecked(e.target.checked)}
                           />
                           <label>แมลง</label>
+                          <br></br>
                           <input
+                            className="custom-control-input custom-control-input-danger"
                             type="checkbox"
                             checked={checked}
                             onChange={(e) => setChecked(e.target.checked)}
                           />
                           <label>วัชพืช</label>
+                          <br></br>
                           <input
+                            className="custom-control-input custom-control-input-danger"
                             type="checkbox"
                             checked={checked}
                             onChange={(e) => setChecked(e.target.checked)}
