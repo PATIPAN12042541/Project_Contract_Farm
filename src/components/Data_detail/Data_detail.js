@@ -233,6 +233,12 @@ const Data_detail = (props) => {
                             checked={checked}
                             onChange={(e) => setChecked(e.target.checked)}
                           />
+                          <label>เชื้อรา</label>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                          />
                         </form>
                       </div>
                     </div>
