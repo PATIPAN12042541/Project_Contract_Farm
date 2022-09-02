@@ -12,10 +12,7 @@ import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
 import Switch from "react-switch";
 import '../Pagination/style.scss';
-import {useSelector } from 'react-redux'
-import {
-    roleLogin
-} from '../../features/user/userSlice.js';
+
 
 let PageSize = 5;
 
@@ -38,7 +35,7 @@ export const List_User = () => {
   const Nav = useNavigate();
   const [roleIDLogin, setRoleIDLogin] = useState();
   
-  const roleIDLogin2 = useSelector(roleLogin)
+
 
   /* VAR MODAL */
   /********** insert data ***************/
@@ -275,7 +272,7 @@ export const List_User = () => {
                                   style={{ backgroundColor: "#8CC152" }}
                               >
                                   <center>
-                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ Role {roleIDLogin2}</h3>
+                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ</h3>
                                   </center>
                               </div>
                               <div className="card-body">
