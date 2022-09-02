@@ -215,7 +215,7 @@ const Manage_plant_chemical = (props) => {
                           <option>------กรุณาเลือกสารเคมี------</option>
                           {getChemical.map((Chemical, index) => {
                             return (
-                              <option key={index} value={Chemical.id + 1}>
+                              <option key={index} value={Chemical.id}>
                                 {Chemical.name_chemical}
                               </option>
                             );
@@ -295,7 +295,7 @@ const Manage_plant_chemical = (props) => {
                               <option
                                 key={index2}
                                 id={expired.id}
-                                value={expired.time}
+                                value={expired.time +1 }
                               >
                                 {expired.time + " " + expired.unit}
                               </option>
