@@ -8,8 +8,8 @@ import logo from "./logo/sprout.png";
 import user6 from "./logo/user6-128x128.jpg";
 import { ListGroup } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
-import { useSelector, useDispatch } from 'react-redux'
-import {roldLogin,loginRole} from '../../features/user/userSlice'
+import { useDispatch } from 'react-redux'
+import {roldLogin} from '../../features/user/userSlice'
 
 const SidebarRole = () => {
   const [name, setName] = useState("");
@@ -21,7 +21,6 @@ const SidebarRole = () => {
   const [submenurole, setSubMenusRole] = useState([]);
   const history = useNavigate();
 
-  const loginRole2 = useSelector(loginRole);
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -120,7 +119,7 @@ const SidebarRole = () => {
           </div>
           <div className="info">
             <a href="/contract_farm" className="d-block">
-              {name} {last_name} {loginRole2}
+              {name} {last_name}
             </a>
           </div>
         </div>

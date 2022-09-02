@@ -12,7 +12,7 @@ import Image from "react-bootstrap/Image";
 import jwt_decode from "jwt-decode";
 import Switch from "react-switch";
 import '../Pagination/style.scss';
-
+import {loginRole} from '../../features/user/userSlice'
 
 let PageSize = 5;
 
