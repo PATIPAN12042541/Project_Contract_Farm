@@ -70,39 +70,42 @@ export const List_User = () => {
   /*************************************/
 
     // refresh token
-    const refreshToken = async () => {
-        try {
-            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+    // const refreshToken = async () => {
+    //     try {
+    //         //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
 
-            // const response = await axios.get("http://localhost:4000/user/token");
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/user/token`
-            );
-            setToken(response.data.accessToken);
-            const decoded = jwt_decode(response.data.accessToken);
-            setRoleIDLogin(decoded.role_id)
-            getListUser(decoded.role_id);
-            getRole(decoded.role_id);
-        } catch (error) {
-            if (error.response) {
-                Nav("/");
-            }
-        }
-        // eslint-disable-line react-hooks/exhaustive-deps
-    };
+    //         // const response = await axios.get("http://localhost:4000/user/token");
+    //         const response = await axios.get(
+    //             `${process.env.REACT_APP_API_URL}/user/token`
+    //         );
+    //         setToken(response.data.accessToken);
+    //         const decoded = jwt_decode(response.data.accessToken);
+    //         setRoleIDLogin(decoded.role_id)
+    //         getListUser(decoded.role_id);
+    //         getRole(decoded.role_id);
+    //     } catch (error) {
+    //         if (error.response) {
+    //             Nav("/");
+    //         }
+    //     }
+    //     // eslint-disable-line react-hooks/exhaustive-deps
+    // };
 
     //List User
-    const getListUser = async (role_id) => {
-        if(role_id === 1){
+    const getListUser = async () => {
+        if(loginRole2 === 1){
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
             );
             setListUsers(response.data);
+
+            console.log("Role ID : "+loginRole2)
         }else{
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`
             );
             setListUsers(response.data);
+            console.log("Role ID : "+loginRole2)
         }
     };
 
@@ -256,7 +259,7 @@ export const List_User = () => {
     }, [currentPage, searchInput.length > 1 ? filteredResults : listUsers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    refreshToken();
+    //refreshToken();
     getListUser();
     getRole();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -273,7 +276,7 @@ export const List_User = () => {
                                   style={{ backgroundColor: "#8CC152" }}
                               >
                                   <center>
-                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ {loginRole2}</h3>
+                                      <h3 className="card-title">ข้อมูลผู้ใช้งานระบบ</h3>
                                   </center>
                               </div>
                               <div className="card-body">
