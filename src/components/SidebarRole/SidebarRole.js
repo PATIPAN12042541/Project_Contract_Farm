@@ -11,7 +11,8 @@ import Image from "react-bootstrap/Image";
 import { useSelector, useDispatch } from 'react-redux'
 import {
   login,
-  loginRole
+  loginRole,
+  loginName
 } from '../../features/user/userSlice.js';
 
 const SidebarRole = () => {
@@ -26,6 +27,7 @@ const SidebarRole = () => {
 
   const dispatch = useDispatch();
   const roleLogin = useSelector(loginRole);
+  const loginName = useSelector(loginName);
 
   
   useEffect(() => {
@@ -47,9 +49,10 @@ const SidebarRole = () => {
       setRoleID(decoded.role_id);
       setExpire(decoded.exp);
 
-      dispatch(login())
+      dispatch(login(decoded.role_id,decoded.name))
 
       console.log("login Role: "+roleLogin)
+      console.log("loginName: "+loginName)
 
       roleMenu(decoded.role_id);
       subMenu1(decoded.role_id);
