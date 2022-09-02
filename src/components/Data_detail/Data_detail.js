@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     getDatadetail();
@@ -225,34 +226,13 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="form-group">
-                        <div className="row">
-                          <div className="custom-control custom-checkbox">
-                            <input
-                              className="custom-control-input custom-control-input-danger"
-                              type="checkbox"
-                              id="customCheckbox5"
-                            />
-                            <label className="custom-control-label">โรค</label>
-                          </div>
-                          <div className="custom-control custom-checkbox">
-                            <input
-                              className="custom-control-input custom-control-input-danger"
-                              type="checkbox"
-                              id="customCheckbox5"
-                            />
-                            <label className="custom-control-label">แมลง</label>
-                          </div>
-                          <div className="custom-control custom-checkbox">
-                            <input
-                              className="custom-control-input custom-control-input-danger"
-                              type="checkbox"
-                              id="customCheckbox5"
-                            />
-                            <label className="custom-control-label">
-                              วัชพืช
-                            </label>
-                          </div>
-                        </div>
+                        <form>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            // onChange={(e) => setChecked(e.target.checked)}
+                          />
+                        </form>
                       </div>
                     </div>
                   </div>
