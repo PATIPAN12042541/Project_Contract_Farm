@@ -230,6 +230,7 @@ const Data_detail = (props) => {
                             <input
                               className="custom-control-input custom-control-input-danger"
                               type="checkbox"
+                              id="customCheckbox5"
                             />
                             <label className="custom-control-label">โรค</label>
                           </div>
@@ -237,6 +238,7 @@ const Data_detail = (props) => {
                             <input
                               className="custom-control-input custom-control-input-danger"
                               type="checkbox"
+                              id="customCheckbox5"
                             />
                             <label className="custom-control-label">แมลง</label>
                           </div>
@@ -244,6 +246,7 @@ const Data_detail = (props) => {
                             <input
                               className="custom-control-input custom-control-input-danger"
                               type="checkbox"
+                              id="customCheckbox5"
                             />
                             <label className="custom-control-label">
                               วัชพืช
