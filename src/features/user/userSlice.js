@@ -10,7 +10,7 @@ export const userSlice = createSlice({
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
-        state.roleID = action.payload.roleID
+        state.roleID = '1'
       },
       logout: (state,action) => {
         state.username = ''
