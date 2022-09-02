@@ -137,12 +137,12 @@ const Manage_plant_chemical = (props) => {
   const setEnddate2 = async (data) => {
     setEndDate("");
     const index = data.target.selectedIndex;
-    index = index + 1;
     const el = data.target.childNodes[index];
     const date = el.getAttribute("value");
     const IdExpired = el.getAttribute("id");
     setIDExpired(IdExpired);
 
+    console.log(date);
     var new_date = moment(startDate, "YYYY-MM-DD").add("days", date);
     var day = new_date.format("DD");
     var month = new_date.format("MM");
