@@ -192,7 +192,7 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
-                        <div>ทดสอบอัพโหลดรุปภาพ</div>
+                        <div className="col-md-12">ทดสอบอัพโหลดรูปภาพ</div>
                       </div>
                     </div>
                   )}
