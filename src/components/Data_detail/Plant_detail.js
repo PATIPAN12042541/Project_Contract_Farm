@@ -191,10 +191,8 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "12" }}>.</span>
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
-                          {/* <div id="text-word">
-                            <center>กำลังดำเนินการ...</center>
-                          </div> */}
                         </div>
+                        <div>ทดสอบอัพโหลดรุปภาพ</div>
                       </div>
                     </div>
                   )}
