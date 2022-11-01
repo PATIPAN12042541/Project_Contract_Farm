@@ -95,6 +95,7 @@ const Plant_detail = (props) => {
     console.log("Status : " + status);
     console.log("Path_img : " + acceptedFiles);
     console.log("quantity : " + quantity);
+    console.log(acceptedFiles);
     // try {
     //   await axios
     //     .patch(
