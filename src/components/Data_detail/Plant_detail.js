@@ -149,6 +149,8 @@ const Plant_detail = (props) => {
             `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
             {
               harvest_status: status,
+              Path_img: "",
+              quantity: 0,
             }
           )
           .then(function (response) {
