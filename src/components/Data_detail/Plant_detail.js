@@ -308,18 +308,18 @@ const Plant_detail = (props) => {
                             />
                           </div>
                           <div className="waviy">
-                            <span style={{ "--i": "1" }}>กำ</span>
-                            <span style={{ "--i": "2" }}>ลั</span>
-                            <span style={{ "--i": "3" }}>ง</span>
-                            <span style={{ "--i": "4" }}>ดำ</span>
-                            <span style={{ "--i": "5" }}>เ</span>
-                            <span style={{ "--i": "6" }}>นิ</span>
-                            <span style={{ "--i": "7" }}>น</span>
-                            <span style={{ "--i": "8" }}>ก</span>
-                            <span style={{ "--i": "9" }}>า</span>
-                            <span style={{ "--i": "10" }}>ร</span>
-                            <span style={{ "--i": "11" }}>.</span>
-                            <span style={{ "--i": "12" }}>.</span>
+                            <span style={{ "--i": "1" }}>U</span>
+                            <span style={{ "--i": "2" }}>p</span>
+                            <span style={{ "--i": "3" }}>l</span>
+                            <span style={{ "--i": "4" }}>o</span>
+                            <span style={{ "--i": "5" }}>a</span>
+                            <span style={{ "--i": "6" }}>d</span>
+                            <span style={{ "--i": "7" }}> </span>
+                            <span style={{ "--i": "8" }}>รู</span>
+                            <span style={{ "--i": "9" }}>ป</span>
+                            <span style={{ "--i": "10" }}>ภ</span>
+                            <span style={{ "--i": "11" }}>า</span>
+                            <span style={{ "--i": "12" }}>พ</span>
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
