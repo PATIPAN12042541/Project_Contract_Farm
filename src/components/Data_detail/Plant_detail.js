@@ -22,10 +22,9 @@ const Plant_detail = (props) => {
 
   // post image
   const uploadImg = async () => {
-    console.log(acceptedFiles[0]);
+    
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
-
     await axios
       .post(
         `${process.env.REACT_APP_API_URL}/public/dist/img/UploadWorking`,
