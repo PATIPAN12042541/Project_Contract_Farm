@@ -197,10 +197,13 @@ const Plant_detail = (props) => {
                     <div className="card-body">
                       <div className="row">
                         <div className="col-md-12">
-                          <img
-                            className="ima-size card-img-top"
-                            src="../dist/img/harvest-veggies.jpg"
-                          />
+                          <div {...getRootProps({ className: "dropzone" })}>
+                            <input {...getInputProps()} />
+                            <img
+                              className="ima-size card-img-top"
+                              src="../dist/img/harvest-veggies.jpg"
+                            />
+                          </div>
                           <div className="waviy">
                             <span style={{ "--i": "1" }}>กำ</span>
                             <span style={{ "--i": "2" }}>ลั</span>
@@ -217,6 +220,7 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
+                        <em>(Only *.jpeg and *.png images will be accepted)</em>
                       </div>
                     </div>
                   )}
@@ -273,7 +277,6 @@ const Plant_detail = (props) => {
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
           <p>Drag 'n' drop some files here, or click to select files</p>
-          <em>(Only *.jpeg and *.png images will be accepted)</em>
         </div>
 
         {/* <aside>
