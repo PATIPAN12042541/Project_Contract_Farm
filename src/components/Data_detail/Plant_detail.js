@@ -234,9 +234,7 @@ const Plant_detail = (props) => {
                           </pre>
                         </div>
                         <div className="col-md-12">
-                          <pre>
-                            <h4>ปริมาณการเก็บเกี่ยว</h4>
-                          </pre>
+                          <h4>ปริมาณการเก็บเกี่ยว</h4>
                         </div>
                       </div>
                     </div>
