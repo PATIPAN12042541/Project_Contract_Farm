@@ -200,19 +200,6 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
-                        <div className="col-md-12">
-                          <div {...getRootProps({ className: "dropzone" })}>
-                            <input {...getInputProps()} />
-                            <aside>
-                              <h4>Files</h4>
-                              <ul>{files}</ul>
-                            </aside>
-                            <p>
-                              Drag 'n' drop some files here, or click to select
-                              files
-                            </p>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   )}
@@ -262,6 +249,18 @@ const Plant_detail = (props) => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="container">
+        <div className="col-md-12">
+          <div {...getRootProps({ className: "dropzone" })}>
+            <input {...getInputProps()} />
+            <aside>
+              <h4>Files</h4>
+              <ul>{files}</ul>
+            </aside>
+            <p>Drag 'n' drop some files here, or click to select files</p>
           </div>
         </div>
       </section>
