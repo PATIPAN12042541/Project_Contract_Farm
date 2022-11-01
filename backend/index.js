@@ -97,7 +97,29 @@ try {
   res.json(console.log("Upload 3 Fail"));
 }
 /****************************************************************************/
+/******** Upload File To Folder public/dist/img/ to frontend **************/
+const storage_4 = diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../public/dist/img/UploadWorking");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
 
+const upload_4 = multer({ storage: storage_4 });
+try {
+  app.post(
+    "/public/dist/img/UploadWorking",
+    upload_4.single("file"),
+    function (req, res) {
+      res.json({});
+    }
+  );
+} catch (error) {
+  res.json(console.log("Upload 4 Fail"));
+}
+/****************************************************************************/
 app.use(cookieParser());
 app.use(express.json());
 app.use("/role_group", RoleRoutes);

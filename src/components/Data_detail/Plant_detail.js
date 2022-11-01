@@ -17,19 +17,21 @@ const Plant_detail = (props) => {
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
-  )
-  );
-  console.log(acceptedFiles);
-  // // post image
-  // const uploadImg = async () => {
-  //   let formData = new FormData();
-  //   formData.append("file", image.data);
+  ));
 
-  //   await axios
-  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
-  //     .then((res) => console.log(res.data))
-  //     .catch((err) => console.error(err));
-  // };
+  // post image
+  const uploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", acceptedFiles);
+
+    await axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/public/dist/img/UploadWorking`,
+        formData
+      )
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
 
   const getPlantData = async () => {
     const response = await axios.get(
@@ -229,6 +231,11 @@ const Plant_detail = (props) => {
                               <h4>Filename Upload</h4>
                               <ul>{acceptedFileItems}</ul>
                             </aside>
+                          </pre>
+                        </div>
+                        <div className="col-md-12">
+                          <pre>
+                            <h4>ปริมาณการเก็บเกี่ยว</h4>
                           </pre>
                         </div>
                       </div>
