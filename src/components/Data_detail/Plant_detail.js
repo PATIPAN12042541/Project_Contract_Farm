@@ -24,7 +24,7 @@ const Plant_detail = (props) => {
   const uploadImg = async () => {
     console.log(acceptedFiles[0]);
     let formData = new FormData();
-    formData.append("file", acceptedFiles);
+    formData.append("file", acceptedFiles[0]);
 
     await axios
       .post(
