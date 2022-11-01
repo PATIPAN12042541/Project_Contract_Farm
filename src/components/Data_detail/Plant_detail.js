@@ -142,15 +142,13 @@ const Plant_detail = (props) => {
 
   const changeStatusHavest = async (status) => {
     const path_img = acceptedFiles.map((file) => file.path);
-    if (status == 0) {
+    if (status == 1) {
       try {
         await axios
           .patch(
             `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
             {
               harvest_status: status,
-              Path_img: "",
-              quantity: 0,
             }
           )
           .then(function (response) {
