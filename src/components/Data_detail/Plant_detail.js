@@ -92,8 +92,11 @@ const Plant_detail = (props) => {
   };
 
   const changeStatusHavest = async (status) => {
+
+    const path_img = acceptedFiles.map((file) => file.path);
+
     console.log("Status : " + status);
-    console.log("Path_img : " + acceptedFiles.map((file) => file.path));
+    console.log("Path_img : " + path_img);
     console.log("quantity : " + quantity);
     console.log(acceptedFiles);
     // try {
