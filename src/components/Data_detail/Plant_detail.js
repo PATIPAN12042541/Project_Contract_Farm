@@ -273,19 +273,6 @@ const Plant_detail = (props) => {
           </div>
         </div>
       </section>
-      <section className="container">
-        <div {...getRootProps({ className: "dropzone" })}>
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </div>
-
-        {/* <aside>
-          <h4>Accepted files</h4>
-          <ul>{acceptedFileItems}</ul>
-          <h4>Rejected files</h4>
-          <ul>{fileRejectionItems}</ul>
-        </aside> */}
-      </section>
     </div>
   );
 };
