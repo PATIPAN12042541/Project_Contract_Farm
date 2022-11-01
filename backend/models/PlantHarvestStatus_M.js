@@ -14,6 +14,12 @@ const PlantHarvestStatus_M = db.define(
     harvest_status: {
       type: DataTypes.INTEGER,
     },
+    Path_img: {
+      type: DataTypes.STRING,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     freezeTableName: true,

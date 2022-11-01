@@ -148,6 +148,8 @@ export const postDetailPlant = async (req, res) => {
         plant_id_data: IdPlant[0].id,
         plant_status: 1,
         harvest_status: 1,
+        Path_img: "",
+        quantity: 0,
       });
     } catch (error) {
       res.json({ message: error.message });
