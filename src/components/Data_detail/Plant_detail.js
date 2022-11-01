@@ -96,7 +96,7 @@ const Plant_detail = (props) => {
     const path_img = acceptedFiles.map((file) => file.path);
 
     console.log("Status : " + status);
-    console.log("Path_img : " + "/public/dist/img/UploadWorking/" + path_img);
+    console.log("Path_img : " + "../dist/img/UploadWorking/" + path_img);
     console.log("quantity : " + quantity);
     console.log(acceptedFiles);
     // try {
