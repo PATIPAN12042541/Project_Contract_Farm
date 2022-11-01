@@ -28,23 +28,15 @@ const Report_Defect = () => {
             <div className="col-7">
               <div className="form-group">
                 <label className="inputName">ชื่อแปลง</label>
-                <input className="text" id="inputName" class="form-control" />
+                <input className="text" class="form-control" />
               </div>
               <div className="form-group">
-                <label for="inputEmail">หัวข้อปัญหา</label>
-                <input type="email" id="inputEmail" className="form-control" />
+                <label>หัวข้อปัญหา</label>
+                <input type="text" className="form-control" />
               </div>
-              {/* <div class="form-group">
-                <label for="inputSubject">Subject</label>
-                <input type="text" id="inputSubject" className="form-control" />
-              </div> */}
               <div className="form-group">
-                <label for="inputMessage">ปัญหาที่พบ</label>
-                <textarea
-                  id="inputMessage"
-                  className="form-control"
-                  rows="4"
-                ></textarea>
+                <label>ปัญหาที่พบ</label>
+                <textarea className="form-control" rows="4"></textarea>
               </div>
               <div className="form-group">
                 <input
