@@ -1,7 +1,7 @@
 .bg-image {
-    background-image: url("../Login/login.jpg");
+    background-image: url("../Report_Defect/bg_report.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
-    font-size: large;
+    /* color: white;
+            font-size: large; */
 }

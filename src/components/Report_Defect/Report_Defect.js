@@ -15,7 +15,7 @@ const Report_Defect = () => {
       </section>
 
       <section className="content">
-        <div className="card">
+        <div className="card bg-image">
           <div className="card-body row">
             <div className="col-5 text-center d-flex align-items-center justify-content-center">
               <div className="">
