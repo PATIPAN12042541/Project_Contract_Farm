@@ -1,4 +1,5 @@
 import React from "react";
+import "../CSS/ReportDefect.css";
 
 const Report_Defect = () => {
   return (
@@ -17,7 +18,7 @@ const Report_Defect = () => {
         <div className="card">
           <div className="card-body row">
             <div className="col-5 text-center d-flex align-items-center justify-content-center">
-              <div className="">
+              <div className="bg-image">
                 <h2>
                   Contract<strong>Farming</strong>
                 </h2>
