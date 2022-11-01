@@ -50,7 +50,7 @@ const Report_Defect = () => {
                 <input
                   type="submit"
                   className="btn btn-primary"
-                  value="Send message"
+                  value="ส่งรายงานปัญหา"
                 />
               </div>
             </div>
