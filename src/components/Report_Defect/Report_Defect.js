@@ -49,7 +49,7 @@ const Report_Defect = () => {
               <div className="form-group">
                 <input
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-warning"
                   value="ส่งรายงานปัญหา"
                 />
               </div>
