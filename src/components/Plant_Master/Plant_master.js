@@ -102,7 +102,7 @@ const Plant_master = () => {
 
   // Post Data Plant
   const PostPlantMaster = async (e) => {
-    uploadImg;
+    uploadImg();
     /*
     if (nameThai == "" || nameEng == "") {
       Swal.fire({
