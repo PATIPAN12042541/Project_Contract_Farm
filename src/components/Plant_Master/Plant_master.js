@@ -99,8 +99,10 @@ const Plant_master = () => {
     console.log(response.data);
   };
 
+
   // Post Data Plant
   const PostPlantMaster = async (e) => {
+    /*
     if (nameThai == "" || nameEng == "") {
       Swal.fire({
         icon: "error",
@@ -142,6 +144,7 @@ const Plant_master = () => {
           });
         });
     }
+    */
   };
 
   // post image
@@ -151,11 +154,12 @@ const Plant_master = () => {
 
     console.log(image.data);
     console.log(formData);
-
+    /*
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
+      */
   };
 
   ///////////////////////////////////////////////////////////
