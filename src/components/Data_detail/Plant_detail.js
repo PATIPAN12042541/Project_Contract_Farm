@@ -37,14 +37,32 @@ const img = {
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
+  const [files, setFiles] = useState([]);
   const [quantity, setQuantity] = useState([]);
+
+  const { acceptedFiles , getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/*": [],
+    },
+    onDrop: (acceptedFiles2) => {
+      setFiles(
+        acceptedFiles2.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
+  });
+
+  /*
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/jpeg": [],
       "image/png": [],
     },
   });
-
+  */
   /*
   const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.path}>
@@ -356,6 +374,6 @@ const Plant_detail = (props) => {
       </section>
     </div>
   );
-};;;
+};;;;
 
 export default Plant_detail;
