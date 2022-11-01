@@ -241,11 +241,12 @@ const Plant_detail = (props) => {
                                 ผลผลิตที่ได้
                               </span>
                             </div>
-                            <input type="text" className="form-control" />
-                            <div
-                              className="input-group-append"
+                            <input
+                              type="text"
+                              className="form-control"
                               style={{ textAlign: "right" }}
-                            >
+                            />
+                            <div className="input-group-append">
                               <span className="input-group-text">Kg</span>
                             </div>
                           </div>
