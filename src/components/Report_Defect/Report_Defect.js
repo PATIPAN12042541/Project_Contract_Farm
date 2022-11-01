@@ -50,6 +50,7 @@ const Report_Defect = () => {
                 <input
                   type="submit"
                   className="btn btn-warning"
+                  style={{ color: "white" }}
                   value="ส่งรายงานปัญหา"
                 />
               </div>
