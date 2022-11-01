@@ -220,13 +220,15 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "13" }}>.</span>
                           </div>
                         </div>
-                        <em>(Only *.jpeg and *.png images will be accepted)</em>
-                        <aside>
-                          <h4>Accepted files</h4>
-                          <ul>{acceptedFileItems}</ul>
-                          <h4>Rejected files</h4>
-                          <ul>{fileRejectionItems}</ul>
-                        </aside>
+                        <div className="col-md-12">
+                          <em>
+                            (Only *.jpeg and *.png images will be accepted)
+                          </em>
+                          <aside>
+                            <h4>Filename Upload</h4>
+                            <ul>{acceptedFileItems}</ul>
+                          </aside>
+                        </div>
                       </div>
                     </div>
                   )}
