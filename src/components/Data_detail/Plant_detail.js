@@ -237,11 +237,13 @@ const Plant_detail = (props) => {
                           <h4>ปริมาณการเก็บเกี่ยว</h4>
                           <div className="input-group">
                             <div className="input-group-prepend">
-                              <span className="input-group-text">$</span>
+                              <span className="input-group-text">
+                                ปริมาณการเก็บเกี่ยว
+                              </span>
                             </div>
                             <input type="text" className="form-control" />
                             <div className="input-group-append">
-                              <span className="input-group-text">.00</span>
+                              <span className="input-group-text">Kg</span>
                             </div>
                           </div>
                         </div>
