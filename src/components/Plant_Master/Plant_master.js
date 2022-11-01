@@ -149,6 +149,9 @@ const Plant_master = () => {
     let formData = new FormData();
     formData.append("file", image.data);
 
+    console.log(image.data);
+    console.log(formData);
+
     await axios
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
       .then((res) => console.log(res.data))
