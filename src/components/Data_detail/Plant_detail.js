@@ -6,11 +6,28 @@ import { useDropzone } from "react-dropzone";
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+  const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
+    useDropzone({
+      accept: {
+        "image/jpeg": [],
+        "image/png": [],
+      },
+    });
 
-  const files = acceptedFiles.map((file) => (
+  const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
+    </li>
+  ));
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+      <ul>
+        {errors.map((e) => (
+          <li key={e.code}>{e.message}</li>
+        ))}
+      </ul>
     </li>
   ));
 
@@ -253,16 +270,17 @@ const Plant_detail = (props) => {
         </div>
       </section>
       <section className="container">
-        <div className="col-md-12">
-          <div {...getRootProps({ className: "dropzone" })}>
-            <input {...getInputProps()} />
-            <aside>
-              <h4>Files</h4>
-              <ul>{files}</ul>
-            </aside>
-            <p>Drag 'n' drop some files here, or click to select files</p>
-          </div>
+        <div {...getRootProps({ className: "dropzone" })}>
+          <input {...getInputProps()} />
+          <p>Drag 'n' drop some files here, or click to select files</p>
+          <em>(Only *.jpeg and *.png images will be accepted)</em>
         </div>
+        <aside>
+          <h4>Accepted files</h4>
+          <ul>{acceptedFileItems}</ul>
+          <h4>Rejected files</h4>
+          <ul>{fileRejectionItems}</ul>
+        </aside>
       </section>
     </div>
   );
