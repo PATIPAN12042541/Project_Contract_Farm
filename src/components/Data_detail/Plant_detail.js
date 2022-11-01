@@ -149,8 +149,8 @@ const Plant_detail = (props) => {
           {
             harvest_status: status,
             Path_img:
-              status == 1 ? "../dist/img/UploadWorking/" + path_img : "",
-            quantity: status == 1 ? quantity : 0,
+              status == 0 ? "../dist/img/UploadWorking/" + path_img : "",
+            quantity: status == 0 ? quantity : 0,
           }
         )
         .then(function (response) {
