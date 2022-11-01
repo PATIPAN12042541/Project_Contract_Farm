@@ -22,7 +22,7 @@ const Plant_detail = (props) => {
 
   // post image
   const uploadImg = async () => {
-    console.log(acceptedFiles);
+    console.log(acceptedFiles.File);
     let formData = new FormData();
     formData.append("file", acceptedFiles);
 
