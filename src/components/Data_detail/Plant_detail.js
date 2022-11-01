@@ -221,6 +221,12 @@ const Plant_detail = (props) => {
                           </div>
                         </div>
                         <em>(Only *.jpeg and *.png images will be accepted)</em>
+                        <aside>
+                          <h4>Accepted files</h4>
+                          <ul>{acceptedFileItems}</ul>
+                          <h4>Rejected files</h4>
+                          <ul>{fileRejectionItems}</ul>
+                        </aside>
                       </div>
                     </div>
                   )}
