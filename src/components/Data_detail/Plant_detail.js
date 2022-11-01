@@ -93,7 +93,7 @@ const Plant_detail = (props) => {
 
   const changeStatusHavest = async (status) => {
     console.log("Status : " + status);
-    console.log("Path_img : " + acceptedFileItems);
+    console.log("Path_img : " + acceptedFiles.path);
     console.log("quantity : " + quantity);
     // try {
     //   await axios
