@@ -55,22 +55,7 @@ const Plant_detail = (props) => {
     },
   });
 
-  /*
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/jpeg": [],
-      "image/png": [],
-    },
-  });
-  */
-  /*
-  const acceptedFileItems = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
-*/
-  const acceptedFileItems = acceptedFiles.map((file) => (
+  const acceptedFileItems = files.map((file) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img
