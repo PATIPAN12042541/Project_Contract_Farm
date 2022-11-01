@@ -6,6 +6,7 @@ import { useDropzone } from "react-dropzone";
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
+  const [quantity, setQuantity] = useState([]);
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/jpeg": [],
@@ -91,47 +92,53 @@ const Plant_detail = (props) => {
   };
 
   const changeStatusHavest = async (status) => {
-    try {
-      await axios
-        .patch(
-          `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
-          {
-            harvest_status: status,
-          }
-        )
-        .then(function (response) {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", Swal.stopTimer);
-              toast.addEventListener("mouseleave", Swal.resumeTimer);
-            },
-          });
-
-          Toast.fire({
-            icon: "success",
-            title: "บันทึกสำเร็จ",
-          });
-          getPlantData();
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
-        });
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
-    }
+    console.log("Status : " + status);
+    console.log("Path_img : " + acceptedFiles.file);
+    console.log("quantity : " + quantity);
+    // try {
+    // try {
+    // try {
+    //   await axios
+    //     .patch(
+    //       `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
+    //       {
+    //         harvest_status: status,
+    //         Path_img: "",
+    //         quantity: "",
+    //       }
+    //     )
+    //     .then(function (response) {
+    //       const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: "top-end",
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => {
+    //           toast.addEventListener("mouseenter", Swal.stopTimer);
+    //           toast.addEventListener("mouseleave", Swal.resumeTimer);
+    //         },
+    //       });
+    //       Toast.fire({
+    //         icon: "success",
+    //         title: "บันทึกสำเร็จ",
+    //       });
+    //       getPlantData();
+    //     })
+    //     .catch(function (error) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: error.response.data.msg,
+    //         text: "Save Error!",
+    //       });
+    //     });
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: error.response.data.msg,
+    //     text: "Save Error!",
+    //   });
+    // }
   };
 
   useEffect(() => {
@@ -245,6 +252,7 @@ const Plant_detail = (props) => {
                               type="text"
                               className="form-control"
                               style={{ textAlign: "right" }}
+                              onChange={(e) => setQuantity(e.target.value)}
                             />
                             <div className="input-group-append">
                               <span className="input-group-text">Kg</span>
