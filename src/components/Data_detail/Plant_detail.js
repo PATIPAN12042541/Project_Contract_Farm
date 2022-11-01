@@ -6,30 +6,30 @@ import { useDropzone } from "react-dropzone";
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
-  const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
-    useDropzone({
-      accept: {
-        "image/jpeg": [],
-        "image/png": [],
-      },
-    });
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+    },
+  });
 
   const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
-  ));
+  )
+  );
+  console.log(acceptedFiles);
+  // // post image
+  // const uploadImg = async () => {
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
 
-  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-      <ul>
-        {errors.map((e) => (
-          <li key={e.code}>{e.message}</li>
-        ))}
-      </ul>
-    </li>
-  ));
+  //   await axios
+  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.error(err));
+  // };
 
   const getPlantData = async () => {
     const response = await axios.get(
@@ -285,6 +285,6 @@ const Plant_detail = (props) => {
       </section>
     </div>
   );
-};
+};;
 
 export default Plant_detail;
