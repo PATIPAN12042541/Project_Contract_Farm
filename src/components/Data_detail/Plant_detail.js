@@ -4,6 +4,37 @@ import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
 
+const thumbsContainer = {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  marginTop: 16,
+};
+
+const thumb = {
+  display: "inline-flex",
+  borderRadius: 2,
+  border: "1px solid #eaeaea",
+  marginBottom: 8,
+  marginRight: 8,
+  width: 100,
+  height: 100,
+  padding: 4,
+  boxSizing: "border-box",
+};
+
+const thumbInner = {
+  display: "flex",
+  minWidth: 0,
+  overflow: "hidden",
+};
+
+const img = {
+  display: "block",
+  width: "auto",
+  height: "100%",
+};
+
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
   const [quantity, setQuantity] = useState([]);
@@ -14,15 +45,30 @@ const Plant_detail = (props) => {
     },
   });
 
+  /*
   const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ));
+*/
+  const acceptedFileItems = acceptedFiles.map((file) => (
+    <div style={thumb} key={file.name}>
+      <div style={thumbInner}>
+        <img
+          src={file.preview}
+          style={img}
+          // Revoke data uri after image is loaded
+          onLoad={() => {
+            URL.revokeObjectURL(file.preview);
+          }}
+        />
+      </div>
+    </div>
+  ));
 
   // post image
   const uploadImg = async () => {
-    
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
     await axios
@@ -231,7 +277,7 @@ const Plant_detail = (props) => {
                             (Only *.jpeg and *.png images will be accepted)
                           </em>
                           <pre>
-                            <aside>
+                            <aside style={thumbsContainer}>
                               <h4>Filename Upload</h4>
                               <ul>{acceptedFileItems}</ul>
                             </aside>
