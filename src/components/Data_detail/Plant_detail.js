@@ -93,10 +93,8 @@ const Plant_detail = (props) => {
 
   const changeStatusHavest = async (status) => {
     console.log("Status : " + status);
-    console.log("Path_img : " + acceptedFiles.file);
+    console.log("Path_img : " + acceptedFileItems);
     console.log("quantity : " + quantity);
-    // try {
-    // try {
     // try {
     //   await axios
     //     .patch(
@@ -313,6 +311,6 @@ const Plant_detail = (props) => {
       </section>
     </div>
   );
-};;
+};;;
 
 export default Plant_detail;
