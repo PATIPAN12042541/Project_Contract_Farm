@@ -7,15 +7,7 @@ const Report_Defect = () => {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1>Contact us</h1>
-            </div>
-            <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item">
-                  <a href="#">Home</a>
-                </li>
-                <li className="breadcrumb-item active">Contact us</li>
-              </ol>
+              <h1>รายงานปัญหา</h1>
             </div>
           </div>
         </div>
