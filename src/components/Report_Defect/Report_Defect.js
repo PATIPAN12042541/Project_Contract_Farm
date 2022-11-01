@@ -19,13 +19,9 @@ const Report_Defect = () => {
             <div className="col-5 text-center d-flex align-items-center justify-content-center">
               <div className="">
                 <h2>
-                  Admin<strong>LTE</strong>
+                  Contract<strong>Farming</strong>
                 </h2>
-                <p className="lead mb-5">
-                  123 Testing Ave, Testtown, 9876 NA
-                  <br />
-                  Phone: +1 234 56789012
-                </p>
+                <p className="lead mb-5">report an issue</p>
               </div>
             </div>
             <div className="col-7">
