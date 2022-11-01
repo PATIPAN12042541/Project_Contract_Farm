@@ -242,7 +242,10 @@ const Plant_detail = (props) => {
                               </span>
                             </div>
                             <input type="text" className="form-control" />
-                            <div className="input-group-append">
+                            <div
+                              className="input-group-append"
+                              style={{ textAlign: "right" }}
+                            >
                               <span className="input-group-text">Kg</span>
                             </div>
                           </div>
