@@ -314,7 +314,7 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "4" }}>o</span>
                             <span style={{ "--i": "5" }}>a</span>
                             <span style={{ "--i": "6" }}>d</span>
-                            <span style={{ "--i": "7" }}> </span>
+                            <span style={{ "--i": "7" }}>&nbsp;</span>
                             <span style={{ "--i": "8" }}>รู</span>
                             <span style={{ "--i": "9" }}>ป</span>
                             <span style={{ "--i": "10" }}>ภ</span>
