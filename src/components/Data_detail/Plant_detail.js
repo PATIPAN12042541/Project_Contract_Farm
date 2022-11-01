@@ -142,49 +142,97 @@ const Plant_detail = (props) => {
 
   const changeStatusHavest = async (status) => {
     const path_img = acceptedFiles.map((file) => file.path);
-    try {
-      await axios
-        .patch(
-          `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
-          {
-            harvest_status: status,
-            Path_img: "../dist/img/UploadWorking/" + path_img,
-            quantity: quantity,
-          }
-        )
-        .then(function (response) {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", Swal.stopTimer);
-              toast.addEventListener("mouseleave", Swal.resumeTimer);
-            },
+    if (status == 0) {
+      try {
+        await axios
+          .patch(
+            `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
+            {
+              harvest_status: status,
+              Path_img: "",
+              quantity: 0,
+            }
+          )
+          .then(function (response) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: "success",
+              title: "บันทึกสำเร็จ",
+            });
+            uploadImg();
+            getPlantData();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
           });
-          Toast.fire({
-            icon: "success",
-            title: "บันทึกสำเร็จ",
-          });
-          uploadImg();
-          getPlantData();
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
         });
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
+      }
+    } else {
+      try {
+        await axios
+          .patch(
+            `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${props.id}`,
+            {
+              harvest_status: status,
+              Path_img: "../dist/img/UploadWorking/" + path_img,
+              quantity: quantity,
+            }
+          )
+          .then(function (response) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: "success",
+              title: "บันทึกสำเร็จ",
+            });
+            uploadImg();
+            getPlantData();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
     }
+
+
   };
 
   useEffect(() => {
