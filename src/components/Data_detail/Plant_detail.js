@@ -169,7 +169,7 @@ const Plant_detail = (props) => {
             icon: "success",
             title: "บันทึกสำเร็จ",
           });
-          uploadImg();
+          status == 1 ? uploadImg() : "";
           getPlantData();
         })
         .catch(function (error) {
