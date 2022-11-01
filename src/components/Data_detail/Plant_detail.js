@@ -203,15 +203,15 @@ const Plant_detail = (props) => {
                         <div className="col-md-12">
                           <div {...getRootProps({ className: "dropzone" })}>
                             <input {...getInputProps()} />
+                            <aside>
+                              <h4>Files</h4>
+                              <ul>{files}</ul>
+                            </aside>
                             <p>
                               Drag 'n' drop some files here, or click to select
                               files
                             </p>
                           </div>
-                          <aside>
-                            <h4>Files</h4>
-                            <ul>{files}</ul>
-                          </aside>
                         </div>
                       </div>
                     </div>
