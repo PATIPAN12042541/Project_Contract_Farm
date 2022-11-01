@@ -19,9 +19,9 @@ const Report_Defect = () => {
           <div className="card-body row">
             <div className="col-5 text-center d-flex align-items-center justify-content-center">
               <div className="">
-                <h2>
+                <h1>
                   Contract<strong>Farming</strong>
-                </h2>
+                </h1>
                 <p className="lead mb-5">report an issue</p>
               </div>
             </div>
