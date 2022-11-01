@@ -28,7 +28,7 @@ const Report_Defect = () => {
             <div className="col-7">
               <div className="form-group">
                 <label className="inputName">ชื่อแปลง</label>
-                <input className="text" class="form-control" />
+                <input type="text" className="form-control" />
               </div>
               <div className="form-group">
                 <label>หัวข้อปัญหา</label>
@@ -43,7 +43,7 @@ const Report_Defect = () => {
                   type="submit"
                   className="btn btn-warning"
                   style={{ color: "white" }}
-                  value="ส่งรายงานปัญหา"
+                  value={"ส่งรายงานปัญหา"}
                 />
               </div>
             </div>
