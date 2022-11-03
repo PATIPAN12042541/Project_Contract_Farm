@@ -29,7 +29,7 @@ const Data_detail = (props) => {
   const [checkedItems, setCheckedItems] = useState({});
 
   const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-    console.log("Checkbox: ", name, checked);
+    // console.log("Checkbox: ", name, checked);
 
     return (
       <input type={type} name={name} checked={checked} onChange={onChange} />
@@ -38,6 +38,8 @@ const Data_detail = (props) => {
 
   const handleChange = (event) => {
     // updating an object instead of a Map
+
+    console.log("Event : " + event);
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
