@@ -296,10 +296,11 @@ const Data_detail = (props) => {
                     <div className="col-12 col-sm-8">
                       <div className="col-md-12">
                         <label>หมายเหตุ</label>
-                        <input
-                          type="text"
-                          className="form-control form-control-border"
-                        ></input>
+                        <textarea
+                          rows="3"
+                          className="form-control"
+                          Placeholder="Input Data ..."
+                        ></textarea>
                       </div>
                     </div>
                   </div>
