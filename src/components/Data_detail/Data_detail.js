@@ -259,17 +259,17 @@ const Data_detail = (props) => {
                       <div className="row form-group">
                         <div>
                           <lable>
-                            Checked item name : {checkedItems["check-box-1"]}{" "}
-                          </lable>{" "}
+                            Checked item name : {checkedItems["check-box-1"]}
+                          </lable>
                           <br />
                           {checkboxes.map((item) => (
                             <label key={item.key}>
-                              {item.name}
                               <Checkbox
                                 name={item.name}
                                 checked={checkedItems[item.name]}
                                 onChange={handleChange}
                               />
+                              {item.name}{" "}
                             </label>
                           ))}
                         </div>
