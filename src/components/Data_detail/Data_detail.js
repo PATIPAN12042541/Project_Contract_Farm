@@ -276,7 +276,7 @@ const Data_detail = (props) => {
                       <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
                       <br />
                       <br />
-                      <div className="col-md-12">
+                      <div className="col-md-6">
                         {checkboxes.map((item) => (
                           <div key={item.key}>
                             <label>
@@ -294,7 +294,7 @@ const Data_detail = (props) => {
                       </div>
                     </div>
                     <div className="row form-group">
-                      <div className="col-md-12">
+                      <div className="col-md-6">
                         <label>หมายเหตุ</label>
                         <input
                           type="text"
