@@ -308,10 +308,10 @@ const Data_detail = (props) => {
                 <div className="card-footer">
                   <button
                     type="submit"
-                    className="btn btn-warning"
+                    className="btn btn-sucesss"
                     onClick={ReportDefect}
                   >
-                    รายงานปัญหา
+                    ยืนยัน
                   </button>
                 </div>
               </div>
