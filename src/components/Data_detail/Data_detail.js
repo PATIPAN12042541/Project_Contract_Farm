@@ -262,9 +262,11 @@ const Data_detail = (props) => {
                             Checked item name : {checkedItems["check-box-1"]}
                           </lable>
                           <br />
+                          <br />
                           {checkboxes.map((item) => (
                             <>
                               <label key={item.key}>
+                                {"    "}
                                 <Checkbox
                                   name={item.name}
                                   checked={checkedItems[item.name]}
