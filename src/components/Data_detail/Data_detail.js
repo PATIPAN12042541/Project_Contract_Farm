@@ -273,8 +273,8 @@ const Data_detail = (props) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
-                      <div className="row form-group">
-                        <div className="col-md-12">
+                      <div className="col-md-12">
+                        <div className="row form-group">
                           <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
                           <br />
                           <br />
@@ -294,6 +294,8 @@ const Data_detail = (props) => {
                               </div>
                             ))}
                           </div>
+                        </div>
+                        <div className="row form-group">
                           <div className="col-md-6">
                             <center>
                               <label>หมายเหตุ</label>
