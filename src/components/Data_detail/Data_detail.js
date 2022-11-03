@@ -274,24 +274,35 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="row form-group">
-                        <div className="ol-md-12">
+                        <div className="col-md-12">
                           <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
                           <br />
                           <br />
-                          {checkboxes.map((item) => (
-                            <div key={item.key}>
-                              <label>
-                                <Checkbox
-                                  name={item.name}
-                                  id={item.key}
-                                  checked={checkedItems[item.name]}
-                                  onChange={handleChange}
-                                />{" "}
-                                {item.name}
-                              </label>
-                              <br />
-                            </div>
-                          ))}
+                          <div className="col-md-6">
+                            {checkboxes.map((item) => (
+                              <div key={item.key}>
+                                <label>
+                                  <Checkbox
+                                    name={item.name}
+                                    id={item.key}
+                                    checked={checkedItems[item.name]}
+                                    onChange={handleChange}
+                                  />{" "}
+                                  {item.name}
+                                </label>
+                                <br />
+                              </div>
+                            ))}
+                          </div>
+                          <div className="col-md-6">
+                            <center>
+                              <label>หมายเหตุ</label>
+                              <input
+                                type="text"
+                                className="form-control form-control-border"
+                              ></input>
+                            </center>
+                          </div>
                         </div>
                       </div>
                     </div>
