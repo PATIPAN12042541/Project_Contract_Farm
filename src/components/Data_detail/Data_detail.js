@@ -272,11 +272,11 @@ const Data_detail = (props) => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div className="form-group">
+                    <div className="col-12 col-sm-4">
                       <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
                       <br />
                       <br />
-                      <div className="col-md-6">
+                      <div className="col-md-12">
                         {checkboxes.map((item) => (
                           <div key={item.key}>
                             <label>
@@ -293,8 +293,8 @@ const Data_detail = (props) => {
                         ))}
                       </div>
                     </div>
-                    <div className="form-group">
-                      <div className="col-md-6">
+                    <div className="col-12 col-sm-8">
+                      <div className="col-md-12">
                         <label>หมายเหตุ</label>
                         <input
                           type="text"
