@@ -270,6 +270,7 @@ const Data_detail = (props) => {
                                 onChange={handleChange}
                               />{" "}
                               {item.name}
+                              <br />
                             </label>
                           ))}
                         </div>
