@@ -38,8 +38,8 @@ const Data_detail = (props) => {
 
   const handleChange = (event) => {
     // updating an object instead of a Map
-
     console.log("Event : " + event);
+
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
