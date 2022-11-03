@@ -265,20 +265,19 @@ const Data_detail = (props) => {
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="row form-group">
                         <div className="ol-md-12">
-                          <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
+                          <Lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</Lable>
                           <br />
                           <br />
                           {checkboxes.map((item) => (
                             <div key={item.key}>
-                              <label>
-                                {"    "}
+                              <Label>
                                 <Checkbox
                                   name={item.name}
                                   checked={checkedItems[item.name]}
                                   onChange={handleChange}
                                 />{" "}
                                 {item.name}
-                              </label>
+                              </Label>
                               <br />
                             </div>
                           ))}
