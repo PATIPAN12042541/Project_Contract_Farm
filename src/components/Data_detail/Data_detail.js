@@ -19,7 +19,7 @@ const checkboxes = [
   },
   {
     name: "วัชพืช",
-    key: "2",
+    key: "3",
     // label: "Check Box 2",
   },
 ];
