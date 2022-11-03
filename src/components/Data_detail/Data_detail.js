@@ -269,8 +269,8 @@ const Data_detail = (props) => {
                           <br />
                           <br />
                           {checkboxes.map((item) => (
-                            <>
-                              <label key={item.key}>
+                            <div key={item.key}>
+                              <label>
                                 {"    "}
                                 <Checkbox
                                   name={item.name}
@@ -280,7 +280,7 @@ const Data_detail = (props) => {
                                 {item.name}
                               </label>
                               <br />
-                            </>
+                            </div>
                           ))}
                         </div>
                       </div>
