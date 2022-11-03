@@ -1,17 +1,48 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import "../CSS/Data_detail.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 
+const checkboxes = [
+  {
+    name: "check-box-1",
+    key: "1",
+    label: "Check Box 1",
+  },
+  {
+    name: "check-box-2",
+    key: "2",
+    label: "Check Box 2",
+  },
+];
+
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
-  const [checked, setChecked] = useState(false);
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
+    console.log("Checkbox: ", name, checked);
+
+    return (
+      <input type={type} name={name} checked={checked} onChange={onChange} />
+    );
+  };
+
+  const handleChange = (event) => {
+    // updating an object instead of a Map
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.name]: event.target.checked,
+    });
+  };
 
   useEffect(() => {
     getDatadetail();
-  }, []);
+    console.log("checkedItems: ", checkedItems);
+  }, [checkedItems]);
 
   const getDatadetail = async () => {
     const response = await axios.get(
@@ -226,29 +257,21 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="row form-group">
-                        <div className="col-md-4">
-                          <label>โรค : </label>
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <label>แมลง : </label>
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <label>วัชพืช : </label>
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={(e) => setChecked(e.target.checked)}
-                          />
+                        <div>
+                          <lable>
+                            Checked item name : {checkedItems["check-box-1"]}{" "}
+                          </lable>{" "}
+                          <br />
+                          {checkboxes.map((item) => (
+                            <label key={item.key}>
+                              {item.name}
+                              <Checkbox
+                                name={item.name}
+                                checked={checkedItems[item.name]}
+                                onChange={handleChange}
+                              />
+                            </label>
+                          ))}
                         </div>
                       </div>
                     </div>
