@@ -268,8 +268,8 @@ const Data_detail = (props) => {
                                 name={item.name}
                                 checked={checkedItems[item.name]}
                                 onChange={handleChange}
-                              />
-                              {item.name}{" "}
+                              />{" "}
+                              {item.name}
                             </label>
                           ))}
                         </div>
