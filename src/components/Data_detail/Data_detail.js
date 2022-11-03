@@ -308,7 +308,7 @@ const Data_detail = (props) => {
                 <div className="card-footer">
                   <button
                     type="submit"
-                    className="btn btn-sucesss"
+                    className="btn btn-success"
                     onClick={ReportDefect}
                   >
                     ยืนยัน
