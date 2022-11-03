@@ -257,22 +257,24 @@ const Data_detail = (props) => {
                   <div className="row">
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="row form-group">
-                        <div>
+                        <div className="ol-md-12">
                           <lable>
                             Checked item name : {checkedItems["check-box-1"]}
                           </lable>
                           <br />
                           {checkboxes.map((item) => (
-                            <label key={item.key}>
-                              <Checkbox
-                                name={item.name}
-                                checked={checkedItems[item.name]}
-                                onChange={handleChange}
-                              />{" "}
-                              {item.name}
-                            </label>
+                            <>
+                              <label key={item.key}>
+                                <Checkbox
+                                  name={item.name}
+                                  checked={checkedItems[item.name]}
+                                  onChange={handleChange}
+                                />{" "}
+                                {item.name}
+                              </label>
+                              <br />
+                            </>
                           ))}
-                          <br />
                         </div>
                       </div>
                     </div>
