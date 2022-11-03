@@ -4,6 +4,7 @@ import PlantDataDetail_M from "../models/PlantDataDetails_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
 import FertilizerUnit_M from "../models/FertilizerUnit_M.js";
 import ResidualPeriodChemical_M from "../models/ResidualPeriodChemical_M.js";
+import ReportDefectChemical_M from "../models/ReportDefectChemical_M.js";
 
 export const getChemical = async (req, res) => {
   try {
@@ -491,7 +492,6 @@ export const insertTimeChemical = async (req, res) => {
   }
 };
 
-
 export const deleteTimeChemical = async (req, res) => {
   try {
     await ResidualPeriodChemical_M.destroy({
@@ -506,3 +506,23 @@ export const deleteTimeChemical = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+/*------------------------- REPORT DEFACT --------------------------- */
+
+export const CreateReportDefect = async (req, res) => {
+    const { disease, bug, weed, remark } = req.body;
+      try {
+        await ReportDefectChemical_M.create({
+          id_plant: req.params.id,
+          disease: disease,
+          bug: bug,
+          weed: weed,
+          remark: remark,
+        });
+        res.json({ msg: "Create Successful" });
+      } catch (error) {
+        //console.log(error);
+        res.json(error);
+      }
+};
+/*------------------------------------------------------------------*/
