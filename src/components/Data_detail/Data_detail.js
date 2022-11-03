@@ -10,17 +10,17 @@ const checkboxes = [
   {
     name: "โรค",
     key: "1",
-    // label: "Check Box 1",
+    label: "Check Box 1",
   },
   {
     name: "แมลง",
     key: "2",
-    // label: "Check Box 2",
+    label: "Check Box 2",
   },
   {
     name: "วัชพืช",
     key: "3",
-    // label: "Check Box 2",
+    label: "Check Box 3",
   },
 ];
 
