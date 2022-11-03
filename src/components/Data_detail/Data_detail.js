@@ -46,7 +46,7 @@ const Data_detail = (props) => {
 
   useEffect(() => {
     getDatadetail();
-    console.log("checkedItems: ", checkedItems);
+    // console.log("checkedItems: ", checkedItems);
   }, [checkedItems]);
 
   const getDatadetail = async () => {
@@ -263,9 +263,7 @@ const Data_detail = (props) => {
                     <div className="col-md-4 col-sm-6 col-12">
                       <div className="row form-group">
                         <div className="ol-md-12">
-                          <lable>
-                            Checked item name : {checkedItems["check-box-1"]}
-                          </lable>
+                          <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
                           <br />
                           <br />
                           {checkboxes.map((item) => (
