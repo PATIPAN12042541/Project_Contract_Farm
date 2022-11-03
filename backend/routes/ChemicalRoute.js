@@ -27,6 +27,7 @@ import {
   updateStatusTime,
   insertTimeChemical,
   deleteTimeChemical,
+  CreateReportDefect,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -58,5 +59,7 @@ router.get("/TimeChemical", TimeChemical);
 router.patch("/TimeChemical/updateStatus/:id", updateStatusTime);
 router.post("/TimeChemical/insertTimeChemical", insertTimeChemical);
 router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
+router.post("/CreateReportDefect/:id", CreateReportDefect);
+
 
 export default router;
