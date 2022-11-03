@@ -8,14 +8,19 @@ import Swal from "sweetalert2";
 
 const checkboxes = [
   {
-    name: "check-box-1",
+    name: "โรค",
     key: "1",
-    label: "Check Box 1",
+    // label: "Check Box 1",
   },
   {
-    name: "check-box-2",
+    name: "แมลง",
     key: "2",
-    label: "Check Box 2",
+    // label: "Check Box 2",
+  },
+  {
+    name: "วัชพืช",
+    key: "2",
+    // label: "Check Box 2",
   },
 ];
 
