@@ -299,7 +299,7 @@ const Data_detail = (props) => {
                         <textarea
                           rows="3"
                           className="form-control"
-                          Placeholder="Input Data ..."
+                          placeholder="Input Data ..."
                         ></textarea>
                       </div>
                     </div>
