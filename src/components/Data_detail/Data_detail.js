@@ -39,14 +39,6 @@ const Data_detail = (props) => {
     onChange,
   }) => {
     //console.log("Checkbox: ", id, name, checked);
-    if (id == "1") {
-      setCheck01(checked);
-    } else if (id == "2") {
-      setCheck02(checked);
-    } else if (id == "3") {
-      setCheck03(checked);
-    }
-
     return (
       <input type={type} name={name} checked={checked} onChange={onChange} />
     );
@@ -54,14 +46,14 @@ const Data_detail = (props) => {
 
   const handleChange = (event) => {
     // updating an object instead of a Map
-    console.log("check01 : " + check01);
-    console.log("check02 : " + check02);
-    console.log("check03 : " + check03);
-
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
     });
+  };
+
+  const ReportDefect = async () => {
+    console.log("Hello world");
   };
 
   useEffect(() => {
@@ -304,6 +296,15 @@ const Data_detail = (props) => {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="card-footer">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    onClick={ReportDefect}
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
