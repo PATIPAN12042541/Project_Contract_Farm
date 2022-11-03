@@ -45,7 +45,6 @@ const Data_detail = (props) => {
       [event.target.name]: event.target.checked,
     });
 
-    console.log("Event : " + checkedItems);
   };
 
   useEffect(() => {
