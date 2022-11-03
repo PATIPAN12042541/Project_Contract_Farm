@@ -28,8 +28,14 @@ const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
   const [checkedItems, setCheckedItems] = useState({});
 
-  const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-    console.log("Checkbox: ", name, checked);
+  const Checkbox = ({
+    type = "checkbox",
+    name,
+    id,
+    checked = false,
+    onChange,
+  }) => {
+    console.log("Checkbox: ", id, name, checked);
     return (
       <input type={type} name={name} checked={checked} onChange={onChange} />
     );
@@ -270,6 +276,7 @@ const Data_detail = (props) => {
                               <label>
                                 <Checkbox
                                   name={item.name}
+                                  id={item.key}
                                   checked={checkedItems[item.name]}
                                   onChange={handleChange}
                                 />{" "}
