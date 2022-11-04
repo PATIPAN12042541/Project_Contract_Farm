@@ -60,10 +60,10 @@ router.delete("/DeleteFertilizerUnit/:id", DeleteFertilizerUnit);
 router.get("/TimeChemical", TimeChemical);
 router.patch("/TimeChemical/updateStatus/:id", updateStatusTime);
 router.post("/TimeChemical/insertTimeChemical", insertTimeChemical);
-router.delete("/TimeChemical/deleteTimeChemical/:id", dseleteTimeChemical);
+router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
 router.post("/CreateReportDefect/:id", CreateReportDefect);
 router.patch("/UpdateReportDefect/:id", UpdateReportDefect);
-router.get("/getReportDefect/:id", ReportDefect);
+router.get("/getReportDefect", ReportDefect);
 
 
 
