@@ -27,10 +27,6 @@ const checkboxes = [
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
   const [checkedItems, setCheckedItems] = useState({});
-  const [check01, setCheck01] = useState([]);
-  const [check02, setCheck02] = useState([]);
-  const [check03, setCheck03] = useState([]);
-
   const Checkbox = ({
     type = "checkbox",
     name,
@@ -40,7 +36,13 @@ const Data_detail = (props) => {
   }) => {
     //console.log("Checkbox: ", id, name, checked);
     return (
-      <input type={type} name={name} checked={checked} onChange={onChange} />
+      <input
+        type={type}
+        name={name}
+        id={id}
+        checked={checked}
+        onChange={onChange}
+      />
     );
   };
 
@@ -54,6 +56,7 @@ const Data_detail = (props) => {
 
   const ReportDefect = async () => {
     console.log("Hello world");
+    console.log("checkedItems: ", checkedItems);
   };
 
   useEffect(() => {
