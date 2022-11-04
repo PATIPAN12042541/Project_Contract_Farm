@@ -63,7 +63,7 @@ router.post("/TimeChemical/insertTimeChemical", insertTimeChemical);
 router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
 router.post("/CreateReportDefect/:id", CreateReportDefect);
 router.patch("/UpdateReportDefect/:id", UpdateReportDefect);
-router.get("/getReportDefect", ReportDefect);
+router.get("/getReportDefect/:id", ReportDefect);
 
 
 
