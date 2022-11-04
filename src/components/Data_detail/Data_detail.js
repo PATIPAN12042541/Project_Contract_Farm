@@ -28,42 +28,48 @@ const Data_detail = (props) => {
 
   const ReportDefect = async () => {
     getReportDefect();
-    console.log(reportDefect);
-    /*
-    try {
-      await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/getChemical/CreateReportDefect/${props.id}`,
-          {
-            disease: checked,
-            bug: checked2,
-            weed: checked3,
-            remark: remark,
-          }
-        )
-        .then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Save OK !",
+    
+    if (reportDefect == "") {
+      console.log("insert" + reportDefect);
+
+      try {
+        await axios
+          .post(
+            `${process.env.REACT_APP_API_URL}/getChemical/CreateReportDefect/${props.id}`,
+            {
+              disease: checked,
+              bug: checked2,
+              weed: checked3,
+              remark: remark,
+            }
+          )
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            window.location.reload(3);
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
           });
-          window.location.reload(3);
-        })
-        .catch(function (error) {
-          Swal.fire({
-            icon: "error",
-            title: error.response.data.msg,
-            text: "Save Error!",
-          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
         });
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: error.response.data.msg,
-        text: "Save Error!",
-      });
+      }
+    } else {
+      console.log("Update" + reportDefect);
     }
-    */
+
+   
   };
 
   const getDatadetail = async () => {
