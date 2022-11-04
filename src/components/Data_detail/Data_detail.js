@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
+  const [remark, setRemark] = useState([]);
   const [checked, setChecked] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
@@ -22,9 +23,41 @@ const Data_detail = (props) => {
   }
 
   const ReportDefect = async () => {
-    console.log(checked);
-    console.log(checked2);
-    console.log(checked3);
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/getChemical/CreateReportDefect/${props.id}`,
+          {
+            disease: checked,
+            bug: checked2,
+            weed: checked3,
+            remark: remark,
+          }
+        )
+        .then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Save OK !",
+          });
+          getDatadetail();
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: error.response.data.msg,
+            text: "Save Error!",
+          });
+        });
+
+      //uploadImg();
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.msg,
+        text: "Save Error!",
+      });
+    }
   };
 
   const getDatadetail = async () => {
@@ -281,6 +314,7 @@ const Data_detail = (props) => {
                           rows="3"
                           className="form-control"
                           placeholder="Input Data ..."
+                          onChange={(e) => setRemark(e.target.value)}
                         ></textarea>
                       </div>
                     </div>
