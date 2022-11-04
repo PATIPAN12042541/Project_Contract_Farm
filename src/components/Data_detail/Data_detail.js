@@ -269,7 +269,7 @@ const Data_detail = (props) => {
                             checked={checked3}
                             onChange={() => setChecked(toggle)}
                           />
-                          แมลง
+                          วัชพืช
                         </label>
                         <br />
                       </div>
