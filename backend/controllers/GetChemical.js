@@ -525,4 +525,21 @@ export const CreateReportDefect = async (req, res) => {
         res.json(error);
       }
 };
-/*------------------------------------------------------------------*/
+
+
+export const UpdateReportDefect = async (req, res) => {
+  try {
+    await ReportDefectChemical_M.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Updated Successful",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+/*----------------------------------------------------------------*/
