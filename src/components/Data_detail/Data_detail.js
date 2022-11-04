@@ -286,7 +286,7 @@ const Data_detail = (props) => {
                               <Checkbox
                                 name={item.name}
                                 id={item.key}
-                                checked={checkedItems[item.name]}
+                                checked={checkedItems[item.key]}
                                 onChange={handleChange}
                               />{" "}
                               {item.name}
