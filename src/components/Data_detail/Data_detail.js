@@ -249,7 +249,7 @@ const Data_detail = (props) => {
                             checked={checked}
                             onChange={() => setChecked(toggle)}
                           />
-                          โรค
+                          &nbsp; โรค
                         </label>
                         <br />
 
@@ -259,7 +259,7 @@ const Data_detail = (props) => {
                             checked={checked2}
                             onChange={() => setChecked2(toggle)}
                           />
-                          แมลง
+                          &nbsp; แมลง
                         </label>
                         <br />
 
@@ -269,7 +269,7 @@ const Data_detail = (props) => {
                             checked={checked3}
                             onChange={() => setChecked3(toggle)}
                           />
-                          วัชพืช
+                          &nbsp; วัชพืช
                         </label>
                         <br />
                       </div>
