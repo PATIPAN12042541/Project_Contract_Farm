@@ -14,10 +14,7 @@ const Data_detail = (props) => {
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
 
-  useEffect(() => {
-    getDatadetail();
-  }, []);
-
+ 
   function toggle(value) {
     return !value;
   }
@@ -49,8 +46,6 @@ const Data_detail = (props) => {
             text: "Save Error!",
           });
         });
-
-      //uploadImg();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -88,6 +83,10 @@ const Data_detail = (props) => {
       }
     });
   };
+
+  useEffect(() => {
+    getDatadetail();
+  }, []);
 
   return (
     <div className="content-wrapper">
