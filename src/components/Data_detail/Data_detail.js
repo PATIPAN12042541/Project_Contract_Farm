@@ -257,7 +257,7 @@ const Data_detail = (props) => {
                           <input
                             type="checkbox"
                             checked={checked2}
-                            onChange={() => setChecked(toggle)}
+                            onChange={() => setChecked2(toggle)}
                           />
                           แมลง
                         </label>
@@ -267,7 +267,7 @@ const Data_detail = (props) => {
                           <input
                             type="checkbox"
                             checked={checked3}
-                            onChange={() => setChecked(toggle)}
+                            onChange={() => setChecked3(toggle)}
                           />
                           วัชพืช
                         </label>
