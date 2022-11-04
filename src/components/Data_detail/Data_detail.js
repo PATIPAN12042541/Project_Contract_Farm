@@ -52,8 +52,10 @@ const Data_detail = (props) => {
     // updating an object instead of a Map
     setCheckedItems({
       ...checkedItems,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.checked,
     });
+
+    // setCheckedData({...checkedItems,[event.target.]});
   };
 
   const ReportDefect = async () => {
@@ -329,7 +331,7 @@ const Data_detail = (props) => {
       </section>
     </div>
   );
-};
+};;
 
 export default Data_detail;
 
