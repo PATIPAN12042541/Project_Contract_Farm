@@ -74,12 +74,12 @@ const Data_detail = (props) => {
             }
           )
           .then(function (response) {
-            window.location.reload(3);
             Swal.fire({
               icon: "success",
               title: "Success",
               text: "Save OK !",
             });
+            window.location.reload(3);
           })
           .catch(function (error) {
             Swal.fire({
