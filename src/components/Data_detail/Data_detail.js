@@ -6,70 +6,26 @@ import "../CSS/Data_detail.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 
-const checkboxes = [
-  {
-    name: "โรค",
-    key: "1",
-    Label: "Check Box 1",
-  },
-  {
-    name: "แมลง",
-    key: "2",
-    Label: "Check Box 2",
-  },
-  {
-    name: "วัชพืช",
-    key: "3",
-    Label: "Check Box 3",
-  },
-];
 
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
-  const [checkedItems, setCheckedItems] = useState({});
-  const [checkedData, setCheckedData] = useState({});
-
-  const Checkbox = ({
-    type = "checkbox",
-    name,
-    id,
-    checked = false,
-    onChange,
-  }) => {
-    //console.log("Checkbox: ", id, name, checked);
-    return (
-      <input
-        type={type}
-        name={name}
-        id={id}
-        checked={checked}
-        onChange={onChange}
-      />
-    );
-  };
-
-  const handleChange = (event) => {
-    // updating an object instead of a Map
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
-    });
-
-    // setCheckedData({...checkedItems,[event.target.]});
-  };
-
-  const ReportDefect = async () => {
-    console.log("Hello world");
-    console.log(checkedItems);
-    // for (let i = 0; i < checkedItems.data.length; i++) {
-    //   detail_array.push(console.log("checkedItems: ", checkedItems.data[i]));
-    // }
-  };
+  const [checked, setChecked] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
 
   useEffect(() => {
     getDatadetail();
-    // console.log("checkedItems: ", checkedItems);
-  }, [checkedItems]);
+  }, []);
+
+  function toggle(value) {
+    return !value;
+  }
+
+  const ReportDefect = async () => {
+    console.log(checked);
+    console.log(checked2);
+    console.log(checked3);
+  };
 
   const getDatadetail = async () => {
     const response = await axios.get(
@@ -283,24 +239,39 @@ const Data_detail = (props) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-12 col-sm-4">
-                      <lable>แจ้งปัญหาที่พบ : {checkedItems["โรค"]}</lable>
+                      <lable>แจ้งปัญหาที่พบ : </lable>
                       <br />
                       <br />
                       <div className="col-md-12">
-                        {checkboxes.map((item) => (
-                          <div key={item.key}>
-                            <label>
-                              <Checkbox
-                                name={item.name}
-                                id={item.key}
-                                checked={checkedItems[item.name]}
-                                onChange={handleChange}
-                              />{" "}
-                              {item.name}
-                            </label>
-                            <br />
-                          </div>
-                        ))}
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => setChecked(toggle)}
+                          />
+                          โรค
+                        </label>
+                        <br />
+
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={checked2}
+                            onChange={() => setChecked(toggle)}
+                          />
+                          แมลง
+                        </label>
+                        <br />
+
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={checked3}
+                            onChange={() => setChecked(toggle)}
+                          />
+                          แมลง
+                        </label>
+                        <br />
                       </div>
                     </div>
                     <div className="col-12 col-sm-8">
