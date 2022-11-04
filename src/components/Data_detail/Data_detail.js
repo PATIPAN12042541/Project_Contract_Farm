@@ -35,7 +35,7 @@ const Data_detail = (props) => {
               disease: checked,
               bug: checked2,
               weed: checked3,
-              remark: remark,
+              remark: remark == "" ? "" : remark,
             }
           )
           .then(function (response) {
@@ -70,7 +70,7 @@ const Data_detail = (props) => {
               disease: checked,
               bug: checked2,
               weed: checked3,
-              remark: remark,
+              remark: remark == "" ? "" : remark,
             }
           )
           .then(function (response) {
