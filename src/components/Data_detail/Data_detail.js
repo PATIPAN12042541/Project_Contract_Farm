@@ -24,7 +24,7 @@ const Data_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getReportDefect/${props.id}`
     );
 
-    console.log(reportDefect.data.ReportDefect);
+    console.log(reportDefect.data[0].ReportDefect);
 
     /*
     if (reportDefect == "") {
