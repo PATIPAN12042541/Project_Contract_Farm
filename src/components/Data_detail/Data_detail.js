@@ -48,8 +48,6 @@ const Data_detail = (props) => {
 
   const handleChange = (event) => {
     // updating an object instead of a Map
-
-    console.log(event);
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
@@ -57,8 +55,12 @@ const Data_detail = (props) => {
   };
 
   const ReportDefect = async () => {
+    const detail_array = [];
     console.log("Hello world");
-    console.log("checkedItems: ", checkedItems);
+
+    for (let i = 0; i < checkedItems.data.length; i++) {
+      detail_array.push(console.log("checkedItems: ", checkedItems.data[i]));
+    }
   };
 
   useEffect(() => {
