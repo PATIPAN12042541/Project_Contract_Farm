@@ -13,22 +13,18 @@ const Data_detail = (props) => {
   const [checked, setChecked] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
-  const [reportDefect, setReportDefect] = useState([]);
+
 
   function toggle(value) {
     return !value;
   }
 
-  const getReportDefect = async () => {
-    const response = await axios.get(
+  const ReportDefect = async () => {
+    const reportDefect = await axios.get(
       `${process.env.REACT_APP_API_URL}/getChemical/getReportDefect/${props.id}`
     );
-    setReportDefect(response.data);
-  };
 
-  const ReportDefect = async () => {
-    getReportDefect();
-    console.log(reportDefect);
+    console.log(reportDefect.data);
 
     /*
     if (reportDefect == "") {
