@@ -24,10 +24,7 @@ const Data_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/getChemical/getReportDefect/${props.id}`
     );
 
-    console.log(reportDefect.data[0].ReportDefect);
-
-    /*
-    if (reportDefect == "") {
+    if (reportDefect.data[0].ReportDefect == 0) {
       console.log("insert" + reportDefect);
 
       try {
@@ -65,8 +62,41 @@ const Data_detail = (props) => {
       }
     } else {
       console.log("Update" + reportDefect);
+      try {
+        await axios
+          .patch(
+            `${process.env.REACT_APP_API_URL}/getChemical/UpdateReportDefect/${props.id}`,
+            {
+              disease: checked,
+              bug: checked2,
+              weed: checked3,
+              remark: remark,
+            }
+          )
+          .then(function (response) {
+            window.location.reload(3);
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: error.response.data.msg,
+              text: "Save Error!",
+            });
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error.response.data.msg,
+          text: "Save Error!",
+        });
+      }
     }
-    */
+
   };;
 
   const getDatadetail = async () => {
