@@ -27,6 +27,8 @@ const checkboxes = [
 const Data_detail = (props) => {
   const [datadetail, setDatadetail] = useState([]);
   const [checkedItems, setCheckedItems] = useState({});
+  const [checkedData, setCheckedData] = useState({});
+
   const Checkbox = ({
     type = "checkbox",
     name,
@@ -52,15 +54,16 @@ const Data_detail = (props) => {
       ...checkedItems,
       [event.target.name]: event.target.checked,
     });
+
+    setCheckedData(event.target.value);
   };
 
   const ReportDefect = async () => {
-    const detail_array = [];
     console.log("Hello world");
-
-    for (let i = 0; i < checkedItems.data.length; i++) {
-      detail_array.push(console.log("checkedItems: ", checkedItems.data[i]));
-    }
+    console.log(checkedData);
+    // for (let i = 0; i < checkedItems.data.length; i++) {
+    //   detail_array.push(console.log("checkedItems: ", checkedItems.data[i]));
+    // }
   };
 
   useEffect(() => {
