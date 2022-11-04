@@ -542,4 +542,19 @@ export const UpdateReportDefect = async (req, res) => {
   }
 };
 
+
+export const ReportDefect = async (req, res) => {
+  try {
+    const Time = await db.query(
+      "SELECT count(*) AS ReportDefect FROM report_defect_chemical where id_plant = :id ",
+      {
+        replacements: { id: req.params.id },
+        type: db.QueryTypes.SELECT,
+      }
+    );
+    res.json(Time);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
 /*----------------------------------------------------------------*/
