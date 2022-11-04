@@ -28,7 +28,9 @@ const Data_detail = (props) => {
 
   const ReportDefect = async () => {
     getReportDefect();
-    
+    console.log(reportDefect);
+
+    /*
     if (reportDefect == "") {
       console.log("insert" + reportDefect);
 
@@ -68,9 +70,8 @@ const Data_detail = (props) => {
     } else {
       console.log("Update" + reportDefect);
     }
-
-   
-  };
+    */
+  };;
 
   const getDatadetail = async () => {
     const response = await axios.get(
