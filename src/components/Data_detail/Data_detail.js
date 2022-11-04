@@ -48,6 +48,8 @@ const Data_detail = (props) => {
 
   const handleChange = (event) => {
     // updating an object instead of a Map
+
+    console.log(event);
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
@@ -286,7 +288,7 @@ const Data_detail = (props) => {
                               <Checkbox
                                 name={item.name}
                                 id={item.key}
-                                checked={checkedItems[item.key]}
+                                checked={checkedItems[item.name]}
                                 onChange={handleChange}
                               />{" "}
                               {item.name}
