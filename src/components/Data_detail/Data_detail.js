@@ -52,15 +52,13 @@ const Data_detail = (props) => {
     // updating an object instead of a Map
     setCheckedItems({
       ...checkedItems,
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.value,
     });
-
-    setCheckedData(event.target.value);
   };
 
   const ReportDefect = async () => {
     console.log("Hello world");
-    console.log(checkedData);
+    console.log(checkedItems);
     // for (let i = 0; i < checkedItems.data.length; i++) {
     //   detail_array.push(console.log("checkedItems: ", checkedItems.data[i]));
     // }
