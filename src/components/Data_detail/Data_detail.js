@@ -37,7 +37,7 @@ const Data_detail = (props) => {
             title: "Success",
             text: "Save OK !",
           });
-          getDatadetail();
+          window.location.reload();
         })
         .catch(function (error) {
           Swal.fire({
