@@ -84,7 +84,7 @@ const Report_Defect = () => {
                     <div className="progress progress-xs">
                       <div
                         className="progress-bar progress-bar-danger"
-                        style="width: 55%"
+                        style={{ width: "55%" }}
                       ></div>
                     </div>
                   </td>
@@ -95,7 +95,6 @@ const Report_Defect = () => {
               </tbody>
             </table>
           </div>
-
         </div>
       </section>
     </div>
