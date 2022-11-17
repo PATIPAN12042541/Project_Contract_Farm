@@ -112,7 +112,7 @@ const Report_Defect = () => {
                       <td>{data.bug}</td>
                       <td>{data.weed}</td>
                       <td>{data.remark}</td>
-                      <td>{data.updatedAt.format("YYYY-MM-DD")}</td>
+                      <td>{data.updatedAt}</td>
                     </tr>
                   );
                 })}
