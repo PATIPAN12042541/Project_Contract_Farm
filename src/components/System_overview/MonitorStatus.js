@@ -6,6 +6,13 @@ import "../CSS/MonitorStatus.css";
 const MonitorStatus = () => {
   const [getstatusDetail, setStatusDetail] = useState([]);
   const [getstatusDetail2, setStatusDetail2] = useState([]);
+  const [COMPLETION, setCOMPLETION] = useState([]);
+  const [Waning, setWaning] = useState([]);
+  const [Danger, setDanger] = useState([]);
+  const [count_, setCount_] = useState([]);
+  const [COMPLETION_PER, setCOMPLETIONPER] = useState([]);
+  const [Waning_PER, setWaningPer] = useState([]);
+  const [Danger_PER, setDangerPer] = useState([]);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -31,35 +38,6 @@ const MonitorStatus = () => {
       setStatusDetail2(getstatusDetail);
     }
   };
-
-  // const getDataNamePlant = async () => {
-  //   const response = await axios.get(
-  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataNamePlant`
-  //   );
-  //   setDataNamePlant(response.data);
-  // };
-
-  // const getDataUserPlant = async () => {
-  //   const response = await axios.get(
-  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataUserPlant`
-  //   );
-  //   setDataUserPlant(response.data);
-  // };
-
-  // const getDataZonePlant = async () => {
-  //   const response = await axios.get(
-  //     `${process.env.REACT_APP_API_URL}/zoneplant/DataZonePlant`
-  //   );
-  //   setDataZonePlant(response.data);
-  // };
-
-  const [COMPLETION, setCOMPLETION] = useState([]);
-  const [Waning, setWaning] = useState([]);
-  const [Danger, setDanger] = useState([]);
-  const [count_, setCount_] = useState([]);
-  const [COMPLETION_PER, setCOMPLETIONPER] = useState([]);
-  const [Waning_PER, setWaningPer] = useState([]);
-  const [Danger_PER, setDangerPer] = useState([]);
 
   const getDashBoardSumStatus = async () => {
     const response = await axios.get(
@@ -194,45 +172,9 @@ const MonitorStatus = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-3">
-                      {/* <center>รหัสโซนเพาะปลูก</center>
-                      <select className="custom-select form-control-border">
-                        <option>----เลือกข้อมูล----</option>
-                        {dataZonePlant.map((dataZone, index) => {
-                          return (
-                            <option key={index} value={dataZone.zone_name}>
-                              {dataZone.zone_name}
-                            </option>
-                          );
-                        })}
-                      </select> */}
-                    </div>
-                    <div className="col-3">
-                      {/* <center>ชนิดเเปลงเพาะปลูก</center>
-                      <select className="custom-select form-control-border">
-                        <option>----เลือกข้อมูล----</option>
-                        {dataNamePlant.map((dataPlant, index) => {
-                          return (
-                            <option key={index} value={dataPlant.name_plant}>
-                              {dataPlant.name_plant}
-                            </option>
-                          );
-                        })}
-                      </select> */}
-                    </div>
-                    <div className="col-3">
-                      {/* <center>ชื่อผู้รับผิดชอบ</center>
-                      <select className="custom-select form-control-border">
-                        <option>----เลือกข้อมูล----</option>
-                        {dataUserPlant.map((dataUser, index) => {
-                          return (
-                            <option key={index} value={dataUser.name}>
-                              {dataUser.name + " " + dataUser.last_name}
-                            </option>
-                          );
-                        })}
-                      </select> */}
-                    </div>
+                    <div className="col-3"></div>
+                    <div className="col-3"></div>
+                    <div className="col-3"></div>
                     <div className="col-3">
                       สถานะ
                       <select
@@ -272,9 +214,6 @@ const MonitorStatus = () => {
                           <th>
                             <center>ความคืบหน้า</center>
                           </th>
-                          {/* <th>
-                            <center>เปอร์เซ็น</center>
-                          </th> */}
                         </tr>
                       </thead>
                       {getstatusDetail2.map((data, index) => {
@@ -351,122 +290,6 @@ const MonitorStatus = () => {
                                   )}
                                 </center>
                               </td>
-                              {/* <td>
-                                {data.status_plant == "1" ||
-                                data.status_plant == "4" ? (
-                                  <div className="progress progress-xs">
-                                    {data.status_plant == "1" ? (
-                                      data.plant_status == "0" ? (
-                                        <div
-                                          className="progress-bar bg-success"
-                                          style={{ width: "100%" }}
-                                        >
-                                          <span className="badge bg-success">
-                                            100%
-                                          </span>
-                                        </div>
-                                      ) : (
-                                        <div
-                                          className="progress-bar bg-warning"
-                                          style={{ width: "50%" }}
-                                        >
-                                          <span className="badge bg-warning">
-                                            50%
-                                          </span>
-                                        </div>
-                                      )
-                                    ) : data.harvest_status == "0" ? (
-                                      <div
-                                        className="progress-bar bg-success"
-                                        style={{ width: "100%" }}
-                                      >
-                                        <span className="badge bg-success">
-                                          100%
-                                        </span>
-                                      </div>
-                                    ) : (
-                                      <div
-                                        className="progress-bar bg-warning"
-                                        style={{ width: "50%" }}
-                                      >
-                                        <span className="badge bg-warning">
-                                          50%
-                                        </span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ) : data.status_plant == "2" ? (
-                                  <div className="progress progress-xs">
-                                    {data.status_Fertilizer == "0" ? (
-                                      <div
-                                        className="progress-bar bg-success"
-                                        style={{ width: "100%" }}
-                                      >
-                                        <span className="badge bg-success">
-                                          100%
-                                        </span>
-                                      </div>
-                                    ) : moment(new Date()).format(
-                                        "YYYY-MM-DD"
-                                      ) > data.end_date_plant &&
-                                      data.status_Fertilizer !== "0" ? (
-                                      <div
-                                        className="progress-bar bg-danger"
-                                        style={{ width: "1%" }}
-                                      >
-                                        <span className="badge bg-danger">
-                                          1%
-                                        </span>
-                                      </div>
-                                    ) : (
-                                      <div
-                                        className="progress-bar bg-warning"
-                                        style={{ width: "50%" }}
-                                      >
-                                        <span className="badge bg-warning">
-                                          50%
-                                        </span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ) : data.status_plant == "3" ? (
-                                  <div className="progress progress-xs">
-                                    {data.status_chemical == "0" ? (
-                                      <div
-                                        className="progress-bar bg-success"
-                                        style={{ width: "100%" }}
-                                      >
-                                        <span className="badge bg-success">
-                                          100%
-                                        </span>
-                                      </div>
-                                    ) : moment(new Date()).format(
-                                        "YYYY-MM-DD"
-                                      ) > data.end_date_plant &&
-                                      data.status_chemical !== "0" ? (
-                                      <div
-                                        className="progress-bar bg-danger"
-                                        style={{ width: "1%" }}
-                                      >
-                                        <span className="badge bg-danger">
-                                          1%
-                                        </span>
-                                      </div>
-                                    ) : (
-                                      <div
-                                        className="progress-bar bg-warning"
-                                        style={{ width: "50%" }}
-                                      >
-                                        <span className="badge bg-warning">
-                                          50%
-                                        </span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                              </td> */}
                             </tr>
                           </tbody>
                         );
