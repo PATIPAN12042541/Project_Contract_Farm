@@ -30,6 +30,7 @@ import {
   CreateReportDefect,
   UpdateReportDefect,
   ReportDefect,
+  ReportDefectData,
 } from "../controllers/GetChemical.js";
 
 const router = express.Router();
@@ -64,7 +65,7 @@ router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
 router.post("/CreateReportDefect/:id", CreateReportDefect);
 router.patch("/UpdateReportDefect/:id", UpdateReportDefect);
 router.get("/getReportDefect/:id", ReportDefect);
-
+router.get("/ReportDefectData", ReportDefectData);
 
 
 export default router;
