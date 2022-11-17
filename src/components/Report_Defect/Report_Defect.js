@@ -92,11 +92,19 @@ const Report_Defect = () => {
                   <th>รหัสแปลงเพาะปลูก</th>
                   <th>ชื่อแปลงผัก</th>
                   <th>ผู้รับผิดชอบ</th>
-                  <th>โรค</th>
-                  <th>แมลง</th>
-                  <th>วัชพืช</th>
+                  <th>
+                    <center>โรค</center>
+                  </th>
+                  <th>
+                    <center>แมลง</center>
+                  </th>
+                  <th>
+                    <center>วัชพืช</center>
+                  </th>
                   <th>หมายเหตุ</th>
-                  <th>วันที่เเจ้ง</th>
+                  <th>
+                    <center>วันที่เเจ้ง</center>
+                  </th>
                 </tr>
               </thead>
 
@@ -110,11 +118,19 @@ const Report_Defect = () => {
                       <td>
                         {data.name} {data.last_name}
                       </td>
-                      <td>{data.disease}</td>
-                      <td>{data.bug}</td>
-                      <td>{data.weed}</td>
+                      <td>
+                        <center>{data.disease}</center>
+                      </td>
+                      <td>
+                        <center>{data.bug}</center>
+                      </td>
+                      <td>
+                        <center>{data.weed}</center>
+                      </td>
                       <td>{data.remark}</td>
-                      <td>{data.updatedAt}</td>
+                      <td>
+                        <center>{data.updatedAt}</center>
+                      </td>
                     </tr>
                   );
                 })}
