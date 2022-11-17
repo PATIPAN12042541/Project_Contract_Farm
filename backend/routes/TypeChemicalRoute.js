@@ -10,11 +10,18 @@ import {
 
 const router = express.Router();
 
-router.post("/addTypeChemical", createTypeChemical);
+/*--------- Get Data ----------*/
 router.get("/getTypeChemical", getAllTypeChemical);
 router.get("/getTypeChemical2", getAllTypeChemical2);
 router.get("/getTypeChemical/:id", getTypeChemicalByID);
+
+/*--------- Post Data ----------*/
+router.post("/addTypeChemical", createTypeChemical);
+
+/*--------- Update Data ----------*/
 router.patch("/getTypeChemical/:id", updateTypeChemical);
+
+/*--------- Delete Data ----------*/
 router.delete("/getTypeChemical/:id", deleteTypeChemical);
 
 export default router;

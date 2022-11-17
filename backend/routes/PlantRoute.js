@@ -30,31 +30,39 @@ import {
 
 const router = express.Router();
 
+/*--------- Get Data ----------*/
 router.get("/:id", getPlant);
 router.get("/Data_detail/:id", getDataImagePlant);
 router.get("/getDataSelect/:id", getDataSelect);
-router.post("/DetailPlant", postDetailPlant);
-router.patch("/UpdatePlant/:id", updatePlant);
-router.delete("/DeletePlant/:id", DeletePlant);
-router.post("/ManagePlant/:id", postManagePlant);
 router.get("/ManagePlantEdit/:id", getManagePlantEdit);
-router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
-router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
 router.get("/Status/StatusPlant", getStatusPlants);
-router.patch("/UpdateStatusPlant/:id", UpdateStatusPlant);
 router.get("/plant/getMasterPlant", getPlantMaster);
 router.get("/plant/getPlantMasterSetup", getPlantMasterSetup);
-router.post("/plant/postMasterPlant", postPlantMaster);
-router.delete("/plant/deleteMasterPlant/:id", DeletePlantMaster);
-router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
-router.delete("/plant/DeleteData/:id", DeletePlantData);
 router.get("/Comment/:id", getCommentData);
+router.get("/plant/getPlantMasterType", getPlantMasterType);
+router.get("/plant/getPlantMasterTypeUsed", getPlantMasterTypeUsed);
+
+/*--------- Post Data ----------*/
+router.post("/DetailPlant", postDetailPlant);
+router.post("/ManagePlant/:id", postManagePlant);
+router.post("/plant/postMasterPlant", postPlantMaster);
+router.post("/plant/PostPlantMasterType", postPlantMasterType);
+// router.post("/status/UpdatePlantStatus", PostPlantStatus);
+
+/*--------- Update Data ----------*/
+router.patch("/UpdatePlant/:id", updatePlant);
+router.patch("/UpdateManagePlant/:id", UpdateManagePlant);
+router.patch("/UpdateStatusPlant/:id", UpdateStatusPlant);
+router.patch("/plant/UpdatePlantMaster/:id", UpdatePlantMaster);
 router.patch("/Comment/update/:id", getCommentDataUpdate);
 router.patch("/update/PlantStatusUpdate/:id", UpdatePlantStatus);
-router.get("/plant/getPlantMasterType", getPlantMasterType);
-router.post("/plant/PostPlantMasterType", postPlantMasterType);
 router.patch("/plant/patchPlantMasterType/:id", updatePlantMasterType);
-router.get("/plant/getPlantMasterTypeUsed", getPlantMasterTypeUsed);
-// router.post("/status/UpdatePlantStatus", PostPlantStatus);
+
+/*--------- Update Data ----------*/
+router.delete("/DeletePlant/:id", DeletePlant);
+router.delete("/DeleteManagePlant/:id", DeleteManagePlant);
+router.delete("/plant/deleteMasterPlant/:id", DeletePlantMaster);
+router.delete("/plant/DeleteData/:id", DeletePlantData);
+
 
 export default router;

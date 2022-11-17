@@ -17,6 +17,7 @@ import {
 
 const router = express.Router();
 
+/*--------- Get Data ----------*/
 router.get("/", GetZonePlant);
 router.get("/user/:id", GetZonePlantUser);
 router.get("/plant/:id", getDataPlant);
@@ -27,8 +28,16 @@ router.get("/DataNamePlant", DataNamePlant);
 router.get("/DataUserPlant", DataUserPlant);
 router.get("/DataZonePlant", DataZonePlant);
 router.get("/DashBoardSumStatus", DashBoardSumStatus);
+
+/*--------- Post Data ----------*/
 router.post("/postZone", postZone);
-router.delete("/DeleteZone/:id", DeleteZone);
+
+/*--------- Update Data ----------*/
 router.patch("/UpdateZone/:id", UpdateZone);
+
+/*--------- Delete Data ----------*/
+router.delete("/DeleteZone/:id", DeleteZone);
+
+
 
 export default router;

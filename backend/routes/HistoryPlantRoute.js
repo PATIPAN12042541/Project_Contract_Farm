@@ -7,9 +7,13 @@ import {
 } from "../controllers/GetHistoryPlant.js";
 
 const router = express.Router();
-router.post("/plant", PostHistoryPlant);
+
+/*--------- Get Data ----------*/
 router.get("/getDataPlant/:id", getDataPlant);
 router.get("/getDataChemical/:id", getDataChemical);
 router.get("/getDataFertilizer/:id", getDataFertilizer);
+
+/*--------- Post Data ----------*/
+router.post("/plant", PostHistoryPlant);
 
 export default router;
