@@ -47,13 +47,6 @@ const Edit_data = (props) => {
 
   /**********************************************/
 
-  /************** Edit Data ********************/
-  // const [editName, setEditName] = useState([]);
-  // const [editStDate, setEditStDate] = useState([]);
-  // const [editEdDate, setEditEdDate] = useState([]);
-  // const [editPathImg, setEditPathImg] = useState([]);
-  /*********************************************/
-
   /************** Comment Data ********************/
   const [CommentData, setCommentData] = useState([]);
   const [CommentUpdate, setCommentUpdate] = useState([]);
@@ -75,7 +68,6 @@ const Edit_data = (props) => {
   const [edit_start_date_plant, setEditStartDatePlant] = useState();
   const [edit_end_date_plant, setEditEndDatePlant] = useState();
   const [edit_path_img, setEditPathImg] = useState();
-  //const [edit_plant_image, setEditPlantImage] = useState();
   /*************************/
 
   const [image, setImage] = useState({ preview: "", data: "" });
@@ -83,8 +75,6 @@ const Edit_data = (props) => {
 
   const [editimage, setEditImage] = useState({ preview: "", data: "" });
   const [edit_image_name, setEditImageName] = useState();
-
-  // const [plantimage, setPlantImage] = useState();
 
   /****** status Plant ******/
   const [getIDStatus, setGetIDStatus] = useState([]);
@@ -158,16 +148,6 @@ const Edit_data = (props) => {
       });
     }
   };
-
-  // const editUploadImg = async () => {
-  //   let formData = new FormData();
-  //   formData.append("file", editimage.data);
-
-  //   await axios
-  //     .post(`${process.env.REACT_APP_API_URL}/public/dist/img/`, formData)
-  //     .then((res) => console.log(res.data))
-  //     .catch((err) => console.error(err));
-  // };
 
   const getPlant = async () => {
     const response = await axios.get(
@@ -314,7 +294,6 @@ const Edit_data = (props) => {
             name_plant: getSelect[0].id,
             start_date_plant: startdate,
             end_date_plant: enddate,
-            //image_url: image_name,
           })
           .then(function (response) {
             Swal.fire({
@@ -428,29 +407,6 @@ const Edit_data = (props) => {
     }
   };
 
-  // const addStatusPlant = async (id) => {
-  //   console.log(id);
-  //   try {
-  //     axios
-  //       .post(
-  //         `${process.env.REACT_APP_API_URL}/getplant/status/UpdatePlantStatus`,
-  //         {
-  //           plant_id_data: id,
-  //           plant_status: 1,
-  //           harvest_status: 1,
-  //         }
-  //       )
-  //       .then(function (response) {})
-  //       .catch(function (error) {});
-  //   } catch (error) {
-  //     console.log(error);
-  //     Swal.fire({
-  //       icon: "error",
-  //       text: "Save Error!",
-  //     });
-  //   }
-  // };
-
   // status 2
   const getDataPlant2 = async (id) => {
     const fertilizer = await axios.get(
@@ -497,7 +453,7 @@ const Edit_data = (props) => {
     const result = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getDataChemical/${id}`
     );
-    //console.log(result.data);
+
     const detail_array = [];
     try {
       for (let i = 0; i < result.data.length; i++) {
@@ -876,95 +832,6 @@ const Edit_data = (props) => {
                             <center>{data.status_name}</center>
                           </td>
                           {data.plant_condition == 1 ? (
-                            // <td>
-                            //   {data.status_plant == "4" ? (
-                            //     <center>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-success"
-                            //         style={{ color: "#FFFFFF" }}
-                            //       >
-                            //         <BsPlusLg />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-danger"
-                            //       >
-                            //         <BsFillTrashFill />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-warning"
-                            //         style={{ color: "#fff" }}
-                            //         onClick={() => {
-                            //           ShowStatusType();
-                            //         }}
-                            //       >
-                            //         <AiOutlineFundView />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-primary"
-                            //       >
-                            //         <BsFillChatSquareDotsFill />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-success"
-                            //         onClick={() => {
-                            //           lastStatus(
-                            //             data.id_plant,
-                            //             data.plant_id,
-                            //             1,
-                            //             data.status_circle + 1
-                            //           );
-                            //         }}
-                            //       >
-                            //         <BsFillCheckCircleFill />
-                            //       </button>
-                            //     </center>
-                            //   ) : (
-                            //     <center>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-success"
-                            //         style={{ color: "#FFFFFF" }}
-                            //       >
-                            //         <BsPlusLg />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-danger"
-                            //       >
-                            //         <BsFillTrashFill />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-warning"
-                            //         style={{ color: "#fff" }}
-                            //         onClick={() => {
-                            //           ShowStatusType();
-                            //         }}
-                            //       >
-                            //         <AiOutlineFundView />
-                            //       </button>
-                            //       <> </>
-                            //       <button
-                            //         type="submit"
-                            //         className="btn btn-primary"
-                            //       >
-                            //         <BsFillChatSquareDotsFill />
-                            //       </button>
-                            //     </center>
-                            //   )}
-                            // </td>
-
                             <td>
                               {data.status_plant == "2" ? (
                                 <center>
@@ -1646,6 +1513,6 @@ const Edit_data = (props) => {
       </Modal>
     </div>
   );
-};;;;
+};
 
 export default Edit_data;

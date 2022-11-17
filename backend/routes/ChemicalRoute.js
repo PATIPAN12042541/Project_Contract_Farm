@@ -35,37 +35,43 @@ import {
 
 const router = express.Router();
 
+/*--------- Get Data ----------*/
 router.get("/", getChemical);
 router.get("/Fertilizer", getFertilizer);
 router.get("/Fertilizer2/:id", getFertilizerSelect);
 router.get("/FertilizerUnit", getFertilizerUnit);
-router.post("/PostFertilizer/:id", postFertilizer);
-router.delete("/DeleteFertilizer/:id", deleteFertilizer);
+router.get("/getReportDefect/:id", ReportDefect);
+router.get("/ReportDefectData", ReportDefectData);
 router.get("/FertilizerData/:id", getFertilizerData);
-router.patch("/update/FertilizerData/:id", updateFertilizerData);
 router.get("/master", getChemicalMaster);
 router.get("/master2", getChemicalMaster2);
 router.get("/Select/:id", getSelect);
 router.get("/getExpired", getExpired);
-router.post("/ManageChemical/:id", ManageChemical);
-router.delete("/DeleteChemical/:id", DeleteChemical);
-router.post("/createChemical", createChemical);
 router.get("/getChemicalID/:id", getChemicalByID);
-router.patch("/updateChemical/:id", updateChemical);
-router.delete("/deleteChemical2/:id", deleteChemical2);
-router.patch("/updateChangeStatus/:id", UpdateChangeStatus);
 router.get("/FertilizerData/Detail/:id", FertilizerDataDetail);
-router.patch("/updateChangeStatus/Fertilizer/:id", updateFertilizerStauts);
-router.post("/PostFertilizerUnit", PostFertilizerUnit);
-router.delete("/DeleteFertilizerUnit/:id", DeleteFertilizerUnit);
 router.get("/TimeChemical", TimeChemical);
-router.patch("/TimeChemical/updateStatus/:id", updateStatusTime);
-router.post("/TimeChemical/insertTimeChemical", insertTimeChemical);
-router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
-router.post("/CreateReportDefect/:id", CreateReportDefect);
-router.patch("/UpdateReportDefect/:id", UpdateReportDefect);
-router.get("/getReportDefect/:id", ReportDefect);
-router.get("/ReportDefectData", ReportDefectData);
 
+/*--------- Post Data ----------*/
+router.post("/PostFertilizer/:id", postFertilizer);
+router.post("/ManageChemical/:id", ManageChemical);
+router.post("/createChemical", createChemical);
+router.post("/PostFertilizerUnit", PostFertilizerUnit);
+router.post("/TimeChemical/insertTimeChemical", insertTimeChemical);
+router.post("/CreateReportDefect/:id", CreateReportDefect);
+
+/*--------- Update Data ----------*/
+router.patch("/update/FertilizerData/:id", updateFertilizerData);
+router.patch("/updateChemical/:id", updateChemical);
+router.patch("/updateChangeStatus/:id", UpdateChangeStatus);
+router.patch("/updateChangeStatus/Fertilizer/:id", updateFertilizerStauts);
+router.patch("/TimeChemical/updateStatus/:id", updateStatusTime);
+router.patch("/UpdateReportDefect/:id", UpdateReportDefect);
+
+/*--------- Delete Data ----------*/
+router.delete("/DeleteFertilizer/:id", deleteFertilizer);
+router.delete("/DeleteChemical/:id", DeleteChemical);
+router.delete("/deleteChemical2/:id", deleteChemical2);
+router.delete("/DeleteFertilizerUnit/:id", DeleteFertilizerUnit);
+router.delete("/TimeChemical/deleteTimeChemical/:id", deleteTimeChemical);
 
 export default router;

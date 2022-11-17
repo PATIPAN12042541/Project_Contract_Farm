@@ -212,7 +212,13 @@ export const getChemicalByID = async (req, res) => {
 export const getSelect = async (req, res) => {
   try {
     const Select = await db.query(
-      "SELECT id,name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical where  id = :id  ",
+      " SELECT id,                "+
+      "        name_chemical,     "+
+      "        name_chemical_eng, "+
+      "        u_mrl,             "+
+      "        path_img           "+
+      "FROM name_chemical         "+
+      "where  id = :id            ",
       {
         replacements: { id: req.params.id },
         type: db.QueryTypes.SELECT,
@@ -238,10 +244,9 @@ export const postFertilizer = async (req, res) => {
       date_end: date_end,
       status_check: 1,
     });
-    res.json({ msg: "Create Successful" });
+      res.json({ msg: "Create Successful" });
   } catch (error) {
-    //console.log(error);
-    res.json(error);
+      res.json(error);
   }
 };
 
@@ -263,10 +268,9 @@ export const createChemical = async (req, res) => {
       type_chemical_id: type_chemical_id,
       status: status,
     });
-    res.json({ msg: "Create Successful" });
+      res.json({ msg: "Create Successful" });
   } catch (error) {
-    //console.log(error);
-    res.json(error);
+      res.json(error);
   }
 };
 
@@ -452,6 +456,7 @@ export const DeleteFertilizerUnit = async (req, res) => {
   }
 };
 /**************************************************************/
+
 export const TimeChemical = async (req, res) => {
   try {
     const Time = await db.query("SELECT * FROM residual_period_chemical ", {
