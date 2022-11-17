@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 import "../CSS/ReportDefect.css";
 
 const Report_Defect = () => {
@@ -111,7 +112,9 @@ const Report_Defect = () => {
                       <td>{data.bug}</td>
                       <td>{data.weed}</td>
                       <td>{data.remark}</td>
-                      <td>{data.updatedAt}</td>
+                      <td>
+                        {moment(new data.updatedAt()).format("YYYY-MM-DD")}
+                      </td>
                     </tr>
                   );
                 })}
