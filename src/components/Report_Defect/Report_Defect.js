@@ -62,7 +62,10 @@ const Report_Defect = () => {
       </section>
       <section className="content">
         <div className="card">
-          <div className="card-header">
+          <div
+            className="card-header"
+            style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
+          >
             <h3 className="card-title">รายละเอียด</h3>
           </div>
 
