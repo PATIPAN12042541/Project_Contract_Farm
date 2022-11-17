@@ -99,9 +99,6 @@ const MonitorStatus = () => {
 
   useEffect(() => {
     getPlantStatus();
-    // getDataNamePlant();
-    // getDataUserPlant();
-    // getDataZonePlant();
     getDashBoardSumStatus();
   }, []);
 

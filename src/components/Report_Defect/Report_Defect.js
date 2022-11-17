@@ -50,7 +50,7 @@ const Report_Defect = () => {
           </div>
         </div>
       </section> */}
-     
+
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
@@ -60,7 +60,7 @@ const Report_Defect = () => {
           </div>
         </div>
       </section>
-    
+      <section className="content"></section>
     </div>
   );
 };
