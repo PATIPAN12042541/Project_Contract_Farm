@@ -563,24 +563,43 @@ export const ReportDefect = async (req, res) => {
 export const ReportDefectData = async (req, res) => {
   try {
     const Defect = await db.query(
-      "SELECT report_defect_chemical.id,         " +
-        "       report_defect_chemical.id_plant,   " +
-        "       CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_name, " +
-        "       report_defect_chemical.disease,    " +
-        "       report_defect_chemical.bug,        " +
-        "       report_defect_chemical.weed,       " +
-        "       report_defect_chemical.remark,     " +
-        "       DATE_FORMAT(report_defect_chemical.updatedAt, '%d-%m-%Y') as updatedAt,  " +
-        "       plant_master_detail.plant_name,    " +
-        "       plant_master_detail.plant_name_eng," +
-        "       user.name,                         " +
-        "       user.last_name                     " +
-        " FROM report_defect_chemical " +
-        " LEFT JOIN plant_detail ON report_defect_chemical.id_plant = plant_detail.id " +
-        " LEFT JOIN plant ON report_defect_chemical.id_plant = plant.id_plant " +
-        " LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
-        " LEFT JOIN user ON plant.id_user = user.id " +
-        " LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id",
+      "SELECT  report_defect_chemical.id, " +
+        "        report_defect_chemical.id_plant, " +
+        "        CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_name," +
+        "        report_defect_chemical.disease," +
+        "        report_defect_chemical.bug," +
+        "        report_defect_chemical.weed," +
+        "        report_defect_chemical.remark," +
+        "        DATE_FORMAT(report_defect_chemical.updatedAt, '%d-%m-%Y') as updatedAt," +
+        "        plant_master_detail.plant_name," +
+        "        plant_master_detail.plant_name_eng," +
+        "        user.name, " +
+        "        user.last_name  " +
+        "FROM report_defect_chemical " +
+        "LEFT JOIN plant_detail ON report_defect_chemical.id_plant = plant_detail.id " +
+        "LEFT JOIN plant ON report_defect_chemical.id_plant = plant.id_plant " +
+        "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        "LEFT JOIN user ON plant.id_user = user.id " +
+        "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id ",
+
+      // "SELECT report_defect_chemical.id,         " +
+      //   "       report_defect_chemical.id_plant,   " +
+      //   "       CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_name, " +
+      //   "       report_defect_chemical.disease,    " +
+      //   "       report_defect_chemical.bug,        " +
+      //   "       report_defect_chemical.weed,       " +
+      //   "       report_defect_chemical.remark,     " +
+      //   "       DATE_FORMAT(report_defect_chemical.updatedAt, '%d-%m-%Y') as updatedAt,  " +
+      //   "       plant_master_detail.plant_name,    " +
+      //   "       plant_master_detail.plant_name_eng," +
+      //   "       user.name,                         " +
+      //   "       user.last_name                     " +
+      //   " FROM report_defect_chemical " +
+      //   " LEFT JOIN plant_detail ON report_defect_chemical.id_plant = plant_detail.id " +
+      //   " LEFT JOIN plant ON report_defect_chemical.id_plant = plant.id_plant " +
+      //   " LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+      //   " LEFT JOIN user ON plant.id_user = user.id " +
+      //   " LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id ",
       {
         type: db.QueryTypes.SELECT,
       }
