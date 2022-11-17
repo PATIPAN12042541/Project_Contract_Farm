@@ -531,7 +531,7 @@ export const UpdateReportDefect = async (req, res) => {
   try {
     await ReportDefectChemical_M.update(req.body, {
       where: {
-        id: req.params.id,
+        id_plant: req.params.id,
       },
     });
     res.json({
