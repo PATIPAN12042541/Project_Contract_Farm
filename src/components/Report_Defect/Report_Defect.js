@@ -89,6 +89,7 @@ const Report_Defect = () => {
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>รหัสแปลงเพาะปลูก</th>
                   <th>ชื่อแปลงผัก</th>
                   <th>ผู้รับผิดชอบ</th>
                   <th>โรค</th>
@@ -104,6 +105,7 @@ const Report_Defect = () => {
                   return (
                     <tr key={index}>
                       <td>{index + 1}</td>
+                      <td>{data.zone_name}</td>
                       <td>{data.plant_name}</td>
                       <td>
                         {data.name} {data.last_name}
