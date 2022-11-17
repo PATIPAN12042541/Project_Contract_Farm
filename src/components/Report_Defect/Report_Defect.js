@@ -7,7 +7,7 @@ const Report_Defect = () => {
 
   const getDefect = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/ReportDefectData`
+      `${process.env.REACT_APP_API_URL}/getChemical/ReportDefectData`
     );
     setDataDefect(response.data);
   };
