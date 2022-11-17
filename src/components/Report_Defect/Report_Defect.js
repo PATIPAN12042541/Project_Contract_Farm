@@ -4,7 +4,7 @@ import "../CSS/ReportDefect.css";
 const Report_Defect = () => {
   return (
     <div className="content-wrapper">
-      <section className="content-header">
+      {/* <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
@@ -49,7 +49,18 @@ const Report_Defect = () => {
             </div>
           </div>
         </div>
+      </section> */}
+     
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-6">
+              <h1>รายงานปัญหา</h1>
+            </div>
+          </div>
+        </div>
       </section>
+    
     </div>
   );
 };
