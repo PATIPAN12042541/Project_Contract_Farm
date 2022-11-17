@@ -4,7 +4,6 @@ import moment from "moment";
 import Zoom from "react-medium-image-zoom";
 import Swal from "sweetalert2";
 import { BsFillTrashFill } from "react-icons/bs";
-import { BsFillPencilFill } from "react-icons/bs";
 
 const Manage_plant_chemical = (props) => {
   const [getChemical, setGetChemical] = useState([]);

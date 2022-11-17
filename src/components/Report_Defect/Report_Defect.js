@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../CSS/ReportDefect.css";
 
 const Report_Defect = () => {
+  const [getDataDefect, setDataDefect] = useState([]);
+
+  const getDefect = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/ReportDefectData`
+    );
+    setDataDefect(response.data);
+  };
+
+  useEffect(() => {
+    getDefect();
+  }, []);
+
   return (
     <div className="content-wrapper">
       {/* <section className="content-header">
@@ -73,28 +87,34 @@ const Report_Defect = () => {
             <table className="table table-bordered">
               <thead>
                 <tr>
-                  <th style={{ width: "10px" }}>#</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style={{ width: "40px" }}>Label</th>
+                  <th>#</th>
+                  <th>ชื่อแปลงผัก</th>
+                  <th>ผู้รับผิดชอบ</th>
+                  <th>โรค</th>
+                  <th>แมลง</th>
+                  <th>วัชพืช</th>
+                  <th>หมายเหตุ</th>
+                  <th>วันที่เเจ้ง</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div className="progress progress-xs">
-                      <div
-                        className="progress-bar progress-bar-danger"
-                        style={{ width: "55%" }}
-                      ></div>
-                    </div>
-                  </td>
-                  <td>
-                    <span className="badge bg-danger">55%</span>
-                  </td>
-                </tr>
+                {getDataDefect.map((data, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td>{data.plant_name}</td>
+                      <td>
+                        {data.name} {data.last_name}
+                      </td>
+                      <td>{data.disease}</td>
+                      <td>{data.bug}</td>
+                      <td>{data.weed}</td>
+                      <td>{data.remark}</td>
+                      <td>{data.updatedAt}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -105,4 +125,3 @@ const Report_Defect = () => {
 };
 
 export default Report_Defect;
-    
