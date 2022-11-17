@@ -102,7 +102,7 @@ const Report_Defect = () => {
                 {getDataDefect.map((data, index) => {
                   return (
                     <tr key={index}>
-                      <td>{index}</td>
+                      <td>{index + 1}</td>
                       <td>{data.plant_name}</td>
                       <td>
                         {data.name} {data.last_name}
