@@ -565,8 +565,7 @@ export const ReportDefectData = async (req, res) => {
     const Defect = await db.query(
       "SELECT report_defect_chemical.id,         " +
         "       report_defect_chemical.id_plant,   " +
-        "       CONCAT(zone_plant.zone_name," -
-        ",plant_detail.id_name_plant) AS ZONE_NAME, " +
+        "       CONCAT(zone_plant.zone_name,'-',plant_detail.id_name_plant) AS zone_name, " +
         "       report_defect_chemical.disease,    " +
         "       report_defect_chemical.bug,        " +
         "       report_defect_chemical.weed,       " +
