@@ -2,6 +2,20 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 
+const [rolegroup, setRoleGroup] = useState([]);
+
+//Drop Down Role
+const getRole = async () => {
+    const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+      );
+      setRoleGroup(response.data);
+  };
+
+  useEffect(() => {
+    getRole();
+  },[]);
+
 const SettingMenu = () => {
   return (
       <div className="content-wrapper">
@@ -28,11 +42,26 @@ const SettingMenu = () => {
                               <div className="card-body">
                                   <div className="row">
                                       <Button variant="success">
-                                          เพิมเมนูหลัก
+                                          เพิ่มเมนูย่อย
                                       </Button>
                                   </div>
                                   <hr />
                                   <div className="row">
+                                      <div className="form-group mb-3">
+                                          <select
+                                              className="form-control"
+                                              onChange={(e) => {
+                                                  setRoleID(e.target.value);
+                                              }}
+                                          >
+                                              <option>--เลือก Role--</option>
+                                              {rolegroup.map((item) => (
+                                                  <option key={item.id} value={item.id}>
+                                                      {item.role_group_name}
+                                                  </option>
+                                              ))}
+                                          </select>
+                                      </div>
                                       <Table
                                           className="table table-bordered table-hover dataTable dtr-inline"
                                           responsive
