@@ -399,6 +399,8 @@ const Edit_data = (props) => {
           remark: "",
           chemical_date_start: moment(new Date()).format("YYYY-MM-DD"),
           chemical_date_end: moment(new Date()).format("YYYY-MM-DD"),
+          Path_harvest_img: getData.data[0].Path_img,
+          qty: getData.data[0].quantity,
           plant_status: getData.data[0].status_plant,
           plant_circle: getData.data[0].status_circle,
         })
@@ -445,6 +447,8 @@ const Edit_data = (props) => {
             chemical_note: fertilizer.data[i].note,
             chemical_date_start: fertilizer.data[i].date_start,
             chemical_date_end: fertilizer.data[i].date_end,
+            Path_harvest_img: "",
+            qty: 0,
             plant_status: fertilizer.data[i].status_plant,
             plant_circle: fertilizer.data[i].status_circle,
           })
@@ -489,6 +493,8 @@ const Edit_data = (props) => {
             remark: result.data[i].remark,
             chemical_date_start: result.data[i].date_start,
             chemical_date_end: result.data[i].date_end,
+            Path_harvest_img: "",
+            qty: 0,
             plant_status: result.data[i].status_plant,
             plant_circle: result.data[i].status_circle,
           })
