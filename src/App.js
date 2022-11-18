@@ -37,6 +37,7 @@ import Plant_master_type from "./components/Plant_Master/Plant_master_type";
 import MonitorStatus from "./components/System_overview/MonitorStatus";
 import ChanagePassword from "./components/User/ChanagePassword";
 import Report_Defect from "./components/Report_Defect/Report_Defect";
+import SettingMenu from "./components/Setting_Menu/SettingMenu";
 
 function App() {
   return (
@@ -321,6 +322,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <Report_Defect />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/SettingMenu"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <SettingMenu />
                 <Footer />
               </>
             }
