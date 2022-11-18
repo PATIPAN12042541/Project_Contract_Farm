@@ -23,6 +23,35 @@ const SettingMenu = () => {
                                       <h3 className="card-title">ตั้งค่าเมนู</h3>
                                   </center>
                               </div>
+                              <div className="card-body">
+                                  <div className="row">
+                                      <Button variant="success">
+                                          เพิมเมนูหลัก
+                                      </Button>
+                                  </div>
+                                  <hr />
+                                  <div className="row">
+                                      <Table
+                                          className="table table-bordered table-hover dataTable dtr-inline"
+                                          responsive
+                                      >
+                                          <thead>
+                                              <tr>
+                                                  <th>ลำดับ</th>
+                                                  <th>ชื่อเมนู</th>
+                                                  <th>ลำดับของเมนู</th>
+                                                  <th>Link</th>
+                                                  <th>
+                                                      <center>แก้ไขข้อมูล</center>
+                                                  </th>
+                                                  <th>Active</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                          </tbody>
+                                      </Table>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                   </div>
