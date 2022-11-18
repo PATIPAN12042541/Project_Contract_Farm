@@ -174,7 +174,14 @@ const MonitorStatus = () => {
                   <div className="row">
                     <div className="col-3"></div>
                     <div className="col-3"></div>
-                    <div className="col-3"></div>
+                    <div className="col-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="ค้นหา"
+                        // onChange={(e) => searchItems(e.target.value)}
+                      />
+                    </div>
                     <div className="col-3">
                       สถานะ
                       <select
