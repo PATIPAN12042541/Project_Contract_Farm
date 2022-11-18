@@ -59,11 +59,11 @@ const SettingMenu = () => {
                                               }}
                                           >
                                               <option>--เลือก Role--</option>
-                                              {rolegroup.map((item) => (
+                                              {/* {rolegroup.map((item) => (
                                                   <option key={item.id} value={item.id}>
                                                       {item.role_group_name}
                                                   </option>
-                                              ))}
+                                              ))} */}
                                           </select>
                                       </div>
                                       <Table
