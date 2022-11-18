@@ -89,7 +89,7 @@ const Report_Defect = () => {
                           data.weed == 0 ? "defult-color" : "red-color"
                         }
                       >
-                        <center>{data.weed ? "-" : "/"}</center>
+                        <center>{data.weed == 0 ? "-" : "/"}</center>
                       </td>
                       <td>{data.remark}</td>
                       <td>
