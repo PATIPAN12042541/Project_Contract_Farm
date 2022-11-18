@@ -412,6 +412,15 @@ const Edit_data = (props) => {
         text: "Save Error!",
       });
     }
+    /*--------------- DELETE ---------------*/
+    await axios.patch(
+      `${process.env.REACT_APP_API_URL}/getplant/update/PlantStatusUpdate/${id}`,
+      {
+        Path_img: "",
+        quantity: 0,
+      }
+    );
+    /*--------------- -----------------------*/
   };
 
   // status 2
