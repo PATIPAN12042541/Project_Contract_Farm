@@ -13,6 +13,8 @@ const MonitorStatus = () => {
   const [COMPLETION_PER, setCOMPLETIONPER] = useState([]);
   const [Waning_PER, setWaningPer] = useState([]);
   const [Danger_PER, setDangerPer] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -20,6 +22,22 @@ const MonitorStatus = () => {
     );
     setStatusDetail(response.data);
     setStatusDetail2(response.data);
+  };
+
+  // Search Item
+  const searchItems2 = (searchValue) => {
+    /* setSearchInput(searchValue); */
+    if (searchInput !== "") {
+      const filteredData = getstatusDetail.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setStatusDetail2(filteredData);
+    } else {
+      setStatusDetail2(getstatusDetail);
+    }
   };
 
   const searchItems = async (searchValue) => {
@@ -180,7 +198,7 @@ const MonitorStatus = () => {
                         type="text"
                         className="form-control rounded-0"
                         placeholder="ค้นหา"
-                        // onChange={(e) => searchItems(e.target.value)}
+                        onChange={(e) => searchItems2(e.target.value)}
                       />
                     </div>
                     <div className="col-3">
