@@ -124,7 +124,7 @@ const SettingMenu = () => {
                                   <br />
                                   <div>                              
                                       <Button variant="success">
-                                          เพิ่มเมนูหลัก
+                                          เพิ่มเมนูย่อย
                                       </Button>
                                   </div>
                                   <hr />
