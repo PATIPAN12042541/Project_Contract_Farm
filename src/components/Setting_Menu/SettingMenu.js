@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{ useState, useEffect ,useMemo} from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
+import axios from "axios";
+import '../Pagination/style.scss';
 
 const SettingMenu = () => {
   return (
@@ -28,7 +30,7 @@ const SettingMenu = () => {
                               <div className="card-body">
                                   <div className="row">
                                       <Button variant="success">
-                                          เพิมเมนูหลัก
+                                          เพิ่มเมนูย่อย
                                       </Button>
                                   </div>
                                   <hr />
