@@ -61,6 +61,7 @@ const SettingMenu = () => {
                                           ))}
                                       </select>
                                   </div>   
+                                  <br />
                                   <div>                              
                                       <Button variant="success">
                                           เพิ่มเมนูย่อย
