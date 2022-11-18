@@ -47,6 +47,18 @@ const HistoryPlant = db.define(
     chemical_note: {
       type: DataTypes.STRING,
     },
+    disease: {
+      type: DataTypes.INTEGER,
+    },
+    bug: {
+      type: DataTypes.INTEGER,
+    },
+    weed: {
+      type: DataTypes.INTEGER,
+    },
+    remark: {
+      type: DataTypes.STRING,
+    },
     chemical_date_start: {
       type: DataTypes.DATE,
     },
