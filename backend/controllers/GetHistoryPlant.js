@@ -6,19 +6,22 @@ export const getDataPlant = async (req, res) => {
   try {
     const getDataPlant = await db.query(
       "SELECT zone_plant.id AS zone_id," +
-        "        zone_plant.zone_name," +
-        "        zone_plant.image_zone," +
-        "        plant_detail.id_name_plant	as plant_id_name," +
-        "        plant.id as plant_id," +
-        "        plant.id_user," +
-        "        plant.name_plant," +
-        "        plant.start_date_plant," +
-        "        plant.end_date_plant," +
-        "        plant.status_plant," +
-        "        plant.status_circle " +
+        "       zone_plant.zone_name," +
+        "       zone_plant.image_zone, " +
+        "       plant_detail.id_name_plant	as plant_id_name, " +
+        "       plant.id as plant_id, " +
+        "       plant.id_user, " +
+        "       plant.name_plant, " +
+        "       plant.start_date_plant, " +
+        "       plant.end_date_plant, " +
+        "       plant.status_plant, " +
+        "       plant.status_circle , " +
+        "       plant_harvest_status.Path_img, " +
+        "       plant_harvest_status.quantity " +
         "FROM plant " +
         "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
+        "LEFT JOIN plant_harvest_status ON plant.id_plant = plant_harvest_status.plant_id_data " +
         "where plant.id = :id_plant ",
       {
         replacements: { id_plant: req.params.id },
@@ -54,6 +57,8 @@ export const PostHistoryPlant = async (req, res) => {
     remark,
     chemical_date_start,
     chemical_date_end,
+    Path_harvest_img,
+    qty,
     plant_status,
     plant_circle,
   } = req.body;
@@ -80,6 +85,8 @@ export const PostHistoryPlant = async (req, res) => {
       remark: remark,
       chemical_date_start: chemical_date_start,
       chemical_date_end: chemical_date_end,
+      Path_harvest_img: Path_harvest_img,
+      qty: qty,
       plant_status: plant_status,
       plant_circle: plant_circle,
     });

@@ -65,6 +65,12 @@ const HistoryPlant = db.define(
     chemical_date_end: {
       type: DataTypes.DATE,
     },
+    Path_harvest_img: {
+      type: DataTypes.STRING,
+    },
+    qty: {
+      type: DataTypes.INTEGER,
+    },
     plant_status: {
       type: DataTypes.INTEGER,
     },
