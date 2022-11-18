@@ -304,7 +304,7 @@ const Plant_detail = (props) => {
                             <input {...getInputProps()} />
                             <img
                               className="ima-size card-img-top"
-                              src="../dist/img/harvest-veggies.jpg"
+                              src="../dist/img/Uploadfile.png"
                             />
                           </div>
                           <div className="waviy">
