@@ -7,6 +7,7 @@ import PlantMasterDetail from "../models/PlantMasterDetail_M.js";
 import Fertilizer from "../models/FertilizerModel.js";
 import PlantHarvestStatus_M from "../models/PlantHarvestStatus_M.js";
 import Type_Plant_Master from "../models/TypePlantMasterModel.js";
+import HarvestLogTransection from "../models/HarvestLogTransection_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -336,7 +337,6 @@ export const getPlantMasterTypeUsed = async (req, res) => {
   }
 };
 
-
 export const postPlantMasterType = async (req, res) => {
   const { type_plant_name, status_ } = req.body;
   try {
@@ -349,7 +349,6 @@ export const postPlantMasterType = async (req, res) => {
     res.json(error);
   }
 };
-
 
 export const updatePlantMasterType = async (req, res) => {
   try {
@@ -366,7 +365,6 @@ export const updatePlantMasterType = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
 
 /***********  Plant Master Detail ************/
 
@@ -521,3 +519,21 @@ export const UpdatePlantStatus = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+/************************** Post Date Transection **************************/
+
+export const PostTransectionData = async (req, res) => {
+  const { id_plant, user_id, time_log } = req.body;
+  try {
+    await HarvestLogTransection.create({
+      id_plant: id_plant,
+      user_id: user_id,
+      time_log: time_log,
+    });
+    res.json({ msg: "Create Successful" });
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+/*****************************************************************************/
