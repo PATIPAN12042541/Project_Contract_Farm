@@ -2,8 +2,8 @@
 
 .waviy {
     position: absolute;
-        background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5);
+        /* background: rgb(0, 0, 0);
+                background: rgba(0, 0, 0, 0.5); */
         border-inline-color: #ffffff;
             color: #f3a908;
         top: 0;
