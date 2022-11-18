@@ -140,6 +140,35 @@
     font-size: 14px;
 }
 
+[data-column-id="disease"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="bug"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="weed"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="remark"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+[data-column-id="qty"].rdt_TableCol {
+    background-color: green;
+    color: #FFFFFF;
+    font-size: 14px;
+}
 
 
 .input-css {
