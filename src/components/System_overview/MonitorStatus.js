@@ -14,7 +14,6 @@ const MonitorStatus = () => {
   const [Waning_PER, setWaningPer] = useState([]);
   const [Danger_PER, setDangerPer] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
 
   const getPlantStatus = async () => {
     const response = await axios.get(
@@ -26,8 +25,8 @@ const MonitorStatus = () => {
 
   // Search Item
   const searchItems2 = (searchValue) => {
-    /* setSearchInput(searchValue); */
-    if (searchInput !== "") {
+    setSearchInput(searchValue);
+    if (searchValue !== "") {
       const filteredData = getstatusDetail.filter((item) => {
         return Object.values(item)
           .join("")
