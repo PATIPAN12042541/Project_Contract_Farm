@@ -47,13 +47,7 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <Button variant="success">
-                                          เพิ่มเมนูย่อย
-                                      </Button>
-                                  </div>
-                                  <hr />
-                                  <div className="row">
-                                      <div className="form-group mb-3">
+                                      <div className="form-group">
                                           <select
                                               className="form-control"
                                               onChange={(e) => {
@@ -67,7 +61,13 @@ const SettingMenu = () => {
                                                   </option>
                                               ))}
                                           </select>
-                                      </div>
+                                      </div>                                   
+                                      <Button variant="success">
+                                          เพิ่มเมนูย่อย
+                                      </Button>
+                                  </div>
+                                  <hr />
+                                  <div className="row">
                                       <Table
                                           className="table table-bordered table-hover dataTable dtr-inline"
                                           responsive
