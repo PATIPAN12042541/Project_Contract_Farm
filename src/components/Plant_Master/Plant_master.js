@@ -39,14 +39,14 @@ const Plant_master = () => {
   const ShowMaster_Edit = () => setShowEdit(true);
   /*************************************/
 
-  /*****  Insert Plant *****/
+  /************  Insert Plant *****************/
   const [plantMasterid, setPlantMasterid] = useState([]);
   const [nameThai, setNameThai] = useState([]);
   const [nameEng, setNameEng] = useState([]);
   const [checked, setChecked] = useState(false);
   const [typePlant, setTypePlant] = useState([]);
   const [plantCondition, setPlantCondition] = useState([]);
-  /************************/
+  /*********************************************/
 
   /********* Dropdown Type **********/
   const [masterDropType, setmasterDropType] = useState([]);
@@ -98,7 +98,6 @@ const Plant_master = () => {
     setmasterDropType(response.data);
     console.log(response.data);
   };
-
 
   // Post Data Plant
   const PostPlantMaster = async (e) => {
@@ -154,7 +153,6 @@ const Plant_master = () => {
       .post(`${process.env.REACT_APP_API_URL}/public/dist/img`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
-     
   };
 
   ///////////////////////////////////////////////////////////
