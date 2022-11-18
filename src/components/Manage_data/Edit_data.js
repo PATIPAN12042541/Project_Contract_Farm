@@ -259,8 +259,6 @@ const Edit_data = (props) => {
         {
           plant_status: 1,
           harvest_status: 1,
-          Path_img: "",
-          quantity: 0,
         }
       );
       getPlant();
