@@ -178,7 +178,7 @@ const MonitorStatus = () => {
                       ค้นหา
                       <input
                         type="text"
-                        className="custom-select form-control-border"
+                        className="form-control rounded-0"
                         placeholder="ค้นหา"
                         // onChange={(e) => searchItems(e.target.value)}
                       />
