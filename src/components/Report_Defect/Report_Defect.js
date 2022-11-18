@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import "../CSS/ReportDefect.css";
 
+
 const Report_Defect = () => {
   const [getDataDefect, setDataDefect] = useState([]);
 
@@ -71,13 +72,23 @@ const Report_Defect = () => {
                       <td>
                         {data.name} {data.last_name}
                       </td>
-                      <td>
+                      <td
+                        className={
+                          data.disease == 0 ? "defult-color" : "red-color"
+                        }
+                      >
                         <center>{data.disease}</center>
                       </td>
-                      <td>
+                      <td
+                        className={data.bug == 0 ? "defult-color" : "red-color"}
+                      >
                         <center>{data.bug}</center>
                       </td>
-                      <td>
+                      <td
+                        className={
+                          data.weed == 0 ? "defult-color" : "red-color"
+                        }
+                      >
                         <center>{data.weed}</center>
                       </td>
                       <td>{data.remark}</td>
