@@ -93,30 +93,6 @@ export const PostHistoryPlant = async (req, res) => {
 export const getDataChemical = async (req, res) => {
   try {
     const getDataChemical = await db.query(
-      // "SELECT zone_plant.id AS zone_id, " +
-      //   "        zone_plant.zone_name, " +
-      //   "        zone_plant.image_zone, " +
-      //   "        plant_detail.id_name_plant	as plant_id_name, " +
-      //   "        plant.id as plant_id, " +
-      //   "        plant.id_plant as plant_id_chemical, " +
-      //   "        plant.id_user, " +
-      //   "        plant.name_plant, " +
-      //   "        plant.start_date_plant, " +
-      //   "        plant.end_date_plant, " +
-      //   "        plant_data_detail.id_name_chemical, " +
-      //   "        plant_data_detail.id_residual_period, " +
-      //   "        plant_data_detail.cc, " +
-      //   "        plant_data_detail.liter, " +
-      //   "        plant_data_detail.note, " +
-      //   "        plant_data_detail.date_start, " +
-      //   "        plant_data_detail.date_end, " +
-      //   "        plant.status_plant, " +
-      //   "        plant.status_circle " +
-      //   "FROM plant " +
-      //   "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
-      //   "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id  " +
-      //   "LEFT JOIN plant_data_detail ON plant.id_plant = plant_data_detail.id_plant " +
-      //   "where plant.id = :id_plant ",
       "SELECT zone_plant.id AS zone_id, " +
         "       zone_plant.zone_name, " +
         "       zone_plant.image_zone,  " +
