@@ -2,12 +2,23 @@
 
 .waviy {
     position: absolute;
-        /* background: rgb(0, 0, 0);
-                background: rgba(0, 0, 0, 0.5); */
+    background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5);
         border-inline-color: #ffffff;
-            color: #f3a908;
+        color: #f3a908;
         top: 50px;
-            right: 100px;
+        right: 50px;
+        font-size: 36px;
+    }
+    
+    .waviy2 {
+        position: absolute;
+            /* background: rgb(0, 0, 0);
+                                                                                    background: rgba(0, 0, 0, 0.5); */
+                border-inline-color: #ffffff;
+            color: #f3a908;
+            top: 50px;
+                right: 100px;
         font-size: 36px;
 }
   .waviy span {
@@ -20,6 +31,7 @@
         animation-delay: calc(.2s * var(--i)) !important
     }
 
+    
   @keyframes flip {
         0% {
                 transform: translateY(0)

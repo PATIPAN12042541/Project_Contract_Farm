@@ -307,7 +307,7 @@ const Plant_detail = (props) => {
                               src="../dist/img/Uploadfile.png"
                             />
                           </div>
-                          <div className="waviy">
+                          <div className="waviy2">
                             <span style={{ "--i": "1" }}>U</span>
                             <span style={{ "--i": "2" }}>p</span>
                             <span style={{ "--i": "3" }}>l</span>
