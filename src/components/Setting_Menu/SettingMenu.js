@@ -47,21 +47,21 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
-                                      <div className="form-group">
-                                          <select
-                                              className="form-control"
-                                              onChange={(e) => {
-                                                  setRoleID(e.target.value);
-                                              }}
-                                          >
-                                              <option>--เลือก Role--</option>
-                                              {rolegroup.map((item) => (
-                                                  <option key={item.id} value={item.id}>
-                                                      {item.role_group_name}
-                                                  </option>
-                                              ))}
-                                          </select>
-                                      </div>                                   
+                                      <select
+                                          className="form-control"
+                                          onChange={(e) => {
+                                              setRoleID(e.target.value);
+                                          }}
+                                      >
+                                          <option>--เลือก Role--</option>
+                                          {rolegroup.map((item) => (
+                                              <option key={item.id} value={item.id}>
+                                                  {item.role_group_name}
+                                              </option>
+                                          ))}
+                                      </select>
+                                  </div>   
+                                  <div>                              
                                       <Button variant="success">
                                           เพิ่มเมนูย่อย
                                       </Button>
