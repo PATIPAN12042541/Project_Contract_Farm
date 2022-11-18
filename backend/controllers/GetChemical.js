@@ -212,13 +212,7 @@ export const getChemicalByID = async (req, res) => {
 export const getSelect = async (req, res) => {
   try {
     const Select = await db.query(
-      " SELECT id,                "+
-      "        name_chemical,     "+
-      "        name_chemical_eng, "+
-      "        u_mrl,             "+
-      "        path_img           "+
-      "FROM name_chemical         "+
-      "where  id = :id            ",
+      " SELECT id,name_chemical,name_chemical_eng,eu_mrl,path_img FROM name_chemical where  id = :id ",
       {
         replacements: { id: req.params.id },
         type: db.QueryTypes.SELECT,
