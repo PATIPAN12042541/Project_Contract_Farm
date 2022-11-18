@@ -25,6 +25,7 @@ const getRole = async () => {
 
   useEffect(() => {
     getRole();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
 const SettingMenu = () => {
