@@ -52,8 +52,13 @@ const System_overview = () => {
     { label: "cc", key: "chemical_cc" },
     { label: "Liter", key: "chemical_liter" },
     { label: "Note", key: "chemical_note" },
+    { label: "โรค", key: "disease" },
+    { label: "แมลง", key: "bug" },
+    { label: "วัชพืช", key: "weed" },
+    { label: "หมายเหตุ", key: "remark" },
     { label: "วันที่เริ่มต้นสารเคมี", key: "chemical_date_start" },
     { label: "วันที่สิ้นสุดสารเคมี", key: "chemical_date_end" },
+    { label: "จำนวนที่เก็บเกี่ยว", key: "qty" },
     { label: "สถานะ", key: "status_name" },
     { label: "วงรอบ", key: "plant_circle" },
   ];
@@ -152,6 +157,41 @@ const System_overview = () => {
       grow: 5,
     },
     {
+      name: "Note",
+      id: "chemical_note",
+      selector: (row) => row.chemical_note,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "โรค",
+      id: "disease",
+      selector: (row) => row.disease,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "แมลง",
+      id: "bug",
+      selector: (row) => row.bug,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "วัชพืช",
+      id: "weed",
+      selector: (row) => row.weed,
+      sortable: true,
+      grow: 5,
+    },
+    {
+      name: "หมายเหตุ",
+      id: "remark",
+      selector: (row) => row.remark,
+      sortable: true,
+      grow: 5,
+    },
+    {
       name: "วันที่เริ่มต้นสารเคมี",
       id: "chemical_date_start",
       selector: (row) => row.chemical_date_start,
@@ -166,26 +206,18 @@ const System_overview = () => {
       grow: 5,
     },
     {
+      name: "จำนวนที่เก็บเกี่ยว",
+      id: "qty",
+      selector: (row) => row.qty,
+      sortable: true,
+      grow: 5,
+    },
+    {
       name: "สถานะ",
       id: "status_name",
       selector: (row) => row.status_name,
       sortable: true,
       grow: 5,
-      // cell: (row) => (
-      //   <div
-      //     data-tag="allowRowEvents"
-      //     variant="outlined"
-      //     className={
-      //       row.status_check === "Success"
-      //         ? "Success"
-      //         : row.status_check === "Not Found"
-      //         ? "NotFound"
-      //         : "NotSuccess"
-      //     }
-      //   >
-      //     {row.status_check}
-      //   </div>
-      // ),
     },
     {
       name: "วงรอบ",

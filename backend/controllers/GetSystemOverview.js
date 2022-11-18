@@ -20,6 +20,11 @@ export const getSystemOverview = async (req, res) => {
         "history_contract_farming.chemical_note," +
         "history_contract_farming.chemical_date_start," +
         "history_contract_farming.chemical_date_end," +
+        "history_contract_farming.disease," +
+        "history_contract_farming.bug," +
+        "history_contract_farming.weed," +
+        "history_contract_farming.remark," +
+        "history_contract_farming.qty," +
         "Status_plant.status_name," +
         "history_contract_farming.plant_circle " +
         "FROM history_contract_farming " +
