@@ -77,19 +77,19 @@ const Report_Defect = () => {
                           data.disease == 0 ? "defult-color" : "red-color"
                         }
                       >
-                        <center>{data.disease}</center>
+                        <center>{data.disease == 0 ? "-" : "/"}</center>
                       </td>
                       <td
                         className={data.bug == 0 ? "defult-color" : "red-color"}
                       >
-                        <center>{data.bug}</center>
+                        <center>{data.bug == 0 ? "-" : "/"}</center>
                       </td>
                       <td
                         className={
                           data.weed == 0 ? "defult-color" : "red-color"
                         }
                       >
-                        <center>{data.weed}</center>
+                        <center>{data.weed ? "-" : "/"}</center>
                       </td>
                       <td>{data.remark}</td>
                       <td>
