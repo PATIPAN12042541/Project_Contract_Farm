@@ -8,7 +8,7 @@ const HarvestLogTransection = db.define(
     id_plant: {
       type: DataTypes.INTEGER,
     },
-    id_plant: {
+    user_id: {
       type: DataTypes.INTEGER,
     },
     time_log: {
