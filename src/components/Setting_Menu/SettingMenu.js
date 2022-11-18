@@ -4,22 +4,6 @@ import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import '../Pagination/style.scss';
 
-const [rolegroup, setRoleGroup] = useState([]);
-const [roleID, setRoleID] = useState();
-
-//Drop Down Role
-const getRole = async () => {
-    /*const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/role_group/roleAll`
-      );
-      setRoleGroup(response.data);*/
-  };
-
-  useEffect(() => {
-    //getRole();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
-
 const SettingMenu = () => {
   return (
       <div className="content-wrapper">
@@ -51,21 +35,6 @@ const SettingMenu = () => {
                                   </div>
                                   <hr />
                                   <div className="row">
-                                      <div className="form-group mb-3">
-                                          <select
-                                              className="form-control"
-                                              onChange={(e) => {
-                                                  setRoleID(e.target.value);
-                                              }}
-                                          >
-                                              <option>--เลือก Role--</option>
-                                              {/* {rolegroup.map((item) => (
-                                                  <option key={item.id} value={item.id}>
-                                                      {item.role_group_name}
-                                                  </option>
-                                              ))} */}
-                                          </select>
-                                      </div>
                                       <Table
                                           className="table table-bordered table-hover dataTable dtr-inline"
                                           responsive
