@@ -154,7 +154,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/getplant/${props.id}`
     );
     setPlantData(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const getStatusPlant = async () => {
@@ -376,6 +376,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataPlant/${id}`
     );
 
+    console.log(getData);
     try {
       axios
         .post(`${process.env.REACT_APP_API_URL}/History/plant`, {
@@ -421,7 +422,7 @@ const Edit_data = (props) => {
       `${process.env.REACT_APP_API_URL}/History/getDataFertilizer/${id}`
     );
 
-    console.log(fertilizer);
+    //    console.log(fertilizer);
     const detail_array = [];
     try {
       for (let i = 0; i < fertilizer.data.length; i++) {
@@ -510,7 +511,7 @@ const Edit_data = (props) => {
   };
 
   const History_plant = (id, status) => {
-    console.log("id : " + id + " status : " + status);
+    // console.log("id : " + id + " status : " + status);
     let status2 = status - 1;
     if (status2 == "1") {
       getDataPlant(id); // get & post history data
@@ -550,7 +551,7 @@ const Edit_data = (props) => {
         `${process.env.REACT_APP_API_URL}/getplant/getDataSelect/${id}`
       );
       setGetSelect2(result.data);
-      console.log(result.data);
+      //  console.log(result.data);
     } else {
       setGetSelect2([
         {
