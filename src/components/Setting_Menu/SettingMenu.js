@@ -10,6 +10,7 @@ import { Link, useNavigate,useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Switch from "react-switch";
 
 let PageSize = 5;
 let PageSizeSubMenu = 5;
@@ -31,6 +32,7 @@ const SettingMenu = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
+    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
     const [showInsert, setShowInsert] = useState(false);
 
     const handleCloseInsert = () => setShowInsert(false);
@@ -401,15 +403,55 @@ const SettingMenu = () => {
               <Modal.Body>
                   <Form className="form-horizontal">
                       <div className="card-body">
-                          <label className='col-md-3'>
-                            ชื่อเมนู
-                          </label>
-                          <div className="input-group mb-3">
-                              <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="ชื่อเมนู"
-                              />
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedAddMainMenu(!checkedAddMainMenu);
+                                      }}
+                                      checked={checkedAddMainMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
                           </div>
                       </div>
                   </Form>
