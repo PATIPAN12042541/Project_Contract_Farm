@@ -557,7 +557,7 @@ const SettingMenu = () => {
                                       }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
-                                      {getRoleInPopupAddMainMenu.map((item) => (
+                                      {rolegroupPopupAddMainMenu.map((item) => (
                                           <option key={item.id} value={item.id}>
                                               {item.role_group_name}
                                           </option>
