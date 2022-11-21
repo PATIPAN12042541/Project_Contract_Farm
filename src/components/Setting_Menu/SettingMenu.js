@@ -33,6 +33,7 @@ const SettingMenu = () => {
           );
           setRoleMenuMain(response.data);
           console.log("rold_id : "+rold_id);
+          console.log(response.data);
       };
 
     // Pageing
