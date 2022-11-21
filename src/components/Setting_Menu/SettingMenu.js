@@ -44,6 +44,8 @@ const SettingMenu = () => {
     const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
     const [checkedAddSubMenu, setCheckedSubMainMenu] = useState(false);
 
+    const [checkedAddSubMenuInPopup, setCheckedSubMainMenuInPopup] = useState(false);
+
     const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
     const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
 
@@ -600,9 +602,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7 col-form-label">
                                   <Switch
                                       onChange={(e) => {
-                                        setCheckedAddMainMenu(!checkedAddSubMenu);
+                                        setCheckedAddMainMenu(!checkedAddSubMenuInPopup);
                                       }}
-                                      checked={checkedAddSubMenu}
+                                      checked={checkedAddSubMenuInPopup}
                                       className="react-switch"
                                   />
                               </div>
