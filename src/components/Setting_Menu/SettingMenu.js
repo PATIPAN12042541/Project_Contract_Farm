@@ -3,6 +3,10 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import '../Pagination/style.scss';
+import { AiFillEdit } from "react-icons/ai";
+import Pagination from "../Pagination/Pagination.js";
+import Image from "react-bootstrap/Image";
+import { Link, useNavigate } from "react-router-dom";
 
 const SettingMenu = () => {
   
@@ -151,6 +155,13 @@ const SettingMenu = () => {
                                               ))}
                                           </tbody>
                                       </Table>
+                                      <Pagination
+                                          className="pagination-bar"
+                                          currentPage={currentPage}
+                                          totalCount={roleMenuMain.length}
+                                          pageSize={PageSize}
+                                          onPageChange={(page) => setCurrentPage(page)}
+                                      />
                                   </div>
                               </div>
                           </div>
