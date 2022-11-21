@@ -1,7 +1,6 @@
 import express from "express";
 import {getMenusRoleMain,
-       getMenusRoleSubLV1,
-       getMenusRoleMainAll
+       getMenusRoleSubLV1
        } from "../controllers/Menus.js";
 
 const router = express.Router();
