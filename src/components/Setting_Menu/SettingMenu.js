@@ -278,11 +278,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
-                                            if (e.target.value = 0) {
-                                                getSubMenuByRole(0,0)
-                                            }else{
-                                                getSubMenuByRole(selectRole2,e.target.value);
-                                            }
+                                            getSubMenuByRole(selectRole2,e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือกเมนูหลักตาม Role--</option>
