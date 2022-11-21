@@ -339,7 +339,18 @@ function App() {
               </>
             }
           />
-          <Route exact path="/Harvest_show" element={<Harvest_show />} />
+          <Route
+            exact
+            path="/Harvest_show"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Harvest_show />
+                <Footer />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
