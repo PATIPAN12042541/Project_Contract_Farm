@@ -8,12 +8,15 @@ import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
 import { Link, useNavigate } from "react-router-dom";
 
+let PageSize = 5;
+
 const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState();
     const [roleMenuParentID, setRoleMenuParentID] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
     //Drop Down Role
     const getRole = async () => {
