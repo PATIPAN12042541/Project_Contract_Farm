@@ -259,6 +259,7 @@ const SettingMenu = () => {
                                           onChange={(e) => {
                                               setSelectRole2(e.target.value);
                                               getMenuInDropDown(e.target.value);
+                                              getSubMenuByRole(null,null)
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
