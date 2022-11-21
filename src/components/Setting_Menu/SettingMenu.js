@@ -22,42 +22,42 @@ const SettingMenu = () => {
     const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
-    const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
 
     const [selectRole, setSelectRole] = useState([]);
     const [selectRole2, setSelectRole2] = useState([]);
-    const [selectRole3, setSelectRole3] = useState([]);
-
+    
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
-    const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
+    
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [roleMenuParent, setRoleMenuParent] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
 
-    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
-    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
-
-    const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
-    const [checkedAddSubMenu, setCheckedSubMainMenu] = useState(false);
-
-    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
-    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
-
-    const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
-    const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
-
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
     /*************************************/
 
     /* VAR MODAL */
-    /********** insert data ***************/
-    
-    /*************************************/
+    /********** insert Main Menu ***************/
+    const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
+    const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
+    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
+    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
+    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
+    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
+    /******************************************/
+
+        /* VAR MODAL */
+    /********** insert Sub Menu ***************/
+    const [selectRole3, setSelectRole3] = useState([]);
+    const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
+    const [checkedAddSubMenu, setCheckedSubMainMenu] = useState(false);
+    const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
+    const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
+    /******************************************/
 
     // refresh token
     const refreshToken = async () => {
