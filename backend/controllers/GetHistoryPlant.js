@@ -178,3 +178,28 @@ export const getDataFertilizer = async (req, res) => {
   }
 };
 
+
+export const getHarvestDetail = async (req, res) => {
+  try {
+    const harvest = await db.query(
+      "SELECT CONCAT( zone_plant.zone_name,'-',plant_detail.id_name_plant) AS NAME_ZONE," +
+        "      plant_master_detail.plant_name," +
+        "      plant_harvest_status.Path_img," +
+        "      plant_harvest_status.quantity," +
+        "      CONCAT(user.name,' ',user.last_name ) AS NAME " +
+        "FROM plant_harvest_status " +
+        "LEFT JOIN plant ON plant_harvest_status.plant_id_data = plant.id_plant " +
+        "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
+        "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
+        "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
+        "LEFT JOIN user ON plant.id_user = user.id ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
+    );
+
+    res.json(harvest);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
