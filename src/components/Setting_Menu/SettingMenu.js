@@ -84,12 +84,13 @@ const SettingMenu = () => {
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
               );
+              setRoleMenuParent(response.data);
         }else{
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
               );
+              setRoleMenuParent(response.data);
         }
-          setRoleMenuParent(response.data);
       };
 
     // Pageing
