@@ -52,9 +52,6 @@ const SettingMenu = () => {
                                           onChange={(e) => {
                                             setRoleMenuMainID(e.target.value);
                                           }}
-                                          onSelect={(e) => {
-                                            console.log("roleMenuMainID : "+roleMenuMainID)
-                                          }}
                                       >
                                           <option>--เลือก Role--</option>
                                           {rolegroup.map((item) => (
