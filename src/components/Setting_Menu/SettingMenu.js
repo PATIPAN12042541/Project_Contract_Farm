@@ -8,6 +8,7 @@ import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
 import { Link, useNavigate,useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import Modal from "react-bootstrap/Modal";
 
 let PageSize = 5;
 let PageSizeSubMenu = 5;
@@ -29,6 +30,8 @@ const SettingMenu = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
+    const [showInsert, setShowInsert] = useState(false);
+
     const handleCloseInsert = () => setShowInsert(false);
     const handleShowInsert = () => setShowInsert(true);
 
@@ -420,7 +423,6 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      onClick={Register}
                   >
                       บันทึก
                   </button>
