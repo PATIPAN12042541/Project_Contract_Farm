@@ -187,6 +187,7 @@ export const getHarvestDetail = async (req, res) => {
         "      plant_harvest_status.Path_img," +
         "      plant_harvest_status.quantity," +
         "      CONCAT(user.name,' ',user.last_name ) AS NAME " +
+        "      DATE_FORMAT(plant_harvest_status.updatedAt, '%d-%m-%Y') AS lastDate " +
         "FROM plant_harvest_status " +
         "LEFT JOIN plant ON plant_harvest_status.plant_id_data = plant.id_plant " +
         "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
