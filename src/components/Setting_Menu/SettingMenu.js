@@ -28,9 +28,6 @@ const SettingMenu = () => {
 
     //Load Menu By Role
     const getMenu = async (rold_id) => {
-        if (rold_id === undefined){
-            rold_id = 0;
-        }
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
@@ -114,7 +111,7 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {/* {roleMenuMain.map((roleMenuMain, index) => (
+                                              {currentTableData.map((roleMenuMain, index) => (
                                                   <tr key={roleMenuMain.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{roleMenuMain.menu_name}</td>
@@ -158,7 +155,7 @@ const SettingMenu = () => {
                                                           </center>
                                                       </td>
                                                   </tr>
-                                              ))} */}
+                                              ))}
                                           </tbody>
                                       </Table>
                                       {/* <Pagination
