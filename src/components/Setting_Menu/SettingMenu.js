@@ -158,13 +158,13 @@ const SettingMenu = () => {
                                               ))}
                                           </tbody>
                                       </Table>
-                                      <Pagination
+                                      {/* <Pagination
                                           className="pagination-bar"
                                           currentPage={currentPage}
                                           totalCount={roleMenuMain.length}
                                           pageSize={PageSize}
                                           onPageChange={(page) => setCurrentPage(page)}
-                                      />
+                                      /> */}
                                   </div>
                               </div>
                           </div>
