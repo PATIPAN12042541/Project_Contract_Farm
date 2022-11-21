@@ -20,6 +20,7 @@ const SettingMenu = () => {
     const [selectRole2, setSelectRole2] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
+    const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
     const Nav = useNavigate();
@@ -61,6 +62,14 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMain(response.data);
+      };
+
+    //Load Menu By Role in Drop Down
+    const getMenuInDropDown = async (id) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
+          );
+          setRoleMenuMainInDropDown(response.data);
       };
 
     // Pageing
@@ -222,6 +231,7 @@ const SettingMenu = () => {
                                           className="form-control col-md-9"
                                           onChange={(e) => {
                                               setSelectRole2(e.target.value);
+                                              getMenuInDropDown(e.target.value);
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
@@ -241,9 +251,9 @@ const SettingMenu = () => {
                                           className="form-control col-md-9"
                                       >
                                           <option>--เลือกเมนูหลักตาม Role--</option>
-                                          {rolegroup.map((item) => (
+                                          {roleMenuMainInDropDown.map((item) => (
                                               <option key={item.id} value={item.id}>
-                                                  {item.role_group_name}
+                                                  {item.menu_name}
                                               </option>
                                           ))}
                                       </select>
