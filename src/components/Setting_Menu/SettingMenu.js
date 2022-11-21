@@ -136,6 +136,7 @@ const SettingMenu = () => {
       useEffect(() => {
         refreshToken();
         getRole();
+        getRoleInPopupAddMainMenu();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
