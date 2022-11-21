@@ -158,11 +158,12 @@
     font-size: 14px;
 }
 
-[data-column-id="DIFF_DATE"].rdt_TableCol {
+[data-column-id="diff_date"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
     font-size: 14px;
 }
+
 [data-column-id="remark"].rdt_TableCol {
     background-color: green;
     color: #FFFFFF;
