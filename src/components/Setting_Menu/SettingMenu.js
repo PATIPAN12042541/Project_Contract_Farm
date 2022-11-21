@@ -401,10 +401,10 @@ const SettingMenu = () => {
               <Modal.Body>
                   <Form className="form-horizontal">
                       <div className="card-body">
-                          <div className='col-md-3'>
+                          <label className='col-md-3'>
                             ชื่อเมนู
-                          </div>
-                          <div className="input-group col-md-3">
+                          </label>
+                          <div className="input-group mb-3">
                               <input
                                   type="text"
                                   className="form-control"
