@@ -35,6 +35,8 @@ const SettingMenu = () => {
             );
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
+
+            getMenu(decoded.role_id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -69,7 +71,6 @@ const SettingMenu = () => {
       useEffect(() => {
         refreshToken();
         getRole();
-        getMenu(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
