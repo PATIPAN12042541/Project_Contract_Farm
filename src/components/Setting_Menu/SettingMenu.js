@@ -523,18 +523,6 @@ const SettingMenu = () => {
                           </div>
                           <div className="form-group row">
                               <Form.Label className="col-sm-5 col-form-label">
-                                  Link
-                              </Form.Label>
-                              <div className="col-sm-7">
-                                  <Form.Control
-                                      type="text"
-                                      className="form-control"
-                                      placeholder='Link'
-                                  />
-                              </div>
-                          </div>
-                          <div className="form-group row">
-                              <Form.Label className="col-sm-5 col-form-label">
                                   Role
                               </Form.Label>
                               <div className="col-sm-7">
@@ -548,6 +536,38 @@ const SettingMenu = () => {
                                           </option>
                                       ))}
                                   </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                    เลือกเมนูหลัก
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control col-md-9"
+                                      onChange={(e) => {
+                                          getSubMenuByRole(selectRole2, e.target.value);
+                                      }}
+                                  >
+                                      <option value={0}>--เลือกเมนูหลักตาม Role--</option>
+                                      {roleMenuMainInDropDown.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.menu_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
                               </div>
                           </div>
                           <div className="form-group row">
