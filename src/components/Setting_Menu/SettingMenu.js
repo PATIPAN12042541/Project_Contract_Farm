@@ -10,10 +10,12 @@ import { Link, useNavigate,useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
+let PageSizeSubMenu = 5;
 
 const SettingMenu = () => {
 
     const {id} = useParams();
+    const {idSubRole} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [selectRole, setSelectRole] = useState([]);
@@ -22,7 +24,9 @@ const SettingMenu = () => {
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
+    const [roleMenuParent, setRoleMenuParent] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
 
     /*********** refresh token ***********/
@@ -72,6 +76,14 @@ const SettingMenu = () => {
           setRoleMenuMainInDropDown(response.data);
       };
 
+    //Load Sub Menu By Role
+    const getSubMenuByRole = async (idSubRole) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/sublv1/${idSubRole}`
+          );
+          setRoleMenuParent(response.data);
+      };
+
     // Pageing
     const currentTableData = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * PageSize;
@@ -84,6 +96,20 @@ const SettingMenu = () => {
         getRole();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
+
+      // Pageing SubMenu
+    const currentTableDataSubMenu = useMemo(() => {
+        const firstPageIndex = (currentPageSubMenu - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        return roleMenuParent.slice(firstPageIndex, lastPageIndex);
+      }, [currentPageSubMenu,roleMenuParent]);// eslint-disable-line react-hooks/exhaustive-deps
+
+      useEffect(() => {
+        refreshToken();
+        getRole();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      },[]);
+
 
   return (
       <div className="content-wrapper">
@@ -199,13 +225,13 @@ const SettingMenu = () => {
                                               ))}
                                           </tbody>
                                       </Table>
-                                      { <Pagination
+                                      <Pagination
                                           className="pagination-bar"
                                           currentPage={currentPage}
                                           totalCount={roleMenuMain.length}
                                           pageSize={PageSize}
                                           onPageChange={(page) => setCurrentPage(page)}
-                                      />}
+                                      />
                                   </div>
                               </div>
                           </div>
@@ -249,6 +275,9 @@ const SettingMenu = () => {
                                       </label>
                                       <select
                                           className="form-control col-md-9"
+                                          onChange={(e)=>{
+                                            getSubMenuByRole(e.target.value)
+                                          }}
                                       >
                                           <option>--เลือกเมนูหลักตาม Role--</option>
                                           {roleMenuMainInDropDown.map((item) => (
@@ -283,8 +312,60 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
+                                              {currentTableDataSubMenu.map((roleMenuParent, index) => (
+                                                  <tr key={roleMenuParent.id}>
+                                                      <td>{index + 1}</td>
+                                                      <td>{roleMenuParent.menu_name}</td>
+                                                      <td>{roleMenuParent.index_menu}</td>
+                                                      <td>{roleMenuParent.link}</td>
+                                                      <td>
+                                                          <center>
+                                                              <Link
+                                                                  to={`#`}
+                                                              >
+                                                                  <Button
+                                                                      variant="warning"
+                                                                      style={{ color: "#ffff" }}
+                                                                  >
+                                                                      <AiFillEdit /> แก้ไขข้อมูล
+                                                                  </Button>
+                                                              </Link>
+                                                          </center>
+                                                      </td>
+                                                      <td>
+                                                          <center>
+                                                              {roleMenuParent.status === 1 ? (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_true.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              ) : (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_false.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              )}
+                                                          </center>
+                                                      </td>
+                                                  </tr>
+                                              ))}
                                           </tbody>
                                       </Table>
+                                      <Pagination
+                                          className="pagination-bar"
+                                          currentPage={currentPageSubMenu}
+                                          totalCount={roleMenuParent.length}
+                                          pageSize={PageSizeSubMenu}
+                                          onPageChange={(page) => setCurrentPageSubMenu(page)}
+                                      />
                                   </div>
                               </div>
                           </div>
