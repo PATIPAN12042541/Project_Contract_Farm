@@ -79,18 +79,10 @@ const SettingMenu = () => {
 
     //Load Sub Menu By Role
     const getSubMenuByRole = async (idSubRole,main_menu_id) => {
-        if (main_menu_id = 0){
-            idSubRole = 0;
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
-              );
-              setRoleMenuParent(response.data);
-        }else{
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
-              );
-              setRoleMenuParent(response.data);
-        }
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
+          );
+          setRoleMenuParent(response.data);
       };
 
     // Pageing
