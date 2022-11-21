@@ -8,6 +8,7 @@ const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
+    const [roleMenuMain, setRoleMenuMain] = useState();
     const [roleMenuParentID, setRoleMenuParentID] = useState();
 
     //Drop Down Role
@@ -20,10 +21,10 @@ const SettingMenu = () => {
 
     //Load Menu By Role
     const getMenu = async (rold_id) => {
-        /*const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
-          setRoleGroup(response.data);*/
+          setRoleMenuMain(response.data);
           console.log("rold_id : "+rold_id)
       };
 
@@ -59,14 +60,13 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control"
                                           onChange={(e) => {
-                                            setRoleMenuMainID(e.target.value);
                                             getMenu(e.target.value)
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
                                           {rolegroup.map((item) => (
                                               <option key={item.id} value={item.id}>
-                                                  {item.id}{item.role_group_name}
+                                                  {item.role_group_name}
                                               </option>
                                           ))}
                                       </select>
