@@ -14,6 +14,7 @@ let PageSize = 5;
 const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
+    const [selectRole, setSelectRole] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
@@ -35,8 +36,6 @@ const SettingMenu = () => {
             );
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
-
-            getMenu(decoded.role_id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
@@ -101,7 +100,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control"
                                           onChange={(e) => {
-                                            getMenu(e.target.value);
+                                            setSelectRole(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
