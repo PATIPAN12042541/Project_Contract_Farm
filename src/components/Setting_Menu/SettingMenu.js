@@ -22,8 +22,11 @@ const SettingMenu = () => {
     const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
+
     const [selectRole, setSelectRole] = useState([]);
     const [selectRole2, setSelectRole2] = useState([]);
+    const [selectRole3, setSelectRole3] = useState([]);
+
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
@@ -528,6 +531,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control col-md-9"
+                                      onChange={(e)=>{
+                                        setSelectRole3(e.target.value);
+                                      }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
                                       {rolegroup.map((item) => (
@@ -546,7 +552,7 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control col-md-9"
                                       onChange={(e) => {
-                                          getSubMenuByRole(selectRole2, e.target.value);
+                                          getSubMenuByRole(selectRole3, e.target.value);
                                       }}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
