@@ -67,6 +67,7 @@ const SettingMenu = () => {
                                               <option key={item.id} value={item.id}
                                               onSelect={(e)=>{
                                                 setRoleMenuMainID(e.target.value)
+                                                console.log(roleMenuMainID)
                                               }}>
                                                   {item.id}{item.role_group_name}
                                               </option>
