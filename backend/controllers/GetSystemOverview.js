@@ -25,15 +25,15 @@ export const getSystemOverview = async (req, res) => {
         "history_contract_farming.weed," +
         "history_contract_farming.remark," +
         "history_contract_farming.qty," +
-        "Status_plant.status_name," +
-        "history_contract_farming.plant_circle " +
         "CASE WHEN Status_plant.id = '4' " +
         "		THEN ( CASE WHEN DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y')  < DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') " +
         "		 					  THEN CONCAT( DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y') - DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') ,  ' Day') " +
         "    						ELSE 'Okay' " +
         "        		END ) " +
         "   ELSE '' " +
-        "END AS diff_date " +
+        "END AS diff_date, " +
+        "Status_plant.status_name," +
+        "history_contract_farming.plant_circle " +
         "FROM history_contract_farming " +
         "LEFT JOIN plant_master_detail ON history_contract_farming.plant_name = plant_master_detail.id " +
         "LEFT JOIN user ON history_contract_farming.user_id = user.id " +
