@@ -55,7 +55,7 @@ const SettingMenu = () => {
     //Load Menu By Role
     const getMenu = async (rold_id) => {
         const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/menu/main/role_id`
+            `${process.env.REACT_APP_API_URL}/menu/main/{role_id}`
           );
           setRoleMenuMain(response.data);
           console.log(rold_id)
