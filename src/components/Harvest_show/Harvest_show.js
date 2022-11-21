@@ -5,11 +5,13 @@ const Harvest_show = () => {
   const [harvextData, setHarvextData] = useState([]);
 
   const getHarvetData = async () => {
-    const response = await axios
-      .get
-      // `${process.env.REACT_APP_API_URL} /zoneplant/statusPlant`
-      ();
+   
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/History/getHarvestDetail`
+    );
+
     setHarvextData(response.data);
+    console.log(response.data);
   };
 
   useEffect(() => {

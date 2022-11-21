@@ -4,6 +4,7 @@ import {
   getDataPlant,
   getDataChemical,
   getDataFertilizer,
+  getHarvestDetail,
 } from "../controllers/GetHistoryPlant.js";
 
 const router = express.Router();
@@ -12,7 +13,7 @@ const router = express.Router();
 router.get("/getDataPlant/:id", getDataPlant);
 router.get("/getDataChemical/:id", getDataChemical);
 router.get("/getDataFertilizer/:id", getDataFertilizer);
-
+router.get("/getHarvestDetail", getDataFertilizer);
 /*--------- Post Data ----------*/
 router.post("/plant", PostHistoryPlant);
 
