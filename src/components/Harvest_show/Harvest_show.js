@@ -55,7 +55,9 @@ const Harvest_show = () => {
                             <center>จำนวน</center>
                           </th>
                           <th>ผู้รับผิดชอบ</th>
-                          <th>วันที่ล่าสุด</th>
+                          <th>
+                            <center>วันที่ล่าสุด</center>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -78,10 +80,12 @@ const Harvest_show = () => {
                               </center>
                             </td>
                             <td>
-                              <right>{data.quantity}</right>
+                              <center>{data.quantity}</center>
                             </td>
                             <td>{data.NAME}</td>
-                            <td>{data.lastDate}</td>
+                            <td>
+                              <center>{data.lastDate}</center>
+                            </td>
                           </tr>
                         ))}
                       </tbody>
