@@ -15,7 +15,6 @@ const SettingMenu = () => {
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
           );
-          //const response = await axios.get("http://localhost:4000/role_group");
           setRoleGroup(response.data);
       };
 
@@ -52,6 +51,7 @@ const SettingMenu = () => {
                                           className="form-control"
                                           onChange={(e) => {
                                             setRoleMenuMainID(e.target.value);
+                                            console.log("Role Menu Main : "+roleMenuMainID)
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
