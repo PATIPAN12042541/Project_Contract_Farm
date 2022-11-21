@@ -48,9 +48,14 @@ const Harvest_show = () => {
                           <th>#</th>
                           <th>รหัสเเปลง</th>
                           <th>ชื่อแปลง</th>
-                          <th>ผลงาน</th>
-                          <th>จำนวน</th>
+                          <th>
+                            <center>ผลงาน</center>
+                          </th>
+                          <th>
+                            <center>จำนวน</center>
+                          </th>
                           <th>ผู้รับผิดชอบ</th>
+                          <th>วันที่ล่าสุด</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -72,8 +77,11 @@ const Harvest_show = () => {
                                 </Zoom>
                               </center>
                             </td>
-                            <td>{data.quantity}</td>
+                            <td>
+                              <right>{data.quantity}</right>
+                            </td>
                             <td>{data.NAME}</td>
+                            <td>{data.lastDate}</td>
                           </tr>
                         ))}
                       </tbody>
