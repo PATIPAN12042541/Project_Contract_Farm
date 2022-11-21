@@ -80,7 +80,7 @@ const SettingMenu = () => {
     //Load Sub Menu By Role
     const getSubMenuByRole = async (idSubRole,main_menu_id) => {
         const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/main/${idSubRole}/sublv1/${main_menu_id}`
+            `${process.env.REACT_APP_API_URL}/menu/main/${idSubRole}/sublv1/${main_menu_id}`
           );
           setRoleMenuParent(response.data);
       };
