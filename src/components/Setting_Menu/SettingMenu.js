@@ -552,6 +552,7 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control col-md-9"
                                       onChange={(e) => {
+                                          console.log("selectRole3 : "+selectRole3)
                                           getSubMenuByRole(selectRole3, e.target.value);
                                       }}
                                   >
