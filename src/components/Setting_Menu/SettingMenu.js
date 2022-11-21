@@ -36,12 +36,12 @@ const SettingMenu = () => {
       };
 
     // Pageing
-    const currentTableData = useMemo(() => {
+    /*const currentTableData = useMemo(() => {
         console.log(currentPage);
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
         return roleMenuMain.slice(firstPageIndex, lastPageIndex);
-      }, [currentPage,roleMenuMain]); // eslint-disable-line react-hooks/exhaustive-deps
+      }, [currentPage,roleMenuMain]);*/// eslint-disable-line react-hooks/exhaustive-deps
 
       useEffect(() => {
         getRole();
@@ -111,7 +111,7 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {currentTableData.map((roleMenuMain, index) => (
+                                              {roleMenuMain.map((roleMenuMain, index) => (
                                                   <tr key={roleMenuMain.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{roleMenuMain.menu_name}</td>
