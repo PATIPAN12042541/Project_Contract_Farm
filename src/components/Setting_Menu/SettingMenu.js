@@ -259,10 +259,10 @@ const SettingMenu = () => {
                                           onChange={(e) => {
                                               setSelectRole2(e.target.value);
                                               getMenuInDropDown(e.target.value);
-                                              getSubMenuByRole(null,null)
+                                              getSubMenuByRole(0,0)
                                           }}
                                       >
-                                          <option>--เลือก Role--</option>
+                                          <option value={0}>--เลือก Role--</option>
                                           {rolegroup.map((item) => (
                                               <option key={item.id} value={item.id}>
                                                   {item.role_group_name}
@@ -278,12 +278,10 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
-                                            console.log("selectRole2 : "+selectRole2);
-                                            console.log("e.target.value : "+e.target.value);
                                             getSubMenuByRole(selectRole2,e.target.value)
                                           }}
                                       >
-                                          <option>--เลือกเมนูหลักตาม Role--</option>
+                                          <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                           {roleMenuMainInDropDown.map((item) => (
                                               <option key={item.id} value={item.id}>
                                                   {item.menu_name}
