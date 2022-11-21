@@ -16,6 +16,7 @@ const SettingMenu = () => {
 
     const {id} = useParams();
     const {idSubRole} = useParams();
+    const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [selectRole, setSelectRole] = useState([]);
@@ -77,9 +78,9 @@ const SettingMenu = () => {
       };
 
     //Load Sub Menu By Role
-    const getSubMenuByRole = async (idSubRole) => {
+    const getSubMenuByRole = async (idSubRole,main_menu_id) => {
         const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/menu/sublv1/${idSubRole}`
+            `${process.env.REACT_APP_API_URL}/main/${idSubRole}/sublv1/${main_menu_id}`
           );
           setRoleMenuParent(response.data);
       };
@@ -276,7 +277,9 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
-                                            getSubMenuByRole(e.target.value)
+                                            console.log("selectRole2 : "+selectRole2);
+                                            console.log("e.target.value : "+e.target.value);
+                                            getSubMenuByRole(selectRole2,e.target.value)
                                           }}
                                       >
                                           <option>--เลือกเมนูหลักตาม Role--</option>
