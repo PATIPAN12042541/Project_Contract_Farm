@@ -17,6 +17,7 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
           );
           setRoleGroup(response.data);
+          console.log(rolegroup);
       };
 
     //Load Menu By Role
