@@ -26,17 +26,17 @@ export const getSystemOverview = async (req, res) => {
         "history_contract_farming.remark," +
         "history_contract_farming.qty," +
         "Status_plant.status_name," +
-        "history_contract_farming.plant_circle, " +
-        "CASE WHEN Status_plant.id = '4' " +
-        "		THEN ( CASE WHEN DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y')  < DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') " +
-        "		 					  THEN CONCAT( DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y') - DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') ,  ' Day') " +
-        "    						ELSE 'Okay' " +
-        "        		END ) " +
-        "   ELSE '' " +
-        "END AS diff_date ",
-      {
-        type: db.QueryTypes.SELECT,
-      }
+        "history_contract_farming.plant_circle " +
+        // "CASE WHEN Status_plant.id = '4' " +
+        // "		THEN ( CASE WHEN DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y')  < DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') " +
+        // "		 					  THEN CONCAT( DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y') - DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') ,  ' Day') " +
+        // "    						ELSE 'Okay' " +
+        // "        		END ) " +
+        // "   ELSE '' " +
+        // "END AS diff_date ",
+        {
+          type: db.QueryTypes.SELECT,
+        }
     );
     res.json(Overview);
   } catch (error) {

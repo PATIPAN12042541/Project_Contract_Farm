@@ -213,6 +213,7 @@ const System_overview = () => {
       sortable: true,
       grow: 5,
     },
+
     // {
     //   name: "ระยะเวลาเก็บเกี่ยว",
     //   id: "diff_date",
@@ -220,6 +221,7 @@ const System_overview = () => {
     //   sortable: true,
     //   grow: 5,
     // },
+
     {
       name: "สถานะ",
       id: "status_name",
