@@ -60,7 +60,6 @@ const SettingMenu = () => {
                                           className="form-control"
                                           onChange={(e) => {
                                             setRoleMenuMainID(e.target.value);
-                                            getMenu(roleMenuMainID);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
@@ -70,6 +69,7 @@ const SettingMenu = () => {
                                               </option>
                                           ))}
                                       </select>
+                                      {console.log("roleMenuMainID : "+roleMenuMainID)}
                                   </div>   
                                   <br />
                                   <div>                              
