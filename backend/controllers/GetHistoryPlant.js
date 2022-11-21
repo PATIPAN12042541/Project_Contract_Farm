@@ -107,7 +107,7 @@ export const getDataChemical = async (req, res) => {
         "       plant.id as plant_id, " +
         "       plant.id_plant as plant_id_chemical, " +
         "       plant.id_user, " +
-        "      plant.name_plant, " +
+        "       plant.name_plant, " +
         "       plant.start_date_plant, " +
         "       plant.end_date_plant, " +
         "       plant_data_detail.id_name_chemical, " +
