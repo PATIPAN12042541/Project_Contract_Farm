@@ -549,7 +549,7 @@ const SettingMenu = () => {
                               </Form.Label>
                               <div className="col-sm-7">
                                   <select
-                                      className="form-control col-md-9"
+                                      className="form-control"
                                       onChange={(e)=>{
                                         setSelectRole3(e.target.value);
                                         getMenuInDropDownAddSubMenu(e.target.value);
@@ -570,7 +570,7 @@ const SettingMenu = () => {
                               </Form.Label>
                               <div className="col-sm-7">
                                   <select
-                                      className="form-control col-md-9"
+                                      className="form-control"
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                       {roleMenuMainInDropDownAddSubMenu.map((item) => (
