@@ -22,6 +22,7 @@ const SettingMenu = () => {
     const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
+    const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
 
     const [selectRole, setSelectRole] = useState([]);
     const [selectRole2, setSelectRole2] = useState([]);
@@ -30,6 +31,7 @@ const SettingMenu = () => {
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
+    const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [roleMenuParent, setRoleMenuParent] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -77,6 +79,14 @@ const SettingMenu = () => {
     };
 
     //Drop Down Role
+    const getRoleInPopupAddMainMenu = async () => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+          );
+          setRoleGroupPopupAddMainMenu(response.data);
+      };
+
+    //Drop Down Role Popup Insert Sub Menu
     const getRole = async () => {
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
@@ -98,6 +108,14 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMainInDropDown(response.data);
+      };
+
+    //Load Menu By Role in Drop Down Popup Add SubMenu
+    const getMenuInDropDownAddSubMenu = async (id) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
+          );
+          setRoleMenuMainInDropDownAddSubMenu(response.data);
       };
 
     //Load Sub Menu By Role
@@ -534,11 +552,11 @@ const SettingMenu = () => {
                                       onChange={(e)=>{
                                         console.log("e.target.value : "+e.target.value)
                                         setSelectRole3(e.target.value);
-                                        getMenuInDropDown(e.target.value);
+                                        getMenuInDropDownAddSubMenu(e.target.value);
                                       }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
-                                      {rolegroup.map((item) => (
+                                      {getRoleInPopupAddMainMenu.map((item) => (
                                           <option key={item.id} value={item.id}>
                                               {item.role_group_name}
                                           </option>
@@ -555,7 +573,7 @@ const SettingMenu = () => {
                                       className="form-control col-md-9"
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
-                                      {roleMenuMainInDropDown.map((item) => (
+                                      {roleMenuMainInDropDownAddSubMenu.map((item) => (
                                           <option key={item.id} value={item.id}>
                                               {item.menu_name}
                                           </option>
