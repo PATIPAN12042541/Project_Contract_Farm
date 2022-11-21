@@ -35,8 +35,8 @@ const SettingMenu = () => {
     const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
     const [showInsert, setShowInsert] = useState(false);
 
-    const handleCloseInsert = () => setShowInsert(false);
-    const handleShowInsert = () => setShowInsert(true);
+    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
+    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
 
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
@@ -169,7 +169,7 @@ const SettingMenu = () => {
                                   </div>   
                                   <br />
                                   <div>                              
-                                      <Button variant="success" onClick={handleShowInsert}>
+                                      <Button variant="success" onClick={handleShowInsertMainMenu}>
                                           เพิ่มเมนูหลัก
                                       </Button>
                                   </div>
@@ -389,7 +389,7 @@ const SettingMenu = () => {
               </div>
           </section>
           {/* Modal Insert User */}
-          <Modal show={showInsert} onHide={handleCloseInsert}>
+          <Modal show={showInsertMainMenu} onHide={handleCloseInsertMainMenu}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
@@ -459,7 +459,7 @@ const SettingMenu = () => {
 
               <Modal.Footer>
                   <button
-                      onClick={handleCloseInsert}
+                      onClick={handleCloseInsertMainMenu}
                       className="btn btn-default"
                       style={{ float: "left" }}
                   >
