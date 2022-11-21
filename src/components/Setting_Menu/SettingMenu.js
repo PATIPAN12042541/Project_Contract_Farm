@@ -535,6 +535,23 @@ const SettingMenu = () => {
                           </div>
                           <div className="form-group row">
                               <Form.Label className="col-sm-5 col-form-label">
+                                  Role
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control col-md-9"
+                                  >
+                                      <option value={0}>--เลือก Role--</option>
+                                      {rolegroup.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.role_group_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
                                   Active Status
                               </Form.Label>
                               <div className="col-sm-7 col-form-label">
