@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Zoom from "react-medium-image-zoom";
 import axios from "axios";
 
 const Harvest_show = () => {
   const [harvextData, setHarvextData] = useState([]);
 
   const getHarvetData = async () => {
-   
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/History/getHarvestDetail/Harvest`
     );
@@ -53,6 +53,30 @@ const Harvest_show = () => {
                           <th>ผู้รับผิดชอบ</th>
                         </tr>
                       </thead>
+                      <tbody>
+                        {harvextData.map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.NAME_ZONE}</td>
+                            <td>{data.plant_name}</td>
+                            <td>
+                              <center>
+                                <Zoom>
+                                  <img
+                                    src={data.Path_img}
+                                    className="img-fluid mb-2"
+                                    alt="white sample"
+                                    width="100"
+                                    height="100"
+                                  />
+                                </Zoom>
+                              </center>
+                            </td>
+                            <td>{data.quantity}</td>
+                            <td>{data.NAME}</td>
+                          </tr>
+                        ))}
+                      </tbody>
                     </table>
                   </div>
                 </div>
