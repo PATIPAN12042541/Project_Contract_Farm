@@ -20,7 +20,7 @@ export const getMenusRoleMain = async (req, res) => {
     } 
 }
 
-export const getMenusRoleMainAll = async (req, res) => {
+/*export const getMenusRoleMainAll = async (req, res) => {
     try {
         const menus = await Menus.findAll({
             where:{
@@ -36,7 +36,7 @@ export const getMenusRoleMainAll = async (req, res) => {
     } catch (error) {
         res.json({ message: error.message });
     } 
-}
+}*/
 
 export const getMenusRoleSubLV1 = async (req, res) => {
     try {
