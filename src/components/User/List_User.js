@@ -94,7 +94,6 @@ export const List_User = () => {
                 `${process.env.REACT_APP_API_URL}/User/getUsersByDev`
             );
             setListUsers(response.data);
-            console.log(response.data)
         }else{
             const response = await axios.get(
                 `${process.env.REACT_APP_API_URL}/User/getUsersByAdmin`

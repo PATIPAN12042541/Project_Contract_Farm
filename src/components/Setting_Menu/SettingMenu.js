@@ -58,6 +58,7 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
           setRoleMenuMain(response.data);
+          console.log(response.data)
       };
 
     // Pageing
@@ -101,6 +102,7 @@ const SettingMenu = () => {
                                           className="form-control"
                                           onChange={(e) => {
                                             setSelectRole(e.target.value);
+                                            getMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
