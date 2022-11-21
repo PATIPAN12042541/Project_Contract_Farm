@@ -6,17 +6,46 @@ import '../Pagination/style.scss';
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
 const SettingMenu = () => {
+
+    const {id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
+    const [selectRole, setSelectRole] = useState([]);
+    const [selectRole2, setSelectRole2] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const Nav = useNavigate();
+
+    /*********** refresh token ***********/
+    const [token, setToken] = useState("");
+    /*************************************/
+
+    // refresh token
+    const refreshToken = async () => {
+        try {
+            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+
+            // const response = await axios.get("http://localhost:4000/user/token");
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/user/token`
+            );
+            setToken(response.data.accessToken);
+            const decoded = jwt_decode(response.data.accessToken);
+        } catch (error) {
+            if (error.response) {
+                Nav("/");
+            }
+        }
+        // eslint-disable-line react-hooks/exhaustive-deps
+    };
 
     //Drop Down Role
     const getRole = async () => {
@@ -27,13 +56,11 @@ const SettingMenu = () => {
       };
 
     //Load Menu By Role
-    const getMenu = async (rold_id) => {
-        console.log("rold_id 1 : "+rold_id);
+    const getMenu = async (id) => {
         const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/menu/main/role_id`
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMain(response.data);
-          console.log("rold_id 2 : "+rold_id);
       };
 
     // Pageing
@@ -44,6 +71,7 @@ const SettingMenu = () => {
       }, [currentPage,roleMenuMain]);// eslint-disable-line react-hooks/exhaustive-deps
 
       useEffect(() => {
+        refreshToken();
         getRole();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
@@ -72,9 +100,13 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                            เลือก Role
+                                      </label>
                                       <select
-                                          className="form-control"
+                                          className="form-control col-md-9"
                                           onChange={(e) => {
+                                            setSelectRole(e.target.value);
                                             getMenu(e.target.value);
                                           }}
                                       >
@@ -183,13 +215,32 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                          เลือก Role
+                                      </label>
                                       <select
-                                          className="form-control"
+                                          className="form-control col-md-9"
                                           onChange={(e) => {
-                                            setRoleMenuParentID(e.target.value);
+                                              setSelectRole2(e.target.value);
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
+                                          {rolegroup.map((item) => (
+                                              <option key={item.id} value={item.id}>
+                                                  {item.role_group_name}
+                                              </option>
+                                          ))}
+                                      </select>
+                                  </div>
+                                  <br />
+                                  <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                          เลือกเมนูหลัก
+                                      </label>
+                                      <select
+                                          className="form-control col-md-9"
+                                      >
+                                          <option>--เลือกเมนูหลักตาม Role--</option>
                                           {rolegroup.map((item) => (
                                               <option key={item.id} value={item.id}>
                                                   {item.role_group_name}
