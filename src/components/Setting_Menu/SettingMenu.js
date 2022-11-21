@@ -12,6 +12,8 @@ import jwt_decode from "jwt-decode";
 let PageSize = 5;
 
 const SettingMenu = () => {
+
+    const {id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [selectRole, setSelectRole] = useState([]);
@@ -53,9 +55,9 @@ const SettingMenu = () => {
       };
 
     //Load Menu By Role
-    const getMenu = async (rold_id) => {
+    const getMenu = async (id) => {
         const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/menu/main/${role_id}`
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMain(response.data);
           console.log(rold_id)
