@@ -192,7 +192,8 @@ export const getHarvestDetail = async (req, res) => {
         "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +
         "LEFT JOIN zone_plant ON plant_detail.id_zone = zone_plant.id " +
         "LEFT JOIN plant_master_detail ON plant.name_plant = plant_master_detail.id " +
-        "LEFT JOIN user ON plant.id_user = user.id ",
+        "LEFT JOIN user ON plant.id_user = user.id " +
+        "WHERE plant_harvest_status.harvest_status = '0' ",
       {
         type: db.QueryTypes.SELECT,
       }
