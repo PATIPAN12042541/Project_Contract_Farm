@@ -17,6 +17,7 @@ const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [selectRole, setSelectRole] = useState([]);
+    const [selectRole2, setSelectRole2] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
@@ -214,13 +215,31 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                          เลือก Role
+                                      </label>
                                       <select
-                                          className="form-control"
+                                          className="form-control col-md-9"
                                           onChange={(e) => {
-                                            setRoleMenuParentID(e.target.value);
+                                              setSelectRole2(e.target.value);
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
+                                          {rolegroup.map((item) => (
+                                              <option key={item.id} value={item.id}>
+                                                  {item.role_group_name}
+                                              </option>
+                                          ))}
+                                      </select>
+                                  </div>
+                                  <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                          เลือกเมนูหลัก
+                                      </label>
+                                      <select
+                                          className="form-control col-md-9"
+                                      >
+                                          <option>--เลือกเมนูหลักตาม Role--</option>
                                           {rolegroup.map((item) => (
                                               <option key={item.id} value={item.id}>
                                                   {item.role_group_name}
