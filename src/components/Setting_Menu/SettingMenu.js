@@ -29,9 +29,16 @@ const SettingMenu = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
+    const handleCloseInsert = () => setShowInsert(false);
+    const handleShowInsert = () => setShowInsert(true);
 
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
+    /*************************************/
+
+    /* VAR MODAL */
+    /********** insert data ***************/
+    
     /*************************************/
 
     // refresh token
@@ -156,7 +163,7 @@ const SettingMenu = () => {
                                   </div>   
                                   <br />
                                   <div>                              
-                                      <Button variant="success">
+                                      <Button variant="success" onClick={handleShowInsert}>
                                           เพิ่มเมนูหลัก
                                       </Button>
                                   </div>
@@ -375,6 +382,50 @@ const SettingMenu = () => {
                   </div>
               </div>
           </section>
+          {/* Modal Insert User */}
+          <Modal show={showInsert} onHide={handleCloseInsert}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เพิ่มเมนูหลัก</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="input-group mb-3">
+                              <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="ชื่อเมนู"
+                              />
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseInsert}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                      onClick={Register}
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
       </div>
   )
 }
