@@ -37,7 +37,6 @@ const SettingMenu = () => {
 
     // Pageing
     const currentTableData = useMemo(() => {
-        console.log(currentPage);
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
         return roleMenuMain.slice(firstPageIndex, lastPageIndex);
