@@ -99,8 +99,11 @@ const SettingMenu = () => {
                               </div>
                               <div className="card-body">
                                   <div className="row">
+                                      <label className="col-form-label col-md-3">
+                                            เลือก Role
+                                      </label>
                                       <select
-                                          className="form-control"
+                                          className="form-control col-md-9"
                                           onChange={(e) => {
                                             setSelectRole(e.target.value);
                                             getMenu(e.target.value);
