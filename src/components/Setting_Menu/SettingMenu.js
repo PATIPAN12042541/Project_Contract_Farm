@@ -14,7 +14,7 @@ const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [roleMenuMainID, setRoleMenuMainID] = useState();
-    const [roleMenuMain, setRoleMenuMain] = useState();
+    const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
 
