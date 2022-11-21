@@ -18,6 +18,15 @@ const SettingMenu = () => {
           setRoleGroup(response.data);
       };
 
+    //Load Menu By Role
+    const getMenu = async (rold_id) => {
+        /*const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+          );
+          setRoleGroup(response.data);*/
+          console.log("rold_id : "+rold_id)
+      };
+
       useEffect(() => {
         getRole();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,6 +60,7 @@ const SettingMenu = () => {
                                           className="form-control"
                                           onChange={(e) => {
                                             setRoleMenuMainID(e.target.value);
+                                            getMenu(setRoleMenuMainID);
                                           }}
                                       >
                                           <option>--เลือก Role--</option>
