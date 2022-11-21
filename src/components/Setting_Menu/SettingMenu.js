@@ -232,6 +232,7 @@ const SettingMenu = () => {
                                           ))}
                                       </select>
                                   </div>
+                                  <br />
                                   <div className="row">
                                       <label className="col-form-label col-md-3">
                                           เลือกเมนูหลัก
