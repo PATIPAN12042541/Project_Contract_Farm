@@ -4,7 +4,6 @@ import {getMenusRoleMain,
        } from "../controllers/Menus.js";
 
 const router = express.Router();
-/*router.get('/', getMenusRoleMainAll);*/
 router.get('/main/:role_id', getMenusRoleMain);
 router.get('/sublv1/:role_id', getMenusRoleSubLV1);
 
