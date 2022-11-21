@@ -404,7 +404,7 @@ const SettingMenu = () => {
                           <div className='col-md-3'>
                             ชื่อเมนู
                           </div>
-                          <div className="input-group mb-3">
+                          <div className="input-group col-md-3">
                               <input
                                   type="text"
                                   className="form-control"
