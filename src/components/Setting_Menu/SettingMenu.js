@@ -64,12 +64,14 @@ const SettingMenu = () => {
                                       >
                                           <option value={0}>--เลือก Role--</option>
                                           {rolegroup.map((item) => (
-                                              <option key={item.id} value={item.id}>
+                                              <option key={item.id} value={item.id}
+                                              onSelect={(e)=>{
+                                                setRoleMenuMainID(e.target.value)
+                                              }}>
                                                   {item.id}{item.role_group_name}
                                               </option>
                                           ))}
                                       </select>
-                                      {console.log("roleMenuMainID : "+roleMenuMainID)}
                                   </div>   
                                   <br />
                                   <div>                              
