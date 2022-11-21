@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
-const Menus = db.define('role_menu',{
+const Menus = db.define('menu',{
     menu_name:{
         type: DataTypes.STRING
     },
