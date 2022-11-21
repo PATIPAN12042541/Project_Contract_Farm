@@ -33,7 +33,7 @@ const SettingMenu = () => {
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
     const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
-    const [showInsert, setShowInsert] = useState(false);
+    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
 
     const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
     const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
