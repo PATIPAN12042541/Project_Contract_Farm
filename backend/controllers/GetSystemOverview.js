@@ -33,7 +33,7 @@ export const getSystemOverview = async (req, res) => {
         "    						ELSE 'Okay' " +
         "        		END ) " +
         "   ELSE '' " +
-        "END AS DIFF_DATE ",
+        "END AS diff_date ",
       {
         type: db.QueryTypes.SELECT,
       }
