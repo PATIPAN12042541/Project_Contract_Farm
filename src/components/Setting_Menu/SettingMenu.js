@@ -28,12 +28,10 @@ const SettingMenu = () => {
 
     //Load Menu By Role
     const getMenu = async (rold_id) => {
-        console.log("rold_id 1 : "+rold_id);
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
           setRoleMenuMain(response.data);
-          console.log("rold_id 2 : "+rold_id);
       };
 
     // Pageing
@@ -45,6 +43,7 @@ const SettingMenu = () => {
 
       useEffect(() => {
         getRole();
+        getMenu(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
