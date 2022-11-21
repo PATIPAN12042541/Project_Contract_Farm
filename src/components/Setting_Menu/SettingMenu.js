@@ -6,7 +6,7 @@ import '../Pagination/style.scss';
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
@@ -60,7 +60,7 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMain(response.data);
-          console.log(rold_id)
+          console.log(id)
           console.log(response.data)
       };
 
