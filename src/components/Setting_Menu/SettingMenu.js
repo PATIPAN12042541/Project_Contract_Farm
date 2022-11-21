@@ -8,6 +8,9 @@ import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
 import { Link, useNavigate,useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import Switch from "react-switch";
 
 let PageSize = 5;
 let PageSizeSubMenu = 5;
@@ -30,8 +33,25 @@ const SettingMenu = () => {
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
 
+    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
+    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
+
+    const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
+    const [checkedAddSubMenu, setCheckedSubMainMenu] = useState(false);
+
+    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
+    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
+
+    const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
+    const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
+
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
+    /*************************************/
+
+    /* VAR MODAL */
+    /********** insert data ***************/
+    
     /*************************************/
 
     // refresh token
@@ -156,7 +176,7 @@ const SettingMenu = () => {
                                   </div>   
                                   <br />
                                   <div>                              
-                                      <Button variant="success">
+                                      <Button variant="success" onClick={handleShowInsertMainMenu}>
                                           เพิ่มเมนูหลัก
                                       </Button>
                                   </div>
@@ -278,7 +298,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
-                                            getSubMenuByRole(selectRole2,e.target.value)
+                                            getSubMenuByRole(selectRole2,e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือกเมนูหลักตาม Role--</option>
@@ -291,7 +311,7 @@ const SettingMenu = () => {
                                   </div>   
                                   <br />
                                   <div>                              
-                                      <Button variant="success">
+                                      <Button variant="success" onClick={handleShowInsertSubMenu}>
                                           เพิ่มเมนูย่อย
                                       </Button>
                                   </div>
@@ -375,6 +395,179 @@ const SettingMenu = () => {
                   </div>
               </div>
           </section>
+          {/* Modal Insert Main Menu */}
+          <Modal show={showInsertMainMenu} onHide={handleCloseInsertMainMenu}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เพิ่มเมนูหลัก</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedAddMainMenu(!checkedAddMainMenu);
+                                      }}
+                                      checked={checkedAddMainMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseInsertMainMenu}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          {/* Modal Insert Sub Menu */}
+          <Modal show={showInsertSubMenu} onHide={handleCloseInsertSubMenu}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เพิ่มเมนูหลัก</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedAddMainMenu(!checkedAddSubMenu);
+                                      }}
+                                      checked={checkedAddSubMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseInsertSubMenu}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
       </div>
   )
 }
