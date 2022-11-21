@@ -7,7 +7,7 @@ const Harvest_show = () => {
   const getHarvetData = async () => {
    
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/History/getHarvestDetail`
+      `${process.env.REACT_APP_API_URL}/History/getHarvestDetail/Harvest`
     );
 
     setHarvextData(response.data);

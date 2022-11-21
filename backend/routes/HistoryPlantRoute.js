@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/getDataPlant/:id", getDataPlant);
 router.get("/getDataChemical/:id", getDataChemical);
 router.get("/getDataFertilizer/:id", getDataFertilizer);
-router.get("/getHarvestDetail", getDataFertilizer);
+router.get("/getHarvestDetail/Harvest", getHarvestDetail);
 /*--------- Post Data ----------*/
 router.post("/plant", PostHistoryPlant);
 
