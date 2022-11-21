@@ -59,7 +59,7 @@ const System_overview = () => {
     { label: "วันที่เริ่มต้นสารเคมี", key: "chemical_date_start" },
     { label: "วันที่สิ้นสุดสารเคมี", key: "chemical_date_end" },
     { label: "จำนวนที่เก็บเกี่ยว", key: "qty" },
-    { label: "ระยะเวลาเก็บเกี่ยว", key: "diff_date" },
+    // { label: "ระยะเวลาเก็บเกี่ยว", key: "diff_date" },
     { label: "สถานะ", key: "status_name" },
     { label: "วงรอบ", key: "plant_circle" },
   ];
@@ -213,13 +213,13 @@ const System_overview = () => {
       sortable: true,
       grow: 5,
     },
-    {
-      name: "ระยะเวลาเก็บเกี่ยว",
-      id: "diff_date",
-      selector: (row) => row.diff_date,
-      sortable: true,
-      grow: 5,
-    },
+    // {
+    //   name: "ระยะเวลาเก็บเกี่ยว",
+    //   id: "diff_date",
+    //   selector: (row) => row.diff_date,
+    //   sortable: true,
+    //   grow: 5,
+    // },
     {
       name: "สถานะ",
       id: "status_name",
