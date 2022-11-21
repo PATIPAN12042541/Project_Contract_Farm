@@ -27,16 +27,22 @@ export const getSystemOverview = async (req, res) => {
         "history_contract_farming.qty," +
         "Status_plant.status_name," +
         "history_contract_farming.plant_circle " +
-        // "CASE WHEN Status_plant.id = '4' " +
-        // "		THEN ( CASE WHEN DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y')  < DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') " +
-        // "		 					  THEN CONCAT( DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y') - DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') ,  ' Day') " +
-        // "    						ELSE 'Okay' " +
-        // "        		END ) " +
-        // "   ELSE '' " +
-        // "END AS diff_date ",
-        {
-          type: db.QueryTypes.SELECT,
-        }
+        "CASE WHEN Status_plant.id = '4' " +
+        "		THEN ( CASE WHEN DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y')  < DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') " +
+        "		 					  THEN CONCAT( DATE_FORMAT(history_contract_farming.plant_date_end, '%d-%m-%Y') - DATE_FORMAT(Status_plant.updatedAt, '%d-%m-%Y') ,  ' Day') " +
+        "    						ELSE 'Okay' " +
+        "        		END ) " +
+        "   ELSE '' " +
+        "END AS diff_date " +
+        "FROM history_contract_farming " +
+        "LEFT JOIN plant_master_detail ON history_contract_farming.plant_name = plant_master_detail.id " +
+        "LEFT JOIN user ON history_contract_farming.user_id = user.id " +
+        "LEFT JOIN name_chemical ON history_contract_farming.chemical_id = name_chemical.id " +
+        "LEFT JOIN residual_period_chemical ON history_contract_farming.residual_period_id = residual_period_chemical.id " +
+        "LEFT JOIN Status_plant ON history_contract_farming.plant_status = Status_plant.id ",
+      {
+        type: db.QueryTypes.SELECT,
+      }
     );
     res.json(Overview);
   } catch (error) {
