@@ -28,11 +28,12 @@ const SettingMenu = () => {
 
     //Load Menu By Role
     const getMenu = async (rold_id) => {
+        console.log("rold_id 1 : "+rold_id);
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
           setRoleMenuMain(response.data);
-          console.log("rold_id : "+rold_id);
+          console.log("rold_id 2 : "+rold_id);
       };
 
     // Pageing
@@ -74,7 +75,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control"
                                           onChange={(e) => {
-                                            getMenu(e.target.value)
+                                            getMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
@@ -157,13 +158,13 @@ const SettingMenu = () => {
                                               ))}
                                           </tbody>
                                       </Table>
-                                      {/* <Pagination
+                                      { <Pagination
                                           className="pagination-bar"
                                           currentPage={currentPage}
                                           totalCount={roleMenuMain.length}
                                           pageSize={PageSize}
                                           onPageChange={(page) => setCurrentPage(page)}
-                                      /> */}
+                                      />}
                                   </div>
                               </div>
                           </div>
