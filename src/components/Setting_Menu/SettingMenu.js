@@ -312,7 +312,7 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {currentTableDataSubMenu.map((roleMenuParent, index) => (
+                                              {/* {currentTableDataSubMenu.map((roleMenuParent, index) => (
                                                   <tr key={roleMenuParent.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{roleMenuParent.menu_name}</td>
@@ -356,16 +356,16 @@ const SettingMenu = () => {
                                                           </center>
                                                       </td>
                                                   </tr>
-                                              ))}
+                                              ))} */}
                                           </tbody>
                                       </Table>
-                                      <Pagination
+                                      {/* <Pagination
                                           className="pagination-bar"
                                           currentPage={currentPageSubMenu}
                                           totalCount={roleMenuParent.length}
                                           pageSize={PageSizeSubMenu}
                                           onPageChange={(page) => setCurrentPageSubMenu(page)}
-                                      />
+                                      /> */}
                                   </div>
                               </div>
                           </div>
