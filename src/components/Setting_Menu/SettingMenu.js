@@ -17,7 +17,6 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
           );
           setRoleGroup(response.data);
-          console.log(rolegroup);
       };
 
     //Load Menu By Role
@@ -27,8 +26,15 @@ const SettingMenu = () => {
           );
           setRoleMenuMain(response.data);
           console.log("rold_id : "+rold_id);
-          console.log(roleMenuMain);
       };
+
+    // Pageing
+    const currentTableData = useMemo(() => {
+        console.log(currentPage);
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        return roleMenuMain.slice(firstPageIndex, lastPageIndex);
+      }, [currentPage,roleMenuMain]); // eslint-disable-line react-hooks/exhaustive-deps
 
       useEffect(() => {
         getRole();
@@ -98,6 +104,51 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
+                                              {currentTableData.map((roleMenuMain, index) => (
+                                                  <tr key={roleMenuMain.id}>
+                                                      <td>{index + 1}</td>
+                                                      <td>{roleMenuMain.menu_name}</td>
+                                                      <td>{roleMenuMain.index_menu}</td>
+                                                      <td>{roleMenuMain.link}</td>
+                                                      <td>
+                                                          <center>
+                                                              <Link
+                                                                  to={`#`}
+                                                              >
+                                                                  <Button
+                                                                      variant="warning"
+                                                                      style={{ color: "#ffff" }}
+                                                                  >
+                                                                      <AiFillEdit /> แก้ไขข้อมูล
+                                                                  </Button>
+                                                              </Link>
+                                                          </center>
+                                                      </td>
+                                                      <td>
+                                                          <center>
+                                                              {roleMenuMain.status === 1 ? (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_true.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              ) : (
+                                                                  <Image
+                                                                      src="../dist/img/symbol_false.png"
+                                                                      className="img-fluid mb-2"
+                                                                      alt="white sample"
+                                                                      width="100"
+                                                                      height="100"
+                                                                      thumbnail
+                                                                  />
+                                                              )}
+                                                          </center>
+                                                      </td>
+                                                  </tr>
+                                              ))}
                                           </tbody>
                                       </Table>
                                   </div>
