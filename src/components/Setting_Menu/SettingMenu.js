@@ -28,6 +28,9 @@ const SettingMenu = () => {
 
     //Load Menu By Role
     const getMenu = async (rold_id) => {
+        if (rold_id === undefined){
+            rold_id = 0;
+        }
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
@@ -36,12 +39,12 @@ const SettingMenu = () => {
       };
 
     // Pageing
-    /*const currentTableData = useMemo(() => {
+    const currentTableData = useMemo(() => {
         console.log(currentPage);
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
         return roleMenuMain.slice(firstPageIndex, lastPageIndex);
-      }, [currentPage,roleMenuMain]);*/// eslint-disable-line react-hooks/exhaustive-deps
+      }, [currentPage,roleMenuMain]);// eslint-disable-line react-hooks/exhaustive-deps
 
       useEffect(() => {
         getRole();
