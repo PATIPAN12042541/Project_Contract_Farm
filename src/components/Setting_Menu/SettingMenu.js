@@ -18,6 +18,28 @@ const SettingMenu = () => {
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
 
+    // refresh token
+    const refreshToken = async () => {
+        try {
+            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+
+            // const response = await axios.get("http://localhost:4000/user/token");
+            const response = await axios.get(
+                `${process.env.REACT_APP_API_URL}/user/token`
+            );
+            setToken(response.data.accessToken);
+            const decoded = jwt_decode(response.data.accessToken);
+            setRoleIDLogin(decoded.role_id)
+            getListUser(decoded.role_id);
+            getRole(decoded.role_id);
+        } catch (error) {
+            if (error.response) {
+                Nav("/");
+            }
+        }
+        // eslint-disable-line react-hooks/exhaustive-deps
+    };
+
     //Drop Down Role
     const getRole = async () => {
         const response = await axios.get(
@@ -42,6 +64,7 @@ const SettingMenu = () => {
       }, [currentPage,roleMenuMain]);// eslint-disable-line react-hooks/exhaustive-deps
 
       useEffect(() => {
+        refreshToken();
         getRole();
         getMenu(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
