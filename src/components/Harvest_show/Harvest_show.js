@@ -14,6 +14,9 @@ const Harvest_show = () => {
     console.log(response.data);
   };
 
+  const priceSplitter = (number) =>
+    number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   useEffect(() => {
     getHarvetData();
   }, []);
@@ -79,8 +82,8 @@ const Harvest_show = () => {
                                 </Zoom>
                               </center>
                             </td>
-                            <td>
-                              <center>{data.quantity}</center>
+                            <td type="number">
+                              <center>{priceSplitter(data.quantity)}</center>
                             </td>
                             <td>{data.NAME}</td>
                             <td>
