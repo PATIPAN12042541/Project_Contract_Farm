@@ -74,7 +74,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control"
                                           onChange={(e) => {
-                                            getMenu(e.target.value)
+                                            getMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
@@ -157,13 +157,13 @@ const SettingMenu = () => {
                                               ))}
                                           </tbody>
                                       </Table>
-                                      {/* <Pagination
+                                      { <Pagination
                                           className="pagination-bar"
                                           currentPage={currentPage}
                                           totalCount={roleMenuMain.length}
                                           pageSize={PageSize}
                                           onPageChange={(page) => setCurrentPage(page)}
-                                      /> */}
+                                      />}
                                   </div>
                               </div>
                           </div>
