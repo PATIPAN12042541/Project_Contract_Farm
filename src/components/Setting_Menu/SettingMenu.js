@@ -66,7 +66,7 @@ const SettingMenu = () => {
                                           <option value={0}>--เลือก Role--</option>
                                           {rolegroup.map((item) => (
                                               <option key={item.id} value={item.id}>
-                                                  {item.role_group_name}
+                                                  {item.id}{item.role_group_name}
                                               </option>
                                           ))}
                                       </select>
