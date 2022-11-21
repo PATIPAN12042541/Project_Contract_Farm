@@ -326,6 +326,7 @@ const SettingMenu = () => {
                                                   <th>ลำดับ</th>
                                                   <th>ชื่อเมนู</th>
                                                   <th>ลำดับของเมนู</th>
+                                                  <th>เมนูหลัก</th>
                                                   <th>Link</th>
                                                   <th>
                                                       <center>แก้ไขข้อมูล</center>
@@ -339,6 +340,7 @@ const SettingMenu = () => {
                                                       <td>{index + 1}</td>
                                                       <td>{roleMenuParent.menu_name}</td>
                                                       <td>{roleMenuParent.index_menu}</td>
+                                                      <td>{roleMenuParent.role_group_name}</td>
                                                       <td>{roleMenuParent.link}</td>
                                                       <td>
                                                           <center>
@@ -491,7 +493,7 @@ const SettingMenu = () => {
                       fontSize: "24px",
                   }}
               >
-                  <Modal.Title>เพิ่มเมนูหลัก</Modal.Title>
+                  <Modal.Title>เพิ่มเมนูย่อย</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
