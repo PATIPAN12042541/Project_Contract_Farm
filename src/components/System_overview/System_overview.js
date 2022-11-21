@@ -158,13 +158,6 @@ const System_overview = () => {
       grow: 5,
     },
     {
-      name: "Note",
-      id: "chemical_note",
-      selector: (row) => row.chemical_note,
-      sortable: true,
-      grow: 5,
-    },
-    {
       name: "โรค",
       id: "disease",
       selector: (row) => row.disease,
