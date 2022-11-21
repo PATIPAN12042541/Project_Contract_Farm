@@ -38,6 +38,7 @@ import MonitorStatus from "./components/System_overview/MonitorStatus";
 import ChanagePassword from "./components/User/ChanagePassword";
 import Report_Defect from "./components/Report_Defect/Report_Defect";
 import SettingMenu from "./components/Setting_Menu/SettingMenu";
+import Harvest_show from "./components/Harvest_show/Harvest_show";
 
 function App() {
   return (
@@ -334,6 +335,18 @@ function App() {
                 <Header />
                 <SidebarRole />
                 <SettingMenu />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/Harvest_show"
+            element={
+              <>
+                <Header />
+                <SidebarRole />
+                <Harvest_show />
                 <Footer />
               </>
             }
