@@ -24,7 +24,7 @@ const SettingMenu = () => {
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
-    const [roleMenuParent, setRoleMenuParent] = useState();
+    const [roleMenuParent, setRoleMenuParent] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
