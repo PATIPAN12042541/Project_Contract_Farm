@@ -111,7 +111,7 @@ const SettingMenu = () => {
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              {roleMenuMain.map((roleMenuMain, index) => (
+                                              {/* {roleMenuMain.map((roleMenuMain, index) => (
                                                   <tr key={roleMenuMain.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{roleMenuMain.menu_name}</td>
@@ -155,7 +155,7 @@ const SettingMenu = () => {
                                                           </center>
                                                       </td>
                                                   </tr>
-                                              ))}
+                                              ))} */}
                                           </tbody>
                                       </Table>
                                       {/* <Pagination
