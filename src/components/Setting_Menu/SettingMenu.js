@@ -60,8 +60,6 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMain(response.data);
-          console.log(id)
-          console.log(response.data)
       };
 
     // Pageing
