@@ -534,6 +534,7 @@ const SettingMenu = () => {
                                       onChange={(e)=>{
                                         console.log("e.target.value : "+e.target.value)
                                         setSelectRole3(e.target.value);
+                                        getMenuInDropDown(e.target.value);
                                       }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
@@ -552,9 +553,6 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control col-md-9"
-                                      onChange={(e) => {
-                                          getSubMenuByRole(selectRole3, e.target.value);
-                                      }}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                       {roleMenuMainInDropDown.map((item) => (
