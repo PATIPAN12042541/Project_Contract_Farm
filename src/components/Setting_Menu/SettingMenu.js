@@ -58,6 +58,7 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/role_id`
           );
           setRoleMenuMain(response.data);
+          console.log(rold_id)
           console.log(response.data)
       };
 
