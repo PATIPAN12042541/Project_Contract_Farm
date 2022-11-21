@@ -18,6 +18,10 @@ const SettingMenu = () => {
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
 
+    /*********** refresh token ***********/
+    const [token, setToken] = useState("");
+    /*************************************/
+
     // refresh token
     const refreshToken = async () => {
         try {
