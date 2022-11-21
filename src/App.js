@@ -38,6 +38,7 @@ import MonitorStatus from "./components/System_overview/MonitorStatus";
 import ChanagePassword from "./components/User/ChanagePassword";
 import Report_Defect from "./components/Report_Defect/Report_Defect";
 import SettingMenu from "./components/Setting_Menu/SettingMenu";
+import Harvest_show from "./components/Harvest_show/Harvest_show";
 
 function App() {
   return (
@@ -338,6 +339,7 @@ function App() {
               </>
             }
           />
+          <Route exact path="/Harvest_show" element={<Harvest_show />} />
         </Routes>
       </BrowserRouter>
     </div>
