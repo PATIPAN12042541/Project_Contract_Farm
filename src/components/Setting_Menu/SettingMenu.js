@@ -7,6 +7,7 @@ import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
 import { Link, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 let PageSize = 5;
 
@@ -17,6 +18,7 @@ const SettingMenu = () => {
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const Nav = useNavigate();
 
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
@@ -33,9 +35,6 @@ const SettingMenu = () => {
             );
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
-            setRoleIDLogin(decoded.role_id)
-            getListUser(decoded.role_id);
-            getRole(decoded.role_id);
         } catch (error) {
             if (error.response) {
                 Nav("/");
