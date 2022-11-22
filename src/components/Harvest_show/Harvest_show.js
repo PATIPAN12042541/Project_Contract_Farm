@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import axios from "axios";
+import "../CSS/HarvestShow.css";
 
 const Harvest_show = () => {
   const [harvextData, setHarvextData] = useState([]);
@@ -52,6 +53,9 @@ const Harvest_show = () => {
                           <th>รหัสเเปลง</th>
                           <th>ชื่อแปลง</th>
                           <th>
+                            <center>วันที่เพาะปลูก</center>
+                          </th>
+                          <th>
                             <center>ผลงาน</center>
                           </th>
                           <th>
@@ -59,7 +63,10 @@ const Harvest_show = () => {
                           </th>
                           <th>ผู้รับผิดชอบ</th>
                           <th>
-                            <center>วันที่ล่าสุด</center>
+                            <center>วันที่เก็บเกี่ยว</center>
+                          </th>
+                          <th>
+                            <center>สถานะ</center>
                           </th>
                         </tr>
                       </thead>
@@ -69,6 +76,9 @@ const Harvest_show = () => {
                             <td>{index + 1}</td>
                             <td>{data.NAME_ZONE}</td>
                             <td>{data.plant_name}</td>
+                            <td>
+                              <center>{data.end_date_plant}</center>
+                            </td>
                             <td>
                               <center>
                                 <Zoom>
@@ -88,6 +98,15 @@ const Harvest_show = () => {
                             <td>{data.NAME}</td>
                             <td>
                               <center>{data.lastDate}</center>
+                            </td>
+                            <td
+                              className={
+                                data.check_harvest == "Okay"
+                                  ? "Okay"
+                                  : "NotOkay"
+                              }
+                            >
+                              <center>{data.check_harvest}</center>
                             </td>
                           </tr>
                         ))}
