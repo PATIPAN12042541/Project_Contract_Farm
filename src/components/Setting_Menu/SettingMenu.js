@@ -280,7 +280,7 @@ const SettingMenu = () => {
                                                                         setUpdateMainMenuName(roleMenuMain.menu_name);
                                                                         setUpdateIndexMainMenu(roleMenuMain.index_menu);
                                                                         setUpdateLinkMainMenu(roleMenuMain.link);
-                                                                        setCheckedUpdateMainMenu(roleMenuMain.status);
+                                                                        setCheckedUpdateMainMenu(roleMenuMain.status=1?true:false);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
@@ -833,7 +833,7 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control"
                                       defaultValue={updateSubRoleID}
-                                      onBlur={console.log("updateSubRoleID : "+updateSubRoleID)}
+                                      onLoad={console.log("updateSubRoleID : "+updateSubRoleID)}
                                       onChange={(e)=>{
                                         setUpdateSubRoleID(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
