@@ -349,6 +349,7 @@ const SettingMenu = () => {
                                               setSelectRole2(e.target.value);
                                               getMenuInDropDown(e.target.value);
                                               getSubMenuByRole(0,0)
+                                              getMenuInDropDownUpdateSubMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือก Role--</option>
@@ -369,7 +370,6 @@ const SettingMenu = () => {
                                           onChange={(e)=>{
                                             getSubMenuByRole(selectRole2,e.target.value);
                                             setRoleMenuParentID(e.target.value);
-                                            getMenuInDropDownUpdateSubMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือกเมนูหลักตาม Role--</option>
