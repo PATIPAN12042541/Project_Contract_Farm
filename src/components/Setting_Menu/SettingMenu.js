@@ -628,7 +628,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      defaultChecked={updateMainMenuID}
+                                      defaultValue={updateMainMenuID}
                                   >
                                       <option value={0}>--เลือก Role--</option>
                                       {rolegroup.map((item) => (
