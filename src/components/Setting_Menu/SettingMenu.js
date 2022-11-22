@@ -21,6 +21,7 @@ const SettingMenu = () => {
     const {id} = useParams();
     const {idSubRole} = useParams();
     const {main_menu_id} = useParams();
+    const {update_main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
     const [selectRoleMainMenu, setSelectRoleMainMenu] = useState([]);
@@ -229,11 +230,10 @@ const SettingMenu = () => {
     };
 
     // Update Main Menu
-    const updateMainMenu = async (updateMainMenuID) => {
+    const updateMainMenu = async (update_main_menu_id) => {
         e.preventDefault();
-        console.log(updateMainMenuID);
         try{
-            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${updateMainMenuID}`,{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${update_main_menu_id}`,{
                 menu_name : insertMainMenuName,
                 index_menu : insertIndexMainMenu,
                 parent_id : 0,
