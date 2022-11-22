@@ -166,12 +166,20 @@ export const postDetailPlant = async (req, res) => {
 
 /*--------------------- Delete for reset plant ---------------------*/
 export const DeletePlant = async (req, res) => {
+  
   try {
     await PlantDetail.destroy({
       where: {
         id: req.params.id,
       },
     });
+
+    await ReportDefectChemical_M.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
     res.json({
       message: "Plant Deleted",
     });
@@ -179,18 +187,6 @@ export const DeletePlant = async (req, res) => {
     res.json({ message: error.message });
   }
 
-  try {
-    await ReportDefectChemical_M.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.json({
-      message: "Report Defect Deleted",
-    });
-  } catch (error) {
-    res.json({ message: error.message });
-  }
 
 };
 /*--------------------------------------------------------------------*/
