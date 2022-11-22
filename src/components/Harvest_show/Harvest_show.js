@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import axios from "axios";
+import "../CSS/HarvestShow.css";
 
 const Harvest_show = () => {
   const [harvextData, setHarvextData] = useState([]);
@@ -98,7 +99,13 @@ const Harvest_show = () => {
                             <td>
                               <center>{data.lastDate}</center>
                             </td>
-                            <td>
+                            <td
+                              className={
+                                data.check_harvest == "Okay"
+                                  ? "Okay"
+                                  : "NotOkay"
+                              }
+                            >
                               <center>{data.check_harvest}</center>
                             </td>
                           </tr>
