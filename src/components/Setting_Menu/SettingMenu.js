@@ -23,10 +23,9 @@ const SettingMenu = () => {
   
     const [rolegroup, setRoleGroup] = useState([]);
 
-    const [selectRole, setSelectRole] = useState([]);
-    const [selectRole2, setSelectRole2] = useState([]);
+    const [selectRoleMainMenu, setSelectRoleMainMenu] = useState([]);
+    const [selectRoleSubMenu, setSelectRoleSubMenu] = useState([]);
     
-    const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
     
@@ -62,7 +61,7 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** insert Sub Menu ***************/
-    const [selectRole3, setSelectRole3] = useState([]);
+    const [selectRoleInPopupInsertMainMenu, setSelectRoleInPopupInsertMainMenu] = useState([]);
     const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
     const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
     const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
@@ -73,7 +72,6 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** Upate Sub Menu ***************/
-    const [selectRole4, setSelectRole4] = useState([]);
     const [updateSubMenuID, setUpdateSubMenuID] = useState("");
     const [updateSubMenuName, setUpdateSubMenuName] = useState("");
     const [updateIndexSubMenu, setUpdateIndexSubMenu] = useState("");
@@ -223,7 +221,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e) => {
-                                            setSelectRole(e.target.value);
+                                            setSelectRoleMainMenu(e.target.value);
                                             getMenu(e.target.value);
                                           }}
                                       >
@@ -346,7 +344,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e) => {
-                                              setSelectRole2(e.target.value);
+                                              setSelectRoleSubMenu(e.target.value);
                                               getMenuInDropDown(e.target.value);
                                               getSubMenuByRole(0,0)
                                               getMenuInDropDownUpdateSubMenu(e.target.value);
@@ -368,7 +366,7 @@ const SettingMenu = () => {
                                       <select
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
-                                            getSubMenuByRole(selectRole2,e.target.value);
+                                            getSubMenuByRole(selectRoleSubMenu,e.target.value);
                                             setRoleMenuParentID(e.target.value);
                                           }}
                                       >
@@ -513,6 +511,27 @@ const SettingMenu = () => {
                                       className="form-control"
                                       placeholder='ลำดับของเมนู'
                                   />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Role
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                      onChange={(e)=>{
+                                        setSelectRoleInPopupInsertMainMenu(e.target.value);
+                                        getMenuInDropDownAddSubMenu(e.target.value);
+                                      }}
+                                  >
+                                      <option value={0}>--เลือก Role--</option>
+                                      {rolegroupPopupAddMainMenu.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.role_group_name}
+                                          </option>
+                                      ))}
+                                  </select>
                               </div>
                           </div>
                           <div className="form-group row">
@@ -703,7 +722,7 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control"
                                       onChange={(e)=>{
-                                        setSelectRole3(e.target.value);
+                                        setSelectRoleInPopupInsertMainMenu(e.target.value);
                                         getMenuInDropDownAddSubMenu(e.target.value);
                                       }}
                                   >
