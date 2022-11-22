@@ -229,10 +229,11 @@ const SettingMenu = () => {
     };
 
     // Update Main Menu
-    const updateMainMenu = async (e) => {
+    const updateMainMenu = async (updateMainMenuID) => {
         e.preventDefault();
+        console.log(updateMainMenuID);
         try{
-            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${id}`,{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${updateMainMenuID}`,{
                 menu_name : insertMainMenuName,
                 index_menu : insertIndexMainMenu,
                 parent_id : 0,
