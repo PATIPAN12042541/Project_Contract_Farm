@@ -115,18 +115,13 @@ const MonitorStatus = () => {
                   className="card-header"
                   style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                 >
-                  <div className="col-9">
-                    <h3 className="card-title">ตรวจสอบสถานะการทำงาน</h3>
-                  </div>
-                  <div className="col-3">
-                    ค้นหา
-                    <input
-                      type="text"
-                      className="form-control rounded-0"
-                      placeholder="ค้นหา"
-                      onChange={(e) => searchItems2(e.target.value)}
-                    />
-                  </div>
+                  <h3 className="card-title">ตรวจสอบสถานะการทำงาน</h3>
+                  <input
+                    type="text"
+                    className="form-control rounded-0 right"
+                    placeholder="ค้นหา"
+                    onChange={(e) => searchItems2(e.target.value)}
+                  />
                 </div>
                 <div className="card-body">
                   <div className="row">
