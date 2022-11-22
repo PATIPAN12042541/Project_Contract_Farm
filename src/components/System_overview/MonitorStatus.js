@@ -116,12 +116,6 @@ const MonitorStatus = () => {
                   style={{ backgroundColor: "#8CC152", color: "#FFFFFF" }}
                 >
                   <h3 className="card-title">ตรวจสอบสถานะการทำงาน</h3>
-                  <input
-                    type="text"
-                    className="form-control rounded-0"
-                    placeholder="ค้นหา"
-                    onChange={(e) => searchItems2(e.target.value)}
-                  />
                 </div>
                 <div className="card-body">
                   <div className="row">
