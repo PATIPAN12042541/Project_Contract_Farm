@@ -423,7 +423,8 @@ const SettingMenu = () => {
                                                                         setUpdateSubMenuName(roleMenuParent.menu_name);
                                                                         setUpdateIndexSubMenu(roleMenuParent.index_menu);
                                                                         setUpdateSubRoleID(roleMenuParent.role_id);
-                                                                        setUpdateLinkMainMenuID(roleMenuParent.parent_id);                                                                       
+                                                                        setUpdateLinkMainMenuID(roleMenuParent.parent_id);  
+                                                                        setUpdateLinkSubMenu(roleMenuParent.link);                                                              
                                                                         setCheckedUpdateSubMainMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
@@ -831,9 +832,10 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      onSelect={updateSubRoleID}
+                                      defaultValue={updateSubRoleID}
+                                      onBlur={console.log("updateSubRoleID : "+updateSubRoleID)}
                                       onChange={(e)=>{
-                                        setSelectRole4(e.target.value);
+                                        setUpdateSubRoleID(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
                                       }}
                                   >
