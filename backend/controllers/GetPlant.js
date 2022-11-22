@@ -8,6 +8,7 @@ import Fertilizer from "../models/FertilizerModel.js";
 import PlantHarvestStatus_M from "../models/PlantHarvestStatus_M.js";
 import Type_Plant_Master from "../models/TypePlantMasterModel.js";
 import HarvestLogTransection from "../models/HarvestLogTransection_M.js";
+import ReportDefectChemical_M from "../models/ReportDefectChemical_M.js";
 
 export const getPlant = async (req, res) => {
   try {
@@ -162,6 +163,8 @@ export const postDetailPlant = async (req, res) => {
   }
 };
 
+
+/*--------------------- Delete for reset plant ---------------------*/
 export const DeletePlant = async (req, res) => {
   try {
     await PlantDetail.destroy({
@@ -175,7 +178,22 @@ export const DeletePlant = async (req, res) => {
   } catch (error) {
     res.json({ message: error.message });
   }
+
+  try {
+    await ReportDefectChemical_M.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: "Report Defect Deleted",
+    });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+
 };
+/*--------------------------------------------------------------------*/
 
 export const getDataImagePlant = async (req, res) => {
   try {
