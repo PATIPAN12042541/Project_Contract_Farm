@@ -215,7 +215,7 @@ const SettingMenu = () => {
                         text: "Save OK !",
                     });
                     Nav("/SettingMenu");
-                    window.location.reload();
+                    /*window.location.reload();*/
                     handleCloseInsertMainMenu();
                 })
                 .catch(function (error) {
