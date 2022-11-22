@@ -228,6 +228,33 @@ const SettingMenu = () => {
         }
     };
 
+    // Update Main Menu
+    const updateMainMenu = async (id) => {
+        try {
+            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${id}`, {
+                id : updateMainMenuID,
+                menu_name : updateMainMenuName,
+                index_menu : updateIndexMainMenu,
+                parent_id : 0,
+                link : updateLinkMainMenu,
+                status : checkedUpdateMainMenu,
+                role_id : updateRoleMainMenu
+            })
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+            });
+            Nav("/SettingMenu");
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+            });
+        }
+    }
+
       useEffect(() => {
         refreshToken();
         getRole();
@@ -743,7 +770,9 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      
+                      onClick={()=>{
+                        updateMainMenu(updateMainMenuID)
+                      }}
                   >
                       บันทึก
                   </button>
