@@ -801,7 +801,6 @@ const SettingMenu = () => {
                                   <Form.Control
                                       type="text"
                                       className="form-control"
-                                      placeholder='ชื่อเมนู'
                                       value={updateSubMenuName}
                                       onChange={(e)=>{
                                         setUpdateSubMenuName(e.target.value);
