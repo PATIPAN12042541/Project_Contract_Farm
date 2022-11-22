@@ -85,7 +85,7 @@ const Harvest_show = () => {
                             <td type="number">
                               <center>{priceSplitter(data.quantity)}</center>
                             </td>
-                            <td>{data.NAME}</td>
+                            <td>{data.NAME} Kg</td>
                             <td>
                               <center>{data.lastDate}</center>
                             </td>
