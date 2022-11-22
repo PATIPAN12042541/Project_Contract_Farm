@@ -1,5 +1,6 @@
 import express from "express";
 import {getMenusRoleMain,
+       getShowMenusRoleMain,
        getMenusRoleSubLV1,
        getMenusRoleSubLV1_2,
        createMainMenu,
@@ -12,7 +13,7 @@ const router = express.Router();
 router.get('/main/:role_id', getMenusRoleMain);
 router.get('/sublv1/:role_id', getMenusRoleSubLV1);
 
-// router.get('/main/show/:role_id', getMenusRoleMain_2);
+router.get('/main/show/:role_id', getShowMenusRoleMain);
 router.get('/main/:role_id/sublv1/:main_menu_id', getMenusRoleSubLV1_2);
 /****************************************/
 
