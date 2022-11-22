@@ -210,7 +210,6 @@ const SettingMenu = () => {
                         text: "Save OK !",
                     });
                     Nav("/SettingMenu");
-                    /*window.location.reload();*/
                     handleCloseInsertMainMenu();
                 })
                 .catch(function (error) {
@@ -228,6 +227,35 @@ const SettingMenu = () => {
             });
         }
     };
+
+    // Update Main Menu
+    const updateMainMenu = async (e) => {
+        e.preventDefault();
+        try{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${id}`,{
+                menu_name : insertMainMenuName,
+                index_menu : insertIndexMainMenu,
+                parent_id : 0,
+                link : insertMainLink,
+                status : checkedAddMainMenu,
+                role_id : insertMainRoleId
+            });
+
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+              });
+              Nav("/SettingMenu");
+              handleCloseUpdateMainMenu();
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+              });
+        }
+    }
 
       useEffect(() => {
         refreshToken();
@@ -535,7 +563,7 @@ const SettingMenu = () => {
               </Modal.Header>
 
               <Modal.Body>
-                  <Form className="form-horizontal" onSubmit={AddMainMenu}>
+                  <Form className="form-horizontal">
                       <div className="card-body">
                           <div className="form-group row">
                               <Form.Label className="col-sm-5 col-form-label">
@@ -744,6 +772,7 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={updateMainMenu}
                   >
                       บันทึก
                   </button>

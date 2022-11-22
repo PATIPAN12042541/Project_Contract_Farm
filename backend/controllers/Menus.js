@@ -79,3 +79,18 @@ export const createMainMenu = async(req, res) => {
         res.json(error)
     }
 }
+
+export const updateMainMenu = async (req, res) => {
+    try {
+        await Menus.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Type User Updated"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
+}
