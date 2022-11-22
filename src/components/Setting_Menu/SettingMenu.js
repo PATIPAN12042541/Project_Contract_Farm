@@ -194,11 +194,6 @@ const SettingMenu = () => {
     const AddMainMenu = async (e) => {
         e.preventDefault();
         try {
-            console.log("insertMainMenuName : "+insertMainMenuName);
-            console.log("insertIndexMainMenu : "+insertIndexMainMenu);
-            console.log("insertMainLink : "+insertMainLink);
-            console.log("checkedAddMainMenu : "+checkedAddMainMenu);
-            console.log("insertMainRoleId : "+insertMainRoleId);
             await axios
                 .post(`${process.env.REACT_APP_API_URL}/menu/createMainMenu`, {
                     menu_name : insertMainMenuName,
