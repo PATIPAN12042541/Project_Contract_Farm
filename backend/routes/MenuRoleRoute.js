@@ -2,7 +2,8 @@ import express from "express";
 import {getMenusRoleMain,
        getMenusRoleSubLV1,
        getMenusRoleSubLV1_2,
-       createMainMenu
+       createMainMenu,
+       updateMainMenu
        } from "../controllers/Menus.js";
 
 const router = express.Router();
@@ -15,6 +16,10 @@ router.get('/main/:role_id/sublv1/:main_menu_id', getMenusRoleSubLV1_2);
 
 /************** post data ***************/
 router.post('/createMainMenu', createMainMenu);
+/****************************************/
+
+/************** update data ***************/
+router.patch('/updateMainMenu/:id',updateMainMenu);
 /****************************************/
 
 export default router;
