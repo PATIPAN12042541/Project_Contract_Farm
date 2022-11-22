@@ -188,13 +188,6 @@ const SettingMenu = () => {
         return roleMenuParent.slice(firstPageIndex, lastPageIndex);
       }, [currentPageSubMenu,roleMenuParent]);// eslint-disable-line react-hooks/exhaustive-deps
 
-      useEffect(() => {
-        refreshToken();
-        getRole();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[]);
-
-
   return (
       <div className="content-wrapper">
           <section className="content-header">
