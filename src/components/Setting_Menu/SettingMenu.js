@@ -535,7 +535,7 @@ const SettingMenu = () => {
               </Modal.Header>
 
               <Modal.Body>
-                  <Form className="form-horizontal">
+                  <Form className="form-horizontal" onSubmit={AddMainMenu}>
                       <div className="card-body">
                           <div className="form-group row">
                               <Form.Label className="col-sm-5 col-form-label">
