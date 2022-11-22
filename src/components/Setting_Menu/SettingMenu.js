@@ -11,6 +11,7 @@ import jwt_decode from "jwt-decode";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Switch from "react-switch";
+import Swal from "sweetalert2";
 
 let PageSize = 5;
 let PageSizeSubMenu = 5;
@@ -210,7 +211,7 @@ const SettingMenu = () => {
                     });
                     Nav("/SettingMenu");
                     window.location.reload();
-                    handleCloseInsert();
+                    handleCloseInsertMainMenu();
                 })
                 .catch(function (error) {
                     Swal.fire({
