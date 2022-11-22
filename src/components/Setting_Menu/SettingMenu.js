@@ -22,9 +22,9 @@ const SettingMenu = () => {
     const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
-
     const [selectRoleMainMenu, setSelectRoleMainMenu] = useState([]);
     const [selectRoleSubMenu, setSelectRoleSubMenu] = useState([]);
+    const [updateMainMenuID, setUpdateMainMenuID] = useState("");
     
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
@@ -49,7 +49,6 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** Update Main Menu ***************/
-    const [updateMainMenuID, setUpdateMainMenuID] = useState("");
     const [updateMainMenuName, setUpdateMainMenuName] = useState("");
     const [updateIndexMainMenu, setUpdateIndexMainMenu] = useState("");
     const [updateLinkMainMenu, setUpdateLinkMainMenu] = useState("");
@@ -620,6 +619,24 @@ const SettingMenu = () => {
                                       value={updateIndexMainMenu}
                                       onChange={(e) => setUpdateIndexMainMenu(e.target.value)}
                                   />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Role
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                      defaultChecked={updateMainMenuID}
+                                  >
+                                      <option value={0}>--เลือก Role--</option>
+                                      {rolegroup.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.role_group_name}
+                                          </option>
+                                      ))}
+                                  </select>
                               </div>
                           </div>
                           <div className="form-group row">
