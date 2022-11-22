@@ -210,7 +210,7 @@ const SettingMenu = () => {
                         title: "Success",
                         text: "Save OK !",
                     });
-                    window.location.reload
+                    window.location.reload();
                     handleCloseInsertMainMenu();
                 })
                 .catch(function (error) {
@@ -246,7 +246,7 @@ const SettingMenu = () => {
                 title: "Success",
                 text: "Update Success!",
             });
-            window.location.reload
+            window.location.reload();
             handleCloseUpdateMainMenu();
         } catch (error) {
             Swal.fire({
