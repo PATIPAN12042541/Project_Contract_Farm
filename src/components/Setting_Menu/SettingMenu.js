@@ -406,7 +406,7 @@ const SettingMenu = () => {
                                               {currentTableDataSubMenu.map((roleMenuParent, index) => (
                                                   <tr key={roleMenuParent.id}>
                                                       <td>{index + 1}</td>
-                                                      <td>{roleMenuParent.menu_name}</td>
+                                                      <td>{roleMenuParent.menu_name}+{roleMenuParent.role_id}</td>
                                                       <td>{roleMenuParent.index_menu}</td>
                                                       <td>{roleMenuParent.link}</td>
                                                       <td>
