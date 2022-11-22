@@ -406,7 +406,7 @@ const SettingMenu = () => {
                                               {currentTableDataSubMenu.map((roleMenuParent, index) => (
                                                   <tr key={roleMenuParent.id}>
                                                       <td>{index + 1}</td>
-                                                      <td>{roleMenuParent.menu_name}+2+{roleMenuParent.role_id}</td>
+                                                      <td>{roleMenuParent.menu_name}</td>
                                                       <td>{roleMenuParent.index_menu}</td>
                                                       <td>{roleMenuParent.link}</td>
                                                       <td>
@@ -832,7 +832,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      onSelect={updateSubRoleID}
+                                      defaultValue={updateSubRoleID}
                                       onChange={(e)=>{
                                         setUpdateSubRoleID(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
