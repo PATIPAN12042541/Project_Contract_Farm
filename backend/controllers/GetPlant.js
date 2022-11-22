@@ -476,6 +476,11 @@ export const DeletePlantData = async (req, res) => {
         id_plant: req.params.id,
       },
     });
+    await ReportDefectChemical_M.destroy({
+      where: {
+        id_plant: req.params.id,
+      },
+    });
     res.json({
       message: "Plant Deleted",
     });

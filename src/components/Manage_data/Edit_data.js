@@ -264,11 +264,7 @@ const Edit_data = (props) => {
         }
       );
       getPlant();
-      Swal.fire(
-        "Deleted!",
-        "Your file has been deleted." + { id_delete },
-        "success"
-      );
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
     } catch (error) {
       Swal.fire({
         icon: "error",
