@@ -832,9 +832,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      defaultValue={(e)=>{
-                                        updateSubRoleID
-                                      }}
+                                      defaultValue={updateSubRoleID}
                                       onChange={(e)=>{
                                         setUpdateSubRoleID(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
