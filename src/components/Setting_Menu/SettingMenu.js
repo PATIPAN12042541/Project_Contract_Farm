@@ -772,7 +772,9 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
-                      onClick={updateMainMenu(updateMainMenuID)}
+                      onClick={(e)=>{
+                        updateMainMenu(updateMainMenuID)
+                      }}
                   >
                       บันทึก
                   </button>
