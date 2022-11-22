@@ -368,6 +368,7 @@ const SettingMenu = () => {
                                           className="form-control col-md-9"
                                           onChange={(e)=>{
                                             getSubMenuByRole(selectRole2,e.target.value);
+                                            setRoleMenuParentID(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือกเมนูหลักตาม Role--</option>
@@ -855,6 +856,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
+                                      defaultValue={roleMenuParentID}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                       {roleMenuMainInDropDownUpdateSubMenu.map((item) => (
