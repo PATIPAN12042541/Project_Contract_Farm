@@ -44,7 +44,6 @@ export const getMenusRoleSubLV1_2 = async (req, res) => {
                                                   'from role_menu '+
                                                   'where role_id = :role_id '+
                                                   'and parent_id = :main_menu_id ' +
-                                                  'and status = 1 ' +
                                                   'order by index_menu asc',
                                                   {
                                                     replacements : {role_id : req.params.role_id,
