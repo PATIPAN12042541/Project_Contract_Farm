@@ -308,7 +308,7 @@ const SettingMenu = () => {
             console.log("updateSubMenuID "+updateSubMenuID)
             console.log("updateSubMenuName "+updateSubMenuName)
             console.log("updateIndexSubMenu "+updateIndexSubMenu)
-            console.log("updateSubParentID "+updateSubParentID == null?roleMenuParentID:updateSubParentID)
+            console.log("updateSubParentID "+roleMenuParentID)
             console.log("updateLinkSubMenu "+updateLinkSubMenu)
             console.log("checkedUpdateSubMainMenu "+checkedUpdateSubMainMenu)
             console.log("updateSubRoleID "+updateSubRoleID)
