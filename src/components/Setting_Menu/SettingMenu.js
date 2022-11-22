@@ -50,6 +50,14 @@ const SettingMenu = () => {
     const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
     /******************************************/
 
+    /* VAR MODAL */
+    /********** insert Main Menu ***************/
+    const [checkedUpdateMainMenu, setCheckedUpdateMainMenu] = useState(false);
+    const [showUpdateMainMenu, setShowUpdateMainMenu] = useState(false);
+    const handleCloseUpdateMainMenu = () => setShowUpdateMainMenu(false);
+    const handleShowUpdateMainMenu = () => setShowUpdateMainMenu(true);
+    /******************************************/
+
         /* VAR MODAL */
     /********** insert Sub Menu ***************/
     const [selectRole3, setSelectRole3] = useState([]);
@@ -230,11 +238,14 @@ const SettingMenu = () => {
                                                       <td>
                                                           <center>
                                                               <Link
-                                                                  to={`#`}
+                                                                  to={``}
                                                               >
                                                                   <Button
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
+                                                                      onClick={(e)=>{
+                                                                        handleShowUpdateMainMenu();
+                                                                      }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
                                                                   </Button>
@@ -489,6 +500,93 @@ const SettingMenu = () => {
               <Modal.Footer>
                   <button
                       onClick={handleCloseInsertMainMenu}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          {/* Modal Update Main Menu */}
+          <Modal show={showUpdateMainMenu} onHide={handleCloseUpdateMainMenu}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>แก้ไขเมนูหลัก</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedUpdateMainMenu(!checkedUpdateMainMenu);
+                                      }}
+                                      checked={checkedUpdateMainMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseUpdateMainMenu}
                       className="btn btn-default"
                       style={{ float: "left" }}
                   >
