@@ -835,6 +835,7 @@ const SettingMenu = () => {
                                       defaultValue={updateSubRoleID}
                                       onLoad={()=>{
                                         console.log("updateSubRoleID 1 : "+updateSubRoleID);
+                                        console.log("updateSubRoleID 1 : "+updateSubRoleID);
                                         if(updateSubRoleID !== null){
                                             console.log("updateSubRoleID 2 : "+updateSubRoleID);
                                             getMenuInDropDownUpdateSubMenu(updateSubRoleID);
