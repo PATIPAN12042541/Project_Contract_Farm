@@ -72,6 +72,7 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** Upate Sub Menu ***************/
+    const [selectRoleInPopupUpdateMainMenu, setSelectRoleInPopupUpdateMainMenu] = useState([]);
     const [updateSubMenuID, setUpdateSubMenuID] = useState("");
     const [updateSubMenuName, setUpdateSubMenuName] = useState("");
     const [updateIndexSubMenu, setUpdateIndexSubMenu] = useState("");
@@ -856,7 +857,7 @@ const SettingMenu = () => {
                                       defaultValue={updateSubRoleID}
                                       onChange={(e)=>{
                                         setUpdateSubRoleID(e.target.value);
-                                        getMenuInDropDownUpdateSubMenu(e.target.value);
+                                        //getMenuInDropDownUpdateSubMenu(e.target.value);
                                       }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
