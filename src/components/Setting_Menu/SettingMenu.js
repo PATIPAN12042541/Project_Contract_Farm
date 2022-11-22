@@ -50,6 +50,11 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** Update Main Menu ***************/
+    const [updateMainMenuID, setUpdateMainMenuID] = useState("");
+    const [updateMainMenuName, setUpdateMainMenuName] = useState("");
+    const [updateIndexMainMenu, setUpdateIndexMainMenu] = useState("");
+    const [updateLinkMainMenu, setUpdateLinkMainMenu] = useState("");
+    const [updateMainMenuRoleID, setUpdateMainMenuRoleID] = useState("");
     const [checkedUpdateMainMenu, setCheckedUpdateMainMenu] = useState(false);
     const [showUpdateMainMenu, setShowUpdateMainMenu] = useState(false);
     const handleCloseUpdateMainMenu = () => setShowUpdateMainMenu(false);
@@ -273,6 +278,11 @@ const SettingMenu = () => {
                                                                       style={{ color: "#ffff" }}
                                                                       onClick={(e)=>{
                                                                         handleShowUpdateMainMenu();
+                                                                        setUpdateMainMenuID(roleMenuMain.id);
+                                                                        setUpdateMainMenuName(roleMenuMain.menu_name);
+                                                                        setUpdateIndexMainMenu(roleMenuMain.index_menu);
+                                                                        setUpdateLinkMainMenu(roleMenuMain.link);
+                                                                        setCheckedUpdateMainMenu(roleMenuMain.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
@@ -570,6 +580,8 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ชื่อเมนู'
+                                      value={updateMenuName}
+                                      onChange={(e) => setUpdateMainMenuName(e.target.value)}
                                   />
                               </div>
                           </div>
@@ -582,6 +594,8 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ลำดับของเมนู'
+                                      value={updateIndexMainMenu}
+                                      onChange={(e) => setUpdateIndexMainMenu(e.target.value)}
                                   />
                               </div>
                           </div>
@@ -594,6 +608,8 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='Link'
+                                      value={updateLinkMainMenu}
+                                      onChange={(e) => setUpdateLinkMainMenu(e.target.value)}
                                   />
                               </div>
                           </div>
