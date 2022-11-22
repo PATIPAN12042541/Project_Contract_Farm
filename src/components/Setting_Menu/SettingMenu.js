@@ -54,7 +54,6 @@ const SettingMenu = () => {
     const [updateMainMenuName, setUpdateMainMenuName] = useState("");
     const [updateIndexMainMenu, setUpdateIndexMainMenu] = useState("");
     const [updateLinkMainMenu, setUpdateLinkMainMenu] = useState("");
-    const [updateMainMenuRoleID, setUpdateMainMenuRoleID] = useState("");
     const [checkedUpdateMainMenu, setCheckedUpdateMainMenu] = useState(false);
     const [showUpdateMainMenu, setShowUpdateMainMenu] = useState(false);
     const handleCloseUpdateMainMenu = () => setShowUpdateMainMenu(false);
@@ -75,10 +74,16 @@ const SettingMenu = () => {
     /* VAR MODAL */
     /********** Upate Sub Menu ***************/
     const [selectRole4, setSelectRole4] = useState([]);
+    const [updateSubMenuID, setUpdateSubMenuID] = useState("");
+    const [updateSubMenuName, setUpdateSubMenuName] = useState("");
+    const [updateIndexSubMenu, setUpdateIndexSubMenu] = useState("");
+    const [updateSubRoleID, setUpdateSubRoleID] = useState("");
+    const [updateLinkMainMenuID, setUpdateLinkMainMenuID] = useState("");
+    const [updateLinkSubMenu, setUpdateLinkSubMenu] = useState("");
+    const [checkedUpdateSubMenu, setCheckedUpdateSubMainMenu] = useState(false);
     const [rolegroupPopupUpdateMainMenu, setRoleGroupPopupUpdateMainMenu] = useState([]);
     const [roleMenuMainInDropDownUpdateSubMenu, setRoleMenuMainInDropDownUpdateSubMenu] = useState([]);
     const [showUpdateSubMenu, setShowUpdateSubMenu] = useState(false);
-    const [checkedUpdateSubMenu, setCheckedUpdateSubMainMenu] = useState(false);
     const handleCloseUpdateSubMenu = () => setShowUpdateSubMenu(false);
     const handleShowUpdateSubMenu = () => setShowUpdateSubMenu(true);
     /******************************************/
@@ -414,6 +419,12 @@ const SettingMenu = () => {
                                                                       style={{ color: "#ffff" }}
                                                                       onClick={(e)=>{
                                                                         handleShowUpdateSubMenu();
+                                                                        updateSubMenuID(roleMenuParent.id);
+                                                                        updateSubMenuName(roleMenuParent.menu_name);
+                                                                        updateIndexSubMenu(roleMenuParent.index_menu);
+                                                                        //updateSubRoleID(roleMenuParent.role_id);
+                                                                        updateLinkMainMenuID(roleMenuParent.parent_id);                                                                       
+                                                                        checkedUpdateSubMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
@@ -791,6 +802,10 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ชื่อเมนู'
+                                      value={updateSubMenuName}
+                                      onChange={(e)=>{
+                                        setUpdateSubMenuName(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -803,6 +818,10 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ลำดับของเมนู'
+                                      value={updateIndexSubMenu}
+                                      onChange={(e)=>{
+                                        setUpdateIndexSubMenu(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -853,6 +872,10 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='Link'
+                                      value={updateLinkSubMenu}
+                                      onChange={(e)=>{
+                                        setUpdateLinkSubMenu(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
