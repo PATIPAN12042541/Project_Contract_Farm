@@ -247,6 +247,7 @@ const SettingMenu = () => {
             });
             Nav("/SettingMenu");
             getMenu(updateRoleMainMenu);
+            handleCloseUpdateMainMenu();
         } catch (error) {
             Swal.fire({
                 icon: "error",
