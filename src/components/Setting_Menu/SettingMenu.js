@@ -834,7 +834,7 @@ const SettingMenu = () => {
                                       className="form-control"
                                       onSelect={updateSubRoleID}
                                       onChange={(e)=>{
-                                        setSelectRole4(e.target.value);
+                                        setUpdateSubRoleID(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
                                       }}
                                   >
