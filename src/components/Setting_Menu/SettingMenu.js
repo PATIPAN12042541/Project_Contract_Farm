@@ -98,6 +98,14 @@ const SettingMenu = () => {
     };
 
     //Drop Down Role
+    const getRole = async () => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+          );
+          setRoleGroup(response.data);
+      };
+
+    //Drop Down Role Popup Insert Sub Menu
     const getRoleInPopupAddMainMenu = async () => {
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
@@ -105,12 +113,12 @@ const SettingMenu = () => {
           setRoleGroupPopupAddMainMenu(response.data);
       };
 
-    //Drop Down Role Popup Insert Sub Menu
-    const getRole = async () => {
+    //Drop Down Role Popup Update Sub Menu
+    const getRoleInPopupUpdateMainMenu = async () => {
         const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/role_group/roleAll`
           );
-          setRoleGroup(response.data);
+          setRoleGroupPopupUpdateMainMenu(response.data);
       };
 
     //Load Menu By Role
@@ -164,6 +172,7 @@ const SettingMenu = () => {
         refreshToken();
         getRole();
         getRoleInPopupAddMainMenu();
+        getRoleInPopupUpdateMainMenu();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
