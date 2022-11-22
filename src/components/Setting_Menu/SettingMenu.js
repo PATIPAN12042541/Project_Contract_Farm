@@ -521,13 +521,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      onChange={(e)=>{
-                                        setSelectRoleInPopupInsertMainMenu(e.target.value);
-                                        getMenuInDropDownAddSubMenu(e.target.value);
-                                      }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
-                                      {rolegroupPopupAddMainMenu.map((item) => (
+                                      {rolegroup.map((item) => (
                                           <option key={item.id} value={item.id}>
                                               {item.role_group_name}
                                           </option>
