@@ -5,7 +5,8 @@ import {getMenusRoleMain,
        getMenusRoleSubLV1_2,
        createMainMenu,
        updateMainMenu,
-       createSubMenu
+       createSubMenu,
+       updateSubMenu
        } from "../controllers/Menus.js";
 
 const router = express.Router();
@@ -25,6 +26,7 @@ router.post('/createSubMenu', createSubMenu);
 
 /************** update data ***************/
 router.patch('/updateMainMenu/:id',updateMainMenu);
+router.patch('/updateSubMenu/:id',updateSubMenu);
 /****************************************/
 
 export default router;

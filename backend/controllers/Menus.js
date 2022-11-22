@@ -105,7 +105,7 @@ export const updateMainMenu = async (req, res) => {
             }
         });
         res.json({
-            "message": "Type User Updated"
+            "message": "Main Menu Updated"
         });
     } catch (error) {
         res.json({ message: error.message });
@@ -133,4 +133,19 @@ export const createSubMenu = async(req, res) => {
     } catch (error) {
         res.json(error)
     }
+}
+
+export const updateSubMenu = async (req, res) => {
+    try {
+        await Menus.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            "message": "Sub Menu Updated"
+        });
+    } catch (error) {
+        res.json({ message: error.message });
+    }  
 }
