@@ -1,6 +1,5 @@
 import express from "express";
 import {getMenusRoleMain,
-       getMenusRoleMain_2,
        getMenusRoleSubLV1,
        getMenusRoleSubLV1_2,
        createMainMenu,
