@@ -60,8 +60,8 @@ const Edit_data = (props) => {
   const [startdate, setStartDate] = useState();
   const [enddate, setEndDate] = useState();
   const [userid, setUserId] = useState();
-  /***** set edit data *****/
 
+  /***** set edit data *****/
   const [edit_plant_id, setPlantId] = useState();
   const [edit_name_plant, setEditNamePlant] = useState();
   const [edit_name_user, setEditNameUser] = useState();
