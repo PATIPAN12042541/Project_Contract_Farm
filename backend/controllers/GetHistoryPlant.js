@@ -183,11 +183,16 @@ export const getHarvestDetail = async (req, res) => {
   try {
     const harvest = await db.query(
       "SELECT CONCAT( zone_plant.zone_name,'-',plant_detail.id_name_plant) AS NAME_ZONE," +
-        "      plant_master_detail.plant_name," +
-        "      plant_harvest_status.Path_img," +
-        "      plant_harvest_status.quantity," +
-        "      CONCAT(user.name,' ',user.last_name ) AS NAME, " +
-        "      DATE_FORMAT(plant_harvest_status.updatedAt, '%d-%m-%Y') AS lastDate " +
+        "        plant_master_detail.plant_name," +
+        "        plant_harvest_status.Path_img," +
+        "        plant_harvest_status.quantity," +
+        "        CONCAT(user.name,' ',user.last_name ) AS NAME," +
+        "        DATE_FORMAT(plant_harvest_status.updatedAt, '%d-%m-%Y') AS lastDate ," +
+        "        DATE_FORMAT(plant.end_date_plant, '%d-%m-%Y') AS end_date_plant," +
+        "        CASE WHEN  DATE_FORMAT(plant_harvest_status.updatedAt, '%Y-%m-%d')  < plant.end_date_plant " +
+        "		          THEN  'Not Okay' " +
+        "              ELSE  'Okay' " +
+        "          END AS check_harvest " +
         "FROM plant_harvest_status " +
         "LEFT JOIN plant ON plant_harvest_status.plant_id_data = plant.id_plant " +
         "LEFT JOIN plant_detail ON plant.id_plant = plant_detail.id " +

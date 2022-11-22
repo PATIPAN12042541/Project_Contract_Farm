@@ -51,6 +51,7 @@ const Harvest_show = () => {
                           <th>#</th>
                           <th>รหัสเเปลง</th>
                           <th>ชื่อแปลง</th>
+                          <th>วันที่เพาะปลูก</th>
                           <th>
                             <center>ผลงาน</center>
                           </th>
@@ -59,7 +60,10 @@ const Harvest_show = () => {
                           </th>
                           <th>ผู้รับผิดชอบ</th>
                           <th>
-                            <center>วันที่ล่าสุด</center>
+                            <center>วันที่เก็บเกี่ยว</center>
+                          </th>
+                          <th>
+                            <center>สถานะ</center>
                           </th>
                         </tr>
                       </thead>
@@ -69,6 +73,7 @@ const Harvest_show = () => {
                             <td>{index + 1}</td>
                             <td>{data.NAME_ZONE}</td>
                             <td>{data.plant_name}</td>
+                            <td>{data.end_date_plant}</td>
                             <td>
                               <center>
                                 <Zoom>
@@ -89,6 +94,7 @@ const Harvest_show = () => {
                             <td>
                               <center>{data.lastDate}</center>
                             </td>
+                            <td>{data.check_harvest}</td>
                           </tr>
                         ))}
                       </tbody>
