@@ -246,6 +246,7 @@ const SettingMenu = () => {
                 text: "Update Success!",
             });
             Nav("/SettingMenu");
+            getMenu(updateRoleMainMenu);
         } catch (error) {
             Swal.fire({
                 icon: "error",
