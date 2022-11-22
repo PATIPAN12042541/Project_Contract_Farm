@@ -422,9 +422,9 @@ const SettingMenu = () => {
                                                                         setUpdateSubMenuID(roleMenuParent.id);
                                                                         setUpdateSubMenuName(roleMenuParent.menu_name);
                                                                         setUpdateIndexSubMenu(roleMenuParent.index_menu);
-                                                                        //updateSubRoleID(roleMenuParent.role_id);
+                                                                        setUpdateSubRoleID(roleMenuParent.role_id);
                                                                         setUpdateLinkMainMenuID(roleMenuParent.parent_id);                                                                       
-                                                                        checkedUpdateSubMenu(roleMenuParent.status);
+                                                                        setCheckedUpdateSubMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
@@ -831,6 +831,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
+                                      onSelect={updateSubRoleID}
                                       onChange={(e)=>{
                                         setSelectRole4(e.target.value);
                                         getMenuInDropDownUpdateSubMenu(e.target.value);
