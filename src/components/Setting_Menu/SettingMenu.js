@@ -210,7 +210,7 @@ const SettingMenu = () => {
                         title: "Success",
                         text: "Save OK !",
                     });
-                    Nav("/SettingMenu");
+                    window.location.reload
                     handleCloseInsertMainMenu();
                 })
                 .catch(function (error) {
@@ -246,8 +246,7 @@ const SettingMenu = () => {
                 title: "Success",
                 text: "Update Success!",
             });
-            Nav("/SettingMenu");
-            getMenu(updateRoleMainMenu);
+            window.location.reload
             handleCloseUpdateMainMenu();
         } catch (error) {
             Swal.fire({
