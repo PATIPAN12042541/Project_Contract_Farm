@@ -306,6 +306,12 @@ const SettingMenu = () => {
     const updateSubMenu = async (id) => {
         try {
             console.log(updateSubMenuID)
+            console.log(updateSubMenuName)
+            console.log(updateIndexSubMenu)
+            console.log(updateSubParentID)
+            console.log(updateLinkSubMenu)
+            console.log(checkedUpdateSubMainMenu)
+            console.log(updateSubRoleID)
             await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateSubMenu/${id}`, {
                 id : updateSubMenuID,
                 menu_name : updateSubMenuName,
