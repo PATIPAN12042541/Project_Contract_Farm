@@ -320,8 +320,8 @@ const SettingMenu = () => {
                 title: "Success",
                 text: "Update Success!",
             });
-            window.location.reload();
-            handleCloseInsertSubMenu();
+            /*window.location.reload();
+            handleCloseInsertSubMenu();*/
         } catch (error) {
             Swal.fire({
                 icon: "error",
