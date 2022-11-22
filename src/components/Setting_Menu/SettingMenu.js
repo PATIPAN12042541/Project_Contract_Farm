@@ -424,7 +424,7 @@ const SettingMenu = () => {
                                                                         setUpdateIndexSubMenu(roleMenuParent.index_menu);
                                                                         setUpdateSubRoleID(roleMenuParent.role_id);
                                                                         setUpdateLinkMainMenuID(roleMenuParent.parent_id);                                                                       
-                                                                        setCheckedUpdateSubMenu(roleMenuParent.status);
+                                                                        setCheckedUpdateSubMainMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
