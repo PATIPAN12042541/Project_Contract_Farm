@@ -140,7 +140,7 @@ const SettingMenu = () => {
     const getMenu = async (id) => {
         const response = await axios.get(
             // `${process.env.REACT_APP_API_URL}/menu/main/show/${id}`
-            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
+            `${process.env.REACT_APP_API_URL}/menu/main/show/${id}`
           );
           setRoleMenuMain(response.data);
       };
