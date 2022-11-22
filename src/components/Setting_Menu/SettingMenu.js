@@ -71,6 +71,12 @@ const SettingMenu = () => {
     const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
     const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
     const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
+
+    const [insertSubMenuName, setInsertSubMenuName] = useState("");
+    const [insertIndexSubMenu, setInsertIndexSubMenu] = useState("");
+    const [insertSubParentId, setInsertSubParentId] = useState("");
+    const [insertSubLink, setInsertSubLink] = useState("");
+    const [insertSubRoleId, setInsertSubRoleId] = useState("");
     const [checkedAddSubMenu, setCheckedAddSubMainMenu] = useState(false);
     const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
     const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
@@ -256,6 +262,44 @@ const SettingMenu = () => {
             });
         }
     }
+
+    // Add New Sub Main Menu
+    const AddSubMenu = async (e) => {
+        e.preventDefault();
+        try {
+            await axios
+                .post(`${process.env.REACT_APP_API_URL}/menu/createSubMenu`, {
+                    menu_name : insertSubMenuName,
+                    index_menu : insertIndexSubMenu,
+                    parent_id : insertSubParentId,
+                    link : insertSubLink,
+                    status : checkedAddSubMenu,
+                    role_id : insertSubRoleId
+                })
+                .then(function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Save OK !",
+                    });
+                    window.location.reload();
+                    handleCloseInsertSubMenu();
+                })
+                .catch(function (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: error.response.data.msg,
+                        text: "Save Error!",
+                    });
+                });
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: error.response.data.msg,
+                text: "Save Error!",
+            });
+        }
+    };
 
       useEffect(() => {
         refreshToken();
@@ -805,6 +849,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ชื่อเมนู'
+                                      onChange={(e)=>{
+                                        setInsertSubMenuName(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -817,6 +864,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ลำดับของเมนู'
+                                      onChange={(e)=>{
+                                        setInsertIndexSubMenu(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -829,6 +879,7 @@ const SettingMenu = () => {
                                       className="form-control"
                                       onChange={(e)=>{
                                         setSelectRoleInPopupInsertMainMenu(e.target.value);
+                                        setInsertSubRoleId(e.target.value);
                                         getMenuInDropDownAddSubMenu(e.target.value);
                                       }}
                                   >
@@ -848,6 +899,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
+                                      onChange={(e)=>{
+                                        setInsertSubParentId(e.target.value);
+                                      }}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                       {roleMenuMainInDropDownAddSubMenu.map((item) => (
@@ -867,6 +921,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='Link'
+                                      onChange={(e)=>{
+                                        setInsertSubLink(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -900,6 +957,7 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={AddSubMenu}
                   >
                       บันทึก
                   </button>
