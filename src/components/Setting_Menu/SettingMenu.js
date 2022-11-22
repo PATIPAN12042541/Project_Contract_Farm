@@ -369,6 +369,7 @@ const SettingMenu = () => {
                                           onChange={(e)=>{
                                             getSubMenuByRole(selectRole2,e.target.value);
                                             setRoleMenuParentID(e.target.value);
+                                            getMenuInDropDownUpdateSubMenu(e.target.value);
                                           }}
                                       >
                                           <option value={0}>--เลือกเมนูหลักตาม Role--</option>
