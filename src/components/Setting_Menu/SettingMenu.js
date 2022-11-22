@@ -420,11 +420,12 @@ const SettingMenu = () => {
                                                                       style={{ color: "#ffff" }}
                                                                       onClick={(e)=>{
                                                                         handleShowUpdateSubMenu();
+                                                                        getMenuInDropDownUpdateSubMenu(roleMenuParent.role_id);
+
                                                                         setUpdateSubMenuID(roleMenuParent.id);
                                                                         setUpdateSubMenuName(roleMenuParent.menu_name);
                                                                         setUpdateIndexSubMenu(roleMenuParent.index_menu);
                                                                         setUpdateSubRoleID(roleMenuParent.role_id);
-                                                                        getMenuInDropDownUpdateSubMenu(roleMenuParent.role_id);
                                                                         setUpdateLinkMainMenuID(roleMenuParent.parent_id);  
                                                                         setUpdateLinkSubMenu(roleMenuParent.link);                                                              
                                                                         setCheckedUpdateSubMainMenu(roleMenuParent.status = 1?true:false);
