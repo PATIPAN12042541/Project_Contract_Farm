@@ -1,9 +1,9 @@
 .Okay {
     color: green;
-        font-weight: lighter;
+        font-weight: bold;
 }
 
 .NotOkay {
     color: red;
-    font-weight: lighter;
+    font-weight: bold;
 }
