@@ -65,7 +65,7 @@ export const createMainMenu = async(req, res) => {
             status,
             role_id } = req.body;
     try {
-        await RoleMenu.create({
+        await Menus.create({
 
             menu_name : menu_name,
             index_menu : index_menu,
