@@ -74,7 +74,7 @@ const SettingMenu = () => {
 
     const [insertSubMenuName, setInsertSubMenuName] = useState("");
     const [insertIndexSubMenu, setInsertIndexSubMenu] = useState("");
-    const [insertSubParentId, setInsertSubParentId] = useState("");
+    const [insertSubParentID, setInsertSubParentID] = useState("");
     const [insertSubLink, setInsertSubLink] = useState("");
     const [insertSubRoleId, setInsertSubRoleId] = useState("");
     const [checkedAddSubMenu, setCheckedAddSubMainMenu] = useState(false);
@@ -88,6 +88,7 @@ const SettingMenu = () => {
     const [updateSubMenuID, setUpdateSubMenuID] = useState("");
     const [updateSubMenuName, setUpdateSubMenuName] = useState("");
     const [updateIndexSubMenu, setUpdateIndexSubMenu] = useState("");
+    const [updateSubParentID, setUpdateSubParentID] = useState("");
     const [updateSubRoleID, setUpdateSubRoleID] = useState("");
     const [updateLinkMainMenuID, setUpdateLinkMainMenuID] = useState("");
     const [updateLinkSubMenu, setUpdateLinkSubMenu] = useState("");
@@ -271,7 +272,7 @@ const SettingMenu = () => {
                 .post(`${process.env.REACT_APP_API_URL}/menu/createSubMenu`, {
                     menu_name : insertSubMenuName,
                     index_menu : insertIndexSubMenu,
-                    parent_id : insertSubParentId,
+                    parent_id : insertSubParentID,
                     link : insertSubLink,
                     status : checkedAddSubMenu,
                     role_id : insertSubRoleId
@@ -300,6 +301,35 @@ const SettingMenu = () => {
             });
         }
     };
+
+    // Update Sub Menu
+    const updateSubMenu = async (id) => {
+        try {
+            console.log(updateSubMenuID)
+            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateSubMenu/${id}`, {
+                id : updateSubMenuID,
+                menu_name : updateSubMenuName,
+                index_menu : updateIndexSubMenu,
+                parent_id : updateSubParentID,
+                link : updateLinkSubMenu,
+                status : checkedUpdateSubMainMenu,
+                role_id : updateSubRoleID
+            })
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Success!",
+            });
+            /*window.location.reload();
+            handleCloseInsertSubMenu();*/
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Update Fail!",
+                text: error,
+            });
+        }
+    }
 
       useEffect(() => {
         refreshToken();
@@ -900,7 +930,7 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control"
                                       onChange={(e)=>{
-                                        setInsertSubParentId(e.target.value);
+                                        setInsertSubParentID(e.target.value);
                                       }}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
@@ -1039,6 +1069,9 @@ const SettingMenu = () => {
                                   <select
                                       className="form-control"
                                       defaultValue={roleMenuParentID}
+                                      onChange={(e)=>{
+                                        setUpdateSubParentID(e.target.value);
+                                      }}
                                   >
                                       <option value={0}>--เลือกเมนูหลักตาม Role--</option>
                                       {roleMenuMainInDropDownUpdateSubMenu.map((item) => (
@@ -1095,6 +1128,9 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={()=>{
+                        updateSubMenu(updateSubMenuID);
+                      }}
                   >
                       บันทึก
                   </button>
