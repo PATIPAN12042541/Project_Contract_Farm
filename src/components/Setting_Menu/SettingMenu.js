@@ -228,35 +228,6 @@ const SettingMenu = () => {
         }
     };
 
-    // Update Main Menu
-    const updateMainMenu = async (id) => {
-        e.preventDefault();
-        try{
-            await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateMainMenu/${id}`,{
-                menu_name : insertMainMenuName,
-                index_menu : insertIndexMainMenu,
-                parent_id : 0,
-                link : insertMainLink,
-                status : checkedAddMainMenu,
-                role_id : insertMainRoleId
-            });
-
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Update Success!",
-              });
-              Nav("/SettingMenu");
-              handleCloseUpdateMainMenu();
-        }catch(error){
-            Swal.fire({
-                icon: "error",
-                title: "Update Fail!",
-                text: error,
-              });
-        }
-    }
-
       useEffect(() => {
         refreshToken();
         getRole();
