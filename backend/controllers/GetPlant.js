@@ -176,7 +176,7 @@ export const DeletePlant = async (req, res) => {
 
     await ReportDefectChemical_M.destroy({
       where: {
-        id: req.params.id,
+        id_plant: req.params.id,
       },
     });
 
