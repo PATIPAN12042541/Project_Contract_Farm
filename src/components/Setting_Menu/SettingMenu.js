@@ -580,7 +580,7 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ชื่อเมนู'
-                                      value={updateMenuName}
+                                      value={updateMainMenuName}
                                       onChange={(e) => setUpdateMainMenuName(e.target.value)}
                                   />
                               </div>
