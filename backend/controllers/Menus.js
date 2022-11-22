@@ -56,3 +56,26 @@ export const getMenusRoleSubLV1_2 = async (req, res) => {
         res.json({ message: error.message });
     } 
 }
+
+export const createMainMenu = async(req, res) => {
+    const { menu_name,
+            index_menu,
+            parent_id,
+            link,
+            status,
+            role_id } = req.body;
+    try {
+        await RoleMenu.create({
+
+            menu_name : menu_name,
+            index_menu : index_menu,
+            parent_id : parent_id,
+            link : link,
+            status : status,
+            role_id : role_id
+        });
+        res.json({msg: "Create Successful"});
+    } catch (error) {
+        res.json(error)
+    }
+}

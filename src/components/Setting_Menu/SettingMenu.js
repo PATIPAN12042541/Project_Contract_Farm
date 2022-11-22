@@ -42,8 +42,13 @@ const SettingMenu = () => {
 
     /* VAR MODAL */
     /********** insert Main Menu ***************/
-    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
     const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
+    const [insertMainMenuName, setInsertMainMenuName] = useState("");
+    const [insertIndexMainMenu, setInsertIndexMainMenu] = useState("");
+    const [insertMainParentId, setInsertMainParentId] = useState("");
+    const [insertMainLink, setInsertMainLink] = useState("");
+    const [insertMainRoleId, setInsertMainRoleId] = useState("");
+    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
     const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
     const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
     /******************************************/
@@ -71,7 +76,7 @@ const SettingMenu = () => {
     /******************************************/
 
     /* VAR MODAL */
-    /********** Upate Sub Menu ***************/
+    /********** Update Sub Menu ***************/
     const [selectRoleInPopupUpdateMainMenu, setSelectRoleInPopupUpdateMainMenu] = useState([]);
     const [updateSubMenuID, setUpdateSubMenuID] = useState("");
     const [updateSubMenuName, setUpdateSubMenuName] = useState("");
@@ -177,6 +182,52 @@ const SettingMenu = () => {
         return roleMenuMain.slice(firstPageIndex, lastPageIndex);
       }, [currentPage,roleMenuMain]);// eslint-disable-line react-hooks/exhaustive-deps
 
+    // Pageing SubMenu
+    const currentTableDataSubMenu = useMemo(() => {
+        const firstPageIndex = (currentPageSubMenu - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        return roleMenuParent.slice(firstPageIndex, lastPageIndex);
+      }, [currentPageSubMenu,roleMenuParent]);// eslint-disable-line react-hooks/exhaustive-deps
+
+    // Add New Main Menu
+    const AddMainMenu = async (e) => {
+        e.preventDefault();
+        try {
+            await axios
+                .post(`${process.env.REACT_APP_API_URL}/menu/createMainMenu`, {
+                    menu_name : insertMainMenuName,
+                    index_menu : insertIndexMainMenu,
+                    parent_id : 0,
+                    link : insertMainLink,
+                    status : checkedAddMainMenu,
+                    role_id : insertMainRoleId
+                })
+                .then(function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Save OK !",
+                    });
+                    Nav("/SettingMenu");
+                    window.location.reload();
+                    handleCloseInsert();
+                })
+                .catch(function (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: error.response.data.msg,
+                        text: "Save Error!",
+                    });
+                });
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: error.response.data.msg,
+                text: "Save Error!",
+            });
+        }
+    };
+
       useEffect(() => {
         refreshToken();
         getRole();
@@ -185,12 +236,6 @@ const SettingMenu = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
-      // Pageing SubMenu
-    const currentTableDataSubMenu = useMemo(() => {
-        const firstPageIndex = (currentPageSubMenu - 1) * PageSize;
-        const lastPageIndex = firstPageIndex + PageSize;
-        return roleMenuParent.slice(firstPageIndex, lastPageIndex);
-      }, [currentPageSubMenu,roleMenuParent]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
       <div className="content-wrapper">
@@ -500,6 +545,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ชื่อเมนู'
+                                      onChange={(e)=>{
+                                        setInsertMainMenuName(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -512,6 +560,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='ลำดับของเมนู'
+                                      onChange={(e)=>{
+                                        setInsertIndexMainMenu(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -522,6 +573,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
+                                      onChange={(e)=>{
+                                        setInsertMainRoleId(e.target.value);
+                                      }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
                                       {rolegroup.map((item) => (
@@ -541,6 +595,9 @@ const SettingMenu = () => {
                                       type="text"
                                       className="form-control"
                                       placeholder='Link'
+                                      onChange={(e)=>{
+                                        setInsertMainLink(e.target.value);
+                                      }}
                                   />
                               </div>
                           </div>
@@ -574,6 +631,7 @@ const SettingMenu = () => {
                   <button
                       type="button"
                       className="btn btn-success"
+                      onClick={AddMainMenu}
                   >
                       บันทึก
                   </button>
