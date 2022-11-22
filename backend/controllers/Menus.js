@@ -20,6 +20,24 @@ export const getMenusRoleMain = async (req, res) => {
     } 
 }
 
+export const getMenusRoleMain_2 = async (req, res) => {
+    try {
+        const menus = await Menus.findAll({
+            where:{
+                role_id:req.params.role_id,
+                parent_id:0,
+            },
+            order: [
+                ['parent_id','asc'],
+                ['index_menu','asc'],
+            ]
+        })
+        res.json(menus);
+    } catch (error) {
+        res.json({ message: error.message });
+    } 
+}
+
 export const getMenusRoleSubLV1 = async (req, res) => {
     try {
         const menus = await Menus.sequelize.query('select id,menu_name,index_menu,parent_id,link,status,role_id '+
