@@ -80,7 +80,7 @@ const SettingMenu = () => {
     const [updateSubRoleID, setUpdateSubRoleID] = useState("");
     const [updateLinkMainMenuID, setUpdateLinkMainMenuID] = useState("");
     const [updateLinkSubMenu, setUpdateLinkSubMenu] = useState("");
-    const [checkedUpdateSubMenu, setCheckedUpdateSubMainMenu] = useState(false);
+    const [checkedUpdateSubMainMenu, setCheckedUpdateSubMainMenu] = useState(false);
     const [rolegroupPopupUpdateMainMenu, setRoleGroupPopupUpdateMainMenu] = useState([]);
     const [roleMenuMainInDropDownUpdateSubMenu, setRoleMenuMainInDropDownUpdateSubMenu] = useState([]);
     const [showUpdateSubMenu, setShowUpdateSubMenu] = useState(false);
@@ -886,9 +886,9 @@ const SettingMenu = () => {
                               <div className="col-sm-7 col-form-label">
                                   <Switch
                                       onChange={(e) => {
-                                        setCheckedUpdateSubMainMenu(!checkedUpdateSubMenu);
+                                        setCheckedUpdateSubMainMenu(!checkedUpdateSubMainMenu);
                                       }}
-                                      checked={checkedAddSubMenu}
+                                      checked={checkedUpdateSubMainMenu}
                                       className="react-switch"
                                   />
                               </div>
