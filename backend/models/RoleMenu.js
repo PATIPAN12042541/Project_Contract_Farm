@@ -6,10 +6,10 @@ const Menus = db.define('role_menu',{
         type: DataTypes.STRING
     },
     index_menu:{
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
     parent_id:{
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
     link:{
         type: DataTypes.STRING

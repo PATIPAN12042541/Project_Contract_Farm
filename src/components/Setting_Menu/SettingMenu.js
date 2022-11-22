@@ -205,7 +205,7 @@ const SettingMenu = () => {
                     index_menu : insertIndexMainMenu,
                     parent_id : 0,
                     link : insertMainLink,
-                    status : checkedAddMainMenu=true?1:0,
+                    status : checkedAddMainMenu,
                     role_id : insertMainRoleId
                 })
                 .then(function (response) {
