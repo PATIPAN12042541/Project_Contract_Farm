@@ -280,7 +280,7 @@ const SettingMenu = () => {
                                                                         setUpdateMainMenuName(roleMenuMain.menu_name);
                                                                         setUpdateIndexMainMenu(roleMenuMain.index_menu);
                                                                         setUpdateLinkMainMenu(roleMenuMain.link);
-                                                                        setCheckedUpdateMainMenu(roleMenuMain.status=1?true:false);
+                                                                        setCheckedUpdateMainMenu(roleMenuMain.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
@@ -427,7 +427,7 @@ const SettingMenu = () => {
                                                                         setUpdateSubRoleID(roleMenuParent.role_id);
                                                                         setUpdateLinkMainMenuID(roleMenuParent.parent_id);  
                                                                         setUpdateLinkSubMenu(roleMenuParent.link);                                                              
-                                                                        setCheckedUpdateSubMainMenu(roleMenuParent.status = 1?true:false);
+                                                                        setCheckedUpdateSubMainMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
