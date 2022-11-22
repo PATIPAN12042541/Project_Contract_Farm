@@ -890,7 +890,7 @@ const SettingMenu = () => {
                                       onChange={(e) => {
                                         setCheckedUpdateSubMainMenu(!checkedUpdateSubMainMenu);
                                       }}
-                                      defaultChecked={checkedUpdateSubMainMenu}
+                                      checked={checkedUpdateSubMainMenu}
                                       className="react-switch"
                                   />
                               </div>
