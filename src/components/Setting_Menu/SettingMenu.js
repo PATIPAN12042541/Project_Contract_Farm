@@ -395,11 +395,14 @@ const SettingMenu = () => {
                                                       <td>
                                                           <center>
                                                               <Link
-                                                                  to={`#`}
+                                                                  to={``}
                                                               >
                                                                   <Button
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
+                                                                      onClick={(e)=>{
+                                                                        handleShowUpdateSubMenu();
+                                                                      }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
                                                                   </Button>
@@ -755,7 +758,7 @@ const SettingMenu = () => {
                       fontSize: "24px",
                   }}
               >
-                  <Modal.Title>เพิ่มเมนูย่อย</Modal.Title>
+                  <Modal.Title>แก้ไขเมนูย่อย</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
