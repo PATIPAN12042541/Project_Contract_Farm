@@ -22,37 +22,61 @@ const SettingMenu = () => {
     const {main_menu_id} = useParams();
   
     const [rolegroup, setRoleGroup] = useState([]);
+
     const [selectRole, setSelectRole] = useState([]);
     const [selectRole2, setSelectRole2] = useState([]);
+    
     const [roleMenuMainID, setRoleMenuMainID] = useState();
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
+    
     const [roleMenuParentID, setRoleMenuParentID] = useState();
     const [roleMenuParent, setRoleMenuParent] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentPageSubMenu, setCurrentPageSubMenu] = useState(1);
     const Nav = useNavigate();
 
-    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
-    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
-
-    const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
-    const [checkedAddSubMenu, setCheckedSubMainMenu] = useState(false);
-
-    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
-    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
-
-    const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
-    const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
-
     /*********** refresh token ***********/
     const [token, setToken] = useState("");
     /*************************************/
 
     /* VAR MODAL */
-    /********** insert data ***************/
-    
-    /*************************************/
+    /********** insert Main Menu ***************/
+    const [checkedAddMainMenu, setCheckedAddMainMenu] = useState(false);
+    const [showInsertMainMenu, setShowInsertMainMenu] = useState(false);
+    const handleCloseInsertMainMenu = () => setShowInsertMainMenu(false);
+    const handleShowInsertMainMenu = () => setShowInsertMainMenu(true);
+    /******************************************/
+
+    /* VAR MODAL */
+    /********** Update Main Menu ***************/
+    const [checkedUpdateMainMenu, setCheckedUpdateMainMenu] = useState(false);
+    const [showUpdateMainMenu, setShowUpdateMainMenu] = useState(false);
+    const handleCloseUpdateMainMenu = () => setShowUpdateMainMenu(false);
+    const handleShowUpdateMainMenu = () => setShowUpdateMainMenu(true);
+    /******************************************/
+
+    /* VAR MODAL */
+    /********** insert Sub Menu ***************/
+    const [selectRole3, setSelectRole3] = useState([]);
+    const [rolegroupPopupAddMainMenu, setRoleGroupPopupAddMainMenu] = useState([]);
+    const [roleMenuMainInDropDownAddSubMenu, setRoleMenuMainInDropDownAddSubMenu] = useState([]);
+    const [showInsertSubMenu, setShowInsertSubMenu] = useState(false);
+    const [checkedAddSubMenu, setCheckedAddSubMainMenu] = useState(false);
+    const handleCloseInsertSubMenu = () => setShowInsertSubMenu(false);
+    const handleShowInsertSubMenu = () => setShowInsertSubMenu(true);
+    /******************************************/
+
+    /* VAR MODAL */
+    /********** Upate Sub Menu ***************/
+    const [selectRole4, setSelectRole4] = useState([]);
+    const [rolegroupPopupUpdateMainMenu, setRoleGroupPopupUpdateMainMenu] = useState([]);
+    const [roleMenuMainInDropDownUpdateSubMenu, setRoleMenuMainInDropDownUpdateSubMenu] = useState([]);
+    const [showUpdateSubMenu, setShowUpdateSubMenu] = useState(false);
+    const [checkedUpdateSubMenu, setCheckedUpdateSubMainMenu] = useState(false);
+    const handleCloseUpdateSubMenu = () => setShowUpdateSubMenu(false);
+    const handleShowUpdateSubMenu = () => setShowUpdateSubMenu(true);
+    /******************************************/
 
     // refresh token
     const refreshToken = async () => {
@@ -81,6 +105,22 @@ const SettingMenu = () => {
           setRoleGroup(response.data);
       };
 
+    //Drop Down Role Popup Insert Sub Menu
+    const getRoleInPopupAddMainMenu = async () => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+          );
+          setRoleGroupPopupAddMainMenu(response.data);
+      };
+
+    //Drop Down Role Popup Update Sub Menu
+    const getRoleInPopupUpdateMainMenu = async () => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/role_group/roleAll`
+          );
+          setRoleGroupPopupUpdateMainMenu(response.data);
+      };
+
     //Load Menu By Role
     const getMenu = async (id) => {
         const response = await axios.get(
@@ -95,6 +135,22 @@ const SettingMenu = () => {
             `${process.env.REACT_APP_API_URL}/menu/main/${id}`
           );
           setRoleMenuMainInDropDown(response.data);
+      };
+
+    //Load Menu By Role in Drop Down Popup Add SubMenu
+    const getMenuInDropDownAddSubMenu = async (id) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
+          );
+          setRoleMenuMainInDropDownAddSubMenu(response.data);
+      };
+
+    //Load Menu By Role in Drop Down Popup Update SubMenu
+    const getMenuInDropDownUpdateSubMenu = async (id) => {
+        const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/menu/main/${id}`
+          );
+          setRoleMenuMainInDropDownUpdateSubMenu(response.data);
       };
 
     //Load Sub Menu By Role
@@ -115,6 +171,8 @@ const SettingMenu = () => {
       useEffect(() => {
         refreshToken();
         getRole();
+        getRoleInPopupAddMainMenu();
+        getRoleInPopupUpdateMainMenu();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
@@ -208,11 +266,14 @@ const SettingMenu = () => {
                                                       <td>
                                                           <center>
                                                               <Link
-                                                                  to={`#`}
+                                                                  to={``}
                                                               >
                                                                   <Button
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
+                                                                      onClick={(e)=>{
+                                                                        handleShowUpdateMainMenu();
+                                                                      }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
                                                                   </Button>
@@ -343,11 +404,14 @@ const SettingMenu = () => {
                                                       <td>
                                                           <center>
                                                               <Link
-                                                                  to={`#`}
+                                                                  to={``}
                                                               >
                                                                   <Button
                                                                       variant="warning"
                                                                       style={{ color: "#ffff" }}
+                                                                      onClick={(e)=>{
+                                                                        handleShowUpdateSubMenu();
+                                                                      }}
                                                                   >
                                                                       <AiFillEdit /> แก้ไขข้อมูล
                                                                   </Button>
@@ -482,8 +546,8 @@ const SettingMenu = () => {
               </Modal.Footer>
           </Modal>
 
-          {/* Modal Insert Sub Menu */}
-          <Modal show={showInsertSubMenu} onHide={handleCloseInsertSubMenu}>
+          {/* Modal Update Main Menu */}
+          <Modal show={showUpdateMainMenu} onHide={handleCloseUpdateMainMenu}>
               <Modal.Header
                   style={{
                       backgroundColor: "rgb(140, 193, 82)",
@@ -491,7 +555,7 @@ const SettingMenu = () => {
                       fontSize: "24px",
                   }}
               >
-                  <Modal.Title>เพิ่มเมนูหลัก</Modal.Title>
+                  <Modal.Title>แก้ไขเมนูหลัก</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
@@ -540,7 +604,132 @@ const SettingMenu = () => {
                               <div className="col-sm-7 col-form-label">
                                   <Switch
                                       onChange={(e) => {
-                                        setCheckedAddMainMenu(!checkedAddSubMenu);
+                                        setCheckedUpdateMainMenu(!checkedUpdateMainMenu);
+                                      }}
+                                      checked={checkedUpdateMainMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseUpdateMainMenu}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          {/* Modal Insert Sub Menu */}
+          <Modal show={showInsertSubMenu} onHide={handleCloseInsertSubMenu}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>เพิ่มเมนูย่อย</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Role
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                      onChange={(e)=>{
+                                        setSelectRole3(e.target.value);
+                                        getMenuInDropDownAddSubMenu(e.target.value);
+                                      }}
+                                  >
+                                      <option value={0}>--เลือก Role--</option>
+                                      {rolegroupPopupAddMainMenu.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.role_group_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                    เลือกเมนูหลัก
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                  >
+                                      <option value={0}>--เลือกเมนูหลักตาม Role--</option>
+                                      {roleMenuMainInDropDownAddSubMenu.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.menu_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedAddSubMainMenu(!checkedAddSubMenu);
                                       }}
                                       checked={checkedAddSubMenu}
                                       className="react-switch"
@@ -554,6 +743,131 @@ const SettingMenu = () => {
               <Modal.Footer>
                   <button
                       onClick={handleCloseInsertSubMenu}
+                      className="btn btn-default"
+                      style={{ float: "left" }}
+                  >
+                      ย้อนกลับ
+                  </button>
+                  &nbsp;
+                  <button
+                      type="button"
+                      className="btn btn-success"
+                  >
+                      บันทึก
+                  </button>
+              </Modal.Footer>
+          </Modal>
+
+          {/* Modal Update Sub Menu */}
+          <Modal show={showUpdateSubMenu} onHide={handleCloseUpdateSubMenu}>
+              <Modal.Header
+                  style={{
+                      backgroundColor: "rgb(140, 193, 82)",
+                      color: "#FFFFFF",
+                      fontSize: "24px",
+                  }}
+              >
+                  <Modal.Title>แก้ไขเมนูย่อย</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  <Form className="form-horizontal">
+                      <div className="card-body">
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ชื่อเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ชื่อเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  ลำดับของเมนู
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='ลำดับของเมนู'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Role
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                      onChange={(e)=>{
+                                        setSelectRole4(e.target.value);
+                                        getMenuInDropDownUpdateSubMenu(e.target.value);
+                                      }}
+                                  >
+                                      <option value={0}>--เลือก Role--</option>
+                                      {rolegroupPopupUpdateMainMenu.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.role_group_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                    เลือกเมนูหลัก
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <select
+                                      className="form-control"
+                                  >
+                                      <option value={0}>--เลือกเมนูหลักตาม Role--</option>
+                                      {roleMenuMainInDropDownUpdateSubMenu.map((item) => (
+                                          <option key={item.id} value={item.id}>
+                                              {item.menu_name}
+                                          </option>
+                                      ))}
+                                  </select>
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Link
+                              </Form.Label>
+                              <div className="col-sm-7">
+                                  <Form.Control
+                                      type="text"
+                                      className="form-control"
+                                      placeholder='Link'
+                                  />
+                              </div>
+                          </div>
+                          <div className="form-group row">
+                              <Form.Label className="col-sm-5 col-form-label">
+                                  Active Status
+                              </Form.Label>
+                              <div className="col-sm-7 col-form-label">
+                                  <Switch
+                                      onChange={(e) => {
+                                        setCheckedUpdateSubMainMenu(!checkedUpdateSubMenu);
+                                      }}
+                                      checked={checkedAddSubMenu}
+                                      className="react-switch"
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  </Form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <button
+                      onClick={handleCloseUpdateSubMenu}
                       className="btn btn-default"
                       style={{ float: "left" }}
                   >
