@@ -25,6 +25,7 @@ const SettingMenu = () => {
     const [selectRoleMainMenu, setSelectRoleMainMenu] = useState([]);
     const [selectRoleSubMenu, setSelectRoleSubMenu] = useState([]);
     const [updateMainMenuID, setUpdateMainMenuID] = useState("");
+    const [updateRoleMainMenu, setUpdateRoleMainMenu] = useState("");
     
     const [roleMenuMain, setRoleMenuMain] = useState([]);
     const [roleMenuMainInDropDown, setRoleMenuMainInDropDown] = useState([]);
@@ -278,6 +279,7 @@ const SettingMenu = () => {
                                                                         setUpdateMainMenuName(roleMenuMain.menu_name);
                                                                         setUpdateIndexMainMenu(roleMenuMain.index_menu);
                                                                         setUpdateLinkMainMenu(roleMenuMain.link);
+                                                                        setUpdateRoleMainMenu(roleMenuMain.role_id);
                                                                         setCheckedUpdateMainMenu(roleMenuMain.status);
                                                                       }}
                                                                   >
@@ -628,7 +630,7 @@ const SettingMenu = () => {
                               <div className="col-sm-7">
                                   <select
                                       className="form-control"
-                                      defaultValue={updateMainMenuID}
+                                      defaultValue={updateRoleMainMenu}
                                   >
                                       <option value={0}>--เลือก Role--</option>
                                       {rolegroup.map((item) => (
