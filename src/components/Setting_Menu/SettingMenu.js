@@ -837,8 +837,10 @@ const SettingMenu = () => {
                                         getMenuInDropDownUpdateSubMenu(updateSubRoleID);
                                       }}
                                       onChange={(e)=>{
-                                        setUpdateSubRoleID(e.target.value);
-                                        getMenuInDropDownUpdateSubMenu(e.target.value);
+                                        // setUpdateSubRoleID(e.target.value);
+                                        // getMenuInDropDownUpdateSubMenu(e.target.value);
+                                        getMenuInDropDownUpdateSubMenu(updateSubRoleID);
+
                                       }}
                                   >
                                       <option value={0}>--เลือก Role--</option>
