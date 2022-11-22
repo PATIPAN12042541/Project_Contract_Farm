@@ -118,7 +118,7 @@ const MonitorStatus = () => {
                   <h3 className="card-title">ตรวจสอบสถานะการทำงาน</h3>
                   <input
                     type="text"
-                    className="form-control rounded-0 right"
+                    className="form-control rounded-0"
                     placeholder="ค้นหา"
                     onChange={(e) => searchItems2(e.target.value)}
                   />
