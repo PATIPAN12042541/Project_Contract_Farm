@@ -423,7 +423,8 @@ const SettingMenu = () => {
                                                                         setUpdateSubMenuName(roleMenuParent.menu_name);
                                                                         setUpdateIndexSubMenu(roleMenuParent.index_menu);
                                                                         setUpdateSubRoleID(roleMenuParent.role_id);
-                                                                        setUpdateLinkMainMenuID(roleMenuParent.parent_id);                                                                       
+                                                                        setUpdateLinkMainMenuID(roleMenuParent.parent_id);  
+                                                                        setUpdateLinkSubMenu(roleMenuParent.link);                                                              
                                                                         setCheckedUpdateSubMainMenu(roleMenuParent.status);
                                                                       }}
                                                                   >
