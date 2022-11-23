@@ -253,7 +253,7 @@ const SettingMenu = () => {
                 title: "Success",
                 text: "Update Success!",
             });
-            //window.location.reload();
+            window.location.reload();
             handleCloseUpdateMainMenu();
         } catch (error) {
             Swal.fire({
@@ -324,7 +324,7 @@ const SettingMenu = () => {
                 id : updateSubMenuID,
                 menu_name : updateSubMenuName,
                 index_menu : updateIndexSubMenu,
-                parent_id : 71,
+                parent_id : updateSubParentID == null?roleMenuParentID:updateSubParentID,
                 link : "",
                 status : 1,
                 role_id : 1
