@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import '../Pagination/style.scss';
+import FileJSan from '../System_overview/headers.json';
 import { AiFillEdit } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination.js";
 import Image from "react-bootstrap/Image";
@@ -335,6 +336,8 @@ const SettingMenu = () => {
         getRole();
         getRoleInPopupAddMainMenu();
         getRoleInPopupUpdateMainMenu();
+
+        console.log(FileJSan);
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
 
