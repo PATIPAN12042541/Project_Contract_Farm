@@ -314,14 +314,20 @@ const SettingMenu = () => {
             console.log("checkedUpdateSubMainMenu "+checkedUpdateSubMainMenu)
             console.log("updateSubRoleID "+updateSubRoleID)
             await axios.patch(`${process.env.REACT_APP_API_URL}/menu/updateSubMenu/${id}`, {
-                id : updateSubMenuID,
-                menu_name : updateSubMenuName,
-                index_menu : updateIndexSubMenu,
-                parent_id : updateSubParentID == null?roleMenuParentID:updateSubParentID,
-                //link : updateLinkSubMenu,
-                link : '/',
-                status : checkedUpdateSubMainMenu,
-                role_id : updateSubRoleID
+                // id : updateSubMenuID,
+                // menu_name : updateSubMenuName,
+                // index_menu : updateIndexSubMenu,
+                // parent_id : updateSubParentID == null?roleMenuParentID:updateSubParentID,
+                // link : updateLinkSubMenu,
+                // status : checkedUpdateSubMainMenu,
+                // role_id : updateSubRoleID
+                id : 73,
+                menu_name : "ทดสอบสร้างซับเมนู 999",
+                index_menu : 1,
+                parent_id : 71,
+                link : "",
+                status : 1,
+                role_id : 1
             })
             Swal.fire({
                 icon: "success",
