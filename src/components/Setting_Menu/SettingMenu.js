@@ -323,7 +323,7 @@ const SettingMenu = () => {
                 // role_id : updateSubRoleID
                 id : updateSubMenuID,
                 menu_name : updateSubMenuName,
-                index_menu : 1,
+                index_menu : updateIndexSubMenu,
                 parent_id : 71,
                 link : "",
                 status : 1,
