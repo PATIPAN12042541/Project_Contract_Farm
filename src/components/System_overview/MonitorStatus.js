@@ -40,15 +40,15 @@ const MonitorStatus = () => {
   };
 
   const searchItems = async (searchValue) => {
-    if (searchValue == 1) {
-      const filteredData = getstatusDetail.filter((data) => data.Danger_ == 1);
+    if (searchValue === 1) {
+      const filteredData = getstatusDetail.filter((data) => data.Danger_ === 1);
       setStatusDetail2(filteredData);
-    } else if (searchValue == 2) {
-      const filteredData = getstatusDetail.filter((data) => data.Waning_ == 1);
+    } else if (searchValue === 2) {
+      const filteredData = getstatusDetail.filter((data) => data.Waning_ === 1);
       setStatusDetail2(filteredData);
-    } else if (searchValue == 3) {
+    } else if (searchValue === 3) {
       const filteredData = getstatusDetail.filter(
-        (data) => data.COMPLETION_ == 1
+        (data) => data.COMPLETION_ === 1
       );
       setStatusDetail2(filteredData);
     } else {
@@ -257,11 +257,11 @@ const MonitorStatus = () => {
                               </td>
                               <td>
                                 <center>
-                                  {data.status_plant == "1" ||
-                                  data.status_plant == "4" ? (
+                                  {data.status_plant === "1" ||
+                                  data.status_plant === "4" ? (
                                     <div>
-                                      {data.status_plant == "1" ? (
-                                        data.plant_status == "0" ? (
+                                      {data.status_plant === "1" ? (
+                                        data.plant_status === "0" ? (
                                           <div className="saccess-data">
                                             เสร็จสิ้น
                                           </div>
@@ -270,7 +270,7 @@ const MonitorStatus = () => {
                                             กำลังดำเนินการ
                                           </div>
                                         )
-                                      ) : data.harvest_status == "0" ? (
+                                      ) : data.harvest_status === "0" ? (
                                         <div className="saccess-data">
                                           เสร็จสิ้น
                                         </div>
@@ -280,8 +280,8 @@ const MonitorStatus = () => {
                                         </div>
                                       )}
                                     </div>
-                                  ) : data.status_plant == "2" ? (
-                                    data.status_Fertilizer == "0" ? (
+                                  ) : data.status_plant === "2" ? (
+                                    data.status_Fertilizer === "0" ? (
                                       <div className="saccess-data">
                                         เสร็จสิ้น
                                       </div>
@@ -295,8 +295,8 @@ const MonitorStatus = () => {
                                         กำลังดำเนินการ
                                       </div>
                                     )
-                                  ) : data.status_plant == "3" ? (
-                                    data.status_chemical == "0" ? (
+                                  ) : data.status_plant === "3" ? (
+                                    data.status_chemical === "0" ? (
                                       <div className="saccess-data">
                                         เสร็จสิ้น
                                       </div>

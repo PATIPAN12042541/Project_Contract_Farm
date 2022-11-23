@@ -259,7 +259,7 @@ const Plant_detail = (props) => {
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <center>
-                      {data.status_plant == "1" ? (
+                      {data.status_plant === "1" ? (
                         <h3 className="card-title">
                           ปลูกผัก : {data.name_plant}
                         </h3>
@@ -270,7 +270,7 @@ const Plant_detail = (props) => {
                       )}
                     </center>
                   </div>
-                  {data.status_plant == "1" ? (
+                  {data.status_plant === "1" ? (
                     <div className="card-body">
                       <div className="row">
                         <div className="col-md-12">
@@ -356,8 +356,8 @@ const Plant_detail = (props) => {
                       </div>
                     </div>
                   )}
-                  {data.status_plant == "1" ? (
-                    data.plant_status == "1" ? (
+                  {data.status_plant === "1" ? (
+                    data.plant_status === "1" ? (
                       <div className="card-footer">
                         <button
                           type="submit"
