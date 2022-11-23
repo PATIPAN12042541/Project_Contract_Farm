@@ -305,6 +305,7 @@ const SettingMenu = () => {
     // Update Sub Menu
     const updateSubMenu = async (id) => {
         try {
+            console.log("id "+id)
             console.log("updateSubMenuID "+updateSubMenuID)
             console.log("updateSubMenuName "+updateSubMenuName)
             console.log("updateIndexSubMenu "+updateIndexSubMenu)
