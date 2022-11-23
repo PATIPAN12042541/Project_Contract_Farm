@@ -318,7 +318,8 @@ const SettingMenu = () => {
                 menu_name : updateSubMenuName,
                 index_menu : updateIndexSubMenu,
                 parent_id : updateSubParentID == null?roleMenuParentID:updateSubParentID,
-                link : updateLinkSubMenu,
+                //link : updateLinkSubMenu,
+                link : '/',
                 status : checkedUpdateSubMainMenu,
                 role_id : updateSubRoleID
             })
