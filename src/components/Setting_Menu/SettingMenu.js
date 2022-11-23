@@ -325,10 +325,10 @@ const SettingMenu = () => {
                 id : updateSubMenuID,
                 menu_name : updateSubMenuName,
                 index_menu : updateIndexSubMenu,
-                parent_id : updateSubParentID === ""?roleMenuParentID:updateSubParentID,
-                link : "",
-                status : 1,
-                role_id : 1
+                parent_id : updateSubParentID == ""?roleMenuParentID:updateSubParentID,
+                link : updateLinkSubMenu,
+                status : checkedUpdateSubMainMenu,
+                role_id : updateSubRoleID
             })
             Swal.fire({
                 icon: "success",
