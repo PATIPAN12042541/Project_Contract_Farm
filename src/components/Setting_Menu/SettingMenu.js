@@ -325,7 +325,7 @@ const SettingMenu = () => {
                 id : updateSubMenuID,
                 menu_name : updateSubMenuName,
                 index_menu : updateIndexSubMenu,
-                parent_id : updateSubParentID == " "?roleMenuParentID:updateSubParentID,
+                parent_id : updateSubParentID === ""?roleMenuParentID:updateSubParentID,
                 link : "",
                 status : 1,
                 role_id : 1
