@@ -1,0 +1,163 @@
+[
+    {
+      "name": "โซนเพาะปลูก",
+      "id": "zone_name",
+      "selector": "zone_name",
+      "sortable": true,
+      "grow": 4
+    },
+    {
+      "name": "ชื่อเเปลง",
+      "id": "plant_name",
+      "selector": "plant_name",
+      "sortable": true,
+      "grow": 4
+    },
+    {
+      "name": "วันที่เริ่มต้น",
+      "id": "start_plant",
+      "selector": "start_plant",
+      "sortable": true,
+      "grow": 3
+    },
+    {
+      "name": "วันที่สิ้นสุด",
+      "id": "end_plant",
+      "selector": "end_plant",
+      "sortable": true,
+      "grow": 3
+    },
+    {
+      "name": "ผู้รับผิดชอบ",
+      "id": "username",
+      "selector": "username",
+      "sortable": true,
+      "grow": 3
+    },
+    {
+      "name": "ชื่อสารเคมี/ปุ๋ย",
+      "id": "name_chemical",
+      "selector": "name_chemical",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "ชื่อสารเคมี/ปุ๋ย ภาษาอังกฤษ",
+      "id": "name_chemical_eng",
+      "selector": "name_chemical_eng",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "EU_MRL",
+      "id": "eu_mrl",
+      "selector": "eu_mrl",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "ระยะเวลา : วัน",
+      "id": "time",
+      "selector": "time",
+      "sortable": true,
+      "grow": 2
+    },
+    {
+      "name": "ระยะเวลา : หน่วย",
+      "id": "unit",
+      "selector": "unit",
+      "sortable": true,
+      "grow": 2
+    },
+    {
+      "name": "CC",
+      "id": "chemical_cc",
+      "selector": "chemical_cc",
+      "sortable": true
+    },
+    {
+      "name": "Liter",
+      "id": "chemical_liter",
+      "selector": "chemical_liter",
+      "sortable": true
+    },
+    {
+      "name": "Note",
+      "id": "chemical_note",
+      "selector": "chemical_note",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "โรค",
+      "id": "disease",
+      "selector": "disease",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "แมลง",
+      "id": "bug",
+      "selector": "bug",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "วัชพืช",
+      "id": "weed",
+      "selector": "weed",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "หมายเหตุ",
+      "id": "remark",
+      "selector": "remark",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "วันที่เริ่มต้นสารเคมี",
+      "id": "chemical_date_start",
+      "selector": "chemical_date_start",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "วันที่สิ้นสุดสารเคมี",
+      "id": "chemical_date_end",
+      "selector": "chemical_date_end",
+      "sortable": "true",
+      "grow": 5
+    },
+    {
+      "name": "จำนวนที่เก็บเกี่ยว",
+      "id": "qty",
+      "selector": "qty",
+      "sortable": true,
+      "grow": 5
+    },
+
+    {
+      "name": "ระยะเวลาเก็บเกี่ยว",
+      "id": "diff_date",
+      "selector": "diff_date",
+      "sortable": true,
+      "grow": 5
+    },
+
+    {
+      "name": "สถานะ",
+      "id": "status_name",
+      "selector": "status_name",
+      "sortable": true,
+      "grow": 5
+    },
+    {
+      "name": "วงรอบ",
+      "id": "plant_circle",
+      "selector": "plant_circle",
+      "sortable": true,
+      "grow": 5
+    }
+]
