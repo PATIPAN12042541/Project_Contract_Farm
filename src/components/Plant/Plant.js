@@ -13,7 +13,6 @@ const Plant = (props) => {
 
   useEffect(() => {
     refreshToken();
-    //getPlantData();
   }, []);
 
   const refreshToken = async () => {
@@ -24,8 +23,6 @@ const Plant = (props) => {
 
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
-
-      //console.log(decoded);
 
       if (decoded.role_id == "3") {
         getPlantDataUser(decoded.userId);
@@ -79,8 +76,8 @@ const Plant = (props) => {
                   <div className="row">
                     {datadetail.map((data, index) => (
                       <div className="col-md-12" key={index}>
-                        {data.status_plant == "1" ||
-                        data.status_plant == "4" ? (
+                        {data.status_plant === "1" ||
+                        data.status_plant === "4" ? (
                           <Link
                             to={{
                               pathname: `/Plant_detail/${data.id_plants}`,
@@ -92,8 +89,8 @@ const Plant = (props) => {
                             <div className="card mb-12 bg-gradient-white">
                               <div className="container">
                                 <div className="position-relative">
-                                  {data.status_plant == "1" ? (
-                                    data.plant_status == "0" ? (
+                                  {data.status_plant === "1" ? (
+                                    data.plant_status === "0" ? (
                                       <div className="ribbon-wrapper ribbon-lg">
                                         <div className="ribbon bg-success text-lg">
                                           เสร็จสิ้น
@@ -102,7 +99,7 @@ const Plant = (props) => {
                                     ) : (
                                       ""
                                     )
-                                  ) : data.harvest_status == "0" ? (
+                                  ) : data.harvest_status === "0" ? (
                                     <div className="ribbon-wrapper ribbon-lg">
                                       <div className="ribbon bg-success text-lg">
                                         เสร็จสิ้น
@@ -145,7 +142,7 @@ const Plant = (props) => {
                               </div>
                             </div>
                           </Link>
-                        ) : data.status_plant == "3" ? (
+                        ) : data.status_plant === "3" ? (
                           <Link
                             to={{
                               pathname: `/Page_chemical/${data.id_plants}`,
@@ -208,7 +205,7 @@ const Plant = (props) => {
                               </div>
                             </div>
                           </Link>
-                        ) : data.status_plant == "2" ? (
+                        ) : data.status_plant === "2" ? (
                           <Link
                             to={{
                               pathname: `/Page_Plant_fertilizer/${data.id_plants}`,

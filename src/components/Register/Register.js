@@ -13,10 +13,6 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [roleID, setRoleID] = useState("");
   const Nav = useNavigate();
-  // const [show, setShow] = useState(false);
-  // const [checkpass, setCheckPass] = useState(false);
-
-  // const [wordingPass, setwordingPass] = useState("");
 
   useEffect(() => {
     getRole();
@@ -26,59 +22,8 @@ const Register = () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/role_group/roleRegister`
     );
-    //const response = await axios.get("http://localhost:4000/role_group");
     setRoleGroup(response.data);
   };
-
-  // const ShowandHide = (data) => {
-  //   if (data.length < 8) {
-  //     setShow(true);
-  //     setUserName(data);
-  //   } else {
-  //     setShow(false);
-  //     setUserName(data);
-  //   }
-  // };
-
-  // const CheckPassworld = (data) => {
-  //   let smallCount, numberCount, symbolCount;
-
-  //   smallCount = (data.match(/[a-z]/g) || []).length;
-  //   numberCount = (data.match(/[0-9]/g) || []).length;
-  //   symbolCount = (data.match(/\W/g) || []).length;
-
-  //   if (data.length < 8) {
-  //     setCheckPass(true);
-  //     setwordingPass("กรุณาตั้ง Passworld อย่างน้อย 8 ตัว");
-  //   } else {
-  //     setCheckPass(false);
-  //     setwordingPass("");
-
-  //     if (smallCount < 1) {
-  //       setCheckPass(true);
-  //       setwordingPass("กรุณาตั้งตัวหนังสือพิมพ์เล็ก อย่างน้อย 1 ตัว");
-  //     } else {
-  //       setCheckPass(false);
-  //       setwordingPass("");
-
-  //       if (numberCount < 1) {
-  //         setCheckPass(true);
-  //         setwordingPass("กรุณาตั้งตัวตัวเลข อย่างน้อย 1 ตัว");
-  //       } else {
-  //         setCheckPass(false);
-  //         setwordingPass("");
-  //         if (symbolCount < 1) {
-  //           setCheckPass(true);
-  //           setwordingPass("กรุณาตั้งอักษรพิเศษ อย่างน้อย 1 ตัว");
-  //         } else {
-  //           setCheckPass(false);
-  //           setwordingPass("");
-  //         }
-  //       }
-  //     }
-  //   }
-  //   setPassword(data);
-  // };
 
   const Register = async (e) => {
     e.preventDefault();

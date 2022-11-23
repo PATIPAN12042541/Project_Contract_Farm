@@ -212,9 +212,7 @@ const Manage_zone = () => {
                 </div>
                 <div className="card-body">
                   <table className="table table-bordered table-hover">
-                    <thead
-                    // style={{ backgroundColor: "#8CC152 !important", color: "#FFFFFF" }}
-                    >
+                    <thead>
                       <tr>
                         <th>#</th>
                         <th>
@@ -336,7 +334,7 @@ const Manage_zone = () => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
               <form.Control
                 type="text"
@@ -347,7 +345,7 @@ const Manage_zone = () => {
               />
               <hr></hr>
             </form.Group>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>ละติจูด</form.Label>
               <form.Control
                 type="number"
@@ -356,7 +354,7 @@ const Manage_zone = () => {
                 onChange={(e) => setLat(e.target.value)}
               />
             </form.Group>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>ลองติจูด</form.Label>
               <form.Control
                 type="number"
@@ -365,10 +363,7 @@ const Manage_zone = () => {
                 onChange={(e) => setLon(e.target.value)}
               />
             </form.Group>
-            <form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <form.Group className="mb-3">
               <hr></hr>
               <Row>
                 <Col md>
@@ -439,7 +434,7 @@ const Manage_zone = () => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>รหัสโซนเพาะปลูก</form.Label>
               <form.Control
                 type="text"
@@ -449,7 +444,7 @@ const Manage_zone = () => {
               />
             </form.Group>
             <hr></hr>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>ละติจูด</form.Label>
               <form.Control
                 type="number"
@@ -458,7 +453,7 @@ const Manage_zone = () => {
                 onChange={(e) => setLat(e.target.value)}
               />
             </form.Group>
-            <form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <form.Group className="mb-3">
               <form.Label>ลองติจูด</form.Label>
               <form.Control
                 type="number"
@@ -467,10 +462,7 @@ const Manage_zone = () => {
                 onChange={(e) => setLon(e.target.value)}
               />
             </form.Group>
-            <form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <form.Group className="mb-3">
               <hr></hr>
               <Row>
                 <Col md>

@@ -25,7 +25,7 @@ const Data_detail = (props) => {
     );
 
     if (reportDefect.data[0].ReportDefect == 0) {
-      console.log("insert" + reportDefect);
+      // console.log("insert" + reportDefect);
 
       try {
         await axios

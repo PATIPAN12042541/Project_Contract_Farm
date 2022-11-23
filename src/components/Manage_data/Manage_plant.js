@@ -7,8 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import Zoom from "react-medium-image-zoom";
 
 const Manage_plant = (props) => {
-
- 
   const [getChemical, setGetChemical] = useState([]);
   const [image, setImage] = useState({ preview: "", data: "" });
 
@@ -64,9 +62,9 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  const onQuery = async (data) => {
-    console.log("data", data);
-  };
+  // const onQuery = async (data) => {
+  //   console.log("data", data);
+  // };
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -175,37 +173,37 @@ const Manage_plant = (props) => {
                                   </select>
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-3">
-                                <div className="form-group">
+                              <div className ="col-12 col-sm-3">
+                                <div className ="form-group">
                                   <label>ปริมาณที่ใช้</label>
                                   <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="ปริมาณที่ใช้"
+                                    type ="text"
+                                    className ="form-control"
+                                    placeholder ="ปริมาณที่ใช้"
                                     {...register(
                                       `detail.${index}.quantity_chemical`
                                     )}
                                   />
                                 </div>
                               </div>
-                              <div className="col-12 col-sm-1">
-                                <div className="form-group">
+                              <div className ="col-12 col-sm-1">
+                                <div className ="form-group">
                                   <label>หน่วย</label>
                                   <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="หน่วยนับ"
+                                    type ="text"
+                                    className ="form-control"
+                                    placeholder ="หน่วยนับ"
                                     {...register(`detail.${index}.unit`)}
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div className="row">
-                              <div className="col-12 col-sm-8">
-                                <div className="form-group">
+                            <div className ="row">
+                              <div className ="col-12 col-sm-8">
+                                <div className ="form-group">
                                   <label>Note.</label>
                                   <textarea
-                                    rows="3"
+                                    rows = "3"
                                     className="form-control"
                                     placeholder="Note"
                                     {...register(`detail.${index}.note`)}

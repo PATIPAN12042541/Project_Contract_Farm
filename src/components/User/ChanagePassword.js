@@ -35,23 +35,22 @@ const ChanagePassword = () => {
     // refresh token
     const refreshToken = async () => {
         try {
-            //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
+          //const response = await axios.get('http://node30998-env-3297740.th1.proen.cloud:4000/user/token');
 
-            // const response = await axios.get("http://localhost:4000/user/token");
-            const response = await axios.get(
-                `${process.env.REACT_APP_API_URL}/user/token`
-            );
-            setToken(response.data.accessToken);
-            const decoded = jwt_decode(response.data.accessToken);
-            setRoleIDLogin(decoded.role_id)
-            setLoginID(decoded.userId);
-            getListUser(decoded.userId);
+          // const response = await axios.get("http://localhost:4000/user/token");
+          const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/user/token`
+          );
+          setToken(response.data.accessToken);
+          const decoded = jwt_decode(response.data.accessToken);
+          setRoleIDLogin(decoded.role_id);
+          setLoginID(decoded.userId);
+          getListUser(decoded.userId);
         } catch (error) {
-            if (error.response) {
-                Nav("/");
-            }
+          if (error.response) {
+            Nav("/");
+          }
         }
-        // eslint-disable-line react-hooks/exhaustive-deps
     };
 
     //List User
@@ -98,7 +97,7 @@ const ChanagePassword = () => {
     useEffect(() => {
         refreshToken();
         getListUser();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
       },[]); 
   return (
       <div className="content-wrapper">

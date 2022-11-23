@@ -58,6 +58,7 @@
                     transform: translateY(-20px)
                 }
   }
+
 .thumbsContainer {
     display: flex;
     flex-direction: row;

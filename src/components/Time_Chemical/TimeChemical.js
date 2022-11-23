@@ -13,7 +13,7 @@ let PageSize = 5;
 
 const TimeChemical = () => {
   const [TimeChemical, setTimeChemical] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   /* ---------------------------------------------------------*/
   const [time, setTime] = useState([]);
   const [newtime, setNewtime] = useState([]);
@@ -23,14 +23,6 @@ const TimeChemical = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // Pageing
-  // const currentTableData = useMemo(() => {
-  //   console.log(currentPage);
-  //   const firstPageIndex = (currentPage - 1) * PageSize;
-  //   const lastPageIndex = firstPageIndex + PageSize;
-  //   return TimeChemical.slice(firstPageIndex, lastPageIndex);
-  // }, [currentPage,TimeChemical]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /*-------------------------------------------------------------*/
   const ChangeOpen = async (e, id) => {
@@ -204,7 +196,7 @@ const TimeChemical = () => {
                                   disabled={data.status}
                                 />
                                 &nbsp;
-                                {data.status == 1 ? (
+                                {data.status === 1 ? (
                                   <button
                                     className="btn btn-warning toastrDefaultWarning"
                                     style={{ color: "#fff" }}

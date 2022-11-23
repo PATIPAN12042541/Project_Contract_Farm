@@ -28,15 +28,15 @@ const ListTypeUser = () => {
   const navigate = useNavigate();
 
   const currentTableData = useMemo(() => {
-    console.log(currentPage);
+    //console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return listTypeUser.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage,listTypeUser]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentPage, listTypeUser]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const AddTypeUser = async (e) => {
     e.preventDefault();
-    if (typeUser == "") {
+    if (typeUser === "") {
       Swal.fire({
         icon: "error",
         title: "กรุณากรอกข้อมูล",
@@ -141,11 +141,6 @@ const ListTypeUser = () => {
                     <Button variant="success" onClick={handleShow}>
                       เพิ่มประเภทผู้ใช้งานระบบ
                     </Button>
-                    {/* <Link to={"/AddTypeUser"}>
-                      <Button variant="success" onClick={handleShow}>
-                        เพิ่มประเภทผู้ใช้งานระบบ
-                      </Button>
-                    </Link> */}
                   </div>
                   <hr />
                   <div className="row">
@@ -217,7 +212,7 @@ const ListTypeUser = () => {
                       currentPage={currentPage}
                       totalCount={listTypeUser.length}
                       pageSize={PageSize}
-                      onPageChange={page => setCurrentPage(page)}
+                      onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
                 </div>

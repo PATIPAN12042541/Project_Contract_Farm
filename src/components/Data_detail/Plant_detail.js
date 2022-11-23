@@ -88,7 +88,6 @@ const Plant_detail = (props) => {
       `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
     );
     setPlantDetail(response.data);
-    // console.log(response.data);
   };
 
   const changeStatusPlant = async (status) => {
@@ -101,11 +100,6 @@ const Plant_detail = (props) => {
           }
         )
         .then(function (response) {
-          // Swal.fire({
-          //   icon: "success",
-          //   title: "Success",
-          //   text: "Save OK !",
-          // });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -376,7 +370,7 @@ const Plant_detail = (props) => {
                         </button>
                       </div>
                     )
-                  ) : data.harvest_status == "1" ? (
+                  ) : data.harvest_status === "1" ? (
                     <div className="card-footer">
                       <button
                         type="submit"
