@@ -253,7 +253,7 @@ const SettingMenu = () => {
                 title: "Success",
                 text: "Update Success!",
             });
-            window.location.reload();
+            //window.location.reload();
             handleCloseUpdateMainMenu();
         } catch (error) {
             Swal.fire({
