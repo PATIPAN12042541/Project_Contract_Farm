@@ -322,7 +322,7 @@ const SettingMenu = () => {
                 // status : checkedUpdateSubMainMenu,
                 // role_id : updateSubRoleID
                 id : updateSubMenuID,
-                menu_name : "ทดสอบสร้างซับเมนู 777",
+                menu_name : updateSubMenuName,
                 index_menu : 1,
                 parent_id : 71,
                 link : "",
