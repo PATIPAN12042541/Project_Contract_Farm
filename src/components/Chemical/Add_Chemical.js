@@ -29,30 +29,34 @@ const Add_Chemical = () => {
 
     const AddChemical = async(e)=>{
         e.preventDefault();
-        await axios.post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`,{
+        await axios
+          .post(`${process.env.REACT_APP_API_URL}/getChemical/createChemical`, {
             name_chemical: nameChemicalThai,
-            name_chemical_eng : nameChemicalEng,
-            eu_mrl : eumrl,
-            path_img : (image_name === undefined)?'../dist/img/No_Image_Available.jpg':'../dist/img/insecticide/'+image_name,
-            type_chemical_id : typeChemicalID,
-            status : checked,
-        })
-        .then(function (response) {
+            name_chemical_eng: nameChemicalEng,
+            eu_mrl: eumrl,
+            path_img:
+              image_name === undefined
+                ? "../dist/img/No_Image_Available.jpg"
+                : "../dist/img/insecticide/" + image_name,
+            type_chemical_id: typeChemicalID,
+            status: checked,
+          })
+          .then(function (response) {
             uploadImg();
             Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Save OK !",
-              });
-              navigate("/ListChemical")
-        })
-        .catch(function (error) {
+              icon: "success",
+              title: "Success",
+              text: "Save OK !",
+            });
+            navigate("/ListChemical");
+          })
+          .catch(function (error) {
             Swal.fire({
-                icon: "error",
-                title: error,
-                text: "Save Error!",
-              });
-        });
+              icon: "error",
+              title: error,
+              text: "Save Error!",
+            });
+          });
     }
 
     const uploadImg = async () => {
