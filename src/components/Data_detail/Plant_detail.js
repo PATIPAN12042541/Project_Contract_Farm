@@ -4,36 +4,36 @@ import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16,
-};
+// const thumbsContainer = {
+//   display: "flex",
+//   flexDirection: "row",
+//   flexWrap: "wrap",
+//   marginTop: 16,
+// };
 
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 500,
-  height: 300,
-  padding: 4,
-  boxSizing: "border-box",
-};
+// const thumb = {
+//   display: "inline-flex",
+//   borderRadius: 2,
+//   border: "1px solid #eaeaea",
+//   marginBottom: 8,
+//   marginRight: 8,
+//   width: 500,
+//   height: 300,
+//   padding: 4,
+//   boxSizing: "border-box",
+// };
 
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden",
-};
+// const thumbInner = {
+//   display: "flex",
+//   minWidth: 0,
+//   overflow: "hidden",
+// };
 
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%",
-};
+// const img = {
+//   display: "block",
+//   width: "auto",
+//   height: "100%",
+// };
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
@@ -56,11 +56,11 @@ const Plant_detail = (props) => {
   });
 
   const acceptedFileItems = files.map((file) => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
+    <div className="thumb" key={file.name}>
+      <div className="thumbInner">
         <img
           src={file.preview}
-          style={img}
+          className="img"
           // Revoke data uri after image is loaded
           onLoad={() => {
             URL.revokeObjectURL(file.preview);
@@ -231,8 +231,6 @@ const Plant_detail = (props) => {
         });
       }
     }
-
-
   };
 
   useEffect(() => {
@@ -328,7 +326,7 @@ const Plant_detail = (props) => {
                             (Only *.jpeg and *.png images will be accepted)
                           </em>
                           <pre>
-                            <aside style={thumbsContainer}>
+                            <aside className="thumbsContainer">
                               <h4>Filename Upload</h4>
                               <ul>{acceptedFileItems}</ul>
                             </aside>
