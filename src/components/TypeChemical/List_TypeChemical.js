@@ -106,7 +106,6 @@ const List_Chemical = () => {
   };
 
   const currentTableData = useMemo(() => {
-    console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return listChemicals.slice(firstPageIndex, lastPageIndex);
