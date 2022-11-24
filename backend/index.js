@@ -105,10 +105,10 @@ const storage_4 = diskStorage({
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
-  resize: { width: "500px", height: "500px" },
+  imageOptions:{
+    resize: { width: 500, height: 500 },
+      }
 });
-
-console.log("1");
 
 const upload_4 = multer({ storage: storage_4 });
 try {
