@@ -3,11 +3,19 @@ import axios from "axios";
 import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
+import ImageResize from "image-resize";
+
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
   const [files, setFiles] = useState([]);
   const [quantity, setQuantity] = useState([]);
+
+  const imageResize = new ImageResize({
+    format: "png", // ไฟล์รูปภาพเป็น png
+    quality: 0.5, // ปรับขนาดไฟล์รูปภาพให้เหลือครึ่งนึง
+    width: 500, // ปรับขนาดรูปให้มีความกว้าง 500 px
+  });
 
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -45,6 +53,7 @@ const Plant_detail = (props) => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
+    formData.ImageResize(imageResize);
     
     console.log("accep :" + acceptedFiles[0]);
     console.log(formData);
