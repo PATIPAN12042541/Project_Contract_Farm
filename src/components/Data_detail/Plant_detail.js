@@ -34,7 +34,7 @@ const Plant_detail = (props) => {
     return new File([u8arr], filename, { type: mime });
   }
 
-  uploadimage = (event) => {
+  uploadimage2 = (event) => {
     let setImage = (img, width, height) => {
       this.setState({
         imageUrl: img, // url
@@ -302,7 +302,7 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "5" }}>เ</span>
                             <span style={{ "--i": "6" }}>นิ</span>
                             <span style={{ "--i": "7" }}>น</span>
-                            <span style={{ "--i": "8" }}>ก</span>
+                            <span style={{ "--i": "8" }}>ก</span> 
                             <span style={{ "--i": "9" }}>า</span>
                             <span style={{ "--i": "10" }}>ร</span>
                             <span style={{ "--i": "11" }}>.</span>
@@ -317,7 +317,7 @@ const Plant_detail = (props) => {
                       <div className="row">
                         <div className="col-md-12">
                           <div {...getRootProps({ className: "dropzone" })}>
-                            <input {...getInputProps()} onChange={this.uploadimage}/>
+                            <input {...getInputProps()}/>
                             <img
                               className="ima-size card-img-top"
                               src="../dist/img/Uploadfile.png"
