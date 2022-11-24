@@ -105,11 +105,7 @@ const storage_4 = diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
-  },
-  imageOptions:{
-    fileFormat: "jpg",
-    quality: 0.5,
-      }
+  }
 });
 
 const upload_4 = multer({ storage: storage_4 });
@@ -122,21 +118,21 @@ try {
   //   }
   // );
 
-  app.post("/public/dist/img/UploadWorking", upload_4.single("file"), (req, res) => {
-    //const { filename: image } = req.file;
+  app.post("/public/dist/img/UploadWorking", upload_4.single("file"),async (req, res) => {
+    const { filename: file } = req.file;
 
-    console.log("req : "+req)
-    console.log("res : "+res)
+    /*console.log("req : "+req)
+    console.log("res : "+res)*/
 
-    // await sharp(req.file.path)
-    //  .resize(200, 200)
-    //  .jpeg({ quality: 90 })
-    //  .toFile(
-    //      path.resolve(req.file.destination,'resized',image)
-    //  )
-    //  fs.unlinkSync(req.file.path)
+    await sharp(req.file.path)
+     .resize(200, 200)
+     .jpeg({ quality: 90 })
+     .toFile(
+         path.resolve(req.file.destination,'resized',image)
+     )
+     fs.unlinkSync(req.file.path)
    
-    // res.redirect('/');
+    res.redirect('/');
 });
 } catch (error) {
   res.json(console.log("Upload 4 Fail"));
