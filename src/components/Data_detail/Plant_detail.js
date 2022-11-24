@@ -12,6 +12,8 @@ const Plant_detail = (props) => {
   const [quantity, setQuantity] = useState([]);
 
   /************************* เพิ่มมาใหม่ ****************/
+  const { imageUrl, imageFile, imageW, imageH } = this.state;
+  
   const imageResize = new ImageResize({
     format: "png", // ไฟล์รูปภาพเป็น png
     quality: 0.5, // ปรับขนาดไฟล์รูปภาพให้เหลือครึ่งนึง
@@ -321,6 +323,15 @@ const Plant_detail = (props) => {
                               src="../dist/img/Uploadfile.png"
                             />
                           </div>
+                            {imageFile && (
+                              <div>
+                                <p>ไฟล์รูปมีขนาด {imageFile.size} ไบท์</p>
+                                <p>ไฟล์รูปประเภท {imageFile.type}</p>
+                                <p>
+                                  ความกว้างและความสูงของไฟล์ {imageW} x {imageH} px
+                                </p>
+                              </div>
+                            )}
                           <div className="waviy2">
                             <span style={{ "--i": "1" }}>U</span>
                             <span style={{ "--i": "2" }}>p</span>
