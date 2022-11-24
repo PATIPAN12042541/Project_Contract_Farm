@@ -116,45 +116,13 @@ const storage_4 = diskStorage({
 
 const upload_4 = multer({ storage: storage_4 });
 try {
-  // app.post(
-  //   "/public/dist/img/UploadWorking",
-  //   upload_4.single("file"),
-  //   function (req, res) {
-  //     res.json({});
-  //   }
-  // );
-
-  app.post('/public/dist/img/UploadWorking', upload_4.single('file'), async (req, res) => {
-    const { filename: image } = req.files.file;
-
-    await sharp(req.files.file.path)
-      .resize(200, 200)
-      .jpeg({ quality: 90 })
-      .toFile(
-        path.resolve(req.files.file.destination, 'resized', image)
-      )
-    fs.unlinkSync(req.files.file.path)
-
-    // res.redirect('/');
-  });
-
-
-//   app.post("/public/dist/img/UploadWorking", upload_4.single('image'),async (req, res) => {
-//     const { filename: image } = req.file;
-
-//     console.log("req : "+req)
-//     console.log("res : "+res)
-
-//     await sharp(req.file.path)
-//         .resize(200, 200)
-//         .jpeg({ quality: 90 })
-//         .toFile(
-//             path.resolve(req.file.destination,'resized',image)
-//         )
-//         fs.unlinkSync(req.file.path)
-      
-//        res.redirect('/');
-// });
+  app.post(
+    "/public/dist/img/UploadWorking",
+    upload_4.single("file"),
+    function (req, res) {
+      res.json({});
+    }
+  );
 } catch (error) {
   res.json(console.log("Upload 4 Fail"));
 }
