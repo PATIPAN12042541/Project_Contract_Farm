@@ -27,7 +27,7 @@ const FertilizerUnit = () => {
  
   // Pageing
   const currentTableData = useMemo(() => {
-    console.log(currentPage);
+    // console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return getUnit.slice(firstPageIndex, lastPageIndex);
