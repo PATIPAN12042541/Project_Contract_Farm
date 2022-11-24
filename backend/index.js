@@ -105,27 +105,47 @@ try {
 }
 /****************************************************************************/
 /******** Upload File To Folder public/dist/img/ to frontend **************/
-const storage_4 = diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "../public/dist/img/UploadWorking");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  }
-});
+// const storage_4 = diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "../public/dist/img/UploadWorking");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   }
+// });
 
-const upload_4 = multer({ storage: storage_4 });
-try {
-  app.post(
-    "/public/dist/img/UploadWorking",
-    upload_4.single("file"),
-    function (req, res) {
-      res.json({});
-    }
-  );
-} catch (error) {
+const storage_4 =  
+ SharpMulter ({
+              destination:(req, file, callback) =>callback(null, "images"),
+              imageOptions:{
+               fileFormat: "jpg",
+               quality: 80,
+               resize: { width: 500, height: 500 },
+                 }
+           });
+
+const upload  =  multer({ storage_4 });
+try{
+  app.post("/public/dist/img/UploadWorking", upload.single("avatar"), async  (req, res)  => {
+    console.log(req.file);
+    return  res.json("File Uploaded Successfully!");
+    });
+}catch(error) {
   res.json(console.log("Upload 4 Fail"));
 }
+
+// const upload_4 = multer({ storage: storage_4 });
+// try {
+//   app.post(
+//     "/public/dist/img/UploadWorking",
+//     upload_4.single("file"),
+//     function (req, res) {
+//       res.json({});
+//     }
+//   );
+// } catch (error) {
+//   res.json(console.log("Upload 4 Fail"));
+// }
 /****************************************************************************/
 app.use(cookieParser());
 app.use(express.json());

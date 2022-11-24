@@ -18,6 +18,7 @@ const Plant_detail = (props) => {
         acceptedFiles2.map((file) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
+            name:"avatar"
           })
         )
       );
