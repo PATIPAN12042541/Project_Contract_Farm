@@ -196,7 +196,7 @@ const TimeChemical = () => {
                                   disabled={data.status}
                                 />
                                 &nbsp;
-                                {data.status === 1 ? (
+                                {data.status == 1 ? (
                                   <button
                                     className="btn btn-warning toastrDefaultWarning"
                                     style={{ color: "#fff" }}

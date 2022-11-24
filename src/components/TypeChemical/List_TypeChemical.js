@@ -27,7 +27,7 @@ const List_Chemical = () => {
 
   const AddTypeChemical = async (e) => {
     e.preventDefault();
-    if (typeChemical === "") {
+    if (typeChemical == "") {
       Swal.fire({
         icon: "error",
         title: "กรุณากรอกข้อมูล",
@@ -181,7 +181,7 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <center>
-                                {listChemical.status === 1 ? (
+                                {listChemical.status == 1 ? (
                                   <Image
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"

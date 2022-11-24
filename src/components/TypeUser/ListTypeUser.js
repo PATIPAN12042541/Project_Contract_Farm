@@ -36,7 +36,7 @@ const ListTypeUser = () => {
 
   const AddTypeUser = async (e) => {
     e.preventDefault();
-    if (typeUser === "") {
+    if (typeUser == "") {
       Swal.fire({
         icon: "error",
         title: "กรุณากรอกข้อมูล",
@@ -164,7 +164,7 @@ const ListTypeUser = () => {
                             <td>{listTypeUser.role_group_name}</td>
                             <td>
                               <center>
-                                {listTypeUser.status === 1 ? (
+                                {listTypeUser.status == 1 ? (
                                   <Image
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"
