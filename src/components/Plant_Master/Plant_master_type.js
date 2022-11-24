@@ -37,7 +37,7 @@ const Plant_master_type = () => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterType`
     );
     setTypeMasterPlant(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const AddTypePlantMaster = async (e) => {
