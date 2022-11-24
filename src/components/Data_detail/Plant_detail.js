@@ -53,7 +53,6 @@ const Plant_detail = (props) => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
-    formData.ImageResize(imageResize);
     
     console.log("accep :" + acceptedFiles[0]);
     console.log(formData);
