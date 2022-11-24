@@ -45,15 +45,16 @@ const Plant_detail = (props) => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
-
+    
+    console.log("accep :" + acceptedFiles[0]);
     console.log(formData);
-    // await axios
-    //   .post(
-    //     `${process.env.REACT_APP_API_URL}/public/dist/img/UploadWorking`,
-    //     formData
-    //   )
-    //   .then((res) => console.log(res.data))
-    //   .catch((err) => console.error(err));
+    await axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/public/dist/img/UploadWorking`,
+        formData
+      )
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
   };
 
   const getPlantData = async () => {
