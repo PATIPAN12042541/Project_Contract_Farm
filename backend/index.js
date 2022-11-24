@@ -14,7 +14,7 @@ import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
 import History from "./routes/HistoryPlantRoute.js";
-import SharpMulter from "./node_modules/sharp-multer/index.js";
+import SharpMulter from "/node_modules/sharp-multer/index.js";
 
 
 dotenv.config();
