@@ -93,7 +93,7 @@ const List_Chemical = () => {
           name_chemical_eng: nameChemicalEng,
           eu_mrl: eumrl,
           path_img:
-            image_name === undefined
+            image_name == undefined
               ? "../dist/img/No_Image_Available.jpg"
               : "../dist/img/insecticide/" + image_name,
           type_chemical_id: typeChemicalID,
@@ -136,40 +136,40 @@ const List_Chemical = () => {
 
   // Search Item
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-    if (searchInput !== '') {
-        const filteredData = listChemicals.filter((item) => {
-            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-        })
-        setFilteredResults(filteredData);
-        setCurrentPage(1);
-        console.log(filteredData);
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = listChemicals.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+      setCurrentPage(1);
+      // console.log(filteredData);
+    } else {
+      setFilteredResults(listChemicals);
+      //  console.log(listChemicals);
     }
-    else{
-        setFilteredResults(listChemicals);
-        console.log(listChemicals);
-    }
-}
-  
+  };
+
   // Pageing
   const currentTableData = useMemo(() => {
-    console.log(currentPage);
+    // console.log(currentPage);
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
 
-    if (searchInput.length > 1){
+    if (searchInput.length > 1) {
       return filteredResults.slice(firstPageIndex, lastPageIndex);
-    }
-    else
-    {
+    } else {
       return listChemicals.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage,searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentPage, searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getListChemical();
     getListTypeChemicals();
-  },[]);
+  }, []);
 
   const getListChemical = async () => {
     const response = await axios.get(
@@ -179,7 +179,7 @@ const List_Chemical = () => {
   };
 
   const deleteChemical = async (id) => {
-    console.log(id);
+    //console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You want Delete !",
@@ -276,7 +276,7 @@ const List_Chemical = () => {
                       </thead>
                       <tbody>
                         {currentTableData.map((listChemical, index) => (
-                          <tr key={listChemical.id}>
+                          <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{listChemical.type_chemical}</td>
                             <td>{listChemical.name_chemical}</td>
@@ -298,7 +298,7 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <center>
-                                {listChemical.status === 1 ? (
+                                {listChemical.status == 1 ? (
                                   <Image
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"
