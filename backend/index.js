@@ -128,7 +128,7 @@ try {
      .resize(200, 200)
      .jpeg({ quality: 90 })
      .toFile(
-         path.resolve(req.file.destination,'resized',image)
+         path.resolve(req.file.destination,'resized',file)
      )
      fs.unlinkSync(req.file.path)
    
