@@ -3,19 +3,11 @@ import axios from "axios";
 import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
-import ImageResize from "image-resize";
-
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
   const [files, setFiles] = useState([]);
   const [quantity, setQuantity] = useState([]);
-
-  const imageResize = new ImageResize({
-    format: "png", // ไฟล์รูปภาพเป็น png
-    quality: 0.5, // ปรับขนาดไฟล์รูปภาพให้เหลือครึ่งนึง
-    width: 500, // ปรับขนาดรูปให้มีความกว้าง 500 px
-  });
 
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -53,7 +45,6 @@ const Plant_detail = (props) => {
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", acceptedFiles[0]);
-    formData.ImageResize(imageResize);
     
     console.log("accep :" + acceptedFiles[0]);
     console.log(formData);
@@ -262,7 +253,7 @@ const Plant_detail = (props) => {
                             <span style={{ "--i": "5" }}>เ</span>
                             <span style={{ "--i": "6" }}>นิ</span>
                             <span style={{ "--i": "7" }}>น</span>
-                            <span style={{ "--i": "8" }}>ก</span>
+                            <span style={{ "--i": "8" }}>ก</span> 
                             <span style={{ "--i": "9" }}>า</span>
                             <span style={{ "--i": "10" }}>ร</span>
                             <span style={{ "--i": "11" }}>.</span>
@@ -277,7 +268,7 @@ const Plant_detail = (props) => {
                       <div className="row">
                         <div className="col-md-12">
                           <div {...getRootProps({ className: "dropzone" })}>
-                            <input {...getInputProps()} />
+                            <input {...getInputProps()}/>
                             <img
                               className="ima-size card-img-top"
                               src="../dist/img/Uploadfile.png"
