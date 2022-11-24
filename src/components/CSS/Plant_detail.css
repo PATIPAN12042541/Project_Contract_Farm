@@ -35,7 +35,7 @@
             position: relative !important;
             display: inline-block !important;
             /* font-size: 40px !important; */
-                font-size: calc(3vw + 3vh) !important;
+                font-size: calc(1.5vw + 1.5vh) !important;
             /* color: black !important; */
             text-transform: uppercase !important;
             animation: flip 2s infinite !important;
