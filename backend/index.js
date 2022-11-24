@@ -20,7 +20,7 @@ dotenv.config();
 const app = express();
 
 const path = require('path');
-const sharp = require('sharp');
+const appsharp = require('sharp');
 const fs = require('fs');
 
 try {
@@ -125,7 +125,7 @@ try {
   app.post('/public/dist/img/UploadWorking', upload_4.single('file'), async (req, res) => {
     const { filename: image } = req.files.file;
 
-    await sharp(req.files.file.path)
+    await appsharp(req.files.file.path)
       .resize(200, 200)
       .jpeg({ quality: 90 })
       .toFile(
