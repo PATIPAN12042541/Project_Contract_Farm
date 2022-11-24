@@ -115,14 +115,14 @@ app.get('/', (req, res) => {
 });
 
 try{
-  app.post('/', upload_4.single('image'),async (req, res) => {
-    const { filename: image } = req.file;
+  app.post('/', upload_4.single('file'),async (req, res) => {
+    const { filename: file } = req.file;
     
     await sharp(req.file.path)
      .resize(200, 200)
      .jpeg({ quality: 90 })
      .toFile(
-         path.resolve(req.file.destination,'resized',image)
+         path.resolve(req.file.destination,'resized',file)
      )
      fs.unlinkSync(req.file.path)
     
