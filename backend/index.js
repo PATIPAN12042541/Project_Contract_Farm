@@ -117,7 +117,7 @@ const storage_4 =
     imageOptions: {
       fileFormat: "jpg",
       quality: 90,
-      resize: { width: 200, height: 200 },
+      resize: { width: 600, height: 300 },
     }
   });
 const upload_4 = multer({ storage: storage_4 });
