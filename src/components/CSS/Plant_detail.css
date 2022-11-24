@@ -8,13 +8,12 @@
         color: #ffffff;
         top: 50px;
         right: 50px;
-        font-size: 36px;
+        /* font-size: 36px; */
     }
     
     .waviy2 {
         position: absolute;
-            /* background: rgb(0, 0, 0);
-                                                                                    background: rgba(0, 0, 0, 0.5); */
+            /* background: rgb(0, 0, 0);                                                              background: rgba(0, 0, 0, 0.5); */
                 border-inline-color: #ffffff;
             color: #f3a908;
             top: 50px;
@@ -24,7 +23,8 @@
   .waviy span {
     position: relative !important;
         display: inline-block !important;
-        font-size: 40px !important;
+        font-size: calc(1.5vw + 1.5vh) !important;
+            /* font-size: 40px !important; */
         /* color: black !important; */
         text-transform: uppercase !important;
         animation: flip 2s infinite !important;
