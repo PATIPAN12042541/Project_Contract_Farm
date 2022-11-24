@@ -1,62 +1,13 @@
-import React, { useState, useEffect ,Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
-import ImageResize from "image-resize";
-
 
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
   const [files, setFiles] = useState([]);
   const [quantity, setQuantity] = useState([]);
-
-  /************************* เพิ่มมาใหม่ ****************/
-  const { imageUrl, imageFile, imageW, imageH } = this.state;
-  
-  const imageResize = new ImageResize({
-    format: "png", // ไฟล์รูปภาพเป็น png
-    quality: 0.5, // ปรับขนาดไฟล์รูปภาพให้เหลือครึ่งนึง
-    width: 500, // ปรับขนาดรูปให้มีความกว้าง 500 px
-  });
-
-  function dataURLtoFile(dataurl, filename) {
-    var arr = dataurl.split(","),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
-  
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-  
-    return new File([u8arr], filename, { type: mime });
-  }
-
-  uploadimage2 = (event) => {
-    let setImage = (img, width, height) => {
-      this.setState({
-        imageUrl: img, // url
-        imageFile: dataURLtoFile(img), // binary
-        imageW: width,
-        imageH: height,
-      });
-    };
-    imageResize
-      .play(URL.createObjectURL(event.target.files[0])) //แปลงไฟล์เป็น blob
-      .then(function (response) {
-        var i = new Image();
-        i.onload = function () {
-          setImage(response, i.width, i.height);
-        };
-        i.src = response;
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-  /***************************************************/
 
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
