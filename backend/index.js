@@ -15,13 +15,15 @@ import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
 import History from "./routes/HistoryPlantRoute.js";
 import sharp from "sharp";
+import path from "path";
+import fs from "fs";
 
 dotenv.config();
 const app = express();
 
-const path = require('path');
+//const path = require('path');
 //const appsharp = require('sharp');
-const fs = require('fs');
+//const fs = require('fs');
 
 try {
   await db.authenticate();
