@@ -274,15 +274,6 @@ const Plant_detail = (props) => {
                               src="../dist/img/Uploadfile.png"
                             />
                           </div>
-                            {imageFile && (
-                              <div>
-                                <p>ไฟล์รูปมีขนาด {imageFile.size} ไบท์</p>
-                                <p>ไฟล์รูปประเภท {imageFile.type}</p>
-                                <p>
-                                  ความกว้างและความสูงของไฟล์ {imageW} x {imageH} px
-                                </p>
-                              </div>
-                            )}
                           <div className="waviy2">
                             <span style={{ "--i": "1" }}>U</span>
                             <span style={{ "--i": "2" }}>p</span>
