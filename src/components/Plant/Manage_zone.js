@@ -138,7 +138,7 @@ const Manage_zone = () => {
 
   const updateZone = async (id) => {
     try {
-      if (image_name === undefined) {
+      if (image_name == undefined) {
         await axios.patch(
           `${process.env.REACT_APP_API_URL}/zoneplant/UpdateZone/${id}`,
           {

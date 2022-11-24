@@ -26,7 +26,7 @@ const Add_Chemical = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical`);
         setListTypeChemical(response.data);
     }
-
+    
     const AddChemical = async(e)=>{
         e.preventDefault();
         await axios
@@ -35,7 +35,7 @@ const Add_Chemical = () => {
             name_chemical_eng: nameChemicalEng,
             eu_mrl: eumrl,
             path_img:
-              image_name === undefined
+              image_name == undefined
                 ? "../dist/img/No_Image_Available.jpg"
                 : "../dist/img/insecticide/" + image_name,
             type_chemical_id: typeChemicalID,

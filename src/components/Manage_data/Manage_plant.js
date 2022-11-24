@@ -62,10 +62,6 @@ const Manage_plant = (props) => {
     name: "detail",
   });
 
-  // const onQuery = async (data) => {
-  //   console.log("data", data);
-  // };
-
   const onSubmit = async (data) => {
     Swal.fire({
       icon: "success",

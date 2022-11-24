@@ -118,7 +118,7 @@ const Manage_plant_fertilizer = (props) => {
   };
 
   const PostFertilizer = async () => {
-    if (quantity === "" || unit === "" || dateStart === "" || dateEnd === "") {
+    if (quantity == "" || unit == "" || dateStart == "" || dateEnd == "") {
       Swal.fire({
         icon: "error",
         title: "กรุณากรอกข้อมูลให้ครบถ้วน",

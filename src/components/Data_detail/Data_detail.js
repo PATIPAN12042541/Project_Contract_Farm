@@ -26,7 +26,6 @@ const Data_detail = (props) => {
 
     if (reportDefect.data[0].ReportDefect == 0) {
       // console.log("insert" + reportDefect);
-
       try {
         await axios
           .post(
@@ -35,7 +34,7 @@ const Data_detail = (props) => {
               disease: checked,
               bug: checked2,
               weed: checked3,
-              remark: remark === "" ? "" : remark,
+              remark: remark == "" ? "" : remark,
             }
           )
           .then(function (response) {
@@ -153,7 +152,7 @@ const Data_detail = (props) => {
                     <h1 className="card-title">
                       รายละเอียดสารเคมี {data.name_chemical}
                       {"  "}
-                      {data.status_check === "0" && (
+                      {data.status_check == "0" && (
                         <BsCheckCircleFill style={{ color: "#FFFFF" }} />
                       )}
                     </h1>
@@ -243,7 +242,7 @@ const Data_detail = (props) => {
                             </div>
                             <div
                               className={
-                                data.status_check === "0"
+                                data.status_check == "0"
                                   ? "col-12 col-sm-6 font-size-success"
                                   : "col-12 col-sm-6 font-size"
                               }
@@ -262,7 +261,7 @@ const Data_detail = (props) => {
                           </div>
                           <div className="row">
                             <div className="col-12 col-sm-12">
-                              {data.status_check === "1" ? (
+                              {data.status_check == "1" ? (
                                 <button
                                   className="btn btn-success float-right"
                                   onClick={() => {

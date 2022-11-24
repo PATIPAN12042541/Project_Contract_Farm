@@ -39,32 +39,6 @@ const System_overview = () => {
     }
   };
 
-  // const headers = [
-  //   { label: "โซนเพาะปลูก", key: "zone_name" },
-  //   { label: "ชื่อเเปลง", key: "plant_name" },
-  //   { label: "วันที่เริ่มต้น", key: "start_plant" },
-  //   { label: "วันที่สิ้นสุด", key: "end_plant" },
-  //   { label: "ผู้รับผิดชอบ", key: "username" },
-  //   { label: "ชื่อสารเคมี/ปุ๋ย", key: "name_chemical" },
-  //   { label: "ชื่อสารเคมี/ปุ๋ย ภาษาอังกฤษ", key: "name_chemical_eng" },
-  //   { label: "EU_MRL", key: "eu_mrl" },
-  //   { label: "ระยะเวลา : วัน", key: "time" },
-  //   { label: "ระยะเวลา : หน่วย", key: "unit" },
-  //   { label: "cc", key: "chemical_cc" },
-  //   { label: "Liter", key: "chemical_liter" },
-  //   { label: "Note", key: "chemical_note" },
-  //   { label: "โรค", key: "disease" },
-  //   { label: "แมลง", key: "bug" },
-  //   { label: "วัชพืช", key: "weed" },
-  //   { label: "หมายเหตุ", key: "remark" },
-  //   { label: "วันที่เริ่มต้นสารเคมี", key: "chemical_date_start" },
-  //   { label: "วันที่สิ้นสุดสารเคมี", key: "chemical_date_end" },
-  //   { label: "จำนวนที่เก็บเกี่ยว", key: "qty" },
-  //   { label: "ระยะเวลาเก็บเกี่ยว", key: "diff_date" },
-  //   { label: "สถานะ", key: "status_name" },
-  //   { label: "วงรอบ", key: "plant_circle" },
-  // ];
-
   //////////////////// End Search /////////////////////////////////
 
   const columns = [
@@ -81,7 +55,7 @@ const System_overview = () => {
       selector: (row) => row.plant_name,
       sortable: true,
       grow: 4,
-    },
+    }, 
     {
       name: "วันที่เริ่มต้น",
       id: "start_plant",

@@ -101,7 +101,7 @@ const Harvest_show = () => {
                             </td>
                             <td
                               className={
-                                data.check_harvest === "Okay"
+                                data.check_harvest == "Okay"
                                   ? "Okay"
                                   : "NotOkay"
                               }

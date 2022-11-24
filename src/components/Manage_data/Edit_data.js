@@ -122,7 +122,7 @@ const Edit_data = (props) => {
         .patch(
           `${process.env.REACT_APP_API_URL}/getplant/Comment/update/${CommentId}`,
           {
-            comment: CommentUpdate === "" ? "-" : CommentUpdate,
+            comment: CommentUpdate == "" ? "-" : CommentUpdate,
           }
         )
         .then(function (response) {
@@ -277,7 +277,7 @@ const Edit_data = (props) => {
   };
 
   const postPlant = async (e) => {
-    if (idplant === "" || startdate === "" || enddate === "") {
+    if (idplant == "" || startdate == "" || enddate == "") {
       Swal.fire({
         icon: "error",
         title: "กรุณาใส่ข้อมูลให้ครบถ้วน",
@@ -522,13 +522,13 @@ const Edit_data = (props) => {
   const History_plant = (id, status) => {
     // console.log("id : " + id + " status : " + status);
     let status2 = status - 1;
-    if (status2 === "1") {
+    if (status2 == "1") {
       getDataPlant(id); // get & post history data
-    } else if (status2 === "2") {
+    } else if (status2 == "2") {
       getDataPlant2(id); // get & post ปุ๋ย
-    } else if (status2 === "3") {
+    } else if (status2 == "3") {
       getDataPlant3(id); // get & post สารเคมี
-    } else if (status2 === "0") {
+    } else if (status2 == "0") {
       getDataPlant(id);
     }
   };
@@ -713,7 +713,7 @@ const Edit_data = (props) => {
 
                                   <div className="col-2">
                                     <Zoom>
-                                      <img 
+                                      <img
                                         src={
                                           dataImg.plant_img
                                             ? dataImg.plant_img
@@ -781,7 +781,7 @@ const Edit_data = (props) => {
                         >
                           <td
                             style={
-                              data.plant_condition === 1
+                              data.plant_condition == 1
                                 ? { color: "red" }
                                 : { color: "green" }
                             }
@@ -862,9 +862,9 @@ const Edit_data = (props) => {
                           >
                             <center>{data.status_name}</center>
                           </td>
-                          {data.plant_condition === 1 ? (
+                          {data.plant_condition == 1 ? (
                             <td>
-                              {data.status_plant === "2" ? (
+                              {data.status_plant == "2" ? (
                                 <center>
                                   <Link
                                     to={{
@@ -917,7 +917,7 @@ const Edit_data = (props) => {
                                     <BsFillChatSquareDotsFill />
                                   </button>
                                 </center>
-                              ) : data.status_plant === "3" ? (
+                              ) : data.status_plant == "3" ? (
                                 <center>
                                   <Link
                                     to={{
@@ -970,7 +970,7 @@ const Edit_data = (props) => {
                                     <BsFillChatSquareDotsFill />
                                   </button>
                                 </center>
-                              ) : data.status_plant === "4" ? (
+                              ) : data.status_plant == "4" ? (
                                 <center>
                                   <button
                                     type="submit"
@@ -1080,7 +1080,7 @@ const Edit_data = (props) => {
                           ) : (
                             ///////////////////////////////////////////////////////////////////////
                             <td>
-                              {data.status_plant === "2" ? (
+                              {data.status_plant == "2" ? (
                                 <center>
                                   <Link
                                     to={{
@@ -1133,7 +1133,7 @@ const Edit_data = (props) => {
                                     <BsFillChatSquareDotsFill />
                                   </button>
                                 </center>
-                              ) : data.status_plant === "3" ? (
+                              ) : data.status_plant == "3" ? (
                                 <center>
                                   <Link
                                     to={{
@@ -1186,7 +1186,7 @@ const Edit_data = (props) => {
                                     <BsFillChatSquareDotsFill />
                                   </button>
                                 </center>
-                              ) : data.status_plant === "4" ? (
+                              ) : data.status_plant == "4" ? (
                                 <center>
                                   <button
                                     type="submit"

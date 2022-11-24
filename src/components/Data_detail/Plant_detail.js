@@ -4,37 +4,6 @@ import "../CSS/Plant_detail.css";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
 
-// const thumbsContainer = {
-//   display: "flex",
-//   flexDirection: "row",
-//   flexWrap: "wrap",
-//   marginTop: 16,
-// };
-
-// const thumb = {
-//   display: "inline-flex",
-//   borderRadius: 2,
-//   border: "1px solid #eaeaea",
-//   marginBottom: 8,
-//   marginRight: 8,
-//   width: 500,
-//   height: 300,
-//   padding: 4,
-//   boxSizing: "border-box",
-// };
-
-// const thumbInner = {
-//   display: "flex",
-//   minWidth: 0,
-//   overflow: "hidden",
-// };
-
-// const img = {
-//   display: "block",
-//   width: "auto",
-//   height: "100%",
-// };
-
 const Plant_detail = (props) => {
   const [plantdetail, setPlantDetail] = useState([]);
   const [files, setFiles] = useState([]);
@@ -247,16 +216,16 @@ const Plant_detail = (props) => {
               {plantdetail.map((data, index) => (
                 <div className="card card-success" key={index}>
                   <div
-                    className="card-header"
+                    className ="card-header"
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <center>
-                      {data.status_plant === "1" ? (
+                      {data.status_plant == "1" ? (
                         <h3 className="card-title">
                           ปลูกผัก : {data.name_plant}
                         </h3>
                       ) : (
-                        <h3 className="card-title">
+                        <h3 className = "card-title">
                           ตัดผัก : {data.name_plant}
                         </h3>
                       )}
@@ -348,8 +317,8 @@ const Plant_detail = (props) => {
                       </div>
                     </div>
                   )}
-                  {data.status_plant === "1" ? (
-                    data.plant_status === "1" ? (
+                  {data.status_plant == "1" ? (
+                    data.plant_status == "1" ? (
                       <div className="card-footer">
                         <button
                           type="submit"
@@ -370,7 +339,7 @@ const Plant_detail = (props) => {
                         </button>
                       </div>
                     )
-                  ) : data.harvest_status === "1" ? (
+                  ) : data.harvest_status == "1" ? (
                     <div className="card-footer">
                       <button
                         type="submit"
