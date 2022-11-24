@@ -122,7 +122,7 @@ try {
   //   }
   // );
 
-  app.post("/public/dist/img/UploadWorking", upload_4.single("file"),async (req, res) => {
+  app.post("/public/dist/img/UploadWorking", upload_4.single("file"), (req, res) => {
     //const { filename: image } = req.file;
 
     console.log("req : "+req)
