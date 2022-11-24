@@ -105,6 +105,7 @@ const storage_4 = diskStorage({
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
+  resize: { width: 500, height: 500 }
 });
 
 const upload_4 = multer({ storage: storage_4 });
