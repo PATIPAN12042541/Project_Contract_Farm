@@ -40,7 +40,7 @@
             text-transform: uppercase !important;
             animation: flip 2s infinite !important;
             animation-delay: calc(.2s * var(--i)) !important;
-                text-align: right;
+            text-align: right !important;
         }
     
   @keyframes flip {
