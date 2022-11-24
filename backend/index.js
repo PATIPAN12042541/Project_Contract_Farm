@@ -108,6 +108,8 @@ const storage_4 = diskStorage({
   resize: { width: "500px", height: "500px" },
 });
 
+console.log("1");
+
 const upload_4 = multer({ storage: storage_4 });
 try {
   app.post(
