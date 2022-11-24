@@ -121,16 +121,11 @@ try {
   app.post(
     "/public/dist/img/UploadWorking",
     upload_4.single("file"),
-    async (req, res)=> {
-      await sharp(req.files.file.path)
-        .resize(200, 200)
-        .jpeg({ quality: 90 })
-        .toFile(
-            path.resolve(req.files.file.destination,'resized',file)
-        )
-      res.json({});
+    function (req, res) {
+      res.json({req:req});
     }
   );
+
 
 //   app.post("/public/dist/img/UploadWorking", upload_4.single('image'),async (req, res) => {
 //     const { filename: image } = req.file;
