@@ -13,6 +13,9 @@ const Plant_detail = (props) => {
     accept: {
       "image/*": [],
     },
+    name:{
+      "image":[],
+    },
     onDrop: (acceptedFiles2) => {
       setFiles(
         acceptedFiles2.map((file) =>
