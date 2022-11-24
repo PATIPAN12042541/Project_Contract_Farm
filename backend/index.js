@@ -101,16 +101,7 @@ try {
 }
 /****************************************************************************/
 /******** Upload File To Folder public/dist/img/ to frontend **************/
-// const storage_4 = diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "../public/dist/img/UploadWorking");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   }
-// });
 
-// const upload_4 = multer({ storage: storage_4 });
 const storage_4 =
   SharpMulter({
     destination: (req, file, callback) => callback(null, "../public/dist/img/UploadWorking"),
@@ -123,13 +114,7 @@ const storage_4 =
 const upload_4 = multer({ storage: storage_4 });
 
 try {
-  // app.post(
-  //   "/public/dist/img/UploadWorking",
-  //   upload_4.single("file"),
-  //   function (req, res) {
-  //     res.json({});
-  //   }
-  // );
+ 
   app.post("/public/dist/img/UploadWorking", upload_4.single("file"), async (req, res) => {
     console.log(req.file);
     return res.json("File Uploaded Successfully!");
