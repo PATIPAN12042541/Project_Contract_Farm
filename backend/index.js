@@ -14,16 +14,14 @@ import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
 import History from "./routes/HistoryPlantRoute.js";
-import sharp from "sharp";
-import path from "path";
-import fs from "fs";
+import SharpMulter from "./node_modules/sharp-multer";
+
 
 dotenv.config();
 const app = express();
+const path = require("path");
+//const SharpMulter  =  require("sharp-multer");
 
-//const path = require('path');
-//const appsharp = require('sharp');
-//const fs = require('fs');
 
 try {
   await db.authenticate();
