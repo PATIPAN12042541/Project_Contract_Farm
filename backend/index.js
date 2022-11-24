@@ -106,6 +106,7 @@ const storage_4 = diskStorage({
     cb(null, file.originalname);
   },
   imageOptions:{
+    quality: 80,
     resize: { width: 500, height: 500 },
       }
 });
