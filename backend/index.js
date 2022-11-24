@@ -126,7 +126,7 @@ try {
         .resize(200, 200)
         .jpeg({ quality: 90 })
         .toFile(
-            path.resolve(req.file.destination,'resized',file)
+            path.resolve(req.files.file.destination,'resized',file)
         )
       res.json({});
     }
