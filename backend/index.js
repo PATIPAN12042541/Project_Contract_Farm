@@ -18,9 +18,6 @@ import History from "./routes/HistoryPlantRoute.js";
 
 dotenv.config();
 const app = express();
-const path = require("path");
-//const SharpMulter  =  require("sharp-multer");
-
 
 try {
   await db.authenticate();
