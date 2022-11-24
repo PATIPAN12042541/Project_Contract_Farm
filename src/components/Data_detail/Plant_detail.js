@@ -53,6 +53,11 @@ const Plant_detail = (props) => {
       .catch((err) => console.error(err));
   };
 
+
+
+
+
+
   const getPlantData = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/zoneplant/plant_detail/${props.id}`
@@ -106,6 +111,7 @@ const Plant_detail = (props) => {
 
   const changeStatusHavest = async (status) => {
     const path_img = acceptedFiles.map((file) => file.path);
+
     if (status == 1) {
       try {
         await axios
@@ -134,7 +140,7 @@ const Plant_detail = (props) => {
               title: "บันทึกสำเร็จ",
             });
             uploadImg();
-            getPlantData();
+            //  getPlantData();
           })
           .catch(function (error) {
             Swal.fire({
@@ -178,7 +184,7 @@ const Plant_detail = (props) => {
               title: "บันทึกสำเร็จ",
             });
             uploadImg();
-            getPlantData();
+            // getPlantData();
           })
           .catch(function (error) {
             Swal.fire({
