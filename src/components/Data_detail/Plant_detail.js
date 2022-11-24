@@ -216,7 +216,7 @@ const Plant_detail = (props) => {
               {plantdetail.map((data, index) => (
                 <div className="card card-success" key={index}>
                   <div
-                    className ="card-header"
+                    className="card-header"
                     style={{ backgroundColor: "#8CC152" }}
                   >
                     <center>
@@ -225,13 +225,13 @@ const Plant_detail = (props) => {
                           ปลูกผัก : {data.name_plant}
                         </h3>
                       ) : (
-                        <h3 className = "card-title">
+                        <h3 className="card-title">
                           ตัดผัก : {data.name_plant}
                         </h3>
                       )}
                     </center>
                   </div>
-                  {data.status_plant === "1" ? (
+                  {data.status_plant == "1" ? (
                     <div className="card-body">
                       <div className="row">
                         <div className="col-md-12">
