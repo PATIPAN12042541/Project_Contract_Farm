@@ -30,7 +30,7 @@ const Plant_detail = (props) => {
         <img
           src={file.preview}
           className="img"
-          style={{ width: "500px", height: "600px" }}
+          style={{ width: "500px", height: "300px" }}
           // Revoke data uri after image is loaded
           onLoad={() => {
             URL.revokeObjectURL(file.preview);
