@@ -122,9 +122,9 @@ try {
   //   }
   // );
 
-  app.post("/public/dist/img/UploadWorking", upload_4.single('file'),async (req, res) => {
+  app.post("/public/dist/img/UploadWorking", upload_4.single("file"),async (req, res) => {
     const { filename: image } = req.file;
-   
+
     await sharp(req.file.path)
      .resize(200, 200)
      .jpeg({ quality: 90 })
