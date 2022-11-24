@@ -96,7 +96,7 @@ const Plant_master = () => {
       `${process.env.REACT_APP_API_URL}/getplant/plant/getPlantMasterTypeUsed`
     );
     setmasterDropType(response.data);
-    console.log(response.data);
+    //console.log(response.data);
   };
 
   // Post Data Plant
