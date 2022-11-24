@@ -14,6 +14,7 @@ import TypeChemical from "./routes/TypeChemicalRoute.js";
 import Header from "./routes/Header.js";
 import OverView from "./routes/SystemOverview.js";
 import History from "./routes/HistoryPlantRoute.js";
+import sharp from "sharp";
 
 dotenv.config();
 const app = express();
