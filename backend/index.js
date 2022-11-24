@@ -19,6 +19,10 @@ import sharp from "sharp";
 dotenv.config();
 const app = express();
 
+const path = require('path');
+const sharp = require('sharp');
+const fs = require('fs');
+
 try {
   await db.authenticate();
   console.log("Database connected...");
@@ -118,13 +122,19 @@ try {
   //   }
   // );
 
-  app.post(
-    "/public/dist/img/UploadWorking",
-    upload_4.single("file"),
-    function (req, res) {
-      res.json({req:req});
-    }
-  );
+  app.post('/public/dist/img/UploadWorking', upload_4.single('file'), async (req, res) => {
+    const { filename: image } = req.files.file;
+
+    await sharp(req.files.file.path)
+      .resize(200, 200)
+      .jpeg({ quality: 90 })
+      .toFile(
+        path.resolve(req.files.file.destination, 'resized', image)
+      )
+    fs.unlinkSync(req.files.file.path)
+
+    // res.redirect('/');
+  });
 
 
 //   app.post("/public/dist/img/UploadWorking", upload_4.single('image'),async (req, res) => {
