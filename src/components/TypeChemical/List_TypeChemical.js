@@ -188,6 +188,7 @@ const List_Chemical = () => {
                                       handleShowModelEdit()
                                       setEditTypeChemicalID(listChemical.id)
                                       setEditTypeChemical(listChemical.type_chemical)
+                                      setCheckedEditModel(listChemical.status)
                                     }}
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
