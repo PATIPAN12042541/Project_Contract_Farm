@@ -44,6 +44,7 @@ const List_Chemical = () => {
   // Modal แก้ไขข้อมูลสารเคมี
   const [editCheckthai, setEditCheckthai] = useState(false);
   const [editCheckeng, setEditCheckEng] = useState(false);
+  const [editChemicalID, setEditChemicalID] = useState("");
   const [editNameChemicalThai, setEditNameChemicalThai] = useState("");
   const [editNameChemicalEng, setEditNameChemicalEng] = useState("");
   const [editEumrl, setEditEumrl] = useState("");
@@ -171,6 +172,47 @@ const List_Chemical = () => {
     }
   };
 
+  const updateChemical = async (id) => {
+    try{
+        if (editImage_name === undefined){
+            await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
+                name_chemical: editNameChemicalThai,
+                name_chemical_eng : editNameChemicalEng,
+                eu_mrl : editEumrl,
+                type_chemical_id : editTypeChemicalID,
+                status : editChecked,
+            });
+        }else{
+            await axios.patch(`${process.env.REACT_APP_API_URL}/getChemical/updateChemical/${id}`,{
+                name_chemical: editNameChemicalThai,
+                name_chemical_eng : editNameChemicalEng,
+                eu_mrl : editEumrl,
+                path_img : '../dist/img/insecticide/'+editImage_name,
+                type_chemical_id : editTypeChemicalID,
+                status : editChecked,
+            });
+
+            EdituploadImg();
+        }
+        
+        Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Update Success!",
+          });
+        navigate("/ListChemical")
+        handleCloseModelEdit();
+        getListChemical();
+        getListTypeChemicals();
+    }catch(error){
+        Swal.fire({
+            icon: "error",
+            title: "Update Fail!",
+            text: error,
+          });
+    }
+}
+
   const uploadImg = async () => {
     let formData = new FormData();
     formData.append("file", image.data);
@@ -180,6 +222,16 @@ const List_Chemical = () => {
         `${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`,
         formData
       )
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  };
+
+  const EdituploadImg = async () => {
+    let formData = new FormData();
+    formData.append("file", editImage.data);
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/public/dist/img/insecticide`, formData)
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
   };
@@ -377,6 +429,7 @@ const List_Chemical = () => {
                                     style={{ color: "#ffff" }}
                                     onClick={(e)=>{
                                       handleShowModelEdit()
+                                      setEditChemicalID(listChemical.id)
                                       setEditTypeChemicalID(listChemical.type_chemical_id)
                                       setEditNameChemicalThai(listChemical.name_chemical)
                                       setEditNameChemicalEng(listChemical.name_chemical_eng)
@@ -782,6 +835,9 @@ const List_Chemical = () => {
           <button
             type="button"
             className="btn btn-success"
+            onClick={(e)=>{
+              updateChemical(editChemicalID)
+            }}
           >
             บันทึก
           </button>
