@@ -377,6 +377,7 @@ const List_Chemical = () => {
                                     style={{ color: "#ffff" }}
                                     onClick={(e)=>{
                                       handleShowModelEdit()
+                                      console.log(listChemical.type_chemical_id)
                                       setEditTypeChemicalID(listChemical.type_chemical_id)
                                       setEditNameChemicalThai(listChemical.name_chemical)
                                       setEditNameChemicalEng(listChemical.name_chemical_eng)
