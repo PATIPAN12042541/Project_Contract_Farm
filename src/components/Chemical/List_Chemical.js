@@ -115,9 +115,9 @@ const List_Chemical = () => {
     ThaiCount = (data.match(/[ก-๙]/g) || []).length;
 
     if (ThaiCount > 0) {
-      seteditCheckEng(true);
+      setEditCheckEng(true);
     } else {
-      seteditCheckEng(false);
+      setEditCheckEng(false);
     }
   };
 
