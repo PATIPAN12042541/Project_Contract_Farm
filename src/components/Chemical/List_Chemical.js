@@ -627,6 +627,7 @@ const List_Chemical = () => {
                 <div className="col-sm-8">
                   <select
                     className="form-control"
+                    value={editTypeChemicalID}
                     onChange={(e) => {
                       setEditTypeChemicalID(e.target.value);
                     }}
@@ -653,6 +654,7 @@ const List_Chemical = () => {
                         : "form-control"
                     }
                     placeholder="ชื่อสารเคมี (ไทย)"
+                    value={editNameChemicalThai}
                     onChange={(e) => (
                       setEditNameChemicalThai(e.target.value),
                       EditCheckWording(e.target.value)
@@ -680,6 +682,7 @@ const List_Chemical = () => {
                         : "form-control"
                     }
                     placeholder="ชื่อสารเคมี (Eng)"
+                    value={editNameChemicalEng}
                     onChange={(e) => (
                       setEditNameChemicalEng(e.target.value),
                       EditCheckwordingTH(e.target.value)
@@ -709,6 +712,7 @@ const List_Chemical = () => {
                         e.preventDefault();
                       }
                     }}
+                    value={editEumrl}
                     onChange={(e) => setEditEumrl(e.target.value)}
                   />
                 </div>
