@@ -185,7 +185,7 @@ const List_Chemical = () => {
                                     variant="warning"
                                     style={{ color: "#ffff" }}
                                     onClick={()=>{
-                                      handleShowModelEdit
+                                      handleShowModelEdit()
                                     }}
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
