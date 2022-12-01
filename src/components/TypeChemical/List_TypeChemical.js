@@ -94,7 +94,9 @@ const List_Chemical = () => {
             title: "Success",
             text: "Update Success!",
           });
-        navigate("/TypeChemical");
+        navigate("/TypeChemical")
+        handleCloseModelEdit()
+        getListChemical()
     }catch(error){
         Swal.fire({
             icon: "error",
