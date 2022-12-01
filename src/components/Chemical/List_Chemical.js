@@ -160,7 +160,6 @@ const List_Chemical = () => {
           navigate("/ListChemical");
           handleClose();
           getListChemical();
-          getListTypeChemicals();
         })
         .catch(function (error) {
           Swal.fire({
@@ -203,7 +202,6 @@ const List_Chemical = () => {
         navigate("/ListChemical")
         handleCloseModelEdit();
         getListChemical();
-        getListTypeChemicals();
     }catch(error){
         Swal.fire({
             icon: "error",
