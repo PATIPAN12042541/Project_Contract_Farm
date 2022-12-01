@@ -365,7 +365,7 @@ const List_Chemical = () => {
                 <div className="col-sm-8 col-form-label">
                   <Switch
                     onChange={() => {
-                      setChecked(!checkedEditModel);
+                      setCheckedEditModel(!checkedEditModel);
                     }}
                     checked={checkedEditModel}
                     className="react-switch"
