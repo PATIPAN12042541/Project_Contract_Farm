@@ -271,7 +271,6 @@ const List_Chemical = () => {
                           <th>รูปภาพ</th>
                           <th>Active</th>
                           <th>แก้ไขข้อมูล</th>
-                          <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -331,7 +330,7 @@ const List_Chemical = () => {
                                 </Link>
                               </center>
                             </td>
-                            <td>
+                            {/* <td>
                               <center>
                                 <Button
                                   variant="danger"
@@ -342,7 +341,7 @@ const List_Chemical = () => {
                                   <BsTrashFill />
                                 </Button>
                               </center>
-                            </td>
+                            </td> */}
                           </tr>
                         ))}
                       </tbody>
