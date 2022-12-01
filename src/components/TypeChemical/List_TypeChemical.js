@@ -185,7 +185,7 @@ const List_Chemical = () => {
                                     variant="warning"
                                     style={{ color: "#ffff" }}
                                     onClick={(e)=>{
-                                      handleShowModelEdit()
+                                      // handleShowModelEdit()
                                       setEditTypeChemicalID(listChemical.id)
                                       setEditTypeChemical(listChemical.type_chemical)
                                     }}
