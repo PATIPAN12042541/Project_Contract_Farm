@@ -16,14 +16,26 @@ import '../Pagination/style.scss';
 let PageSize = 5;
 
 const List_Chemical = () => {
-  const [listChemicals, setListChemicals] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [listChemicals, setListChemicals] = useState([]);
+  
+  const navigate = useNavigate();
+
+  // Model เพิ่มประเภทสารเคมี
+  const [typeChemical, setTypeChemical] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [typeChemical, setTypeChemical] = useState("");
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
+
+  // Model แก้ไขประเภทสารเคมี
+  const [editTypeChemicalID, setEditTypeChemicalID] = useState("");
+  const [editTypeChemical, setEditTypeChemical] = useState("");
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseModelEdit = () => setShowEdit(false);
+  const handleShowModelEdit = () => setShowEdit(true);
+  const [checkedEditModel, setCheckedEditModel] = useState(false);
+
 
   const AddTypeChemical = async (e) => {
     e.preventDefault();
@@ -167,11 +179,16 @@ const List_Chemical = () => {
                             <td>
                               <center>
                                 <Link
-                                  to={`/editTypeChemical/${listChemical.id}`}
+                                  // to={`/editTypeChemical/${listChemical.id}`}
                                 >
                                   <Button
                                     variant="warning"
                                     style={{ color: "#ffff" }}
+                                    onClick={(e)=>{
+                                      handleShowModelEdit
+                                      setEditTypeChemicalID(listChemical.id)
+                                      setEditTypeChemical(listChemical.type_chemical)
+                                    }}
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
                                   </Button>
@@ -230,6 +247,7 @@ const List_Chemical = () => {
         </div>
       </section>
 
+      {/*Modal เพิ่มประเภทข้อมูลสารเคมี */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -283,6 +301,66 @@ const List_Chemical = () => {
             type="submit"
             className="btn btn-success"
             onClick={AddTypeChemical}
+          >
+            บันทึก
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/*Modal แก้ไขประเภทข้อมูลสารเคมี */}
+      <Modal show={showEdit} onHide={handleCloseModelEdit}>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            borderLine: "none",
+          }}
+        >
+          <Modal.Title>แก้ไขประเภทข้อมูลสารเคมี</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ประเภทสารเคมี
+                </Form.Label>
+                <div className="col-sm-8">
+                  <Form.Control
+                    type="text"
+                    className="form-control"
+                    value={editTypeChemical}
+                    onChange={(e) => setEditTypeChemical(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-8 col-form-label">
+                  <Switch
+                    onChange={() => {
+                      setChecked(!checkedEditModel);
+                    }}
+                    checked={checkedEditModel}
+                    className="react-switch"
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button className="btn btn-default" onClick={handleCloseModelEdit}>
+            ย้อนกลับ
+          </Button>
+          &nbsp;
+          <button
+            type="submit"
+            className="btn btn-success"
           >
             บันทึก
           </button>
