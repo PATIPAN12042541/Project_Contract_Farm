@@ -627,7 +627,7 @@ const List_Chemical = () => {
                 <div className="col-sm-8">
                   <select
                     className="form-control"
-                    value={editTypeChemicalID}
+                    defaultChecked={editTypeChemicalID}
                     onChange={(e) => {
                       setEditTypeChemicalID(e.target.value);
                     }}
