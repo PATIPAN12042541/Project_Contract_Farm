@@ -23,10 +23,15 @@ const List_Chemical = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+
+  const navigate = useNavigate();
+
+  // Modal เพิ่มข้อมูลสารเคมี
+  const [checkthai, setCheckthai] = useState(false);
+  const [checkeng, setCheckEng] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [ListTypeChemical, setListTypeChemical] = useState([]);
   const [checked, setChecked] = useState(false);
   const [nameChemicalThai, setNameChemicalThai] = useState("");
   const [nameChemicalEng, setNameChemicalEng] = useState("");
@@ -34,7 +39,23 @@ const List_Chemical = () => {
   const [typeChemicalID, setTypeChemicalID] = useState();
   const [image, setImage] = useState({ preview: "", data: "" });
   const [image_name, setImageName] = useState();
-  const navigate = useNavigate();
+  const [ListTypeChemical, setListTypeChemical] = useState([]);
+
+  // Modal แก้ไขข้อมูลสารเคมี
+  const [editCheckthai, setEditCheckthai] = useState(false);
+  const [editCheckeng, setEditCheckEng] = useState(false);
+  const [editNameChemicalThai, setEditNameChemicalThai] = useState("");
+  const [editNameChemicalEng, setEditNameChemicalEng] = useState("");
+  const [editEumrl, setEditEumrl] = useState("");
+  const [editShow, setEditShow] = useState(false);
+  const handleCloseModelEdit = () => setEditShow(false);
+  const handleShowModelEdit = () => setEditShow(true);
+  const [editChecked, setEditChecked] = useState(false);
+  const [editTypeChemicalID, setEditTypeChemicalID] = useState();
+  const [imgUrl,setImgUrl] = useState("")
+  const [editImage, setEditImage] = useState({ preview: "", data: "" });
+  const [editImage_name, setEditImageName] = useState();
+  const [ListEditTypeChemical, setListEditTypeChemical] = useState([]);
 
   const getListTypeChemicals = async () => {
     const response = await axios.get(
@@ -43,8 +64,12 @@ const List_Chemical = () => {
     setListTypeChemical(response.data);
   };
 
-  const [checkthai, setCheckthai] = useState(false);
-  const [checkeng, setCheckEng] = useState(false);
+  const getEditListTypeChemicals = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/chemical/getTypeChemical2`
+    );
+    setListEditTypeChemical(response.data);
+  };
 
   const CheckWording = (data) => {
     let smallCount, LagreCount, ThaiCount;
@@ -60,6 +85,20 @@ const List_Chemical = () => {
     }
   };
 
+  const EditCheckWording = (data) => {
+    let smallCount, LagreCount, ThaiCount;
+
+    smallCount = (data.match(/[a-z]/g) || []).length;
+    LagreCount = (data.match(/[A-Z]/g) || []).length;
+    ThaiCount = (data.match(/[ก-๙]/g) || []).length;
+
+    if (smallCount > 0 || LagreCount > 0) {
+      setEditCheckthai(true);
+    } else {
+      setEditCheckthai(false);
+    }
+  };
+
   const CheckwordingTH = (data) => {
     let ThaiCount;
     ThaiCount = (data.match(/[ก-๙]/g) || []).length;
@@ -68,6 +107,17 @@ const List_Chemical = () => {
       setCheckEng(true);
     } else {
       setCheckEng(false);
+    }
+  };
+
+  const EditCheckwordingTH = (data) => {
+    let ThaiCount;
+    ThaiCount = (data.match(/[ก-๙]/g) || []).length;
+
+    if (ThaiCount > 0) {
+      seteditCheckEng(true);
+    } else {
+      seteditCheckEng(false);
     }
   };
 
@@ -167,8 +217,9 @@ const List_Chemical = () => {
   }, [currentPage, searchInput.length > 1 ? filteredResults : listChemicals]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    getListChemical();
-    getListTypeChemicals();
+    getListChemical()
+    getListTypeChemicals()
+    getEditListTypeChemicals()
   }, []);
 
   const getListChemical = async () => {
@@ -320,14 +371,23 @@ const List_Chemical = () => {
                             </td>
                             <td>
                               <center>
-                                <Link to={`/UpdateChemical/${listChemical.id}`}>
+                                {/* <Link to={`/UpdateChemical/${listChemical.id}`}> */}
                                   <Button
                                     variant="warning"
                                     style={{ color: "#ffff" }}
+                                    onClick={(e)=>{
+                                      handleShowModelEdit()
+                                      setEditTypeChemicalID(listChemical.id)
+                                      setEditNameChemicalThai(listChemical.name_chemical)
+                                      setEditNameChemicalEng(listChemical.name_chemical_eng)
+                                      setEditEumrl(listChemical.eu_mrl)
+                                      setEditChecked(listChemical.status)
+                                      setImgUrl(listChemical.path_img)
+                                    }}
                                   >
                                     <AiFillEdit />
                                   </Button>
-                                </Link>
+                                {/* </Link> */}
                               </center>
                             </td>
                             {/* <td>
@@ -365,6 +425,7 @@ const List_Chemical = () => {
         </div>
       </section>
 
+      {/* Modal เพิ่มข้อมูลสารเคมี */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -538,6 +599,185 @@ const List_Chemical = () => {
             type="button"
             className="btn btn-success"
             onClick={AddChemical}
+          >
+            บันทึก
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal แก้ไขข้อมูลสารเคมี */}
+      <Modal show={editShow} onHide={handleCloseModelEdit}>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+          }}
+        >
+          <Modal.Title>แก้ไขข้อมูลสารเคมี</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ประเภทสารเคมี
+                </Form.Label>
+                <div className="col-sm-8">
+                  <select
+                    className="form-control"
+                    onChange={(e) => {
+                      setEditTypeChemicalID(e.target.value);
+                    }}
+                  >
+                    <option>--เลือกประเภทสารเคมี--</option>
+                    {ListEditTypeChemical.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.type_chemical}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อสารเคมี (ไทย)
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className={
+                      editCheckthai > 0 && editNameChemicalThai !== ""
+                        ? "form-control borderLine"
+                        : "form-control"
+                    }
+                    placeholder="ชื่อสารเคมี (ไทย)"
+                    onChange={(e) => (
+                      setEditNameChemicalThai(e.target.value),
+                      EditCheckWording(e.target.value)
+                    )}
+                  />
+                </div>
+              </div>
+              {editCheckthai > 0 && editNameChemicalThai !== "" ? (
+                <div className="col-sm-12 setValidation">
+                  กรุณากรอกภาษาไทยเท่านั้น
+                </div>
+              ) : (
+                ""
+              )}
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ชื่อสารเคมี (Eng)
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className={
+                      editCheckeng > 0 && editNameChemicalEng !== ""
+                        ? "form-control borderLine"
+                        : "form-control"
+                    }
+                    placeholder="ชื่อสารเคมี (Eng)"
+                    onChange={(e) => (
+                      setEditNameChemicalEng(e.target.value),
+                      EditCheckwordingTH(e.target.value)
+                    )}
+                  />
+                </div>
+              </div>
+              {editCheckeng > 0 && editNameChemicalEng !== "" ? (
+                <div className="col-sm-12 setValidation">
+                  กรุณากรอกอังกฤษเท่านั้น
+                </div>
+              ) : (
+                ""
+              )}
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  EU MRL
+                </Form.Label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="EU MRL"
+                    pattern="[0-9]*"
+                    onKeyPress={(e) => {
+                      if (!/[0-9]/.test(e.key)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    onChange={(e) => setEditEumrl(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">รูป</Form.Label>
+                <div className="col-sm-8">
+                  <Zoom>
+                    <Image
+                      src={
+                        editImage.preview
+                          ? editImage.preview
+                          : imgUrl
+                      }
+                      className="img-fluid mb-2"
+                      width="100"
+                      height="100"
+                    />
+                  </Zoom>
+
+                  <FileUpload
+                    btnIcon="fas fa-upload"
+                    multiple
+                    accept="image/*"
+                    onUpload={(file) => {
+                      const filesArray = [].slice.call(file);
+                      filesArray.forEach((e) => {
+                        setEditImageName(e.name);
+                      });
+
+                      const img = {
+                        preview: URL.createObjectURL(file[0]),
+                        data: file[0],
+                      };
+                      setEditImage(img);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-7 col-form-label">
+                  <Switch
+                    onChange={(e) => {
+                      setEditChecked(!editChecked);
+                    }}
+                    checked={editChecked}
+                    className="react-switch"
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <button
+            onClick={handleCloseModelEdit}
+            className="btn btn-default"
+            style={{ float: "left" }}
+          >
+            ย้อนกลับ
+          </button>
+          &nbsp;
+          <button
+            type="button"
+            className="btn btn-success"
           >
             บันทึก
           </button>
