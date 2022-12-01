@@ -82,6 +82,28 @@ const List_Chemical = () => {
     setListChemicals(response.data);
   };
 
+  const updateTypeChemical = async (id) => {
+    try{
+        await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
+            type_chemical: editTypeChemical,
+            status : checkedEditModel,
+        });
+
+        Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Update Success!",
+          });
+        navigate("/TypeChemical");
+    }catch(error){
+        Swal.fire({
+            icon: "error",
+            title: "Update Fail!",
+            text: error,
+          });
+    }
+}
+
   const deleteTypeChemical = async (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -362,6 +384,9 @@ const List_Chemical = () => {
           <button
             type="submit"
             className="btn btn-success"
+            onClick={(e)=>{
+              updateTypeChemical(editTypeChemicalID)
+            }}
           >
             บันทึก
           </button>
