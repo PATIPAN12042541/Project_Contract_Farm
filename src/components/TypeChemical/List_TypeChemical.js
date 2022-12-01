@@ -178,9 +178,9 @@ const List_Chemical = () => {
                             <td>{listChemical.type_chemical}</td>
                             <td>
                               <center>
-                                <Link
-                                  // to={`/editTypeChemical/${listChemical.id}`}
-                                >
+                                {/* <Link
+                                   to={`/editTypeChemical/${listChemical.id}`}
+                                > */}
                                   <Button
                                     variant="warning"
                                     style={{ color: "#ffff" }}
@@ -188,7 +188,7 @@ const List_Chemical = () => {
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
                                   </Button>
-                                </Link>
+                                {/* </Link> */}
                               </center>
                             </td>
                             <td>
