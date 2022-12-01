@@ -184,7 +184,9 @@ const List_Chemical = () => {
                                   <Button
                                     variant="warning"
                                     style={{ color: "#ffff" }}
-                                    
+                                    onClick={(e)=>{
+                                      handleShowModelEdit
+                                    }}
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
                                   </Button>
