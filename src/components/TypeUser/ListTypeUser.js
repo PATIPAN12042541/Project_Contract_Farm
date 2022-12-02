@@ -87,6 +87,29 @@ const ListTypeUser = () => {
     setListTypeUser(response.data);
   };
 
+  const updateTypeUsers = async (id) => {
+    try{
+        await axios.patch(`${process.env.REACT_APP_API_URL}/role_group/updateTypeUser/${id}`,{
+            role_group_name: editTypeUser,
+            status : editChecked,
+        });
+
+        Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Update Success!",
+          });
+        getListTypeUser()
+        handleCloseEditModel()
+    }catch(error){
+        Swal.fire({
+            icon: "error",
+            title: "Update Fail!",
+            text: error,
+          });
+    }
+}
+
   const deleteTypeUser = async (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -343,6 +366,9 @@ const ListTypeUser = () => {
           <button
             type="button"
             className="btn btn-success"
+            onClick={(e)=>{
+              updateTypeUsers(editTypeUserID)
+            }}
           >
             บันทึก
           </button>
