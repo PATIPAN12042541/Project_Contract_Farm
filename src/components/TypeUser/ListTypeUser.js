@@ -18,14 +18,22 @@ let PageSize = 5;
 const ListTypeUser = () => {
   const [listTypeUser, setListTypeUser] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
+  // Model เพิ่มข้อมูลประเภทผู้ใช้งาน
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const [typeUser, setTypeUser] = useState("");
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
+
+  // Model แก้ไขข้อมูลประเภทผู้ใช้งาน
+  const [editShow, setEditShow] = useState(false);
+  const handleCloseEditModel = () => setEditShow(false);
+  const handleShowEditModel = () => setEditShow(true);
+  const [editTypeUserID, setEditTypeUserID] = useState("");
+  const [editTypeUser, setEditTypeUser] = useState("");
+  const [editChecked, setEditChecked] = useState(false);
 
   const currentTableData = useMemo(() => {
     //console.log(currentPage);
@@ -154,7 +162,6 @@ const ListTypeUser = () => {
                           <th>ประเภทผู้ใช้งานระบบ</th>
                           <th>Active Status</th>
                           <th>แก้ไขข้อมูล</th>
-                          <th>ลบข้อมูล</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -186,23 +193,29 @@ const ListTypeUser = () => {
                               </center>
                             </td>
                             <td>
-                              <Link to={`/UpdateTypeUser/${listTypeUser.id}`}>
+                              {/* <Link to={`/UpdateTypeUser/${listTypeUser.id}`}> */}
                                 <Button
                                   variant="warning"
                                   style={{ color: "#ffff" }}
+                                  onClick={(e)=>{
+                                    handleShowEditModel()
+                                    setEditTypeUserID(listTypeUser.id)
+                                    setEditTypeUser(listTypeUser.role_group_name)
+                                    setEditChecked(listTypeUser.status)
+                                  }}
                                 >
                                   <AiFillEdit /> แก้ไขข้อมูล
                                 </Button>
-                              </Link>
+                              {/* </Link> */}
                             </td>
-                            <td>
+                            {/* <td>
                               <Button
                                 variant="danger"
                                 onClick={(e) => deleteTypeUser(listTypeUser.id)}
                               >
                                 <BsTrashFill /> ลบข้อมูล
                               </Button>
-                            </td>
+                            </td> */}
                           </tr>
                         ))}
                       </tbody>
@@ -222,6 +235,7 @@ const ListTypeUser = () => {
         </div>
       </section>
 
+      {/* Modal เพิ่มข้อมูลประเภทผู้ใช้งานระบบ */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -272,6 +286,63 @@ const ListTypeUser = () => {
             type="button"
             className="btn btn-success"
             onClick={AddTypeUser}
+          >
+            บันทึก
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal แก้ไขข้อมูลประเภทผู้ใช้งานระบบ */}
+      <Modal show={editShow} onHide={handleCloseEditModel}>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+          }}
+        >
+          <Modal.Title>เพิ่มประเภทผู้ใช้งานระบบ</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-5 col-form-label">
+                  ประเภทผู้ใช้งานระบบ
+                </Form.Label>
+                <div className="col-sm-7">
+                  <Form.Control
+                    type="text"
+                    className="form-control"
+                    value={editTypeUser}
+                    onChange={(e) => setEditTypeUser(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-5 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-7 col-form-label">
+                  <Switch
+                    onChange={(e) => {
+                      setEditChecked(!editChecked);
+                    }}
+                    checked={editChecked}
+                    className="react-switch"
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className="btn btn-default" onClick={handleCloseEditModel}>
+            ย้อนกลับ
+          </Button>
+          <button
+            type="button"
+            className="btn btn-success"
           >
             บันทึก
           </button>
