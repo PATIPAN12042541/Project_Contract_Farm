@@ -301,7 +301,7 @@ const ListTypeUser = () => {
             fontSize: "24px",
           }}
         >
-          <Modal.Title>เพิ่มประเภทผู้ใช้งานระบบ</Modal.Title>
+          <Modal.Title>แก้ไขประเภทผู้ใช้งานระบบ</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form className="form-horizontal">
