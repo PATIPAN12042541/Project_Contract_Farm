@@ -111,7 +111,7 @@ const Login = () => {
                 style={{ textDecoration: "underline" }}
               >
                 {" "}
-                Contract Farming 2222
+                Contract Farming
               </span>
             </div>
             <div className="d-flex align-items-center px-5 ms-xl-4 pt-5 mt-xl-n5 h-custom-2">
