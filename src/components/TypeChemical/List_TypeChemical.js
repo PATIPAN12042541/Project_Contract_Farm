@@ -16,14 +16,26 @@ import '../Pagination/style.scss';
 let PageSize = 5;
 
 const List_Chemical = () => {
-  const [listChemicals, setListChemicals] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [listChemicals, setListChemicals] = useState([]);
+  
+  const navigate = useNavigate();
+
+  // Model เพิ่มประเภทสารเคมี
+  const [typeChemical, setTypeChemical] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [typeChemical, setTypeChemical] = useState("");
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
+
+  // Model แก้ไขประเภทสารเคมี
+  const [editTypeChemicalID, setEditTypeChemicalID] = useState("");
+  const [editTypeChemical, setEditTypeChemical] = useState("");
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseModelEdit = () => setShowEdit(false);
+  const handleShowModelEdit = () => setShowEdit(true);
+  const [checkedEditModel, setCheckedEditModel] = useState(false);
+
 
   const AddTypeChemical = async (e) => {
     e.preventDefault();
@@ -69,6 +81,30 @@ const List_Chemical = () => {
     );
     setListChemicals(response.data);
   };
+
+  const updateTypeChemical = async (id) => {
+    try{
+        await axios.patch(`${process.env.REACT_APP_API_URL}/chemical/getTypeChemical/${id}`,{
+            type_chemical: editTypeChemical,
+            status : checkedEditModel,
+        });
+
+        Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Update Success!",
+          });
+        navigate("/TypeChemical")
+        handleCloseModelEdit()
+        getListChemical()
+    }catch(error){
+        Swal.fire({
+            icon: "error",
+            title: "Update Fail!",
+            text: error,
+          });
+    }
+}
 
   const deleteTypeChemical = async (id) => {
     Swal.fire({
@@ -166,16 +202,22 @@ const List_Chemical = () => {
                             <td>{listChemical.type_chemical}</td>
                             <td>
                               <center>
-                                <Link
-                                  to={`/editTypeChemical/${listChemical.id}`}
-                                >
+                                {/* <Link
+                                   to={`/editTypeChemical/${listChemical.id}`}
+                                > */}
                                   <Button
                                     variant="warning"
                                     style={{ color: "#ffff" }}
+                                    onClick={(e)=>{
+                                      handleShowModelEdit()
+                                      setEditTypeChemicalID(listChemical.id)
+                                      setEditTypeChemical(listChemical.type_chemical)
+                                      setCheckedEditModel(listChemical.status)
+                                    }}
                                   >
                                     <AiFillEdit /> แก้ไขข้อมูล
                                   </Button>
-                                </Link>
+                                {/* </Link> */}
                               </center>
                             </td>
                             <td>
@@ -185,8 +227,8 @@ const List_Chemical = () => {
                                     src="../dist/img/symbol_true.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
-                                    width="100"
-                                    height="100"
+                                    width="50"
+                                    height="50"
                                     thumbnail
                                   />
                                 ) : (
@@ -194,8 +236,8 @@ const List_Chemical = () => {
                                     src="../dist/img/symbol_false.png"
                                     className="img-fluid mb-2"
                                     alt="white sample"
-                                    width="100"
-                                    height="100"
+                                    width="50"
+                                    height="50"
                                     thumbnail
                                   />
                                 )}
@@ -230,6 +272,7 @@ const List_Chemical = () => {
         </div>
       </section>
 
+      {/*Modal เพิ่มประเภทข้อมูลสารเคมี */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header
           style={{
@@ -283,6 +326,69 @@ const List_Chemical = () => {
             type="submit"
             className="btn btn-success"
             onClick={AddTypeChemical}
+          >
+            บันทึก
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      {/*Modal แก้ไขประเภทข้อมูลสารเคมี */}
+      <Modal show={showEdit} onHide={handleCloseModelEdit}>
+        <Modal.Header
+          style={{
+            backgroundColor: "rgb(140, 193, 82)",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            borderLine: "none",
+          }}
+        >
+          <Modal.Title>แก้ไขประเภทข้อมูลสารเคมี</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="form-horizontal">
+            <div className="card-body">
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  ประเภทสารเคมี
+                </Form.Label>
+                <div className="col-sm-8">
+                  <Form.Control
+                    type="text"
+                    className="form-control"
+                    value={editTypeChemical}
+                    onChange={(e) => setEditTypeChemical(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <Form.Label className="col-sm-4 col-form-label">
+                  Active Status
+                </Form.Label>
+                <div className="col-sm-8 col-form-label">
+                  <Switch
+                    onChange={() => {
+                      setCheckedEditModel(!checkedEditModel);
+                    }}
+                    checked={checkedEditModel}
+                    className="react-switch"
+                  />
+                </div>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button className="btn btn-default" onClick={handleCloseModelEdit}>
+            ย้อนกลับ
+          </Button>
+          &nbsp;
+          <button
+            type="submit"
+            className="btn btn-success"
+            onClick={(e)=>{
+              updateTypeChemical(editTypeChemicalID)
+            }}
           >
             บันทึก
           </button>
